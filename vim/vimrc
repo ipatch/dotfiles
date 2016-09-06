@@ -54,6 +54,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-rails'
 Plugin 'ctrlpvim/ctrlp.vim' " CtrlP is a fuzzy finder.
 Plugin 'thoughtbot/vim-rspec'
+Plugin 'vim-airline/vim-airline'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
