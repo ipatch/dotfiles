@@ -30,3 +30,9 @@ set number
 
 " the below key mapping will indent the entire file
 map <Leader>i mmgg=G`m<CR>
+
+"Don't maintain compatibility with Vi.
+set nocompatible
+
+"Remember last 1000 commands
+set history=1000
