@@ -1,0 +1,32 @@
+"====================================================================
+"                           ~My vimrc~
+"====================================================================
+"
+" Author: Chris Jones [http://chrisrjones.com]
+" Source:
+"
+" -------------------------------------------------------------------
+
+"Easy access to the start of the line
+nmap 0 ^
+
+"Want to set this before any others
+let mapleader = "\<Space>"
+
+nmap <leader>vr :sp $MYVIMRC<cr>
+nmap <leader>so :source $MYVIMRC<cr>
+
+"Edit .vimrc file in a new tab
+map <Leader>vi :tabe ~/.vimrc<CR>
+
+" nmap <leader>h :echo "Hello"<cr>
+
+" <C-[>
+" capslock to escape
+imap jk <esc>
+imap kj <esc>
+
+set number
+
+" the below key mapping will indent the entire file
+map <Leader>i mmgg=G`m<CR>
