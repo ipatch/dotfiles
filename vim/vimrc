@@ -4,7 +4,7 @@
 "====================================================================
 "
 " Author: Chris Jones [http://chrisrjones.com]
-" Source:
+" Source: https://github.com/ipatch/dotfiles/blob/master/vim/vimrc
 "
 " -------------------------------------------------------------------
 
@@ -55,6 +55,13 @@ Plugin 'tpope/vim-rails'
 Plugin 'ctrlpvim/ctrlp.vim' " CtrlP is a fuzzy finder.
 Plugin 'thoughtbot/vim-rspec'
 Plugin 'vim-airline/vim-airline'
+Plugin 'sickill/vim-monokai'
+Plugin 'flazz/vim-colorschemes'
+
+" the below two (2) lines are required for the above color scheme
+syntax enable
+"colorscheme monokai
+colorscheme molokai 
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
