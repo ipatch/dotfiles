@@ -82,3 +82,6 @@ filetype plugin indent on    " required
 
 " highlight cursor line
 set cursorline
+
+" move cursor with mouse
+set mouse=a
