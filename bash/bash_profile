@@ -17,3 +17,7 @@ PS1='\[\033[32m\]\u@\h\[\033[00m\]:\[\033[34m\]\w\[\033[31m\]$(__git_ps1)\[\033[
 
 # the below line is required to get 'nvm' Node version manager working
 source ~/.bashrc
+
+. $HOME/.asdf/asdf.sh
+. $HOME/.asdf/completions/asdf.bash
+#. $HOME/.asdf/asdf.sh
