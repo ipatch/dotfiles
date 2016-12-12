@@ -7,6 +7,10 @@
 HISTSIZE=1000000
 
 alias l='ls -lah'
+# aliases for git projects
+alias gs="git status"
+alias gd="git diff --stat"
+alias ga="git add --all"
 
 source /Applications/Xcode.app/Contents/Developer/usr/share/git-core/git-completion.bash
 source /Applications/Xcode.app/Contents/Developer/usr/share/git-core/git-prompt.sh
