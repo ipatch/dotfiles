@@ -7,6 +7,10 @@
 HISTSIZE=1000000
 
 alias l='ls -lah'
+alias cp="cp -iv"
+alias rm="rm -iv"
+alias mv="mv -iv"
+
 # aliases for git projects
 alias gs="git status"
 alias gd="git diff --stat"
