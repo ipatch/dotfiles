@@ -11,6 +11,10 @@ alias l='ls -lah'
 alias gs="git status"
 alias gd="git diff --stat"
 alias ga="git add --all"
+# new aliases - added December 15, 2016
+alias df="df -h"
+
+alias dotfiles="cd /opt/Code/dotfiles"
 
 source /Applications/Xcode.app/Contents/Developer/usr/share/git-core/git-completion.bash
 source /Applications/Xcode.app/Contents/Developer/usr/share/git-core/git-prompt.sh
