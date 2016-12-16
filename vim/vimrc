@@ -59,6 +59,8 @@ Plugin 'sickill/vim-monokai'
 Plugin 'flazz/vim-colorschemes'
 
 " the below two (2) lines are required for the above color scheme
+" the below configuration option will turn on syntax highlighting
+" for editing code files such as .rb .php etc etc.
 syntax enable
 "colorscheme monokai
 colorscheme molokai 
