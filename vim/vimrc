@@ -6,7 +6,14 @@
 " Author: Chris Jones [http://chrisrjones.com]
 " Source: https://github.com/ipatch/dotfiles/blob/master/vim/vimrc
 "
-" -------------------------------------------------------------------
+"-------------------------------------------------------------------
+
+" Note when seeing 'imap' below it is referencing when vim is in
+" insert mode.
+
+" Note when seeing 'nmap' below it is when the vim editor is in
+" normal mode.
+
 
 "Easy access to the start of the line
 nmap 0 ^
