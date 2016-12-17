@@ -106,5 +106,5 @@ set cursorline
 " move cursor with mouse
 set mouse=a
 
-" enable the <delete> on a mbp to act as backspace
+" enable the <delete> key on a mbp to act as backspace
 set backspace=indent,eol,start
