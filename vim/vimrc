@@ -18,14 +18,24 @@
 "Easy access to the start of the line
 nmap 0 ^
 
-"Want to set this before any others
-let mapleader = "\<Space>"
+"Want to set this before any others, the default 'leader' key is \
+" set the 'leader' key to ','
+let mapleader = ','
 
+" Note - the below two configuration commands are for editing the vimrc file.
 nmap <leader>vr :sp $MYVIMRC<cr>
 nmap <leader>so :source $MYVIMRC<cr>
 
 "Edit .vimrc file in a new tab
 map <Leader>vi :tabe ~/.vimrc<CR>
+
+"----------------------Auto-Commands------------------------------------------"
+
+" Automatically source the VIMRC file on save.
+augroup autosourcing
+	autocmd!
+	autocmd BufwritePost .vimrc source %
+augroup END
 
 " nmap <leader>h :echo "Hello"<cr>
 
@@ -34,6 +44,7 @@ map <Leader>vi :tabe ~/.vimrc<CR>
 imap jk <esc>
 imap kj <esc>
 
+" Set / place line numbers on the left / in the gudder of the editor.
 set number
 
 " the below key mapping will indent the entire file
