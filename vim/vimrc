@@ -104,6 +104,10 @@ filetype plugin indent on    " required
 set cursorline
 
 " move cursor with mouse
+" Note - if running vim within Terminal.app < 10.11 two additional pieces of
+" software will need to be installed for registering mouse events.
+" SEE - http://www.culater.net/software/SIMBL/SIMBL.php
+" SEE - https://bitheap.org/mouseterm/
 set mouse=a
 
 " enable the <delete> key on a mbp to act as backspace
