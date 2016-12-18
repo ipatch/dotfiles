@@ -59,22 +59,26 @@ set number
 " the below key mapping will indent the entire file
 map <Leader>i mmgg=G`m<CR>
 
-"Don't maintain compatibility with Vi.
+" =============================================================================
+" Vundle - below are configurations to make the Vundle plugin manager happy :)
+" =============================================================================
+
+"Don't maintain compatibility with Vi. - VUNDLE HAPPINESS :)
 set nocompatible
 
 "Remember last 1000 commands
 set history=1000
 
-" the below line is required in order to get vundle to work
+" the below line is required in order to get vundle to work - VUNDLE HAPPINESS
 filetype off "required
 
-" set the runtime path to include Vundle and initialize
+" set the runtime path to include Vundle and initialize - VUNDLE HAPPINESS
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
 
-" let Vundle manage Vundle, required
+" let Vundle manage Vundle, required - VUNDLE HAPPINESS
 Plugin 'VundleVim/Vundle.vim'
 
 " add Vim plugin for rails support
