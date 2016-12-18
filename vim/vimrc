@@ -14,8 +14,9 @@
 " Note when seeing 'nmap' below it is when the vim editor is in
 " normal mode.
 
-
-"Easy access to the start of the line
+"Easy access to the start of the line, the below configuration will
+" map the '^' key to the '0' key, and move the cursor to first
+" character of a line.
 nmap 0 ^
 
 "Want to set this before any others, the default 'leader' key is \
