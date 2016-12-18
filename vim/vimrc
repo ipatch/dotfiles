@@ -81,6 +81,10 @@ call vundle#begin()
 " let Vundle manage Vundle, required - VUNDLE HAPPINESS
 Plugin 'VundleVim/Vundle.vim'
 
+" BELOW - are the added VIM plugins using Vundle to manage them.  The string
+" after the word 'Plugin' is a GH username followed by a repo name.  Vundle is
+" aware of GH username/repo out of the box. :)
+
 " add Vim plugin for rails support
 Plugin 'tpope/vim-rails'
 Plugin 'ctrlpvim/ctrlp.vim' " CtrlP is a fuzzy finder.
