@@ -23,6 +23,10 @@ nmap 0 ^
 " set the 'leader' key to ','
 let mapleader = ','
 
+" Note - to map the 'leader' key to the spacebar using the following,
+" and remove the single quotes around the double quotes of the word Space.
+" let mapleader = '"\<Space>"'
+
 " Note - the below two configuration commands are for editing the vimrc file.
 nmap <leader>vr :sp $MYVIMRC<cr>
 nmap <leader>so :source $MYVIMRC<cr>
