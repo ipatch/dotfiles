@@ -46,6 +46,10 @@ augroup END
 
 " <C-[>
 " capslock to escape
+
+" Note - the below 'insert mappings will bind 'jk' / 'kj' to the ESC
+" key functionality, so the ESC key does not need to be pressed when in insert
+" mode.
 imap jk <esc>
 imap kj <esc>
 
