@@ -1,11 +1,8 @@
 "====================================================================
 "                           ~My vimrc~
-"
 "====================================================================
-"
 " Author: Chris Jones [http://chrisrjones.com]
 " Source: https://github.com/ipatch/dotfiles/blob/master/vim/vimrc
-"
 "-------------------------------------------------------------------
 
 " Note when seeing 'imap' below it is referencing when vim is in
@@ -14,7 +11,7 @@
 " Note when seeing 'nmap' below it is when the vim editor is in
 " normal mode.
 
-"Easy access to the start of the line, the below configuration will
+" Easy access to the start of the line, the below configuration will
 " map the '^' key to the '0' key, and move the cursor to first
 " character of a line.
 nmap 0 ^
@@ -31,7 +28,7 @@ let mapleader = ','
 nmap <leader>vr :sp $MYVIMRC<cr>
 nmap <leader>so :source $MYVIMRC<cr>
 
-"Edit .vimrc file in a new tab
+" Edit .vimrc file in a new tab
 map <Leader>vi :tabe ~/.vimrc<CR>
 
 "----------------------Auto-Commands------------------------------------------"
