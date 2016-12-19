@@ -93,6 +93,9 @@ Plugin 'thoughtbot/vim-rspec'
 Plugin 'vim-airline/vim-airline'
 Plugin 'sickill/vim-monokai'
 Plugin 'flazz/vim-colorschemes'
+" Note - the below Plugin will act as a file browser / explorer similar to the
+" left pane in Sublime Text.
+Plugin 'scrooloose/nerdtree'
 
 " the below two (2) lines are required for the above color scheme
 " the below configuration option will turn on syntax highlighting
