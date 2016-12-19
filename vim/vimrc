@@ -200,5 +200,3 @@ set splitright
 " NERDTree
 " =============================================================================
 nmap <Leader>2 :NERDTreeToggle<cr>
-
-" Art is here :)
