@@ -94,6 +94,11 @@ Plugin 'flazz/vim-colorschemes'
 " the below configuration option will turn on syntax highlighting
 " for editing code files such as .rb .php etc etc.
 syntax enable
+
+" To enable 256 colors in vim, put this your .vimrc before setting the
+" colorscheme: 
+set t_Co=256
+
 "colorscheme monokai
 colorscheme molokai 
 
