@@ -173,4 +173,7 @@ let g:airline_symbols.linenr = ''
 " set the background color of the vim session to a dark color.
 set background=dark 
 
-
+" highlight the line number on the left, with yellow font color to help
+" distinguish which line is highlighted.
+" Note - vim 7.3.488 is needed.
+highlight CursorLineNr term=bold ctermfg=11
