@@ -169,3 +169,8 @@ let g:airline_symbols.linenr = ''
 " =============================================================================
 " vim-airline - END - happiness settings
 " =============================================================================
+
+" set the background color of the vim session to a dark color.
+set background=dark 
+
+
