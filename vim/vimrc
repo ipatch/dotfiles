@@ -96,6 +96,9 @@ Plugin 'flazz/vim-colorschemes'
 " Note - the below Plugin will act as a file browser / explorer similar to the
 " left pane in Sublime Text.
 Plugin 'scrooloose/nerdtree'
+" Note - the below plugin should add syntax highlighting for editing Elixir
+" based project files.
+Plugin 'elixir-lang/vim-elixir'
 
 " the below two (2) lines are required for the above color scheme
 " the below configuration option will turn on syntax highlighting
