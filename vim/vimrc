@@ -86,6 +86,11 @@ Plugin 'VundleVim/Vundle.vim'
 " after the word 'Plugin' is a GH username followed by a repo name.  Vundle is
 " aware of GH username/repo out of the box. :)
 
+" Note - to remove / uninstall a plugin from vundle
+" 1) remove the Plugin entry / line from the .vimrc
+" 2) run the following command 'PluginInstall'
+" Note - after the two steps the Plugin should be removed from vim.
+
 " add Vim plugin for rails support
 Plugin 'tpope/vim-rails'
 Plugin 'ctrlpvim/ctrlp.vim' " CtrlP is a fuzzy finder.
@@ -99,6 +104,9 @@ Plugin 'scrooloose/nerdtree'
 " Note - the below plugin should add syntax highlighting for editing Elixir
 " based project files.
 Plugin 'elixir-lang/vim-elixir'
+" Note - the below plugin makes commenting lines of code a little bit more
+" friendly ;-)
+Plugin 'tpope/vim-commentary'
 
 " the below two (2) lines are required for the above color scheme
 " the below configuration option will turn on syntax highlighting
@@ -203,3 +211,8 @@ set splitright
 " NERDTree
 " =============================================================================
 nmap <Leader>2 :NERDTreeToggle<cr>
+
+" =============================================================================
+" Commentary - tpope - VIM Plugin
+" =============================================================================
+noremap <leader>c :Commentary<cr>
