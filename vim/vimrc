@@ -39,8 +39,8 @@ nmap <space> :
 
 " Automatically source the VIMRC file on save.
 augroup autosourcing
-	autocmd!
-	autocmd BufwritePost .vimrc source %
+  autocmd!
+  autocmd BufwritePost .vimrc source %
 augroup END
 
 " nmap <leader>h :echo "Hello"<cr>
@@ -158,7 +158,7 @@ set backspace=indent,eol,start
 let g:airline_powerline_fonts = 1
 
 if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
+  let g:airline_symbols = {}
 endif
 
 " unicode symbols
@@ -221,3 +221,10 @@ noremap <leader>c :Commentary<cr>
 " Note - to toggle white space characters run the below command,
 " ':set list' / ':set nolist'
 set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:␣
+
+" Question - How to set tab key to indent two spaces?
+" Note - indentation in vim
+" Note -the below two configuration options will indent the line with 2 spaces
+" when using the 'tab' key. 
+set tabstop=2
+set expandtab
