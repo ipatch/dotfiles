@@ -216,3 +216,8 @@ nmap <Leader>2 :NERDTreeToggle<cr>
 " Commentary - tpope - VIM Plugin
 " =============================================================================
 noremap <leader>c :Commentary<cr>
+
+" Show white space characters.
+" Note - to toggle white space characters run the below command,
+" ':set list' / ':set nolist'
+set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:␣
