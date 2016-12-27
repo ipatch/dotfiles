@@ -228,3 +228,7 @@ set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:␣
 " when using the 'tab' key. 
 set tabstop=2
 set expandtab
+
+" Note - the below configuration line should make vim copy to the system
+" clipboard.
+set clipboard=unnamed
