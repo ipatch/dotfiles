@@ -107,6 +107,9 @@ Plugin 'elixir-lang/vim-elixir'
 " Note - the below plugin makes commenting lines of code a little bit more
 " friendly ;-)
 Plugin 'tpope/vim-commentary'
+" Note - hopefully the following plugin will fix the indentation issues when
+" editing elixir files, .ex and .exs
+Plugin 'editorconfig/editorconfig-vim'
 
 " the below two (2) lines are required for the above color scheme
 " the below configuration option will turn on syntax highlighting
