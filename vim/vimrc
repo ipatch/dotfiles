@@ -235,3 +235,8 @@ set expandtab
 " Note - the below configuration line should make vim copy to the system
 " clipboard.
 set clipboard=unnamed
+
+" dirty hack - see the below GH issue
+" https://github.com/elixir-lang/vim-elixir/issues/121
+au BufRead,BufNewFile *.ex,*.exs set filetype=elixir
+au BufRead,BufNewFile *.eex set filetype=eelixir
