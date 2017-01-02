@@ -19,7 +19,7 @@ indent_style = space
 indent_size = 4
 
 # 2 space indentation
-[*.{ex,exs}]
+[*.{ex,exs,eex}]
 indent_style = space
 indent_size = 2
 
