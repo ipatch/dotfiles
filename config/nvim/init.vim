@@ -121,4 +121,5 @@ set mouse=a
 " Easy commenting of lines using tpope's plugin.
 noremap <leader>c :Commentary<cr>
 
-
+" Use system clipboard
+set clipboard=unnamed
