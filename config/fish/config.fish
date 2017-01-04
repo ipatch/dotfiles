@@ -22,3 +22,6 @@ alias gp='git push'
 # Command aliases
 alias df='df -h'
 alias dotfiles="cd /opt/Code/dotfiles"
+
+# Get asdf package manager working with fish shell.
+source ~/.asdf/asdf.fish
