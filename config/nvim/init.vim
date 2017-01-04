@@ -53,6 +53,7 @@ Plug 'c-brenn/phoenix.vim'
 Plug 'tpope/vim-projectionist' " required for some navigation features.
 Plug 'slashmili/alchemist.vim'
 Plug 'powerman/vim-plugin-AnsiEsc' " makes the documentation look pretty :)
+Plug 'tpope/vim-commentary'
 
 call plug#end()
 
@@ -68,6 +69,15 @@ let g:mapleader = ','
 " Note - the below configuration line will map the 'space bar' to ':' so that
 " way 'Shift+;' does not have to be pressed to begin a command in normal mode.
 nmap <space> :
+
+" Note - the below insert mappings will bind 'jk' / 'kj' to the ESC
+" key functionality, so the ESC key does not need to be pressed in insert 
+" mode.
+imap jk <esc>
+imap kj <esc>
+
+" the below key mapping will indent the entire file
+map <Leader>i mmgg=G`m<CR>
 
 " Sane tabs
 " - Two spaces wide
@@ -104,3 +114,11 @@ set title
 set background=dark
 syntax enable
 colorscheme molokai
+
+" move cursor with mouse
+set mouse=a
+
+" Easy commenting of lines using tpope's plugin.
+noremap <leader>c :Commentary<cr>
+
+
