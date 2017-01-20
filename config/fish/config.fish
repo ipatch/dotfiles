@@ -25,3 +25,6 @@ alias dotfiles="cd /opt/Code/dotfiles"
 
 # Get asdf package manager working with fish shell.
 source ~/.asdf/asdf.fish
+
+# Configuration required for Ruby Version Manager
+# rvm default
