@@ -28,3 +28,6 @@ source ~/.asdf/asdf.fish
 
 # Configuration required for Ruby Version Manager
 # rvm default
+
+# Add the below to the path in order to get react-native CLI working.
+set -x PATH $PATH /Users/capin/Library/Android/sdk/platform-tools/
