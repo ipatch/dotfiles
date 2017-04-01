@@ -30,4 +30,4 @@ source ~/.asdf/asdf.fish
 # rvm default
 
 # Add the below to the path in order to get react-native CLI working.
-set -x PATH $PATH /Users/capin/Library/Android/sdk/platform-tools/
+set -x PATH $PATH /Users/capin/Library/Android/sdk/platform-tools
