@@ -31,3 +31,6 @@ source ~/.asdf/asdf.fish
 
 # Add the below to the path in order to get react-native CLI working.
 set -x PATH $PATH /Users/capin/Library/Android/sdk/platform-tools
+
+# Enable shell history for elixir / erlang
+set -x ERL_AFLAGS '-kernel shell_history enabled'
