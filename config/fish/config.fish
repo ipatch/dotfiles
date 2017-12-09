@@ -23,6 +23,10 @@ alias gp='git push'
 alias df='df -h'
 alias dotfiles="cd /opt/Code/dotfiles"
 
+# Command aliases for homebrew install of PostgreSQL
+alias pg-start="launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist"
+alias pg-stop="launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist"
+
 # Get asdf package manager working with fish shell.
 source ~/.asdf/asdf.fish
 
