@@ -21,6 +21,7 @@ alias gp='git push'
 
 # Command aliases
 alias df='df -h'
+alias du='du -h'
 alias dotfiles="cd /opt/Code/dotfiles"
 
 # Command aliases for homebrew install of PostgreSQL
@@ -41,6 +42,9 @@ set -x PATH $PATH /Users/capin/anaconda2/bin
 
 # Add modules installed from yarn globally to the PATH.
 set -x PATH $PATH /Users/capin/.config/yarn/global/node_modules/.bin
+
+# Add local user bin within home directory to the PATH.
+set -x PATH $PATH /Users/capin/bin
 
 # Enable shell history for elixir / erlang
 set -x ERL_AFLAGS '-kernel shell_history enabled'
