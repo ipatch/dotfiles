@@ -24,30 +24,35 @@ alias df='df -h'
 alias du='du -h'
 alias dotfiles="cd /opt/Code/dotfiles"
 
-# Command aliases for homebrew install of PostgreSQL
-alias pg-start="launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist"
-alias pg-stop="launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist"
-
 # Get asdf package manager working with fish shell.
 source ~/.asdf/asdf.fish
 
 # Configuration required for Ruby Version Manager
 # rvm default
 
-# Add the below to the path in order to get react-native CLI working.
-set -x PATH $PATH $HOME/Library/Android/sdk/platform-tools
-
-# Add the anaconda2 binaries to the path.
-set -x PATH $PATH $HOME/anaconda2/bin
-
-# Add modules installed from yarn globally to the PATH.
-set -x PATH $PATH $HOME/.config/yarn/global/node_modules/.bin
-
-# Add local user bin within home directory to the PATH.
-set -x PATH $PATH $HOME/bin
-
 # Add rust-lang local bin directory to PATH for working with cargo.
 set -x PATH $PATH $HOME/.cargo/bin
 
 # Enable shell history for elixir / erlang
 set -x ERL_AFLAGS '-kernel shell_history enabled'
+
+# Setup OS specific environment variables
+# DOC: http://fishshell.com/docs/current/tutorial.html#tut_conditionals
+switch (uname)
+  case Linux
+    set -x PATH $PATH /home/linuxbrew/.linuxbrew/bin
+    set -x MANPATH $MANPATH /home/linuxbrew/.linuxbrew/share/man
+    set -x INFOPATH $INFOPATH /home/linuxbrew/.linuxbrew/share/info
+  case Darwin
+    alias pg-start="launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist"
+    alias pg-stop="launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist"
+    
+    # Setup OS specific PATH variables for macOS
+    
+    # Add the below to the path in order to get react-native CLI working.
+    set -x PATH $PATH $HOME/Library/Android/sdk/platform-tools
+    set -x PATH $PATH $HOME/anaconda2/bin
+    set -x PATH $PATH $HOME/.config/yarn/global/node_modules/.bin
+    set -x PATH $PATH $HOME/bin
+end
+
