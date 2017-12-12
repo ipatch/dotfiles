@@ -35,16 +35,19 @@ source ~/.asdf/asdf.fish
 # rvm default
 
 # Add the below to the path in order to get react-native CLI working.
-set -x PATH $PATH /Users/capin/Library/Android/sdk/platform-tools
+set -x PATH $PATH $HOME/Library/Android/sdk/platform-tools
 
 # Add the anaconda2 binaries to the path.
-set -x PATH $PATH /Users/capin/anaconda2/bin
+set -x PATH $PATH $HOME/anaconda2/bin
 
 # Add modules installed from yarn globally to the PATH.
-set -x PATH $PATH /Users/capin/.config/yarn/global/node_modules/.bin
+set -x PATH $PATH $HOME/.config/yarn/global/node_modules/.bin
 
 # Add local user bin within home directory to the PATH.
-set -x PATH $PATH /Users/capin/bin
+set -x PATH $PATH $HOME/bin
+
+# Add rust-lang local bin directory to PATH for working with cargo.
+set -x PATH $PATH $HOME/.cargo/bin
 
 # Enable shell history for elixir / erlang
 set -x ERL_AFLAGS '-kernel shell_history enabled'
