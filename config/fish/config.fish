@@ -6,6 +6,11 @@
 # Note - fish supports 256K unique commands in history,
 # SEE - https://github.com/fish-shell/fish-shell/issues/2674
 
+# TODO - figure how scoping works in the fish shell, i.e. access variables
+# defined within a function.
+
+# Note - All variables in a shell script are "character strings".
+
 
 # Command aliases
 alias l='ls -lah'
@@ -33,8 +38,19 @@ source ~/.asdf/asdf.fish
 # Add rust-lang local bin directory to PATH for working with cargo.
 set -x PATH $PATH $HOME/.cargo/bin
 
+# get the current version of erlang installed on the local system.
+set -x ERL_VER (erl -eval 'erlang:display(erlang:system_info(otp_release)), halt().'\
+  -noshell\
+   | sed "s/\"//g")
+
 # Enable shell history for elixir / erlang
-set -x ERL_AFLAGS '-kernel shell_history enabled'
+# Ref: https://stackoverflow.com/questions/9560815/
+switch $ERL_VER
+  case 20
+    set -x ERL_AFLAGS '-kernel shell_history enabled'
+  case '*'
+    echo OTP v20 is not present on this system.
+end
 
 # Setup OS specific environment variables
 # DOC: http://fishshell.com/docs/current/tutorial.html#tut_conditionals
@@ -46,13 +62,12 @@ switch (uname)
   case Darwin
     alias pg-start="launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist"
     alias pg-stop="launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist"
-    
+
     # Setup OS specific PATH variables for macOS
-    
+
     # Add the below to the path in order to get react-native CLI working.
     set -x PATH $PATH $HOME/Library/Android/sdk/platform-tools
     set -x PATH $PATH $HOME/anaconda2/bin
     set -x PATH $PATH $HOME/.config/yarn/global/node_modules/.bin
     set -x PATH $PATH $HOME/bin
 end
-
