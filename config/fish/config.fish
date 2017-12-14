@@ -42,10 +42,11 @@ set -x PATH $PATH $HOME/.cargo/bin
 # \r is a carriage return character; it tells your terminal emulator to move the
 # cursor at the start of the line.
 
-# get the current version of erlang installed on the local system.
+# return the current version of erlang / OTP installed on the local system.
 
 # cheers 🍺 for tr 😎
-set -x ERL_VER (erl -eval 'erlang:display(erlang:system_info(otp_release)), halt().' -noshell | tr -d \r'"')
+set -x ERL_VER (erl -eval 'erlang:display(erlang:system_info(otp_release)), halt().' -noshell\
+ | tr -d \r'"')
 
 # print / show the value & scope of ERL_VER
 # Note: presently the below command prints the below output
