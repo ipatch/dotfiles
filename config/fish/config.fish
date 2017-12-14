@@ -3,14 +3,13 @@
 # Contact: @truckmonth chris.r.jones.1983@gmail.com
 
 # set the size of the command history for fish
-# Note - fish supports 256K unique commands in history,
-# SEE - https://github.com/fish-shell/fish-shell/issues/2674
+# Note: fish supports 256K unique commands in history,
+# SEE: https://github.com/fish-shell/fish-shell/issues/2674
 
-# TODO - figure how scoping works in the fish shell, i.e. access variables
+# TODO: figure how scoping works in the fish shell, i.e. access variables
 # defined within a function.
 
-# Note - All variables in a shell script are "character strings".
-
+# Note: All variables in a shell script are "character strings".
 
 # Command aliases
 alias l='ls -lah'
@@ -38,15 +37,39 @@ source ~/.asdf/asdf.fish
 # Add rust-lang local bin directory to PATH for working with cargo.
 set -x PATH $PATH $HOME/.cargo/bin
 
+# REF: basic example for help in understanding fish shell
+# set -x MY_COOL_ENV_VAR (erl -eval 'erlang:display(erlang:system_info(otp_release)), halt().' -noshell)
+# set -S MY_COOL_ENV_VAR
+
 # get the current version of erlang installed on the local system.
-set -x ERL_VER (erl -eval 'erlang:display(erlang:system_info(otp_release)), halt().'\
-  -noshell\
-   | sed "s/\"//g")
+set -x ERL_VER (erl -eval 'erlang:display(erlang:system_info(otp_release)), halt().' -noshell)
+  # -noshell\
+  #  | sed "s/\"//g"
+# string trim -c '\r"'
+# string trim -c '\r"' $ERL_VER
+# sed 's/\r//' $ERL_VER
+# '\r'
+# sed "s/''(printf '\r')\'//" ERL_VER
+
+# print / show the value & scope of ERL_VER
+# Note: presently the below command prints the below output
+#####
+# $ERL_VER: not set in local scope
+# # $ERL_VER: set in global scope, exported, with 1 elements
+# # $ERL_VER[1]: length=5 value=|"20"\r|
+# $ERL_VER: not set in universal scope
+set -S ERL_VER
+
+# TL;DR
+# value=|"20"\r|
+
+# TODO: figure out to remove \r (carriage return)
+
 
 # Enable shell history for elixir / erlang
 # Ref: https://stackoverflow.com/questions/9560815/
-switch $ERL_VER
-  case 20
+switch ERL_VER
+  case '"20"\r'
     set -x ERL_AFLAGS '-kernel shell_history enabled'
   case '*'
     echo OTP v20 is not present on this system.
