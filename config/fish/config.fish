@@ -38,10 +38,6 @@ source ~/.asdf/asdf.fish
 
 # USER defined environment variables
 set -x HOSTNAME (hostname -s)
-# cheers 🍺 for tr 😎
-# return the current version of erlang / OTP installed on the local system.
-set -x ERL_VER (erl -eval 'erlang:display(erlang:system_info(otp_release)), halt().' -noshell\
- | tr -d \r'"')
 
 # ==============================================================================
 
@@ -58,18 +54,23 @@ set -x PATH $PATH $HOME/.cargo/bin
 
 # Check if the asdf bin exists
 if type -q asdf
-  rm -f /opt/Code/dotfiles/asdf/.tool-versions.$HOSTNAME.$USER
+  rm -f /opt/Code/dotfiles/asdf/.tool-versions.$HOSTNAME.$USER > /dev/null
   # 1) List installed plugins & version numbers via asdf version manager
   # 2) put the above output into a file.
   for x in (asdf plugin-list)
     echo $x (asdf list $x | tail -n1) >> /opt/Code/dotfiles/asdf/.tool-versions.$HOSTNAME.$USER
   end
   ln -sf /opt/Code/dotfiles/asdf/.tool-versions.$HOSTNAME.$USER $HOME/.tool-versions;
-  echo -e "Successfully generated your .tool-versions file in $HOME"\n"\
-and it is linked to /opt/Code/dotfiles/asdf/.tool-versions.$HOSTNAME.$USER"
+  # echo -e "Successfully generated your .tool-versions file in $HOME"\n"\
+  # and it is linked to /opt/Code/dotfiles/asdf/.tool-versions.$HOSTNAME.$USER"
 else
-  echo asdf is not installed on this system.
+  # echo asdf is not installed on this system.
 end
+
+# cheers 🍺 for tr 😎
+# return the current version of erlang / OTP installed on the local system.
+set -x ERL_VER (erl -eval 'erlang:display(erlang:system_info(otp_release)), halt().' -noshell\
+ | tr -d \r'"')
 
 # Enable shell history for elixir / erlang
 # Ref: https://stackoverflow.com/questions/9560815/
@@ -77,7 +78,7 @@ switch $ERL_VER
   case '20'
     set -x ERL_AFLAGS '-kernel shell_history enabled'
   case '*'
-    echo OTP v20 is not present on this system.;
+    # echo OTP v20 is not present on this system.;
 end
 
 # Setup OS specific environment variables
