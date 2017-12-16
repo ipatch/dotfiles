@@ -2,6 +2,8 @@
 # Author: Chris Jones
 # Contact: @truckmonth chris.r.jones.1983@gmail.com
 
+# echo hello from .bash_profile.
+
 # Load the default .profile
 [[ -s "$HOME/.profile" ]] && source "$HOME/.profile"
 # Load RVM into a shell session *as a function*
@@ -27,22 +29,13 @@ alias du='du -h'
 
 alias dotfiles='cd /opt/Code/dotfiles'
 
-unamestr = $(uname)
-if [[ "$unamestr" == 'Linux' ]]; then
+OS=$(uname)
+if [[ $OS == Darwin ]]; then
+  source /Applications/Xcode.app/Contents/Developer/usr/share/git-core/git-completion.bash;
+  source /Applications/Xcode.app/Contents/Developer/usr/share/git-core/git-prompt.sh;
 
-
-
-elif [[ "$unamestr" == 'Darwin' ]]; then
-
-  source /Applications/Xcode.app/Contents/Developer/usr/share/git-core/git-completion.bash
-  source /Applications/Xcode.app/Contents/Developer/usr/share/git-core/git-prompt.sh
-
-  GIT_PS1_SHOWDIRTYSTATE=true
-  PS1='\[\033[32m\]\u@\h\[\033[00m\]:\[\033[34m\]\w\[\033[31m\]$(__git_ps1)\[\033[00m\]\$ '
-
+  GIT_PS1_SHOWDIRTYSTATE=true;
+  PS1='\[\033[32m\]\u@\h\[\033[00m\]:\[\033[34m\]\w\[\033[31m\]$(__git_ps1)\[\033[00m\]\$ ';
 fi
 
 # export PS1='\u@\h:\w$(__git_ps1)$ '
-
-# the below line is required to get 'nvm' Node version manager working
-source ~/.bashrc

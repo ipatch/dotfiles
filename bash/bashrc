@@ -2,6 +2,20 @@
 # Author: Chris Jones
 # Contact: @truckmonth chris.r.jones.1983@gmail.com
 
+# NOTE: in macOS ~/.bashrc is loaded before ~/.bash_profile
+# 1) /etc/profile
+# 2) /etc/bash.bashrc
+# 3) ~/.bashrc
+# 4) ~/.bash_profile
+# 5) ~/.bash_login
+# 6) ~/.profile
+# 7) ~/.bash_logout
+
+# check to see if $HOME/.bash_profile exists then load in current shell session.
+if [ -f ~/.bash_profile ]; then
+   source ~/.bash_profile
+fi
+
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 # Add aliases in ~/.bash_profile
