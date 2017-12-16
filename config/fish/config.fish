@@ -73,6 +73,7 @@ ln -sf /opt/Code/dotfiles/bash/bashrc $HOME/.bashrc
 
 if type -q nvim
   ln -sf /opt/Code/dotfiles/config/nvim/init.vim $HOME/.config/nvim/init.vim
+end
 
 if type -q vim
   ln -sf /opt/Code/dotfiles/vim/editorconfig $HOME/.editorconfig
