@@ -1,10 +1,10 @@
+# User specified file for configuring the BASH.
+# Author: Chris Jones
+# Contact: @truckmonth chris.r.jones.1983@gmail.com
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 # Add aliases in ~/.bash_profile
-
-export NVM_DIR="/Users/capin/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 . $HOME/.asdf/asdf.sh
 . $HOME/.asdf/completions/asdf.bash

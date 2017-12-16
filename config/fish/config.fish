@@ -52,7 +52,7 @@ set -x PATH $PATH $HOME/.cargo/bin
 # NOTE: uncomment the below command to see diagnostic 🚕 info about the env var.
 # set -S ERL_VER
 
-# Check if the asdf bin exists
+# Check if the asdf binary exists
 if type -q asdf
   rm -f /opt/Code/dotfiles/asdf/.tool-versions.$HOSTNAME.$USER > /dev/null
   # 1) List installed plugins & version numbers via asdf version manager
@@ -66,6 +66,33 @@ if type -q asdf
 else
   # echo asdf is not installed on this system.
 end
+
+# Symlink / link dotfiles from /opt/Code/dotfiles/ to $HOME directory.
+ln -sf /opt/Code/dotfiles/bash/bash_profile $HOME/.bash_profile
+ln -sf /opt/Code/dotfiles/bash/bashrc $HOME/.bashrc
+
+ln -sf /opt/Code/dotfiles/config/nvim $HOME/.config/nvim/init.vim
+
+if type -q vim
+  ln -sf /opt/Code/dotfiles/vim/editorconfig $HOME/.editorconfig
+  ln -sf /opt/Code/dotfiles/vim/vimrc $HOME/.vimrc
+end
+
+ln -sf /opt/Code/dotfiles/config/gitconfig  $HOME/.gitconfig
+
+if type -q r2
+  ln -sf /opt/Code/dotfiles/radare/radare2rc  $HOME/.radare2rc
+end
+
+if type -q tmux
+  ln -sf /opt/Code/dotfiles/tmux/tmux.conf $HOME/.tmux.conf
+end
+
+if type -q iex
+  ln -sf /opt/Code/dotfiles/lang/elixir/iex.exs $HOME/.iex.exs
+end
+
+
 
 # cheers 🍺 for tr 😎
 # return the current version of erlang / OTP installed on the local system.

@@ -1,8 +1,8 @@
 # This is Git's per-user configuration file.
 [user]
 # Please adapt and uncomment the following lines:
-	name = ipatch 
-	email = chris.r.jones.1983@gmail.com 
+	name = ipatch
+	email = chris.r.jones.1983@gmail.com
 [push]
 	default = simple
 [core]
@@ -11,19 +11,19 @@
 	graph = log --graph --oneline
 
 [color]
-    branch = auto
-    diff = auto
-    status = auto
+  branch = auto
+  diff = auto
+  status = auto
 [color "branch"]
-    current = yellow reverse
-    local = yellow
-    remote = green
+  current = yellow reverse
+  local = yellow
+  remote = green
 [color "diff"]
-    meta = yellow bold
-    frag = magenta bold
-    old = red bold
-    new = green bold
+  meta = yellow bold
+  frag = magenta bold
+  old = red bold
+  new = green bold
 [color "status"]
-    added = yellow
-    changed = green
-    untracked = cyan
+  added = yellow
+  changed = green
+  untracked = cyan
