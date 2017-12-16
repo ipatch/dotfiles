@@ -107,18 +107,33 @@ switch (uname)
     if type -q asdf
       # 1) List installed plugins via asdf version manager
       # 2) put the above output into a file.
-      asdf plugin-list > /opt/Code/dotfiles/asdf/.tool-versions.$HOSTNAME.$USER;
+      # asdf plugin-list > /opt/Code/dotfiles/asdf/.tool-versions.$HOSTNAME.$USER;
+      for x in (asdf plugin-list)
+        echo $x (asdf list $x | tail -n1) > /opt/Code/dotfiles/asdf/.tool-versions.$HOSTNAME.$USER
+      end
       ln -sf /opt/Code/dotfiles/asdf/.tool-versions.$HOSTNAME.$USER $HOME/.tool-versions;
       echo -e "Successfully generated your .tool-versions file in $HOME"\n"\
 and it is linked to /opt/Code/dotfiles/asdf/.tool-versions.$HOSTNAME.$USER"
     else
       echo asdf is not installed on this system.
     end
-
-
-
+    
     # List installed versions
-    asdf list
+    # asdf list <plugin>
+
+    # NOTE: the above command outputs the installed version of a plugin,
+    # and puts the latest version of the plugin at the bottom of the output.
+    # i,e.
+    # 1.5.1
+    # 1.5.2
+
+    # NOTE: to print just the last line of the above about
+    # asdf list elixir | tail -n1
+
+    # 🔥
+    # for x in (asdf plugin-list)                                                         0 < 22:21:21
+    #   echo $x (asdf list $x | tail -n1)
+    # end
 
     # NOTE: to access an individual item of list
     # echo $PATH[1]
