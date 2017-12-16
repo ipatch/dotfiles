@@ -80,7 +80,7 @@ if type -q vim
   ln -sf /opt/Code/dotfiles/vim/vimrc $HOME/.vimrc
 end
 
-ln -sf /opt/Code/dotfiles/config/gitconfig  $HOME/.gitconfig
+ln -sf /opt/Code/dotfiles/git/gitconfig  $HOME/.gitconfig
 
 if type -q r2
   ln -sf /opt/Code/dotfiles/radare/radare2rc  $HOME/.radare2rc
