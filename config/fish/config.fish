@@ -71,7 +71,8 @@ end
 ln -sf /opt/Code/dotfiles/bash/bash_profile $HOME/.bash_profile
 ln -sf /opt/Code/dotfiles/bash/bashrc $HOME/.bashrc
 
-ln -sf /opt/Code/dotfiles/config/nvim $HOME/.config/nvim/init.vim
+if type -q nvim
+  ln -sf /opt/Code/dotfiles/config/nvim/init.vim $HOME/.config/nvim/init.vim
 
 if type -q vim
   ln -sf /opt/Code/dotfiles/vim/editorconfig $HOME/.editorconfig
