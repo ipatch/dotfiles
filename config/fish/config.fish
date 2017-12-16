@@ -38,8 +38,10 @@ source ~/.asdf/asdf.fish
 
 # USER defined environment variables
 set -x HOSTNAME (hostname -s)
-
-
+# cheers 🍺 for tr 😎
+# return the current version of erlang / OTP installed on the local system.
+set -x ERL_VER (erl -eval 'erlang:display(erlang:system_info(otp_release)), halt().' -noshell\
+ | tr -d \r'"')
 
 # ==============================================================================
 
@@ -51,29 +53,23 @@ set -x PATH $PATH $HOME/.cargo/bin
 # \r is a carriage return character; it tells your terminal emulator to move the
 # cursor at the start of the line.
 
-# return the current version of erlang / OTP installed on the local system.
-
-# cheers 🍺 for tr 😎
-set -x ERL_VER (erl -eval 'erlang:display(erlang:system_info(otp_release)), halt().' -noshell\
- | tr -d \r'"')
-
-# print / show the value & scope of ERL_VER
-# Note: presently the below command prints the below output
-#####
-# $ERL_VER: not set in local scope
-# # $ERL_VER: set in global scope, exported, with 1 elements
-# # $ERL_VER[1]: length=5 value=|"20"\r|
-# $ERL_VER: not set in universal scope
-# set -S ERL_VER
-
-# TL;DR
-# value=|"20"\r|
-
-# TODO: figure out to remove \r (carriage return)
-# SOLVED: used "tr" to remove carriage return and double quotes
-
 # NOTE: uncomment the below command to see diagnostic 🚕 info about the env var.
 # set -S ERL_VER
+
+# Check if the asdf bin exists
+if type -q asdf
+  rm -f /opt/Code/dotfiles/asdf/.tool-versions.$HOSTNAME.$USER
+  # 1) List installed plugins & version numbers via asdf version manager
+  # 2) put the above output into a file.
+  for x in (asdf plugin-list)
+    echo $x (asdf list $x | tail -n1) >> /opt/Code/dotfiles/asdf/.tool-versions.$HOSTNAME.$USER
+  end
+  ln -sf /opt/Code/dotfiles/asdf/.tool-versions.$HOSTNAME.$USER $HOME/.tool-versions;
+  echo -e "Successfully generated your .tool-versions file in $HOME"\n"\
+and it is linked to /opt/Code/dotfiles/asdf/.tool-versions.$HOSTNAME.$USER"
+else
+  echo asdf is not installed on this system.
+end
 
 # Enable shell history for elixir / erlang
 # Ref: https://stackoverflow.com/questions/9560815/
@@ -96,45 +92,12 @@ switch (uname)
     alias pg-stop="launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist"
 
     # Setup OS specific PATH variables for macOS
-
     # Add the below path in order to get react-native CLI working.
     set -x PATH $PATH $HOME/Library/Android/sdk/platform-tools
     set -x PATH $PATH $HOME/anaconda2/bin
     set -x PATH $PATH $HOME/.config/yarn/global/node_modules/.bin
     set -x PATH $PATH $HOME/bin
 
-    # Check if the asdf bin exists
-    if type -q asdf
-      # 1) List installed plugins via asdf version manager
-      # 2) put the above output into a file.
-      # asdf plugin-list > /opt/Code/dotfiles/asdf/.tool-versions.$HOSTNAME.$USER;
-      for x in (asdf plugin-list)
-        echo $x (asdf list $x | tail -n1) > /opt/Code/dotfiles/asdf/.tool-versions.$HOSTNAME.$USER
-      end
-      ln -sf /opt/Code/dotfiles/asdf/.tool-versions.$HOSTNAME.$USER $HOME/.tool-versions;
-      echo -e "Successfully generated your .tool-versions file in $HOME"\n"\
-and it is linked to /opt/Code/dotfiles/asdf/.tool-versions.$HOSTNAME.$USER"
-    else
-      echo asdf is not installed on this system.
-    end
-    
-    # List installed versions
-    # asdf list <plugin>
-
-    # NOTE: the above command outputs the installed version of a plugin,
-    # and puts the latest version of the plugin at the bottom of the output.
-    # i,e.
-    # 1.5.1
-    # 1.5.2
-
-    # NOTE: to print just the last line of the above about
-    # asdf list elixir | tail -n1
-
-    # 🔥
-    # for x in (asdf plugin-list)                                                         0 < 22:21:21
-    #   echo $x (asdf list $x | tail -n1)
-    # end
-
-    # NOTE: to access an individual item of list
+    # NOTE: to access an individual item of a list
     # echo $PATH[1]
 end
