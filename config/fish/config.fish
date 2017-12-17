@@ -156,22 +156,22 @@ switch (uname)
     if type -q asdf
       for x in $ASDF_LATEST_BINS
         if string match -qr '^elixir' $x
-          set -x MANPATH_MAP $MANPATH_MAP ~/.asdf/shims $HOME/.asdf/installs/$x/man
+          set -x MANPATH $MANPATH $HOME/.asdf/installs/$x/man
         end
         if string match -qr '^erlang' $x
-          set -x MANPATH_MAP $MANPATH_MAP ~/.asdf/shims $HOME/.asdf/installs/$x/lib/erlang/man
+          set -x MANPATH $MANPATH $HOME/.asdf/installs/$x/lib/erlang/man
         end
         if string match -qr '^nodejs' $x
-          set -x MANPATH_MAP $MANPATH_MAP ~/.asdf/shims $HOME/.asdf/installs/$x/share/man
+          set -x MANPATH $MANPATH $HOME/.asdf/installs/$x/share/man
         end
         if string match -qr '^python' $x
-          set -x MANPATH_MAP $MANPATH_MAP ~/.asdf/shims $HOME/.asdf/installs/$x/share/man
+          set -x MANPATH $MANPATH $HOME/.asdf/installs/$x/share/man
         end
         if string match -qr '^ruby' $x
-         set -x MANPATH_MAP $MANPATH_MAP ~/.asdf/shims $HOME/.asdf/installs/$x/share/man
+         set -x MANPATH $MANPATH $HOME/.asdf/installs/$x/share/man
         end
         if string match -qr '^rust' $x
-          set -x MANPATH_MAP $MANPATH_MAP ~/.asdf/shims $HOME/.asdf/installs/$x/share/man
+          set -x MANPATH $MANPATH $HOME/.asdf/installs/$x/share/man
         end
       end
     end
