@@ -1,4 +1,4 @@
-<h2 align="center">dotfiles for Chris Jones / [@truckmonth](https://twitter.com/truckmonth)</h2>
+<h2 align="center">dotfiles for Chris Jones</h2>
 
 <h3 align="center">🚨 Don't 🍺🍺🍺 and configure dotfiles.🚨</h3>
 
@@ -19,3 +19,8 @@ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 ```
 pip install neovim
 ```
+
+---
+
+[@truckmonth](https://twitter.com/truckmonth)
+
