@@ -4,7 +4,8 @@
 
 <h6 align="center">Note: These dotfiles can stop working at any time so use at your own risk.😬</h6>
 
-####Neovim
+#### Neovim
+
 To utilize [this Neovim configuration](https://github.com/ipatch/dotfiles/blob/master/config/nvim/init.vim) to its full potential, [vim-plug](https://github.com/junegunn/vim-plug) will need to be installed along with Python 2 or 3.
 
 To install vim-plug copy & paste the below command in your terminal.
