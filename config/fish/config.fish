@@ -154,23 +154,23 @@ switch (uname)
 
 
     if type -q asdf
-      for x in (echo $ASDF_LATEST_BINS)
-        if echo $x contains -q elixir
+      for x in $ASDF_LATEST_BINS
+        if string match -qr '^elixir' $x
           set -x MANPATH_MAP $MANPATH_MAP ~/.asdf/shims $HOME/.asdf/installs/$x/man
         end
-        if echo $x contains -q erlang
+        if string match -qr '^erlang' $x
           set -x MANPATH_MAP $MANPATH_MAP ~/.asdf/shims $HOME/.asdf/installs/$x/lib/erlang/man
         end
-        if echo $x contains -q nodejs
+        if string match -qr '^nodejs' $x
           set -x MANPATH_MAP $MANPATH_MAP ~/.asdf/shims $HOME/.asdf/installs/$x/share/man
         end
-        if echo $x contains -q python
+        if string match -qr '^python' $x
           set -x MANPATH_MAP $MANPATH_MAP ~/.asdf/shims $HOME/.asdf/installs/$x/share/man
         end
-        if echo $x contains -q ruby
+        if string match -qr '^ruby' $x
          set -x MANPATH_MAP $MANPATH_MAP ~/.asdf/shims $HOME/.asdf/installs/$x/share/man
         end
-        if echo $x contains -q rust
+        if string match -qr '^rust' $x
           set -x MANPATH_MAP $MANPATH_MAP ~/.asdf/shims $HOME/.asdf/installs/$x/share/man
         end
       end
