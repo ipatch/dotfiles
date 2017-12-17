@@ -41,8 +41,10 @@ set -x HOSTNAME (hostname -s)
 
 # ==============================================================================
 
-# Add rust-lang local bin directory to PATH for working with cargo.
-set -x PATH $PATH $HOME/.cargo/bin
+if type -q rustc
+  # Add rust-lang local bin directory to PATH for working with cargo.
+  set -x PATH $PATH $HOME/.cargo/bin
+end
 
 # NOTE: according to the below link,
 # https://stackoverflow.com/a/7372938/708807
@@ -63,6 +65,12 @@ if type -q asdf
   ln -sf /opt/Code/dotfiles/asdf/.tool-versions.$HOSTNAME.$USER $HOME/.tool-versions;
   # echo -e "Successfully generated your .tool-versions file in $HOME"\n"\
   # and it is linked to /opt/Code/dotfiles/asdf/.tool-versions.$HOSTNAME.$USER"
+
+  # List the latest version of Python installed in the $HOME directory via asdf
+  set -x PYTHON_LATEST (ls ~/.asdf/installs/python/ | tail -n1)
+  # Add the latest version of Python to the PATH
+  set -x PATH $PATH ~/.asdf/installs/python/$PYTHON_LATEST/bin
+
 else
   # echo asdf is not installed on this system.
 end
@@ -128,6 +136,51 @@ switch (uname)
     set -x PATH $PATH $HOME/.config/yarn/global/node_modules/.bin
     set -x PATH $PATH $HOME/bin
 
+    # Add man 📚 pages for user installed binaries
+    for x in (asdf plugin-list)
+      # echo $x/(asdf list $x | tail -n1)
+      set -x ASDF_LATEST_BINS $ASDF_LATEST_BINS (echo $x/(asdf list $x | tail -n1))
+      # NOTE: to access an individual item of a list
+      # echo $PATH[1]
+    end
+
+    # MANPATHS
+    # 1) elixir = $HOME/.asdf/installs/elixir/1.5.2/man
+    # 2) erlang = $HOME/.asdf/installs/erlang/20.0/lib/erlang/man
+    # 3) nodejs = $HOME/.asdf/installs/nodejs/8.1.2/share/man
+    # 4) python =  $HOME/.asdf/installs/python/3.6.3/share/man
+    # 5) ruby = $HOME/.asdf/installs/ruby/2.3.1/share/man
+    # 6) rust = $HOME/.asdf/installs/rust/1.22.1/share/man
+
+
+    if type -q asdf
+      for x in (echo $ASDF_LATEST_BINS)
+        if echo $x contains -q elixir
+          set -x MANPATH_MAP $MANPATH_MAP ~/.asdf/shims $HOME/.asdf/installs/$x/man
+        end
+        if echo $x contains -q erlang
+          set -x MANPATH_MAP $MANPATH_MAP ~/.asdf/shims $HOME/.asdf/installs/$x/lib/erlang/man
+        end
+        if echo $x contains -q nodejs
+          set -x MANPATH_MAP $MANPATH_MAP ~/.asdf/shims $HOME/.asdf/installs/$x/share/man
+        end
+        if echo $x contains -q python
+          set -x MANPATH_MAP $MANPATH_MAP ~/.asdf/shims $HOME/.asdf/installs/$x/share/man
+        end
+        if echo $x contains -q ruby
+         set -x MANPATH_MAP $MANPATH_MAP ~/.asdf/shims $HOME/.asdf/installs/$x/share/man
+        end
+        if echo $x contains -q rust
+          set -x MANPATH_MAP $MANPATH_MAP ~/.asdf/shims $HOME/.asdf/installs/$x/share/man
+        end
+      end
+    end
+
     # NOTE: to access an individual item of a list
     # echo $PATH[1]
+end
+
+# Add special 🚌 aliases if certain binaries are found.
+if type -q pycp
+  alias cp='pycp -i'
 end
