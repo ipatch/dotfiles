@@ -122,9 +122,10 @@ end
 # DOC: http://fishshell.com/docs/current/tutorial.html#tut_conditionals
 switch (uname)
   case Linux
-    if type -q brew
+    if test -d /home/linuxbrew
       set -x PATH $PATH /home/linuxbrew/.linuxbrew/bin
-      # ln -sf /home/linuxbrew/.linuxbrew/share/man 
+      set -x PATH $PATH /home/linuxbrew/.linuxbrew/sbin
+      # ln -sf /home/linuxbrew/.linuxbrew/share/man
       # set -x MANPATH $MANPATH /home/linuxbrew/.linuxbrew/share/man
       # set -x INFOPATH $INFOPATH /home/linuxbrew/.linuxbrew/share/info
     end
