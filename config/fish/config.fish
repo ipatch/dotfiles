@@ -152,26 +152,32 @@ switch (uname)
     # 5) ruby = $HOME/.asdf/installs/ruby/2.3.1/share/man
     # 6) rust = $HOME/.asdf/installs/rust/1.22.1/share/man
 
+    # FOR PEACE OF MIND DON'T SET THE MANPATH ENV VAR!!!
 
     if type -q asdf
       for x in $ASDF_LATEST_BINS
         if string match -qr '^elixir' $x
-          set -x MANPATH $MANPATH $HOME/.asdf/installs/$x/man
+          ln -sf $HOME/.asdf/installs/$x/man/* /usr/local/share/man/man1/
         end
         if string match -qr '^erlang' $x
-          set -x MANPATH $MANPATH $HOME/.asdf/installs/$x/lib/erlang/man
+          # TODO: setup erlang documentation.
+
+          # set -x MANPATH $MANPATH $HOME/.asdf/installs/$x/lib/erlang/man
+          # ln -s $HOME/.asdf/installs/$x/lib/erlang/man/man[1-7] /usr/local/share/man/man
         end
         if string match -qr '^nodejs' $x
-          set -x MANPATH $MANPATH $HOME/.asdf/installs/$x/share/man
+          ln -sf $HOME/.asdf/installs/$x/share/man/man1/* /usr/local/share/man/man1/
         end
         if string match -qr '^python' $x
-          set -x MANPATH $MANPATH $HOME/.asdf/installs/$x/share/man
+          # no need to link the python man pages because python links man pages
+          # when installing python.
         end
         if string match -qr '^ruby' $x
-         set -x MANPATH $MANPATH $HOME/.asdf/installs/$x/share/man
+          # don't link ruby man pages because homebrew has local man pages.
         end
         if string match -qr '^rust' $x
-          set -x MANPATH $MANPATH $HOME/.asdf/installs/$x/share/man
+          # set -x MANPATH $MANPATH $HOME/.asdf/installs/$x/share/man
+          ln -sf $HOME/.asdf/installs/rust/1.22.1/share/man/man1/* /usr/local/share/man/man1/
         end
       end
     end
