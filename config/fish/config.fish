@@ -122,9 +122,12 @@ end
 # DOC: http://fishshell.com/docs/current/tutorial.html#tut_conditionals
 switch (uname)
   case Linux
-    set -x PATH $PATH /home/linuxbrew/.linuxbrew/bin
-    set -x MANPATH $MANPATH /home/linuxbrew/.linuxbrew/share/man
-    set -x INFOPATH $INFOPATH /home/linuxbrew/.linuxbrew/share/info
+    if type -q brew
+      set -x PATH $PATH /home/linuxbrew/.linuxbrew/bin
+      # ln -sf /home/linuxbrew/.linuxbrew/share/man 
+      # set -x MANPATH $MANPATH /home/linuxbrew/.linuxbrew/share/man
+      # set -x INFOPATH $INFOPATH /home/linuxbrew/.linuxbrew/share/info
+    end
   case Darwin
     alias pg-start="launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist"
     alias pg-stop="launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist"
