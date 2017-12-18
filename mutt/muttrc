@@ -1,0 +1,20 @@
+set mbox_type=Maildir
+
+ set spoolfile="~/Maildir/"
+ set folder="~/Maildir/"
+ set mask=".*"    # the default mask hides dotfiles and maildirs are dotfiles now.
+ # set mask="!^\.[^.]"  # this line intentionally commented out
+ set record="+.Sent"
+ set postponed="+.Drafts"
+
+ mailboxes ! + `\
+ for file in ~/Maildir/.*; do \
+   box=$(basename "$file"); \
+   if [ ! "$box" = '.' -a ! "$box" = '..' -a ! "$box" = '.customflags' \
+       -a ! "$box" = '.subscriptions' ]; then \
+     echo -n "\"+$box\" "; \
+   fi; \
+ done`
+
+ macro index c "<change-folder>?<toggle-mailboxes>" "open a different folder"
+ macro pager c "<change-folder>?<toggle-mailboxes>" "open a different folder"
