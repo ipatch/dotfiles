@@ -1,3 +1,10 @@
+# time # comment this line out when not recording how long it takes to start
+# an instance of the fish shell.
+###
+# alternative to using `time` is to use `date`
+###
+set -x fish_start_time (gdate +%s.%N)
+
 # User specified file for configuring the fish shell.
 # Author: Chris Jones
 # Contact: @truckmonth chris.r.jones.1983@gmail.com
@@ -129,7 +136,7 @@ switch (uname)
       set -x PATH $PATH /home/linuxbrew/.linuxbrew/bin
       set -x PATH $PATH /home/linuxbrew/.linuxbrew/sbin
       if type -q nvim
-        [ -x "/home/linuxbrew/.linuxbrew/share/nvim/runtime/macros/less.sh" ]; \
+        [ -x "/home/linuxbrew/.linuxbrew/share/nvim/runtime/macros/less.sh" ]; and \
         alias less='/home/linuxbrew/.linuxbrew/share/nvim/runtime/macros/less.sh';
       end
 
@@ -142,7 +149,7 @@ switch (uname)
     # Add below command / truthy statement to add syntax highlighting for `less`
     ###
     if type -q nvim
-      [ -x "/usr/local/share/nvim/runtime/macros/less.sh" ]; \
+      [ -x "/usr/local/share/nvim/runtime/macros/less.sh" ]; and \
       alias less='/usr/local/share/nvim/runtime/macros/less.sh';
     end
 
@@ -210,3 +217,8 @@ end
 if type -q pycp
   alias cp='pycp -i'
 end
+
+# how to print the output of "time" to standard out after the shell has loaded?
+set -x fish_end_time (gdate +%s.%N)
+
+echo fish_boot_time (math $fish_end_time - $fish_start_time)
