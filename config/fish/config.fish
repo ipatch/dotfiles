@@ -148,7 +148,7 @@ switch (uname)
       # set -x INFOPATH $INFOPATH /home/linuxbrew/.linuxbrew/share/info
     end
     # Set the default editor when using the `visudo` command.
-    set -x VISUAL nvim; visudo
+    set -x VISUAL nvim;
   case Darwin
     ###
     # Add below command / truthy statement to add syntax highlighting for `less`
