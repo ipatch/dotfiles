@@ -10,12 +10,21 @@
 # defined within a function.
 
 # NOTE: All variables in a shell script are "character strings".
-
+###
 # Command aliases
+# =============================================================================
+###
+# Added the below alias because I'm really tired of typing out the below
+# command.
+###
+alias editfish='nvim $HOME/.config/fish/config.fish'
 alias l='ls -lah'
 alias cp='cp -iv'
 alias rm='rm -iv'
 alias mv='mv -iv'
+alias df='df -h'
+alias du='du -h'
+alias dotfiles='cd /opt/Code/dotfiles'
 
 # Command aliases for git projects
 alias gs='git status'
@@ -23,17 +32,11 @@ alias gd='git diff --stat'
 alias ga='git add --all'
 alias gp='git push'
 
-# Command aliases
-alias df='df -h'
-alias du='du -h'
-alias dotfiles='cd /opt/Code/dotfiles'
-
 # Get asdf package manager working with fish shell.
 source ~/.asdf/asdf.fish
 
 # Configuration required for Ruby Version Manager
 # rvm default
-
 # ==============================================================================
 
 # USER defined environment variables
@@ -125,11 +128,24 @@ switch (uname)
     if test -d /home/linuxbrew
       set -x PATH $PATH /home/linuxbrew/.linuxbrew/bin
       set -x PATH $PATH /home/linuxbrew/.linuxbrew/sbin
+      if type -q nvim
+        [ -x "/home/linuxbrew/.linuxbrew/share/nvim/runtime/macros/less.sh" ]; \
+        alias less='/home/linuxbrew/.linuxbrew/share/nvim/runtime/macros/less.sh';
+      end
+
       # ln -sf /home/linuxbrew/.linuxbrew/share/man
       # set -x MANPATH $MANPATH /home/linuxbrew/.linuxbrew/share/man
       # set -x INFOPATH $INFOPATH /home/linuxbrew/.linuxbrew/share/info
     end
   case Darwin
+    ###
+    # Add below command / truthy statement to add syntax highlighting for `less`
+    ###
+    if type -q nvim
+      [ -x "/usr/local/share/nvim/runtime/macros/less.sh" ]; \
+      alias less='/usr/local/share/nvim/runtime/macros/less.sh';
+    end
+
     alias pg-start="launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist"
     alias pg-stop="launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist"
 
