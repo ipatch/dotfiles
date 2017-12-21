@@ -16,6 +16,11 @@ set -x fish_start_time (gdate +%s.%N)
 # TODO: figure how scoping works in the fish shell, i.e. access variables
 # defined within a function.
 
+# Base16 Shell
+if status --is-interactive
+    eval sh $HOME/.config/base16-shell/scripts/base16-default-dark.sh
+end
+
 # NOTE: All variables in a shell script are "character strings".
 ###
 # Command aliases

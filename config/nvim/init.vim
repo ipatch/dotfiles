@@ -17,7 +17,10 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 " Polyglot loads language support on demand!
 Plug 'sheerun/vim-polyglot'
+" the below two plugs are themes for styling such things as text.
+Plug 'chriskempson/base16-vim'
 Plug 'tomasr/molokai'
+" end - plugs for themes
 Plug 'neomake/neomake'
   augroup localneomake
     autocmd! BufWritePost * Neomake

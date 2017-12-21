@@ -1,0 +1,2 @@
+# Test to see if comments are supported in `.inputrc` file
+set enable-bracketed-paste
