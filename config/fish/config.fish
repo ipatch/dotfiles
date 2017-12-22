@@ -3,11 +3,23 @@
 ###
 # alternative to using `time` is to use `date`
 ###
+# NOTE: BSD based systems don't support nano seconds, `%N`
+# so use GNU coreutils `gdate` or better know as `date` on *nix 🐧
 set -x fish_start_time (gdate +%s.%N)
 
+# =============================================================================
 # User specified file for configuring the fish shell.
 # Author: Chris Jones
 # Contact: @truckmonth chris.r.jones.1983@gmail.com
+# =============================================================================
+#
+# NOTE: `1` represents standard out or STDOUT / stdout
+# `2` represents standard error or STDERR / stderr
+# NOTE: common practice is to redirect both stderr and stdout to the same file
+# i.e., tmux 2>&1 $HOME/logs/tmux.log &
+# i.e., tmux > $HOME/logs/tmux.log 2>&1
+# NOTE; tmux supports 4 levels of verbosity using `-vvvv` ✅
+
 
 # set the size of the command history for fish
 # NOTE: fish supports 256K unique commands in history,
@@ -153,11 +165,33 @@ switch (uname)
       # set -x INFOPATH $INFOPATH /home/linuxbrew/.linuxbrew/share/info
     end
     # Set the default editor when using the `visudo` command.
-    set -x VISUAL nvim;
+    # the below env var did not fix my `visudo` issue.
+    # thanks for nothing internet 🌎
+    # set -x VISUAL nvim;
+    # if [ $TERM = "screen" ] and [(set -q TMUX)]; then
+    # if string match -qr '^screen' $TERM; and set -q TMUX
+    #   mkdir $HOME/logs 2> /dev/null
+    #   set logname (gdate '+%d%m%Y%H%M%S').tmux.log
+    #   script -f $HOME/logs/$logname
+    #   exit
+    # end
   case Darwin
+    # Credit 💳 https://matoski.com/article/tmux-auto-logging-output/
+    # NOTE: $PPID = parent process ID. NOTE: $PPID env var is not set in 🐟
+    # string match -qr '^elixir'
+    # if [ $TERM = "screen" ] and [(set -q TMUX)]; then
+    # if string match -qr '^screen' $TERM; and set -q TMUX
+    #   mkdir $HOME/logs 2> /dev/null
+    #   set logname (gdate '+%d%m%Y%H%M%S').tmux.log
+    #   script -t30 $HOME/logs/$logname
+    #   exit
+    # end
+
+
     ###
     # Add below command / truthy statement to add syntax highlighting for `less`
     ###
+    #########
     if type -q nvim
       [ -x "/usr/local/share/nvim/runtime/macros/less.sh" ]; and \
       alias less='/usr/local/share/nvim/runtime/macros/less.sh';
