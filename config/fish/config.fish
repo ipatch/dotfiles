@@ -155,6 +155,10 @@ switch (uname)
     if test -d /home/linuxbrew
       set -x PATH $PATH /home/linuxbrew/.linuxbrew/bin
       set -x PATH $PATH /home/linuxbrew/.linuxbrew/sbin
+      set -x PATH $PATH /usr/local/sbin
+      set -x PATH $PATH /usr/sbin
+      set -x PATH $PATH /sbin
+      
       if type -q nvim
         [ -x "/home/linuxbrew/.linuxbrew/share/nvim/runtime/macros/less.sh" ]; and \
         alias less='/home/linuxbrew/.linuxbrew/share/nvim/runtime/macros/less.sh';
