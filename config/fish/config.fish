@@ -50,6 +50,7 @@ alias mv='mv -iv'
 alias df='df -h'
 alias du='du -h'
 alias dotfiles='cd /opt/Code/dotfiles'
+alias hmmm='echo "¯\_(ツ)_/¯"'
 
 # Command aliases for git projects
 alias gs='git status'
