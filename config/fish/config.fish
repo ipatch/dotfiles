@@ -269,6 +269,9 @@ if type -q pycp
   alias cp='pycp -i'
 end
 
+if type -q ccat
+  alias cat='ccat'
+end
 # how to print the output of "time" to standard out after the shell has loaded?
 # set -x fish_end_time (gdate +%s.%N)
 
