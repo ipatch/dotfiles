@@ -5,7 +5,8 @@
 ###
 # NOTE: BSD based systems don't support nano seconds, `%N`
 # so use GNU coreutils `gdate` or better know as `date` on *nix 🐧
-set -x fish_start_time (gdate +%s.%N)
+###
+# set -x fish_start_time (gdate +%s.%N)
 
 # =============================================================================
 # User specified file for configuring the fish shell.
@@ -158,7 +159,7 @@ switch (uname)
       set -x PATH $PATH /usr/local/sbin
       set -x PATH $PATH /usr/sbin
       set -x PATH $PATH /sbin
-      
+
       if type -q nvim
         [ -x "/home/linuxbrew/.linuxbrew/share/nvim/runtime/macros/less.sh" ]; and \
         alias less='/home/linuxbrew/.linuxbrew/share/nvim/runtime/macros/less.sh';
@@ -269,6 +270,6 @@ if type -q pycp
 end
 
 # how to print the output of "time" to standard out after the shell has loaded?
-set -x fish_end_time (gdate +%s.%N)
+# set -x fish_end_time (gdate +%s.%N)
 
-echo fish_boot_time (math $fish_end_time - $fish_start_time)
+# echo fish_boot_time (math $fish_end_time - $fish_start_time)
