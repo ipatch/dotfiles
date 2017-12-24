@@ -10,14 +10,14 @@ To utilize [this Neovim configuration](https://github.com/ipatch/dotfiles/blob/m
 
 To install vim-plug copy & paste the below command in your terminal.
 
-```
+```shell
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ```
 
 ...and once you have Python 2 or 3 installed run the below command.
 
-```
+```shell
 pip install neovim
 ```
 
@@ -25,7 +25,7 @@ pip install neovim
 
 To get Atom up and running 🏃 run the below comman afte you have it installed<br />
 
-```
+```shell
 apm install --packages-file /path/to/where/you/saved/packages.list
 ```
 <p>Giving credit where credit is do. <a href="https://discuss.atom.io/t/how-to-backup-all-your-settings/15674/3">💳</a></p>
