@@ -15,11 +15,11 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   let g:deoplete#enable_at_startup = 1
   " use tab for completion
   inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
-" Polyglot loads language support on demand!
+" Polyglot loads language syntax highlighting support on demand!
 Plug 'sheerun/vim-polyglot'
 " the below two plugs are themes for styling such things as text.
 Plug 'chriskempson/base16-vim'
-Plug 'tomasr/molokai'
+" Plug 'tomasr/molokai'
 " end - plugs for themes
 Plug 'neomake/neomake'
   augroup localneomake
@@ -116,9 +116,24 @@ set title
 
 set background=dark
 syntax enable
-colorscheme molokai
+" ============================================================================
+" Set the colorscheme for neovim 
+" colorscheme molokai
+" NOTE: the below line `base16colorspace` needs to be set before the
+" colorscheme.
+let base16colorspace=256 " Access colors present in 256 colorspace
+colorscheme base16-default-dark
 
-" move cursor with mouse
+" This line enables the true color support.
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+
+" NOTE: the above line is ignored in Neovim 0.1.5 above, use this line
+" instead.
+if has('nvim-0.1.5')
+  set termguicolors
+endif
+
+  " move cursor with mouse
 set mouse=a
 
 " Easy commenting of lines using tpope's plugin.

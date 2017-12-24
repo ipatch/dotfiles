@@ -43,6 +43,7 @@ end
 # command.
 ###
 alias editfish='nvim $HOME/.config/fish/config.fish'
+alias editnvim='nvim $HOME/.config/nvim/init.vim'
 alias l='ls -lah'
 alias cp='cp -iv'
 alias rm='rm -iv'
