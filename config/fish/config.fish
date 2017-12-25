@@ -52,6 +52,7 @@ alias df='df -h'
 alias du='du -h'
 alias dotfiles='cd /opt/Code/dotfiles'
 alias hmmm='echo "¯\_(ツ)_/¯"'
+# preserve the $USER environment when running the sudo command.
 alias sudo='sudo -E'
 
 # Command aliases for git projects
