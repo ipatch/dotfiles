@@ -29,7 +29,7 @@
 # TODO: figure how scoping works in the fish shell, i.e. access variables
 # defined within a function.
 
-# Base16 Shell
+# Base16 Shell - a sane colorscheme for better shell colors 🌈
 if status --is-interactive
     eval sh $HOME/.config/base16-shell/scripts/base16-default-dark.sh
 end
@@ -70,7 +70,7 @@ source ~/.asdf/asdf.fish
 
 # USER defined environment variables
 set -x HOSTNAME (hostname -s)
-
+set -x DOTFILES /opt/Code/dotfiles
 # ==============================================================================
 
 if type -q rustc
