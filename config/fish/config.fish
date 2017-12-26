@@ -113,7 +113,7 @@ end
 
 # Symlink / link dotfiles from /opt/Code/dotfiles/ to $HOME directory.
 ln -sf $DOTFILES/shells/bash/bash_profile $HOME/.bash_profile
-ln -sf $DOtFILES/shells/bash/bashrc $HOME/.bashrc
+ln -sf $DOTFILES/shells/bash/bashrc $HOME/.bashrc
 
 if type -q nvim
   ln -sf /opt/Code/dotfiles/config/nvim/init.vim $HOME/.config/nvim/init.vim
