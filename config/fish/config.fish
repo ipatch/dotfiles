@@ -59,7 +59,7 @@ alias sudo='sudo -E'
 alias gs='git status'
 alias gd='git diff --stat'
 alias ga='git add --all'
-alias gc='git commit -m (fortune)'
+alias gc='git commit -m \"(fortune)\"'
 alias gp='git push'
 
 # Get asdf package manager working with fish shell.
