@@ -121,8 +121,8 @@ if type -q nvim
 end
 
 if type -q vim
-  ln -sf /opt/Code/dotfiles/vim/editorconfig $HOME/.editorconfig
-  ln -sf /opt/Code/dotfiles/vim/vimrc $HOME/.vimrc
+  ln -sf $DOTFILES/editors/vim/editorconfig $HOME/.editorconfig
+  ln -sf $DOTFILES/editors/vim/vimrc $HOME/.vimrc
 end
 
 ln -sf /opt/Code/dotfiles/git/gitconfig  $HOME/.gitconfig
