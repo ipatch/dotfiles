@@ -1,3 +1,3 @@
 function gc --description 'alias gc=git commit -m (fortune)'
-  git commit -m \"(fortune)\" $argv
+  git commit -m \"(fortune)\"
 end
