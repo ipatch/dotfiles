@@ -10,3 +10,4 @@ vim/*.swp
 
 # Ignore all files with the following extension `weechatlog` recurisvely in all directories
 *.weechatlog
+config/irc-clients/weechat/weechat.log
