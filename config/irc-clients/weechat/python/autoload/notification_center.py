@@ -1,0 +1,1 @@
+/opt/python/weechat-notification-center/notification_center.py
