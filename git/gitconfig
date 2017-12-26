@@ -6,9 +6,10 @@
 [push]
 	default = simple
 [core]
-	editor = vim
+	editor = nvim
 [alias]
 	graph = log --graph --oneline
+  random = !git commit -m \"`fortune`\"
 
 [color]
   branch = auto
