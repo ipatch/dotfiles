@@ -137,7 +137,16 @@ endif
 set mouse=a
 
 " Easy commenting of lines using tpope's plugin.
+" CREDIT: 💳 https://github.com/neovim/neovim/issues/5052#issuecomment-232083842
 noremap <leader>c :Commentary<cr>
 
 " Use system clipboard
 set clipboard=unnamed
+
+" Try and get sane copy / paste within nvim using iTerm2
+vnoremap <M-c> "+y
+
+" Reload $HOME/.config/nvim/init.vim after the file is saved.
+if has ('autocmd') " Remain compatible with earlier versions
+  autocmd BufWritePost $HOME/.config/nvim/init.vim source $MYVIMRC
+endif " has autocmd
