@@ -144,6 +144,7 @@ noremap <leader>c :Commentary<cr>
 set clipboard=unnamed
 
 " Try and get sane copy / paste within nvim using iTerm2
+" CREDIT: 💳 https://github.com/neovim/neovim/issues/5052#issuecomment-232083842
 vnoremap <M-c> "+y
 
 " Reload $HOME/.config/nvim/init.vim after the file is saved.
