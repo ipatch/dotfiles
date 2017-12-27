@@ -4,6 +4,14 @@
 
 <h6 align="center">Note: These dotfiles can stop working at any time so use at your own risk.😬</h6>
 
+#### [🐟🐚](https://github.com/fish-shell/fish-shell)
+
+> NOTE: run the below command to symlink the fish-shell configuration directory and all files.
+
+```shell
+ln -sf $DOTFILES/config/fish/ $HOME/.config/fish
+```
+
 #### Neovim
 
 To utilize [this Neovim configuration](https://github.com/ipatch/dotfiles/blob/master/config/nvim/init.vim) to its full potential, [vim-plug](https://github.com/junegunn/vim-plug) will need to be installed along with Python 2 or 3.
