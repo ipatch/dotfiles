@@ -141,7 +141,9 @@ set mouse=a
 noremap <leader>c :Commentary<cr>
 
 " Use system clipboard
-set clipboard=unnamed
+if has('macunix')
+  set clipboard=unnamed
+endif
 
 " Try and get sane copy / paste within nvim using iTerm2
 " CREDIT: 💳 https://github.com/neovim/neovim/issues/5052#issuecomment-232083842
@@ -151,3 +153,24 @@ vnoremap <M-c> "+y
 if has ('autocmd') " Remain compatible with earlier versions
   autocmd BufWritePost $HOME/.config/nvim/init.vim source $MYVIMRC
 endif " has autocmd
+
+" How to setup OS specific settings for neovim
+" CREDIT: 💳 https://vi.stackexchange.com/a/2574/10550
+if has('unix')
+  " set the default python PATH, to supposedly boost 🏎 the performance of
+  " neovim
+  let g:python_host_prog = '/home/capin/.asdf/shims/python'
+
+  " diable python 2 support
+  let g:loaded_python_provider = 1
+
+  " report the python interperter path, by adding it to init.vim
+  let g:python3_host_prog = '/home/capin/.asdf/shims/python'
+
+  " NOTE: to check whether nvim has clipboard support run the below command
+  " :echo has('clipboard')
+
+  " Clipboard integration
+  set clipboard+=unnamedplus
+  
+endif
