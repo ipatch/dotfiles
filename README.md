@@ -28,7 +28,7 @@ To get Atom up and running 🏃 run the below comman afte you have it installed<
 ```shell
 apm install --packages-file /path/to/where/you/saved/packages.list
 ```
-<p>Giving credit where credit is do. <a href="https://discuss.atom.io/t/how-to-backup-all-your-settings/15674/3">💳</a></p>
+<p>Giving credit where credit is due. <a href="https://discuss.atom.io/t/how-to-backup-all-your-settings/15674/3">💳</a></p>
 
 ---
 [@truckmonth](https://twitter.com/truckmonth)
