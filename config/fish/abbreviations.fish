@@ -21,11 +21,10 @@ abbr -a sudo 'sudo -E'
 ###
 # git abbreviations
 ###
-# Command aliases for git projects
 abbr -a gs 'git status'
 abbr -a gd 'git diff --stat'
 abbr -a ga 'git add --all'
-# NOTE: see the functions dir for how to issue quick commits, ie. `gc`
+# NOTE: see the functions dir for how to issue quick commits, ie. `gqc`
 abbr -a gqc 'git random'
 abbr -a gp 'git push'
 abbr -a gpl 'git pull'

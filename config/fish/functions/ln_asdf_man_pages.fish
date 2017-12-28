@@ -1,7 +1,7 @@
 ###
 # Setup $USER based documentation i.e. man pages
 ###
-function ln_asdf_manpages --description 'setup asdf man pages'
+function ln_asdf_man_pages --description 'setup asdf man pages'
   # Add man 📚 pages for user installed binaries
   for x in (asdf plugin-list)
     # echo $x/(asdf list $x | tail -n1)
