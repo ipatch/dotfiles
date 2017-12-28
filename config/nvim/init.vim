@@ -178,5 +178,8 @@ if has('unix')
 
   " Clipboard integration
   set clipboard+=unnamedplus
+
+  " Try and get `command + c` to work on remote linux servers
+  vnoremap <M-c> "+y
   
 endif
