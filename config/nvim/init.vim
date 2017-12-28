@@ -147,6 +147,10 @@ set wildmenu
 " NOTE: to test the below feature use the below key combination, <z>, <enter>
 set scrolloff=7
 
+" set autoindent for autoindenting new lines after pressing <CR> / <enter>
+set ai
+"set smart indent, pairs 🍷 well with autoindent
+set si
 
 
 " Easy commenting of lines using tpope's plugin.
@@ -158,6 +162,13 @@ if has('macunix')
   set clipboard=unnamed
 endif
 
+" =============================================================================
+" Useful things to know about key mappings.
+" `vmap` sets / replaces the key mapping in visual mode
+" `nnoremap` - don't remap the current keystroke for normal mode
+" `inoremap` - don't remap the current key binding for insert mode
+" =============================================================================
+
 " Try and get sane copy / paste within nvim using iTerm2
 " CREDIT: 💳 https://github.com/neovim/neovim/issues/5052#issuecomment-232083842
 vnoremap <M-c> "+y
@@ -165,8 +176,12 @@ vnoremap <M-c> "+y
 " TODO: figure out how to set `undo` to `command + z` for both modes.
 " NOTE: apparently `:map` and `:map!` will map to all modes of (n)vim
 " CREDIT: 💳 https://stackoverflow.com/a/21282417/708807
-:map <M-z> u
-:map! <M-z> u
+" NOTE: if using iTerm2 on macOS make sure the proper escape sequence is
+" mapped within the iTerm2 settings.
+nnoremap <silent> <M-z> u
+inoremap <M-z> <C-o>u
+
+
 
 " Reload $HOME/.config/nvim/init.vim after the file is saved.
 " if has ('autocmd') " Remain compatible with earlier versions
@@ -209,3 +224,10 @@ augroup line_return
     \     execute 'normal! g`"zvzz' |
     \ endif
 augroup END
+
+" =============================================================================
+" Useful hacks for working with `$HOME/.config/nvim/init.vim or $MYVIMRC
+" =============================================================================
+map <leader>vm :tabe $MYVIMRC<CR>
+map <leader>sv :source $MYVIMRC<CR>
+
