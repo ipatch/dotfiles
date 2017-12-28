@@ -31,12 +31,27 @@ pip install neovim
 
 #### [Atom](http://atom.io)
 
-To get Atom up and running 🏃 run the below comman afte you have it installed<br />
+To get Atom up and running 🏃 run the below commad after you have it installed<br />
 
 ```shell
 apm install --packages-file /path/to/where/you/saved/packages.list
 ```
 <p>Giving credit where credit is due. <a href="https://discuss.atom.io/t/how-to-backup-all-your-settings/15674/3">💳</a></p>
+
+It can be beneficial to add a custom filetype for files ending with `.fish` to have syntax highlighting for fish functions files, and not having to manually set the file type in the lower right hand corner of the atom editor.
+
+To accomplish the above mentioned task, open the atom preferences with <kbd>command</kbd>+<kbd>,</kbd> on macOS. Then look for a button labeled `Open Config Folder`.
+
+Add the below lines to the `config.cson` file.
+> customFileTypes:
+>   "source.shell": [
+>      "fish"
+>    ]
+
+within the below block,
+> core:
+
+Credit: 💳 https://github.com/atom/atom/issues/1718#issuecomment-162242357
 
 ---
 [@truckmonth](https://twitter.com/truckmonth)
