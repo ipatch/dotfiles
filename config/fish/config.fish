@@ -4,6 +4,9 @@
 # Contact: @truckmonth chris.r.jones.1983@gmail.com
 # =============================================================================
 
+# disable default fish greeting
+set fish_greeting ""
+
 if status --is-interactive
   source $HOME/.config/fish/interactive.fish
   # Base16 Shell - a sane colorscheme for better shell colors 🌈
