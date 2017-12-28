@@ -149,6 +149,12 @@ endif
 " CREDIT: 💳 https://github.com/neovim/neovim/issues/5052#issuecomment-232083842
 vnoremap <M-c> "+y
 
+" TODO: figure out how to set `undo` to `command + z` for both modes.
+" NOTE: apparently `:map` and `:map!` will map to all modes of (n)vim
+" CREDIT: 💳 https://stackoverflow.com/a/21282417/708807
+:map <M-z> u
+:map! <M-z> u
+
 " Reload $HOME/.config/nvim/init.vim after the file is saved.
 if has ('autocmd') " Remain compatible with earlier versions
   autocmd BufWritePost $HOME/.config/nvim/init.vim source $MYVIMRC
