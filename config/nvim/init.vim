@@ -182,7 +182,6 @@ nnoremap <silent> <M-z> u
 inoremap <M-z> <C-o>u
 
 
-
 " Reload $HOME/.config/nvim/init.vim after the file is saved.
 " if has ('autocmd') " Remain compatible with earlier versions
 "  autocmd BufWritePost $HOME/.config/nvim/init.vim source $MYVIMRC
