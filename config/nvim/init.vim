@@ -5,6 +5,8 @@
 "  Source: https://github.com/ipatch/dotfiles/blob/master/config/nvim/init.vim
 "  ===========================================================================
 
+" set character encoding, ie. utf-8 is a 'dialect' of unicode.
+set encoding=utf-8
 
 call plug#begin('~/.config/nvim/plugged')
 
@@ -94,16 +96,14 @@ set shiftwidth=2
 " Line numbers
 set number
 
-" set character encoding
-set encoding=utf-8
-
 " Highlight search results
 set hlsearch
 " Incremental search, search as you type
 set incsearch
 " Ignore case wehn searching
 set ignorecase
-" Ignore case when searching lowercase
+" the below setting will turn off `ignorecase` if a capital letter is present
+" in the search, ie. `S`
 set smartcase
 " Stop highlighting on Enter
 map <CR> :nohl<CR>
@@ -115,6 +115,7 @@ set cursorline
 set title
 
 set background=dark
+
 syntax enable
 " ============================================================================
 " Set the colorscheme for neovim 
@@ -133,8 +134,20 @@ if has('nvim-0.1.5')
   set termguicolors
 endif
 
-  " move cursor with mouse
+" move cursor with mouse
 set mouse=a
+
+" show incomplete commands in lower right corner
+set showcmd
+
+" show display menu when using `tab` completeion
+set wildmenu
+
+" keep context in buffer when repostioning 🖕
+" NOTE: to test the below feature use the below key combination, <z>, <enter>
+set scrolloff=7
+
+
 
 " Easy commenting of lines using tpope's plugin.
 " CREDIT: 💳 https://github.com/neovim/neovim/issues/5052#issuecomment-232083842
@@ -156,9 +169,9 @@ vnoremap <M-c> "+y
 :map! <M-z> u
 
 " Reload $HOME/.config/nvim/init.vim after the file is saved.
-if has ('autocmd') " Remain compatible with earlier versions
-  autocmd BufWritePost $HOME/.config/nvim/init.vim source $MYVIMRC
-endif " has autocmd
+" if has ('autocmd') " Remain compatible with earlier versions
+"  autocmd BufWritePost $HOME/.config/nvim/init.vim source $MYVIMRC
+" endif " has autocmd
 
 " How to setup OS specific settings for neovim
 " CREDIT: 💳 https://vi.stackexchange.com/a/2574/10550
@@ -183,3 +196,16 @@ if has('unix')
   vnoremap <M-c> "+y
   
 endif
+
+" =============================================================================
+" Cool hacky stuff
+" =============================================================================
+
+" Make sure Vim returns to the same line when you reopen a file.
+augroup line_return
+  au!
+  au BufReadPost *
+    \ if line("'\"") > 0 && line("'\"") <= line("$") |
+    \     execute 'normal! g`"zvzz' |
+    \ endif
+augroup END
