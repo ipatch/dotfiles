@@ -43,15 +43,15 @@ It can be beneficial to add a custom filetype for files ending with `.fish` to h
 To accomplish the above mentioned task, open the atom preferences with <kbd>command</kbd>+<kbd>,</kbd> on macOS. Then look for a button labeled `Open Config Folder`.
 
 Add the below lines to the `config.cson` file.
-> customFileTypes:
->   "source.shell": [
->      "fish"
->    ]
+> customFileTypes:<br />
+>   "source.shell": [<br />
+>      "fish"<br />
+>    ]<br />
 
 within the below block,
 > core:
 
-Credit: 💳 https://github.com/atom/atom/issues/1718#issuecomment-162242357
+Credit: [💳]( https://github.com/atom/atom/issues/1718#issuecomment-162242357)
 
 ---
 [@truckmonth](https://twitter.com/truckmonth)
