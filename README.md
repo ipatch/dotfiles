@@ -53,5 +53,102 @@ within the below block,
 
 Credit: [💳]( https://github.com/atom/atom/issues/1718#issuecomment-162242357)
 
+<details>
+<summary>File Structure</summary>
+<pre>
+├── README.md
+├── asdf
+├── config
+│   ├── atom
+│   │   └── packages.list
+│   ├── fish
+│   │   ├── abbreviations.fish
+│   │   ├── completions
+│   │   │   ├── asdf.fish
+│   │   │   └── docker.fish
+│   │   ├── conf.d
+│   │   │   └── omf.fish
+│   │   ├── config.fish
+│   │   ├── config.fish.bkup
+│   │   ├── fishd.7a3857f3e8b0
+│   │   ├── fishd.b8e85636f766
+│   │   ├── functions
+│   │   │   ├── editfish.fish
+│   │   │   ├── erl_cmd_his.fish
+│   │   │   ├── fish_prompt.fish -> /Users/capin/.local/share/omf/themes/lambda/fish_prompt.fish
+│   │   │   ├── ln_asdf_man_pages.fish
+│   │   │   ├── ln_dotfiles.fish
+│   │   │   ├── lsusers.fish
+│   │   │   ├── mk_asdf_bins.fish
+│   │   │   └── mkd.fish
+│   │   └── interactive.fish
+│   ├── inputrc
+│   ├── irc-clients
+│   │   └── weechat
+│   │       ├── alias.conf
+│   │       ├── buflist.conf
+│   │       ├── charset.conf
+│   │       ├── exec.conf
+│   │       ├── fifo.conf
+│   │       ├── fset.conf
+│   │       ├── irc.conf
+│   │       ├── logger.conf
+│   │       ├── logs
+│   │       │   └── core.weechat.weechatlog
+│   │       ├── plugins.conf
+│   │       ├── python
+│   │       │   └── autoload
+│   │       │       └── notification_center.py -> /opt/Code/python/weechat-notification-center/notification_center.py
+│   │       ├── relay.conf
+│   │       ├── script
+│   │       │   └── plugins.xml.gz
+│   │       ├── script.conf
+│   │       ├── sec.conf
+│   │       ├── tcl
+│   │       │   └── autoload
+│   │       ├── trigger.conf
+│   │       ├── weechat.conf
+│   │       ├── weechat.png
+│   │       ├── xfer
+│   │       └── xfer.conf
+│   └── nvim
+│       └── init.vim
+├── editors
+│   ├── atom -> /opt/Code/dotfiles/config/atom
+│   ├── nvim -> /opt/Code/dotfiles/config/nvim
+│   └── vim
+│       ├── editorconfig
+│       └── vimrc
+├── git
+│   └── gitconfig
+├── lang
+│   └── elixir
+│       └── iex.exs
+├── lib
+│   └── custom-motd.png
+├── mutt
+│   └── muttrc
+├── radare
+│   └── radare2rc
+├── shells
+│   ├── bash
+│   │   ├── bash_profile
+│   │   └── bashrc
+│   ├── fish -> /opt/Code/dotfiles/config/fish
+│   └── zsh
+│       ├── zlogin
+│       └── zshrc
+├── terms
+│   ├── hyper
+│   │   └── hyper.js
+│   └── iterm2
+│       └── com.googlecode.iterm2.plist
+└── tmux
+    └── tmux.conf
+
+35 directories, 54 files
+</pre>
+</details>
+
 ---
 [@truckmonth](https://twitter.com/truckmonth)
