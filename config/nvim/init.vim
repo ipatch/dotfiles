@@ -178,9 +178,18 @@ vnoremap <M-c> "+y
 " CREDIT: 💳 https://stackoverflow.com/a/21282417/708807
 " NOTE: if using iTerm2 on macOS make sure the proper escape sequence is
 " mapped within the iTerm2 settings.
-nnoremap <silent> <M-z> u
+nnoremap <M-z> u
 inoremap <M-z> <C-o>u
 
+" TODO: figure out a way to toggle the Netrw browser with <command>+<\>
+
+let g:netrw_liststyle = 3
+" Do not display the banner when using Netrw
+let g:netrw_banner = 0
+" Display the netrw file browser in a vertical split
+let g:netrw_browse_split = 1
+" Set the default width when opening the netrw explorer
+let g:netrw_winsize = 25
 
 " Reload $HOME/.config/nvim/init.vim after the file is saved.
 " if has ('autocmd') " Remain compatible with earlier versions
