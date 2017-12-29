@@ -182,6 +182,7 @@ nnoremap <M-z> u
 inoremap <M-z> <C-o>u
 
 " TODO: figure out a way to toggle the Netrw browser with <command>+<\>
+" CREDIT: 
 
 let g:netrw_liststyle = 3
 " Do not display the banner when using Netrw
