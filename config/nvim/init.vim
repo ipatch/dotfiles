@@ -172,6 +172,9 @@ endif
 " Try and get sane copy / paste within nvim using iTerm2
 " CREDIT: 💳 https://github.com/neovim/neovim/issues/5052#issuecomment-232083842
 vnoremap <M-c> "+y
+" TODO: figure out how to map <command>+<v> as paste
+nnoremap <M-v> "+p
+inoremap <M-v> <esc>"+p 
 
 " TODO: figure out how to set `undo` to `command + z` for both modes.
 " NOTE: apparently `:map` and `:map!` will map to all modes of (n)vim
@@ -182,7 +185,7 @@ nnoremap <M-z> u
 inoremap <M-z> <C-o>u
 
 " TODO: figure out a way to toggle the Netrw browser with <command>+<\>
-" CREDIT: 
+" CREDIT: https://shapeshed.com/vim-netrw/   
 
 let g:netrw_liststyle = 3
 " Do not display the banner when using Netrw
@@ -191,8 +194,17 @@ let g:netrw_banner = 0
 let g:netrw_browse_split = 1
 " Set the default width when opening the netrw explorer
 let g:netrw_winsize = 25
-nnoremap <M-\> Vexplore
-inoremap <M-\> Vexplore
+" TODO: document what the below variable does to netrw
+let g:netrw_altv = 1
+" Set atom style macOS key binding to open the project drawer
+" CREDIT: https://stackoverflow.com/a/23069285/708807
+nnoremap <M-\> :Lexplore<cr>
+inoremap <M-\> :Lexplore<cr>
+
+" The below setting is useful for changing to the current directory
+" in which the file is located when toggling netrw
+set autochdir
+
 
 " Reload $HOME/.config/nvim/init.vim after the file is saved.
 " if has ('autocmd') " Remain compatible with earlier versions
