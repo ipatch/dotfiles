@@ -190,6 +190,8 @@ let g:netrw_banner = 0
 let g:netrw_browse_split = 1
 " Set the default width when opening the netrw explorer
 let g:netrw_winsize = 25
+nnoremap <M-\> Vexplore
+inoremap <M-\> Vexplore
 
 " Reload $HOME/.config/nvim/init.vim after the file is saved.
 " if has ('autocmd') " Remain compatible with earlier versions
