@@ -59,6 +59,8 @@ Plug 'tpope/vim-projectionist' " required for some navigation features.
 Plug 'slashmili/alchemist.vim'
 Plug 'powerman/vim-plugin-AnsiEsc' " makes the documentation look pretty :)
 Plug 'tpope/vim-commentary'
+Plug 'ctrlpvim/ctrlp.vim' " the fork of the original CtrlP vim plugin.
+Plug 'vim-airline/vim-airline' " pretty status bar
 
 call plug#end()
 
@@ -85,16 +87,22 @@ imap kj <esc>
 map <Leader>i mmgg=G`m<CR>
 
 " Sane tabs
-" - Two spaces wide
+" - Two spaces wide - the below setting, renders TABs using this many spaces.
 set tabstop=2
 set softtabstop=2
-" - Expand them all
+" - Expand them all - the below setting inserts spaces when TAB is pressed.
 set expandtab
-" - Indent by 2 spaces by default
+" - Indent by 2 spaces by default - indentation amount for < and > commands.
 set shiftwidth=2
 
 " Line numbers
 set number
+
+" Show matching bracketts
+set showmatch
+
+" Hard-wrap long lines as I type them
+set textwidth=0
 
 " Highlight search results
 set hlsearch
@@ -117,7 +125,35 @@ set title
 set background=dark
 
 syntax enable
-" ============================================================================
+" =============================================================================
+" CtrlP settings / key bindings - https://github.com/ctrlpvim/ctrlp.vim
+" =============================================================================
+" NOTE: when mapping the meta / <command> key, make sure terminal program, ie,
+" iTerm2 sends the proper escape key sequence.
+
+" Open file menu
+nnoremap <M-o> :CtrlP<CR>
+
+" Open buffer menu
+nnoremap <M-b> :CtrlPBuffer<CR>
+
+" Open most recently used files
+nnoremap <M-f> :CtrlPMRUFiles<CR>
+
+""""
+" End CtrlP settings
+"""
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" vim-airline settings / keybindings https://github.com/vim-airline/vim-airline
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:airline#extensions#tabline#enabled = 2
+let g:airline#extensions#tabline#fnamemod = ':t'
+"""
+" End vim-airline settings
+"""
+
+"""
 " Set the colorscheme for neovim 
 " colorscheme molokai
 " NOTE: the below line `base16colorspace` needs to be set before the
