@@ -13,4 +13,4 @@ vim/*.swp
 config/irc-clients/weechat/weechat.log
 
 # Ignore fishd.<hash-files>
-fishd*
+config/fish/fishd.*
