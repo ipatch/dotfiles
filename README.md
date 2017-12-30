@@ -152,3 +152,5 @@ Credit: [💳]( https://github.com/atom/atom/issues/1718#issuecomment-162242357)
 
 ---
 [@truckmonth](https://twitter.com/truckmonth)
+
+<!-- HTML comment -->
