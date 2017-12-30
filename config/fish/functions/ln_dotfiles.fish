@@ -32,7 +32,7 @@ function ln_dotfiles --description 'Symlink $DOTFILES to $HOME'
   end
 
   if type -q weechat
-    ln -sf $DOTFILES/config/irc-clients/weechat/ $HOME/.weechat
+    ln -s /opt/Code/dotfiles/config/irc-clients/weechat $HOME/.weechat
   end
 
   if type -t /Applications/iTerm.app/Contents/MacOS/iTerm2
@@ -47,4 +47,5 @@ function ln_dotfiles --description 'Symlink $DOTFILES to $HOME'
   if type -t /Applications/Hyper.app/Contents/MacOS/Hyper
     ln -sf /Applications/Hyper.app/Contents/MacOS/Hyper /usr/local/bin/hyper
     ln -sf $DOTFILES/terms/hyper/hyper.js $HOME/.hyper.js
+  end
 end
