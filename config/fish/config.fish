@@ -4,6 +4,9 @@
 # Contact: @truckmonth chris.r.jones.1983@gmail.com
 # =============================================================================
 
+# disable default fish greeting
+set fish_greeting ""
+
 if status --is-interactive
   source $HOME/.config/fish/interactive.fish
   # Base16 Shell - a sane colorscheme for better shell colors 🌈
@@ -35,8 +38,11 @@ switch (uname)
     # Add below command / truthy statement to add syntax highlighting for `less`
     ###
     if type -q nvim
+      set -x EDITOR /usr/local/bin/nvim
       [ -x "/usr/local/share/nvim/runtime/macros/less.sh" ]; and \
       alias less='/usr/local/share/nvim/runtime/macros/less.sh';
+    else
+      set -x EDITOR /usr/bin/vim
     end
 
     case Linux
@@ -49,8 +55,11 @@ switch (uname)
       set -x PATH $PATH /sbin
 
       if type -q nvim
+        set -x EDITOR /usr/local/bin/nvim
         [ -x "/home/linuxbrew/.linuxbrew/share/nvim/runtime/macros/less.sh" ]; and \
         alias less='/home/linuxbrew/.linuxbrew/share/nvim/runtime/macros/less.sh';
+      else
+        set -x EDITOR /usr/bin/vim
       end
 
 end
