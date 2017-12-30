@@ -16,7 +16,7 @@ ln -sf $DOTFILES/config/fish/ $HOME/.config/fish
 
 ##### Screenshot 📸
 ![nvim screenshot December 2017][nvim-screenshot]
-[nvim-screenshot]: https://github.com/ipatch/dotfiles/lib/nvim-2017.png "nvim-screenshot"
+[nvim-screenshot]: https://github.com/ipatch/dotfiles/lib/vim-2017.png "nvim-screenshot"
 
 To utilize [this Neovim configuration](https://github.com/ipatch/dotfiles/blob/master/config/nvim/init.vim) to its full potential, [vim-plug](https://github.com/junegunn/vim-plug) will need to be installed along with Python 2 or 3.
 
