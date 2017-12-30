@@ -61,6 +61,9 @@ Plug 'powerman/vim-plugin-AnsiEsc' " makes the documentation look pretty :)
 Plug 'tpope/vim-commentary'
 Plug 'ctrlpvim/ctrlp.vim' " the fork of the original CtrlP vim plugin.
 Plug 'vim-airline/vim-airline' " pretty status bar
+Plug 'vim-airline/vim-airline-themes' " get more sane color scheme while using airline
+Plug 'tpope/vim-fugitive' " Plugin required for displaying git branch in status bar
+Plug 'Yggdroot/indentLine' " Add vertical indentation lines for nested indentaiton
 
 call plug#end()
 
@@ -73,6 +76,13 @@ nmap 0 ^
 " set the 'leader' key to ','
 let g:mapleader = ','
 
+" use ,, for escape <ESC>
+inoremap ,, <ESC>
+" use ,, for escape <ESC> in command mode
+" cmap ,, <ESC> " NOTE: the following key binding did not work.
+" NOTE: use <Ctrl>+<[> to exit command line mode.
+
+
 " Note - the below configuration line will map the 'space bar' to ':' so that
 " way 'Shift+;' does not have to be pressed to begin a command in normal mode.
 nmap <space> :
@@ -82,6 +92,10 @@ nmap <space> :
 " mode.
 imap jk <esc>
 imap kj <esc>
+
+" Automatically leave insert mode when the below arrow keys are pressed.
+inoremap <silent> <Up> <ESC><Up>
+inoremap <silent> <Down> <ESC><Down>
 
 " the below key mapping will indent the entire file
 map <Leader>i mmgg=G`m<CR>
@@ -125,6 +139,12 @@ set title
 set background=dark
 
 syntax enable
+
+" file type recognition
+filetype on
+filetype plugin on
+filetype indent on
+
 " =============================================================================
 " CtrlP settings / key bindings - https://github.com/ctrlpvim/ctrlp.vim
 " =============================================================================
@@ -149,8 +169,32 @@ nnoremap <M-f> :CtrlPMRUFiles<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:airline#extensions#tabline#enabled = 2
 let g:airline#extensions#tabline#fnamemod = ':t'
+" NOTE: https://github.com/vim-airline/vim-airline/issues/142#issuecomment-145317103
+let g:airline_powerline_fonts=1 " this setting presents pretty glyphs using powerline fonts.
+" set the color scheme for vim-airline
+let g:airline_theme = 'base16' " keep the base16 colorscheme consistent.
+" No need to show the 'showmode' because using vim-airline
+set noshowmode
+
+"""
+" vim-fugitive settings - https://github.com/tpope/vim-fugitive
+"""
+
+set statusline=%{fugitive#statusline()}
+
+"""
+" End vim-fugitive settings
+"""
 """
 " End vim-airline settings
+"""
+
+"""
+" indentLine - settings / configuration
+"""
+let g:indentLine_setColors = 1 
+"""
+" end indentLine
 """
 
 """
@@ -158,6 +202,7 @@ let g:airline#extensions#tabline#fnamemod = ':t'
 " colorscheme molokai
 " NOTE: the below line `base16colorspace` needs to be set before the
 " colorscheme.
+"""
 let base16colorspace=256 " Access colors present in 256 colorspace
 colorscheme base16-default-dark
 
