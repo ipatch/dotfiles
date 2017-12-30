@@ -28,6 +28,7 @@ abbr -a ga 'git add --all'
 abbr -a gqc 'git random'
 abbr -a gp 'git push'
 abbr -a gpl 'git pull'
+abbr -a gru 'git remote -v update'
 
 switch (uname)
   case Darwin
