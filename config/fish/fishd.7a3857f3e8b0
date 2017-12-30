@@ -23,9 +23,10 @@ SET fish_color_search_match:bryellow\x1e\x2d\x2dbackground\x3dbrblack
 SET fish_color_selection:white\x1e\x2d\x2dbold\x1e\x2d\x2dbackground\x3dbrblack
 SET fish_color_user:brgreen
 SET fish_color_valid_path:\x2d\x2dunderline
-SET fish_greeting:Welcome\x20to\x20fish\x2c\x20the\x20friendly\x20interactive\x20shell
+SET fish_greeting:
 SET fish_key_bindings:fish_default_key_bindings
 SET fish_pager_color_completion:\x1d
 SET fish_pager_color_description:B3A06D\x1eyellow
 SET fish_pager_color_prefix:white\x1e\x2d\x2dbold\x1e\x2d\x2dunderline
 SET fish_pager_color_progress:brwhite\x1e\x2d\x2dbackground\x3dcyan
+SET fish_user_abbreviations:editfish\x20nvim\x20\x24HOME/\x2econfig/fish/config\x2efish\x1eeditnvim\x20nvim\x20\x24HOME/\x2econfig/nvim/init\x2evim\x1el\x20ls\x20\x2dlah\x1ecp\x20cp\x20\x2div\x1erm\x20rm\x20\x2div\x1emv\x20mv\x20\x2div\x1edf\x20df\x20\x2dh\x1edu\x20du\x20\x2dh\x1edotfiles\x20cd\x20/opt/Code/dotfiles\x1ehmmm\x20echo\x20\x22\u00af\x5c_\x28\u30c4\x29_/\u00af\x22\x1esudo\x20sudo\x20\x2dE\x1egs\x20git\x20status\x1egd\x20git\x20diff\x20\x2d\x2dstat\x1ega\x20git\x20add\x20\x2d\x2dall\x1egqc\x20git\x20random\x1egp\x20git\x20push\x1egpl\x20git\x20pull
