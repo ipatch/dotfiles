@@ -1,7 +1,7 @@
 ###
 # Symlink / link dotfiles from /opt/Code/dotfiles/ to $HOME directory.
 ###
-function lndotfiles --description 'Symlink $DOTFILES to $HOME'
+function ln_dotfiles --description 'Symlink $DOTFILES to $HOME'
   ln -sf $DOTFILES/shells/bash/bash_profile $HOME/.bash_profile
   ln -sf $DOTFILES/shells/bash/bashrc $HOME/.bashrc
 
@@ -29,5 +29,23 @@ function lndotfiles --description 'Symlink $DOTFILES to $HOME'
 
   if type -q iex
     ln -sf $DOTFILES/lang/elixir/iex.exs $HOME/.iex.exs
+  end
+
+  if type -q weechat
+    ln -s /opt/Code/dotfiles/config/irc-clients/weechat $HOME/.weechat
+  end
+
+  if type -t /Applications/iTerm.app/Contents/MacOS/iTerm2
+    ln -sf /Applications/iTerm.app/Contents/MacOS/iTerm2 /usr/local/bin/iterm2
+    ln -sf $DOTFILES/terms/iterm2/com.googlecode.iterm2.plist $HOME/.config/iterm2/com.googlecode.iterm2.plist
+  end
+
+  if type -q mutt
+    ln -sf $DOTFILES/mutt/muttrc $HOME/.muttrc
+  end
+
+  if type -t /Applications/Hyper.app/Contents/MacOS/Hyper
+    ln -sf /Applications/Hyper.app/Contents/MacOS/Hyper /usr/local/bin/hyper
+    ln -sf $DOTFILES/terms/hyper/hyper.js $HOME/.hyper.js
   end
 end
