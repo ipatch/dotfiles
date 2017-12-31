@@ -24,6 +24,7 @@ abbr -a sudo 'sudo -E'
 abbr -a gs 'git status'
 abbr -a gd 'git diff --stat'
 abbr -a ga 'git add --all'
+abbr -a gc 'git commit -m'
 # NOTE: see the functions dir for how to issue quick commits, ie. `gqc`
 abbr -a gqc 'git random'
 abbr -a gp 'git push'
