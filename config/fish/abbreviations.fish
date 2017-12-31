@@ -35,6 +35,8 @@ switch (uname)
   case Darwin
     abbr -a pg-start "launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist"
     abbr -a pg-stop "launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist"
+    # setup an alias to quick look from the terminal in macOS
+    abbr -a ql 'qlmanage -p'
 end
 
 # Add special 🚌 aliases if certain binaries are found.
