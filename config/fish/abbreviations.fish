@@ -38,6 +38,8 @@ switch (uname)
     abbr -a pg-stop "launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist"
     # setup an alias to quick look from the terminal in macOS
     abbr -a ql 'qlmanage -p'
+    # update location DB
+    abbr -a updatedb '/usr/libexec/locate.updatedb'
 end
 
 # Add special 🚌 aliases if certain binaries are found.
