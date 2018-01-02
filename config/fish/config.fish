@@ -26,8 +26,14 @@ end
 
 switch (uname)
   case Darwin
+    ###
     # Setup OS specific PATH variables for macOS
-    set -x PATH $PATH /usr/local/sbin
+    ###
+    # NOTE: added /usr/local/sbin ahead of /sbin in `/etc/paths`
+    # the below PATH var is no longer required.
+    ###
+    # set -x PATH $PATH /usr/local/sbin
+    ###
     # Add the below path in order to get react-native CLI working.
     set -x PATH $PATH $HOME/Library/Android/sdk/platform-tools
     set -x PATH $PATH $HOME/anaconda2/bin
