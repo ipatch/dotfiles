@@ -1,4 +1,4 @@
-function mk_asdf_bins --description 'build `.tool-versions`, then ln $HOME'
+function mk_asdf_bins --description 'build `.tool-versions`, then ln in $HOME'
   # Check if the asdf binary exists
   if type -q asdf
     rm -f $DOTFILES/asdf/.tool-versions.$HOSTNAME.$USER > /dev/null
