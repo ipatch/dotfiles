@@ -36,7 +36,7 @@ switch (uname)
     ###
     # Add the below path in order to get react-native CLI working.
     set -x PATH $PATH $HOME/Library/Android/sdk/platform-tools
-    # set -x PATH $PATH $HOME/anaconda2/bin
+    set -x PATH $PATH $HOME/anaconda2/bin
     set -x PATH $PATH $HOME/.config/yarn/global/node_modules/.bin
     set -x PATH $PATH $HOME/bin
 
