@@ -1,10 +1,21 @@
 function toggle_homebrew_python_path --description 'toggle homebrew python 🐍'
-  if set -l index (contains -i /usr/local/opt/python/libexec/bin:$PATH)
-    set -e PATH[$index]
-    echo removed homebrew python form PATH
-  else
-    set -x PATH $PATH /usr/local/opt/python/libexec/bin
-    echo /usr/local/opt/python/libexec/bin added to PATH
+  switch (uname)
+    case Darwin
+      if set -l index (contains -i /usr/local/opt/python/libexec/bin:$PATH)
+        set -e PATH[$index]
+        echo removed homebrew python form PATH
+      else
+        set -x PATH $PATH /usr/local/opt/python/libexec/bin
+        echo /usr/local/opt/python/libexec/bin added to PATH
+      end
+    case Linux
+      if set -l index (contains -i)
+        set -e PATH[$index]
+        echo removed homebrew python from PATH
+      else
+        set -x PATH $PATH
+        echo added to PATH
+      end
   end
 end
 
