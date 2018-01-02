@@ -15,7 +15,7 @@ function toggle_homebrew_python_path --description 'toggle homebrew python 🐍'
         echo removed homebrew python from PATH
       else
         set -x PATH $PATH /home/linuxbrew/.linuxbrew/opt/python/libexec/bin
-        echo added to PATH
+        echo added /home/linuxbrew/.linuxbrew/opt/python/libexec/bin to PATH
       end
   end
 end
