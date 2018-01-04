@@ -25,12 +25,25 @@ abbr -a gs 'git status'
 abbr -a gd 'git diff --stat'
 abbr -a ga 'git add --all'
 abbr -a gc 'git commit -m'
-# NOTE: see the functions dir for how to issue quick commits, ie. `gqc`
 abbr -a gqc 'git random'
 abbr -a gp 'git push'
 abbr -a gpl 'git pull'
 abbr -a gru 'git remote -v update'
 abbr -a gco 'git checkout'
+###
+# abbreviations for for custom functions
+###
+abbr -a pretty_path 'path_pretty'
+abbr -a pretty-path 'path_pretty'
+abbr -a toggle_all_python_paths "toggle_anaconda_pythons; \
+toggle_asdf_shims_and_bins; toggle_homebrew_python_paths;"
+###
+# useful abbreviations for working NOC lists
+###
+if type -q openssl
+  abbr -a encrypt "openssl enc -aes-256-cbc -in" #/path/to/file #/path/to/file.dat
+  abbr -a decrypt "openssl enc -aes-256-cbc -d -in" #/path/to/file.dat
+end
 
 switch (uname)
   case Darwin
