@@ -35,6 +35,10 @@ abbr -a gco 'git checkout'
 ###
 abbr -a pretty_path 'path_pretty'
 abbr -a pretty-path 'path_pretty'
+abbr -a path-pretty 'path_pretty'
+abbr -a path-add 'path_add'
+abbr -a path-remove 'path_remove'
+abbr -a path-rm 'path_remove'
 abbr -a toggle_all_python_paths "toggle_anaconda_pythons; \
 toggle_asdf_shims_and_bins; toggle_homebrew_python_paths;"
 ###
