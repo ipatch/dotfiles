@@ -37,6 +37,8 @@ switch (uname)
     # NOTE: when installing GNU versions of such programs as `sed`
     # using homebrew they are prepended with a `g`
     ###
+    # NOTE: prepend gnu-sed to the beginning of the $PATH
+    ###
     set -x PATH /usr/local/opt/gnu-sed/libexec/gnubin $PATH
     # PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
     ###
