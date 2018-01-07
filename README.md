@@ -4,6 +4,28 @@
 
 <h6 align="center">Note: These dotfiles can stop working at any time so use at your own risk.😬</h6>
 
+### Installation
+
+```shell
+git clone git@github.com:ipatch/dotfiles.git
+```
+
+> NOTE: this project uses a git submodule 🙄 which is dependent upon [this](https://github.com/chriskempson/base16-shell)
+> which allows a more sane color 🌈 experience in the terminal 💻
+
+If you'd like to use the dotfiles with the submodule included,
+
+```shell
+git clone --recurse-submodules git@github.com:ipatch/dotfiles.git
+```
+
+or if you have already cloned the repo without the submodule
+
+```shell
+git submodule init
+git submodule update
+```
+
 #### [🐟🐚](https://github.com/fish-shell/fish-shell)
 
 > NOTE: run the below command to symlink the fish-shell configuration directory and all files.
@@ -42,6 +64,7 @@ To get Atom up and running 🏃 run the below commad after you have it installed
 ```shell
 apm install --packages-file /path/to/where/you/saved/packages.list
 ```
+
 <p>Giving credit where credit is due. <a href="https://discuss.atom.io/t/how-to-backup-all-your-settings/15674/3">💳</a></p>
 
 It can be beneficial to add a custom filetype for files ending with `.fish` to have syntax highlighting for fish functions files, and not having to manually set the file type in the lower right hand corner of the atom editor.
@@ -49,15 +72,18 @@ It can be beneficial to add a custom filetype for files ending with `.fish` to h
 To accomplish the above mentioned task, open the atom preferences with <kbd>command</kbd>+<kbd>,</kbd> on macOS. Then look for a button labeled `Open Config Folder`.
 
 Add the below lines to the `config.cson` file.
+
 > customFileTypes:<br />
->   "source.shell": [<br />
->      "fish"<br />
->    ]<br />
+> "source.shell": [<br />
+>
+> > "fish"<br />
+> > ]<br />
 
 within the below block,
+
 > core:
 
-Credit: [💳]( https://github.com/atom/atom/issues/1718#issuecomment-162242357)
+Credit: [💳](https://github.com/atom/atom/issues/1718#issuecomment-162242357)
 
 <details>
 <summary>File Structure</summary>
@@ -153,9 +179,10 @@ Credit: [💳]( https://github.com/atom/atom/issues/1718#issuecomment-162242357)
     └── tmux.conf
 
 35 directories, 54 files
+
 </pre>
 </details>
 
 ---
-[@truckmonth](https://twitter.com/truckmonth)
 
+[@truckmonth](https://twitter.com/truckmonth)
