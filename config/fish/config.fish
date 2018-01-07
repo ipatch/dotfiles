@@ -70,7 +70,7 @@ switch (uname)
       set -x PATH $PATH /sbin
 
       if type -q nvim
-        set -x EDITOR /usr/local/bin/nvim
+        set -x EDITOR /home/linuxbrew/.linuxbrew/bin/nvim
         [ -x "/home/linuxbrew/.linuxbrew/share/nvim/runtime/macros/less.sh" ]; and \
         alias less='/home/linuxbrew/.linuxbrew/share/nvim/runtime/macros/less.sh';
       else
