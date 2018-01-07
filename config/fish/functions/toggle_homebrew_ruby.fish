@@ -1,15 +1,12 @@
 function toggle_homebrew_ruby --description 'toggle homebrew ruby@2.3'
   switch (uname)
-
-# for i in ~/bin /usr/local/bin
- #           if not contains $i $PATH
- #               set PATH $PATH $i
- #           end
- #       end
     case Darwin
-      if set -l index (contains -i /usr/local/opt/ruby@2.3/bin $fish_user_paths)
-        set --erase --universal fish_user_paths[$index]
+      if set -l index (contains -i /usr/local/opt/ruby@2.3/bin $PATH)
+        set --erase fish_user_paths[$index]
         echo removed homebrew ruby@2.3 form \$fish_user_paths
+      else
+        set -gx fish_user_paths "/usr/local/opt/ruby@2.3/bin"
+        echo "added /usr/local/opt/ruby@2.3/bin to the \$fish_user_paths"
       end
       # for i in /usr/local/opt/ruby@2.3/bin
       #   if not contains $i $fish_user_paths
