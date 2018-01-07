@@ -26,6 +26,8 @@ git submodule init
 git submodule update
 ```
 
+---
+
 #### [🐟🐚](https://github.com/fish-shell/fish-shell)
 
 > NOTE: run the below command to symlink the fish-shell configuration directory and all files.
