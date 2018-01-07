@@ -76,5 +76,6 @@ switch (uname)
       else
         set -x EDITOR /usr/bin/vim
       end
+      rvm default
 
 end
