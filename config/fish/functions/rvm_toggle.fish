@@ -1,5 +1,6 @@
 function rvm_toggle --description 'toggle rvm if found'
-  set ruby_ver eval (which ruby)
+
+  set -l ruby_ver (command -s ruby)
   # switch ($ruby_ver)
   if string match -q -- "*.rvm*" $ruby_ver and test -d $HOME/.rvm
     echo "Now switch back to system ruby"
