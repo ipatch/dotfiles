@@ -60,22 +60,20 @@ switch (uname)
       set -x EDITOR /usr/bin/vim
     end
 
-    case Linux
-      if test -d /home/linuxbrew
-        set -x PATH /home/linuxbrew/.linuxbrew/bin $PATH
-        set -x PATH /home/linuxbrew/.linuxbrew/sbin $PATH
-      end
-      set -x PATH $PATH /usr/local/sbin
-      set -x PATH $PATH /usr/sbin
-      set -x PATH $PATH /sbin
+  case Linux
+    if test -d /home/linuxbrew
+      set -x PATH /home/linuxbrew/.linuxbrew/bin $PATH
+      set -x PATH /home/linuxbrew/.linuxbrew/sbin $PATH
+    end
+    set -x PATH $PATH /usr/local/sbin
+    set -x PATH $PATH /usr/sbin
+    set -x PATH $PATH /sbin
 
-      if type -q nvim
-        set -x EDITOR /home/linuxbrew/.linuxbrew/bin/nvim
-        [ -x "/home/linuxbrew/.linuxbrew/share/nvim/runtime/macros/less.sh" ]; and \
-        alias less='/home/linuxbrew/.linuxbrew/share/nvim/runtime/macros/less.sh';
-      else
-        set -x EDITOR /usr/bin/vim
-      end
-      rvm default
-
+    if type -q nvim
+      set -x EDITOR /home/linuxbrew/.linuxbrew/bin/nvim
+      [ -x "/home/linuxbrew/.linuxbrew/share/nvim/runtime/macros/less.sh" ]; and \
+      alias less='/home/linuxbrew/.linuxbrew/share/nvim/runtime/macros/less.sh';
+    else
+      set -x EDITOR /usr/bin/vim
+    end
 end
