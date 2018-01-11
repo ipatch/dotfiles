@@ -11,7 +11,7 @@ git clone git@github.com:ipatch/dotfiles.git
 ```
 
 > NOTE: this project uses a git submodule 🙄 which is dependent upon [this](https://github.com/chriskempson/base16-shell)
-> which allows a more sane color 🌈 experience in the terminal 💻
+> which allows for a more sane color 🌈 experience in the terminal 💻
 
 If you'd like to use the dotfiles with the submodule included,
 
