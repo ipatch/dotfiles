@@ -1,7 +1,6 @@
 function show_256_colors --description 'display all 256 terminal colors'
-  for code in (seq 255);
-
-      echo -e "\e[38;05; "$code"m code: Test";
+  for code in (seq 0 255)
+    echo -e "\e[38;05;"$code"m $code: Test\e[38m"
   end
 end
 
