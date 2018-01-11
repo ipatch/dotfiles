@@ -48,6 +48,7 @@ switch (uname)
     set -x PATH $PATH $HOME/anaconda2/bin
     set -x PATH $PATH $HOME/.config/yarn/global/node_modules/.bin
     set -x PATH $PATH $HOME/bin
+    set -gx fish_user_paths $fish_user_paths $HOME/bin/base16-shell
 
     ###
     # Add below command / truthy statement to add syntax highlighting for `less`
