@@ -71,3 +71,7 @@ end
 if type -q ccat
   abbr -a cat 'ccat'
 end
+
+if type -q nvim
+  abbr -a vim 'nvim'
+end
