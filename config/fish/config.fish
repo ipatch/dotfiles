@@ -65,6 +65,7 @@ switch (uname)
     if test -d /home/linuxbrew
       set -x PATH /home/linuxbrew/.linuxbrew/bin $PATH
       set -x PATH /home/linuxbrew/.linuxbrew/sbin $PATH
+      set -gx fish_user_paths /home/linuxbrew/.linuxbrew/opt/python/libexec/bin $fish_user_paths
     end
     set -x PATH $PATH /usr/local/sbin
     set -x PATH $PATH /usr/sbin
