@@ -69,9 +69,6 @@ switch (uname)
       set -x PATH /home/linuxbrew/.linuxbrew/bin $PATH
       set -x PATH /home/linuxbrew/.linuxbrew/sbin $PATH
       set -gx fish_user_paths /home/linuxbrew/.linuxbrew/opt/python/libexec/bin $fish_user_paths
-      if type -q /home/linuxbrew/.linuxbrew/bin/openssl
-        set -gx fish_user_paths $fish_user_paths /home/linuxbrew/.linuxbrew/bin/openssl/bin
-      end
     end
     set -x PATH $PATH /usr/local/sbin
     set -x PATH $PATH /usr/sbin
