@@ -49,6 +49,9 @@ switch (uname)
     set -x PATH $PATH $HOME/.config/yarn/global/node_modules/.bin
     set -x PATH $PATH $HOME/bin
     set -gx fish_user_paths $fish_user_paths $HOME/bin/base16-shell
+    if type -q /usr/local/opt/libressl/bin/openssl
+      set -gx fish_user_paths $fish_user_paths /usr/local/opt/libressl/bin
+    end
 
     ###
     # Add below command / truthy statement to add syntax highlighting for `less`
