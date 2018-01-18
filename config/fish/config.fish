@@ -52,6 +52,9 @@ switch (uname)
     if type -q /usr/local/opt/libressl/bin/openssl
       set -gx fish_user_paths $fish_user_paths /usr/local/opt/libressl/bin
     end
+    if type -q brew
+      set -gx fish_user_paths $fish_user_paths /usr/local/opt/python/libexec/bin
+    end
 
     ###
     # Add below command / truthy statement to add syntax highlighting for `less`
