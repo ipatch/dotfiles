@@ -50197,6 +50197,8 @@
 	<string>100x30-single-window</string>
 	<key>Default Bookmark Guid</key>
 	<string>CE23A0D0-D231-41C3-A52A-D169A1007D13</string>
+	<key>EnableProxyIcon</key>
+	<true/>
 	<key>GlobalKeyMap</key>
 	<dict>
 		<key>0x19-0x60000</key>
@@ -50340,6 +50342,8 @@
 			<string></string>
 		</dict>
 	</dict>
+	<key>HideScrollbar</key>
+	<false/>
 	<key>HideTab</key>
 	<false/>
 	<key>HotkeyMigratedFromSingleToMulti</key>
@@ -50391,7 +50395,7 @@
 	<key>NSWindow Frame NSFontPanel</key>
 	<string>698 -3 647 289 0 0 1440 877 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>343 404 796 473 0 0 1440 877 </string>
+	<string>170 73 918 485 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
 	<string>734 407 703 470 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
@@ -50638,6 +50642,8 @@
 			<integer>100</integer>
 			<key>Command</key>
 			<string></string>
+			<key>Cursor Boost</key>
+			<real>0.0</real>
 			<key>Cursor Color</key>
 			<dict>
 				<key>Blue Component</key>
@@ -51063,6 +51069,8 @@
 			<false/>
 			<key>Silence Bell</key>
 			<false/>
+			<key>Smart Cursor Color</key>
+			<true/>
 			<key>Sync Title</key>
 			<false/>
 			<key>Tags</key>
@@ -51083,6 +51091,8 @@
 			<true/>
 			<key>Use Non-ASCII Font</key>
 			<true/>
+			<key>Use Tab Color</key>
+			<false/>
 			<key>Vertical Spacing</key>
 			<real>1</real>
 			<key>Visual Bell</key>
@@ -51098,7 +51108,11 @@
 	<key>NoSyncInstallationId</key>
 	<string>78AA9C86-D1B6-4CB1-9190-0B72ECA2684D</string>
 	<key>NoSyncLastTipTime</key>
-	<real>537656474.43927097</real>
+	<real>537829432.64399695</real>
+	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
+	<true/>
+	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
+	<integer>0</integer>
 	<key>NoSyncPermissionToShowTip</key>
 	<true/>
 	<key>NoSyncTimeOfFirstLaunchOfVersionWithTip</key>
@@ -51126,6 +51140,8 @@
 		<string>0017</string>
 		<string>0018</string>
 		<string>0019</string>
+		<string>0020</string>
+		<string>0021</string>
 	</array>
 	<key>NoSyncTurnOffBracketedPasteOnHostChange</key>
 	<false/>
@@ -51183,13 +51199,21 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2018-01-14T22:58:31Z</date>
+	<date>2018-01-16T12:09:31Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
+	<key>StretchTabsToFillBar</key>
+	<false/>
+	<key>SwitchTabModifier</key>
+	<integer>4</integer>
 	<key>TabStyle</key>
 	<integer>1</integer>
 	<key>TabViewType</key>
 	<integer>0</integer>
+	<key>URLHandlersByGuid</key>
+	<dict/>
+	<key>UseBorder</key>
+	<false/>
 	<key>Window Arrangements</key>
 	<dict>
 		<key>100x30-single-window</key>
