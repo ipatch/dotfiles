@@ -6,7 +6,7 @@
 #
 # See also the plugin at https://github.com/oh-my-fish/plugin-grc
 
-set -U grc_plugin_execs cat cvs df diff dig gcc g++ ls ifconfig \
+set -U grc_plugin_execs cat cvs df diff dig gcc g++ ifconfig \
        make mount mtr netstat ping ps tail traceroute \
        wdiff blkid du dnf docker docker-machine env id ip iostat \
        last lsattr lsblk lspci lsmod lsof getfacl getsebool ulimit uptime nmap \
@@ -20,3 +20,5 @@ for executable in $grc_plugin_execs
     end
 end
 
+# Removed commands
+# ls
