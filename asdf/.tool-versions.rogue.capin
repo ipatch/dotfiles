@@ -1,6 +1,6 @@
 elixir 1.5.2
 erlang 20.0
-nodejs 8.1.2
+nodejs 9.4.0
 python 3.6.3
 ruby 2.3.1
 rust 1.22.1
