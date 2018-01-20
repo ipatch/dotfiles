@@ -50395,9 +50395,9 @@
 	<key>NSWindow Frame NSFontPanel</key>
 	<string>698 -3 647 289 0 0 1440 877 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>170 73 918 485 0 0 1440 877 </string>
+	<string>183 219 796 473 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>734 407 703 470 0 0 1440 877 </string>
+	<string>730 407 710 470 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>570 320 710 537 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
@@ -50682,7 +50682,7 @@
 			<key>Custom Command</key>
 			<string>No</string>
 			<key>Custom Directory</key>
-			<string>No</string>
+			<string>Recycle</string>
 			<key>Default Bookmark</key>
 			<string>No</string>
 			<key>Description</key>
@@ -51108,7 +51108,7 @@
 	<key>NoSyncInstallationId</key>
 	<string>78AA9C86-D1B6-4CB1-9190-0B72ECA2684D</string>
 	<key>NoSyncLastTipTime</key>
-	<real>537829432.64399695</real>
+	<real>538098307.33139002</real>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
@@ -51142,6 +51142,9 @@
 		<string>0019</string>
 		<string>0020</string>
 		<string>0021</string>
+		<string>0022</string>
+		<string>0023</string>
+		<string>0024</string>
 	</array>
 	<key>NoSyncTurnOffBracketedPasteOnHostChange</key>
 	<false/>
@@ -51199,7 +51202,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2018-01-16T12:09:31Z</date>
+	<date>2018-01-20T19:58:51Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>StretchTabsToFillBar</key>
