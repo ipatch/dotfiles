@@ -21,7 +21,7 @@ set -gx DOTFILES /opt/Code/dotfiles
 
 if type -q rustc
   # Add rust-lang local bin directory to PATH for working with cargo.
-  set -x PATH $PATH $HOME/.cargo/bin
+  set -gx fish_user_paths $fish_user_paths $HOME/.cargo/bin
 end
 
 switch (uname)
@@ -39,15 +39,15 @@ switch (uname)
     ###
     # NOTE: prepend gnu-sed to the beginning of the $PATH
     ###
-    set -x PATH /usr/local/opt/gnu-sed/libexec/gnubin $PATH
+    set -gx fish_user_paths $fish_user_paths /usr/local/opt/gnu-sed/libexec/gnubin
     # PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
     ###
     # Add the below path in order to get react-native CLI working.
     ###
-    set -x PATH $PATH $HOME/Library/Android/sdk/platform-tools
-    set -x PATH $PATH $HOME/anaconda2/bin
+    set -gx fish_user_paths $fish_user_paths $HOME/Library/Android/sdk/platform-tools
+    set -gx fish_user_paths $fish_user_paths $HOME/anaconda2/bin
     set -gx fish_user_paths $fish_user_paths $HOME/.config/yarn/global/node_modules/.bin
-    set -x PATH $PATH $HOME/bin
+    set -gx fish_user_paths $fish_user_paths $HOME/bin
     set -gx fish_user_paths $fish_user_paths $HOME/bin/base16-shell
     if type -q /usr/local/opt/libressl/bin/openssl
       set -gx fish_user_paths $fish_user_paths /usr/local/opt/libressl/bin
