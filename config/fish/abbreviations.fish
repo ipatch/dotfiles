@@ -16,6 +16,7 @@ abbr -a df 'df -h'
 abbr -a du 'du -h'
 abbr -a dotfiles 'cd /opt/Code/dotfiles'
 abbr -a hmmm 'echo "¯\_(ツ)_/¯"'
+abbr -a table-flip 'echo "(╯°□°）╯︵ ┻━┻"' | pbcopy
 # preserve the $USER environment when running the sudo command.
 abbr -a sudo 'sudo -E'
 ###
