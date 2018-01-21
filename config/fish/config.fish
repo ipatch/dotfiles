@@ -69,13 +69,17 @@ switch (uname)
 
   case Linux
     if test -d /home/linuxbrew
-      set -x PATH /home/linuxbrew/.linuxbrew/bin $PATH
-      set -x PATH /home/linuxbrew/.linuxbrew/sbin $PATH
+      set -gx fish_user_paths /home/linuxbrew/.linuxbrew/bin $fish_user_paths
+      set -gx fish_user_paths /home/linuxbrew/.linuxbrew/sbin $fish_user_paths
       set -gx fish_user_paths /home/linuxbrew/.linuxbrew/opt/python/libexec/bin $fish_user_paths
     end
-    set -x PATH $PATH /usr/local/sbin
-    set -x PATH $PATH /usr/sbin
-    set -x PATH $PATH /sbin
+    set -gx fish_user_paths $fish_user_paths /usr/local/sbin
+    set -gx fish_user_paths $fish_user_paths /usr/sbin
+    set -gx fish_user_paths $fish_user_paths /sbin
+
+    # set $DISPLAY to allow X11 forwarding through SSH, necessary to get
+    # xclip to behave as intended.
+    set -gx DISPLAY "127.0.0.1:10.0"
 
     if type -q nvim
       set -x EDITOR /home/linuxbrew/.linuxbrew/bin/nvim
