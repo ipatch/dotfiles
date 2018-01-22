@@ -79,7 +79,7 @@ switch (uname)
 
     # set $DISPLAY to allow X11 forwarding through SSH, necessary to get
     # xclip to behave as intended.
-    set -gx DISPLAY "127.0.0.1:10.0"
+    set -gx DISPLAY "127.0.0.1:11.0"
     set -gx XAUTHORITY "$HOME/.Xauthority"
 
     if type -q nvim
