@@ -50397,9 +50397,9 @@
 	<key>NSWindow Frame SharedPreferences</key>
 	<string>183 219 796 473 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>730 407 710 470 0 0 1440 877 </string>
+	<string>715 407 710 470 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>570 320 710 537 0 0 1440 877 </string>
+	<string>570 376 710 470 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
 	<string>27 241 710 537 0 0 1440 877 </string>
 	<key>NeverWarnAboutShortLivedSessions_CE23A0D0-D231-41C3-A52A-D169A1007D13</key>
@@ -51108,7 +51108,7 @@
 	<key>NoSyncInstallationId</key>
 	<string>78AA9C86-D1B6-4CB1-9190-0B72ECA2684D</string>
 	<key>NoSyncLastTipTime</key>
-	<real>538098307.33139002</real>
+	<real>538604711.49188197</real>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
@@ -51145,6 +51145,11 @@
 		<string>0022</string>
 		<string>0023</string>
 		<string>0024</string>
+		<string>0025</string>
+		<string>0026</string>
+		<string>0027</string>
+		<string>0028</string>
+		<string>0029</string>
 	</array>
 	<key>NoSyncTurnOffBracketedPasteOnHostChange</key>
 	<false/>
@@ -51202,7 +51207,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2018-01-20T19:58:51Z</date>
+	<date>2018-01-26T16:18:41Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>StretchTabsToFillBar</key>
