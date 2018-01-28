@@ -35,6 +35,7 @@ abbr -a gp 'git push'
 abbr -a gpl 'git pull'
 abbr -a gru 'git remote -v update'
 abbr -a gco 'git checkout'
+abbr -a gsru 'git srupdate'
 ###
 # abbreviations for for custom functions
 ###
