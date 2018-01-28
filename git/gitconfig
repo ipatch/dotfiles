@@ -11,6 +11,7 @@
 [alias]
 	graph = log --graph --oneline
   random = !git commit -m \"`fortune`\"
+	srupdate = submodule update --recursive --remote
 
 [color]
   branch = auto
