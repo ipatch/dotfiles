@@ -335,3 +335,7 @@ augroup END
 map <leader>vm :tabe $MYVIMRC<CR>
 map <leader>sv :source $MYVIMRC<CR>
 
+" ==================================
+" set nvim to manpager in env var
+" ==================================
+let $MANPAGER=''
