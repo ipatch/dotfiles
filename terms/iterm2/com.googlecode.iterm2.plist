@@ -50394,10 +50394,12 @@
 	</dict>
 	<key>NSWindow Frame NSFontPanel</key>
 	<string>698 -3 647 289 0 0 1440 877 </string>
+	<key>NSWindow Frame SessionsPreferences</key>
+	<string>269 76 599 519 0 0 1440 877 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>183 219 796 473 0 0 1440 877 </string>
+	<string>157 297 796 473 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>715 407 710 470 0 0 1440 877 </string>
+	<string>711 407 710 470 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>570 376 710 470 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
@@ -51082,7 +51084,7 @@
 			<key>Transparency</key>
 			<real>0.0</real>
 			<key>Unlimited Scrollback</key>
-			<false/>
+			<true/>
 			<key>Use Bold Font</key>
 			<true/>
 			<key>Use Bright Bold</key>
@@ -51108,7 +51110,7 @@
 	<key>NoSyncInstallationId</key>
 	<string>78AA9C86-D1B6-4CB1-9190-0B72ECA2684D</string>
 	<key>NoSyncLastTipTime</key>
-	<real>538604711.49188197</real>
+	<real>539282410.74727201</real>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
@@ -51150,6 +51152,13 @@
 		<string>0027</string>
 		<string>0028</string>
 		<string>0029</string>
+		<string>0030</string>
+		<string>0031</string>
+		<string>0032</string>
+		<string>0033</string>
+		<string>0034</string>
+		<string>0035</string>
+		<string>0036</string>
 	</array>
 	<key>NoSyncTurnOffBracketedPasteOnHostChange</key>
 	<false/>
@@ -51207,7 +51216,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2018-01-26T16:18:41Z</date>
+	<date>2018-02-01T22:43:58Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>StretchTabsToFillBar</key>
