@@ -51,6 +51,13 @@ toggle_asdf_shims_and_bins; toggle_homebrew_python_paths;"
 abbr -a toggle_rvm 'rvm_toggle'
 abbr -a toggle-rvm 'rvm_toggle'
 abbr -a rvm-toggle 'rvm_toggle'
+
+###
+# macOS specific abbreviations
+###
+abbr -a fs 'toggle_hidden_files'
+abbr -a fh 'toggle_hidden_files'
+
 ###
 # useful abbreviations for working NOC lists
 ###
