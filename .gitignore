@@ -14,3 +14,6 @@ config/irc-clients/weechat/weechat.log
 
 # Ignore fishd.<hash-files>
 config/fish/fishd.*
+
+# Ignore those pesky .DS_Store files recursively throughout project
+**/.DS_Store
