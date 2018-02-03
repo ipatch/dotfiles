@@ -335,3 +335,7 @@ augroup END
 map <leader>vm :tabe $MYVIMRC<CR>
 map <leader>sv :source $MYVIMRC<CR>
 
+" =====================================
+" set (n)vim as pager
+" =====================================
+let $PAGER=''
