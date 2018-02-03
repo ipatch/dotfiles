@@ -13,6 +13,7 @@
   random = !git commit -m \"`fortune`\"
 	srupdate = submodule update --recursive --remote
 	update = "!git pull; git submodule update --init --recursive"
+  co = checkout
 
 [color]
   branch = auto
