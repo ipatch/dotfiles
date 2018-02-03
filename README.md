@@ -42,11 +42,10 @@ ln -sf $DOTFILES/config/fish/ $HOME/.config/fish
 <summary>Screenshot 📸</summary>
 <img src="https://github.com/ipatch/dotfiles/blob/master/lib/vim-2017.png" alt="nvim-screenshot">
 </details>
-<br />
 
 To utilize [this Neovim configuration](https://github.com/ipatch/dotfiles/blob/master/config/nvim/init.vim) to its full potential, [vim-plug](https://github.com/junegunn/vim-plug) will need to be installed along with Python 2 or 3.
 
-To install vim-plug copy & paste the below command in your terminal.
+* To install vim-plug copy & paste the below command in your terminal.
 
 ```shell
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
@@ -186,5 +185,9 @@ Credit: [💳](https://github.com/atom/atom/issues/1718#issuecomment-162242357)
 </details>
 
 ---
+
+## TODO
+- [ ] Add a collection of inspirational dotfile repos.
+- [ ] Add images in the lib dir of this repo to the .wiki submodule repo.
 
 [@truckmonth](https://twitter.com/truckmonth)
