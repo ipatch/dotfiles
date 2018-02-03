@@ -18,6 +18,7 @@ end
 ###
 set -gx HOSTNAME (hostname -s)
 set -gx DOTFILES /opt/Code/dotfiles
+# set -gx GREP_OPTIONS --color=auto
 
 if type -q rustc
   # Add rust-lang local bin directory to PATH for working with cargo.
