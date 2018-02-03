@@ -335,14 +335,11 @@ augroup END
 map <leader>vm :tabe $MYVIMRC<CR>
 map <leader>sv :source $MYVIMRC<CR>
 
-<<<<<<< HEAD
 " =====================================
 " set (n)vim as pager
 " =====================================
 let $PAGER=''
-=======
 " ==================================
 " set nvim to manpager in env var
 " ==================================
 let $MANPAGER=''
->>>>>>> ebe9eaecee59e7f1183c7066ed42ac9a53b78701
