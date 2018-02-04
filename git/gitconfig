@@ -1,24 +1,146 @@
 # This is Git's per-user configuration file.
-[user]
-# Please adapt and uncomment the following lines:
-	name = ipatch
-	email = chris.r.jones.1983@gmail.com
-[push]
-	default = simple
+
+[alias]
+  # Clone a repository including all submodules
+  c = clone --recursive
+  
+  ###
+  # logging
+  ###
+  l = log --graph --pretty=oneline
+
+	###
+  # checking out
+  ###
+  co = checkout
+  cb = checkout -b
+  master = checkout master
+
+  ###
+  # commiting
+  ###
+  ci = commit
+  ca = commit --amend
+  cm = commit -S -m
+  ###
+  # for those random buf fun commits 👍
+  ###
+  random = !git commit -m \"`fortune`\"
+
+  ###
+  # pull & push
+  ###
+  p = !git pull
+  ps = !git pull; and git submodule update 
+
+  ###
+  # diff
+  ###
+  d = diff
+  dc = diff --cached
+
+  fo = fetch origin
+
+  m = merge
+
+  ###
+  # statusing
+  ##
+  st = status
+  s = status --short --branch
+  # list contributors with number of commits
+  sl = shortlog --summary --numbered
+
+  ###
+  # remotes
+  ###
+  remotes = remote --verbose
+
+  ###
+  # tagging
+  ###
+  t = tag
+  # show verbose output about tags
+  tags = tag --list
+
+  ###
+  # 🚨 Danger zone 🚨
+  ###
+  # Undo a `git push`
+  undopush = push -f origin HEAD^:master
+  
+  ###
+  # git extras
+  ###
+  # cl = changelog --list
+  # copy = copy-branch
+  # dmb = delete-merged-branches
+
+  ###
+  # randos
+  ###
+  last = show --show-signature
+  
+  ###
+  # working with submodules, ie. add, commit, push
+  ###
+  sm = submodule
+  smu = submodule update
+  smi = submodule init
+  smf = submodule foreach
+  
+  subup = submodule update --init
+  srupdate = submodule update --recursive --remote
+	update = "!git pull; git submodule update --init --recursive"
+  
+  
+  # commitall = "!git submodule foreach 'git commit -am "\$argv";'"
+  # pushall = "!git submodule foreach push --recurse-submodules=on-demand;"
+  # hack = "!git commitall; !git pushall; !git commit -am;"
+
+  ###
+  # Useful Commands 👌 -- compound commands
+  ###
+  
+  # Get a list of your defined aliases
+  aliases = !git config --get-regexp 'alias.*' | colrm 1 6 | sed 's/[ ]/ = /'
+
+  # Remove branches that have already been merged with master, a.k.a. ‘delete merged’
+  clean-branches = "!git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
+
+  # Pull in remote changes for the current repository and all its submodules
+  pull-all = !"git pull && git submodule foreach git pull origin master"
+
+  # Prune all your stale remote branches
+  prune-all = !git remote | xargs -n 1 git remote prune
+
+  # If upstream applied a slightly modified patch, and you want to see the
+  # modifications, you should use the program interdiff of the patchutils
+  # package. This accept two commits, typically the first coming from upstream
+  # (e.g. origin/master) and the second coming from your own topic branch.
+  intercommit = !sh -c 'interdiff <(git show $1) <(git show $2) | less -FRS' -
+
+  # graph
+  graphviz = "!f() { echo 'digraph git {' ; git log --pretty='format:  %h -> { %p }' \"$@\" | sed 's/[0-9a-f][0-9a-f]*/\"&\"/g' ; echo '}'; }; f"
+
+# Use `origin` as the default remote on the `master` branch in all cases
+[branch "master"]
+  remote = origin
+  merge = refs/heads/master
+
 [core]
+  attributesfile = $HOME/.gitattributes
 	editor = nvim
 	excludesfile = $HOME/.gitexclude
-[alias]
-	graph = log --graph --oneline
-  random = !git commit -m \"`fortune`\"
-	srupdate = submodule update --recursive --remote
-	update = "!git pull; git submodule update --init --recursive"
-  co = checkout
 
 [color]
+  ui = auto
   branch = auto
   diff = auto
   status = auto
+  grep = auto
+  interactive = auto
+  pager = true
 [color "branch"]
   current = yellow reverse
   local = yellow
@@ -32,7 +154,46 @@
   added = yellow
   changed = green
   untracked = cyan
+
+[merge]
+  # Include summaries of merged commits in newly created merge commit messages
+  log = true
+
+[push]
+	default = simple # git 1.8+ required
+
+# URL shorthands
+[url "git@github.com"]
+  insteadOf = "gh:"
+  pushInsteadOf = "github:"
+  pushInsteadOf = "git://github.com/"
+[url "git://github.com/"]
+  insteadOf = "github:"
+[url "git@gist.github.com:"]
+  insteadOf = "gst:"
+  pushInsteadOf = "gist:"
+  pushInsteadOf = "git://gist.github.com/"
+[url "git://gist.github.com/"]
+  insteadOf = "gist:"
+[url "git://bitbucket.org:"]
+  insteadOf = "bb:"
 [diff]
 	submodule = log
 [status]
 	submodulesummary = 1
+
+[commit]
+	gpgsign = true
+
+[rebase]
+  stat = true
+
+[gpg]
+	program = gpg
+
+[user]
+# Please adapt and uncomment the following lines:
+	name = ipatch
+	email = chris.r.jones.1983@gmail.com
+	signingKey = CD688E9D
+
