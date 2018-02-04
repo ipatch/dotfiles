@@ -24,7 +24,7 @@
   cm = commit -S -m
   ac = commit -am
   ###
-  # for those random buf fun commits 👍
+  # for those random quick & fun commits 👍
   ###
   random = !git commit -am \"`fortune`\"
 
