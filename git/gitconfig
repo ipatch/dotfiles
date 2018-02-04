@@ -101,6 +101,9 @@
   smrupdate = submodule update --recursive --remote
   update = '!git pull; git submodule update --init --recursive'
   sma = "!git smf "git add --all"; git add --all;"
+  ###
+  # TODO: figure out how to submit a message from CLI
+  ###
   smac = "!git smf "git commit -a"; git commit -a;"
   ###
   # push all files including submodule files
