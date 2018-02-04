@@ -108,8 +108,7 @@
   ###
   # TODO: figure out how push all files including submodule files
   ###
-  smp = "!git smf "git push origin master""
-  
+  smp = "!git push --recurse-submodules=on-demand"
   
   # commitall = "!git submodule foreach 'git commit -am "\$argv";'"
   # pushall = "!git submodule foreach push --recurse-submodules=on-demand;"
@@ -213,5 +212,3 @@
 	name = ipatch
 	email = chris.r.jones.1983@gmail.com
 	signingKey = CD688E9D
-
-  # 
