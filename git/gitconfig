@@ -189,23 +189,25 @@
   insteadOf = "gist:"
 [url "git://bitbucket.org:"]
   insteadOf = "bb:"
+
 [diff]
-	submodule = log
+  submodule = log
+
 [status]
-	submodulesummary = 1
+  submodulesummary = 1
 
 [commit]
-	gpgsign = true
+  gpgsign = true
 
 [rebase]
   stat = true
 
 [gpg]
-	program = gpg
+  program = gpg
 
 [user]
-	name = ipatch
-	email = chris.r.jones.1983@gmail.com
-	signingKey = CD688E9D
+  name = ipatch
+  email = chris.r.jones.1983@gmail.com
+  signingKey = CD688E9D
 
 # 
