@@ -101,7 +101,7 @@
   smrupdate = submodule update --recursive --remote
   update = '!git pull; git submodule update --init --recursive'
   sma = "!git smf "git add --all"; git add --all;"
-  smac = '!git smf "git commit -a"; git commit -a;'
+  smac = "!git smf "git commit -a"; git commit -a;"
   ###
   # push all files including submodule files
   ###
@@ -204,3 +204,5 @@
 	name = ipatch
 	email = chris.r.jones.1983@gmail.com
 	signingKey = CD688E9D
+
+# 
