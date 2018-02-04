@@ -9,7 +9,8 @@
   ###
   l = log --graph --pretty=oneline
 
-	###
+	
+  ###
   # checking out
   ###
   co = checkout
