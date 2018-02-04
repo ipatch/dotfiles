@@ -71,6 +71,15 @@
   undopush = push -f origin HEAD^:master
   
   ###
+  # to undo the last added / staged files
+  ###
+  undoadd = "!git reset HEAD -- ."
+  ###
+  # to undo the last commit
+  ###
+  undoci = "!git reset HEAD~"
+  
+  ###
   # git extras
   ###
   # cl = changelog --list
@@ -89,10 +98,17 @@
   smu = submodule update
   smi = submodule init
   smf = submodule foreach
-  
-  subup = submodule update --init
-  srupdate = submodule update --recursive --remote
+  smrupdate = submodule update --recursive --remote
 	update = "!git pull; git submodule update --init --recursive"
+  ###
+  # expiermentation commands 😵
+  ###
+  sma = "!git smf "git add --all"; git add --all;"
+  smac = "!git smf "git add --all"; git add --all; git commit"
+  ###
+  # TODO: figure out how push all files including submodule files
+  ###
+  smp = "!git smf "git push origin master""
   
   
   # commitall = "!git submodule foreach 'git commit -am "\$argv";'"
@@ -197,5 +213,3 @@
 	name = ipatch
 	email = chris.r.jones.1983@gmail.com
 	signingKey = CD688E9D
-
-# test
