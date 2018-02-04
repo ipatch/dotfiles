@@ -99,21 +99,14 @@
   smi = submodule init
   smf = submodule foreach --recursive
   smrupdate = submodule update --recursive --remote
-	update = "!git pull; git submodule update --init --recursive"
-  ###
-  # expiermentation commands 😵
-  ###
+  update = '!git pull; git submodule update --init --recursive'
   sma = "!git smf "git add --all"; git add --all;"
-  smac = "!git smf "git commit -a"; git commit -a;"
+  smac = '!git smf "git commit -a"; git commit -a;'
   ###
-  # TODO: figure out how push all files including submodule files
+  # push all files including submodule files
   ###
   smp = "!git push --recurse-submodules=on-demand"
   
-  # commitall = "!git submodule foreach 'git commit -am "\$argv";'"
-  # pushall = "!git submodule foreach push --recurse-submodules=on-demand;"
-  # hack = "!git commitall; !git pushall; !git commit -am;"
-
   ###
   # Useful Commands 👌 -- compound commands
   ###
@@ -208,7 +201,6 @@
 	program = gpg
 
 [user]
-# Please adapt and uncomment the following lines:
 	name = ipatch
 	email = chris.r.jones.1983@gmail.com
 	signingKey = CD688E9D
