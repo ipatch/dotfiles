@@ -172,7 +172,7 @@
   log = true
 
 [push]
-	default = simple # git 1.8+ required
+  default = simple # git 1.8+ required
 
 # URL shorthands
 [url "git@github.com"]
