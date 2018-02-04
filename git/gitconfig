@@ -97,14 +97,14 @@
   sm = submodule
   smu = submodule update
   smi = submodule init
-  smf = submodule foreach
+  smf = submodule foreach --recursive
   smrupdate = submodule update --recursive --remote
 	update = "!git pull; git submodule update --init --recursive"
   ###
   # expiermentation commands 😵
   ###
   sma = "!git smf "git add --all"; git add --all;"
-  smac = "!git smf "git add --all"; git add --all; git commit"
+  smac = "!git smf "git commit -a"; git commit -a;"
   ###
   # TODO: figure out how push all files including submodule files
   ###
