@@ -142,8 +142,8 @@
 
 [core]
   attributesfile = $HOME/.gitattributes
-	editor = nvim
-	excludesfile = $HOME/.gitexclude
+  editor = nvim
+  excludesfile = $HOME/.gitexclude
 
 [color]
   ui = auto
