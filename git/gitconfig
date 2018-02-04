@@ -26,7 +26,7 @@
   ###
   # for those random buf fun commits 👍
   ###
-  random = !git commit -m \"`fortune`\"
+  random = !git commit -am \"`fortune`\"
 
   ###
   # pull & push
