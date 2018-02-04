@@ -22,6 +22,7 @@
   ci = commit
   ca = commit --amend
   cm = commit -S -m
+  ac = commit -am
   ###
   # for those random buf fun commits 👍
   ###
