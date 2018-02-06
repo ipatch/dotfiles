@@ -41,7 +41,7 @@ ln -sf $DOTFILES/config/fish/ $HOME/.config/fish
 
 <details>
 <summary>Screenshot 📸</summary>
-<img src="https://github.com/ipatch/dotfiles/blob/master/lib/vim-2017.png" alt="nvim-screenshot">
+<img src="https://github.com/ipatch/dotfiles/wiki/blob/master/lib/vim-2017.png" alt="nvim-screenshot">
 </details>
 
 To utilize [this Neovim configuration](https://github.com/ipatch/dotfiles/blob/master/config/nvim/init.vim) to its full potential, [vim-plug](https://github.com/junegunn/vim-plug) will need to be installed along with Python 2 or 3.
@@ -190,5 +190,6 @@ Credit: [💳](https://github.com/atom/atom/issues/1718#issuecomment-162242357)
 ## TODO
 - [ ] Add a collection of inspirational dotfile repos.
 - [ ] Add images in the lib dir of this repo to the .wiki submodule repo.
+- [ ] Figure out why cloning the dotfiles repo is cloning the submodules with detached heads 🤔
 
 [@truckmonth](https://twitter.com/truckmonth)
