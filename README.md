@@ -15,8 +15,9 @@ git clone git@github.com:ipatch/dotfiles.git
 
 If you'd like to use the dotfiles with the submodule included,
 
-```shell
-git clone --recurse-submodules git@github.com:ipatch/dotfiles.git
+```diff
+- git clone --recurse-submodules git@github.com:ipatch/dotfiles.git
++ git clone --recursive git@github.com:ipatch/dotfiles.git
 ```
 
 or if you have already cloned the repo without the submodule
