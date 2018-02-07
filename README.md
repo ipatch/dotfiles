@@ -15,8 +15,9 @@ git clone git@github.com:ipatch/dotfiles.git
 
 If you'd like to use the dotfiles with the submodule included,
 
-```shell
-git clone --recurse-submodules git@github.com:ipatch/dotfiles.git
+```diff
+- git clone --recurse-submodules git@github.com:ipatch/dotfiles.git
++ git clone --recursive git@github.com:ipatch/dotfiles.git
 ```
 
 or if you have already cloned the repo without the submodule
@@ -40,13 +41,12 @@ ln -sf $DOTFILES/config/fish/ $HOME/.config/fish
 
 <details>
 <summary>Screenshot 📸</summary>
-<img src="https://github.com/ipatch/dotfiles/blob/master/lib/vim-2017.png" alt="nvim-screenshot">
+<img src="https://raw.githubusercontent.com/wiki/ipatch/dotfiles/lib/vim-2017.png" alt="nvim-screenshot">
 </details>
-<br />
 
 To utilize [this Neovim configuration](https://github.com/ipatch/dotfiles/blob/master/config/nvim/init.vim) to its full potential, [vim-plug](https://github.com/junegunn/vim-plug) will need to be installed along with Python 2 or 3.
 
-To install vim-plug copy & paste the below command in your terminal.
+* To install vim-plug copy & paste the below command in your terminal.
 
 ```shell
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
@@ -186,5 +186,10 @@ Credit: [💳](https://github.com/atom/atom/issues/1718#issuecomment-162242357)
 </details>
 
 ---
+
+## TODO
+- [ ] Add a collection of inspirational dotfile repos.
+- [x] ~~Add images in the lib dir of this repo to the .wiki submodule repo.~~
+- [ ] Figure out why cloning the dotfiles repo is cloning the submodules with detached heads 🤔
 
 [@truckmonth](https://twitter.com/truckmonth)
