@@ -198,7 +198,7 @@
   submodulesummary = 1
 
 [commit]
-  gpgsign = true
+  # gpgsign = true
 
 [rebase]
   stat = true
@@ -209,4 +209,4 @@
 [user]
   name = ipatch
   email = chris.r.jones.1983@gmail.com
-  signingKey = CD688E9D
+  #signingKey = CD688E9D
