@@ -58,6 +58,12 @@ switch (uname)
     end
 
     ###
+    # set env vars for git
+    ###
+    set -gx GPG_TTY (tty)
+    
+
+    ###
     # Add below command / truthy statement to add syntax highlighting for `less`
     ###
     if type -q nvim

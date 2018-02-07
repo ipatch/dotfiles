@@ -20,6 +20,7 @@ abbr -a dotfiles 'cd /opt/Code/dotfiles'
 ###
 abbr -a hmmm 'shrug'
 abbr -a tf 'table_flip'
+abbr -a woot 'yay'
 
 # preserve the $USER environment when running the sudo command.
 abbr -a sudo 'sudo -E'
@@ -30,12 +31,13 @@ abbr -a gs 'git status'
 abbr -a gd 'git diff --stat'
 abbr -a ga 'git add --all'
 abbr -a gc 'git commit -m'
+abbr -a gac 'git commit -am'
 abbr -a gqc 'git random'
 abbr -a gp 'git push'
 abbr -a gpl 'git pull'
 abbr -a gru 'git remote -v update'
 abbr -a gco 'git checkout'
-abbr -a gsru 'git srupdate'
+abbr -a gsmru 'git smrupdate'
 ###
 # abbreviations for for custom functions
 ###
