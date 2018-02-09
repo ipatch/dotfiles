@@ -13,5 +13,6 @@
     // When opening a file, `editor.tabSize` and `editor.insertSpaces`
     // will be detected based on the file contents.
     "editor.detectIndentation": true,
-    "explorer.confirmDragAndDrop": false
+    "explorer.confirmDragAndDrop": false,
+    "workbench.statusBar.visible": true
 }
