@@ -50197,6 +50197,14 @@
 	<string>window-arrangement-two-windows</string>
 	<key>Default Bookmark Guid</key>
 	<string>CE23A0D0-D231-41C3-A52A-D169A1007D13</string>
+	<key>DimBackgroundWindows</key>
+	<true/>
+	<key>DimInactiveSplitPanes</key>
+	<true/>
+	<key>DimOnlyText</key>
+	<true/>
+	<key>DisableFullscreenTransparency</key>
+	<true/>
 	<key>EnableProxyIcon</key>
 	<true/>
 	<key>GlobalKeyMap</key>
@@ -50342,9 +50350,15 @@
 			<string></string>
 		</dict>
 	</dict>
+	<key>HideActivityIndicator</key>
+	<false/>
 	<key>HideScrollbar</key>
 	<false/>
 	<key>HideTab</key>
+	<false/>
+	<key>HideTabCloseButton</key>
+	<false/>
+	<key>HideTabNumber</key>
 	<false/>
 	<key>HotkeyMigratedFromSingleToMulti</key>
 	<true/>
@@ -50397,11 +50411,11 @@
 	<key>NSWindow Frame SessionsPreferences</key>
 	<string>269 76 599 519 0 0 1440 877 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>157 297 796 473 0 0 1440 877 </string>
+	<string>121 207 918 494 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>715 324 710 537 0 0 1440 877 </string>
+	<string>715 405 710 470 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>570 376 710 470 0 0 1440 877 </string>
+	<string>384 360 710 470 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
 	<string>27 241 710 537 0 0 1440 877 </string>
 	<key>NeverWarnAboutShortLivedSessions_CE23A0D0-D231-41C3-A52A-D169A1007D13</key>
@@ -50413,6 +50427,18 @@
 		<dict>
 			<key>ASCII Anti Aliased</key>
 			<true/>
+			<key>AWDS Pane Directory</key>
+			<string></string>
+			<key>AWDS Pane Option</key>
+			<string>No</string>
+			<key>AWDS Tab Directory</key>
+			<string></string>
+			<key>AWDS Tab Option</key>
+			<string>No</string>
+			<key>AWDS Window Directory</key>
+			<string></string>
+			<key>AWDS Window Option</key>
+			<string>No</string>
 			<key>Allow Title Reporting</key>
 			<true/>
 			<key>Ambiguous Double Width</key>
@@ -50706,8 +50732,34 @@
 			</dict>
 			<key>Guid</key>
 			<string>CE23A0D0-D231-41C3-A52A-D169A1007D13</string>
+			<key>Has Hotkey</key>
+			<false/>
 			<key>Horizontal Spacing</key>
 			<real>1</real>
+			<key>HotKey Activated By Modifier</key>
+			<true/>
+			<key>HotKey Alternate Shortcuts</key>
+			<array/>
+			<key>HotKey Characters</key>
+			<string>,</string>
+			<key>HotKey Characters Ignoring Modifiers</key>
+			<string>,</string>
+			<key>HotKey Key Code</key>
+			<integer>43</integer>
+			<key>HotKey Modifier Activation</key>
+			<integer>0</integer>
+			<key>HotKey Modifier Flags</key>
+			<integer>262144</integer>
+			<key>HotKey Window Animates</key>
+			<true/>
+			<key>HotKey Window AutoHides</key>
+			<true/>
+			<key>HotKey Window Dock Click Action</key>
+			<integer>0</integer>
+			<key>HotKey Window Floats</key>
+			<true/>
+			<key>HotKey Window Reopens On Activation</key>
+			<false/>
 			<key>Idle Code</key>
 			<integer>0</integer>
 			<key>Jobs to Ignore</key>
@@ -51025,6 +51077,8 @@
 			<false/>
 			<key>Normal Font</key>
 			<string>DroidSansMonoDottedForPowerline 12</string>
+			<key>Open Toolbelt</key>
+			<false/>
 			<key>Option Key Sends</key>
 			<integer>2</integer>
 			<key>Place Prompt at First Column</key>
@@ -51065,6 +51119,8 @@
 			</dict>
 			<key>Send Code When Idle</key>
 			<false/>
+			<key>Session Close Undo Timeout</key>
+			<integer>10</integer>
 			<key>Shortcut</key>
 			<string></string>
 			<key>Show Mark Indicators</key>
@@ -51110,7 +51166,7 @@
 	<key>NoSyncInstallationId</key>
 	<string>78AA9C86-D1B6-4CB1-9190-0B72ECA2684D</string>
 	<key>NoSyncLastTipTime</key>
-	<real>539369351.93178403</real>
+	<real>539815465.07307303</real>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
@@ -51160,6 +51216,11 @@
 		<string>0035</string>
 		<string>0036</string>
 		<string>0037</string>
+		<string>0038</string>
+		<string>0039</string>
+		<string>0040</string>
+		<string>0041</string>
+		<string>0042</string>
 	</array>
 	<key>NoSyncTurnOffBracketedPasteOnHostChange</key>
 	<false/>
@@ -51217,11 +51278,21 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2018-02-03T03:50:19Z</date>
+	<date>2018-02-09T18:12:29Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
-	<key>StretchTabsToFillBar</key>
+	<key>ShowBookmarkName</key>
 	<false/>
+	<key>ShowFullScreenTabBar</key>
+	<true/>
+	<key>ShowNewOutputIndicator</key>
+	<true/>
+	<key>ShowPaneTitles</key>
+	<false/>
+	<key>SplitPaneDimmingAmount</key>
+	<real>0.59999999999999998</real>
+	<key>StretchTabsToFillBar</key>
+	<true/>
 	<key>SwitchTabModifier</key>
 	<integer>4</integer>
 	<key>TabStyle</key>
