@@ -207,6 +207,6 @@
   program = gpg
 
 [user]
-  name = ipatch
-  email = chris.r.jones.1983@gmail.com
+	name = ipatch
+	email = chris.r.jones.1983@gmail.com
   #signingKey = CD688E9D
