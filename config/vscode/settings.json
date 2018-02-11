@@ -14,5 +14,9 @@
     // will be detected based on the file contents.
     "editor.detectIndentation": true,
     "explorer.confirmDragAndDrop": false,
-    "workbench.statusBar.visible": true
+    "workbench.statusBar.visible": true,
+
+    // disable workbench preview, so when opening a file
+    // from ⌘+p it opens in a new tab
+    "workbench.editor.enablePreview": false
 }
