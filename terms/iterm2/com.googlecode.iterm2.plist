@@ -50411,7 +50411,7 @@
 	<key>NSWindow Frame SessionsPreferences</key>
 	<string>269 76 599 519 0 0 1440 877 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>121 207 918 494 0 0 1440 877 </string>
+	<string>121 228 796 473 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
 	<string>715 405 710 470 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
@@ -51166,7 +51166,7 @@
 	<key>NoSyncInstallationId</key>
 	<string>78AA9C86-D1B6-4CB1-9190-0B72ECA2684D</string>
 	<key>NoSyncLastTipTime</key>
-	<real>539815465.07307303</real>
+	<real>540074896.51860797</real>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
@@ -51221,6 +51221,9 @@
 		<string>0040</string>
 		<string>0041</string>
 		<string>0042</string>
+		<string>0043</string>
+		<string>0044</string>
+		<string>0045</string>
 	</array>
 	<key>NoSyncTurnOffBracketedPasteOnHostChange</key>
 	<false/>
@@ -51278,7 +51281,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2018-02-09T18:12:29Z</date>
+	<date>2018-02-11T00:16:45Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>ShowBookmarkName</key>
@@ -51290,7 +51293,7 @@
 	<key>ShowPaneTitles</key>
 	<false/>
 	<key>SplitPaneDimmingAmount</key>
-	<real>0.59999999999999998</real>
+	<real>0.29994491185897437</real>
 	<key>StretchTabsToFillBar</key>
 	<true/>
 	<key>SwitchTabModifier</key>
@@ -53007,6 +53010,8 @@
 	</dict>
 	<key>WordCharacters</key>
 	<string>/-+\~_.</string>
+	<key>findMode_iTerm</key>
+	<integer>0</integer>
 	<key>iTerm Version</key>
 	<string>3.1.5</string>
 </dict>
