@@ -50411,9 +50411,9 @@
 	<key>NSWindow Frame SessionsPreferences</key>
 	<string>269 76 599 519 0 0 1440 877 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>477 223 796 473 0 0 1440 877 </string>
+	<string>290 349 796 473 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>715 435 710 440 0 0 1440 877 </string>
+	<string>4 435 710 440 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>384 360 710 470 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
@@ -51086,7 +51086,7 @@
 			<key>Place Prompt at First Column</key>
 			<false/>
 			<key>Prompt Before Closing 2</key>
-			<false/>
+			<integer>1</integer>
 			<key>Right Option Key Sends</key>
 			<integer>0</integer>
 			<key>Rows</key>
