@@ -18,5 +18,6 @@
 
     // disable workbench preview, so when opening a file
     // from ⌘+p it opens in a new tab
-    "workbench.editor.enablePreview": false
+    "workbench.editor.enablePreview": false,
+    "git.ignoreMissingGitWarning": true
 }
