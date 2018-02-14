@@ -50365,9 +50365,9 @@
 	<key>LoadPrefsFromCustomFolder</key>
 	<true/>
 	<key>NSFontPanelAttributes</key>
-	<string>1, 2</string>
+	<string>1, 4</string>
 	<key>NSFontPanelPreviewHeight</key>
-	<real>0.0</real>
+	<real>100</real>
 	<key>NSFontPanelSizeSliderParams</key>
 	<string>2 0 100</string>
 	<key>NSNavLastRootDirectory</key>
@@ -50415,13 +50415,13 @@
 	<key>NSWindow Frame SessionsPreferences</key>
 	<string>269 76 599 519 0 0 1440 877 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>290 310 796 473 0 0 1440 877 </string>
+	<string>524 277 916 485 0 0 1440 877 </string>
 	<key>NSWindow Frame com.apple.typography_panel_ConsolasForPowerline</key>
 	<string>252 254 260 156 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>715 405 710 470 0 0 1440 877 </string>
+	<string>715 375 810 500 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>384 360 710 470 0 0 1440 877 </string>
+	<string>27 309 810 500 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
 	<string>27 241 710 537 0 0 1440 877 </string>
 	<key>NeverWarnAboutShortLivedSessions_CE23A0D0-D231-41C3-A52A-D169A1007D13</key>
@@ -50743,7 +50743,7 @@
 			<key>Has Hotkey</key>
 			<false/>
 			<key>Horizontal Spacing</key>
-			<real>0.86154579254518071</real>
+			<real>1</real>
 			<key>HotKey Activated By Modifier</key>
 			<true/>
 			<key>HotKey Alternate Shortcuts</key>
@@ -51084,7 +51084,7 @@
 			<key>Non-ASCII Ligatures</key>
 			<false/>
 			<key>Normal Font</key>
-			<string>ConsolasForPowerline 13</string>
+			<string>CousineForPowerline 13</string>
 			<key>Open Toolbelt</key>
 			<false/>
 			<key>Option Key Sends</key>
@@ -51160,7 +51160,7 @@
 			<key>Use Tab Color</key>
 			<false/>
 			<key>Vertical Spacing</key>
-			<real>0.91401543674698793</real>
+			<real>1</real>
 			<key>Visual Bell</key>
 			<true/>
 			<key>Window Type</key>
