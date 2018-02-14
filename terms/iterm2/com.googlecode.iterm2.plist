@@ -50365,7 +50365,11 @@
 	<key>LoadPrefsFromCustomFolder</key>
 	<true/>
 	<key>NSFontPanelAttributes</key>
-	<string>1, 4</string>
+	<string>1, 2</string>
+	<key>NSFontPanelPreviewHeight</key>
+	<real>0.0</real>
+	<key>NSFontPanelSizeSliderParams</key>
+	<string>2 0 100</string>
 	<key>NSNavLastRootDirectory</key>
 	<string>/opt/Code/dotfiles/terms/iterm2</string>
 	<key>NSNavPanelExpandedSizeForOpenMode</key>
@@ -50407,13 +50411,15 @@
 		<integer>1</integer>
 	</dict>
 	<key>NSWindow Frame NSFontPanel</key>
-	<string>656 365 647 155 0 0 1440 877 </string>
+	<string>656 118 693 268 0 0 1440 877 </string>
 	<key>NSWindow Frame SessionsPreferences</key>
 	<string>269 76 599 519 0 0 1440 877 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>290 349 796 473 0 0 1440 877 </string>
+	<string>290 310 796 473 0 0 1440 877 </string>
+	<key>NSWindow Frame com.apple.typography_panel_ConsolasForPowerline</key>
+	<string>252 254 260 156 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>4 435 710 440 0 0 1440 877 </string>
+	<string>715 405 710 470 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>384 360 710 470 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
@@ -50737,7 +50743,7 @@
 			<key>Has Hotkey</key>
 			<false/>
 			<key>Horizontal Spacing</key>
-			<real>1</real>
+			<real>0.86154579254518071</real>
 			<key>HotKey Activated By Modifier</key>
 			<true/>
 			<key>HotKey Alternate Shortcuts</key>
@@ -51072,13 +51078,13 @@
 			<key>Name</key>
 			<string>Default</string>
 			<key>Non Ascii Font</key>
-			<string>GoMonoForPowerline 12</string>
+			<string>ConsolasForPowerline 13</string>
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Non-ASCII Ligatures</key>
 			<false/>
 			<key>Normal Font</key>
-			<string>GoMonoForPowerline 12</string>
+			<string>ConsolasForPowerline 13</string>
 			<key>Open Toolbelt</key>
 			<false/>
 			<key>Option Key Sends</key>
@@ -51154,7 +51160,7 @@
 			<key>Use Tab Color</key>
 			<false/>
 			<key>Vertical Spacing</key>
-			<real>0.85872199736445776</real>
+			<real>0.91401543674698793</real>
 			<key>Visual Bell</key>
 			<true/>
 			<key>Window Type</key>
@@ -51163,12 +51169,14 @@
 			<string>/Users/capin</string>
 		</dict>
 	</array>
+	<key>NoSyncHaveUsedCopyMode</key>
+	<true/>
 	<key>NoSyncHaveWarnedAboutPasteConfirmationChange</key>
 	<true/>
 	<key>NoSyncInstallationId</key>
 	<string>78AA9C86-D1B6-4CB1-9190-0B72ECA2684D</string>
 	<key>NoSyncLastTipTime</key>
-	<real>540161380.25766802</real>
+	<real>540248144.32459903</real>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
@@ -51227,6 +51235,7 @@
 		<string>0044</string>
 		<string>0045</string>
 		<string>0046</string>
+		<string>0047</string>
 	</array>
 	<key>NoSyncTurnOffBracketedPasteOnHostChange</key>
 	<false/>
@@ -51288,7 +51297,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2018-02-12T05:41:17Z</date>
+	<date>2018-02-13T05:41:17Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>ShowBookmarkName</key>
