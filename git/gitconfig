@@ -27,7 +27,7 @@
   ###
   # for those random quick & fun commits 👍
   ###
-  random = "!git add .;git commit -m \"`fortune`\""
+  random = "!git smf "git add --all"; git add .; git commit -m \"`fortune`\""
 
   ###
   # pushing
