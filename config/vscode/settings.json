@@ -19,5 +19,21 @@
     // disable workbench preview, so when opening a file
     // from ⌘+p it opens in a new tab
     "workbench.editor.enablePreview": false,
-    "git.ignoreMissingGitWarning": true
+    "git.ignoreMissingGitWarning": true,
+
+    // The modifier to be used to add multiple cursors 
+    // with the mouse. `ctrlCmd` maps to `Control` on Windows 
+    // and Linux and to `Command` on macOS. The Go To Definition 
+    // and Open Link mouse gestures will adapt such that they do 
+    // not conflict with the multicursor modifier.
+    "editor.multiCursorModifier": "alt",
+
+    // word wrapping
+    "editor.wordWrap": "on",
+
+    // show visual cues at 80 and 120 columns for long lines.
+    "editor.rulers": [80,120],
+
+    // show full path to file in the title bar
+    "window.title": "${activeEditorLong}"
 }
