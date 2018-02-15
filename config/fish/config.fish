@@ -39,17 +39,10 @@ switch (uname)
     # Setup OS specific PATH variables for macOS
     ###
     # NOTE: added /usr/local/sbin ahead of /sbin in `/etc/paths`
-    # the below PATH var is no longer required.
-    ###
-    # set -x PATH $PATH /usr/local/sbin
-    ###
-    # NOTE: when installing GNU versions of such programs as `sed`
-    # using homebrew they are prepended with a `g`
     ###
     # NOTE: prepend gnu-sed to the beginning of the $PATH
     ###
     set -gx fish_user_paths $fish_user_paths /usr/local/opt/gnu-sed/libexec/gnubin
-    # PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
     ###
     # Add the below path in order to get react-native CLI working.
     ###
