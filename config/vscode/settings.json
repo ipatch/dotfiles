@@ -35,5 +35,6 @@
     "editor.rulers": [80,120],
 
     // show full path to file in the title bar
-    "window.title": "${activeEditorLong}"
+    "window.title": "${activeEditorLong}",
+    "explorer.confirmDelete": false
 }
