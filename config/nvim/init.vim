@@ -349,3 +349,14 @@ let $PAGER=''
 " set nvim to manpager in env var
 " ==================================
 let $MANPAGER=''
+
+" Appearance - settings related to developer happiness ❤️   when using nvim
+set showbreak=… " show ellipsis at breaking
+set autoindent " automatically set indent of new line
+set ttyfast " faster redrawing
+set shell=$SHELL
+set showmatch " show matching braces
+
+" enable 24 bit color support if supported
+set termguicolors
+
