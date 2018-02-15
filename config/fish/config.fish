@@ -1,8 +1,15 @@
 # =============================================================================
 # User specified file for configuring the fish shell.
 # Author: Chris Jones
-# Contact: @truckmonth chris.r.jones.1983@gmail.com
+# Contact: @truckmonth @ipatch chris.r.jones.1983@gmail.com
 # =============================================================================
+
+# fundle setup
+fundle plugin 'edc/bass'
+# fundle plugin 'tuvistavie/fish-ssh-agent'
+
+fundle init
+# END - fundle setup
 
 # disable default fish greeting
 set fish_greeting ""
@@ -16,6 +23,7 @@ end
 ###
 # USER defined environment variables
 ###
+set -gx TERM xterm-256color
 set -gx HOSTNAME (hostname -s)
 set -gx DOTFILES /opt/Code/dotfiles
 # set -gx GREP_OPTIONS --color=auto
