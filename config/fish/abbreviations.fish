@@ -4,7 +4,7 @@
 
 ###
 # Added the below abbreviations because I'm really tired of typing out the below
-# command.
+# commands.
 ###
 abbr -a editfish 'nvim $HOME/.config/fish/config.fish'
 abbr -a editnvim 'nvim $HOME/.config/nvim/init.vim'
