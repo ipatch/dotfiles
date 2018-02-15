@@ -50207,6 +50207,8 @@
 	<true/>
 	<key>EnableProxyIcon</key>
 	<true/>
+	<key>FocusFollowsMouse</key>
+	<true/>
 	<key>GlobalKeyMap</key>
 	<dict>
 		<key>0x19-0x60000</key>
@@ -50415,11 +50417,11 @@
 	<key>NSWindow Frame SessionsPreferences</key>
 	<string>269 76 599 519 0 0 1440 877 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>270 320 796 473 0 0 1440 877 </string>
+	<string>270 360 796 473 0 0 1440 877 </string>
 	<key>NSWindow Frame com.apple.typography_panel_ConsolasForPowerline</key>
 	<string>252 254 260 156 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 287 1034 590 0 0 1440 877 </string>
+	<string>723 392 714 485 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>27 309 810 500 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
