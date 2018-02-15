@@ -362,3 +362,12 @@ set showmatch " show matching braces
 " enable 24 bit color support if supported
 set termguicolors
 
+" make comments and HTML attributes italic
+" TODO; figure out why comments aren't showing up in italics
+highlight Comment cterm=italic
+highlight htmlArg cterm=italic
+highlight xmlAttrib cterm=italic
+highlight Type cterm=italic
+highlight Normal ctermbg=none
+
+
