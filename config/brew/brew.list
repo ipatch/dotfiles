@@ -1,5 +1,7 @@
 adns
 apr
+# TODO: print the `brew` command that was used to generate this file at the top.
+
 apr-util
 asciinema
 aspell

@@ -7,6 +7,12 @@
 
 " set character encoding, ie. utf-8 is a 'dialect' of unicode.
 set encoding=utf-8
+set guifont=Cousine\ for\ Powerline:h13
+let g:Powerline_symbols = 'fancy'
+set t_Co=256
+set fillchars+=stl:\ ,stlnc:\
+" set term=xterm-256color
+set termencoding=utf-8
 
 call plug#begin('~/.config/nvim/plugged')
 
