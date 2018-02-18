@@ -18,6 +18,10 @@
   master = checkout master
 
   ###
+  # adding / staging files
+  aa = add --all
+
+  ###
   # commiting
   ###
   ci = commit
@@ -32,6 +36,7 @@
   ###
   # pushing
   ###
+  pom = push origin master
   pshom = !git push origin master
   pshsmom = !git push --recurse-submodules=on-demand origin master
 
@@ -82,6 +87,8 @@
   # to undo the last added / staged files
   ###
   undoadd = "!git reset HEAD -- ."
+  unstage = reset HEAD
+
   ###
   # to undo the last commit
   ###
