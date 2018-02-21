@@ -98,3 +98,16 @@ switch (uname)
       set -x EDITOR /usr/bin/vim
     end
 end
+
+####
+# NOTE: don't enable the below functions if using an external theme from omf such as lambda
+####
+
+# NOTE: fish suports both a left & right prompt
+# function fish_prompt
+# end
+
+# function fish_right_prompt
+#   # TODO: flesh out the right prompt to display the current
+#   #...python, ruby, elixir, etc etc with a pretty glyph
+# end
