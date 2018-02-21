@@ -213,6 +213,7 @@
 
 [commit]
   # gpgsign = true
+  verbose = true
 
 [rebase]
   stat = true
