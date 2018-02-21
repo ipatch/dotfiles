@@ -1,1 +1,10 @@
 .DS_Store
+.swp
+~
+a.out
+.pyc
+.zip
+.rar
+.tar
+.tar.gz
+secrets.yml
