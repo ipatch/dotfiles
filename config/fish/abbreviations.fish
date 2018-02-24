@@ -72,7 +72,7 @@ end
 ###
 # node.js repl with reverse search
 ###
-if type -q node; and test -e rlwrap;
+if type -q node; and type -q rlwrap;
   abbr -a inode "NODE_NO_READLINE-1 rlwrap node"
 else
   # DO SOMETHING
