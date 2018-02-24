@@ -3,7 +3,7 @@ function mac_useradd --description 'add a user to macOS via CLI'
   # TODO: check for different OSes
   switch (uname)
     case Darwin
-      
+      echo "TODO: need flesh out this function."
     case Linux
       echo "`mac_useradd` will only work on macOS"
   end

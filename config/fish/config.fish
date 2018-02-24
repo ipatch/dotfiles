@@ -33,12 +33,6 @@ if type -q rustc
   set -gx fish_user_paths $fish_user_paths $HOME/.cargo/bin
 end
 
-if type -q node and (which rlwrap)
-  # set -gx NODE_NO_READLINE-1 rlwrap node
-else
-  # DO SOMEthING
-end
-
 switch (uname)
   case Darwin
     ###
