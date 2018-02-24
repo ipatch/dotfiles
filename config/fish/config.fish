@@ -62,6 +62,13 @@ switch (uname)
     # set env vars for git
     ###
     set -gx GPG_TTY (tty)
+
+    if type -q node; and type -q rlwrap;
+      set -gx NODE_NO_READLINE 1
+    else
+      # DO SOMETHING
+      # echo "Your gunna need to do a `brew install rlwrap`"
+    end
     
 
     ###
