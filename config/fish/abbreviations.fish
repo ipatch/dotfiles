@@ -14,7 +14,8 @@ abbr -a rm 'rm -iv'
 abbr -a mv 'mv -iv'
 abbr -a df 'df -h'
 abbr -a du 'du -h'
-abbr -a dotfiles 'cd /opt/Code/dotfiles'
+abbr -a dotfiles 'cd $DOTFILES'
+abbr -a cddotfiles 'cd $DOTFILES'
 ###
 # funny abbreviations
 ###
@@ -68,11 +69,21 @@ if type -q openssl
   abbr -a decrypt "openssl enc -aes-256-cbc -d -in" #/path/to/file.dat
 end
 
+###
+# node.js repl with reverse search
+###
+if type -q node; and test -e rlwrap;
+  abbr -a inode "NODE_NO_READLINE-1 rlwrap node"
+else
+  # DO SOMETHING
+  # echo "Your gunna need to do a `brew install rlwrap`"
+end
+
 switch (uname)
   case Darwin
     abbr -a pg-start "launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist"
     abbr -a pg-stop "launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist"
-    # setup an alias to quick look from the terminal in macOS
+    # setup an alias for quicklook from the terminal in macOS
     abbr -a ql 'qlmanage -p'
     # update location DB
     abbr -a updatedb '/usr/libexec/locate.updatedb'

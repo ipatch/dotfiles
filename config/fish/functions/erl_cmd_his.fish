@@ -13,5 +13,6 @@ function erl_cmd_his --description 'enable shell_history for erl / iex if >= 20'
       set -x ERL_AFLAGS '-kernel shell_history enabled'
     case '*'
       # echo OTP v20 is not present on this system.;
+      echo 'OTP v20 is not present on this system or the `"$"PATH` is not set up properly.'
   end
 end
