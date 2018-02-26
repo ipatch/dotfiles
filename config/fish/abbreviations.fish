@@ -56,6 +56,16 @@ abbr -a toggle-rvm 'rvm_toggle'
 abbr -a rvm-toggle 'rvm_toggle'
 
 ###
+# Conditionally set `man` to `vman` fish function
+# NOTE: `vman` has trackpad support.
+###
+if type -q vman
+  abbr -a man 'vman'
+else
+  # DO NOTHING
+end
+
+###
 # macOS specific abbreviations
 ###
 abbr -a fs 'toggle_hidden_files'
