@@ -1,4 +1,4 @@
-filetype plugin ident on
+filetype plugin indent on
 syntax on
 set background=light
 " colorscheme solarized8_light
@@ -20,3 +20,6 @@ call minpac#add('tpope/vim-surround')
 call minpac#add('tpope/vim-unimpaired')
 call minpac#add('tpope/vim-scriptease', {'type': 'opt'})
 call minpac#add('k-takata/minpac', {'type': 'opt'})
+
+command! PackUpdate call minpac#update()
+command! PackClean call minpac#clean()
