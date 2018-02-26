@@ -19,9 +19,9 @@ abbr -a cddotfiles 'cd $DOTFILES'
 ###
 # funny abbreviations
 ###
-abbr -a hmmm 'shrug'
-abbr -a tf 'table_flip'
-abbr -a woot 'yay'
+abbr -a hmmm 'emoji --hunh'
+abbr -a tf 'emoji --table-flip'
+abbr -a woot 'emoji --yay'
 
 # preserve the $USER environment when running the sudo command.
 abbr -a sudo 'sudo -E'
