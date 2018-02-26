@@ -13,6 +13,10 @@ set incsearch
 set nojoinspaces
 set display+=lastline
 
+if has('nvim')
+  let g:loaded_sensible=0
+endif
+
 packadd minpac
 call minpac#init()
 
