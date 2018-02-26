@@ -5,6 +5,14 @@
 "  Source: https://github.com/ipatch/dotfiles/blob/master/config/nvim/init.vim
 "  ===========================================================================
 
+"""
+" Load vim configuration, runtimepath, packpath, and .vimrc
+"""
+set runtimepath+=~/.vim,~/.vim/after
+set packpath+=~/.vim
+source ~/.vimrc
+
+
 " set character encoding, ie. utf-8 is a 'dialect' of unicode.
 set encoding=utf-8
 set guifont=Cousine\ for\ Powerline:h13
