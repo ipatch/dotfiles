@@ -36,5 +36,14 @@
 
     // show full path to file in the title bar
     "window.title": "${activeEditorLong}",
-    "explorer.confirmDelete": false
+    "explorer.confirmDelete": false,
+
+    // Insert newline at end of file
+    "files.insertFinalNewline": true,
+
+    // Enable tab completion of text
+    "editor.tabCompletion": true,
+
+    // Stop from scrolling past bottom of open file
+    "editor.scrollBeyondLastLine": false
 }
