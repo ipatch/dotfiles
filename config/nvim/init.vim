@@ -8,9 +8,9 @@
 """
 " Load vim configuration, runtimepath, packpath, and .vimrc
 """
-" set runtimepath+=~/.vim,~/.vim/after
-" set packpath+=~/.vim
-" source ~/.vimrc
+set runtimepath+=~/.vim,~/.vim/after
+set packpath+=~/.vim
+source ~/.vimrc
 
 
 " set character encoding, ie. utf-8 is a 'dialect' of unicode.
