@@ -26,6 +26,7 @@ end
 set -gx TERM xterm-256color
 set -gx HOSTNAME (hostname -s)
 set -gx DOTFILES /opt/Code/dotfiles
+set -gx XDG_CONFIG_HOME $HOME/.config
 # set -gx GREP_OPTIONS --color=auto
 
 if type -q rustc
