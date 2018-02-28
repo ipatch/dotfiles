@@ -41,7 +41,7 @@ call minpac#add('Yggdroot/indentLine') " Add vertical indentation lines
 " Package for syntax highlighting for various languages
 call minpac#add('sheerun/vim-polyglot')
 " Package for quickly commenting lines in code files
-call minpac#add('vim-commentary')
+call minpac#add('tpope/vim-commentary')
 
 """""
 "
