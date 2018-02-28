@@ -15,6 +15,12 @@ set display+=lastline
 
 if has('nvim')
   let g:loaded_sensible=0
+
+  " Keymappings for Neovim
+  " By default to exit out of `terminal` mode in nvim use `<C-\><C-n>`
+  " Instead map `<Esc>`
+  tnoremap <Esc> <C-\><C-n>
+  tnoremap <A-[> <Esc>
 endif
 
 packadd minpac
