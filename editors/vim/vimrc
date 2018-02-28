@@ -46,7 +46,9 @@ call minpac#add('tpope/vim-commentary')
 """""
 "
 " Load `minpac` LAST!
-"
+" NOTE: minpac will need be cloned from github before packages can be
+" installed.
+" 
 call minpac#add('k-takata/minpac', {'type': 'opt'})
 
 command! PackUpdate call minpac#update()
