@@ -29,3 +29,5 @@ editors/vim/vim/pack/*
 editors/vim/vim/.netrwhist
 editors/vim/vim/bundle/*
 editors/vim/vim/plugin/*
+
+# test comment.
