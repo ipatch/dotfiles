@@ -30,6 +30,23 @@ call minpac#add('tpope/vim-surround')
 call minpac#add('tpope/vim-unimpaired')
 call minpac#add('tpope/vim-scriptease', {'type': 'opt'})
 call minpac#add('machakann/vim-highlightedyank')
+" Package for pretty colors 🌈 and aesthetics
+call minpac#add('chriskempson/base16-vim')
+call minpac#add('vim-airline/vim-airline')
+call minpac#add('vim-airline/vim-airline-themes')
+" Package for displaying git branches in the status bar
+call minpac#add('tpope/vim-fugitive')
+call minpac#add('Yggdroot/indentLine') " Add vertical indentation lines
+
+" Package for syntax highlighting for various languages
+call minpac#add('sheerun/vim-polyglot')
+" Package for quickly commenting lines in code files
+call minpac#add('vim-commentary')
+
+"""""
+"
+" Load `minpac` LAST!
+"
 call minpac#add('k-takata/minpac', {'type': 'opt'})
 
 command! PackUpdate call minpac#update()
