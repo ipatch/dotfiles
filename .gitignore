@@ -23,3 +23,9 @@ config/fish/fishd.*
 
 # Ignore `watch_later` directory from mpv
 config/mpv/*
+
+# Ignore bundled packages for vim
+editors/vim/vim/pack/*
+editors/vim/vim/.netrwhist
+editors/vim/vim/bundle/*
+editors/vim/vim/plugin/*

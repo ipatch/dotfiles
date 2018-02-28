@@ -1,10 +1,14 @@
-# =============================================================================
+################
+#
 # User specified file for configuring the fish shell.
 # Author: Chris Jones
 # Contact: @truckmonth @ipatch chris.r.jones.1983@gmail.com
-# =============================================================================
+#
 
+################
+#
 # fundle setup
+#
 fundle plugin 'edc/bass'
 # fundle plugin 'tuvistavie/fish-ssh-agent'
 
@@ -65,7 +69,7 @@ switch (uname)
     set -gx GPG_TTY (tty)
 
     if type -q node; and type -q rlwrap;
-      set -gx NODE_NO_READLINE 1
+      # set -gx NODE_NO_READLINE 1
     else
       # DO SOMETHING
       # echo "Your gunna need to do a `brew install rlwrap`"
