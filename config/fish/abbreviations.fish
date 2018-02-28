@@ -14,12 +14,13 @@ abbr -a rm 'rm -iv'
 abbr -a mv 'mv -iv'
 abbr -a df 'df -h'
 abbr -a du 'du -h'
+abbr -a today 'date +"%A, %B %-d, %Y"'
 abbr -a dotfiles 'cd $DOTFILES'
 abbr -a cddotfiles 'cd $DOTFILES'
 ###
 # funny abbreviations
 ###
-abbr -a hmmm 'emoji --hunh'
+abbr -a hunh 'emoji --hunh'
 abbr -a tf 'emoji --table-flip'
 abbr -a woot 'emoji --yay'
 
