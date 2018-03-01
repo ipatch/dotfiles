@@ -11,6 +11,15 @@ abbr -a editfish 'nvim $HOME/.config/fish/config.fish'
 abbr -a editnvim 'nvim $HOME/.config/nvim/init.vim'
 abbr -a l 'ls -lah'
 abbr -a cp 'cp -iv'
+################
+#
+# rsync
+#
+# rysnc -ah --progress [source] [destination]
+# -a = preserve file permssions
+# -h = human readable output
+#
+abbr -a cpv 'rsync -ah --info=progress2'
 abbr -a rm 'rm -iv'
 abbr -a mv 'mv -iv'
 abbr -a df 'df -h'
