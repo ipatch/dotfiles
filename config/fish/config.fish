@@ -69,6 +69,7 @@ switch (uname)
     set -gx GPG_TTY (tty)
 
     if type -q node; and type -q rlwrap;
+      # TODO: figure out why this was breaking `tab` completion in node 🤷‍♀️
       # set -gx NODE_NO_READLINE 1
     else
       # DO SOMETHING
