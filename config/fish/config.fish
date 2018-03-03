@@ -52,7 +52,7 @@ switch (uname)
     # Add the below path in order to get react-native CLI working.
     ###
     set -gx fish_user_paths $fish_user_paths $HOME/Library/Android/sdk/platform-tools
-    set -gx fish_user_paths $fish_user_paths $HOME/anaconda2/bin
+    # set -gx fish_user_paths $fish_user_paths $HOME/anaconda2/bin
     set -gx fish_user_paths $fish_user_paths $HOME/.config/yarn/global/node_modules/.bin
     set -gx fish_user_paths $fish_user_paths $HOME/bin
     set -gx fish_user_paths $fish_user_paths $HOME/bin/base16-shell
@@ -60,7 +60,7 @@ switch (uname)
       set -gx fish_user_paths $fish_user_paths /usr/local/opt/libressl/bin
     end
     if type -q brew
-      set -gx fish_user_paths $fish_user_paths /usr/local/opt/python/libexec/bin
+      # set -gx fish_user_paths $fish_user_paths /usr/local/opt/python/libexec/bin
     end
 
     ###
