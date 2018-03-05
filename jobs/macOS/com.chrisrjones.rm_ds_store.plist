@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple/DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.chrisrjones.com.rm_ds_store</string>
+
+  <key>ProgramArguments</key>
+  <array>
+    <string>$HOME/.config/fish/bin/rm_ds_store.sh</string>
+  </array>
+
+  <keyNice</key>
+  <integer>1</integer>
+  
+  <key>StartInterval</key>
+  <integer>60</integer>
+
+  <key>RunAtLoad</key>
+  <true/>
+
+  <key>StandardErrorPath</key>
+  <string>/tmp/rm_ds_store.err</string>
+
+  <key>StandardOutPath</key>
+  <string>/tmp/rm_ds_store.out</string>
+</dict>
+</plist>
+
