@@ -1,0 +1,23 @@
+################
+#
+# User specific `lldbinit` conf file, for making life a little easier
+#...when debugging in lldb.
+#
+
+command alias -H "Yay_Autolayout will get the root view and recursively dump all the subviews and their frames" -h "Recursively dump views" -- Yay_Autolayout expression -l objc -O -- 
+[[[[[UIApplication sharedApplication] keyWindow] rootViewController] view] recursiveDescription]
+
+command alias cpo expression -l objc -O --
+
+command regex -- tv 's/(.+)/expression -l objc -O -- @import QuartzCore; [%1 setHidden:!(BOOL) [%1 isHidden]]; (void) [CATransaction flush];/'
+
+# Get class information
+command regex getcls 's/(([0-9]|\$|\@|\[).*)/cpo [%1 class]/' 's/ (.+)/expression -l swift -O -- type(of: %1)/'
+
+# Reverse the output of an expression, ie. `Hello, World!` becomes
+#... `world hello`
+command regex flip 's/(\w+)\s+(\w+)/expression -lobjc -O -- @"%2 %1"/'
+
+
+
+
