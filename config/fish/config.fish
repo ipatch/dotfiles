@@ -2,7 +2,9 @@
 #
 # User specified file for configuring the fish shell.
 # Author: Chris Jones
-# Contact: @truckmonth @ipatch chris.r.jones.1983@gmail.com
+# Contact: @truckmonth <- twitter
+# Contact: @ipatch <- github 
+# Email: chris.r.jones.1983@gmail.com
 #
 
 ################
@@ -31,6 +33,8 @@ set -gx TERM xterm-256color
 set -gx HOSTNAME (hostname -s)
 set -gx DOTFILES /opt/Code/dotfiles
 set -gx XDG_CONFIG_HOME $HOME/.config
+set -gx CODE /opt/code
+set -gx code /opt/code
 # set -gx GREP_OPTIONS --color=auto
 
 if type -q rustc
