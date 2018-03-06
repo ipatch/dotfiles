@@ -2,8 +2,9 @@
 <!DOCTYPE plist PUBLIC "-//Apple/DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
   <dict>
-    <key>GroupName</key>
-    <string>capin</string>
+    <!-- NOTE: `GroupName` & `UserName` are not supported for user services -->
+    <!-- <key>GroupName</key> -->
+    <!-- <string>capin</string> -->
     <key>Label</key>
     <string>com.chrisrjones.rm_ds_store_files.sh</string>
 
@@ -201,14 +202,15 @@
         <integer>23</integer>
       </dict>
     </array>
-    <key>UserName</key>
-    <string>capin</string>
+
+    <!-- <key>UserName</key> -->
+    <!-- <string>capin</string> -->
     
     <key>StandardErrorPath</key>
-    <string>/tmp/rm_ds_store.err</string>
+    <string>/tmp/rm_ds_store_files.err</string>
 
     <key>StandardOutPath</key>
-    <string>/tmp/rm_ds_store.out</string>
+    <string>/tmp/rm_ds_store_files.out</string>
   </dict>
 </plist>
 
