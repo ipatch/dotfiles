@@ -111,12 +111,24 @@ end
 
 switch (uname)
   case Darwin
+    ################
+    #
+    # homebrew specifc abbreviations
+    #
+    # postgresql
     abbr -a pg-start "launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist"
     abbr -a pg-stop "launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist"
+    #
+    # redis
+    abbr -a redis-start "launchctl load ~/Library/LaunchAgents/homebrew.mxcl.redis.plist"
+    abbr -a redis-stop "launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.redis.plist"
+    #
     # setup an alias for quicklook from the terminal in macOS
     abbr -a ql 'qlmanage -p'
     # update location DB
-    abbr -a updatedb '/usr/libexec/locate.updatedb'
+    # NOTE: changed abbr to `mac-updatedb` because of homebrew installed
+    #...`findutils` which provides the `updatedb` bin.
+    abbr -a mac-updatedb '/usr/libexec/locate.updatedb'
 end
 ################
 #
