@@ -1,2 +1,17 @@
 # Test to see if comments are supported in `.inputrc` file
 set enable-bracketed-paste
+
+# Make Tab autocomplete
+set completion-ignore-case on
+
+# List all matches in case possible completions are possible
+set show-all-if-ambiguous on
+
+# Flip through autocompletion matches with`shift+tab`
+"\e[Z": menu-complete
+
+# Filtered history search
+"\e[A": history-search-backward
+"\e[B": history-search-forward
+
+
