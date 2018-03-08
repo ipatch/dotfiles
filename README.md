@@ -1,6 +1,6 @@
 <h2 align="center">dotfiles for Chris Jones</h2>
 
-<h3 align="center">🚨 Don't 🍺🍺🍺 and configure dotfiles.🚨</h3>
+<h3 align="center">Drink Responsibly™ 🥃 while configuring dot files.</h3>
 
 <h6 align="center">Note: These dotfiles can stop working at any time so use at your own risk.😬</h6>
 
