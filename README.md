@@ -1851,5 +1851,5 @@ Credit: [💳](https://github.com/atom/atom/issues/1718#issuecomment-162242357)
 - [x] ~~Add images in the lib dir of this repo to the .wiki submodule repo.~~
 - [ ] Figure out why cloning the dotfiles repo is cloning the submodules with detached heads 🤔
 
-GithHub: [@ipatch](https://github.com/ipatch)
+GithHub: [@ipatch](https://github.com/ipatch)<br />
 Twitter: [@truckmonth](https://twitter.com/truckmonth)
