@@ -14,4 +14,4 @@ set show-all-if-ambiguous on
 "\e[A": history-search-backward
 "\e[B": history-search-forward
 
-
+# Credit: https://medium.com/@webprolific/getting-started-with-dotfiles-43c3602fd789
