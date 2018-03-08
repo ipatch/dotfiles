@@ -1840,7 +1840,8 @@ Credit: [💳](https://github.com/atom/atom/issues/1718#issuecomment-162242357)
 
 <a href="useful-links"></a>
 
-## Useful Links
+## Useful Links _in no particular order_
+- [Github - mathiasbynenes/dotfiles](https://github.com/mathiasbynens/dotfiles)
 - [Github - Awesome-dotfiles](https://github.com/webpro/awesome-dotfiles)
 
 <a href="todos"></a>
