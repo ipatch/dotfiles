@@ -8,6 +8,7 @@ function emoji --description 'little funny expressions'
       printf " --hunh for ಠ_ಠ"\n\n
       printf " --shrug -s for ¯\_(ツ)_/¯"\n\n
       printf " --table-flip -tf for (╯°□°）╯︵ ┻━┻"\n\n
+      printf " --trolling for ༼∵༽ ༼⍨༽ ༼⍢༽ ༼⍤༽"\n\n
       printf " --yay -y for ✧*｡٩(ˊᗜˋ*)و✧*｡"\n\n
       return 0
     case --hunh
