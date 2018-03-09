@@ -13,6 +13,9 @@ set incsearch
 set nojoinspaces
 set display+=lastline
 
+" load `fzf` from homebrew install
+set rtp+=/usr/local/opt/fzf
+
 if has('nvim')
   let g:loaded_sensible=0
 
@@ -46,10 +49,11 @@ call minpac#add('tpope/vim-commentary')
 """""
 "
 " Load `minpac` LAST!
-" NOTE: minpac will need be cloned from github before packages can be
+" NOTE: minpac will need to be cloned from github before packages can be
 " installed.
 " 
 call minpac#add('k-takata/minpac', {'type': 'opt'})
 
 command! PackUpdate call minpac#update()
 command! PackClean call minpac#clean()
+" TODO: come up with a `command!` to reload `.vimrc`
