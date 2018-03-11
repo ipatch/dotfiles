@@ -12,12 +12,15 @@ set listchars=tab:‣\ ,eol:¬
 set incsearch
 set nojoinspaces
 set display+=lastline
+" add italics support for (n)vim
+highlight Comment cterm=italic
 
 " load `fzf` from homebrew install
 set rtp+=/usr/local/opt/fzf
 
 if has('nvim')
   let g:loaded_sensible=0
+  highlight Comment cterm=italic
 
   " Keymappings for Neovim
   " By default to exit out of `terminal` mode in nvim use `<C-\><C-n>`
