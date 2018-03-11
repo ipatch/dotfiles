@@ -1,4 +1,4 @@
-tmux|tmux terminal multiplexer,
+tmux-256color|tmux with 256 color,
   sitm=\E[3m, ritm=\E[23m,
   smso=\E[7m, rmso=\E[27m,
-  use=screen
+  use=screen-256color,
