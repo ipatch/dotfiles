@@ -1841,12 +1841,14 @@ Credit: [💳](https://github.com/atom/atom/issues/1718#issuecomment-162242357)
 <a href="useful-links"></a>
 
 ## Useful Links _in no particular order_
+- [Github - wincent/wincent](https://github.com/wincent/wincent)
 - [Github - mathiasbynenes/dotfiles](https://github.com/mathiasbynens/dotfiles)
 - [Github - Awesome-dotfiles](https://github.com/webpro/awesome-dotfiles)
 
 <a href="todos"></a>
 
 ## TODOs
+- [ ] troubleshoot why italics isn't working in (n)vim.
 - [ ] Write an install script for easy installation of dotfiles.
 - [x] Add a collection of inspirational dotfile repos.
 - [x] ~~Add images in the lib dir of this repo to the .wiki submodule repo.~~
