@@ -23,7 +23,9 @@ set number
 set cursorline
 " show display menu when using `tab` completeion
 set wildmenu
-
+ " Configure backspace so it acts as it should act
+set backspace=eol,start,indent
+" Enable filetype detection & " Enable filetype-specific plugins
 filetype plugin indent on
 syntax on
 set background=light
@@ -38,6 +40,7 @@ set listchars=tab:‣\ ,eol:¬
 set incsearch
 set nojoinspaces
 set display+=lastline
+
 " add italics support for (n)vim
 highlight Comment cterm=italic
 
@@ -48,7 +51,7 @@ set foldmethod=syntax
 "
 " set keymappings
 "
-"""""""""""""""""""""""""""""
+""
 " Useful things to know about key mappings.
 " `vmap` sets / replaces the key mapping in visual mode
 " `nnoremap` - don't remap the current keystroke for normal mode
@@ -71,6 +74,9 @@ imap kj <esc>
 " Automatically leave insert mode when the below arrow keys are pressed.
 inoremap <silent> <Up> <ESC><Up>
 inoremap <silent> <Down> <ESC><Down>
+
+" Fast saving
+noremap <leader>w :w<CR>
 
 " load `fzf` from homebrew install
 set rtp+=/usr/local/opt/fzf
@@ -105,6 +111,10 @@ call minpac#add('Yggdroot/indentLine') " Add vertical indentation lines
 call minpac#add('sheerun/vim-polyglot')
 " Package for quickly commenting lines in code files
 call minpac#add('tpope/vim-commentary')
+" Add `fzf` vim plugins
+
+call minpac#add("junegunn/fzf")
+call minpac#add('junegunn/fzf.vim')
 
 """""""""""""""""""""""""""""
 "
@@ -116,4 +126,9 @@ call minpac#add('k-takata/minpac', {'type': 'opt'})
 
 command! PackUpdate call minpac#update()
 command! PackClean call minpac#clean()
-" TODO: come up with a `command!` to reload `.vimrc`
+
+"""""""""""""""""""""""""""""
+"
+" FZF
+""
+
