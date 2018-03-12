@@ -1849,6 +1849,7 @@ Credit: [💳](https://github.com/atom/atom/issues/1718#issuecomment-162242357)
 <a href="todos"></a>
 
 ## TODOs
+- [ ] spend some time working with hammerspoon
 - [ ] troubleshoot why italics isn't working in (n)vim.
 - [ ] Write an install script for easy installation of dotfiles.
 - [x] Add a collection of inspirational dotfile repos.
