@@ -69,7 +69,9 @@ switch (uname)
     if type -q brew
       # set -gx fish_user_paths $fish_user_paths /usr/local/opt/python/libexec/bin
     end
-
+    if type -q /usr/local/bin/go
+      set -gx fish_user_paths $fish_user_paths /usr/local/opt/go/libexec/bin
+    end
     ###
     # set env vars for git
     ###

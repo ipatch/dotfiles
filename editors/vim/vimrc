@@ -112,8 +112,8 @@ call minpac#add('sheerun/vim-polyglot')
 " Package for quickly commenting lines in code files
 call minpac#add('tpope/vim-commentary')
 " Add `fzf` vim plugins
-
-call minpac#add("junegunn/fzf")
+" NOTE: the below `junegunn/fzf` is NOT requried if fzf is installed via brew
+" call minpac#add("junegunn/fzf")
 call minpac#add('junegunn/fzf.vim')
 
 """""""""""""""""""""""""""""
@@ -131,4 +131,17 @@ command! PackClean call minpac#clean()
 "
 " FZF
 ""
+nmap ; :Buffers<CR>
+nmap <Leader>f :Files<CR>
+command! FZFMru call fzf#run({
+\  'source':  v:oldfiles,
+\  'sink':    'e',
+\  'options': '-m -x +s',
+\  'down':    '40%'})
+nmap <Leader>r :FZFMru<CR>
 
+
+" You can set up fzf window using a Vim command (Neovim or latest Vim 8 required)
+let g:fzf_layout = { 'window': 'enew' }
+let g:fzf_layout = { 'window': '-tabnew' }
+let g:fzf_layout = { 'window': '10split enew' }
