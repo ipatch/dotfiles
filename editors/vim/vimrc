@@ -94,6 +94,7 @@ endif
 
 " NOTE: minpac will need to be cloned from github before packages can be
 " installed.
+set packpath^=~/.vim
 packadd minpac
 call minpac#init()
 call minpac#add('k-takata/minpac', {'type': 'opt'})
