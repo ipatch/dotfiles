@@ -13,7 +13,7 @@ setlocal foldexpr=MarkdownFolds()
 
 function! MarkdownFoldText()
   let foldsize = (v:foldend-v:foldstart)
-  return getlidne(v:foldstart)
+  return getline(v:foldstart).' ('.foldsize.' lines)'
 endfunction
 setlocal foldtext=MarkdownFoldText()
 
