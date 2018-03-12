@@ -50417,13 +50417,13 @@
 	<key>NSWindow Frame SessionsPreferences</key>
 	<string>269 76 599 519 0 0 1440 877 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>327 324 796 473 0 0 1440 877 </string>
+	<string>327 403 796 473 0 0 1440 877 </string>
 	<key>NSWindow Frame com.apple.typography_panel_ConsolasForPowerline</key>
 	<string>252 254 260 156 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>718 377 714 500 0 0 1440 877 </string>
+	<string>718 377 722 500 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>723 376 714 500 0 0 1440 877 </string>
+	<string>723 296 714 478 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
 	<string>723 204 714 500 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 3</key>
@@ -51172,7 +51172,7 @@
 			<key>Visual Bell</key>
 			<true/>
 			<key>Window Type</key>
-			<integer>0</integer>
+			<integer>12</integer>
 			<key>Working Directory</key>
 			<string>/Users/capin</string>
 		</dict>
@@ -51184,7 +51184,7 @@
 	<key>NoSyncInstallationId</key>
 	<string>78AA9C86-D1B6-4CB1-9190-0B72ECA2684D</string>
 	<key>NoSyncLastTipTime</key>
-	<real>541625706.26533699</real>
+	<real>542434713.56955194</real>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
@@ -51259,6 +51259,15 @@
 		<string>0060</string>
 		<string>0061</string>
 		<string>0062</string>
+		<string>0063</string>
+		<string>0064</string>
+		<string>0065</string>
+		<string>0066</string>
+		<string>0067</string>
+		<string>0068</string>
+		<string>0069</string>
+		<string>0070</string>
+		<string>0071</string>
 	</array>
 	<key>NoSyncTurnOffBracketedPasteOnHostChange</key>
 	<false/>
@@ -51320,7 +51329,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2018-03-02T17:54:48Z</date>
+	<date>2018-03-11T11:10:46Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>ShowBookmarkName</key>
