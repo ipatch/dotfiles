@@ -8,3 +8,5 @@ a.out
 .tar
 .tar.gz
 secrets.yml
+.un~
+.un

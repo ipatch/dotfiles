@@ -1,17 +1,18 @@
-################
+#############################
 #
 # A place to store abbreviations for making things a tad bit quicker.
 #
 
-################
+#############################
 #
 # Added the below abbreviations because I'm really tired of typing out the below commands.
 #
 abbr -a editfish 'nvim $HOME/.config/fish/config.fish'
 abbr -a editnvim 'nvim $HOME/.config/nvim/init.vim'
+abbr -a editdots 'nvim $dots/.'
 abbr -a l 'ls -lah'
 abbr -a cp 'cp -iv'
-################
+#############################
 #
 # rsync
 #
