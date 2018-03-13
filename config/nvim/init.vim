@@ -33,18 +33,6 @@ call plug#end()
 " the below key mapping will indent the entire file
 map <Leader>i mmgg=G`m<CR>
 
-" Sane tabs
-" - Two spaces wide - the below setting, renders TABs using this many spaces.
-set tabstop=2
-set softtabstop=2
-" - Expand them all - the below setting inserts spaces when TAB is pressed.
-set expandtab
-" - Indent by 2 spaces by default - indentation amount for < and > commands.
-set shiftwidth=2
-
-" Show matching bracketts
-set showmatch
-
 " Hard-wrap long lines as I type them
 set textwidth=0
 
@@ -220,7 +208,7 @@ let $MANPAGER=''
 set showbreak=… " show ellipsis at breaking
 set autoindent " automatically set indent of new line
 set ttyfast " faster redrawing
-set shell=$SHELL
+set shell=/bin/sh
 set showmatch " show matching braces
 
 " make comments and HTML attributes italic
