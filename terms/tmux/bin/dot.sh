@@ -1,26 +1,31 @@
+#!/usr/bin/env sh
 #############################
 #
 # A tmux session for working with dotfiles
 #
 
-# init a new tmux session and name it `dot` and name the initial window `editor`
-tmux new-session -s dot -n editor -d
+# check if session has been created
+tmux has-session -t dot
+if [ $? !=0 ]
+then
+  # init a new tmux session and name it `dot` and name the initial window `editor`
+  tmux new-session -s dot -n editor -d
 
-# change to dotfiles directory
-tmux send-keys -t dot 'nvim' C-m
+  # change to dotfiles directory
+  tmux send-keys -t dot 'nvim' C-m
 
-# split window
-tmux split-window -v -t dot
+  # split window
+  tmux split-window -v -t dot
 
-# create a new tmux console window
-tmux new-window -n console -t dot
+  # create a new tmux console window
+  tmux new-window -n console -t dot
 
-# `cwd` to `$dotfiles`
-tmux send-keys -t dot:2 'cd $dotfiles'C-m
+  # `cwd` to `$dotfiles`
+  tmux send-keys -t dot:2 'cd $dotfiles'C-m
 
-# make `editor` the active window
-tmux select-window -t dot:1
-
+  # make `editor` the active window
+  tmux select-window -t dot:1
+fi
 # attach to this newly built tmux session
 tmux attach -t dot
 
