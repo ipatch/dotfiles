@@ -57,23 +57,9 @@ highlight Comment cterm=italic
 
 " enable code folding
 set foldmethod=syntax
-" " NOTE: the below settings remember code folds on a per file basis
-" " CREDIT: 🍰 https://vi.stackexchange.com/questions/13864
-" set viewoptions=folds,cursor
-" set sessionoptions=folds
-" augroup AutoSaveFolds
-"   autocmd!
-"   " view files are about 500 bytes
-"   " bufleave but not bufwinleave captures closing 2nd tab
-"   " nested is needed by bufwrite* (if triggered via other autocmd)
-"   autocmd BufWinLeave,BufLeave,BufWritePost ?* nested silent! mkview!
-"   autocmd BufWinEnter ?* silent loadview
-" augroup end
-" autocmd BufWinLeave *.* mkview
-" autocmd BufWinEnter *.* silent loadview
+" NOTE: the below settings remember code folds on a per file basis
+" CREDIT: 🍰 https://github.com/d86leader/vim-config/blob/58b5ff43c268c74c5aa2e7f6e931167f6064c02f/vimrc#L412
 
-
-" keep folds and other stuff when closing file
 augroup autoview
   autocmd!
   autocmd BufWinLeave ?* call <SID>make_view()
