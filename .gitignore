@@ -1,15 +1,22 @@
-vim/*.swp
+#############################
+# ~ .gitignore ~ for Chris Jones dotfiles
+# url: https://github.com/ipatch/dotfiles
+# github: @ipatch
+# twitter: @truckmonth
+#
 
-# swap
+# vim & nvim swap files
 [._]*.s[a-v][a-z]
 [._]*.sw[a-p]
 [._]s[a-v][a-z]
 [._]sw[a-p]
+vim/*.swp
 
 *.bkup
 
 # Ignore all files with the following extension `weechatlog` recurisvely in all directories
 *.weechatlog
+**/.weechatlog
 config/irc-clients/weechat/weechat.log
 
 # Ignore fishd.<hash-files>
@@ -28,4 +35,4 @@ config/mpv/*
 editors/vim/vim/pack/*
 editors/vim/vim/.netrwhist
 editors/vim/vim/bundle/*
-editors/vim/vim/plugin/*
+# editors/vim/vim/plugin/*
