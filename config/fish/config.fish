@@ -34,6 +34,7 @@ set -gx TERM xterm-256color
 set -gx HOSTNAME (hostname -s)
 set -gx DOTFILES /opt/Code/dotfiles
 set -gx dotfiles /opt/Code/dotfiles
+set -gx dot /opt/Code/dotfiles
 set -gx XDG_CONFIG_HOME $HOME/.config
 set -gx CODE /opt/code
 set -gx code /opt/code
@@ -95,7 +96,9 @@ switch (uname)
     # Add below command / truthy statement to add syntax highlighting for `less`
     ###
     if type -q nvim
-      set -x EDITOR /usr/local/bin/nvim
+      # TODO: don't hard code path to `nvim` search for `nvim` instead
+      set -gx EDITOR /usr/local/bin/nvim
+      set -gx VISUAL /usr/local/bin/nvim
       [ -x "/usr/local/share/nvim/runtime/macros/less.sh" ]; and \
       alias less='/usr/local/share/nvim/runtime/macros/less.sh';
     else
