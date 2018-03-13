@@ -27,6 +27,7 @@ if status --is-interactive
 end
 
 ################
+#
 # USER defined environment variables
 #
 set -gx TERM xterm-256color
@@ -41,6 +42,10 @@ set -gx code /opt/code
 if type -q rustc
   # Add rust-lang local bin directory to PATH for working with cargo.
   set -gx fish_user_paths $fish_user_paths $HOME/.cargo/bin
+end
+
+if type -q fzf
+  set -gx FZF_DEFAULT_COMMAND 'fd --type f'
 end
 
 switch (uname)
