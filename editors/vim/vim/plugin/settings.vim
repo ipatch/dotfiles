@@ -84,7 +84,18 @@ if has('viminfo')
   endif
 endif
 
+
+" if has('mksession')
+"   if isdirectory('~/.local/.vim/tmp')
+"     set viewdir=~/.local/.vim/tmp/view
+"   else
+"     set viewdir=~/.vim/tmp/view       " override ~/.vim/view default
+"   endif
+"   set viewoptions=cursor,folds        " save/restore just these (with `:{mk,load}view`)
+" endif
+
 if has('wildmenu')
   set wildmenu                        " show options as list when switching buffers etc
 endif
 set wildmode=longest:full,full        " shell-like autocomplete to unambiguous portion
+

@@ -12,6 +12,7 @@ let g:mapleader = ','
 set nocompatible
 
 " set character encoding, ie. utf-8 is a 'dialect' of unicode.
+set fileencoding=utf-8
 set encoding=utf-8
 set termencoding=utf-8
 " Set the title on the terminal tab
@@ -23,6 +24,8 @@ set number
 set cursorline
 " show display menu when using `tab` completeion
 set wildmenu
+" ignore the below directories with wild menu
+set wildignore+=*/tmp/*,*/.git/*
  " Configure backspace so it acts as it should act
 set backspace=eol,start,indent
 " Enable filetype detection & " Enable filetype-specific plugins
@@ -36,16 +39,56 @@ set laststatus=2
 set modelines=5
 set vb t_vb=
 set ts=2 sts=2 sw=2 expandtab
+" - Indent by 2 spaces by default - indentation amount for < and > commands.
+set shiftwidth=2
 set listchars=tab:‣\ ,eol:¬
 set incsearch
 set nojoinspaces
 set display+=lastline
+
+set autoread " reload buffer with `:checktime` when it has been changed by another app.
+" Reload all buffers that have been changed by other programs.
+noremap <leader>ee :checktime<CR>
+
+let &viewdir=$HOME.'/.vim/tmp/view'
 
 " add italics support for (n)vim
 highlight Comment cterm=italic
 
 " enable code folding
 set foldmethod=syntax
+" " NOTE: the below settings remember code folds on a per file basis
+" " CREDIT: 🍰 https://vi.stackexchange.com/questions/13864
+" set viewoptions=folds,cursor
+" set sessionoptions=folds
+" augroup AutoSaveFolds
+"   autocmd!
+"   " view files are about 500 bytes
+"   " bufleave but not bufwinleave captures closing 2nd tab
+"   " nested is needed by bufwrite* (if triggered via other autocmd)
+"   autocmd BufWinLeave,BufLeave,BufWritePost ?* nested silent! mkview!
+"   autocmd BufWinEnter ?* silent loadview
+" augroup end
+" autocmd BufWinLeave *.* mkview
+" autocmd BufWinEnter *.* silent loadview
+
+
+" keep folds and other stuff when closing file
+augroup autoview
+  autocmd!
+  autocmd BufWinLeave ?* call <SID>make_view()
+  autocmd BufWinEnter ?* call <SID>load_view()
+augroup END
+fun! s:make_view() abort
+  if @% != "" && &foldmethod != 'diff'
+    mkview!
+  endif
+endfun
+fun! s:load_view() abort
+  if @% != ""
+    silent! loadview
+  endif
+endfun
 
 """""""""""""""""""""""""""""
 "
@@ -149,3 +192,8 @@ nmap <Leader>r :FZFMru<CR>
 let g:fzf_layout = { 'window': 'enew' }
 let g:fzf_layout = { 'window': '-tabnew' }
 let g:fzf_layout = { 'window': '10split enew' }
+
+
+"If you opened a readonly file like /etc/hosts press w!! solve :)
+cmap w!! w !sudo tee % >/dev/null
+
