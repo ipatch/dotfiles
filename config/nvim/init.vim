@@ -35,22 +35,14 @@ map <Leader>i mmgg=G`m<CR>
 " Hard-wrap long lines as I type them
 set textwidth=0
 
-set hlsearch          " Highlight search results
-set incsearch         " Incremental search, search as you type
-set ignorecase        " Ignore case when searching
-" the below setting will turn off `ignorecase` if a capital letter is present
-" in the search, ie. `S`
-set smartcase
-" Stop highlighting on Enter
-map <CR> :nohl<CR>
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""
 " vim-airline settings / keybindings https://github.com/vim-airline/vim-airline
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""
 let g:airline#extensions#tabline#enabled = 2
 let g:airline#extensions#tabline#fnamemod = ':t'
 " NOTE: https://github.com/vim-airline/vim-airline/issues/142#issuecomment-145317103
 let g:airline_powerline_fonts=1 " this setting presents pretty glyphs using powerline fonts.
+
 " set the color scheme for vim-airline
 let g:airline_theme = 'base16' " keep the base16 colorscheme consistent.
 
@@ -102,7 +94,9 @@ inoremap <M-v> <esc>"+p
 nnoremap <M-z> u
 inoremap <M-z> <C-o>u
 
-" TODO: figure out a way to toggle the Netrw browser with <command>+<\>
+"""""""""""""""""""""""""""""
+" netrw
+""
 " CREDIT: https://shapeshed.com/vim-netrw/   
 
 let g:netrw_liststyle = 3
@@ -123,7 +117,9 @@ inoremap <M-\> :Lexplore<cr>
 " in which the file is located when toggling netrw
 set autochdir
 
-" To setup OS specific settings for neovim
+"""""""""""""""""""""""""""""
+" ~ OS ~ specific settings
+""
 " CREDIT: 💳 https://vi.stackexchange.com/a/2574/10550
 if has('unix')
   " set the default python PATH, to supposedly boost 🏎 the performance of
@@ -151,7 +147,7 @@ endif
 " Cool hacky stuff
 ""
 
-" Make sure Vim returns to the same line when you reopen a file.
+" Make sure Vim returns to the same line when reopening a file.
 augroup line_return
   au!
   au BufReadPost *
@@ -170,17 +166,14 @@ map <leader>sv :source $MYVIMRC<CR>
 " set (n)vim as pager
 ""
 let $PAGER=''
-" ==================================
+
+"""""""""""""""""""""""""""""
 " set nvim to manpager in env var
-" ==================================
+"" 
 let $MANPAGER=''
 
-" Appearance - settings related to developer happiness ❤️   when using nvim
-set showbreak=… " show ellipsis at breaking
-set autoindent " automatically set indent of new line
 set ttyfast " faster redrawing
 set shell=/bin/sh
-set showmatch " show matching braces
 
 " make comments and HTML attributes italic
 " TODO; figure out why comments aren't showing up in italics
@@ -190,7 +183,7 @@ highlight xmlAttrib cterm=italic
 highlight Type cterm=italic
 highlight Normal ctermbg=none
 
-" don't conceal markdown links
+" toggle between different conceal levels
 function! ToggleConcealLevel()
     if &conceallevel == 0
         setlocal conceallevel=2

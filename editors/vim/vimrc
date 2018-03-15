@@ -32,13 +32,19 @@ set laststatus=2
 set modelines=5
 set vb t_vb=
 set listchars=tab:‣\ ,eol:¬
+"""""""""""""""""""""""""""""
+" search
+""
+set hlsearch                          " Highlight search results
+set ignorecase                        " Ignore case when sarching
+" Stop highlighting on Enter
+map <CR> :nohl<CR>
 set incsearch
 set nojoinspaces
 set display+=lastline
 set mouse=a                           " enable mouse support
-
+set showmatch                         " show matching braces
 """""""""""""""""""""""""""""
-" 
 " Indentation / tab shit
 ""
 " set ts=2 sts=2 sw=2 expandtab 
@@ -111,6 +117,7 @@ cnoreabbrev t tabe
 cnoreabbrev T tabe
 
 " Move selected lines up and down
+" TODO: get this 'feature' to work as intended
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 
@@ -144,9 +151,8 @@ call minpac#init()
 call minpac#add('k-takata/minpac', {'type': 'opt'})
 
 """""""""""""""""""""""""""""
-"
 " Additional plugins
-"
+""
 call minpac#add('tpope/vim-surround')
 call minpac#add('tpope/vim-unimpaired')
 call minpac#add('tpope/vim-scriptease', {'type': 'opt'})
@@ -169,14 +175,12 @@ call minpac#add('tpope/vim-commentary')
 call minpac#add('junegunn/fzf.vim')
 
 """""""""""""""""""""""""""""
-"
 " minpac - commands
 "" 
 command! PackUpdate packadd minpac | source $MYVIMRC | call minpac#update()
 command! PackClean  packadd minpac | source $MYVIMRC | call minpac#clean()
 
 """""""""""""""""""""""""""""
-"
 " FZF
 ""
 nmap ; :Buffers<CR>
@@ -188,12 +192,10 @@ command! FZFMru call fzf#run({
 \  'down':    '40%'})
 nmap <Leader>r :FZFMru<CR>
 
-
 " You can set up fzf window using a Vim command (Neovim or Vim 8 required)
 let g:fzf_layout = { 'window': 'enew' }
 let g:fzf_layout = { 'window': '-tabnew' }
 let g:fzf_layout = { 'window': '10split enew' }
-
 
 " If you opened a readonly file like /etc/hosts press w!! solve :)
 cmap w!! w !sudo tee % >/dev/null
