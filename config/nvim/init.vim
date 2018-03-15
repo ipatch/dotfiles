@@ -1,14 +1,13 @@
-" ====================================================
+"""""""""""""""""""""""""""""
 "  ~ My init.vim ~ for neovim
-"  ===================================================
+"""""""""""""""""""""""""""""
 "  Author: Chris Jones [http://chrisrjones.com]
 "  Source: https://github.com/ipatch/dotfiles/blob/master/config/nvim/init.vim
-"  ===========================================================================
+""
 
 """""""""""""""""""""""""""""
-"
 " Load vim configuration, runtimepath, packpath, and .vimrc
-"
+""
 set runtimepath^=~/.vim runtimepath+=~/.vim/after
 let &packpath=&runtimepath
 source ~/.vimrc
@@ -38,7 +37,7 @@ set textwidth=0
 
 set hlsearch          " Highlight search results
 set incsearch         " Incremental search, search as you type
-set ignorecase        " Ignore case wehn searching
+set ignorecase        " Ignore case when searching
 " the below setting will turn off `ignorecase` if a capital letter is present
 " in the search, ie. `S`
 set smartcase
@@ -54,28 +53,18 @@ let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline_powerline_fonts=1 " this setting presents pretty glyphs using powerline fonts.
 " set the color scheme for vim-airline
 let g:airline_theme = 'base16' " keep the base16 colorscheme consistent.
-set noshowmode        " No need to show the 'showmode' because using vim-airline
 
-"""
+"""""""""""""""""""""""""""""
 " vim-fugitive settings - https://github.com/tpope/vim-fugitive
-"""
+""
 
 set statusline=%{fugitive#statusline()}
 
-"""
-" End vim-fugitive settings
-"""
-"""
-" End vim-airline settings
-"""
 
-"""
+"""""""""""""""""""""""""""""
 " indentLine - settings / configuration
-"""
+""
 let g:indentLine_setColors = 1 
-"""
-" end indentLine
-"""
 
 let base16colorspace=256 " Access colors present in 256 colorspace
 colorscheme base16-default-dark
@@ -158,9 +147,9 @@ if has('unix')
 
 endif
 
-" =============================================================================
+"""""""""""""""""""""""""""""
 " Cool hacky stuff
-" =============================================================================
+""
 
 " Make sure Vim returns to the same line when you reopen a file.
 augroup line_return
@@ -171,15 +160,15 @@ augroup line_return
         \ endif
 augroup END
 
-" =============================================================================
+"""""""""""""""""""""""""""""
 " Useful hacks for working with `$HOME/.config/nvim/init.vim or $MYVIMRC
-" =============================================================================
+""
 map <leader>vm :tabe $MYVIMRC<CR>
 map <leader>sv :source $MYVIMRC<CR>
 
-" =====================================
+"""""""""""""""""""""""""""""
 " set (n)vim as pager
-" =====================================
+""
 let $PAGER=''
 " ==================================
 " set nvim to manpager in env var
@@ -202,18 +191,6 @@ highlight Type cterm=italic
 highlight Normal ctermbg=none
 
 " don't conceal markdown links
-" set conceallevel=0 <= doesn't work because `indentLine` overrides
-" autocmd FileType md let g:indentLine_enable=0
-" autocmd FileType markdown let g:indentLine_enabled=0
-" let g:markdown_syntax_conceal = 0
-
-" To disable conceal for all filetypes use the below
-" let g:indentLine_setConceal = 0
-
-" To disable conceal for a particular filetype
-" let g:indentLine_fileTypeExclude = ['md']
-
-
 function! ToggleConcealLevel()
     if &conceallevel == 0
         setlocal conceallevel=2
