@@ -9,8 +9,8 @@
 "
 " Load vim configuration, runtimepath, packpath, and .vimrc
 "
-set runtimepath+=~/.vim,~/.vim/after
-set packpath+=~/.vim
+set runtimepath^=~/.vim runtimepath+=~/.vim/after
+let &packpath=&runtimepath
 source ~/.vimrc
 
 set guifont=Cousine\ for\ Powerline:h13
@@ -36,12 +36,9 @@ map <Leader>i mmgg=G`m<CR>
 " Hard-wrap long lines as I type them
 set textwidth=0
 
-" Highlight search results
-set hlsearch
-" Incremental search, search as you type
-set incsearch
-" Ignore case wehn searching
-set ignorecase
+set hlsearch          " Highlight search results
+set incsearch         " Incremental search, search as you type
+set ignorecase        " Ignore case wehn searching
 " the below setting will turn off `ignorecase` if a capital letter is present
 " in the search, ie. `S`
 set smartcase
@@ -57,8 +54,7 @@ let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline_powerline_fonts=1 " this setting presents pretty glyphs using powerline fonts.
 " set the color scheme for vim-airline
 let g:airline_theme = 'base16' " keep the base16 colorscheme consistent.
-" No need to show the 'showmode' because using vim-airline
-set noshowmode
+set noshowmode        " No need to show the 'showmode' because using vim-airline
 
 """
 " vim-fugitive settings - https://github.com/tpope/vim-fugitive
@@ -93,20 +89,6 @@ if has('nvim-0.1.5')
   set termguicolors
 endif
 
-" move cursor with mouse
-set mouse=a
-
-" show incomplete commands in lower right corner
-set showcmd
-
-" keep context in buffer when repostioning 🖕
-" NOTE: to test the below feature use the below key combination, <z>, <enter>
-set scrolloff=7
-
-" set autoindent for autoindenting new lines after pressing <CR> / <enter>
-set ai
-"set smart indent, pairs 🍷 well with autoindent
-set si
 
 " Easy commenting of lines using tpope's plugin.
 " CREDIT: 💳 https://github.com/neovim/neovim/issues/5052#issuecomment-232083842
@@ -173,7 +155,7 @@ if has('unix')
 
   " Try and get `command + c` to work on remote linux servers
   vnoremap <M-c> "+y
-  
+
 endif
 
 " =============================================================================
@@ -184,9 +166,9 @@ endif
 augroup line_return
   au!
   au BufReadPost *
-    \ if line("'\"") > 0 && line("'\"") <= line("$") |
-    \     execute 'normal! g`"zvzz' |
-    \ endif
+        \ if line("'\"") > 0 && line("'\"") <= line("$") |
+        \     execute 'normal! g`"zvzz' |
+        \ endif
 augroup END
 
 " =============================================================================
@@ -219,4 +201,27 @@ highlight xmlAttrib cterm=italic
 highlight Type cterm=italic
 highlight Normal ctermbg=none
 
+" don't conceal markdown links
+" set conceallevel=0 <= doesn't work because `indentLine` overrides
+" autocmd FileType md let g:indentLine_enable=0
+" autocmd FileType markdown let g:indentLine_enabled=0
+" let g:markdown_syntax_conceal = 0
 
+" To disable conceal for all filetypes use the below
+" let g:indentLine_setConceal = 0
+
+" To disable conceal for a particular filetype
+" let g:indentLine_fileTypeExclude = ['md']
+
+
+function! ToggleConcealLevel()
+    if &conceallevel == 0
+        setlocal conceallevel=2
+    elseif &conceallevel == 1
+        setlocal conceallevel=0
+    elseif &conceallevel == 2
+        setlocal conceallevel=0
+    endif
+endfunction
+
+nnoremap <silent> ` :call ToggleConcealLevel()<CR>

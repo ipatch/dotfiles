@@ -12,7 +12,7 @@
 - [the dotfiles wiki](https://github.com/ipatch/dotfiles/wiki)
 > A collection of useful pages that complements 👏🏾 these dotfiles.
 - [Installation](#installation)
-  - [Fish shell setup](#fish-shell-setup)
+- [Fish shell setup](#fish-shell-setup)
   - [Neovim setup](#neovim-setup)
   - [Atom setup](#atom-setup)
 - [File Structure](#file-structure)
