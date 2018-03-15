@@ -2,7 +2,7 @@
 "
 " Author: Chris Jones
 " Source: http://github.com/ipatch/dotfiles/blob/master/editors/vim/vimrc
-"
+""
 
 " Want to set this before any others, the default 'leader' key is `\`
 let g:mapleader = ','                 " set the 'leader' key to `,`
@@ -40,7 +40,7 @@ set mouse=a                           " enable mouse support
 """""""""""""""""""""""""""""
 " 
 " Indentation / tab shit
-"
+""
 " set ts=2 sts=2 sw=2 expandtab 
 set shiftwidth=2                        " Indent by 2 spaces by default - indentation amount for < and > commands.
 set softtabstop=2
@@ -50,6 +50,25 @@ set nofoldenable
 set tabstop=2
 set ai                                  " set auto indent
 set smartindent
+
+"""""""""""""""""""""""""""""
+" Key mappings / bindings
+""
+" Note - the below configuration line will map the 'space bar' to ':' so that
+" way 'Shift+;' does not have to be pressed to begin a command in normal mode.
+nmap <space> :
+
+" use ,, for escape <ESC>
+inoremap ,, <ESC>
+" use ,, for escape <ESC> in command mode
+" cmap ,, <ESC> " NOTE: the following key binding did not work.
+" NOTE: use <Ctrl>+<[> to exit command line mode.
+
+" Note - the below insert mappings will bind 'jk' / 'kj' to the ESC
+" key functionality, so the ESC key does not need to be pressed in insert 
+" mode.
+imap jk <esc>
+imap kj <esc>
 
 noremap <silent> <Up> <ESC><Up>
 inoremap <silent> <Down> <ESC><Down>
