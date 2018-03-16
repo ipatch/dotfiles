@@ -50,7 +50,7 @@ if type -q fzf
   # _fzf_compgen_path() {
   #   fd --hidden --follow --exclude ".git" . "$argv"
   # }
-  fzf --preview 'cat {}'
+  # fzf --preview 'cat {}'
 end
 
 switch (uname)
