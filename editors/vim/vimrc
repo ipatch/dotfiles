@@ -117,9 +117,8 @@ cnoreabbrev t tabe
 cnoreabbrev T tabe
 
 " Move selected lines up and down
-" TODO: get this 'feature' to work as intended
-vnoremap J :m '>+1<CR>gv=gv
-vnoremap K :m '<-2<CR>gv=gv
+xnoremap K :move '<-2<CR>gv=gv
+xnoremap J :move '>+1<CR>gv=gv
 
 " Toggle between last 2 buffers
 nnoremap <leader><tab> <c-^>
