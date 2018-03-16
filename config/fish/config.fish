@@ -1,16 +1,15 @@
-################
+#############################
 #
 # User specified file for configuring the fish shell.
 # Author: Chris Jones
 # Contact: @truckmonth <- twitter
 # Contact: @ipatch <- github 
 # Email: chris.r.jones.1983@gmail.com
-#
+##
 
-################
-#
+#############################
 # fundle setup
-#
+##
 fundle plugin 'edc/bass'
 # fundle plugin 'tuvistavie/fish-ssh-agent'
 
@@ -26,15 +25,15 @@ if status --is-interactive
   eval sh $HOME/.config/base16-shell/scripts/base16-default-dark.sh
 end
 
-################
-#
+#############################
 # USER defined environment variables
-#
+##
 set -gx TERM xterm-256color
 set -gx HOSTNAME (hostname -s)
 set -gx DOTFILES /opt/Code/dotfiles
 set -gx dotfiles /opt/Code/dotfiles
 set -gx dot /opt/Code/dotfiles
+set -gx dots /opt/Code/dotfiles
 set -gx XDG_CONFIG_HOME $HOME/.config
 set -gx CODE /opt/code
 set -gx code /opt/code
@@ -51,18 +50,18 @@ end
 
 switch (uname)
   case Darwin
-    ################
+    #########################
     # Setup OS specific PATH variables for macOS
     #
     # NOTE: added /usr/local/sbin ahead of /sbin in `/etc/paths`
     #
-    ################
+    #########################
     # NOTE: prepend gnu-sed to the beginning of the $PATH
-    #
+    ##
     set -gx fish_user_paths $fish_user_paths /usr/local/opt/gnu-sed/libexec/gnubin
-    ################
+    #########################
     # Add the below path in order to get react-native CLI working.
-    #
+    ##
     set -gx fish_user_paths $fish_user_paths $HOME/Library/Android/sdk/platform-tools
     # set -gx fish_user_paths $fish_user_paths $HOME/anaconda2/bin
     set -gx fish_user_paths $fish_user_paths $HOME/.config/yarn/global/node_modules/.bin
@@ -92,9 +91,9 @@ switch (uname)
     end
     
 
-    ###
+    #########################
     # Add below command / truthy statement to add syntax highlighting for `less`
-    ###
+    ##
     if type -q nvim
       # TODO: don't hard code path to `nvim` search for `nvim` instead
       set -gx EDITOR nvim
@@ -102,7 +101,7 @@ switch (uname)
       [ -x "/usr/local/share/nvim/runtime/macros/less.sh" ]; and \
       alias less='/usr/local/share/nvim/runtime/macros/less.sh';
     else
-      set -x EDITOR /usr/bin/vim
+      set -gx EDITOR /usr/bin/vim
     end
 
   case Linux
@@ -121,11 +120,13 @@ switch (uname)
     set -gx XAUTHORITY "$HOME/.Xauthority"
 
     if type -q nvim
-      set -x EDITOR /home/linuxbrew/.linuxbrew/bin/nvim
+      set -gx EDITOR nvim
+      set -gx VISUAL nvim
       [ -x "/home/linuxbrew/.linuxbrew/share/nvim/runtime/macros/less.sh" ]; and \
       alias less='/home/linuxbrew/.linuxbrew/share/nvim/runtime/macros/less.sh';
     else
-      set -x EDITOR /usr/bin/vim
+      set -gx EDITOR /usr/bin/vim
+      set -gx VISUAL /usr/bin/vim
     end
 end
 
