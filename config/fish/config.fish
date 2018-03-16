@@ -26,12 +26,15 @@ if status --is-interactive
   eval sh $HOME/.config/base16-shell/scripts/base16-default-dark.sh
 end
 
-###
+################
+#
 # USER defined environment variables
-###
+#
 set -gx TERM xterm-256color
 set -gx HOSTNAME (hostname -s)
 set -gx DOTFILES /opt/Code/dotfiles
+set -gx dotfiles /opt/Code/dotfiles
+set -gx dot /opt/Code/dotfiles
 set -gx XDG_CONFIG_HOME $HOME/.config
 set -gx CODE /opt/code
 set -gx code /opt/code
@@ -42,23 +45,29 @@ if type -q rustc
   set -gx fish_user_paths $fish_user_paths $HOME/.cargo/bin
 end
 
+if type -q fzf
+  set -gx FZF_DEFAULT_COMMAND 'fd --type f'
+end
+
 switch (uname)
   case Darwin
-    ###
+    ################
     # Setup OS specific PATH variables for macOS
-    ###
+    #
     # NOTE: added /usr/local/sbin ahead of /sbin in `/etc/paths`
-    ###
+    #
+    ################
     # NOTE: prepend gnu-sed to the beginning of the $PATH
-    ###
+    #
     set -gx fish_user_paths $fish_user_paths /usr/local/opt/gnu-sed/libexec/gnubin
-    ###
+    ################
     # Add the below path in order to get react-native CLI working.
-    ###
+    #
     set -gx fish_user_paths $fish_user_paths $HOME/Library/Android/sdk/platform-tools
     # set -gx fish_user_paths $fish_user_paths $HOME/anaconda2/bin
     set -gx fish_user_paths $fish_user_paths $HOME/.config/yarn/global/node_modules/.bin
     set -gx fish_user_paths $fish_user_paths $HOME/bin
+    set -gx fish_user_paths $fish_user_paths $HOME/.local/bin
     set -gx fish_user_paths $fish_user_paths $HOME/bin/base16-shell
     if type -q /usr/local/opt/libressl/bin/openssl
       set -gx fish_user_paths $fish_user_paths /usr/local/opt/libressl/bin
@@ -66,7 +75,9 @@ switch (uname)
     if type -q brew
       # set -gx fish_user_paths $fish_user_paths /usr/local/opt/python/libexec/bin
     end
-
+    if type -q /usr/local/bin/go
+      set -gx fish_user_paths $fish_user_paths /usr/local/opt/go/libexec/bin
+    end
     ###
     # set env vars for git
     ###
@@ -85,7 +96,9 @@ switch (uname)
     # Add below command / truthy statement to add syntax highlighting for `less`
     ###
     if type -q nvim
-      set -x EDITOR /usr/local/bin/nvim
+      # TODO: don't hard code path to `nvim` search for `nvim` instead
+      set -gx EDITOR /usr/local/bin/nvim
+      set -gx VISUAL /usr/local/bin/nvim
       [ -x "/usr/local/share/nvim/runtime/macros/less.sh" ]; and \
       alias less='/usr/local/share/nvim/runtime/macros/less.sh';
     else
