@@ -75,6 +75,7 @@ inoremap ,, <ESC>
 " mode.
 imap jk <esc>
 imap kj <esc>
+imap jj <esc>
 
 noremap <silent> <Up> <ESC><Up>
 inoremap <silent> <Down> <ESC><Down>
