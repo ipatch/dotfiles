@@ -171,8 +171,10 @@ call minpac#add('sheerun/vim-polyglot')
 call minpac#add('tpope/vim-commentary')
 " Add `fzf` vim plugins
 " NOTE: the below `junegunn/fzf` is NOT requried if fzf is installed via brew
-" call minpac#add("junegunn/fzf")
 call minpac#add('junegunn/fzf.vim')
+" seemless key-bindings between tmux and vim
+call minpac#add('christoomey/vim-tmux-navigator')
+
 
 """""""""""""""""""""""""""""
 " minpac - commands

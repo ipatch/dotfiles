@@ -46,6 +46,7 @@ end
 
 if type -q fzf
   set -gx FZF_DEFAULT_COMMAND 'fd --type f'
+  set -gx FZF_DEFAULT_OPTS --preview='head -n50 {}'
   # TODO: figure out how to properly load function in fish
   # _fzf_compgen_path() {
   #   fd --hidden --follow --exclude ".git" . "$argv"
