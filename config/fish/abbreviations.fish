@@ -1,17 +1,20 @@
-################
+#############################
 #
 # A place to store abbreviations for making things a tad bit quicker.
 #
 
-################
+#############################
 #
 # Added the below abbreviations because I'm really tired of typing out the below commands.
 #
 abbr -a editfish 'nvim $HOME/.config/fish/config.fish'
 abbr -a editnvim 'nvim $HOME/.config/nvim/init.vim'
+abbr -a editdots 'cd $dot; nvim .;'
 abbr -a l 'ls -lah'
 abbr -a cp 'cp -iv'
-################
+abbr -a cddots 'cd $dot'
+abbr -a dots 'cd $dot'
+#############################
 #
 # rsync
 #
@@ -111,12 +114,24 @@ end
 
 switch (uname)
   case Darwin
+    ################
+    #
+    # homebrew specifc abbreviations
+    #
+    # postgresql
     abbr -a pg-start "launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist"
     abbr -a pg-stop "launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist"
+    #
+    # redis
+    abbr -a redis-start "launchctl load ~/Library/LaunchAgents/homebrew.mxcl.redis.plist"
+    abbr -a redis-stop "launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.redis.plist"
+    #
     # setup an alias for quicklook from the terminal in macOS
     abbr -a ql 'qlmanage -p'
     # update location DB
-    abbr -a updatedb '/usr/libexec/locate.updatedb'
+    # NOTE: changed abbr to `mac-updatedb` because of homebrew installed
+    #...`findutils` which provides the `updatedb` bin.
+    abbr -a mac-updatedb '/usr/libexec/locate.updatedb'
 end
 ################
 #

@@ -1,20 +1,141 @@
-filetype plugin indent on
+"""""""""""""""""""""""""""""
+"
+" Author: Chris Jones
+" Source: http://github.com/ipatch/dotfiles/blob/master/editors/vim/vimrc
+""
+
+" Want to set this before any others, the default 'leader' key is `\`
+let g:mapleader = ','                 " set the 'leader' key to `,`
+
+" Don't allow vi compatibility mode; don't need it 🤽‍♂️
+set nocompatible
+
+set fileencoding=utf-8                " Set utf-8 encoding on write
+set encoding=utf-8                    " set character encoding, ie. utf-8 is a 'dialect' of unicode.
+set termencoding=utf-8
+
+set title                             " Set the title on the terminal tab                       
+set background=dark
+set number                            " Line numbers
+set cursorline                        " Highlight current line
+set backspace=eol,start,indent        " Configure backspace so it acts as it should act
+filetype plugin indent on             " Enable filetype detection & Enable filetype-specific plugins
 syntax on
 set background=light
 " colorscheme solarized8_light
-
 set number
+set relativenumber                    " Show numbers relative to current line
+set history=500                       "  History for days 😛
+set showcmd                           " Show incomplete cmds down at the bottom
+set noshowmode                        " we're flying airline ✈️
 set laststatus=2
 set modelines=5
 set vb t_vb=
-set ts=2 sts=2 sw=2 expandtab
 set listchars=tab:‣\ ,eol:¬
+"""""""""""""""""""""""""""""
+" search
+""
+set hlsearch                          " Highlight search results
+set ignorecase                        " Ignore case when sarching
+" Stop highlighting on Enter
+map <CR> :nohl<CR>
 set incsearch
 set nojoinspaces
 set display+=lastline
+set mouse=a                           " enable mouse support
+set showmatch                         " show matching braces
+"""""""""""""""""""""""""""""
+" Indentation / tab shit
+""
+" set ts=2 sts=2 sw=2 expandtab 
+set shiftwidth=2                        " Indent by 2 spaces by default - indentation amount for < and > commands.
+set softtabstop=2
+set tabstop=2
+set expandtab
+set nofoldenable
+set tabstop=2
+set ai                                  " set auto indent
+set smartindent
+
+"""""""""""""""""""""""""""""
+" Key mappings / bindings
+""
+" Note - the below configuration line will map the 'space bar' to ':' so that
+" way 'Shift+;' does not have to be pressed to begin a command in normal mode.
+nmap <space> :
+
+" use ,, for escape <ESC>
+inoremap ,, <ESC>
+" use ,, for escape <ESC> in command mode
+" cmap ,, <ESC> " NOTE: the following key binding did not work.
+" NOTE: use <Ctrl>+<[> to exit command line mode.
+
+" Note - the below insert mappings will bind 'jk' / 'kj' to the ESC
+" key functionality, so the ESC key does not need to be pressed in insert 
+" mode.
+imap jk <esc>
+imap kj <esc>
+
+noremap <silent> <Up> <ESC><Up>
+inoremap <silent> <Down> <ESC><Down>
+
+" Fast saving
+noremap <leader>w :w<CR>
+
+"""""""""""""""""""""""""""""
+" auto commands
+""
+augroup vimrc
+  autocmd!
+augroup END
+
+autocmd vimrc FocusGained,BufEnter * checktime  " Refresh file when vim gets focus
+
+"""""""""""""""""""""""""""""
+" completion
+""
+set wildmenu                          " show display menu when using `tab` completeion
+set wildmode=list:full
+set wildignore+=*/tmp/*,*/.git/*      " ignore the below directories with wild menu
+set wildignore=*.o,*.obj,*~           "stuff to ignore when tab completing
+set wildignore+=*logs*
+set wildignore+=*node_modules/**
+set wildignore+=*DS_Store*
+set wildignore+=*.gem
+set wildignore+=log/**
+set wildignore+=tmp/**
+
+"""""""""""""""""""""""""""""
+" Scrolling
+""
+set scrolloff=7
+
+"""""""""""""""""""""""""""""
+" Abbreviations
+""
+cnoreabbrev t tabe
+cnoreabbrev T tabe
+
+" Move selected lines up and down
+" TODO: get this 'feature' to work as intended
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
+
+" Toggle between last 2 buffers
+nnoremap <leader><tab> <c-^>
+
+" Toggle buffer list
+nnoremap <C-p> :Files<CR>
+nnoremap <Leader>b :Buffers<CR>
+nnoremap <Leader>t :BTags<CR>
+nnoremap <Leader>m :History<CR>
+
+" load `fzf` from homebrew install
+set rtp+=/usr/local/opt/fzf
 
 if has('nvim')
   let g:loaded_sensible=0
+  highlight Comment cterm=italic
 
   " Keymappings for Neovim
   " By default to exit out of `terminal` mode in nvim use `<C-\><C-n>`
@@ -23,9 +144,15 @@ if has('nvim')
   tnoremap <A-[> <Esc>
 endif
 
+" NOTE: minpac will need to be cloned from github before packages can be installed.
+set packpath^=~/.vim
 packadd minpac
 call minpac#init()
+call minpac#add('k-takata/minpac', {'type': 'opt'})
 
+"""""""""""""""""""""""""""""
+" Additional plugins
+""
 call minpac#add('tpope/vim-surround')
 call minpac#add('tpope/vim-unimpaired')
 call minpac#add('tpope/vim-scriptease', {'type': 'opt'})
@@ -42,14 +169,34 @@ call minpac#add('Yggdroot/indentLine') " Add vertical indentation lines
 call minpac#add('sheerun/vim-polyglot')
 " Package for quickly commenting lines in code files
 call minpac#add('tpope/vim-commentary')
+" Add `fzf` vim plugins
+" NOTE: the below `junegunn/fzf` is NOT requried if fzf is installed via brew
+" call minpac#add("junegunn/fzf")
+call minpac#add('junegunn/fzf.vim')
 
-"""""
-"
-" Load `minpac` LAST!
-" NOTE: minpac will need be cloned from github before packages can be
-" installed.
-" 
-call minpac#add('k-takata/minpac', {'type': 'opt'})
+"""""""""""""""""""""""""""""
+" minpac - commands
+"" 
+command! PackUpdate packadd minpac | source $MYVIMRC | call minpac#update()
+command! PackClean  packadd minpac | source $MYVIMRC | call minpac#clean()
 
-command! PackUpdate call minpac#update()
-command! PackClean call minpac#clean()
+"""""""""""""""""""""""""""""
+" FZF
+""
+nmap ; :Buffers<CR>
+nmap <Leader>f :Files<CR>
+command! FZFMru call fzf#run({
+\  'source':  v:oldfiles,
+\  'sink':    'e',
+\  'options': '-m -x +s',
+\  'down':    '40%'})
+nmap <Leader>r :FZFMru<CR>
+
+" You can set up fzf window using a Vim command (Neovim or Vim 8 required)
+let g:fzf_layout = { 'window': 'enew' }
+let g:fzf_layout = { 'window': '-tabnew' }
+let g:fzf_layout = { 'window': '10split enew' }
+
+" If you opened a readonly file like /etc/hosts press w!! solve :)
+cmap w!! w !sudo tee % >/dev/null
+
