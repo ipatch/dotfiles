@@ -99,12 +99,9 @@ inoremap <M-z> <C-o>u
 ""
 " CREDIT: https://shapeshed.com/vim-netrw/   
 
-let g:netrw_liststyle = 3
-" Do not display the banner when using Netrw
-let g:netrw_banner = 0
-" Display the netrw file browser in a vertical split
-let g:netrw_browse_split = 1
-" Set the default width when opening the netrw explorer
+let g:netrw_liststyle = 3 " Do not display the banner when using Netrw
+let g:netrw_banner = 0 " Display the netrw file browser in a vertical split
+let g:netrw_browse_split = 1 " Set the default width when opening the netrw explorer
 let g:netrw_winsize = 25
 " TODO: document what the below variable does to netrw
 let g:netrw_altv = 1
