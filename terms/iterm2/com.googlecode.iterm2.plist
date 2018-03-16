@@ -50196,9 +50196,9 @@
 		</dict>
 	</dict>
 	<key>Default Arrangement Name</key>
-	<string>single-window-second-desktop</string>
+	<string>single-window-main-desktop</string>
 	<key>Default Bookmark Guid</key>
-	<string>FEF5FFEF-E324-488C-9CA4-F71AFF0C5427</string>
+	<string>1CC7C0B4-3E6C-43F7-B261-10AFA5663587</string>
 	<key>DimBackgroundWindows</key>
 	<true/>
 	<key>DimInactiveSplitPanes</key>
@@ -50359,7 +50359,7 @@
 	<key>HideScrollbar</key>
 	<false/>
 	<key>HideTab</key>
-	<true/>
+	<false/>
 	<key>HideTabCloseButton</key>
 	<false/>
 	<key>HideTabNumber</key>
@@ -50419,17 +50419,17 @@
 	<key>NSWindow Frame SessionsPreferences</key>
 	<string>269 76 599 519 0 0 1440 877 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>270 270 796 473 0 0 1440 877 </string>
+	<string>270 262 796 473 0 0 1440 877 </string>
 	<key>NSWindow Frame com.apple.typography_panel_ConsolasForPowerline</key>
 	<string>252 254 260 156 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>5 31 1434 814 0 0 1440 877 </string>
+	<string>0 375 714 500 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>6 32 1434 837 0 0 1440 877 </string>
+	<string>6 17 1434 860 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
-	<string>723 222 714 477 0 0 1440 877 </string>
+	<string>6 0 1434 860 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 3</key>
-	<string>8 217 714 500 0 0 1440 877 </string>
+	<string>6 0 1434 860 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 4</key>
 	<string>281 377 714 500 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 5</key>
@@ -50437,6 +50437,10 @@
 	<key>NeverWarnAboutShortLivedSessions_CE23A0D0-D231-41C3-A52A-D169A1007D13</key>
 	<true/>
 	<key>NeverWarnAboutShortLivedSessions_CE23A0D0-D231-41C3-A52A-D169A1007D13_selection</key>
+	<integer>0</integer>
+	<key>NeverWarnAboutShortLivedSessions_FEF5FFEF-E324-488C-9CA4-F71AFF0C5427</key>
+	<true/>
+	<key>NeverWarnAboutShortLivedSessions_FEF5FFEF-E324-488C-9CA4-F71AFF0C5427_selection</key>
 	<integer>0</integer>
 	<key>New Bookmarks</key>
 	<array>
@@ -52760,7 +52764,7 @@
 	<key>OnlyWhenMoreTabs</key>
 	<false/>
 	<key>OpenArrangementAtStartup</key>
-	<true/>
+	<false/>
 	<key>OpenNoWindowsAtStartup</key>
 	<false/>
 	<key>PMPrintingExpandedStateForPrint2</key>
@@ -52815,7 +52819,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2018-03-12T18:45:51Z</date>
+	<date>2018-03-15T23:42:29Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>ShowBookmarkName</key>
