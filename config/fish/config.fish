@@ -97,8 +97,8 @@ switch (uname)
     ###
     if type -q nvim
       # TODO: don't hard code path to `nvim` search for `nvim` instead
-      set -gx EDITOR /usr/local/bin/nvim
-      set -gx VISUAL /usr/local/bin/nvim
+      set -gx EDITOR nvim
+      set -gx VISUAL nvim
       [ -x "/usr/local/share/nvim/runtime/macros/less.sh" ]; and \
       alias less='/usr/local/share/nvim/runtime/macros/less.sh';
     else
