@@ -46,6 +46,11 @@ end
 
 if type -q fzf
   set -gx FZF_DEFAULT_COMMAND 'fd --type f'
+  # TODO: figure out how to properly load function in fish
+  # _fzf_compgen_path() {
+  #   fd --hidden --follow --exclude ".git" . "$argv"
+  # }
+  fzf --preview 'cat {}'
 end
 
 switch (uname)
