@@ -133,10 +133,6 @@ nnoremap <Leader>m :History<CR>
 set rtp+=/usr/local/opt/fzf
 
 if has('nvim')
-  """""""""""""""""""""""""""
-  " plugins
-  ""
-  call minpac#add('Shougo/deoplete.nvim', { 'do': 'UpdateRemotePlugins' })
   let g:loaded_sensible=0
   highlight Comment cterm=italic
 
@@ -156,6 +152,12 @@ call minpac#add('k-takata/minpac', {'type': 'opt'})
 """""""""""""""""""""""""""""
 " Additional plugins
 ""
+if has('nvim')
+  """""""""""""""""""""""""""
+  " Neovim only plugins
+  ""
+  call minpac#add('Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' })
+endif
 call minpac#add('tpope/vim-surround')
 call minpac#add('tpope/vim-unimpaired')
 call minpac#add('tpope/vim-scriptease', {'type': 'opt'})
