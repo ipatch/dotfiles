@@ -1,7 +1,12 @@
 """""""""""""""""""""""""""""
-"
 " ~ settings.vim ~
-"
+""
+
+"""""""""""""""""""""""""""""
+" mappings
+""
+set listchars=tab:▸\ ,eol:¬
+nmap <leader>l :set list!<CR>
 
 scriptencoding utf-8
 

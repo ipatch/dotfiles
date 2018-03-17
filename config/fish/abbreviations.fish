@@ -1,12 +1,10 @@
-#############################
-#
+##############################
 # A place to store abbreviations for making things a tad bit quicker.
-#
+##
 
-#############################
-#
+##############################
 # Added the below abbreviations because I'm really tired of typing out the below commands.
-#
+##
 abbr -a editfish 'nvim $HOME/.config/fish/config.fish'
 abbr -a editnvim 'nvim $HOME/.config/nvim/init.vim'
 abbr -a editdots 'cd $dot; nvim .;'
@@ -15,7 +13,6 @@ abbr -a cp 'cp -iv'
 abbr -a cddots 'cd $dot'
 abbr -a dots 'cd $dot'
 #############################
-#
 # rsync
 #
 # rysnc -ah --progress [source] [destination]
@@ -31,21 +28,18 @@ abbr -a today 'date +"%A, %B %-d, %Y"'
 abbr -a dotfiles 'cd $DOTFILES'
 abbr -a cddotfiles 'cd $DOTFILES'
 ################
-#
 # funny abbreviations
-#
+##
 abbr -a hunh 'emoji --hunh'
 abbr -a tf 'emoji --table-flip'
 abbr -a woot 'emoji --yay'
 ################
-#
 # preserve the $USER environment when running the sudo command.
-#
+##
 abbr -a sudo 'sudo -E'
 ################
-#
 # git abbreviations
-#
+##
 abbr -a gs 'git status'
 abbr -a gd 'git diff --stat'
 abbr -a ga 'git add --all'
@@ -58,9 +52,8 @@ abbr -a gru 'git remote -v update'
 abbr -a gco 'git checkout'
 abbr -a gsmru 'git smrupdate'
 ################
-#
 # abbreviations for for custom functions
-#
+##
 abbr -a pretty_path 'path_pretty'
 abbr -a pretty-path 'path_pretty'
 abbr -a path-pretty 'path_pretty'
@@ -75,10 +68,9 @@ abbr -a toggle-rvm 'rvm_toggle'
 abbr -a rvm-toggle 'rvm_toggle'
 
 ################
-#
 # Conditionally set `man` to `vman` fish function
 # NOTE: `vman` has trackpad support.
-#
+##
 if type -q vman
   abbr -a man 'vman'
 else
@@ -86,25 +78,22 @@ else
 end
 
 ################
-#
 # macOS specific abbreviations
-#
+##
 abbr -a fs 'toggle_hidden_files'
 abbr -a fh 'toggle_hidden_files'
 
 ################
-#
 # useful abbreviations for working NOC lists
-#
+##
 if type -q openssl
   abbr -a encrypt "openssl enc -aes-256-cbc -in" #/path/to/file #/path/to/file.dat
   abbr -a decrypt "openssl enc -aes-256-cbc -d -in" #/path/to/file.dat
 end
 
 #################
-#
 # node.js repl with reverse search
-#
+##
 if type -q node; and type -q rlwrap;
   abbr -a inode "rlwrap node"
 else
