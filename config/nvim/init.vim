@@ -16,18 +16,6 @@ set guifont=Cousine\ for\ Powerline:h13
 let g:Powerline_symbols = 'fancy'
 set t_Co=256
 set fillchars+=stl:\ ,stlnc:\
-" set term=xterm-256color
-
-call plug#begin('~/.config/nvim/plugged')
-
-" Plugins go here.  Example:
-" Plug 'foo/bar'
-
-Plug 'tpope/vim-projectionist' " required for some navigation features.
-Plug 'slashmili/alchemist.vim'
-Plug 'powerman/vim-plugin-AnsiEsc' " makes the documentation look pretty :)
-
-call plug#end()
 
 " the below key mapping will indent the entire file
 map <Leader>i mmgg=G`m<CR>
@@ -52,7 +40,6 @@ let g:airline_theme = 'base16' " keep the base16 colorscheme consistent.
 
 set statusline=%{fugitive#statusline()}
 
-
 """""""""""""""""""""""""""""
 " indentLine - settings / configuration
 ""
@@ -69,7 +56,6 @@ let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 if has('nvim-0.1.5')
   set termguicolors
 endif
-
 
 " Easy commenting of lines using tpope's plugin.
 " CREDIT: 💳 https://github.com/neovim/neovim/issues/5052#issuecomment-232083842

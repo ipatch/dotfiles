@@ -133,6 +133,10 @@ nnoremap <Leader>m :History<CR>
 set rtp+=/usr/local/opt/fzf
 
 if has('nvim')
+  """""""""""""""""""""""""""
+  " plugins
+  ""
+  call minpac#add('Shougo/deoplete.nvim', { 'do': 'UpdateRemotePlugins' })
   let g:loaded_sensible=0
   highlight Comment cterm=italic
 
@@ -173,6 +177,9 @@ call minpac#add('tpope/vim-commentary')
 call minpac#add('junegunn/fzf.vim')
 " seemless key-bindings between tmux and vim
 call minpac#add('christoomey/vim-tmux-navigator')
+call minpac#add('tpope/vim-projectionist') " granular project configuration
+call minpac#add('slashmili/alchemist.vim') " useful for working with Elixir
+" call minpac#add('vim-plugin-AnsiEsc') "
 
 
 """""""""""""""""""""""""""""
