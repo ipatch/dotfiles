@@ -215,6 +215,9 @@
   # gpgsign = true
   verbose = true
 
+[fetch]
+  prune = true
+
 [rebase]
   stat = true
 

@@ -32,6 +32,12 @@ set vb t_vb=
 set listchars=tab:‣\ ,eol:¬
 set spelllang=en_us                   " set the language for spelling words
 """"""""""""""""""""""""""""""
+" wrapping
+""
+set wrap
+set linebreak
+
+""""""""""""""""""""""""""""""
 " search
 ""
 set hlsearch                          " Highlight search results
