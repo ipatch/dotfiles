@@ -63,16 +63,10 @@ ln -sf $DOTFILES/config/fish/ $HOME/.config/fish
 <img src="https://raw.githubusercontent.com/wiki/ipatch/dotfiles/lib/vim-2017.png" alt="nvim-screenshot">
 </details>
 
-To utilize [this Neovim configuration](https://github.com/ipatch/dotfiles/blob/master/config/nvim/init.vim) to its full potential, [vim-plug](https://github.com/junegunn/vim-plug) will need to be installed along with Python 2 or 3.
-
-* To install vim-plug copy & paste the below command in your terminal.
-
-```shell
-curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-```
-
-...and once you have Python 2 or 3 installed run the below command.
+As of March 16, 2018, I have migrated all plugins to to use
+[minpac](https://github.com/k-takata/minpac).  This particular Neovim setup
+requires Vim >= 8.0 be installed, and all plugins are loaded using minpac from
+the `.vimrc` in the home directory.
 
 ```shell
 pip install neovim
