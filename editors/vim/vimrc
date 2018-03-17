@@ -9,11 +9,10 @@ let g:mapleader = ','                 " set the 'leader' key to `,`
 
 " Don't allow vi compatibility mode; don't need it 🤽‍♂️
 set nocompatible
-
+" Settings
 set fileencoding=utf-8                " Set utf-8 encoding on write
 set encoding=utf-8                    " set character encoding, ie. utf-8 is a 'dialect' of unicode.
 set termencoding=utf-8
-
 set title                             " Set the title on the terminal tab                       
 set background=dark
 set number                            " Line numbers
@@ -22,7 +21,6 @@ set backspace=eol,start,indent        " Configure backspace so it acts as it sho
 filetype plugin indent on             " Enable filetype detection & Enable filetype-specific plugins
 syntax on
 set background=light
-" colorscheme solarized8_light
 set number
 set relativenumber                    " Show numbers relative to current line
 set history=500                       "  History for days 😛
@@ -32,7 +30,8 @@ set laststatus=2
 set modelines=5
 set vb t_vb=
 set listchars=tab:‣\ ,eol:¬
-"""""""""""""""""""""""""""""
+set spelllang=en_us                   " set the language for spelling words
+""""""""""""""""""""""""""""""
 " search
 ""
 set hlsearch                          " Highlight search results
@@ -83,13 +82,14 @@ inoremap <silent> <Down> <ESC><Down>
 noremap <leader>w :w<CR>
 
 " go into command mode and print the working dir
-map <leader>ew :e <C-R>=expand("%:p:h") . "/" <CR>
+cnoremap %% <C-R>=fnamescape(expand('%:h')).'/'<cr>
+map <leader>ew :e %%
 " open file in new split
-map <leader>es :sp <C-R>=expand("%:p:h") . "/" <CR>
+map <leader>es :sp %%
 " edit file in new vertical split
-map <leader>ev :vsp <C-R>=expand("%:p:h") . "/" <CR>
+map <leader>ev :vsp %%
 " edit file in new tab
-map <leader>et :tabe <C-R>=expand("%:p:h") . "/" <CR>
+map <leader>et :tabe %%
 
 """""""""""""""""""""""""""""
 " auto commands
@@ -125,9 +125,6 @@ set scrolloff=7
 cnoreabbrev t tabe
 cnoreabbrev T tabe
 
-" Move selected lines up and down
-" xnoremap K :move '<-2<CR>gv=gv 
-" xnoremap J :move '>+1<CR>gv=gv
 
 " Toggle between last 2 buffers
 nnoremap <leader><tab> <c-^>
@@ -187,7 +184,6 @@ call minpac#add('tpope/vim-projectionist') " granular project configuration
 call minpac#add('slashmili/alchemist.vim') " useful for working with Elixir
 " call minpac#add('vim-plugin-AnsiEsc') "
 
-
 """""""""""""""""""""""""""""
 " minpac - commands
 "" 
@@ -230,3 +226,8 @@ autocmd BufNewFile,BufRead *.fish setfiletype fish
 " NOTE: iTerm2 will need modified settings for the below to work
 " map <D-S-]> gt
 " map <D-S-[> gT
+
+""""""""""""""""""""""""""""""
+" folding
+""
+set foldcolumn=2
