@@ -51,7 +51,6 @@ if type -q fzf
   # _fzf_compgen_path() {
   #   fd --hidden --follow --exclude ".git" . "$argv"
   # }
-  # fzf --preview 'cat {}'
 end
 
 switch (uname)
@@ -104,6 +103,8 @@ switch (uname)
       # TODO: don't hard code path to `nvim` search for `nvim` instead
       set -gx EDITOR nvim
       set -gx VISUAL nvim
+      set -gx VIMCONFIG $HOME/.vim/pack/bundle/start
+      set -gx VIMDATA $HOME/.vim/undo
       [ -x "/usr/local/share/nvim/runtime/macros/less.sh" ]; and \
       alias less='/usr/local/share/nvim/runtime/macros/less.sh';
     else
@@ -128,6 +129,8 @@ switch (uname)
     if type -q nvim
       set -gx EDITOR nvim
       set -gx VISUAL nvim
+      set -gx VIMCONFIG $HOME/.vim/pack/bundle/start
+      set -gx VIMDATA $HOME/.vim/undo
       [ -x "/home/linuxbrew/.linuxbrew/share/nvim/runtime/macros/less.sh" ]; and \
       alias less='/home/linuxbrew/.linuxbrew/share/nvim/runtime/macros/less.sh';
     else
