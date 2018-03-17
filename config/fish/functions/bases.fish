@@ -1,5 +1,5 @@
 function bases --description 'convert between hex binary & decimal'
-  switch "$argv[1 ]"
+  switch "$argv[1]"
     case -h --help help
       return 0
 

@@ -50,8 +50,8 @@ set showmatch                         " show matching braces
 " set ts=2 sts=2 sw=2 expandtab 
 set shiftwidth=2                        " Indent by 2 spaces by default - indentation amount for < and > commands.
 set softtabstop=2
-set tabstop=2
-set expandtab
+set tabstop=2                           " Indicates how many `spaces` a `tab` will indent
+set expandtab                           " If this setting is enabled `spaces` are used instead of `tabs`
 set nofoldenable
 set tabstop=2
 set ai                                  " set auto indent
@@ -66,7 +66,6 @@ nmap <space> :
 
 " use ,, for escape <ESC>
 inoremap ,, <ESC>
-" use ,, for escape <ESC> in command mode
 " cmap ,, <ESC> " NOTE: the following key binding did not work.
 " NOTE: use <Ctrl>+<[> to exit command line mode.
 
@@ -118,8 +117,8 @@ cnoreabbrev t tabe
 cnoreabbrev T tabe
 
 " Move selected lines up and down
-xnoremap K :move '<-2<CR>gv=gv
-xnoremap J :move '>+1<CR>gv=gv
+" xnoremap K :move '<-2<CR>gv=gv 
+" xnoremap J :move '>+1<CR>gv=gv
 
 " Toggle between last 2 buffers
 nnoremap <leader><tab> <c-^>
@@ -202,3 +201,7 @@ let g:fzf_layout = { 'window': '10split enew' }
 " If you opened a readonly file like /etc/hosts press w!! solve :)
 cmap w!! w !sudo tee % >/dev/null
 
+"""""""""""""""""""""""""""""
+" filetype shit
+""
+autocmd BufNewFile,BufRead *.fish setfiletype fish
