@@ -214,3 +214,10 @@ cmap w!! w !sudo tee % >/dev/null
 " filetype shit
 ""
 autocmd BufNewFile,BufRead *.fish setfiletype fish
+
+"""""""""""""""""""""""""""""
+" tabs
+""
+" NOTE: iTerm2 will need modified settings for the below to work
+" map <D-S-]> gt
+" map <D-S-[> gT
