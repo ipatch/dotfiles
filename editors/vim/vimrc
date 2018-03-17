@@ -82,6 +82,15 @@ inoremap <silent> <Down> <ESC><Down>
 " Fast saving
 noremap <leader>w :w<CR>
 
+" go into command mode and print the working dir
+map <leader>ew :e <C-R>=expand("%:p:h") . "/" <CR>
+" open file in new split
+map <leader>es :sp <C-R>=expand("%:p:h") . "/" <CR>
+" edit file in new vertical split
+map <leader>ev :vsp <C-R>=expand("%:p:h") . "/" <CR>
+" edit file in new tab
+map <leader>et :tabe <C-R>=expand("%:p:h") . "/" <CR>
+
 """""""""""""""""""""""""""""
 " auto commands
 ""
@@ -123,11 +132,6 @@ cnoreabbrev T tabe
 " Toggle between last 2 buffers
 nnoremap <leader><tab> <c-^>
 
-" Toggle buffer list
-nnoremap <C-p> :Files<CR>
-nnoremap <Leader>b :Buffers<CR>
-nnoremap <Leader>t :BTags<CR>
-nnoremap <Leader>m :History<CR>
 
 " load `fzf` from homebrew install
 set rtp+=/usr/local/opt/fzf
@@ -201,6 +205,11 @@ command! FZFMru call fzf#run({
 \  'options': '-m -x +s',
 \  'down':    '40%'})
 nmap <Leader>r :FZFMru<CR>
+" Toggle buffer list
+nnoremap <C-p> :Files<CR>
+nnoremap <Leader>b :Buffers<CR>
+nnoremap <Leader>t :BTags<CR>
+nnoremap <Leader>m :History<CR>
 
 " You can set up fzf window using a Vim command (Neovim or Vim 8 required)
 let g:fzf_layout = { 'window': 'enew' }
