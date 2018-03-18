@@ -46,8 +46,15 @@ end
 
 if type -q fzf
   # set -gx FZF_DEFAULT_COMMAND 'fd --type f'
-  set -gx FZF_DEFAULT_COMMAND 'git ls-files'
+  # set -gx FZF_DEFAULT_COMMAND 'git ls-files'
+  # NOTE: the below `rg` is short for ripgrep and can be installed via homebrew
+  if type -q rg
+    set -gx FZF_DEFAULT_COMMAND 'rg --files'
+  else
+    # DO SOMETHING!
+  end
   # set -gx FZF_DEFAULT_OPTS --preview='head -n50 {}'
+  set -gx FZF_DEFAULT_OPTS '--preview="head -n50 {}"'
   # TODO: figure out how to properly load function in fish
   # _fzf_compgen_path() {
   #   fd --hidden --follow --exclude ".git" . "$argv"
