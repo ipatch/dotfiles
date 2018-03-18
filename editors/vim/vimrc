@@ -30,7 +30,7 @@ set laststatus=2
 set modelines=5
 set vb t_vb=
 set listchars=tab:‣\ ,eol:¬
-set spell                             " turn on spell checking
+" set spell                           " disable spell checking
 set spelllang=en_us                   " set the language for spelling words
 """"""""""""""""""""""""""""""
 " wrapping
@@ -100,10 +100,23 @@ map <leader>et :tabe %%
 
 " Toggle spell checking
 nmap <silent> <leader>s :set spell!<CR>
+nmap <leader>v :tabedit $MYVIMRC<CR>
+
+" bubbling text
+nmap <S-k> ddkP
+nmap <S-j> ddp
+" bubble multiple lines
+vmap <S-k> xkP`[V`]
+vmap <S-j> xp`[V`]
 
 """""""""""""""""""""""""""""
 " auto commands
 ""
+if has("autocmd")
+  " autocmd bufwritepost .vimrc source $MYVIMRC
+  " the above command was making Neovim hide the status line and breaking colors in the tab bar.
+endif
+
 augroup vimrc
   autocmd!
 augroup END
