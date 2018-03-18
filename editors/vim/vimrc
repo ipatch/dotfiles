@@ -184,7 +184,6 @@ if has('nvim')
 endif
 call minpac#add('tpope/vim-surround')
 call minpac#add('tpope/vim-unimpaired')
-call minpac#add('tpope/vim-scriptease', {'type': 'opt'})
 call minpac#add('machakann/vim-highlightedyank')
 " Package for pretty colors 🌈 and aesthetics
 call minpac#add('chriskempson/base16-vim')
@@ -225,7 +224,8 @@ command! FZFMru call fzf#run({
 \  'down':    '40%'})
 nmap <Leader>r :FZFMru<CR>
 " Toggle buffer list
-nnoremap <C-p> :Files<CR>
+" nnoremap <C-p> :Files<CR>
+nnoremap <C-p> :<C-u>FZF<CR>
 nnoremap <Leader>b :Buffers<CR>
 nnoremap <Leader>t :BTags<CR>
 nnoremap <Leader>m :History<CR>
