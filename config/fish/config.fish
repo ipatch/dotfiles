@@ -45,8 +45,9 @@ if type -q rustc
 end
 
 if type -q fzf
-  set -gx FZF_DEFAULT_COMMAND 'fd --type f'
-  set -gx FZF_DEFAULT_OPTS --preview='head -n50 {}'
+  # set -gx FZF_DEFAULT_COMMAND 'fd --type f'
+  set -gx FZF_DEFAULT_COMMAND 'git ls-files'
+  # set -gx FZF_DEFAULT_OPTS --preview='head -n50 {}'
   # TODO: figure out how to properly load function in fish
   # _fzf_compgen_path() {
   #   fd --hidden --follow --exclude ".git" . "$argv"
@@ -61,7 +62,7 @@ switch (uname)
     # NOTE: added /usr/local/sbin ahead of /sbin in `/etc/paths`
     #
     #########################
-    # NOTE: prepend gnu-sed to the beginning of the $PATH
+    # NOTE: prepend gnu-sed to the beginning of the $fish_user_paths
     ##
     set -gx fish_user_paths $fish_user_paths /usr/local/opt/gnu-sed/libexec/gnubin
     #########################
