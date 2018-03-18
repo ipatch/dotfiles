@@ -30,6 +30,7 @@ set laststatus=2
 set modelines=5
 set vb t_vb=
 set listchars=tab:‣\ ,eol:¬
+set spell                             " turn on spell checking
 set spelllang=en_us                   " set the language for spelling words
 """"""""""""""""""""""""""""""
 " wrapping
@@ -96,6 +97,9 @@ map <leader>es :sp %%
 map <leader>ev :vsp %%
 " edit file in new tab
 map <leader>et :tabe %%
+
+" Toggle spell checking
+nmap <silent> <leader>s :set spell!<CR>
 
 """""""""""""""""""""""""""""
 " auto commands
