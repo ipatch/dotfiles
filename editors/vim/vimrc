@@ -207,6 +207,7 @@ call minpac#add('slashmili/alchemist.vim') " useful for working with Elixir
 " call minpac#add('vim-plugin-AnsiEsc') "
 call minpac#add('tpope/vim-dispatch') " build tool for compiling stuff asynchronously
 call minpac#add('radenling/vim-dispatch-neovim') " dispatch extensions using neovims terminal features
+call minpac#add('w0rp/ale') " ALE Asynchronous Linting Edition
 """""""""""""""""""""""""""""
 " minpac - commands
 "" 
@@ -255,3 +256,15 @@ autocmd BufNewFile,BufRead *.fish setfiletype fish
 " folding
 ""
 set foldcolumn=2
+
+""""""""""""""""""""""""""""""
+" ale-config
+""
+let g:ale_linters = {
+\ 'javascript': ['eslint'],
+\ }
+" Mappings in the style of unimpaired-next
+nmap <silent> [W <Plug>(ale_first)
+nmap <silent> [w <Plug>(ale_previous)
+nmap <silent> ]w <Plug>(ale_next)
+nmap <silent> ]W <Plug>(ale_last)
