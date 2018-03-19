@@ -257,6 +257,7 @@ autocmd BufNewFile,BufRead *.fish setfiletype fish
 " folding
 ""
 set foldcolumn=2
+set ssop+=folds
 
 """"""""""""""""""""""""""""""
 " ale-config
