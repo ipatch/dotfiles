@@ -62,13 +62,16 @@ ln -sf $DOTFILES/config/fish/ $HOME/.config/fish
 <img src="https://raw.githubusercontent.com/wiki/ipatch/dotfiles/lib/vim-2017.png" alt="nvim-screenshot">
 </details>
 
-As of March 16, 2018, I have migrated all plugins to to use
-[minpac](https://github.com/k-takata/minpac).  This particular Neovim setup
-requires Vim >= 8.0 be installed, and all plugins are loaded using minpac from
-the `.vimrc` in the home directory.
+As of March 16, 2018, I have migrated all plugins to to use [minpac](https://github.com/k-takataminpac) This particular Neovim setup requires Vim >= 8.0 be installed, and all plugins are loaded using minpac from the `.vimrc` in the home directory.
 
+To get python support working with Neovim
 ```shell
-pip install neovim
+pip3 install --user --upgrade neovim
+```
+
+To verify if python support is working
+```vim
+: echo has('python3')
 ```
 
 <a href="atom-setup"></a>
