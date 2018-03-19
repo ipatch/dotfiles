@@ -1857,7 +1857,7 @@ Credit: [💳](https://github.com/atom/atom/issues/1718#issuecomment-162242357)
 - [ ] Figure out why cloning the dotfiles repo is cloning the submodules with detached heads 🤔
 ### Neovim
   - [ ] Figure out a sane solution for previewing markdown ie. .md documents
-  - [ ] Figure out what is causing lines to be hard wrapped! 😖
+  - [x] ~~Figure out what is causing lines to be hard wrapped! 😖~~
 
 GithHub: [@ipatch](https://github.com/ipatch)<br />
 Twitter: [@truckmonth](https://twitter.com/truckmonth)
