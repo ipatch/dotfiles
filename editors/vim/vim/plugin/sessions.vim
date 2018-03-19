@@ -1,3 +1,5 @@
+" CREDIT: https://stackoverflow.com/a/47656092/708807
+
 function! MakeSession(overwrite)
   let b:sessiondir = $HOME . "/.vim/sessions" . getcwd()
   if (filewritable(b:sessiondir) != 2)
