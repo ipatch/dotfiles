@@ -205,7 +205,8 @@ call minpac#add('christoomey/vim-tmux-navigator')
 call minpac#add('tpope/vim-projectionist') " granular project configuration
 call minpac#add('slashmili/alchemist.vim') " useful for working with Elixir
 " call minpac#add('vim-plugin-AnsiEsc') "
-
+call minpac#add('tpope/vim-dispatch') " build tool for compiling stuff asynchronously
+call minpac#add('radenling/vim-dispatch-neovim') " dispatch extensions using neovims terminal features
 """""""""""""""""""""""""""""
 " minpac - commands
 "" 
