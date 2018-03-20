@@ -40,6 +40,8 @@ editors/vim/vim/tmp/*
 **/.undo
 **/.un*
 **/.un~
+# Ignore session files for Vim & Neovim
+editors/vim/vim/sessions/*
 
 # Ignore python files related to neovim-remote
 jobs/bin/easy_install
