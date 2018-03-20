@@ -181,7 +181,17 @@ if has('nvim')
   " Neovim only plugins
   ""
   call minpac#add('Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' })
+  """"""""""""""""""""""""""""""
+  " deoplete specific settings
+  ""
+  let g:deoplete#enable_at_startup = 1
+  let g:deoplete#enable_ignore_case = 1
+  let g:deoplete#enable_smart_case = 1
+  filetype plugin on
+  set omnifunc=sytnaxcomplete#Complete
+  set completeopt=longest,menuone,preview
 endif
+
 call minpac#add('tpope/vim-surround')
 call minpac#add('tpope/vim-unimpaired')
 call minpac#add('machakann/vim-highlightedyank')
@@ -257,7 +267,8 @@ autocmd BufNewFile,BufRead *.fish setfiletype fish
 " folding
 ""
 set foldcolumn=2
-set ssop+=fold                                  " setting should preserve code fold settings 🤞
+" TODO: figure out how to preserve code folds within session files
+" set ssop+=fold                                  " setting should preserve code fold settings 🤞
 
 """"""""""""""""""""""""""""""
 " ale-config
@@ -275,3 +286,15 @@ let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_save = 1 " default
 let g:ale_lint_on_enter = 0
 let g:ale_lint_on_filetype_changed = 0
+let g:ale_sign_error                 = '⌦'
+let g:ale_sign_warning               = '☞'
+let g:airline#extensions#ale#enabled = 1
+
+""""""""""""""""""""""""""""""
+" Buffer Handling
+""
+nmap <Leader>t :enew<CR>
+nmap <Leader>] :bnext<CR>
+nmap <Leader>[ :bprevious<CR>
+
+
