@@ -11,8 +11,7 @@ for i in $databases; do
   dateinfo=`date '+%Y-%m-%d %H:%M:%S'`
   timeslot=`date '+%Y%m%d%H%M'`
   /usr/bin/vacuumdb -z -h localhost -U postgres $i >/dev/null 2>&1
-  /usr/bin/pg_dump -U postgres -i -F c -b $i -h localhost -f
-  $backup_dir/$i-database-$timeslot.backup
+  /usr/bin/pg_dump -U postgres -i -F c -b $i -h localhost -f $backup_dir/$i-database-$timeslot.backup
   echo "Backup and Vacuum complete on $dateinfo for database: $i " >> $logfile
 done
 echo "Done backing up of pg databases " >> $logfile
