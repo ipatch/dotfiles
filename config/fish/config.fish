@@ -37,7 +37,7 @@ set -gx dots /opt/Code/dotfiles
 set -gx XDG_CONFIG_HOME $HOME/.config
 set -gx CODE /opt/code
 set -gx code /opt/code
-set -gx LC_CTYPE "en_US.UTF-8"
+# set -gx LC_CTYPE "en_US.UTF-8"
 # set -gx GREP_OPTIONS --color=auto
 
 if type -q rustc
@@ -67,8 +67,8 @@ switch (uname)
     #########################
     # macOS specific env vars
     ##
-    set -gx LC_ALL "en_US.UTF-8"
-    set -gx LANG "en_US"
+    # set -gx LC_ALL "en_US.UTF-8"
+    # set -gx LANG "en_US"
     #########################
     # Setup OS specific PATH variables for macOS
     #
@@ -131,8 +131,8 @@ switch (uname)
     ###############################
     # Linux specific env var
     ##
-    set -gx LANGUAGE "en_US.UTF-8"
-    set -gx LANG "en_US"
+    # set -gx LANGUAGE "en_US.UTF-8"
+    # set -gx LANG "en_US"
     # set -gx LC_ALL "en_US.UTF-8"
     
     if test -d /home/linuxbrew
