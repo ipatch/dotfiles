@@ -3,8 +3,7 @@
 logfile="$HOME/logs/pg_backup.log"
 backup_dir="$HOME/backup/pg/"
 touch $logfile
-databases=`psql -h localhost -U postgres -q -c "\l" | sed -n 4,/\eof/p | grep -v
-rows\) | grep -v template0 | grep -v template1 | awk {'print $1'}`
+databases=`psql -h localhost -U postgres -q -c "\l" | sed -n 4,/\eof/p | grep -v rows\) | grep -v template0 | grep -v template1 | awk {'print $1'}`
 
 echo "Starting backup of pg databases " >> $logfile
 
