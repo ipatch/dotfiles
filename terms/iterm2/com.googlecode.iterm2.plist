@@ -50419,13 +50419,13 @@
 	<key>NSWindow Frame SessionsPreferences</key>
 	<string>269 76 599 519 0 0 1440 877 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>270 262 796 473 0 0 1440 877 </string>
+	<string>267 359 918 512 0 0 1440 877 </string>
 	<key>NSWindow Frame com.apple.typography_panel_ConsolasForPowerline</key>
 	<string>252 254 260 156 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
 	<string>0 375 714 500 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>6 17 1434 860 0 0 1440 877 </string>
+	<string>15 377 714 500 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
 	<string>6 0 1434 860 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 3</key>
@@ -51143,6 +51143,8 @@
 			<false/>
 			<key>Session Close Undo Timeout</key>
 			<integer>10</integer>
+			<key>Set Local Environment Vars</key>
+			<false/>
 			<key>Shortcut</key>
 			<string></string>
 			<key>Show Mark Indicators</key>
@@ -51883,6 +51885,8 @@
 			<false/>
 			<key>Session Close Undo Timeout</key>
 			<integer>10</integer>
+			<key>Set Local Environment Vars</key>
+			<false/>
 			<key>Shortcut</key>
 			<string>1</string>
 			<key>Show Mark Indicators</key>
@@ -52625,6 +52629,8 @@
 			<false/>
 			<key>Session Close Undo Timeout</key>
 			<integer>10</integer>
+			<key>Set Local Environment Vars</key>
+			<false/>
 			<key>Shortcut</key>
 			<string>2</string>
 			<key>Show Mark Indicators</key>
@@ -52819,7 +52825,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2018-03-15T23:42:29Z</date>
+	<date>2018-03-21T02:26:01Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>ShowBookmarkName</key>
