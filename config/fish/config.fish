@@ -68,6 +68,7 @@ switch (uname)
     # macOS specific env vars
     ##
     set -gx LC_ALL "en_US.UTF-8"
+    set -gx LANG "en_US"
     #########################
     # Setup OS specific PATH variables for macOS
     #
@@ -131,6 +132,7 @@ switch (uname)
     # Linux specific env var
     ##
     set -gx LANGUAGE "en_US.UTF-8"
+    set -gx LANG "en_US"
     # set -gx LC_ALL "en_US.UTF-8"
     
     if test -d /home/linuxbrew
