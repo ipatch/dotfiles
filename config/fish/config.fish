@@ -131,9 +131,9 @@ switch (uname)
     ###############################
     # Linux specific env var
     ##
-    set -gx LANGUAGE "en"
-    set -gx LANG "C"
-    set -gx LC_MESSAGES "C"
+    # set -gx LANGUAGE "en"
+    # set -gx LANG "C"
+    # set -gx LC_MESSAGES "C"
     
     if test -d /home/linuxbrew
       set -gx fish_user_paths /home/linuxbrew/.linuxbrew/bin $fish_user_paths
