@@ -51,19 +51,20 @@ if has('vertsplit')
   set splitright                      " open vertical splits to the right of the current window
 endif
 
-set tabstop=2                         " spaces per tab
+" set tabstop=2                         " spaces per tab
 
 if has('termguicolors')
   set termguicolors                   " use guifg/guibg instead of ctermfg/ctermbg in terminal
 endif
 
-set textwidth=80                      " automatically hard wrap at 80 columns
+" set textwidth=80                      " automatically hard wrap at 80 columns - NO THANKYOU!
 
 
 if has('persistent_undo')
   if exists('$SUDO_USER')
     set noundofile                    " don't create root-owned files
   else
+    " TODO: figure out how to create dirs if they don't exist.
     set undodir=~/.local/.vim/tmp/undo
     set undodir+=~/.vim/tmp/undo      " keep undo files out of the way
     set undodir+=.
@@ -88,7 +89,6 @@ if has('viminfo')
     endif
   endif
 endif
-
 
 " if has('mksession')
 "   if isdirectory('~/.local/.vim/tmp')
