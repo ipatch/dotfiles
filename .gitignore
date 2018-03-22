@@ -45,6 +45,7 @@ editors/vim/vim/bundle/*
 editors/vim/vim/tmp/viminfo
 editors/vim/vim/tmp/swap/*.swp
 editors/vim/vim/tmp/view/*
+!/editors/vim/vim/tmp/view/.gitkeep
 **/.undo
 **/.un*
 **/.un~
