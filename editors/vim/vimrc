@@ -87,6 +87,10 @@ inoremap <silent> <Down> <ESC><Down>
 " Fast saving
 noremap <leader>w :w<CR>
 
+" Command mode shortcuts
+cmap cwd lcd %:p:h
+cmap cd. lcd %:p:h
+
 " go into command mode and print the working dir
 " TODO: figure out a way to print the `cwd` or `pwd` quckily from `NORMAL` mode
 " NOTE: none of the below mappings with work properly until `%%` is resolved 🤷‍♀️
@@ -297,5 +301,4 @@ let g:airline#extensions#ale#enabled = 1
 nmap <Leader>t :enew<CR>
 nmap <Leader>] :bnext<CR>
 nmap <Leader>[ :bprevious<CR>
-
 

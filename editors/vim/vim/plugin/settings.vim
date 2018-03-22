@@ -5,6 +5,19 @@
 """""""""""""""""""""""""""""
 " mappings
 ""
+
+""""""""""""""""""""""""""""
+" create directories for Vim related files
+""
+silent execute '!mkdir -p $HOME/.local/.vim/tmp/swap'
+silent execute '!mkdir -p $HOME/.vim/tmp/swap'
+silent execute '!mkdir -p $HOME/.local/.vim/tmp/undo'
+silent execute '!mkdir -p $HOME/.vim/tmp/undo'
+
+
+""""""""""""""""""""""""""""""
+"
+""
 set listchars=tab:▸\ ,eol:¬
 nmap <leader>l :set list!<CR>
 
