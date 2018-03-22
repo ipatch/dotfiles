@@ -2,7 +2,7 @@
 
 > Give me six hours to chop down a tree and I will spend the first four sharpening the axe.
 
-![ab](https://raw.githubusercontent.com/wiki/ipatch/dotfiles/lib/ab.png)
+![ab](https://raw.githubusercontent.com/wiki/ipatch/dotfiles/lib/abe.cirlce.png)
 
 <h3 align="center">Drink Responsibly™ 🥃 while configuring dot files.</h3>
 
