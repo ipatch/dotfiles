@@ -11,7 +11,9 @@
 [._]s[a-v][a-z]
 [._]sw[a-p]
 vim/*.swp
+**/.swp   # ignore all and any `.swp` files stored in this repo
 
+**/.bkup
 *.bkup
 
 # Ignore all files with the following extension `weechatlog` recurisvely in all directories
@@ -37,7 +39,7 @@ editors/vim/vim/.netrwhist
 editors/vim/vim/bundle/*
 # editors/vim/vim/plugin/*
 editors/vim/vim/tmp/viminfo
-editors/vim/vim/tmp/swap/*
+editors/vim/vim/tmp/swap/*.swp
 editors/vim/vim/tmp/view/*
 **/.undo
 **/.un*
