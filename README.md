@@ -4,7 +4,6 @@
 
 ![abe](https://raw.githubusercontent.com/wiki/ipatch/dotfiles/lib/abe.circle.png)
 
-
 <h3 align="center">Drink Responsibly™ 🥃 while configuring dot files.</h3>
 
 <h6 align="center"><em>These dotfiles have been known to stop working at a moments notice, so buyer beware.</em></h6>
