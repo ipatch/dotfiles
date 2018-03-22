@@ -16,6 +16,10 @@ vim/*.swp
 **/.bkup
 *.bkup
 
+# track all files with a name of `.gitkeep`
+!.gitkeep
+!/editors/vim/vim/tmp/view/.gitkeep
+
 # Ignore all files with the following extension `weechatlog` recurisvely in all directories
 *.weechatlog
 **/.weechatlog
