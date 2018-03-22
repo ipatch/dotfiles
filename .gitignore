@@ -30,6 +30,8 @@ config/fish/fishd.*
 
 # Ignore those pesky .DS_Store files recursively throughout project
 **/.DS_Store
+*.DS_Store
+*/.DS_Store
 
 # Ignore vscode project files
 **/.vscode
