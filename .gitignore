@@ -36,7 +36,9 @@ editors/vim/vim/pack/*
 editors/vim/vim/.netrwhist
 editors/vim/vim/bundle/*
 # editors/vim/vim/plugin/*
-editors/vim/vim/tmp/*
+editors/vim/vim/tmp/viminfo
+editors/vim/vim/tmp/swap/*
+editors/vim/vim/tmp/view/*
 **/.undo
 **/.un*
 **/.un~
