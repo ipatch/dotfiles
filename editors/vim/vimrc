@@ -164,7 +164,7 @@ if has('macunix')
 endif
 
 if has('unix')
-  set rtp+=/home/linuxbrew/.linuxbrew/opt/fzf/bin/fzf
+  set rtp+=/home/linuxbrew/.linuxbrew/bin/fzf
 endif
 
 if has('nvim')
@@ -220,6 +220,7 @@ call minpac#add('sheerun/vim-polyglot')
 call minpac#add('tpope/vim-commentary')
 " Add `fzf` vim plugins
 " NOTE: the below `junegunn/fzf` is NOT requried if fzf is installed via brew
+call minpac#add('junegunn/fzf') " required!
 call minpac#add('junegunn/fzf.vim')
 " seemless key-bindings between tmux and vim
 call minpac#add('christoomey/vim-tmux-navigator')
