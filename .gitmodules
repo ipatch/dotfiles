@@ -9,8 +9,8 @@
 	url = https://github.com/ipatch/dotfiles.wiki.git
 [submodule "config/fish/fundle/tuvistavie/fish-ssh-agent"]
   path = config/fish/fundle/tuvistavie/fish-ssh-agent
-  url = git@github.com:tuvistavie/fundle.git
-[submodule "config/fish/fundle/edc/bass"]
+  url = git@github.com:tutistavie/fish-ssh-agent.git
+[submodule "config/fish/fundle/edc/bash"]
   path = config/fish/fundle/edc/bass
   url = git@github.com:edc/bass.git
 
