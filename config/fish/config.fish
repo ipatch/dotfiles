@@ -36,7 +36,7 @@ set -gx dots /opt/Code/dotfiles
 set -gx XDG_CONFIG_HOME $HOME/.config
 set -gx CODE /opt/code
 set -gx code /opt/code
-# set -gx LC_CTYPE "en_US.UTF-8"
+# set -gx LC_CTYPE "en_US.UTF-8" # only set this if needing to overwrite ALL locale settings!
 # set -gx GREP_OPTIONS --color=auto
 
 if type -q rustc
