@@ -13,3 +13,4 @@
 [submodule "config/fish/fundle/edc/bass"]
   path = config/fish/fundle/edc/bass
   url = git@github.com:edc/bass.git
+
