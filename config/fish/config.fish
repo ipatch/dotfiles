@@ -1,5 +1,4 @@
 #############################
-#
 # User specified file for configuring the fish shell.
 # Author: Chris Jones
 # Contact: @truckmonth <- twitter
@@ -138,6 +137,7 @@ switch (uname)
     if test -d /home/linuxbrew
       set -gx fish_user_paths /home/linuxbrew/.linuxbrew/bin $fish_user_paths
       set -gx fish_user_paths /home/linuxbrew/.linuxbrew/sbin $fish_user_paths
+      set -gx fish_user_paths /home/linuxbrew/.linuxbrew/opt/go/libexec/bin
       set -gx fish_user_paths /home/linuxbrew/.linuxbrew/opt/python/libexec/bin $fish_user_paths
     end
     set -gx fish_user_paths $fish_user_paths /usr/local/sbin
