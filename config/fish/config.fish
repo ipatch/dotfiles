@@ -11,7 +11,7 @@
 # fundle setup
 ##
 fundle plugin 'edc/bass'
-# fundle plugin 'tuvistavie/fish-ssh-agent'
+fundle plugin 'tuvistavie/fish-ssh-agent'
 
 fundle init
 # END - fundle setup
