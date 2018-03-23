@@ -1857,6 +1857,7 @@ Credit: [💳](https://github.com/atom/atom/issues/1718#issuecomment-162242357)
 - [x] ~~Add images in the lib dir of this repo to the .wiki submodule repo.~~
 - [ ] Figure out why cloning the dotfiles repo is cloning the submodules with detached heads 🤔
 ### Neovim
+  - [ ] don't create session files when launching a man page
   - [ ] Figure out a sane solution for previewing markdown ie. .md documents
   - [x] ~~Figure out what is causing lines to be hard wrapped! 😖~~
 ### Fish
