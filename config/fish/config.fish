@@ -135,10 +135,10 @@ switch (uname)
     # set -gx LC_MESSAGES "C"
     
     if type -q /home/linuxbrew/.linuxbrew/bin/brew
-      set -gx fish_user_paths /home/linuxbrew/.linuxbrew/bin $fish_user_paths
-      set -gx fish_user_paths /home/linuxbrew/.linuxbrew/sbin $fish_user_paths
-      set -gx fish_user_paths /home/linuxbrew/.linuxbrew/opt/go/libexec/bin
-      set -gx fish_user_paths /home/linuxbrew/.linuxbrew/opt/python/libexec/bin $fish_user_paths
+      set -gx fish_user_paths $fish_user_paths /home/linuxbrew/.linuxbrew/bin
+      set -gx fish_user_paths $fish_user_paths /home/linuxbrew/.linuxbrew/sbin
+      set -gx fish_user_paths $fish_user_paths /home/linuxbrew/.linuxbrew/opt/go/libexec/bin
+      set -gx fish_user_paths $fish_user_paths /home/linuxbrew/.linuxbrew/opt/python/libexec/bin
     end
     set -gx fish_user_paths $fish_user_paths /usr/local/sbin
     set -gx fish_user_paths $fish_user_paths /usr/sbin
