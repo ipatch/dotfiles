@@ -134,7 +134,7 @@ switch (uname)
     # set -gx LANG "C"
     # set -gx LC_MESSAGES "C"
     
-    if test -d /home/linuxbrew
+   if test -q /home/linuxbrew/.linuxbrew/bin/brew
       set -gx fish_user_paths /home/linuxbrew/.linuxbrew/bin $fish_user_paths
       set -gx fish_user_paths /home/linuxbrew/.linuxbrew/sbin $fish_user_paths
       set -gx fish_user_paths /home/linuxbrew/.linuxbrew/opt/go/libexec/bin
