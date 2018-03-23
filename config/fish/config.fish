@@ -36,7 +36,7 @@ set -gx dots /opt/Code/dotfiles
 set -gx XDG_CONFIG_HOME $HOME/.config
 set -gx CODE /opt/code
 set -gx code /opt/code
-# set -gx LC_CTYPE "en_US.UTF-8" # only set this if needing to overwrite ALL locale settings!
+# set -gx LC_CTYPE "en_US.UTF-8" #only set this if you want to overwrite ALL locales!
 # set -gx GREP_OPTIONS --color=auto
 
 if type -q rustc
@@ -66,8 +66,8 @@ switch (uname)
     #########################
     # macOS specific env vars
     ##
-    # set -gx LC_ALL "en_US.UTF-8"
-    # set -gx LANG "en_US.UTF-8"
+    set -gx LC_ALL "en_US.UTF-8"
+    set -gx LANG "en_US.UTF-8"
     #########################
     # Setup OS specific PATH variables for macOS
     #
@@ -134,7 +134,7 @@ switch (uname)
     # set -gx LANG "C"
     # set -gx LC_MESSAGES "C"
     
-   if type -q /home/linuxbrew/.linuxbrew/bin/brew
+    if test -d /home/linuxbrew
       set -gx fish_user_paths /home/linuxbrew/.linuxbrew/bin $fish_user_paths
       set -gx fish_user_paths /home/linuxbrew/.linuxbrew/sbin $fish_user_paths
       set -gx fish_user_paths /home/linuxbrew/.linuxbrew/opt/go/libexec/bin
