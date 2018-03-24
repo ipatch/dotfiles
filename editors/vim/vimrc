@@ -195,12 +195,13 @@ if has('nvim')
   """"""""""""""""""""""""""""""
   " deoplete specific settings
   ""
-  let g:deoplete#enable_at_startup = 1
-  let g:deoplete#enable_ignore_case = 1
-  let g:deoplete#enable_smart_case = 1
-  filetype plugin on
-  set omnifunc=sytnaxcomplete#Complete
-  set completeopt=longest,menuone,preview
+  " let g:deoplete#enable_at_startup = 1
+  " let g:deoplete#enable_ignore_case = 1
+  " let g:deoplete#enable_smart_case = 1
+  " filetype plugin on
+  " set omnifunc=sytnaxcomplete#Complete
+  " set completeopt=longest,menuone,preview
+
 endif
 
 call minpac#add('tpope/vim-surround')
