@@ -29,6 +29,7 @@
   ca = commit --amend
   cm = commit -S -m
   ac = commit -am
+  aac = "!git aa; "git commit -m""
   ###
   # for those random quick & fun commits 👍
   ###
