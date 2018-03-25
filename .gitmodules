@@ -12,12 +12,9 @@
 
 [submodule "config/fish/fundle/tuvistavie/fish-ssh-agent"]
   path = config/fish/fundle/tuvistavie/fish-ssh-agent
-  ; url = git@github.com:tutistavie/fish-ssh-agent.git
-  ; url = https://github.com/tutistavie/fish-ssh-agent
   url = https://github.com/tuvistavie/fish-ssh-agent.git
 
 [submodule "config/fish/fundle/edc/bash"]
   path = config/fish/fundle/edc/bass
-  ; url = git@github.com:edc/bass.git
   url = https://github.com/edc/bass.git
 
