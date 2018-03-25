@@ -1,3 +1,7 @@
+""""""""""""""""""""""""""""""
+" folding for `.md` ie. markdown files
+""
+
 function! MarkdownFolds()
   let thisline = getline(v:lnum)
   if match(thisline, '^##') >= 0
