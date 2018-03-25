@@ -166,7 +166,7 @@
 [core]
   attributesfile = $HOME/.gitattributes
   editor = nvim
-	excludesFile = $XDG_CONFIG_HOME/git/ignore
+  excludesFile = $XDG_CONFIG_HOME/git/ignore
 
 [color]
   ui = auto
