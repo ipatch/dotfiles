@@ -157,6 +157,10 @@ cnoreabbrev T tabe
 " Toggle between last 2 buffers
 nnoremap <leader><tab> <c-^>
 
+map ,e :e <C-R>=expand("%:p:h") . "/" <CR>
+map ,t :tabe <C-R>=expand("%:p:h") . "/" <CR>
+map ,s :split <C-R>=expand("%;p:h") . "/" <CR>
+
 
 " load `fzf` from homebrew install
 if has('macunix')
@@ -208,6 +212,9 @@ if has('nvim')
 
 endif
 
+""""""""""""""""""""""""""""""
+" minpac - plugins
+""
 call minpac#add('tpope/vim-surround')
 call minpac#add('tpope/vim-unimpaired')
 call minpac#add('machakann/vim-highlightedyank')
@@ -305,6 +312,7 @@ augroup END
 set foldcolumn=2
 " TODO: figure out how to preserve code folds within session files
 " set ssop+=fold                                  " setting should preserve code fold settings 🤞
+set viewoptions+=cursor,folds,slash,unix
 
 """"""""""""""""""""""""""""""
 " ale-config
