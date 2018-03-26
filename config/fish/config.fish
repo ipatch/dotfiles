@@ -39,6 +39,17 @@ set -gx code /opt/code
 # set -gx LC_CTYPE "en_US.UTF-8" # only set this if you want to overwrite ALL locales!
 # set -gx GREP_OPTIONS --color=auto
 
+##############################
+# tmux 💩
+##
+# if test -n '$TMUX'
+#   set -gx fish_user_paths $fish_user_paths "$HOME/bin"
+# end
+# if [ "$fish_user_paths" != "true" ]
+#   set -gx fish_user_paths $fish_user_paths true
+# end
+# set -gx __fish_added_user_paths $__fish_added_user_paths
+
 if type -q rustc
   # Add rust-lang local bin directory to PATH for working with cargo.
   set -gx fish_user_paths $fish_user_paths $HOME/.cargo/bin
