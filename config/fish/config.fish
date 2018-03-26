@@ -1,4 +1,4 @@
-#############################
+##############################
 # User specified file for configuring the fish shell.
 # Author: Chris Jones
 # Contact: @truckmonth <- twitter
@@ -6,14 +6,13 @@
 # Email: chris.r.jones.1983@gmail.com
 ##
 
-#############################
+##############################
 # fundle setup
 ##
 fundle plugin 'edc/bass'
 fundle plugin 'tuvistavie/fish-ssh-agent'
 
 fundle init
-# END - fundle setup
 
 # disable default fish greeting
 set fish_greeting ""
@@ -27,7 +26,7 @@ end
 #############################
 # USER defined environment variables
 ##
-set -gx TERM xterm-256color
+# set -gx TERM xterm-256color # <= DON'T explicitly set this env var!
 set -gx HOSTNAME (hostname -s)
 set -gx DOTFILES /opt/Code/dotfiles
 set -gx dotfiles /opt/Code/dotfiles
@@ -42,22 +41,13 @@ set -gx code /opt/code
 ##############################
 # tmux 💩
 ##
-# if test -n '$TMUX'
-#   set -gx fish_user_paths $fish_user_paths "$HOME/bin"
-# end
-# if [ "$fish_user_paths" != "true" ]
-#   set -gx fish_user_paths $fish_user_paths true
-# end
-# set -gx __fish_added_user_paths $__fish_added_user_paths
 
 if type -q rustc
   # Add rust-lang local bin directory to PATH for working with cargo.
-  set -gx fish_user_paths $fish_user_paths $HOME/.cargo/bin
+  set PATH $HOME/.cargo/bin $PATH
 end
 
 if type -q fzf
-  # set -gx FZF_DEFAULT_COMMAND 'fd --type f'
-  # set -gx FZF_DEFAULT_COMMAND 'git ls-files'
   # NOTE: the below `rg` is short for ripgrep and can be installed via homebrew
   # --files: List files that would be searched but do not search
   # --no-ignore: Do not respect .gitignore, etc...
@@ -69,7 +59,6 @@ if type -q fzf
   else
     # DO SOMETHING!
   end
-  # set -gx FZF_DEFAULT_OPTS --preview='head -n50 {}'
   set -gx FZF_DEFAULT_OPTS '--preview="head -n50 {}"'
   # TODO: figure out how to properly load function in fish
   # _fzf_compgen_path() {
@@ -82,38 +71,46 @@ switch (uname)
     #########################
     # macOS specific env vars
     ##
-    # set -gx LC_ALL "en_US.UTF-8"
-    # set -gx LANG "en_US.UTF-8"
     #########################
-    # Setup OS specific PATH variables for macOS
-    #
-    # NOTE: added /usr/local/sbin ahead of /sbin in `/etc/paths`
+    # Setup OS specific PATH variable for macOS
+    # NOTE: added /usr/local/sbin above of /sbin in `/etc/paths`
     #
     #########################
-    # NOTE: prepend gnu-sed to the beginning of the $fish_user_paths
+    # Add below path to get react-native CLI working.
     ##
-    set -gx fish_user_paths $fish_user_paths /usr/local/opt/gnu-sed/libexec/gnubin
-    #########################
-    # Add the below path in order to get react-native CLI working.
-    ##
-    set -gx fish_user_paths $fish_user_paths $HOME/Library/Android/sdk/platform-tools
-    # set -gx fish_user_paths $fish_user_paths $HOME/anaconda2/bin
-    set -gx fish_user_paths $fish_user_paths $HOME/.config/yarn/global/node_modules/.bin
-    set -gx fish_user_paths $fish_user_paths $HOME/bin
-    set -gx fish_user_paths $fish_user_paths $HOME/.local/bin
-    set -gx fish_user_paths $fish_user_paths $HOME/bin/base16-shell
-    if type -q /usr/local/opt/libressl/bin/openssl
-      set -gx fish_user_paths $fish_user_paths /usr/local/opt/libressl/bin
+    if test -d $HOME/Library/Android/sdk/platform-tools
+      set PATH $HOME/Library/Android/sdk/platform-tools $PATH # will prepend (begin) to `$PATH`
     end
-    if type -q brew
-      # set -gx fish_user_paths $fish_user_paths /usr/local/opt/python/libexec/bin
+    if test -d $HOME/anaconda2/bin
+      set PATH $PATH $HOME/anaconda2/bin # will append (end) to `$PATH`
     end
-    if type -q /usr/local/bin/go
-      set -gx fish_user_paths $fish_user_paths /usr/local/opt/go/libexec/bin
+    if test -d $HOME/.config/yarn/global/node_modules/.bin
+      set PATH $HOME/.config/yarn/global/node_modules/.bin $PATH
     end
-    ###
+    if test -d $HOME/bin
+      set PATH $PATH $HOME/bin 
+    end
+    if test -d $HOME/.local/bin
+      set PATH $PATH $HOME/.local/bin
+    end
+    if test -d $HOME/bin/base16-shell
+      set PATH $PATH $HOME/bin/base16-shell
+    end
+    if type -q brew # `-q` suppresses all output
+      # prepend gnu-sed to beginning of PATH, so macOS `sed` won't be used.
+      if test -d /usr/local/opt/gnu-sed
+        set PATH /usr/local/opt/gnu-sed/libexec/gnubin $PATH
+      end
+      if test -d /usr/local/opt/libressl
+        set PATH /usr/local/opt/libressl/bin $PATH
+      end
+      if test -d /usr/local/opt/python
+        set PATH /usr/local/opt/python/libexec/bin $PATH
+      end
+    end
+    ###############################
     # set env vars for git
-    ###
+    ##
     set -gx GPG_TTY (tty)
 
     if type -q node; and type -q rlwrap;
@@ -125,9 +122,6 @@ switch (uname)
     end
     
 
-    #########################
-    # Add below command / truthy statement to add syntax highlighting for `less`
-    ##
     if type -q nvim
       # TODO: don't hard code path to `nvim` search for `nvim` instead
       set -gx EDITOR nvim
@@ -135,6 +129,9 @@ switch (uname)
       set -gx MYVIMRC $HOME/.vimrc
       set -gx VIMCONFIG $HOME/.vim/pack/bundle/start
       set -gx VIMDATA $HOME/.vim/undo
+      #########################
+      # Add check for syntax highlighting for `less`
+      ##
       [ -x "/usr/local/share/nvim/runtime/macros/less.sh" ]; and \
       alias less='/usr/local/share/nvim/runtime/macros/less.sh';
     else
@@ -144,21 +141,27 @@ switch (uname)
 
   case Linux
     ###############################
-    # Linux specific env var
+    # Linux specific env vars
     ##
-    # set -gx LANGUAGE "en"
-    # set -gx LANG "C"
-    # set -gx LC_MESSAGES "C"
-    
-    if type -q /home/linuxbrew/.linuxbrew/bin/brew
-      set -gx fish_user_paths $fish_user_paths /home/linuxbrew/.linuxbrew/bin
-      set -gx fish_user_paths $fish_user_paths /home/linuxbrew/.linuxbrew/sbin
-      set -gx fish_user_paths $fish_user_paths /home/linuxbrew/.linuxbrew/opt/go/libexec/bin
-      set -gx fish_user_paths $fish_user_paths /home/linuxbrew/.linuxbrew/opt/python/libexec/bin
+    ###############################
+    # PATH 💩
+    ##
+    if test -d /usr/local/sbin
+      set PATH /usr/local/sbin $PATH
     end
-    set -gx fish_user_paths $fish_user_paths /usr/local/sbin
-    set -gx fish_user_paths $fish_user_paths /usr/sbin
-    set -gx fish_user_paths $fish_user_paths /sbin
+    if test -d /usr/sbin
+      set PATH /usr/sbin $PATH
+    end
+    if test -d /sbin
+      set PATH /sbin $PATH
+    end
+    if test -x /home/linuxbrew/.linuxbrew/bin/brew
+      set PATH /home/linuxbrew/.linuxbrew/sbin $PATH
+      set PATH /home/linuxbrew/.linuxbrew/bin $PATH # put at beginning of `PATH`
+    end
+    if test -d /home/linuxbrew/.linuxbrew/opt/python/libexec/bin
+      set PATH /home/linuxbrew/.linuxbrew/opt/python/libexec/bin $PATH
+    end
 
     # set $DISPLAY to allow X11 forwarding through SSH, necessary to get
     # xclip to behave as intended.
@@ -180,13 +183,15 @@ switch (uname)
     end
 end
 
-####
+##############################
 # NOTE: don't enable the below functions if using an external theme from omf such as lambda
-####
+##
 
+##############################
 # NOTE: fish suports both a left & right prompt
 # function fish_prompt
 # end
+##
 
 # function fish_right_prompt
 #   # TODO: flesh out the right prompt to display the current
