@@ -182,6 +182,16 @@ if has('nvim')
   tnoremap <A-[> <Esc>
 endif
 
+function! BuildComposer(info)
+    if a:info.status != 'unchanged' || a:info.force
+      if has('nvim')
+        !cargo build --release
+      else
+        !cargo build --release --no-default-features --features json-rpc
+      endif
+    endif
+endfunction
+
 " NOTE: minpac will need to be cloned from github before packages can be installed.
 set packpath^=~/.vim
 packadd minpac
@@ -209,7 +219,10 @@ if has('nvim')
 
   " deoplete tab-complete
   inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
-
+  """"""""""""""""""""""""""""""
+  " markdown .md preview
+  ""
+  call minpac#add('euclio/vim-markdown-composer', { 'do': '!cargo build --release'}, executable('cargo') && has('nvim'))
 endif
 
 """"""""""""""""""""""""""""""
