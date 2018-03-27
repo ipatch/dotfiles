@@ -1849,13 +1849,13 @@ Credit: [💳](https://github.com/atom/atom/issues/1718#issuecomment-162242357)
 <a href="todos"></a>
 
 ## TODOs
-- [ ] migrate all installed apps to be installed using homebrew / linuxbrew
+- [x] ~~migrate all installed apps to be installed using homebrew / linuxbrew~~
 - [ ] spend some time working with hammerspoon
 - [ ] troubleshoot why italics isn't working in (n)vim.
 - [ ] Write an install script for easy installation of dotfiles.
 - [x] Add a collection of inspirational dotfile repos.
 - [x] ~~Add images in the lib dir of this repo to the .wiki submodule repo.~~
-- [ ] Figure out why cloning the dotfiles repo is cloning the submodules with detached heads 🤔
+- [x] ~~Figure out why cloning the dotfiles repo is cloning the submodules with detached heads~~ 🤔 see[this](https://stackoverflow.com/a/20797186/70880) for detailed explanation.
 ### Neovim
   - [ ] don't create session files when launching a man page
   - [ ] Figure out a sane solution for previewing markdown ie. .md documents
