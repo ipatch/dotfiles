@@ -1,4 +1,10 @@
-le [ $# -gt 0 ]; do
+#!/bin/bash
+ 
+###########################
+####### LOAD CONFIG #######
+###########################
+ 
+while [ $# -gt 0 ]; do
         case $1 in
                 -c)
                         CONFIG_FILE_PATH="$2"
