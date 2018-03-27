@@ -1,4 +1,5 @@
 # This is Git's per-user configuration file.
+# NOTE: `git` alias are processed using a POSIX shell, NOT fish-shell
 
 [alias]
   # Clone a repository including all submodules
@@ -28,6 +29,7 @@
   ca = commit --amend
   cm = commit -S -m
   ac = commit -am
+  aac = "!git aa; "git commit -m""
   ###
   # for those random quick & fun commits 👍
   ###
@@ -93,6 +95,13 @@
   # to undo the last commit
   ###
   undoci = "!git reset HEAD~"
+
+  ###
+  # `restore` try and "undelete" a file
+  ###
+  ; restore = '!f() { git checkout $(git rev-list -n 1 HEAD -- $1)~1 -- $(git diff --name-status $(git rev-list -n 1 HEAD -- $1)~1 | grep '^D' | cut -f 2); }; f'
+  # restore = "!git checkout (git rev-list -n 1 HEAD -- '$argv')^ -- '$argv'"
+  restore = "!git checkout $(git rev-list -n 1 HEAD -- "$1")^ -- "$1""
   
   ###
   # git extras
@@ -158,7 +167,7 @@
 [core]
   attributesfile = $HOME/.gitattributes
   editor = nvim
-  excludesfile = $HOME/.gitexclude
+  excludesFile = $XDG_CONFIG_HOME/git/ignore
 
 [color]
   ui = auto

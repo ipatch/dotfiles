@@ -157,6 +157,10 @@ cnoreabbrev T tabe
 " Toggle between last 2 buffers
 nnoremap <leader><tab> <c-^>
 
+map ,e :e <C-R>=expand("%:p:h") . "/" <CR>
+map ,t :tabe <C-R>=expand("%:p:h") . "/" <CR>
+map ,s :split <C-R>=expand("%;p:h") . "/" <CR>
+
 
 " load `fzf` from homebrew install
 if has('macunix')
@@ -195,14 +199,22 @@ if has('nvim')
   """"""""""""""""""""""""""""""
   " deoplete specific settings
   ""
-  let g:deoplete#enable_at_startup = 1
-  let g:deoplete#enable_ignore_case = 1
-  let g:deoplete#enable_smart_case = 1
-  filetype plugin on
-  set omnifunc=sytnaxcomplete#Complete
-  set completeopt=longest,menuone,preview
+  " let g:deoplete#enable_ignore_case = 1
+  " let g:deoplete#enable_smart_case = 1
+  " filetype plugin on
+  " set omnifunc=sytnaxcomplete#Complete
+  " set completeopt=longest,menuone,preview
+  " let g:deoplete#enable_at_startup = 1
+  " let g:deoplete#file#enable_buffer_path = 1
+
+  " deoplete tab-complete
+  inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+
 endif
 
+""""""""""""""""""""""""""""""
+" minpac - plugins
+""
 call minpac#add('tpope/vim-surround')
 call minpac#add('tpope/vim-unimpaired')
 call minpac#add('machakann/vim-highlightedyank')
@@ -231,6 +243,7 @@ call minpac#add('tpope/vim-dispatch') " build tool for compiling stuff asynchron
 call minpac#add('radenling/vim-dispatch-neovim') " dispatch extensions using neovims terminal features
 call minpac#add('w0rp/ale') " ALE Asynchronous Linting Edition
 call minpac#add('janko-m/vim-test') " a plugin for running test suites.
+call minpac#add('ludovicchabant/vim-gutentags') " simple vim script only plug to auto generate ctags
 """""""""""""""""""""""""""""
 " minpac - commands
 "" 
@@ -240,33 +253,51 @@ command! PackClean  packadd minpac | source $MYVIMRC | call minpac#clean()
 """""""""""""""""""""""""""""
 " FZF
 ""
-nmap ; :Buffers<CR>
-nmap <Leader>f :Files<CR>
-command! FZFMru call fzf#run({
-      \  'source':  v:oldfiles,
-      \  'sink':    'e',
-      \  'options': '-m -x +s',
-      \  'down':    '40%'})
-nmap <Leader>r :FZFMru<CR>
-" Toggle buffer list
-" nnoremap <C-p> :Files<CR>
-nnoremap <C-p> :<C-u>FZF<CR>
-nnoremap <Leader>b :Buffers<CR>
-nnoremap <Leader>t :BTags<CR>
-nnoremap <Leader>m :History<CR>
+if &runtimepath =~ 'fzf'
+  nmap ; :Buffers<CR>
+  nmap <Leader>f :Files<CR>
+  command! FZFMru call fzf#run({
+        \  'source':  v:oldfiles,
+        \  'sink':    'e',
+        \  'options': '-m -x +s',
+        \  'down':    '40%'})
+  nmap <Leader>r :FZFMru<CR>
+  " Toggle buffer list
+  " nnoremap <C-p> :Files<CR>
+  nnoremap <C-p> :<C-u>FZF<CR>
+  nnoremap <Leader>b :Buffers<CR>
+  nnoremap <Leader>t :BTags<CR>
+  nnoremap <Leader>m :History<CR>
 
-" You can set up fzf window using a Vim command (Neovim or Vim 8 required)
-let g:fzf_layout = { 'window': 'enew' }
-let g:fzf_layout = { 'window': '-tabnew' }
-let g:fzf_layout = { 'window': '10split enew' }
+  " You can set up fzf window using a Vim command (Neovim or Vim 8 required)
+  let g:fzf_layout = { 'window': 'enew' }
+  let g:fzf_layout = { 'window': '-tabnew' }
+  let g:fzf_layout = { 'window': '10split enew' }
+
+  " --column: Show column number
+  " --line-number: Show line number
+  " --no-heading: Do not show file headings in results
+  " --fixed-strings: Search term as a literal string
+  " --ignore-case: Case insensitive search
+  " --no-ignore: Do not respect .gitignore, etc...
+  " --hidden: Search hidden files and folders
+  " --follow: Follow symlinks
+  " --glob: Additional conditions for search (in this case ignore everything in the .git/ folder)
+  " --color: Search color options
+
+  command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>), 1, <bang>0)
+endif
 
 " If you opened a readonly file like /etc/hosts press w!! solve :)
 cmap w!! w !sudo tee % >/dev/null
 
 """""""""""""""""""""""""""""
-" filetype shit
+" filetype syntax highlighting 🌈  shit 💩
 ""
-autocmd BufNewFile,BufRead *.fish setfiletype fish
+augroup filetypedetect
+  autocmd BufNewFile,BufRead *.fish set filetype=fish
+augroup END
+
 
 """""""""""""""""""""""""""""
 " tabs
@@ -281,6 +312,7 @@ autocmd BufNewFile,BufRead *.fish setfiletype fish
 set foldcolumn=2
 " TODO: figure out how to preserve code folds within session files
 " set ssop+=fold                                  " setting should preserve code fold settings 🤞
+set viewoptions+=cursor,folds,slash,unix
 
 """"""""""""""""""""""""""""""
 " ale-config
