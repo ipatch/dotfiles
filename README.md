@@ -1853,7 +1853,7 @@ Credit: [💳](https://github.com/atom/atom/issues/1718#issuecomment-162242357)
 - [ ] spend some time working with hammerspoon
 - [ ] troubleshoot why italics isn't working in (n)vim.
 - [ ] Write an install script for easy installation of dotfiles.
-- [x] Add a collection of inspirational dotfile repos.
+- [x] ~~Add a collection of inspirational dotfile repos.~~
 - [x] ~~Add images in the lib dir of this repo to the .wiki submodule repo.~~
 - [x] ~~Figure out why cloning the dotfiles repo is cloning the submodules with detached heads~~ 🤔 see[this](https://stackoverflow.com/a/20797186/70880) for detailed explanation.
 ### Neovim
