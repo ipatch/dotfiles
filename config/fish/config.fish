@@ -138,11 +138,20 @@ case Darwin
     set -gx MYVIMRC $HOME/.vimrc
     set -gx VIMCONFIG $HOME/.vim/pack/bundle/start
     set -gx VIMDATA $HOME/.vim/undo
+    # set -gx MANPAGER /usr/local/share/nvim/runtime/macros/less.sh
+    # set -gx MANPAGER nvim -c 'set ft=man' -
+    # set -x MANPAGER "/bin/sh -c \"unset MANPAGER;col -b -x | \
+    # nvim -R -c 'set ft=man nomod nolist' -c 'map q :q<CR>' \
+    # -c 'map <SPACE> <C-D>' -c 'map b <C-U>' \
+    # -c 'nmap K :Man <C-R>=expand(\\\"<cword>\\\")<CR><CR>' -\""
+    # set -gx MANPAGER "/bin/sh -c \"col -b | vim -c 'set ft=man ts=8 nomod nolist nonu noma' -\""
+
     #########################
     # Add check for syntax highlighting for `less`
     ##
     [ -x "/usr/local/share/nvim/runtime/macros/less.sh" ]; and \
     alias less='/usr/local/share/nvim/runtime/macros/less.sh';
+    set -x MANPAGER 'less -R'
   else
     set -gx EDITOR /usr/bin/vim
     set -gx MYVIMRC $HOME/.vimrc

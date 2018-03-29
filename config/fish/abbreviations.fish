@@ -7,7 +7,7 @@
 ##
 abbr -a editfish 'nvim $HOME/.config/fish/config.fish'
 abbr -a editnvim 'nvim $HOME/.config/nvim/init.vim'
-abbr -a editdots 'cd $dot; nvim .;'
+abbr -a editdots 'cd $dot; nvim;'
 abbr -a l 'ls -lah'
 abbr -a cp 'cp -iv'
 abbr -a cddots 'cd $dot'
@@ -71,11 +71,11 @@ abbr -a rvm-toggle 'rvm_toggle'
 # Conditionally set `man` to `vman` fish function
 # NOTE: `vman` has trackpad support.
 ##
-if type -q vman
-  abbr -a man 'vman'
-else
-  # DO NOTHING
-end
+# if type -q vman
+#   abbr -a man 'vman'
+# else
+#   # DO NOTHING
+# end
 
 ################
 # macOS specific abbreviations
