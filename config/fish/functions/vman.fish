@@ -12,5 +12,5 @@ function vman --description 'use vim / nvim to read man pages'
   # nvim `-R` flag = open "file" in read-only mode
   # ===
   # NOTE: not loading `.vimrc` won't work because i want some bells and whistles provided by my `.vimrc`, ie. syntax highlighting.
-  man $argv | col -bp | iconv -c | nvim 'set ft=man nomod nolist' -;
+  man $argv | col -bp | iconv -c | nvim -c 'set ft=man nomod nolist' -;
 end
