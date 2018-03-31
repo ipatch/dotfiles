@@ -13,17 +13,22 @@
 vim/*.swp
 **/.swp   # ignore all and any `.swp` files stored in this repo
 
-**/.bkup
+**/.bkup7;33M7;33m4;4;33M4;33m33M4;33m
 *.bkup
 
 # track all files with a name of `.gitkeep`
 !.gitkeep
 !/editors/vim/vim/tmp/view/.gitkeep
 
+
+##############################
+# weechat
+##
 # Ignore all files with the following extension `weechatlog` recurisvely in all directories
 *.weechatlog
 **/.weechatlog
 config/irc-clients/weechat/weechat.log
+config/irc-clients/weechat/xfer/*
 
 # Ignore fishd.<hash-files>
 config/fish/fishd.*
