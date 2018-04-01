@@ -85,10 +85,11 @@ abbr -a fh 'toggle_hidden_files'
 
 ################
 # useful abbreviations for working NOC lists
+# `openssl aes-256-cbc -d -a -in secrets.txt.enc -out secrets.txt.new`
 ##
 if type -q openssl
   abbr -a encrypt "openssl enc -aes-256-cbc -in" #/path/to/file #/path/to/file.dat
-  abbr -a decrypt "openssl enc -aes-256-cbc -d -in" #/path/to/file.dat
+  abbr -a decrypt "openssl enc -aes-256-cbc -d -in" #/path/to/file.dat -out #/path/to/file
 end
 
 #################
