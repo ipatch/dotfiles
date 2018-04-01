@@ -50359,7 +50359,7 @@
 	<key>HideScrollbar</key>
 	<false/>
 	<key>HideTab</key>
-	<false/>
+	<true/>
 	<key>HideTabCloseButton</key>
 	<false/>
 	<key>HideTabNumber</key>
@@ -50419,21 +50419,25 @@
 	<key>NSWindow Frame SessionsPreferences</key>
 	<string>269 76 606 469 0 0 1440 877 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>267 398 796 473 0 0 1440 877 </string>
+	<string>267 359 796 473 0 0 1440 877 </string>
 	<key>NSWindow Frame com.apple.typography_panel_ConsolasForPowerline</key>
 	<string>252 254 260 156 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>4 377 714 500 0 0 1440 877 </string>
+	<string>4 402 714 475 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>5 8 1434 860 0 0 1440 877 </string>
+	<string>5 14 1434 849 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
 	<string>719 377 714 500 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 3</key>
-	<string>6 360 714 500 0 0 1440 877 </string>
+	<string>6 377 714 475 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 4</key>
-	<string>281 377 714 500 0 0 1440 877 </string>
+	<string>14 221 714 475 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 5</key>
-	<string>710 136 714 500 0 0 1440 877 </string>
+	<string>726 185 714 475 0 0 1440 877 </string>
+	<key>NSWindow Frame iTerm Window 6</key>
+	<string>428 260 714 475 0 0 1440 877 </string>
+	<key>NSWindow Frame iTerm Window 7</key>
+	<string>449 237 714 475 0 0 1440 877 </string>
 	<key>NeverWarnAboutShortLivedSessions_1CC7C0B4-3E6C-43F7-B261-10AFA5663587</key>
 	<true/>
 	<key>NeverWarnAboutShortLivedSessions_1CC7C0B4-3E6C-43F7-B261-10AFA5663587_selection</key>
@@ -52691,6 +52695,8 @@
 	<integer>0</integer>
 	<key>NoSyncPermissionToShowTip</key>
 	<true/>
+	<key>NoSyncSilenceAnnoyingBellAutomatically</key>
+	<true/>
 	<key>NoSyncTimeOfFirstLaunchOfVersionWithTip</key>
 	<real>535519978.12166399</real>
 	<key>NoSyncTipsToNotShow</key>
@@ -52829,7 +52835,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2018-03-27T19:20:07Z</date>
+	<date>2018-04-01T18:32:17Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>ShowBookmarkName</key>
