@@ -29,8 +29,8 @@ set textwidth=0
 let g:airline#extensions#tabline#enabled = 2
 let g:airline#extensions#tabline#fnamemod = ':t'
 " NOTE: https://github.com/vim-airline/vim-airline/issues/142#issuecomment-145317103
-let g:airline_powerline_fonts=1 " this setting presents pretty glyphs using powerline fonts.
-let g:airline_detect_modified=1
+let g:airline_powerline_fonts = 1 " this setting presents pretty glyphs using powerline fonts.
+let g:airline_detect_modified = 1
 
 " set the color scheme for vim-airline
 let g:airline_theme = 'base16' " keep the base16 colorscheme consistent.
@@ -57,11 +57,11 @@ set statusline=%{fugitive#statusline()}
 ""
 let g:indentLine_setColors = 1 
 
-let base16colorspace=256 " Access colors present in 256 colorspace
+let base16colorspace = 256 " Access colors present in 256 colorspace
 colorscheme base16-default-dark
 
 " This line enables the true color support.
-let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+let $NVIM_TUI_ENABLE_TRUE_COLOR = 1
 
 " NOTE: the above line is ignored in Neovim 0.1.5 above, use this line
 " instead.

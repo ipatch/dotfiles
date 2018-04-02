@@ -49,6 +49,11 @@ set -gx GIT_RC $XDG_CONFIG_HOME/git
 ##############################
 # tmux 💩
 ##
+
+##############################
+# Global PATH
+##
+
 if not contains $HOME/.cargo/bin $PATH; and test -d $HOME/.cargo/bin 
   # Add rust-lang local bin directory to PATH for working with cargo.
   set PATH $HOME/.cargo/bin $PATH
@@ -66,6 +71,7 @@ if type -q fzf
 else
   # DO SOMETHING!
 end
+
 set -gx FZF_DEFAULT_OPTS '--preview="head -n50 {}"'
 # TODO: figure out how to properly load function in fish
 # _fzf_compgen_path() {
@@ -124,6 +130,14 @@ case Darwin
       set PATH /usr/local/opt/python/libexec/bin $PATH
     end
   end
+
+  ###############################
+  # python env setup
+  ##
+  # if type -q pyenv-virtualenv
+  #   # pyenv virtualenv-init -
+  # end
+
   ###############################
   # set env vars for git
   ##
@@ -145,13 +159,6 @@ case Darwin
     set -gx MYVIMRC $HOME/.vimrc
     set -gx VIMCONFIG $HOME/.vim/pack/bundle/start
     set -gx VIMDATA $HOME/.vim/undo
-    # set -gx MANPAGER /usr/local/share/nvim/runtime/macros/less.sh
-    # set -gx MANPAGER nvim -c 'set ft=man' -
-    # set -x MANPAGER "/bin/sh -c \"unset MANPAGER;col -b -x | \
-    # nvim -R -c 'set ft=man nomod nolist' -c 'map q :q<CR>' \
-    # -c 'map <SPACE> <C-D>' -c 'map b <C-U>' \
-    # -c 'nmap K :Man <C-R>=expand(\\\"<cword>\\\")<CR><CR>' -\""
-    # set -gx MANPAGER "/bin/sh -c \"col -b | vim -c 'set ft=man ts=8 nomod nolist nonu noma' -\""
 
     #########################
     # Add check for syntax highlighting for `less`
