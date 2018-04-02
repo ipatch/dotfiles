@@ -121,7 +121,7 @@ switch (uname)
     # update location DB
     # NOTE: changed abbr to `mac-updatedb` because of homebrew installed
     #...`findutils` which provides the `updatedb` bin.
-    abbr -a mac-updatedb '/usr/libexec/locate.updatedb'
+    abbr -a mac-updatedb 'sudo /usr/libexec/locate.updatedb'
 end
 ################
 #
