@@ -35,6 +35,13 @@ set -gx dots /opt/Code/dotfiles
 set -gx XDG_CONFIG_HOME $HOME/.config
 set -gx CODE /opt/code
 set -gx code /opt/code
+##############################
+# git related settings
+##
+set -gx GIT_RC $XDG_CONFIG_HOME/git
+# git config --global core.excludesfile "$GIT_RC/ignore"
+# git config --global core.attributes "$GIT_RC/attributes"
+
 # set -gx PATH # init an empty var first, unless you want dup `PATH` entries
 # set -gx LC_CTYPE "en_US.UTF-8" # only set this if you want to overwrite ALL locales!
 # set -gx GREP_OPTIONS --color=auto
@@ -151,7 +158,6 @@ case Darwin
     ##
     [ -x "/usr/local/share/nvim/runtime/macros/less.sh" ]; and \
     alias less='/usr/local/share/nvim/runtime/macros/less.sh';
-    set -x MANPAGER 'less -R'
   else
     set -gx EDITOR /usr/bin/vim
     set -gx MYVIMRC $HOME/.vimrc
