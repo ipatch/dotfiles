@@ -16,7 +16,7 @@ silent execute '!mkdir -p $HOME/.vim/tmp/undo'
 
 
 """"""""""""""""""""""""""""""
-"
+" toggle hidden chars
 ""
 set listchars=tab:▸\ ,eol:¬
 nmap <leader>l :set list!<CR>
