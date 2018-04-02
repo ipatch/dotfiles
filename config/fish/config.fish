@@ -158,7 +158,6 @@ case Darwin
     ##
     [ -x "/usr/local/share/nvim/runtime/macros/less.sh" ]; and \
     alias less='/usr/local/share/nvim/runtime/macros/less.sh';
-    set -x MANPAGER 'less -R'
   else
     set -gx EDITOR /usr/bin/vim
     set -gx MYVIMRC $HOME/.vimrc
