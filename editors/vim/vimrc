@@ -257,6 +257,7 @@ call minpac#add('radenling/vim-dispatch-neovim') " dispatch extensions using neo
 call minpac#add('w0rp/ale') " ALE Asynchronous Linting Edition
 call minpac#add('janko-m/vim-test') " a plugin for running test suites.
 call minpac#add('ludovicchabant/vim-gutentags') " simple vim script only plug to auto generate ctags
+call minpac#add('ryanoasis/vim-devicons') " perdy icons / glyphs
 """""""""""""""""""""""""""""
 " minpac - commands
 "" 
