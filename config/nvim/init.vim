@@ -30,9 +30,21 @@ let g:airline#extensions#tabline#enabled = 2
 let g:airline#extensions#tabline#fnamemod = ':t'
 " NOTE: https://github.com/vim-airline/vim-airline/issues/142#issuecomment-145317103
 let g:airline_powerline_fonts=1 " this setting presents pretty glyphs using powerline fonts.
+let g:airline_detect_modified=1
 
 " set the color scheme for vim-airline
 let g:airline_theme = 'base16' " keep the base16 colorscheme consistent.
+
+" use single letters for various display modes.
+let g:airline_mode_map = {
+      \ 'n'  : 'N',
+      \ 'i'  : 'I',
+      \ 'R'  : 'R',
+      \ 'v'  : 'V',
+      \ 'V'  : 'VL',
+      \ 'c'  : 'CMD',
+      \ '' : 'VB',
+      \ }
 
 """""""""""""""""""""""""""""
 " vim-fugitive settings - https://github.com/tpope/vim-fugitive
