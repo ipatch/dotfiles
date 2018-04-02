@@ -9,6 +9,7 @@
 <h6 align="center"><em>These dotfiles have been known to stop working at a moments notice, so buyer beware.</em></h6>
 
 # Table of Contents
+
 - [the dotfiles wiki](https://github.com/ipatch/dotfiles/wiki)
 > A collection of useful pages that complements 👏🏾 these dotfiles.
 - [Installation](#installation)
@@ -24,24 +25,10 @@
 ## Installation
 
 ```shell
-git clone git@github.com:ipatch/dotfiles.git
+git clone --recursive git@github.com:ipatch/dotfiles.git
 ```
 
-> This project uses a git submodule 🙄 which is dependent upon [this](https://github.com/chriskempson/base16-shell) which allows for a more sane color 🌈 experience in the terminal 💻
-
-If you'd like to use the dotfiles with the submodule included,
-
-```diff
-- git clone --recurse-submodules git@github.com:ipatch/dotfiles.git
-+ git clone --recursive git@github.com:ipatch/dotfiles.git
-```
-
-or if you have already cloned the repo without the submodule
-
-```shell
-git submodule init
-git submodule update
-```
+> The above shell command will clone this repo and all submodule related repos.  🤙.  To find out more about git submodules, click [here](https://github.com/ipatch/dotfiles/wiki/git-Notes#git-submodules)
 
 <a href="fish-shell-setup"></a>
 
@@ -62,14 +49,16 @@ ln -sf $DOTFILES/config/fish/ $HOME/.config/fish
 <img src="https://raw.githubusercontent.com/wiki/ipatch/dotfiles/lib/vim-2017.png" alt="nvim-screenshot">
 </details>
 
-As of March 16, 2018, I have migrated all plugins to to use [minpac](https://github.com/k-takataminpac) This particular Neovim setup requires Vim >= 8.0 be installed, and all plugins are loaded using minpac from the `.vimrc` in the home directory.
+As of March 16, 2018, I have migrated all plugins to to use [minpac](https://github.com/k-takataminpac) This particular Neovim setup requires Vim >= 8.0 to be installed, and all plugins are loaded using minpac from the `.vimrc` in the home directory.
 
 To get python support working with Neovim
+
 ```shell
 pip3 install --user --upgrade neovim
 ```
 
 To verify if python support is working
+
 ```vim
 : echo has('python3')
 ```

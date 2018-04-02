@@ -2,6 +2,7 @@
 # NOTE: `git` alias are processed using a POSIX shell, NOT fish-shell
 
 [alias]
+
   # Clone a repository including all submodules
   c = clone --recursive
   
@@ -165,9 +166,13 @@
   # merge = refs/heads/master
 
 [core]
-  attributesfile = $HOME/.gitattributes
   editor = nvim
-  excludesFile = $XDG_CONFIG_HOME/git/ignore
+	excludesfile = /home/capin/.config/git/ignore
+	attributes = /home/capin/.config/git/attributes
+  ###############################
+  # To set a `core.excludesfile` on a per $HOME dir basis, see `config.fish or `.bashrc`
+  # excludesfile = LEAVE EMPTY
+  # attributesfile = LEAVE EMPTY
 
 [color]
   ui = auto
@@ -177,15 +182,18 @@
   grep = auto
   interactive = auto
   pager = true
+
 [color "branch"]
   current = yellow reverse
   local = yellow
   remote = green
+
 [color "diff"]
   meta = yellow bold
   frag = magenta bold
   old = red bold
   new = green bold
+
 [color "status"]
   added = yellow
   changed = green
@@ -203,14 +211,18 @@
   insteadOf = "gh:"
   pushInsteadOf = "github:"
   pushInsteadOf = "git://github.com/"
+
 [url "git://github.com/"]
   insteadOf = "github:"
+
 [url "git@gist.github.com:"]
   insteadOf = "gst:"
   pushInsteadOf = "gist:"
   pushInsteadOf = "git://gist.github.com/"
+
 [url "git://gist.github.com/"]
   insteadOf = "gist:"
+
 [url "git://bitbucket.org:"]
   insteadOf = "bb:"
 
