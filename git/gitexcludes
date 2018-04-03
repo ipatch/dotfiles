@@ -11,3 +11,6 @@ secrets.yml
 .un~
 .un
 tags
+tags.lock
+tags.temp
+
