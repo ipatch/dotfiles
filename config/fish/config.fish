@@ -134,9 +134,11 @@ case Darwin
   ###############################
   # python env setup
   ##
-  # if type -q pyenv-virtualenv
-  #   # pyenv virtualenv-init -
-  # end
+  if type -q virtualenv
+    set -gx VIRTUAL_ENV_DISABLE_PROMPT 1 # disable default virtualenv prompt
+    # pyenv virtualenv-init -
+    # source (pyenv virtualenv-init -|psub)
+  end
 
   ###############################
   # set env vars for git
