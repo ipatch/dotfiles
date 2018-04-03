@@ -1,5 +1,4 @@
 package battery
 package foreign-env
-package grc
 theme default
 theme https://github.com/ipatch/theme-lambda

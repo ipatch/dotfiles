@@ -1,8 +1,10 @@
 switch (uname)
   case Linux
     if type -q grc
-      source /home/linuxbrew/.linuxbrew/etc/grc.fish
+      source /usr/local/etc/grc.fish
     end
   case Darwin
-    # DO NOTHING
+    if type -q grc
+      source /usr/local/etc/grc.fish
+    end
 end
