@@ -1850,7 +1850,7 @@ Credit: [💳](https://github.com/atom/atom/issues/1718#issuecomment-162242357)
   - [x] ~~Figure out a sane solution for previewing markdown ie. .md documents~~
   - [x] ~~Figure out what is causing lines to be hard wrapped! 😖~~
 ### Fish
-  - [ ] Figure out why `grc` is borking PATH on Linux 😑
+  - x] ~~ Figure out why `grc` is borking PATH on Linux 😑~~
 
 GithHub: [@ipatch](https://github.com/ipatch)<br />
 Twitter: [@truckmonth](https://twitter.com/truckmonth)
