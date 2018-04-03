@@ -80,8 +80,8 @@ abbr -a rvm-toggle 'rvm_toggle'
 ################
 # macOS specific abbreviations
 ##
-abbr -a fs 'toggle_hidden_files'
-abbr -a fh 'toggle_hidden_files'
+abbr -a fs 'mac_toggle_hidden_files'
+abbr -a fh 'mac_toggle_hidden_files'
 
 ################
 # useful abbreviations for working NOC lists
