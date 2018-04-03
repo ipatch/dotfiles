@@ -76,7 +76,7 @@ switch (uname)
     set PATH /sbin $PATH
   end
   if not contains /home/linuxbrew/.linuxbrew/bin $PATH
-  and test -d /home/linuxbrew/.linuxbrew/{bin,sbin}
+  and test -d /home/linuxbrew/.linuxbrew/bin
       set PATH /home/linuxbrew/.linuxbrew/{bin,sbin} $PATH # put at top of `PATH`
   end
   if not contains /home/linuxbrew/.linuxbrew/opt/python/libexec/bin $PATH
