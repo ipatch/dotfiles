@@ -75,7 +75,7 @@ switch (uname)
   and test -d /sbin
     set PATH /sbin $PATH
   end
-  if not contains /home/linuxbrew/.linuxbrew/{bin,sbin} $PATH
+  if not contains /home/linuxbrew/.linuxbrew/bin $PATH
   and test -d /home/linuxbrew/.linuxbrew/{bin,sbin}
       set PATH /home/linuxbrew/.linuxbrew/{bin,sbin} $PATH # put at top of `PATH`
   end
