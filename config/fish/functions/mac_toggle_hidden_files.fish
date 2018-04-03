@@ -1,4 +1,4 @@
-function toggle_hidden_files --description 'toggle hidden files on macOS'
+function mac_toggle_hidden_files --description 'toggle hidden files on macOS'
   switch (uname)
     case Darwin
       if test (defaults read com.apple.finder AppleShowAllFiles) = "TRUE"
