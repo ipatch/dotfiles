@@ -1,8 +1,8 @@
 switch (uname)
   case Linux
-    if type -q grc
+    if test -e /home/linuxbrew/.linuxbrew/bin/grc
       echo 'we have grc'
-      source /usr/local/etc/grc.fish
+      source /home/linuxbrew/.linuxbrew/etc/grc.fish
     else
       echo 'where the hell is grc'
     end
