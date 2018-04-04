@@ -33,6 +33,7 @@ set vb t_vb=
 set listchars=tab:‣\ ,eol:¬
 " set spell                           " disable spell checking
 set spelllang=en_us                   " set the language for spelling words
+
 """"""""""""""""""""""""""""""
 " wrapping
 ""
@@ -51,6 +52,7 @@ set nojoinspaces
 set display+=lastline
 set mouse=a                           " enable mouse support
 set showmatch                         " show matching braces
+
 """""""""""""""""""""""""""""
 " Indentation / tab shit
 ""
@@ -115,9 +117,18 @@ map <leader>vm :tabe $MYVIMRC<CR>
 map <leader>sv :source $MYVIMRC<CR>
 
 """"""""""""""""""""""""""""""
+" colorscheme
+""
+let base16colorspace = 256 " Access colors present in 256 colorspace
+colorscheme base16-default-dark
+
+""""""""""""""""""""""""""""""
 " fonts
 ""
 " TODO: figure out why comments aren't showing up in italics
+set t_ZH=^[[3m
+set t_ZR=^[[23m
+highlight Comment gui=italic
 highlight Comment cterm=italic
 highlight htmlArg cterm=italic
 highlight xmlAttrib cterm=italic
@@ -184,11 +195,7 @@ augroup END
 ""
 let g:indentLine_setColors = 1
 
-""""""""""""""""""""""""""""""
-" colorscheme
-""
-let base16colorspace = 256 " Access colors present in 256 colorspace
-colorscheme base16-default-dark
+
 
 
 
