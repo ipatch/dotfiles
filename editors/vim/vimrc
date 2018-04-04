@@ -125,9 +125,6 @@ colorscheme base16-default-dark
 """"""""""""""""""""""""""""""
 " fonts
 ""
-" TODO: figure out why comments aren't showing up in italics
-set t_ZH=^[[3m
-set t_ZR=^[[23m
 highlight Comment gui=italic
 highlight Comment cterm=italic
 highlight htmlArg cterm=italic
