@@ -1,4 +1,6 @@
-"""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""
+" ~ VIMRC ~ for Vim >= 8 && Neovim
+""""""""""""""""""""""""""""""
 " Author: Chris Jones
 " Source: http://github.com/ipatch/dotfiles/blob/master/editors/vim/vimrc
 ""
@@ -91,6 +93,9 @@ noremap <leader>w :w<CR>
 cmap cwd lcd %:p:h
 cmap cd. lcd %:p:h
 
+" the below key mapping will indent the entire file
+map <Leader>i mmgg=G`m<CR>
+
 " go into command mode and print the working dir
 " TODO: figure out a way to print the `cwd` or `pwd` quckily from `NORMAL` mode
 " NOTE: none of the below mappings with work properly until `%%` is resolved 🤷‍♀️
@@ -102,6 +107,90 @@ cmap cd. lcd %:p:h
 " map <leader>ev :vsp %%
 " " edit file in new tab
 " map <leader>et :tabe %%
+
+"""""""""""""""""""""""""""""
+" Useful hacks for working with `$HOME/.config/nvim/init.vim or $MYVIMRC
+""
+map <leader>vm :tabe $MYVIMRC<CR>
+map <leader>sv :source $MYVIMRC<CR>
+
+""""""""""""""""""""""""""""""
+" fonts
+""
+" TODO: figure out why comments aren't showing up in italics
+highlight Comment cterm=italic
+highlight htmlArg cterm=italic
+highlight xmlAttrib cterm=italic
+highlight Type cterm=italic
+highlight Normal ctermbg=none
+
+" set guifont=Cousine\ for\ Powerline:h13
+set guifont=IBMPlexMono\ Nerd\ Font\ Mono\ ExtraLight:h13
+let g:Powerline_symbols = 'fancy'
+set t_Co=256
+set fillchars+=stl:\ ,stlnc:\
+
+"""""""""""""""""""""""""""""
+" conceal levels
+""
+" toggle between different conceal levels
+function! ToggleConcealLevel()
+    if &conceallevel == 0
+        setlocal conceallevel=2
+    elseif &conceallevel == 1
+        setlocal conceallevel=0
+    elseif &conceallevel == 2
+        setlocal conceallevel=0
+    endif
+endfunction
+
+nnoremap <silent> ` :call ToggleConcealLevel()<CR>
+
+"""""""""""""""""""""""""""""
+" netrw - file explorer
+""
+" CREDIT: https://shapeshed.com/vim-netrw/   
+
+let g:netrw_liststyle = 3 " Do not display the banner when using Netrw
+let g:netrw_banner = 0 " Display the netrw file browser in a vertical split
+let g:netrw_browse_split = 1 " Set the default width when opening the netrw explorer
+let g:netrw_winsize = 25
+" TODO: document what the below variable does to netrw
+let g:netrw_altv = 1
+" Set atom style macOS key binding to open the project drawer
+" CREDIT: https://stackoverflow.com/a/23069285/708807
+nnoremap <M-\> :Lexplore<cr>
+inoremap <M-\> :Lexplore<cr>
+
+" The below setting is useful for changing to the current directory
+" in which the file is located when toggling netrw
+set autochdir
+
+"""""""""""""""""""""""""""""
+" Cool hacky stuff
+""
+
+" Make sure Vim returns to the same line when reopening a file.
+augroup line_return
+  au!
+  au BufReadPost *
+        \ if line("'\"") > 0 && line("'\"") <= line("$") |
+        \     execute 'normal! g`"zvzz' |
+        \ endif
+augroup END
+
+"""""""""""""""""""""""""""""
+" indentLine - settings / configuration
+""
+let g:indentLine_setColors = 1
+
+""""""""""""""""""""""""""""""
+" colorscheme
+""
+let base16colorspace = 256 " Access colors present in 256 colorspace
+colorscheme base16-default-dark
+
+
 
 " Toggle spell checking
 nmap <silent> <leader>s :set spell!<CR>
@@ -203,6 +292,18 @@ call minpac#add('k-takata/minpac', {'type': 'opt'})
 ""
 if has('nvim')
   """""""""""""""""""""""""""
+  " color - true color support
+  ""
+
+  " This line enables the true color support.
+  let $NVIM_TUI_ENABLE_TRUE_COLOR = 1
+
+  " NOTE: the above line is ignored in Neovim 0.1.5 above, use this line instead.
+  if has('nvim-0.1.5')
+    set termguicolors
+  endif
+
+  """""""""""""""""""""""""""
   " Neovim only plugins
   ""
   call minpac#add('Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' })
@@ -224,6 +325,26 @@ if has('nvim')
   ""
   call minpac#add('euclio/vim-markdown-composer', { 'do': '!cargo build --release'}, executable('cargo') && has('nvim'))
 endif
+
+""""""""""""""""""""""""""""""
+" clipboard
+""
+if has('macunix')
+  set clipboard=unnamed
+endif
+
+" get sane copy / paste within nvim using iTerm2
+" CREDIT: 💳 https://github.com/neovim/neovim/issues/5052#issuecomment-232083842
+vnoremap <M-c> "+y
+nnoremap <M-v> "+p
+inoremap <M-v> <esc>"+p
+
+" NOTE: apparently `:map` and `:map!` will map to all modes of (n)vim
+" CREDIT: 💳 https://stackoverflow.com/a/21282417/708807
+" NOTE: if using iTerm2 on macOS make sure the proper escape sequence is
+" mapped within the iTerm2 settings.
+nnoremap <M-z> u
+inoremap <M-z> <C-o>u
 
 """"""""""""""""""""""""""""""
 " minpac - plugins
@@ -258,11 +379,47 @@ call minpac#add('w0rp/ale') " ALE Asynchronous Linting Edition
 call minpac#add('janko-m/vim-test') " a plugin for running test suites.
 call minpac#add('ludovicchabant/vim-gutentags') " simple vim script only plug to auto generate ctags
 call minpac#add('ryanoasis/vim-devicons') " perdy icons / glyphs
+
 """""""""""""""""""""""""""""
 " minpac - commands
 "" 
 command! PackUpdate packadd minpac | source $MYVIMRC | call minpac#update()
 command! PackClean  packadd minpac | source $MYVIMRC | call minpac#clean()
+
+"""""""""""""""""""""""""""""
+" vim-fugitive settings - https://github.com/tpope/vim-fugitive
+""
+set statusline=%{fugitive#statusline()}
+
+""""""""""""""""""""""""""""""
+" vim-airline settings / keybindings https://github.com/vim-airline/vim-airline
+""
+let g:airline#extensions#tabline#enabled = 2
+let g:airline#extensions#tabline#fnamemod = ':t'
+" NOTE: https://github.com/vim-airline/vim-airline/issues/142#issuecomment-145317103
+let g:airline_powerline_fonts = 1 " this setting presents pretty glyphs using powerline fonts.
+let g:airline_detect_modified = 1
+
+" set the color scheme for vim-airline
+let g:airline_theme = 'base16' " keep the base16 colorscheme consistent.
+
+" use single letters for various display modes.
+let g:airline_mode_map = {
+      \ 'n'  : 'N',
+      \ 'i'  : 'I',
+      \ 'R'  : 'R',
+      \ 'v'  : 'V',
+      \ 'V'  : 'VL',
+      \ 'c'  : 'CMD',
+      \ '' : 'VB',
+      \ }
+
+""""""""""""""""""""""""""""""
+" plugin - commentary
+""
+" Easy commenting of lines using tpope's plugin.
+" CREDIT: 💳 https://github.com/neovim/neovim/issues/5052#issuecomment-232083842
+noremap <leader>c :Commentary<cr>
 
 """""""""""""""""""""""""""""
 " FZF
