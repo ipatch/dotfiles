@@ -1840,7 +1840,7 @@ Credit: [💳](https://github.com/atom/atom/issues/1718#issuecomment-162242357)
 ## TODOs
 - [x] ~~migrate all installed apps to be installed using homebrew / linuxbrew~~
 - [ ] spend some time working with hammerspoon
-- [ ] troubleshoot why italics isn't working in (n)vim.
+- [x] ~~troubleshoot why italics isn't working in (n)vim.~~
 - [ ] Write an install script for easy installation of dotfiles.
 - [x] ~~Add a collection of inspirational dotfile repos.~~
 - [x] ~~Add images in the lib dir of this repo to the .wiki submodule repo.~~
