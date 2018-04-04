@@ -5,6 +5,8 @@
 "  Source: https://github.com/ipatch/dotfiles/blob/master/config/nvim/init.vim
 ""
 
+" NOTE: see `$HOME/vimcrc` for more settings
+
 """""""""""""""""""""""""""""
 " Load vim configuration, runtimepath, packpath, and .vimrc
 ""
@@ -12,105 +14,8 @@ set runtimepath^=~/.vim runtimepath+=~/.vim/after
 let &packpath=&runtimepath
 source ~/.vimrc
 
-set guifont=Cousine\ for\ Powerline:h13
-let g:Powerline_symbols = 'fancy'
-set t_Co=256
-set fillchars+=stl:\ ,stlnc:\
-
-" the below key mapping will indent the entire file
-map <Leader>i mmgg=G`m<CR>
-
 " Hard-wrap long lines as I type them
 set textwidth=0
-
-""""""""""""""""""""""""""""""
-" vim-airline settings / keybindings https://github.com/vim-airline/vim-airline
-""
-let g:airline#extensions#tabline#enabled = 2
-let g:airline#extensions#tabline#fnamemod = ':t'
-" NOTE: https://github.com/vim-airline/vim-airline/issues/142#issuecomment-145317103
-let g:airline_powerline_fonts = 1 " this setting presents pretty glyphs using powerline fonts.
-let g:airline_detect_modified = 1
-
-" set the color scheme for vim-airline
-let g:airline_theme = 'base16' " keep the base16 colorscheme consistent.
-
-" use single letters for various display modes.
-let g:airline_mode_map = {
-      \ 'n'  : 'N',
-      \ 'i'  : 'I',
-      \ 'R'  : 'R',
-      \ 'v'  : 'V',
-      \ 'V'  : 'VL',
-      \ 'c'  : 'CMD',
-      \ '' : 'VB',
-      \ }
-
-"""""""""""""""""""""""""""""
-" vim-fugitive settings - https://github.com/tpope/vim-fugitive
-""
-
-set statusline=%{fugitive#statusline()}
-
-"""""""""""""""""""""""""""""
-" indentLine - settings / configuration
-""
-let g:indentLine_setColors = 1 
-
-let base16colorspace = 256 " Access colors present in 256 colorspace
-colorscheme base16-default-dark
-
-" This line enables the true color support.
-let $NVIM_TUI_ENABLE_TRUE_COLOR = 1
-
-" NOTE: the above line is ignored in Neovim 0.1.5 above, use this line
-" instead.
-if has('nvim-0.1.5')
-  set termguicolors
-endif
-
-" Easy commenting of lines using tpope's plugin.
-" CREDIT: 💳 https://github.com/neovim/neovim/issues/5052#issuecomment-232083842
-noremap <leader>c :Commentary<cr>
-
-" Use system clipboard
-if has('macunix')
-  set clipboard=unnamed
-endif
-
-" Try and get sane copy / paste within nvim using iTerm2
-" CREDIT: 💳 https://github.com/neovim/neovim/issues/5052#issuecomment-232083842
-vnoremap <M-c> "+y
-" TODO: figure out how to map <command>+<v> as paste
-nnoremap <M-v> "+p
-inoremap <M-v> <esc>"+p 
-
-" NOTE: apparently `:map` and `:map!` will map to all modes of (n)vim
-" CREDIT: 💳 https://stackoverflow.com/a/21282417/708807
-" NOTE: if using iTerm2 on macOS make sure the proper escape sequence is
-" mapped within the iTerm2 settings.
-nnoremap <M-z> u
-inoremap <M-z> <C-o>u
-
-"""""""""""""""""""""""""""""
-" netrw
-""
-" CREDIT: https://shapeshed.com/vim-netrw/   
-
-let g:netrw_liststyle = 3 " Do not display the banner when using Netrw
-let g:netrw_banner = 0 " Display the netrw file browser in a vertical split
-let g:netrw_browse_split = 1 " Set the default width when opening the netrw explorer
-let g:netrw_winsize = 25
-" TODO: document what the below variable does to netrw
-let g:netrw_altv = 1
-" Set atom style macOS key binding to open the project drawer
-" CREDIT: https://stackoverflow.com/a/23069285/708807
-nnoremap <M-\> :Lexplore<cr>
-inoremap <M-\> :Lexplore<cr>
-
-" The below setting is useful for changing to the current directory
-" in which the file is located when toggling netrw
-set autochdir
 
 """""""""""""""""""""""""""""
 " ~ OS ~ specific settings
@@ -139,25 +44,6 @@ if has('unix')
 endif
 
 """""""""""""""""""""""""""""
-" Cool hacky stuff
-""
-
-" Make sure Vim returns to the same line when reopening a file.
-augroup line_return
-  au!
-  au BufReadPost *
-        \ if line("'\"") > 0 && line("'\"") <= line("$") |
-        \     execute 'normal! g`"zvzz' |
-        \ endif
-augroup END
-
-"""""""""""""""""""""""""""""
-" Useful hacks for working with `$HOME/.config/nvim/init.vim or $MYVIMRC
-""
-map <leader>vm :tabe $MYVIMRC<CR>
-map <leader>sv :source $MYVIMRC<CR>
-
-"""""""""""""""""""""""""""""
 " set (n)vim as pager
 ""
 let $PAGER=''
@@ -170,23 +56,3 @@ let $MANPAGER=''
 set ttyfast " faster redrawing
 set shell=/bin/sh
 
-" make comments and HTML attributes italic
-" TODO; figure out why comments aren't showing up in italics
-highlight Comment cterm=italic
-highlight htmlArg cterm=italic
-highlight xmlAttrib cterm=italic
-highlight Type cterm=italic
-highlight Normal ctermbg=none
-
-" toggle between different conceal levels
-function! ToggleConcealLevel()
-    if &conceallevel == 0
-        setlocal conceallevel=2
-    elseif &conceallevel == 1
-        setlocal conceallevel=0
-    elseif &conceallevel == 2
-        setlocal conceallevel=0
-    endif
-endfunction
-
-nnoremap <silent> ` :call ToggleConcealLevel()<CR>
