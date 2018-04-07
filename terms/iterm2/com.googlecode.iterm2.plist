@@ -50207,8 +50207,10 @@
 	<true/>
 	<key>DisableFullscreenTransparency</key>
 	<true/>
+	<key>EnableDivisionView</key>
+	<false/>
 	<key>EnableProxyIcon</key>
-	<true/>
+	<false/>
 	<key>FocusFollowsMouse</key>
 	<true/>
 	<key>GlobalKeyMap</key>
@@ -50366,6 +50368,8 @@
 	<false/>
 	<key>HotkeyMigratedFromSingleToMulti</key>
 	<true/>
+	<key>JobName</key>
+	<false/>
 	<key>LoadPrefsFromCustomFolder</key>
 	<true/>
 	<key>NSFontPanelAttributes</key>
@@ -50419,25 +50423,45 @@
 	<key>NSWindow Frame SessionsPreferences</key>
 	<string>269 76 606 469 0 0 1440 877 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>267 359 796 473 0 0 1440 877 </string>
+	<string>382 244 796 473 0 0 1440 877 </string>
 	<key>NSWindow Frame com.apple.typography_panel_ConsolasForPowerline</key>
 	<string>252 254 260 156 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>4 402 714 475 0 0 1440 877 </string>
+	<string>0 426 714 451 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>5 14 1434 849 0 0 1440 877 </string>
+	<string>4 425 714 452 0 0 1440 877 </string>
+	<key>NSWindow Frame iTerm Window 10</key>
+	<string>735 236 714 452 0 0 1440 877 </string>
+	<key>NSWindow Frame iTerm Window 11</key>
+	<string>491 180 714 452 0 0 1440 877 </string>
+	<key>NSWindow Frame iTerm Window 12</key>
+	<string>512 157 714 452 0 0 1440 877 </string>
+	<key>NSWindow Frame iTerm Window 13</key>
+	<string>533 134 714 452 0 0 1440 877 </string>
+	<key>NSWindow Frame iTerm Window 14</key>
+	<string>554 111 714 452 0 0 1440 877 </string>
+	<key>NSWindow Frame iTerm Window 15</key>
+	<string>575 88 714 452 0 0 1440 877 </string>
+	<key>NSWindow Frame iTerm Window 16</key>
+	<string>596 65 714 452 0 0 1440 877 </string>
+	<key>NSWindow Frame iTerm Window 17</key>
+	<string>719 343 714 452 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
-	<string>719 377 714 500 0 0 1440 877 </string>
+	<string>0 425 714 452 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 3</key>
-	<string>280 244 714 452 0 0 1440 877 </string>
+	<string>211 287 714 452 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 4</key>
-	<string>14 221 714 475 0 0 1440 877 </string>
+	<string>599 399 714 452 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 5</key>
-	<string>726 185 714 475 0 0 1440 877 </string>
+	<string>621 143 714 452 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 6</key>
-	<string>428 260 714 475 0 0 1440 877 </string>
+	<string>670 273 714 452 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 7</key>
-	<string>449 237 714 475 0 0 1440 877 </string>
+	<string>449 254 714 452 0 0 1440 877 </string>
+	<key>NSWindow Frame iTerm Window 8</key>
+	<string>428 249 714 452 0 0 1440 877 </string>
+	<key>NSWindow Frame iTerm Window 9</key>
+	<string>449 226 714 452 0 0 1440 877 </string>
 	<key>NeverWarnAboutShortLivedSessions_1CC7C0B4-3E6C-43F7-B261-10AFA5663587</key>
 	<true/>
 	<key>NeverWarnAboutShortLivedSessions_1CC7C0B4-3E6C-43F7-B261-10AFA5663587_selection</key>
@@ -51152,7 +51176,7 @@
 			<key>Session Close Undo Timeout</key>
 			<integer>10</integer>
 			<key>Set Local Environment Vars</key>
-			<false/>
+			<true/>
 			<key>Shortcut</key>
 			<string></string>
 			<key>Show Mark Indicators</key>
@@ -51171,6 +51195,8 @@
 			<integer>4</integer>
 			<key>Transparency</key>
 			<real>0.0</real>
+			<key>Unicode Version</key>
+			<integer>8</integer>
 			<key>Unlimited Scrollback</key>
 			<true/>
 			<key>Use Bold Font</key>
@@ -52835,7 +52861,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2018-04-01T18:32:17Z</date>
+	<date>2018-04-07T00:01:42Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>ShowBookmarkName</key>
@@ -61409,6 +61435,8 @@
 			</dict>
 		</array>
 	</dict>
+	<key>WindowNumber</key>
+	<false/>
 	<key>WordCharacters</key>
 	<string>/-+\~_.</string>
 	<key>findMode_iTerm</key>
