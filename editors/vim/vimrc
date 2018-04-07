@@ -33,6 +33,7 @@ set vb t_vb=
 set listchars=tab:‣\ ,eol:¬
 " set spell                           " disable spell checking
 set spelllang=en_us                   " set the language for spelling words
+language en_US
 
 """"""""""""""""""""""""""""""
 " wrapping
