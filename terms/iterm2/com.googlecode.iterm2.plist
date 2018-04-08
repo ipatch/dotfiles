@@ -50423,13 +50423,13 @@
 	<key>NSWindow Frame SessionsPreferences</key>
 	<string>269 76 606 469 0 0 1440 877 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>382 244 796 473 0 0 1440 877 </string>
+	<string>382 166 937 512 0 0 1440 877 </string>
 	<key>NSWindow Frame com.apple.typography_panel_ConsolasForPowerline</key>
 	<string>252 254 260 156 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 426 714 451 0 0 1440 877 </string>
+	<string>4 426 714 451 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>4 425 714 452 0 0 1440 877 </string>
+	<string>719 426 714 451 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 10</key>
 	<string>735 236 714 452 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 11</key>
@@ -51176,7 +51176,7 @@
 			<key>Session Close Undo Timeout</key>
 			<integer>10</integer>
 			<key>Set Local Environment Vars</key>
-			<true/>
+			<false/>
 			<key>Shortcut</key>
 			<string></string>
 			<key>Show Mark Indicators</key>
