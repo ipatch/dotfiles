@@ -501,6 +501,12 @@ set foldcolumn=2 " width of gutter outlining folds
 " set viewoptions+=cursor,folds,slash,unix
 set sessionoptions=folds,localoptions,curdir,buffers
 
+""""""""""""""""""""""""""""""
+" buffers
+""
+" NOTE: the below autocmd will change the `lcd` to the dir of the active buffer
+autocmd BufEnter * if expand("%:p:h") !~ '^/tmp' | silent! lcd %:p:h | endif
+
 
 """"""""""""""""""""""""""""""
 " ale-config
