@@ -318,7 +318,6 @@ if has('nvim')
   let $NVIM_TUI_ENABLE_TRUE_COLOR = 1   " Legacy way to enable 24bit color.
 
   " NOTE: the above line is ignored in Neovim 0.1.5 above, use below instead.
-  " if has('nvim-0.1.5')
   if has('nvim-0.1.5')
     set termguicolors
     hi Cursor guifg=green guibg=green
