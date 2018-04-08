@@ -478,8 +478,6 @@ if &runtimepath =~ 'fzf'
   command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>), 1, <bang>0)
 endif
 
-
-
 """""""""""""""""""""""""""""
 " filetype syntax highlighting 🌈  shit 💩
 ""
@@ -499,8 +497,10 @@ let g:sh_fold_enabled = 1 " default = 0, 1 = function folding
 " folding
 ""
 " SEE: `$HOME/.vim/plugin/sessions.vim
-set foldcolumn=2
-set viewoptions+=cursor,folds,slash,unix
+set foldcolumn=2 " width of gutter outlining folds
+" set viewoptions+=cursor,folds,slash,unix
+set sessionoptions=folds,localoptions,curdir,buffers
+
 
 """"""""""""""""""""""""""""""
 " ale-config
