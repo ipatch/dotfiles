@@ -1855,4 +1855,3 @@ Credit: [💳](https://github.com/atom/atom/issues/1718#issuecomment-162242357)
 GithHub: [@ipatch](https://github.com/ipatch)<br />
 Twitter: [@truckmonth](https://twitter.com/truckmonth)
 
-<!-- foobar -->
