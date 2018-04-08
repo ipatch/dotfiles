@@ -13,6 +13,7 @@ function! MakeSession(overwrite)
     if a:overwrite == 0 && !empty(glob(b:filename))
       return
     endif
+    set sessionoptions=folds
     exe "mksession! " . b:filename
   endif
 endfunction
@@ -31,7 +32,7 @@ function! LoadSession()
   endif
 endfunction
 
-" Adding automatons for when entering or leaving Vim
+" Adding automations for when entering or leaving Vim
 if(argc() == 0)
   au VimEnter * nested :call LoadSession()
   au VimLeave * :call MakeSession(1)
