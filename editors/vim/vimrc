@@ -5,6 +5,14 @@
 " Source: http://github.com/ipatch/dotfiles/blob/master/editors/vim/vimrc
 ""
 
+""""""""""""""""""""""""""""""
+" Notes / gotchas
+""
+
+" To print the value of a below setting, ie. return the value set,
+" `:set autoindent?`
+" SEE: `~/.vim/after/ftplugin/vim.vim` for specific settings related to `.vim`
+
 " Want to set this before any others, the default 'leader' key is `\`
 let g:mapleader = ','                 " set the 'leader' key to `,`
 
@@ -24,7 +32,7 @@ syntax on
 set background=light
 set number
 set relativenumber                    " Show numbers relative to current line
-set history=500                       "  History for days 😛
+set history=500                       " History for days 😛
 set showcmd                           " Show incomplete cmds down at the bottom
 set noshowmode                        " we're flying airline ✈️
 set laststatus=2
@@ -66,6 +74,7 @@ set nofoldenable
 set tabstop=2
 set ai                                  " set auto indent
 set smartindent
+set hidden                              " set sane buffer switching
 
 """""""""""""""""""""""""""""
 " Key mappings / bindings
@@ -111,11 +120,44 @@ map <Leader>i mmgg=G`m<CR>
 " " edit file in new tab
 " map <leader>et :tabe %%
 
+" bubbling text
+nmap <S-k> ddkP
+nmap <S-j> ddp
+" bubble multiple lines
+vmap <S-k> xkP`[V`]
+vmap <S-j> xp`[V`]
+
+
 """""""""""""""""""""""""""""
-" Useful hacks for working with `$HOME/.config/nvim/init.vim or $MYVIMRC
+" Useful hacks for working with `$HOME/.vimrc or $MYVIMRC
 ""
-map <leader>vm :tabe $MYVIMRC<CR>
 map <leader>sv :source $MYVIMRC<CR>
+nmap <leader>v :edit $MYVIMRC<CR>
+
+" Toggle spell checking
+nmap <silent> <leader>s :set spell!<CR>
+
+" Toggle between last 2 buffers
+nnoremap <leader><tab> <c-^>
+
+map ,e :e <C-R>=expand("%:p:h") . "/" <CR>
+map ,t :tabe <C-R>=expand("%:p:h") . "/" <CR>
+
+" If you opened a readonly file, ie. /etc/hosts `w!!` solve :)
+cmap w!! w !sudo tee % >/dev/null
+
+""""""""""""""""""""""""""""""
+" Buffer Handling
+""
+nmap <Leader>t :enew<CR>
+nmap <Leader>] :bnext<CR>
+nmap <Leader>[ :bprevious<CR>
+
+"""""""""""""""""""""""""""""
+" Abbreviations
+""
+cnoreabbrev t tabe
+cnoreabbrev T tabe
 
 """"""""""""""""""""""""""""""
 " colorscheme
@@ -133,10 +175,13 @@ highlight xmlAttrib cterm=italic
 highlight Type cterm=italic
 highlight Normal ctermbg=none
 
+
 " set guifont=Cousine\ for\ Powerline:h13
-set guifont=IBMPlexMono\ Nerd\ Font\ Mono\ ExtraLight:h13
+" set guifont=IBMPlexMono\ Nerd\ Font\ Mono\ ExtraLight:h13
+" set guifont=Monaco:h10
+
 let g:Powerline_symbols = 'fancy'
-set t_Co=256
+" set t_Co=256
 set fillchars+=stl:\ ,stlnc:\
 
 """""""""""""""""""""""""""""
@@ -193,17 +238,6 @@ augroup END
 ""
 let g:indentLine_setColors = 1
 
-" Toggle spell checking
-nmap <silent> <leader>s :set spell!<CR>
-nmap <leader>v :tabedit $MYVIMRC<CR>
-
-" bubbling text
-nmap <S-k> ddkP
-nmap <S-j> ddp
-" bubble multiple lines
-vmap <S-k> xkP`[V`]
-vmap <S-j> xp`[V`]
-
 """""""""""""""""""""""""""""
 " auto commands
 ""
@@ -237,20 +271,6 @@ set wildignore+=tmp/**
 ""
 set scrolloff=7
 
-"""""""""""""""""""""""""""""
-" Abbreviations
-""
-cnoreabbrev t tabe
-cnoreabbrev T tabe
-
-
-" Toggle between last 2 buffers
-nnoremap <leader><tab> <c-^>
-
-map ,e :e <C-R>=expand("%:p:h") . "/" <CR>
-map ,t :tabe <C-R>=expand("%:p:h") . "/" <CR>
-map ,s :split <C-R>=expand("%;p:h") . "/" <CR>
-
 
 " load `fzf` from homebrew install
 if has('macunix')
@@ -261,16 +281,6 @@ if has('unix')
   set rtp+=/home/linuxbrew/.linuxbrew/bin/fzf
 endif
 
-if has('nvim')
-  let g:loaded_sensible=0
-  highlight Comment cterm=italic
-
-  " Keymappings for Neovim
-  " By default to exit out of `terminal` mode in nvim use `<C-\><C-n>`
-  " Instead map `<Esc>`
-  tnoremap <Esc> <C-\><C-n>
-  tnoremap <A-[> <Esc>
-endif
 
 function! BuildComposer(info)
     if a:info.status != 'unchanged' || a:info.force
@@ -289,21 +299,31 @@ call minpac#init()
 call minpac#add('k-takata/minpac', {'type': 'opt'})
 
 """""""""""""""""""""""""""""
-" Additional plugins
+" Neovim - specific settings 
 ""
 if has('nvim')
+  let g:loaded_sensible=0
+  highlight Comment cterm=italic
+
+  " Keymappings for Neovim
+  " By default to exit out of `terminal` mode in nvim use `<C-\><C-n>`
+  " Instead map `<Esc>`
+  tnoremap <Esc> <C-\><C-n>
+  tnoremap <A-[> <Esc>
+
   """""""""""""""""""""""""""
   " color - true color support
   ""
+  let $NVIM_TUI_ENABLE_TRUE_COLOR = 1   " Legacy way to enable 24bit color.
 
-  " This line enables the true color support.
-  let $NVIM_TUI_ENABLE_TRUE_COLOR = 1
-
-  " NOTE: the above line is ignored in Neovim 0.1.5 above, use this line instead.
+  " NOTE: the above line is ignored in Neovim 0.1.5 above, use below instead.
+  " if has('nvim-0.1.5')
   if has('nvim-0.1.5')
     set termguicolors
+    hi Cursor guifg=green guibg=green
+    hi Cursor2 guifg=red guibg=red
+    set guicursor=n-v-c:block-Cursor/lCursor,i-ci-ve:ver25-Cursor2/lCursor2,r-cr:hor20,o:hor50
   endif
-
   """""""""""""""""""""""""""
   " Neovim only plugins
   ""
@@ -457,8 +477,7 @@ if &runtimepath =~ 'fzf'
   command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>), 1, <bang>0)
 endif
 
-" If you opened a readonly file like /etc/hosts press w!! solve :)
-cmap w!! w !sudo tee % >/dev/null
+
 
 """""""""""""""""""""""""""""
 " filetype syntax highlighting 🌈  shit 💩
@@ -474,13 +493,6 @@ augroup END
 """""""""""""""
 let g:is_bash = 1 " set default sh syntax to that of bash
 let g:sh_fold_enabled = 1 " default = 0, 1 = function folding
-
-"""""""""""""""""""""""""""""
-" tabs
-""
-" NOTE: iTerm2 will need modified settings for the below to work
-" map <D-S-]> gt
-" map <D-S-[> gT
 
 """"""""""""""""""""""""""""""
 " folding
@@ -510,10 +522,5 @@ let g:ale_sign_error                 = '⌦'
 let g:ale_sign_warning               = '☞'
 let g:airline#extensions#ale#enabled = 1
 
-""""""""""""""""""""""""""""""
-" Buffer Handling
-""
-nmap <Leader>t :enew<CR>
-nmap <Leader>] :bnext<CR>
-nmap <Leader>[ :bprevious<CR>
+
 

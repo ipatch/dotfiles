@@ -64,10 +64,8 @@ if has('vertsplit')
   set splitright                      " open vertical splits to the right of the current window
 endif
 
-" set tabstop=2                         " spaces per tab
-
 if has('termguicolors')
-  set termguicolors                   " use guifg/guibg instead of ctermfg/ctermbg in terminal
+  " set termguicolors                   " use guifg/guibg instead of ctermfg/ctermbg in terminal
 endif
 
 " set textwidth=80                      " automatically hard wrap at 80 columns - NO THANKYOU!
