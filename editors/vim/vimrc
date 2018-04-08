@@ -149,6 +149,7 @@ cmap w!! w !sudo tee % >/dev/null
 """"""""""""""""""""""""""""""
 " Buffer Handling
 ""
+
 nmap <Leader>t :enew<CR>
 nmap <Leader>] :bnext<CR>
 nmap <Leader>[ :bprevious<CR>
@@ -181,7 +182,6 @@ highlight Normal ctermbg=none
 " set guifont=Monaco:h10
 
 let g:Powerline_symbols = 'fancy'
-" set t_Co=256
 set fillchars+=stl:\ ,stlnc:\
 
 """""""""""""""""""""""""""""
@@ -235,8 +235,9 @@ augroup END
 
 """""""""""""""""""""""""""""
 " indentLine - settings / configuration
+" SEE: https://github.com/Yggdroot/indentLine
 ""
-let g:indentLine_setColors = 1
+let g:indentLine_setColors = 1 " overwrite colorscheme, use default grey
 
 """""""""""""""""""""""""""""
 " auto commands
@@ -253,7 +254,7 @@ augroup END
 autocmd vimrc FocusGained,BufEnter * checktime  " Refresh file when vim gets focus
 
 """""""""""""""""""""""""""""
-" completion
+" wildmenu -  completion
 ""
 set wildmenu                          " show display menu when using `tab` completeion
 set wildmode=list:full
@@ -497,9 +498,8 @@ let g:sh_fold_enabled = 1 " default = 0, 1 = function folding
 """"""""""""""""""""""""""""""
 " folding
 ""
+" SEE: `$HOME/.vim/plugin/sessions.vim
 set foldcolumn=2
-" TODO: figure out how to preserve code folds within session files
-" set ssop+=fold                                  " setting should preserve code fold settings 🤞
 set viewoptions+=cursor,folds,slash,unix
 
 """"""""""""""""""""""""""""""
@@ -521,6 +521,4 @@ let g:ale_lint_on_filetype_changed = 0
 let g:ale_sign_error                 = '⌦'
 let g:ale_sign_warning               = '☞'
 let g:airline#extensions#ale#enabled = 1
-
-
 
