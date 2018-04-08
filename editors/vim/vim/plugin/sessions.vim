@@ -13,7 +13,7 @@ function! MakeSession(overwrite)
     if a:overwrite == 0 && !empty(glob(b:filename))
       return
     endif
-    set sessionoptions=folds
+    set sessionoptions=folds,localoptions
     exe "mksession! " . b:filename
   endif
 endfunction
