@@ -20,4 +20,4 @@
 
 [submodule "config/fish/frameworks/omf/themes/theme-neolambda"]
 	path = config/fish/frameworks/omf/themes/theme-neolambda
-	url = https://github.com/ipatch/theme-lambda.git
+	url = https://github.com/ipatch/theme-neolambda.git
