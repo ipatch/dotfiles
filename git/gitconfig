@@ -1,6 +1,9 @@
 # This is Git's per-user configuration file.
 # NOTE: `git` alias are processed using a POSIX shell, NOT fish-shell
 
+[i18n]
+  filesEncoding = utf-8
+
 [alias]
 
   # Clone a repository including all submodules
@@ -9,9 +12,8 @@
   ###
   # logging
   ###
-  l = log --graph --pretty=oneline
+  l = log --graph --pretty=format:'%C(yellow)%h%C(bold white red)%d%Creset %s %C(bold green)%cr %Creset%C(white)%an' --abbrev-commit --date=relative
 
-	
   ###
   # checking out
   ###
@@ -83,8 +85,6 @@
   ###
   # 🚨 Danger zone 🚨
   ###
-  # Undo a `git push`
-  undopush = push -f origin HEAD^:master
   
   ###
   # to undo the last added / staged files
@@ -97,19 +97,16 @@
   ###
   undoci = "!git reset HEAD~"
 
+  # Undo a `git push`
+  undopush = push -f origin HEAD^:master
   ###
   # `restore` try and "undelete" a file
   ###
-  ; restore = '!f() { git checkout $(git rev-list -n 1 HEAD -- $1)~1 -- $(git diff --name-status $(git rev-list -n 1 HEAD -- $1)~1 | grep '^D' | cut -f 2); }; f'
-  # restore = "!git checkout (git rev-list -n 1 HEAD -- '$argv')^ -- '$argv'"
   restore = "!git checkout $(git rev-list -n 1 HEAD -- "$1")^ -- "$1""
   
   ###
   # git extras
   ###
-  # cl = changelog --list
-  # copy = copy-branch
-  # dmb = delete-merged-branches
 
   ###
   # randos
@@ -117,7 +114,7 @@
   last = show --show-signature
   
   ###
-  # working with submodules, ie. add, commit, push
+  # submodules -- ie. add, commit, push
   ###
   sm = submodule
   smu = submodule update
@@ -127,7 +124,7 @@
   update = '!git pull; git submodule update --init --recursive'
   sma = "!git smf "git add --all";"
   ###
-  # TODO: figure out how to submit a message from CLI
+  # TODO: figure out how to submit a commit message from CLI
   ###
   smac = "!git smf "git commit -a"; git commit -a;"
   ###
@@ -163,7 +160,9 @@
 # Use `origin` as the default remote on the `master` branch in all cases
 [branch "master"]
   remote = origin
-  # merge = refs/heads/master
+
+[advice]
+  statusHints = false # makes status messages more terse. 👍
 
 [core]
   editor = nvim
@@ -245,6 +244,9 @@
 
 [gpg]
   program = gpg
+
+[github]
+  user = ipatch
 
 [user]
 	name = ipatch
