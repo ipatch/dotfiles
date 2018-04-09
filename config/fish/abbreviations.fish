@@ -7,12 +7,14 @@
 ##
 abbr -a editfish 'nvim $HOME/.config/fish/config.fish'
 abbr -a editnvim 'nvim $HOME/.config/nvim/init.vim'
+abbr -a editvim  'nvim $HOME/.vimrc'
 abbr -a editdots 'cd $dot; nvim;'
 switch (uname)
   case Darwin
     abbr -a l 'ls -lah'
   case Linux
     # DO NOTHING -- see aliases.fish
+    abbr -a l 'ls -lah'
 end
 abbr -a cp 'cp -iv'
 abbr -a cddots 'cd $dot'
