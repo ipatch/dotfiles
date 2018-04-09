@@ -18,3 +18,6 @@
   path = config/fish/fundle/edc/bass
   url = https://github.com/edc/bass.git
 
+[submodule "config/fish/frameworks/omf/themes/theme-neolambda"]
+	path = config/fish/frameworks/omf/themes/theme-neolambda
+	url = https://github.com/ipatch/theme-lambda.git

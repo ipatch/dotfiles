@@ -77,8 +77,6 @@ config/irc-clients/weechat/xfer/*
 ##
 # Ignore fishd.<hash-files>
 config/fish/fishd.*
-config/fish/frameworks/omf/themes/* # Ignore all themes installed by oh-my-fish
-config/fish/frameworks/omf/themes/**
 ##############################
 # mpv
 ##
