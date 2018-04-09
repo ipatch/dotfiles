@@ -1,4 +1,4 @@
 package battery
 package foreign-env
 theme default
-theme https://github.com/ipatch/theme-lambda
+theme https://github.com/ipatch/theme-neolambda
