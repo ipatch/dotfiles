@@ -24,13 +24,14 @@ set textwidth=0
 if has('unix')
   " set the default python PATH, to supposedly boost 🏎 the performance of
   " neovim
-  let g:python_host_prog = '/home/capin/.pyenv/shims/python'
+  let g:python_host_prog = '$HOME/.pyenv/versions/neovim2/bin/python'
 
   " diable python 2 support
   " let g:loaded_python_provider = 1
 
   " report the python interperter path, by adding it to init.vim
-  let g:python3_host_prog = '/home/capin/.pyenv/shims/python'
+  let g:python3_host_prog = '$HOME/.pyenv/versions/neovim3/bin/python'
+
 
   " NOTE: to check whether nvim has clipboard support run the below command
   " :echo has('clipboard')

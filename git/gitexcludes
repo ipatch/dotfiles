@@ -15,4 +15,7 @@ secrets.yml
 tags
 tags.lock
 tags.temp
-
+##############################
+# pyenv
+##
+.python-version

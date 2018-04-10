@@ -94,7 +94,7 @@ case Darwin
     #     set PATH (pyenv root)/shims $PATH
     # end
     # if which pyenv > /dev/null; and . (pyenv init -); end
-    status --is-interactive; and . (pyenv init -|psub)
+    # status --is-interactive; and . (pyenv init -|psub)
   end
 
   ###############################
