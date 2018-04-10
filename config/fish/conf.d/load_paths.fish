@@ -20,7 +20,10 @@ $HOME/anaconda2/bin \
 $HOME/.local/bin \
 $HOME/bin \
 $HOME/bin/base16-shell \
-echo (brew --prefix)/{bin,sbin} \
+/usr/local/bin \
+/usr/local/sbin \
+/home/linuxbrew/.linuxbrew/bin \
+/home/linuxbrew/.linuxbrew/sbin \
 /usr/bin \
 /bin \
 /sbin
