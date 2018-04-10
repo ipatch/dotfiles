@@ -24,7 +24,7 @@
 
 ## Installation
 
-```shell
+```sh
 git clone --recursive git@github.com:ipatch/dotfiles.git
 ```
 
@@ -36,7 +36,7 @@ git clone --recursive git@github.com:ipatch/dotfiles.git
 
 > Run the below command to symlink the fish-shell configuration directory and all files.
 
-```shell
+```sh
 ln -sf $DOTFILES/config/fish/ $HOME/.config/fish
 ```
 
@@ -53,7 +53,7 @@ As of March 16, 2018, I have migrated all plugins to to use [minpac](https://git
 
 To get python support working with Neovim
 
-```shell
+```bash
 pip3 install --user --upgrade neovim
 ```
 

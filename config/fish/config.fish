@@ -10,12 +10,10 @@
 # fundle setup
 ##
 fundle plugin 'edc/bass'
-# fundle plugin 'tuvistavie/fish-ssh-agent'
 
 fundle init
 
-# disable default fish greeting
-set fish_greeting ""
+set fish_greeting "" # disable default fish greeting
 
 if status --is-interactive
   source $HOME/.config/fish/interactive.fish
@@ -77,12 +75,20 @@ case Darwin
   #########################
   # macOS specific env vars
   ##
-  
+  if echo $TERM_PROGRAM | string match -r -q "iTerm.app"
+    set -gx COLORTERM truecolor
+  else
+    # DO NOTHIGH
+  end
+
   ###############################
   # python env setup
   ##
   if type -q virtualenv
     set -gx VIRTUAL_ENV_DISABLE_PROMPT 1 # disable default virtualenv prompt
+  end
+  if type -q pyenv
+    set -gx PYENV_ROOT $HOME/.pyenv
   end
 
   ###############################

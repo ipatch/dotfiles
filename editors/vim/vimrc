@@ -267,10 +267,22 @@ set wildignore+=*.gem
 set wildignore+=log/**
 set wildignore+=tmp/**
 
-"""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""
 " Scrolling
 ""
 set scrolloff=7
+
+""""""""""""""""""""""""""""""
+" Python Checks
+""
+if has('python') " if dynamic py|py3, this line already activates python2.
+  let s:python_version = 2
+elseif has('python3')
+  let s:python_version = 3
+else
+  let s:python = 0
+endif
+" echomsg 'Using python'.s:python_version "Enable for debugging purposes
 
 
 " load `fzf` from homebrew install
@@ -281,17 +293,6 @@ endif
 if has('unix')
   set rtp+=/home/linuxbrew/.linuxbrew/bin/fzf
 endif
-
-
-function! BuildComposer(info)
-    if a:info.status != 'unchanged' || a:info.force
-      if has('nvim')
-        !cargo build --release
-      else
-        !cargo build --release --no-default-features --features json-rpc
-      endif
-    endif
-endfunction
 
 " NOTE: minpac will need to be cloned from github before packages can be installed.
 set packpath^=~/.vim
@@ -384,7 +385,6 @@ call minpac#add('sheerun/vim-polyglot')
 " Package for quickly commenting lines in code files
 call minpac#add('tpope/vim-commentary')
 " Add `fzf` vim plugins
-" NOTE: the below `junegunn/fzf` is NOT requried if fzf is installed via brew
 call minpac#add('junegunn/fzf') " required!
 call minpac#add('junegunn/fzf.vim')
 " seemless key-bindings between tmux and vim
@@ -397,6 +397,7 @@ call minpac#add('w0rp/ale') " ALE Asynchronous Linting Edition
 call minpac#add('janko-m/vim-test') " a plugin for running test suites.
 call minpac#add('ludovicchabant/vim-gutentags') " simple vim script only plug to auto generate ctags
 call minpac#add('ryanoasis/vim-devicons') " purdy icons / glyphs
+call minpac#add('prashanthellina/follow-markdown-links') " navigating markdown
 
 """""""""""""""""""""""""""""
 " minpac - commands
@@ -527,3 +528,9 @@ let g:ale_sign_error                 = '⌦'
 let g:ale_sign_warning               = '☞'
 let g:airline#extensions#ale#enabled = 1
 
+""""""""""""""""""""""""""""""
+" markdown `.md` support
+""
+autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+" for fenced language support in markdown documents
+let g:markdown_fenced_languages = ['html', 'python', 'bash=sh']

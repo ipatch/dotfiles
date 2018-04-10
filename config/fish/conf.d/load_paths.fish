@@ -20,45 +20,51 @@ switch (uname)
     # Add below path to get react-native CLI working.
     ##
     if not contains $HOME/Library/Android/sdk/platform-tools $PATH
-      and test -d $HOME/Library/Android/sdk/platform-tools
+    and test -d $HOME/Library/Android/sdk/platform-tools
       set PATH $HOME/Library/Android/sdk/platform-tools $PATH # will prepend (begin) to `$PATH`
+    end 
+    if type -q brew # `-q` suppresses all output
+      if not contains /usr/local/opt/ncurses/bin $PATH
+      and test -d /usr/local/opt/ncurses
+        set PATH /usr/local/opt/ncurses/bin $PATH
+      end
+      # prepend gnu-sed to beginning of PATH, so macOS `sed` won't be used.
+      if not contains /usr/local/opt/gnu-sed/libexec/gnubin $PATH
+      and test -d /usr/local/opt/gnu-sed
+       set PATH /usr/local/opt/gnu-sed/libexec/gnubin $PATH
+      end
+      if not contains /usr/local/opt/libressl/bin $PATH
+      and test -d /usr/local/opt/libressl
+       set PATH /usr/local/opt/libressl/bin $PATH
+      end
+      if not contains /usr/local/opt/python/libexec/bin $PATH
+      and test -d /usr/local/opt/python
+       set PATH /usr/local/opt/python/libexec/bin $PATH
+      end
+    end
+
+    if not contains $HOME/.config/yarn/global/node_modules/.bin $PATH
+    and test -d $HOME/.config/yarn/global/node_modules/.bin
+      set PATH $HOME/.config/yarn/global/node_modules/.bin $PATH
+    end
+    if not contains $HOME/bin $PATH
+    and test -d $HOME/bin
+      set PATH $PATH $HOME/bin 
+    end
+    if not contains $HOME/.local/bin $PATH
+    and test -d $HOME/.local/bin
+      set PATH $PATH $HOME/.local/bin
+    end
+    if not contains $HOME/bin/base16-shell $PATH
+    and test -d $HOME/bin/base16-shell
+      set PATH $PATH $HOME/bin/base16-shell
     end
     if not contains $HOME/anaconda2/bin $PATH
-      and test -d $HOME/anaconda2/bin
+    and test -d $HOME/anaconda2/bin
       set PATH $PATH $HOME/anaconda2/bin # will append (end) to `$PATH`
     end
-    if not contains $HOME/.config/yarn/global/node_modules/.bin $PATH
-  and test -d $HOME/.config/yarn/global/node_modules/.bin
-    set PATH $HOME/.config/yarn/global/node_modules/.bin $PATH
-  end
-  if not contains $HOME/bin $PATH
-  and test -d $HOME/bin
-    set PATH $PATH $HOME/bin 
-  end
-  if not contains $HOME/.local/bin $PATH
-  and test -d $HOME/.local/bin
-    set PATH $PATH $HOME/.local/bin
-  end
-  if not contains $HOME/bin/base16-shell $PATH
-  and test -d $HOME/bin/base16-shell
-    set PATH $PATH $HOME/bin/base16-shell
-  end
-  if type -q brew # `-q` suppresses all output
-    # prepend gnu-sed to beginning of PATH, so macOS `sed` won't be used.
-    if not contains /usr/local/opt/gnu-sed/libexec/gnubin $PATH
-    and test -d /usr/local/opt/gnu-sed
-      set PATH /usr/local/opt/gnu-sed/libexec/gnubin $PATH
-    end
-    if not contains /usr/local/opt/libressl/bin $PATH
-    and test -d /usr/local/opt/libressl
-      set PATH /usr/local/opt/libressl/bin $PATH
-    end
-    if not contains /usr/local/opt/python/libexec/bin $PATH
-    and test -d /usr/local/opt/python
-      set PATH /usr/local/opt/python/libexec/bin $PATH
-    end
-  end
-
+  # END - macOS case
+  
   case Linux
   ###############################
   # PATH 💩
