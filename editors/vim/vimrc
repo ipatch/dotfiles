@@ -168,12 +168,14 @@ colorscheme base16-default-dark
 " fonts
 ""
 highlight Comment gui=italic
-highlight Comment cterm=italic
-highlight htmlArg cterm=italic
-highlight xmlAttrib cterm=italic
-highlight Type cterm=italic
-highlight Normal ctermbg=none
-
+" highlight Comment cterm=italic
+" highlight htmlArg cterm=italic
+" highlight xmlAttrib cterm=italic
+" highlight Type cterm=italic
+" highlight Normal ctermbg=none
+let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
+set termguicolors
 
 " set guifont=Cousine\ for\ Powerline:h13
 " set guifont=IBMPlexMono\ Nerd\ Font\ Mono\ ExtraLight:h13
@@ -303,7 +305,7 @@ call minpac#add('k-takata/minpac', {'type': 'opt'})
 ""
 if has('nvim')
   let g:loaded_sensible=0
-  highlight Comment cterm=italic
+  " highlight Comment cterm=italic
 
   " Keymappings for Neovim
   " By default to exit out of `terminal` mode in nvim use `<C-\><C-n>`

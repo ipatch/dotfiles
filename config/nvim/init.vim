@@ -1,13 +1,12 @@
-"""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""
 "  ~ My init.vim ~ for neovim
-"""""""""""""""""""""""""""""
-"  Author: Chris Jones [http://chrisrjones.com]
-"  Source: https://github.com/ipatch/dotfiles/blob/master/config/nvim/init.vim
+""""""""""""""""""""""""""""""
+" Author: Chris Jones [http://chrisrjones.com]
+" Source: https://github.com/ipatch/dotfiles/blob/master/config/nvim/init.vim
 ""
-
 " NOTE: see `$HOME/vimcrc` for more settings
 
-"""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""
 " Load vim configuration, runtimepath, packpath, and .vimrc
 ""
 set runtimepath^=~/.vim runtimepath+=~/.vim/after
@@ -17,7 +16,7 @@ source ~/.vimrc
 " Hard-wrap long lines as I type them
 set textwidth=0
 
-"""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""
 " ~ OS ~ specific settings
 ""
 " CREDIT: 💳 https://vi.stackexchange.com/a/2574/10550
@@ -30,8 +29,7 @@ if has('unix')
   " let g:loaded_python_provider = 1
 
   " report the python interperter path, by adding it to init.vim
-  let g:python3_host_prog = '$HOME/.pyenv/versions/neovim3/bin/python'
-
+  " let g:python3_host_prog = '$HOME/.pyenv/versions/neovim3/bin/python'
 
   " NOTE: to check whether nvim has clipboard support run the below command
   " :echo has('clipboard')
