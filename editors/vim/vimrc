@@ -149,7 +149,6 @@ cmap w!! w !sudo tee % >/dev/null
 """"""""""""""""""""""""""""""
 " Buffer Handling
 ""
-
 nmap <Leader>t :enew<CR>
 nmap <Leader>] :bnext<CR>
 nmap <Leader>[ :bprevious<CR>
@@ -275,13 +274,13 @@ set scrolloff=7
 """"""""""""""""""""""""""""""
 " Python Checks
 ""
-if has('python') " if dynamic py|py3, this line already activates python2.
-  let s:python_version = 2
-elseif has('python3')
-  let s:python_version = 3
-else
-  let s:python = 0
-endif
+" if has('python') " if dynamic py|py3, this line already activates python2.
+"   let s:python_version = 2
+" elseif has('python3')
+"   let s:python_version = 3
+" else
+"   let s:python = 0
+" endif
 " echomsg 'Using python'.s:python_version "Enable for debugging purposes
 
 
