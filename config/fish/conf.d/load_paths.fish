@@ -21,7 +21,7 @@ $HOME/.local/bin \
 $HOME/bin \
 $HOME/bin/base16-shell \
 (brew --prefix)/{bin,sbin} \
-usr/bin \
+/usr/bin \
 /bin \
 /sbin
 
