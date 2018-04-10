@@ -34,6 +34,7 @@ set -gx dots /opt/Code/dotfiles
 set -gx XDG_CONFIG_HOME $HOME/.config
 set -gx CODE /opt/code
 set -gx code /opt/code
+
 ##############################
 # git related settings
 ##
