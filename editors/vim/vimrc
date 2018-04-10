@@ -127,7 +127,6 @@ nmap <S-j> ddp
 vmap <S-k> xkP`[V`]
 vmap <S-j> xp`[V`]
 
-
 """""""""""""""""""""""""""""
 " Useful hacks for working with `$HOME/.vimrc or $MYVIMRC
 ""
@@ -396,7 +395,7 @@ call minpac#add('w0rp/ale') " ALE Asynchronous Linting Edition
 call minpac#add('janko-m/vim-test') " a plugin for running test suites.
 call minpac#add('ludovicchabant/vim-gutentags') " simple vim script only plug to auto generate ctags
 call minpac#add('ryanoasis/vim-devicons') " purdy icons / glyphs
-call minpac#add('prashanthellina/follow-markdown-links') " navigating markdown
+" call minpac#add('prashanthellina/follow-markdown-links') " navigating markdown
 
 """""""""""""""""""""""""""""
 " minpac - commands
@@ -440,7 +439,7 @@ let g:airline_mode_map = {
 noremap <leader>c :Commentary<cr>
 
 """""""""""""""""""""""""""""
-" FZF
+" plugin - FZF
 ""
 if &runtimepath =~ 'fzf'
   nmap ; :Buffers<CR>
@@ -505,7 +504,6 @@ set sessionoptions=folds,localoptions,curdir,buffers
 ""
 " NOTE: the below autocmd will change the `lcd` to the dir of the active buffer
 autocmd BufEnter * if expand("%:p:h") !~ '^/tmp' | silent! lcd %:p:h | endif
-
 
 """"""""""""""""""""""""""""""
 " ale-config
