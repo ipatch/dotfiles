@@ -5,7 +5,7 @@
 ##############################
 # Global PATH
 ##
-
+# NOTE: # $HOME/.pyenv/shims \ # <= is not required, SEE: `config.fish`
 # TODO: figure out a proper way to use `$XDG_CONFIG_HOME`
 
 set -l paths \

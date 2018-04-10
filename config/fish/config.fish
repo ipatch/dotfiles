@@ -89,13 +89,8 @@ case Darwin
     set -gx VIRTUAL_ENV_DISABLE_PROMPT 1 # disable default virtualenv prompt
   end
   if type -q pyenv
-    # set -gx PYENV_ROOT $HOME/.pyenv
-    # if not contains (pyenv root)/shims $PATH
-    #   and test -d (pyenv root)/shims
-    #     set PATH (pyenv root)/shims $PATH
-    # end
-    # if which pyenv > /dev/null; and . (pyenv init -); end
-    # status --is-interactive; and . (pyenv init -|psub)
+    # NOTE: https://github.com/pyenv/pyenv/issues/32#issuecomment-75420781
+    status --is-interactive; and source (pyenv init - |psub)
   end
 
   ###############################
