@@ -27,6 +27,7 @@ $HOME/bin/base16-shell \
 /usr/bin \
 /bin \
 /sbin \
+/usr/games \
 
 for p in $paths
   if not contains $p $PATH; and test -d $p
