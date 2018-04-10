@@ -89,6 +89,11 @@ case Darwin
   end
   if type -q pyenv
     set -gx PYENV_ROOT $HOME/.pyenv
+    if not contains (pyenv root)/shims $PATH
+      and test -d (pyenv root)/shims
+        set PATH (pyenv root)/shims $PATH
+      end
+
   end
 
   ###############################
