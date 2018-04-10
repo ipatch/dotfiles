@@ -26,7 +26,7 @@ $HOME/bin/base16-shell \
 /home/linuxbrew/.linuxbrew/sbin \
 /usr/bin \
 /bin \
-/sbin
+/sbin \
 
 for p in $paths
   if not contains $p $PATH; and test -d $p
