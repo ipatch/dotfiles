@@ -390,12 +390,8 @@ inoremap <M-z> <C-o>u
 """"""""""""""""""""""""""""""
 " minpac - plugins
 ""
-call minpac#add('machakann/vim-highlightedyank')
-" Package for pretty colors 🌈 and aesthetics
-call minpac#add('chriskempson/base16-vim')
-" call minpac#add('vim-airline/vim-airline')
-" call minpac#add('vim-airline/vim-airline-themes')
-call minpac#add('tpope/vim-fugitive') " heads up git info
+call minpac#add('machakann/vim-highlightedyank') " name says it all
+call minpac#add('chriskempson/base16-vim') " pretty colors 🌈 and aesthetics 
 call minpac#add('Yggdroot/indentLine') " Add vertical indentation lines
 call minpac#add('sheerun/vim-polyglot') " lazy load syntax highlighting
 call minpac#add('tpope/vim-commentary') " quickly comment lines, ie. Atom
@@ -429,10 +425,11 @@ set statusline=%{fugitive#statusline()}
 let g:lightline = {
       \ 'active': {
       \ 'left': [ [ 'mode', 'paste' ],
-      \           [ 'readonly', 'filename' ] ],
+      \           [ 'gitbranch', 'readonly', 'filename', 'modified' ] ],
       \ },
       \ 'component_function': {
-      \ 'filename': 'LightlineFilename',
+      \ 'gitbranch': 'fugitive#head',
+      \ 'filename': 'LightlineFilename'
       \ },
       \ }
 
@@ -441,6 +438,23 @@ function! LightlineFilename()
   let modified = &modified ? ' +' : ''
   return filename . modified
 endfunction
+
+"""""""""""""""
+" plugin - lightline - mode map
+""
+let g:lightline.mode_map = {
+		    \ 'n' : 'NORMAL',
+		    \ 'i' : 'INSERT',
+		    \ 'R' : 'REPLACE',
+		    \ 'v' : 'VISUAL',
+		    \ 'V' : 'V-LINE',
+		    \ "\<C-v>": 'V-BLOCK',
+		    \ 'c' : 'COMMAND',
+		    \ 's' : 'SELECT',
+		    \ 'S' : 'S-LINE',
+		    \ "\<C-s>": 'S-BLOCK',
+		    \ 't': 'TERMINAL',
+		    \ }
 
 """"""""""""""""""""""""""""""
 " vim-airline settings / keybindings https://github.com/vim-airline/vim-airline

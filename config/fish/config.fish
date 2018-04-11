@@ -79,17 +79,6 @@ case Darwin
   end
 
   ###############################
-  # python env setup
-  ##
-  if type -q virtualenv
-    set -gx VIRTUAL_ENV_DISABLE_PROMPT 1 # disable default virtualenv prompt
-  end
-  if type -q pyenv
-    # NOTE: https://github.com/pyenv/pyenv/issues/32#issuecomment-75420781
-    status --is-interactive; and source (pyenv init - |psub)
-  end
-
-  ###############################
   # set env vars for git
   ##
   set -gx GPG_TTY (tty)
