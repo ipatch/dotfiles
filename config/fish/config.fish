@@ -87,7 +87,6 @@ case Darwin
   if type -q pyenv
     # NOTE: https://github.com/pyenv/pyenv/issues/32#issuecomment-75420781
     status --is-interactive; and source (pyenv init - |psub)
-    set -gx PYENV_ROOT $HOME/.pyenv
   end
 
   ###############################
