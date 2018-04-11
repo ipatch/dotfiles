@@ -77,6 +77,29 @@ set smartindent
 set hidden                              " set sane buffer switching
 
 """""""""""""""""""""""""""""
+" Settings - Visual
+""
+" NOTE: tabs AREN"T buffers, always try and use buffers when possible.
+set showtabline=0                       " only show if 2 or more tabs.
+
+"""""""""""""""""""""""""""""
+" plugin - buftabline
+""
+" let g:buftabline_show=1 " only if >1 buffer
+let g:buftabline_show=2 " always show buffer bar.
+let g:buftabline_numbers=2 " oridnal number
+let g:buftabline_indicators=1 " display state of buffer, `+` = unsaved changes
+nmap <Leader>1 <Plug>BufTabLine.Go(1)
+nmap <Leader>2 <Plug>BufTabLine.Go(2)
+nmap <Leader>3 <Plug>BufTabLine.Go(3)
+nmap <Leader>4 <Plug>BufTabLine.Go(4)
+nmap <Leader>5 <Plug>BufTabLine.Go(5)
+nmap <Leader>6 <Plug>BufTabLine.Go(6)
+nmap <Leader>7 <Plug>BufTabLine.Go(7)
+nmap <Leader>8 <Plug>BufTabLine.Go(8)
+nmap <Leader>9 <Plug>BufTabline.Go(9)
+
+"""""""""""""""""""""""""""""
 " Key mappings / bindings
 ""
 " Note - the below configuration line will map the 'space bar' to ':' so that
@@ -233,11 +256,7 @@ augroup line_return
         \ endif
 augroup END
 
-"""""""""""""""""""""""""""""
-" indentLine - settings / configuration
-" SEE: https://github.com/Yggdroot/indentLine
-""
-let g:indentLine_setColors = 1 " overwrite colorscheme, use default grey
+
 
 """""""""""""""""""""""""""""
 " auto commands
@@ -392,6 +411,7 @@ call minpac#add('ludovicchabant/vim-gutentags') " auto generate ctags
 call minpac#add('ryanoasis/vim-devicons') " purdy icons / glyphs
 " call minpac#add('prashanthellina/follow-markdown-links') " navigating markdown
 call minpac#add('itchyny/lightline.vim') " lightweight status line.
+call minpac#add('ap/vim-buftabline') " lightweight buffer bar @ top.
 """""""""""""""""""""""""""""
 " minpac - commands
 "" 
@@ -496,6 +516,7 @@ endif
 augroup filetypedetect
   autocmd BufNewFile,BufRead *.fish set filetype=fish
 augroup END
+
 """""""""""""""
 " NOTE: vim / Neovim defaults to `sh` syntax, NOT `bash` syntax for `.sh`
 " files
@@ -518,6 +539,12 @@ set sessionoptions=folds,localoptions,curdir,buffers
 ""
 " NOTE: the below autocmd will change the `lcd` to the dir of the active buffer
 autocmd BufEnter * if expand("%:p:h") !~ '^/tmp' | silent! lcd %:p:h | endif
+
+"""""""""""""""""""""""""""""
+" plugin - indentLine - settings / configuration
+" SEE: https://github.com/Yggdroot/indentLine
+""
+let g:indentLine_setColors = 1 " overwrite colorscheme, use default grey
 
 """"""""""""""""""""""""""""""
 " ale-config
