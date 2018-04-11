@@ -374,31 +374,24 @@ inoremap <M-z> <C-o>u
 call minpac#add('machakann/vim-highlightedyank')
 " Package for pretty colors 🌈 and aesthetics
 call minpac#add('chriskempson/base16-vim')
-call minpac#add('vim-airline/vim-airline')
-call minpac#add('vim-airline/vim-airline-themes')
-" Package for displaying git branches in the status bar
-call minpac#add('tpope/vim-fugitive')
+" call minpac#add('vim-airline/vim-airline')
+" call minpac#add('vim-airline/vim-airline-themes')
+call minpac#add('tpope/vim-fugitive') " heads up git info
 call minpac#add('Yggdroot/indentLine') " Add vertical indentation lines
-
-" Package for syntax highlighting for various languages
-call minpac#add('sheerun/vim-polyglot')
-" Package for quickly commenting lines in code files
-call minpac#add('tpope/vim-commentary')
-" Add `fzf` vim plugins
-call minpac#add('junegunn/fzf') " required!
-call minpac#add('junegunn/fzf.vim')
-" seemless key-bindings between tmux and vim
-call minpac#add('christoomey/vim-tmux-navigator')
+call minpac#add('sheerun/vim-polyglot') " lazy load syntax highlighting
+call minpac#add('tpope/vim-commentary') " quickly comment lines, ie. Atom
+call minpac#add('junegunn/fzf') " required! the below won't work without this!
+call minpac#add('junegunn/fzf.vim') " fuzzy finding goodness
+call minpac#add('christoomey/vim-tmux-navigator') " vim / tmux navigation 👍
 call minpac#add('slashmili/alchemist.vim') " useful for working with Elixir
-" call minpac#add('vim-plugin-AnsiEsc') "
-call minpac#add('tpope/vim-dispatch') " build tool for compiling stuff asynchronously
-call minpac#add('radenling/vim-dispatch-neovim') " dispatch extensions using neovims terminal features
+call minpac#add('tpope/vim-dispatch') " compile 💩  asynchronously
+call minpac#add('radenling/vim-dispatch-neovim') " dispatch using neovims terminal features
 call minpac#add('w0rp/ale') " ALE Asynchronous Linting Edition
 call minpac#add('janko-m/vim-test') " a plugin for running test suites.
-call minpac#add('ludovicchabant/vim-gutentags') " simple vim script only plug to auto generate ctags
+call minpac#add('ludovicchabant/vim-gutentags') " auto generate ctags
 call minpac#add('ryanoasis/vim-devicons') " purdy icons / glyphs
 " call minpac#add('prashanthellina/follow-markdown-links') " navigating markdown
-
+call minpac#add('itchyny/lightline.vim') " lightweight status line.
 """""""""""""""""""""""""""""
 " minpac - commands
 "" 
@@ -410,28 +403,47 @@ command! PackClean  packadd minpac | source $MYVIMRC | call minpac#clean()
 ""
 set statusline=%{fugitive#statusline()}
 
+"""""""""""""""""""""""""""""
+" plugin - lightline.vim
+""
+let g:lightline = {
+      \ 'active': {
+      \ 'left': [ [ 'mode', 'paste' ],
+      \           [ 'readonly', 'filename' ] ],
+      \ },
+      \ 'component_function': {
+      \ 'filename': 'LightlineFilename',
+      \ },
+      \ }
+
+function! LightlineFilename()
+  let filename = expand('%:t') !=# '' ? expand('%:t') : '[No Name]'
+  let modified = &modified ? ' +' : ''
+  return filename . modified
+endfunction
+
 """"""""""""""""""""""""""""""
 " vim-airline settings / keybindings https://github.com/vim-airline/vim-airline
 ""
-let g:airline#extensions#tabline#enabled = 2
-let g:airline#extensions#tabline#fnamemod = ':t'
+" let g:airline#extensions#tabline#enabled = 2
+" let g:airline#extensions#tabline#fnamemod = ':t'
 " NOTE: https://github.com/vim-airline/vim-airline/issues/142#issuecomment-145317103
-let g:airline_powerline_fonts = 1 " this setting presents pretty glyphs using powerline fonts.
-let g:airline_detect_modified = 1
+" let g:airline_powerline_fonts = 1 " this setting presents pretty glyphs using powerline fonts.
+" let g:airline_detect_modified = 1
 
 " set the color scheme for vim-airline
-let g:airline_theme = 'base16' " keep the base16 colorscheme consistent.
+" let g:airline_theme = 'base16' " keep the base16 colorscheme consistent.
 
 " use single letters for various display modes.
-let g:airline_mode_map = {
-      \ 'n'  : 'N',
-      \ 'i'  : 'I',
-      \ 'R'  : 'R',
-      \ 'v'  : 'V',
-      \ 'V'  : 'VL',
-      \ 'c'  : 'CMD',
-      \ '' : 'VB',
-      \ }
+" let g:airline_mode_map = {
+      " \ 'n'  : 'N',
+      " \ 'i'  : 'I',
+      " \ 'R'  : 'R',
+      " \ 'v'  : 'V',
+      " \ 'V'  : 'VL',
+      " \ 'c'  : 'CMD',
+      " \ '' : 'VB',
+      " \ }
 
 """"""""""""""""""""""""""""""
 " plugin - commentary
