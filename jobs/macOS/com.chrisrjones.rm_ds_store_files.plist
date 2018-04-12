@@ -10,8 +10,14 @@
 
     <key>ProgramArguments</key>
     <array>
-      <string>$HOME/.config/fish/bin/rm_ds_store_files.sh</string>
+      <string>/Users/capin/.local/bin/rm_ds_store_files.sh</string>
     </array>
+
+    <key>StandardErrorPath</key>
+    <string>/Users/capin/logs/rm_ds_store_files.err</string>
+
+    <key>StandardOutPath</key>
+    <string>/Users/capin/logs/rm_ds_store_files.out</string>
 
     <key>StartCalendarInterval</key>
     <array>
@@ -203,14 +209,6 @@
       </dict>
     </array>
 
-    <!-- <key>UserName</key> -->
-    <!-- <string>capin</string> -->
-    
-    <key>StandardErrorPath</key>
-    <string>/tmp/rm_ds_store_files.err</string>
-
-    <key>StandardOutPath</key>
-    <string>/tmp/rm_ds_store_files.out</string>
-  </dict>
+     </dict>
 </plist>
 
