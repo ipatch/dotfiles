@@ -135,7 +135,7 @@ end
 # Add special 🚌 aliases if certain binaries are found.
 #
 if type -q pycp
-  abbr -a cp 'pycp -i'
+  # abbr -a cp 'pycp -i'
 end
 
 if type -q ccat
