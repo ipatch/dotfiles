@@ -95,7 +95,7 @@ colors:
   # Colors the cursor will use if `custom_cursor_colors` is true
   cursor:
     text: '0x000000'
-    cursor: '0xE62CBA'
+    cursor: '0xE62CBA' # https://www.webpagefx.com/web-design/color-picker/
 
   # Normal colors
   normal:
