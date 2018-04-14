@@ -1,3 +1,9 @@
+#############################
+# fish shell - interactive.fish
+##
+#
+# TODO: repeating the below expression `if test -f $HOME` seems like a code 👃
+
 # Load abbreviations.
 if test -f $HOME/.config/fish/abbreviations.fish
   source $HOME/.config/fish/abbreviations.fish
