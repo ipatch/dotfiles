@@ -34,7 +34,7 @@ set number
 set relativenumber                    " Show numbers relative to current line
 set history=500                       " History for days 😛
 set showcmd                           " Show incomplete cmds down at the bottom
-set noshowmode                        " we're flying airline ✈️
+set noshowmode                        " let status line show mode
 set laststatus=2
 set modelines=5
 set vb t_vb=
@@ -55,6 +55,7 @@ set linebreak
 set hlsearch                          " Highlight search results
 set ignorecase                        " Ignore case when sarching
 " Stop highlighting on Enter
+set smartcase                         " become case-sensitive if uppercase present
 map <CR> :nohl<CR>
 set incsearch
 set nojoinspaces
