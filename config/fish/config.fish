@@ -108,8 +108,15 @@ case Darwin
     ##
     [ -x "/usr/local/share/nvim/runtime/macros/less.sh" ]; and \
     alias less='/usr/local/share/nvim/runtime/macros/less.sh';
+  else if type -q vim
+    set -gx EDITOR /usr/local/bin/vim
+    set -gx VISUAL /usr/local/binvim
+    set -gx MYVIMRC $HOME/.vimrc
+    set -gx VIMCONFIG $HOME/.vim/pack/bundle/start
+    set -gx VIMDATA $HOME/.vim/undo
   else
     set -gx EDITOR /usr/bin/vim
+    set -gx VISUAL /usr/bin/vim
     set -gx MYVIMRC $HOME/.vimrc
   end
 
