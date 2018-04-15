@@ -6,3 +6,8 @@
 --exclude=.git
 --exlcude=tags
 
+# Markdown syntax
+--langdef=markdown
+--langmap=markdown:.md
+--regex-markdown=/^# ([a-zA-Z0-9]+)/\1/
+
