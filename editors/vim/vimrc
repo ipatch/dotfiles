@@ -167,7 +167,7 @@ map ,e :e <C-R>=expand("%:p:h") . "/" <CR>
 map ,t :tabe <C-R>=expand("%:p:h") . "/" <CR>
 
 " If you opened a readonly file, ie. /etc/hosts `w!!` solve :)
-cmap w!! w !sudo tee % >/dev/null
+cmap w!! w !sudo tee % >/dev/null %
 
 """"""""""""""""""""""""""""""
 " Buffer Handling
@@ -213,13 +213,13 @@ set fillchars+=stl:\ ,stlnc:\
 ""
 " toggle between different conceal levels
 function! ToggleConcealLevel()
-    if &conceallevel == 0
-        setlocal conceallevel=2
-    elseif &conceallevel == 1
-        setlocal conceallevel=0
-    elseif &conceallevel == 2
-        setlocal conceallevel=0
-    endif
+  if &conceallevel == 0
+    setlocal conceallevel=2
+  elseif &conceallevel == 1
+    setlocal conceallevel=0
+  elseif &conceallevel == 2
+    setlocal conceallevel=0
+  endif
 endfunction
 
 nnoremap <silent> ` :call ToggleConcealLevel()<CR>
@@ -265,6 +265,10 @@ augroup END
 if has("autocmd")
   " autocmd bufwritepost .vimrc source $MYVIMRC
   " the above command was making Neovim hide the status line and breaking colors in the tab bar.
+
+  " Auto change to current directory on open
+  " TODO: do further testing to see if this breaks `sessions.vim`
+  autocmd BufEnter * silent! lcd %:p:h
 endif
 
 augroup vimrc
@@ -444,18 +448,18 @@ endfunction
 " plugin - lightline - mode map
 ""
 let g:lightline.mode_map = {
-		    \ 'n' : 'NORMAL',
-		    \ 'i' : 'INSERT',
-		    \ 'R' : 'REPLACE',
-		    \ 'v' : 'VISUAL',
-		    \ 'V' : 'V-LINE',
-		    \ "\<C-v>": 'V-BLOCK',
-		    \ 'c' : 'COMMAND',
-		    \ 's' : 'SELECT',
-		    \ 'S' : 'S-LINE',
-		    \ "\<C-s>": 'S-BLOCK',
-		    \ 't': 'TERMINAL',
-		    \ }
+      \ 'n' : 'NORMAL',
+      \ 'i' : 'INSERT',
+      \ 'R' : 'REPLACE',
+      \ 'v' : 'VISUAL',
+      \ 'V' : 'V-LINE',
+      \ "\<C-v>": 'V-BLOCK',
+      \ 'c' : 'COMMAND',
+      \ 's' : 'SELECT',
+      \ 'S' : 'S-LINE',
+      \ "\<C-s>": 'S-BLOCK',
+      \ 't': 'TERMINAL',
+      \ }
 
 """"""""""""""""""""""""""""""
 " vim-airline settings / keybindings https://github.com/vim-airline/vim-airline
@@ -471,14 +475,14 @@ let g:lightline.mode_map = {
 
 " use single letters for various display modes.
 " let g:airline_mode_map = {
-      " \ 'n'  : 'N',
-      " \ 'i'  : 'I',
-      " \ 'R'  : 'R',
-      " \ 'v'  : 'V',
-      " \ 'V'  : 'VL',
-      " \ 'c'  : 'CMD',
-      " \ '' : 'VB',
-      " \ }
+" \ 'n'  : 'N',
+" \ 'i'  : 'I',
+" \ 'R'  : 'R',
+" \ 'v'  : 'V',
+" \ 'V'  : 'VL',
+" \ 'c'  : 'CMD',
+" \ '' : 'VB',
+" \ }
 
 """"""""""""""""""""""""""""""
 " plugin - commentary
@@ -487,7 +491,17 @@ let g:lightline.mode_map = {
 " CREDIT: 💳 https://github.com/neovim/neovim/issues/5052#issuecomment-232083842
 noremap <leader>c :Commentary<cr>
 
-"""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""
+" plugin - guntentags / 
+""
+set statusline+=%{gutentags#statusline()} " update status line if tags are building
+
+""""""""""""""""""""""""""""""
+" plugin (kindof) ctags
+""
+set tags=.tags,tags,./.git/tags,../tags,$HOME,.tags;
+
+""""""""""""""""""""""""""""""
 " plugin - FZF
 ""
 if &runtimepath =~ 'fzf'
@@ -584,6 +598,6 @@ let g:airline#extensions#ale#enabled = 1
 """"""""""""""""""""""""""""""
 " markdown `.md` support
 ""
-autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+autocmd BufNewFile,BufReadPost *.{md,markdown,mkd,mkdn} set filetype=markdown
 " for fenced language support in markdown documents
-let g:markdown_fenced_languages = ['html', 'python', 'bash=sh']
+let g:markdown_fenced_languages = ['html', 'python', 'bash=sh', 'js=javascript', 'json=javascript', 'ruby']

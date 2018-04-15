@@ -15,6 +15,8 @@ secrets.yml
 tags
 tags.lock
 tags.temp
+.gutctags # tags file specific to gutentags
+
 ##############################
 # pyenv
 ##
