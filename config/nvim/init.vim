@@ -23,7 +23,7 @@ set textwidth=0
 if has('unix')
   " set the default python PATH, to supposedly boost 🏎 the performance of
   " neovim
-  let g:python_host_prog = '$HOME/.pyenv/versions/2.7.14/bin/python'
+  let g:python_host_prog = '$HOME/.pyenv/versions/neovim2/bin/python'
 
   " diable python 2 support
   " let g:loaded_python_provider = 1
