@@ -139,7 +139,7 @@ if type -q pycp
 end
 
 if type -q ccat
-  abbr -a cat 'ccat'
+  # abbr -a cat 'ccat'
 end
 
 if type -q nvim
