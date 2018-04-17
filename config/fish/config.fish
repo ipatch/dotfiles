@@ -56,15 +56,15 @@ if type -q fzf
   # --glob: Additional conditions for search (in this case ignore everything in the .git/ folder)
   if type -q rg
     set -gx FZF_DEFAULT_COMMAND 'rg --files --no-ignore --hidden --follow --glob "!.git/*"'
-else
+  else
   # DO SOMETHING!
-end
+  end
 
-set -gx FZF_DEFAULT_OPTS '--preview="head -n50 {}"'
-# TODO: figure out how to properly load function in fish
-# _fzf_compgen_path() {
-#   fd --hidden --follow --exclude ".git" . "$argv"
-# }
+  set -gx FZF_DEFAULT_OPTS '--preview="head -n50 {}"'
+  # TODO: figure out how to properly load function in fish
+  # _fzf_compgen_path() {
+  #   fd --hidden --follow --exclude ".git" . "$argv"
+  # }
 end
 
 switch (uname)

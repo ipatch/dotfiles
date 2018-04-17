@@ -16,7 +16,6 @@ set -l paths \
 $XDG_CONFIG_HOME/.config/yarn/global/node_modules/.bin \
 $HOME/Library/Android/sdk/platform-tools \
 $HOME/.cargo/bin \
-$HOME/anaconda2/bin \
 $HOME/.local/bin \
 $HOME/bin \
 $HOME/.pyenv/bin \
