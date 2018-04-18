@@ -21,17 +21,15 @@ set textwidth=0
 ""
 " CREDIT: 💳 https://vi.stackexchange.com/a/2574/10550
 if has('unix')
-  " set the default python PATH, to supposedly boost 🏎 the performance of
-  " neovim
+  " set the default python PATH, to supposedly boost 🏎  performance
   let g:python_host_prog = '/home/capin/.pyenv/versions/neovim2/bin/python'
 
-  " disable python 2 support
+  " To disable python 2 support, uncomment the below line
   " let g:loaded_python_provider = 1
 
-  " report the python interperter path, by adding it to init.vim
-  " let g:python3_host_prog = '$HOME/.pyenv/versions/neovim3/bin/python'
+  let g:python3_host_prog = '/home/capin/.pyenv/versions/neovim3/bin/python'
 
-  " NOTE: to check whether nvim has clipboard support run the below command
+  " NOTE: to check whether clipboard support is enabled
   " :echo has('clipboard')
 
   " Clipboard integration
