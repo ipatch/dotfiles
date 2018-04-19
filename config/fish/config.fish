@@ -78,6 +78,15 @@ case Darwin
     # DO NOTHIGH
   end
 
+  #########################
+  # macOS specific language env vars
+  ##
+  if test -x (brew --prefix)/bin/go
+    set -gx GOPATH $HOME/go
+  else
+    # DO NOT PASS GO, DO NOT COLLECT $200
+  end
+
   ###############################
   # set env vars for git
   ##
