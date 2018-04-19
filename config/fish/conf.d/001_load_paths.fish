@@ -5,7 +5,6 @@
 ##############################
 # Global PATH
 ##
-# NOTE: # $HOME/.pyenv/shims \ # <= is not required, SEE: `config.fish`
 # TODO: figure out a proper way to use `$XDG_CONFIG_HOME`
 
 set -l paths \
@@ -16,6 +15,7 @@ set -l paths \
 $XDG_CONFIG_HOME/.config/yarn/global/node_modules/.bin \
 $HOME/Library/Android/sdk/platform-tools \
 $HOME/.cargo/bin \
+$HOME/go \
 $HOME/.local/bin \
 $HOME/bin \
 $HOME/.pyenv/bin \
