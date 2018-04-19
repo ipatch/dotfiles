@@ -2,9 +2,11 @@
 " ~ settings.vim ~
 ""
 
-"""""""""""""""""""""""""""""
-" mappings
+""""""""""""""""""""""""""""""
+" Optional settings
 ""
+" set backupdir=~/.vim/tmp/                   " for the backup files
+" set directory=~/.vim/tmp/                   " for the swap files
 
 """"""""""""""""""""""""""""
 " create directories for Vim related files
