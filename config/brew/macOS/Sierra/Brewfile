@@ -119,7 +119,6 @@ brew "redis", restart_service: true
 brew "ripgrep"
 brew "rlwrap"
 brew "rsync"
-brew "ruby@2.3"
 brew "rust"
 brew "screenfetch"
 brew "streamlink"
