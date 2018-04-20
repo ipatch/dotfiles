@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<!-- <key>Disabled</key> -->
+	<!-- <true/> -->
+	<key>Label</key>
+	<string>homebrew.mxcl.sshd</string>
+	<!-- <key>Program</key> -->
+	<!-- <string>/usr/libexec/sshd-keygen-wrapper</string> -->
+  <!-- <string>/usr/local/sbin/sshd</string> -->
+  <key>Program</key>
+  <string>/usr/local/sbin/sshd</string>
+	<key>ProgramArguments</key>
+	<array>
+    <string>/usr/local/sbin/sshd</string>
+    <string>-f</string>
+    <string>/usr/local/etc/ssh/sshd_config</string>
+    <string>-E</string>
+    <string>/usr/local/var/log/sshd.log</string>
+    <!-- <string>/usr/local/var/log/sshd.log</string> -->
+	</array>
+  <key>RunAtLoad</key>
+  <false/>
+	<key>Sockets</key>
+	<dict>
+		<key>Listeners</key>
+		<dict>
+			<key>SockServiceName</key>
+			<string>ssh</string>
+			<key>Bonjour</key>
+			<array>
+				<string>ssh</string>
+				<string>sftp-ssh</string>
+			</array>
+		</dict>
+	</dict>
+	<key>inetdCompatibility</key>
+	<dict>
+		<key>Wait</key>
+		<false/>
+		<key>Instances</key>
+		<integer>42</integer>
+	</dict>
+	<key>StandardErrorPath</key>
+  <string>/usr/local/var/log/sshd-error.log</string>
+  <key>StandardOutPath</key>
+  <string>/usr/local/var/log/sshd-out.log</string>
+	<!-- <key>SHAuthorizationRight</key> -->
+	<!-- <string>system.preferences</string> -->
+	<key>POSIXSpawnType</key>
+	<string>Interactive</string>
+</dict>
+</plist>
