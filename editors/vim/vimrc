@@ -20,9 +20,9 @@ let g:mapleader = ','                 " set the 'leader' key to `,`
 set nocompatible
 " Settings
 set fileencoding=utf-8                " Set utf-8 encoding on write
-set encoding=utf-8                    " set character encoding, ie. utf-8 is a 'dialect' of unicode.
+set encoding=utf-8                    " terminal output encoding
 set termencoding=utf-8
-set title                             " Set the title on the terminal tab                       
+set title                             " Set the title on the terminal tab
 set background=dark
 set number                            " Line numbers
 set cursorline                        " Highlight current line
@@ -67,10 +67,10 @@ set showmatch                         " show matching braces
 " Indentation / tab shit
 ""
 " set ts=2 sts=2 sw=2 expandtab 
-set shiftwidth=2                        " Indent by 2 spaces by default - indentation amount for < and > commands.
+set shiftwidth=2                        " Indent by 2 spaces, default - indentation amount for < and > commands.
 set softtabstop=2
 set tabstop=2                           " Indicates how many `spaces` a `tab` will indent
-set expandtab                           " If this setting is enabled `spaces` are used instead of `tabs`
+set expandtab                           " spaces are better than tabs 💥
 set nofoldenable
 set tabstop=2
 set ai                                  " set auto indent
@@ -199,7 +199,7 @@ highlight Comment gui=italic
 " highlight Normal ctermbg=none
 let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
-set termguicolors
+set termguicolors " use guifg/guibg instead of ctermfg/ctermbg in terminal
 
 " set guifont=Cousine\ for\ Powerline:h13
 " set guifont=IBMPlexMono\ Nerd\ Font\ Mono\ ExtraLight:h13
@@ -280,10 +280,12 @@ autocmd vimrc FocusGained,BufEnter * checktime  " Refresh file when vim gets foc
 """""""""""""""""""""""""""""
 " wildmenu -  completion
 ""
-set wildmenu                          " show display menu when using `tab` completeion
-set wildmode=list:full
-set wildignore+=*/tmp/*,*/.git/*      " ignore the below directories with wild menu
+if has('wildmenu')
+  set wildmenu " show display menu when using `tab` completeion
+endif
+set wildmode=longest:full:full
 set wildignore=*.o,*.obj,*~           "stuff to ignore when tab completing
+set wildignore+=*/tmp/*,*/.git/*      " ignore the below directories with wild menu
 set wildignore+=*logs*
 set wildignore+=*node_modules/**
 set wildignore+=*DS_Store*
@@ -295,19 +297,6 @@ set wildignore+=tmp/**
 " Scrolling
 ""
 set scrolloff=7
-
-""""""""""""""""""""""""""""""
-" Python Checks
-""
-" if has('python') " if dynamic py|py3, this line already activates python2.
-"   let s:python_version = 2
-" elseif has('python3')
-"   let s:python_version = 3
-" else
-"   let s:python = 0
-" endif
-" echomsg 'Using python'.s:python_version "Enable for debugging purposes
-
 
 " load `fzf` from homebrew install
 if has('macunix')
@@ -329,8 +318,6 @@ call minpac#add('k-takata/minpac', {'type': 'opt'})
 ""
 if has('nvim')
   let g:loaded_sensible=0
-  " highlight Comment cterm=italic
-
   " Keymappings for Neovim
   " By default to exit out of `terminal` mode in nvim use `<C-\><C-n>`
   " Instead map `<Esc>`
@@ -344,7 +331,7 @@ if has('nvim')
 
   " NOTE: the above line is ignored in Neovim 0.1.5 above, use below instead.
   if has('nvim-0.1.5')
-    set termguicolors
+    set termguicolors " use guifg/guibg instead of ctermfg/ctermbg in terminal
     hi Cursor guifg=green guibg=green
     hi Cursor2 guifg=red guibg=red
     set guicursor=n-v-c:block-Cursor/lCursor,i-ci-ve:ver25-Cursor2/lCursor2,r-cr:hor20,o:hor50
@@ -410,9 +397,12 @@ call minpac#add('w0rp/ale') " ALE Asynchronous Linting Edition
 call minpac#add('janko-m/vim-test') " a plugin for running test suites.
 call minpac#add('ludovicchabant/vim-gutentags') " auto generate ctags
 call minpac#add('ryanoasis/vim-devicons') " purdy icons / glyphs
+call minpac#add('tpope/vim-fugitive')
 " call minpac#add('prashanthellina/follow-markdown-links') " navigating markdown
 call minpac#add('itchyny/lightline.vim') " lightweight status line.
 call minpac#add('ap/vim-buftabline') " lightweight buffer bar @ top.
+" call minpac#add('tpope/vim-obsession') " tpopes implementation for vim sessions
+
 """""""""""""""""""""""""""""
 " minpac - commands
 "" 
@@ -460,29 +450,6 @@ let g:lightline.mode_map = {
       \ "\<C-s>": 'S-BLOCK',
       \ 't': 'TERMINAL',
       \ }
-
-""""""""""""""""""""""""""""""
-" vim-airline settings / keybindings https://github.com/vim-airline/vim-airline
-""
-" let g:airline#extensions#tabline#enabled = 2
-" let g:airline#extensions#tabline#fnamemod = ':t'
-" NOTE: https://github.com/vim-airline/vim-airline/issues/142#issuecomment-145317103
-" let g:airline_powerline_fonts = 1 " this setting presents pretty glyphs using powerline fonts.
-" let g:airline_detect_modified = 1
-
-" set the color scheme for vim-airline
-" let g:airline_theme = 'base16' " keep the base16 colorscheme consistent.
-
-" use single letters for various display modes.
-" let g:airline_mode_map = {
-" \ 'n'  : 'N',
-" \ 'i'  : 'I',
-" \ 'R'  : 'R',
-" \ 'v'  : 'V',
-" \ 'V'  : 'VL',
-" \ 'c'  : 'CMD',
-" \ '' : 'VB',
-" \ }
 
 """"""""""""""""""""""""""""""
 " plugin - commentary
@@ -546,11 +513,18 @@ augroup filetypedetect
   autocmd BufNewFile,BufRead *.fish set filetype=fish
 augroup END
 
+""""""""""""""""""""""""""""""
+" markdown `.md` support
+""
+autocmd BufNewFile,BufReadPost *.{md,markdown,mkd,mkdn} set filetype=markdown
+" for fenced language support in markdown documents
+let g:markdown_fenced_languages = ['html', 'python', 'bash=sh', 'js=javascript', 'json=javascript', 'ruby']
+
 """""""""""""""
 " NOTE: vim / Neovim defaults to `sh` syntax, NOT `bash` syntax for `.sh`
 " files
 """""""""""""""
-" SEE: help ft-sh-syntax
+" SEE: :help ft-sh-syntax
 """""""""""""""
 let g:is_bash = 1 " set default sh syntax to that of bash
 let g:sh_fold_enabled = 1 " default = 0, 1 = function folding
@@ -561,13 +535,13 @@ let g:sh_fold_enabled = 1 " default = 0, 1 = function folding
 " SEE: `$HOME/.vim/plugin/sessions.vim
 set foldcolumn=2 " width of gutter outlining folds
 " set viewoptions+=cursor,folds,slash,unix
-set sessionoptions=folds,localoptions,curdir,buffers
+" set sessionoptions=folds,localoptions,curdir,buffers
 
 """"""""""""""""""""""""""""""
 " buffers
 ""
 " NOTE: the below autocmd will change the `lcd` to the dir of the active buffer
-autocmd BufEnter * if expand("%:p:h") !~ '^/tmp' | silent! lcd %:p:h | endif
+" autocmd BufEnter * if expand("%:p:h") !~ '^/tmp' | silent! lcd %:p:h | endif
 
 """""""""""""""""""""""""""""
 " plugin - indentLine - settings / configuration
@@ -595,9 +569,4 @@ let g:ale_sign_error                 = '⌦'
 let g:ale_sign_warning               = '☞'
 let g:airline#extensions#ale#enabled = 1
 
-""""""""""""""""""""""""""""""
-" markdown `.md` support
-""
-autocmd BufNewFile,BufReadPost *.{md,markdown,mkd,mkdn} set filetype=markdown
-" for fenced language support in markdown documents
-let g:markdown_fenced_languages = ['html', 'python', 'bash=sh', 'js=javascript', 'json=javascript', 'ruby']
+
