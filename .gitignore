@@ -18,6 +18,7 @@ vim/*.swp
 **/.tmp.a
 editors/vim/vim/tmp/*
 # Ignore bundled packages for vim
+!/editors/vim/vim/tmp/backup/.gitkeep
 !/editors/vim/vim/tmp/view/.gitkeep
 editors/vim/vim/pack/*
 editors/vim/vim/.netrwhist
