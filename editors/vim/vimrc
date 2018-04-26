@@ -27,7 +27,7 @@ set background=dark
 set number                            " Line numbers
 set cursorline                        " Highlight current line
 set backspace=eol,start,indent        " Configure backspace so it acts as it should act
-filetype plugin indent on             " Enable filetype detection & Enable filetype-specific plugins
+filetype plugin indent on " Enable filetype detection & Enable filetype-specific plugins
 syntax on
 set background=light
 set number
@@ -229,10 +229,10 @@ nnoremap <silent> ` :call ToggleConcealLevel()<CR>
 ""
 " CREDIT: https://shapeshed.com/vim-netrw/   
 
-let g:netrw_liststyle = 3 " Do not display the banner when using Netrw
-let g:netrw_banner = 0 " Display the netrw file browser in a vertical split
-let g:netrw_browse_split = 1 " Set the default width when opening the netrw explorer
-let g:netrw_winsize = 25
+let g:netrw_liststyle = 3 " tree style
+let g:netrw_banner = 0 " Do not display the banner when using Netrw
+let g:netrw_browse_split = 1 " TODO: figure out what this variable does ???
+let g:netrw_winsize = 25 " set the default width for netrw
 " TODO: document what the below variable does to netrw
 let g:netrw_altv = 1
 " Set atom style macOS key binding to open the project drawer
@@ -244,7 +244,15 @@ inoremap <M-\> :Lexplore<cr>
 " in which the file is located when toggling netrw
 set autochdir
 
-"""""""""""""""""""""""""""""
+" https://vi.stackexchange.com/a/13012
+" Per default, netrw leaves unmodified buffers open. This autocommand
+" deletes netrw's buffer once it's hidden (using ':q', for example)
+augroup netrw_delete_hidden_augroup
+    autocmd!
+    autocmd FileType netrw setl bufhidden=delete
+augroup END
+
+""""""""""""""""""""""""""""""
 " Cool hacky stuff
 ""
 
@@ -268,7 +276,7 @@ if has("autocmd")
 
   " Auto change to current directory on open
   " TODO: do further testing to see if this breaks `sessions.vim`
-  autocmd BufEnter * silent! lcd %:p:h
+  " autocmd BufEnter * silent! lcd %:p:h
 endif
 
 augroup vimrc
@@ -292,6 +300,7 @@ set wildignore+=*DS_Store*
 set wildignore+=*.gem
 set wildignore+=log/**
 set wildignore+=tmp/**
+set wildignore+=*.bmp,*.gif,*.ico,*.jpg,*.png,*.pdf,*.psd,*.git/*,Session.vim
 
 """"""""""""""""""""""""""""""
 " Scrolling
@@ -362,8 +371,12 @@ endif
 """"""""""""""""""""""""""""""
 " clipboard
 ""
-if has('macunix')
-  set clipboard=unnamed
+if has('clipboard')
+  if has('unnamedplus') && !has('nvim') " When possible use `+` register for copy-paste
+    set clipboard=unnamed,unnamedplus
+  else
+    set clipboard=unnamed
+  endif
 endif
 
 " get sane copy / paste within nvim using iTerm2
@@ -436,10 +449,20 @@ endfunction
 
 """""""""""""""
 " plugin - lightline - mode map
+" NOTE: abbreviations for mode maps
+" n - normal
+" i - insert
+" R - replace
+" v - visual
+" V - v-line
+" c - command
+" s - select
+" S - s-line
+" t - terminal
 ""
 let g:lightline.mode_map = {
-      \ 'n' : 'NORMAL',
-      \ 'i' : 'INSERT',
+      \ 'n' : 'N',
+      \ 'i' : 'I',
       \ 'R' : 'REPLACE',
       \ 'v' : 'VISUAL',
       \ 'V' : 'V-LINE',
@@ -506,7 +529,7 @@ if &runtimepath =~ 'fzf'
   command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>), 1, <bang>0)
 endif
 
-"""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""
 " filetype syntax highlighting 🌈  shit 💩
 ""
 augroup filetypedetect
@@ -542,12 +565,18 @@ set foldcolumn=2 " width of gutter outlining folds
 ""
 " NOTE: the below autocmd will change the `lcd` to the dir of the active buffer
 " autocmd BufEnter * if expand("%:p:h") !~ '^/tmp' | silent! lcd %:p:h | endif
+set autochdir " set working directory to the current file
+set sessionoptions-=options
 
 """""""""""""""""""""""""""""
 " plugin - indentLine - settings / configuration
 " SEE: https://github.com/Yggdroot/indentLine
 ""
 let g:indentLine_setColors = 1 " overwrite colorscheme, use default grey
+
+" save view sate
+autocmd BufWinLeave * silent! mkview " save view (state) (folds, cursor, etc)
+autocmd BufWinEnter * silent! loadview " load view (state)
 
 """"""""""""""""""""""""""""""
 " ale-config
