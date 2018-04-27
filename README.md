@@ -15,7 +15,6 @@
 - [Installation](#installation)
   - [Fish shell setup](#fish-shell-setup)
   - [Neovim setup](#neovim-setup)
-  - [Atom setup](#atom-setup)
 - [File Structure](#file-structure)
 - [Useful Links](#useful-links)
 - [TODOs](#todos)
@@ -46,52 +45,18 @@ ln -sf $DOTFILES/config/fish/ $HOME/.config/fish
 
 <details>
 <summary>Screenshot 📸</summary>
-<img src="https://raw.githubusercontent.com/wiki/ipatch/dotfiles/lib/Neovim-2018-april.png" alt="nvim-screenshot">
+<img src="https://raw.githubusercontent.com/wiki/ipatch/dotfiles/lib/Neovim-2018-april-late.png" alt="nvim-screenshot">
 </details>
 
-As of March 16, 2018, I have migrated all plugins to to use [minpac](https://github.com/k-takataminpac) This particular Neovim setup requires Vim >= 8.0 to be installed, and all plugins are loaded using minpac from the `.vimrc` in the home directory.
+- Plugin Manager: [minpac](https://github.com/k-takataminpac) This particular Neovim setup requires Vim >= 8.0 to be installed, and all plugins are loaded using minpac from the `.vimrc` within the home directory.
 
-To get python support working with Neovim
+To get python 2 & 3 support working with Neovim, refer to [these steps](https://github.com/ipatch/dotfiles/wiki/Neovim-Vim-Notes#python-support-setting-up-python-23)
 
-```bash
-pip3 install --user --upgrade neovim
-```
-
-To verify if python support is working
+To verify Python 2 & 3 support has been setup and working properly within Neovim
 
 ```vim
-: echo has('python3')
+:CheckHealth
 ```
-
-<a href="atom-setup"></a>
-
-### [Atom](http://atom.io)
-
-To get Atom up and running 🏃 run the below commad after you have it installed<br />
-
-```shell
-apm install --packages-file /path/to/where/you/saved/packages.list
-```
-
-<p>Giving credit where credit is due. <a href="https://discuss.atom.io/t/how-to-backup-all-your-settings/15674/3">💳</a></p>
-
-It can be beneficial to add a custom filetype for files ending with `.fish` to have syntax highlighting for fish functions files, and not having to manually set the file type in the lower right hand corner of the atom editor.
-
-To accomplish the above mentioned task, open the atom preferences with <kbd>command</kbd>+<kbd>,</kbd> on macOS. Then look for a button labeled `Open Config Folder`.
-
-Add the below lines to the `config.cson` file.
-
-> customFileTypes:<br />
-> "source.shell": [<br />
->
-> > "fish"<br />
-> > ]<br />
-
-within the below block,
-
-> core:
-
-Credit: [💳](https://github.com/atom/atom/issues/1718#issuecomment-162242357)
 
 <a href="file-structure"></a>
 
@@ -1829,7 +1794,7 @@ Credit: [💳](https://github.com/atom/atom/issues/1718#issuecomment-162242357)
 
 <a href="useful-links"></a>
 
-## Useful Links _in no particular order_
+## Useful Links ___in no particular order___
 - [Github - philtr/dotfiles](https://github.com/philtr/dotfiles)
 - [Github - wincent/wincent](https://github.com/wincent/wincent)
 - [Github - mathiasbynenes/dotfiles](https://github.com/mathiasbynens/dotfiles)
