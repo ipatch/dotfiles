@@ -41,9 +41,7 @@ set -gx code /opt/code
 ##
 set -gx GIT_RC $XDG_CONFIG_HOME/git
 
-# set -gx PATH # init an empty var first, unless you want dup `PATH` entries
 # set -gx LC_CTYPE "en_US.UTF-8" # only set this if you want to overwrite ALL locales!
-# set -gx GREP_OPTIONS --color=auto
 
 ##############################
 # fzf
@@ -106,7 +104,6 @@ case Darwin
 
 
   if type -q nvim
-    # TODO: don't hard code path to `nvim` search for `nvim` instead
     set -gx EDITOR nvim
     set -gx VISUAL nvim
     set -gx MYVIMRC $HOME/.vimrc
