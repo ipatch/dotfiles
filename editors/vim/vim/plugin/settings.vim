@@ -5,8 +5,9 @@
 """"""""""""""""""""""""""""""
 " Optional settings
 ""
-" set backupdir=~/.vim/tmp/                   " for the backup files
-" set directory=~/.vim/tmp/                   " for the swap files
+" set directory=~/.vim/tmp/backup                 " for the backup files
+" set directory=~/.vim/tmp/swap                   " for the swap files
+" set directory=~/.vim/tmp/undo                   " for the undo files
 
 """"""""""""""""""""""""""""
 " create directories for Vim related files
@@ -15,23 +16,6 @@ silent execute '!mkdir -p $HOME/.vim/tmp/undo'
 silent execute '!mkdir -p $HOME/.vim/tmp/swap'
 silent execute '!mkdir -p $HOME/.local/.vim/tmp/undo'
 silent execute '!mkdir -p $HOME/.local/.vim/tmp/swap'
-
-
-""""""""""""""""""""""""""""""
-" toggle hidden chars & Settings for hidden chars
-""
-nmap <leader>l :set list!<CR>
-set listchars=nbsp:⦸        " CIRCLED REVERSE SOLIDUS (U+29B8, UTF-8: E2 A6 B8)
-set listchars+=tab:▷┅ " WHITE RIGHT-POINTING TRIANGLE (U+25B7, UTF-8: E2 96 B7)
-
-set listchars+=extends:» " RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK (U+00BB, UTF-8: C2 BB)
-set listchars+=precedes:« " LEFT-POINTING DOUBLE ANGLE QUOTATION MARK (U+00AB, UTF-8: C2 AB)
-set listchars+=trail:•    " BULLET (U+2022, UTF-8: E2 80 A2)
-set listchars+=eol:¬
-set nojoinspaces " don't autoinsert two spaces after '.', '?', '!' for join command
-if has('linebreak')
-  let &showbreak='↳ ' " DOWNWARDS ARROW WITH TIP RIGHTWARDS (U+21B3, UTF-8: E2 86 B3)
-endif
 
 " Enable smart joining of commented lines.
 " TODO: figure out sane way to use `shift+j` and `shift+k` to join lines
@@ -72,31 +56,22 @@ if has('folding')
   set foldtext=wincent#settings#foldtext() " see `~/.vim/autoload/wincent/settings.vim` for the `foldtext` func def
 endif
 
-set formatoptions+=n                    " smart auto-indenting inside numbered lists
-
-set lazyredraw                          " don't update screen during macro playback
-
-set scrolloff=3                         " start scrolling 3 lines before edge of viewport
-set shiftround                          " always indent by multiple of shiftwidth
-set shiftwidth=2                        " spaces per tab (when shifting)
+set formatoptions+=n              " smart auto-indenting inside numbered lists
+set lazyredraw                    " don't update screen during macro playback
+set shiftround                     " always indent by multiple of shiftwidth
 set shortmess+=I                        " no splash screen
 set shortmess+=A                      " ignore annoying swapfile messages.
-set shortmess+=a                      " use abbreviations in messages eg. `[RO]` instead of `[readonly]`
-set smarttab                          " <tab>/<BS> indent/dedent in leading whitespace
-
-if has('syntax')
-  set spellcapcheck=                  " don't check for capital letters at start of sentence
-endif
+set shortmess+=a " use abbreviations in messages eg. `[RO]` instead of `[readonly]`
 
 if has('windows')
-  set splitbelow                      " open horizontal splits below current window
+  set splitbelow           " open horizontal splits below current window
 endif
 
 if has('vertsplit')
-  set splitright                      " open vertical splits to the right of the current window
+  set splitright    " open vertical splits to the right of the current window
 endif
 
-" set textwidth=80                      " automatically hard wrap at 80 columns - NO THANKYOU!
+" set textwidth=80   " automatically hard wrap at 80 columns - NO THANKYOU!
 
 
 if has('persistent_undo')
@@ -130,7 +105,7 @@ if has('viminfo')
   endif
 endif
 
-if has('nvim')
+if has('nvim') " Neovim uses a `shada` file as opposed to `viminfo`
   if exists('$SUDO_USER')
     set shada=                      " don't create root-owned files
   else
@@ -142,19 +117,10 @@ if has('nvim')
   endif
 endif
 
-if has('mksession')
-  if isdirectory('~/.vim/tmp')
-    set viewdir=~/.vim/tmp/view
-  endif
-  set viewoptions=cursor,folds
-endif
-
-" NOTE: To change the `mode` to `visual-block` / `v-block`
-" `ctrl+v`
+" NOTE: To change the `mode` to `visual-block` / `v-block` `ctrl+v`
 if has('virtualedit')
   set virtualedit=block
 endif
 
 set whichwrap=b,h,l,s,<,>[,],~  " allow <BS>/h/l<Left>/<Right>/<Space>, ~ to cross line boundaries
-
 
