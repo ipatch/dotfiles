@@ -109,6 +109,8 @@ set showtabline=0                       " only show if 2 or more tabs.
 
 """""""""""""""""""""""""""""
 " plugin - buftabline
+" TODO: move these below in document with other plugin settings
+" NOTE: to reload `buftabline` settings `:call buftabline#update(0)`
 ""
 " let g:buftabline_show=1 " only if >1 buffer
 let g:buftabline_show=2 " always show buffer bar.
@@ -131,8 +133,6 @@ nmap <Leader>9 <Plug>BufTabline.Go(9)
 " way 'Shift+;' does not have to be pressed to begin a command in normal mode.
 nmap <space> :
 
-" use ,, for escape <ESC>
-inoremap ,, <ESC>
 " cmap ,, <ESC> " NOTE: the following key binding did not work.
 " NOTE: use <Ctrl>+<[> to exit command line mode.
 
@@ -142,6 +142,8 @@ inoremap ,, <ESC>
 imap jk <esc>
 imap kj <esc>
 imap jj <esc>
+" use ,, for escape <ESC>
+inoremap ,, <ESC>
 
 noremap <silent> <Up> <ESC><Up>
 inoremap <silent> <Down> <ESC><Down>
@@ -168,15 +170,15 @@ map <Leader>i mmgg=G`m<CR>
 " " edit file in new tab
 " map <leader>et :tabe %%
 
-" bubbling text
+" bubbling text - Normal mode
 nmap <S-k> ddkP
 nmap <S-j> ddp
-" bubble multiple lines
+" bubble multiple lines - Visual mode
 vmap <S-k> xkP`[V`]
 vmap <S-j> xp`[V`]
 
 """""""""""""""""""""""""""""
-" Useful hacks for working with `$HOME/.vimrc or $MYVIMRC
+" Useful hacks for working with `$HOME/.vimrc` or `$MYVIMRC`
 ""
 nmap <leader>v :edit $MYVIMRC<CR>
 map <leader>so :source $MYVIMRC<CR>
@@ -190,7 +192,7 @@ nnoremap <leader><tab> <c-^>
 map ,e :e <C-R>=expand("%:p:h") . "/" <CR>
 map ,t :tabe <C-R>=expand("%:p:h") . "/" <CR>
 
-" If you opened a readonly file, ie. /etc/hosts `w!!` solve :)
+" If you opened a readonly file, ie. /etc/hosts `w!!` will solve :)
 cmap w!! w !sudo tee % >/dev/null %
 
 """"""""""""""""""""""""""""""
@@ -572,6 +574,7 @@ set foldcolumn=2 " width of gutter outlining folds
 
 """"""""""""""""""""""""""""""
 " save view sate
+""
 " autocmd BufWinLeave * silent! mkview " save view (state) (folds, cursor, etc)
 " autocmd BufWinEnter * silent! loadview " load view (state)
 
@@ -580,6 +583,7 @@ set foldcolumn=2 " width of gutter outlining folds
 
 """""""""""""""""""""""""""""
 " plugin - indentLine - settings / configuration
+""
 " SEE: https://github.com/Yggdroot/indentLine
 ""
 let g:indentLine_setColors = 1 " overwrite colorscheme, use default grey
