@@ -11,9 +11,9 @@
 
 " To print the value of a below setting, ie. return the value set,
 " `:set autoindent?`
-" SEE: `~/.vim/after/ftplugin/vim.vim` for specific settings related to `.vim`
+" SEE: `~/.vim/after/ftplugin/vim.vim` for settings related to `.vim`
 
-" Want to set this before any others, the default 'leader' key is `\`
+" Want to set this first, the default 'leader' key is `\`
 let g:mapleader = ','                 " set the 'leader' key to `,`
 
 " Don't allow vi compatibility mode; don't need it 🤽‍♂️
@@ -24,11 +24,12 @@ set fileencoding=utf-8                " Set utf-8 encoding on write
 set encoding=utf-8                    " terminal output encoding
 set termencoding=utf-8
 set title                             " Set the title on the terminal tab
+set number
 set relativenumber                    " Show numbers relative to current line
 set background=dark
 set cursorline                        " Highlight current line
-set backspace=eol,start,indent        " Configure backspace so it acts as it should act
-filetype plugin indent on " Enable filetype detection & Enable filetype-specific plugins
+set backspace=eol,start,indent        " Configure sane backspace
+filetype plugin indent on " detect & enable filetype specific plugins
 syntax on
 set history=500                       " History for days 😛
 set showcmd                           " Show incomplete cmds in lower right 
@@ -45,6 +46,7 @@ set listchars+=extends:» " RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK (U+00BB, 
 set listchars+=precedes:« " LEFT-POINTING DOUBLE ANGLE QUOTATION MARK (U+00AB, UTF-8: C2 AB)
 set listchars+=trail:•    " BULLET (U+2022, UTF-8: E2 80 A2)
 set listchars+=eol:¬
+set fillchars+=stl:\ ,stlnc:\
 """""""""""""""
 " toggle hidden chars & Settings for hidden chars
 ""
@@ -221,8 +223,6 @@ set termguicolors " use guifg/guibg instead of ctermfg/ctermbg in terminal
 " set guifont=IBMPlexMono\ Nerd\ Font\ Mono\ ExtraLight:h13
 " set guifont=Monaco:h10
 
-let g:Powerline_symbols = 'fancy'
-set fillchars+=stl:\ ,stlnc:\
 
 """""""""""""""""""""""""""""
 " conceal levels
@@ -282,7 +282,6 @@ augroup END
 """""""""""""""""""""""""""""
 " auto commands
 ""
-
 augroup vimrc
   autocmd!
 augroup END
@@ -304,7 +303,7 @@ set wildignore+=*DS_Store*
 set wildignore+=*.gem
 set wildignore+=log/**
 set wildignore+=tmp/**
-set wildignore+=*.bmp,*.gif,*.ico,*.jpg,*.png,*.pdf,*.psd,*.git/*,Session.vim
+set wildignore+=*.bmp,*.gif,*.ico,*.jpg,*.png,*.pdf,*.psd,*.git/*,session.vim
 
 """"""""""""""""""""""""""""""
 " Scrolling
@@ -413,8 +412,8 @@ call minpac#add('radenling/vim-dispatch-neovim') " dispatch using neovims termin
 call minpac#add('w0rp/ale') " ALE Asynchronous Linting Edition
 call minpac#add('janko-m/vim-test') " a plugin for running test suites.
 call minpac#add('ludovicchabant/vim-gutentags') " auto generate ctags
-call minpac#add('ryanoasis/vim-devicons') " purdy icons / glyphs
-call minpac#add('tpope/vim-fugitive')
+" call minpac#add('ryanoasis/vim-devicons') " purdy icons / glyphs
+" call minpac#add('tpope/vim-fugitive')
 " call minpac#add('prashanthellina/follow-markdown-links') " navigating markdown
 call minpac#add('itchyny/lightline.vim') " lightweight status line.
 call minpac#add('ap/vim-buftabline') " lightweight buffer bar @ top.
@@ -429,7 +428,7 @@ command! PackClean  packadd minpac | source $MYVIMRC | call minpac#clean()
 """""""""""""""""""""""""""""
 " vim-fugitive settings - https://github.com/tpope/vim-fugitive
 ""
-set statusline=%{fugitive#statusline()}
+" set statusline=%{fugitive#statusline()}
 
 """""""""""""""""""""""""""""
 " plugin - lightline.vim
@@ -486,7 +485,7 @@ let g:lightline.mode_map = {
 noremap <leader>c :Commentary<cr>
 
 """"""""""""""""""""""""""""""
-" plugin - guntentags / 
+" plugin - guntentags
 ""
 set statusline+=%{gutentags#statusline()} " update status line if tags are building
 
@@ -541,15 +540,17 @@ augroup filetypedetect
 augroup END
 
 """"""""""""""""""""""""""""""
-" markdown `.md` support
+" markdown `.md` syntax support
 ""
 autocmd BufNewFile,BufReadPost *.{md,markdown,mkd,mkdn} set filetype=markdown
 " for fenced language support in markdown documents
 let g:markdown_fenced_languages = ['html', 'python', 'bash=sh', 'js=javascript', 'json=javascript', 'ruby']
 
+"""""""""""""""""""""""""""""'
+" shell `.sh` syntax support
+""
 """""""""""""""
-" NOTE: vim / Neovim defaults to `sh` syntax, NOT `bash` syntax for `.sh`
-" files
+" NOTE: vim  defaults to `sh` syntax, NOT `bash` syntax for `.sh` files
 """""""""""""""
 " SEE: :help ft-sh-syntax
 """""""""""""""
@@ -557,24 +558,24 @@ let g:is_bash = 1 " set default sh syntax to that of bash
 let g:sh_fold_enabled = 1 " default = 0, 1 = function folding
 
 """"""""""""""""""""""""""""""
-" folding
+" sessions - buffers
 ""
-" SEE: `$HOME/.vim/plugin/sessions.vim
-set foldcolumn=2 " width of gutter outlining folds
-" set viewoptions+=cursor,folds,slash,unix
-" set sessionoptions=folds,localoptions,curdir,buffers
+set sessionoptions=buffers,winsize,blank,slash,unix
 
 """"""""""""""""""""""""""""""
+" views - folds, etc etc
+""
+set foldcolumn=2 " width of gutter outlining folds
+" set viewoptions+=cursor,folds,slash,unix
+""""""""""""""""""""""""""""""
+" save view sate
+" autocmd BufWinLeave * silent! mkview " save view (state) (folds, cursor, etc)
+" autocmd BufWinEnter * silent! loadview " load view (state)
+
 " buffers
 ""
 " NOTE: DON'T ENABLE `autochdir` makes easier for managing `session.vim` files
 " set autochdir " set working directory to the current file
-
-
-""""""""""""""""""""""""""""""
-" sessions
-""
-set sessionoptions=buffers,winsize,blank,slash,unix
 
 """""""""""""""""""""""""""""
 " plugin - indentLine - settings / configuration
@@ -582,12 +583,9 @@ set sessionoptions=buffers,winsize,blank,slash,unix
 ""
 let g:indentLine_setColors = 1 " overwrite colorscheme, use default grey
 
-" save view sate
-autocmd BufWinLeave * silent! mkview " save view (state) (folds, cursor, etc)
-autocmd BufWinEnter * silent! loadview " load view (state)
 
 """"""""""""""""""""""""""""""
-" ale-config
+" plugin - ale-config - settings / configuration
 ""
 let g:ale_linters = {
       \ 'javascript': ['eslint'],
@@ -604,6 +602,4 @@ let g:ale_lint_on_enter = 0
 let g:ale_lint_on_filetype_changed = 0
 let g:ale_sign_error                 = '⌦'
 let g:ale_sign_warning               = '☞'
-let g:airline#extensions#ale#enabled = 1
-
 

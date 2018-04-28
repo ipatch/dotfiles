@@ -25,8 +25,8 @@ function! MakeSession(overwrite)
   " let b:filename = b:sessiondir . '/' . &b:vimlaunchdir . '/session.vim'
   " set directory=~/.vim/sessions
 "   let file_name = empty(a:file) ? block#project() : a:file
-  let b:converted_launch_dir = exe "gs?/?-? " g:vim_launch_dir
-  let b:file_name = g:session_dir . b:converted_launch_dir . '/session.vim'
+  let b:converted_launch_dir = return substitute(a:vim_launch_dir a:/, a:-, "g")
+  let b:file_name = g:session_dir . '/' exe echo(converted_launch_dir).vim
   if a:overwrite == 0 && !empty(glob(b:file_name))
     return
   endif
