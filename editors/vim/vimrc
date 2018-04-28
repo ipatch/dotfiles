@@ -24,7 +24,7 @@ set fileencoding=utf-8                " Set utf-8 encoding on write
 set encoding=utf-8                    " terminal output encoding
 set termencoding=utf-8
 set title                             " Set the title on the terminal tab
-set number
+set number " display the absolute number on the current line
 set relativenumber                    " Show numbers relative to current line
 set background=dark
 set cursorline                        " Highlight current line
@@ -413,7 +413,7 @@ call minpac#add('w0rp/ale') " ALE Asynchronous Linting Edition
 call minpac#add('janko-m/vim-test') " a plugin for running test suites.
 call minpac#add('ludovicchabant/vim-gutentags') " auto generate ctags
 " call minpac#add('ryanoasis/vim-devicons') " purdy icons / glyphs
-" call minpac#add('tpope/vim-fugitive')
+call minpac#add('tpope/vim-fugitive') " useful for displaying git branch
 " call minpac#add('prashanthellina/follow-markdown-links') " navigating markdown
 call minpac#add('itchyny/lightline.vim') " lightweight status line.
 call minpac#add('ap/vim-buftabline') " lightweight buffer bar @ top.
@@ -428,6 +428,8 @@ command! PackClean  packadd minpac | source $MYVIMRC | call minpac#clean()
 """""""""""""""""""""""""""""
 " vim-fugitive settings - https://github.com/tpope/vim-fugitive
 ""
+" NOTE: let `lightline.vim` hanlde displaying the current git branch on status
+" line
 " set statusline=%{fugitive#statusline()}
 
 """""""""""""""""""""""""""""
@@ -436,7 +438,7 @@ command! PackClean  packadd minpac | source $MYVIMRC | call minpac#clean()
 let g:lightline = {
       \ 'active': {
       \ 'left': [ [ 'mode', 'paste' ],
-      \           [ 'gitbranch', 'readonly', 'filename', 'modified' ] ],
+      \           [ 'gitbranch', 'readonly', 'filename' ] ],
       \ },
       \ 'component_function': {
       \ 'gitbranch': 'fugitive#head',
@@ -558,7 +560,7 @@ let g:is_bash = 1 " set default sh syntax to that of bash
 let g:sh_fold_enabled = 1 " default = 0, 1 = function folding
 
 """"""""""""""""""""""""""""""
-" sessions - buffers
+" session - settings
 ""
 set sessionoptions=buffers,winsize,blank,slash,unix
 
@@ -567,13 +569,12 @@ set sessionoptions=buffers,winsize,blank,slash,unix
 ""
 set foldcolumn=2 " width of gutter outlining folds
 " set viewoptions+=cursor,folds,slash,unix
+
 """"""""""""""""""""""""""""""
 " save view sate
 " autocmd BufWinLeave * silent! mkview " save view (state) (folds, cursor, etc)
 " autocmd BufWinEnter * silent! loadview " load view (state)
 
-" buffers
-""
 " NOTE: DON'T ENABLE `autochdir` makes easier for managing `session.vim` files
 " set autochdir " set working directory to the current file
 
