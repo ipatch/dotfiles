@@ -18,6 +18,7 @@
 - [File Structure](#file-structure)
 - [Useful Links](#useful-links)
 - [TODOs](#todos)
+- [Contact](#contact)
 
 <a href="installation"></a>
 
@@ -48,11 +49,11 @@ ln -sf $DOTFILES/config/fish/ $HOME/.config/fish
 <img src="https://raw.githubusercontent.com/wiki/ipatch/dotfiles/lib/Neovim-2018-april-late.png" alt="nvim-screenshot">
 </details>
 
-- Plugin Manager: [minpac](https://github.com/k-takataminpac) This particular Neovim setup requires Vim >= 8.0 to be installed, and all plugins are loaded using minpac from the `.vimrc` within the home directory.
+- ___Plugin Manager___ [minpac](https://github.com/k-takataminpac) This particular Neovim setup requires Vim >= 8.0 to be installed, and all plugins are loaded using minpac from the `.vimrc` within the home directory.
 
-To get python 2 & 3 support working with Neovim, refer to [these steps](https://github.com/ipatch/dotfiles/wiki/Neovim-Vim-Notes#python-support-setting-up-python-23)
+1. To get python 2 & 3 support working with Neovim, refer to [these steps](https://github.com/ipatch/dotfiles/wiki/Neovim-Vim-Notes#python-support-setting-up-python-23)
 
-To verify Python 2 & 3 support has been setup and working properly within Neovim
+2. To verify Python 2 & 3 support has been setup and working properly within Neovim
 
 ```vim
 :CheckHealth
@@ -3942,7 +3943,7 @@ To verify Python 2 & 3 support has been setup and working properly within Neovim
 
 817 directories, 3128 files
 
-/pre>
+</pre>
 </details>
 
 <a href="useful-links"></a>
@@ -3970,6 +3971,9 @@ To verify Python 2 & 3 support has been setup and working properly within Neovim
 ### Fish
   - [x] ~~Figure out why `grc` is borking PATH on Linux 😑~~
 
-GithHub: [@ipatch](https://github.com/ipatch)<br />
-Twitter: [@truckmonth](https://twitter.com/truckmonth)
+<a href="contact"></a>
+
+## Contact
+- GithHub: [@ipatch](https://github.com/ipatch)<br />
+- Twitter: [@truckmonth](https://twitter.com/truckmonth)
 
