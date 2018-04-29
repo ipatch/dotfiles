@@ -414,12 +414,9 @@ call minpac#add('radenling/vim-dispatch-neovim') " dispatch using neovims termin
 call minpac#add('w0rp/ale') " ALE Asynchronous Linting Edition
 call minpac#add('janko-m/vim-test') " a plugin for running test suites.
 call minpac#add('ludovicchabant/vim-gutentags') " auto generate ctags
-" call minpac#add('ryanoasis/vim-devicons') " purdy icons / glyphs
 call minpac#add('tpope/vim-fugitive') " useful for displaying git branch
-" call minpac#add('prashanthellina/follow-markdown-links') " navigating markdown
 call minpac#add('itchyny/lightline.vim') " lightweight status line.
 call minpac#add('ap/vim-buftabline') " lightweight buffer bar @ top.
-" call minpac#add('tpope/vim-obsession') " tpopes implementation for vim sessions
 
 """""""""""""""""""""""""""""
 " minpac - commands
@@ -567,13 +564,13 @@ let g:sh_fold_enabled = 1 " default = 0, 1 = function folding
 """"""""""""""""""""""""""""""
 " session - settings
 ""
-set sessionoptions=buffers,winsize,blank,slash,unix
+set sessionoptions=buffers,folds,winsize,blank,slash,unix
 
 """"""""""""""""""""""""""""""
 " views - folds, etc etc
 ""
 set foldcolumn=2 " width of gutter outlining folds
-" set viewoptions+=cursor,folds,slash,unix
+" set viewoptions+=folds,slash,unix
 
 """"""""""""""""""""""""""""""
 " save view sate
