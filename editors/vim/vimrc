@@ -177,6 +177,18 @@ nmap <S-j> ddp
 vmap <S-k> xkP`[V`]
 vmap <S-j> xp`[V`]
 
+" TESTDRVIVE: going to try the below mappings to see if they are useful for
+" navigating lines that have been virtually wrapped within a document.
+nnoremap j gj
+nnoremap k gk
+" NOTE: if the `<C-o>` is not specified then the `gj` or `gk` will literally be
+" printed to the screen.
+inoremap <Down> <C-o>gj
+inoremap <Up> <C-o>gk
+" TESTDRIVE: create a directory if it doesn't exist
+nmap <silent> <leader>md :!mkdir -p %:p:h<CR>
+
+
 """""""""""""""""""""""""""""
 " Useful hacks for working with `$HOME/.vimrc` or `$MYVIMRC`
 ""
