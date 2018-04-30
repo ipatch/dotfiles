@@ -107,8 +107,7 @@ case Darwin
     set -gx EDITOR nvim
     set -gx VISUAL nvim
     set -gx MYVIMRC $HOME/.vimrc
-    set -gx VIMCONFIG $HOME/.vim/pack/bundle/start
-    set -gx VIMDATA $HOME/.vim/undo
+    set -gx VIMDATA $HOME/.vim
 
     #########################
     # Add check for syntax highlighting for `less`
@@ -119,8 +118,7 @@ case Darwin
     set -gx EDITOR /usr/local/bin/vim
     set -gx VISUAL /usr/local/binvim
     set -gx MYVIMRC $HOME/.vimrc
-    set -gx VIMCONFIG $HOME/.vim/pack/bundle/start
-    set -gx VIMDATA $HOME/.vim/undo
+    set -gx VIMDATA $HOME/.vim
   else
     set -gx EDITOR /usr/bin/vim
     set -gx VISUAL /usr/bin/vim
@@ -141,8 +139,7 @@ case Linux
     set -gx EDITOR nvim
     set -gx VISUAL nvim
     set -gx MYVIMRC $HOME/.vimrc
-    set -gx VIMCONFIG $HOME/.vim/pack/bundle/start
-    set -gx VIMDATA $HOME/.vim/undo
+    set -gx VIMDATA $HOME/.vim
     [ -x "/home/linuxbrew/.linuxbrew/share/nvim/runtime/macros/less.sh" ]; and \
     alias less='/home/linuxbrew/.linuxbrew/share/nvim/runtime/macros/less.sh';
   else
