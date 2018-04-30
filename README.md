@@ -3965,6 +3965,9 @@ ln -sf $DOTFILES/config/fish/ $HOME/.config/fish
 - [x] ~~Add images in the lib dir of this repo to the .wiki submodule repo.~~
 - [x] ~~Figure out why cloning the dotfiles repo is cloning the submodules with detached heads~~ see [this](https://stackoverflow.com/a/20797186/70880) for detailed explanation.
 ### Neovim
+  - [ ] Figure out a way to save fold settings across all open buffers when quiting Vim.
+  - [ ] Figure out why folds are only being saved / preserved for the last open buffer when quiting Vim 🤔
+  - [ ] Vim Sesssions, Folds, and Conceals will be the death of me 💀
   - [x] ~~don't create session files when launching a man page~~
   - [x] ~~Figure out a sane solution for previewing markdown ie. .md documents~~
   - [x] ~~Figure out what is causing lines to be hard wrapped! 😖~~
