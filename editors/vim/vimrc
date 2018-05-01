@@ -519,8 +519,6 @@ if &runtimepath =~ 'fzf'
         \  'options': '-m -x +s',
         \  'down':    '40%'})
   nmap <Leader>r :FZFMru<CR>
-  " Toggle buffer list
-  " nnoremap <C-p> :Files<CR>
   nnoremap <C-p> :<C-u>FZF<CR>
   nnoremap <Leader>b :Buffers<CR>
   nnoremap <Leader>t :BTags<CR>
