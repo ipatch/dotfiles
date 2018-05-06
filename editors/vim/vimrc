@@ -255,6 +255,7 @@ endfunction
 
 nnoremap <silent> ` :call ToggleConcealLevel()<CR>
 " set default conceal level
+" NOTE: if `indentLine` is installed it will control all the conceal levels
 set cole=0 " DO NOT conceal any text
 
 """""""""""""""""""""""""""""
@@ -600,6 +601,7 @@ set foldcolumn=2 " width of gutter outlining folds
 " SEE: https://github.com/Yggdroot/indentLine
 ""
 let g:indentLine_setColors = 1 " overwrite colorscheme, use default grey
+let g:indentLine_setConceal = 0
 
 
 """"""""""""""""""""""""""""""
