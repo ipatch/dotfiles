@@ -8,6 +8,7 @@ if type -q docker-machine
   # `string match -r` = Perl-compatible regex
   if docker-machine ls | string match -i -r -q ' running '
     # DO NOTHING
+    docker-machine env default | source - # setup default env for fish shell.
   else
     docker-machine start default
     docker-machine env default | source - # `source -` will source the current file
