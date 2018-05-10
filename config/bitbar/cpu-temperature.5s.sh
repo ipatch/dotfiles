@@ -11,7 +11,9 @@
 # curl -LO http://www.eidac.de/smcfancontrol/smcfancontrol_2_4.zip && unzip -d temp_dir_smc smcfancontrol_2_4.zip && cp temp_dir_smc/smcFanControl.app/Contents/Resources/smc /usr/local/bin/smc ; rm -rf temp_dir_smc smcfancontrol_2_4.zip
 
 FAHRENHEIT=true
-TEMPERATURE_WARNING_LIMIT=80
+# TEMP_WARNING_LIMIT=80 # which is 80 degrees Celsius
+# TEMP_WARNING_LIMIT=176 # which is the equivalent to 80 degrees Celsius in f
+TEMPERATURE_WARNING_LIMIT=176
 TEMPERATURE=$(/usr/local/bin/smc -k TC0P -r | sed 's/.*bytes \(.*\))/\1/' |sed 's/\([0-9a-fA-F]*\)/0x\1/g' | perl -ne 'chomp; ($low,$high) = split(/ /); print (((hex($low)*256)+hex($high))/4/64); print "\n";')
 TEMP_INTEGER=${TEMPERATURE%.*}
 
