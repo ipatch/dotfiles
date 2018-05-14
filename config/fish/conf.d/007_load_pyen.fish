@@ -34,4 +34,3 @@ if type -q pyenv
   # end
 end
 
-
