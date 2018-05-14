@@ -16,4 +16,16 @@ case Darwin
       docker-machine env default-xhyve | source - # `source -` will source the current file
     end
   end
+case Linux
+  if type -q docker-machine
+  and docker-machine ls | string match -r -q -- '^default-xhyve '
+  
+  if docker-machine ls | string match -i -r -q ' running '
+      # DO NOTHING
+      docker-machine env default-xhyve | source - # setup default env for fish shell.
+    else
+      docker-machine start default-xhyve
+      docker-machine env default-xhyve | source - # `source -` will source the current file
+    end
+  end
 end

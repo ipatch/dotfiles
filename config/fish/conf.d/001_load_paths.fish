@@ -1,5 +1,5 @@
 ##############################
-# ~ load_paths.fish ~
+# ~ 001_load_paths.fish ~
 ##
 
 ##############################
@@ -28,6 +28,7 @@ $HOME/bin/base16-shell \
 /bin \
 /sbin \
 /usr/games \
+/usr/sbin
 
 for p in $paths
   if not contains $p $PATH; and test -d $p
