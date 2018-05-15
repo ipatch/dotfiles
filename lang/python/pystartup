@@ -13,9 +13,9 @@ import rlcompleter
 historyPath = os.path.expanduser("~/.py_repl_history")
 
 # Tab completion
-readline.parse_and_bind('tab: complete')
+# readline.parse_and_bind('tab: complete')
 
-def save_history(historyPath=historPath):
+def save_history(historyPath=historyPath):
     import readline
     readline.write_history_file(historyPath)
 
@@ -24,4 +24,4 @@ if os.path.exists(historyPath):
 
 atexit.register(save_history)
 del os, atexit, readline, rlcompleter, save_history, historyPath
-{% endhighlight %}
+# {% endhight %}
