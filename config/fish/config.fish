@@ -36,6 +36,10 @@ set -gx XDG_CONFIG_DATA $HOME/.local/share
 set -gx CODE /opt/code
 set -gx code /opt/code
 
+if type -q python
+  set -gx PYTHONSTARTUP $HOME/.pystartup
+end
+
 ##############################
 # git related settings
 ##
