@@ -24,6 +24,7 @@ $HOME/bin/base16-shell \
 /usr/local/sbin \
 /home/linuxbrew/.linuxbrew/bin \
 /home/linuxbrew/.linuxbrew/sbin \
+/home/linuxbrew/.linuxbrew/opt/libressl/bin \
 /usr/bin \
 /bin \
 /sbin \
