@@ -50429,9 +50429,9 @@
 	<key>NSWindow Frame com.apple.typography_panel_ConsolasForPowerline</key>
 	<string>252 254 260 156 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>4 426 714 451 0 0 1440 877 </string>
+	<string>4 426 1436 451 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>719 426 714 451 0 0 1440 877 </string>
+	<string>5 43 1434 791 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 10</key>
 	<string>2 315 714 451 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 11</key>
@@ -50449,9 +50449,9 @@
 	<key>NSWindow Frame iTerm Window 17</key>
 	<string>719 343 714 452 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
-	<string>245 312 714 451 0 0 1440 877 </string>
+	<string>719 426 722 451 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 3</key>
-	<string>719 310 714 451 0 0 1440 877 </string>
+	<string>120 230 1218 485 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 4</key>
 	<string>599 399 714 451 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 5</key>
@@ -50705,6 +50705,8 @@
 			</dict>
 			<key>Blend</key>
 			<real>0.050000000000000003</real>
+			<key>Blink Allowed</key>
+			<true/>
 			<key>Blinking Cursor</key>
 			<false/>
 			<key>Blur</key>
@@ -51142,7 +51144,7 @@
 			<key>Place Prompt at First Column</key>
 			<false/>
 			<key>Prompt Before Closing 2</key>
-			<integer>1</integer>
+			<integer>2</integer>
 			<key>Right Option Key Sends</key>
 			<integer>0</integer>
 			<key>Rows</key>
@@ -51453,6 +51455,8 @@
 			</dict>
 			<key>Blend</key>
 			<real>0.050000000000000003</real>
+			<key>Blink Allowed</key>
+			<true/>
 			<key>Blinking Cursor</key>
 			<false/>
 			<key>Blur</key>
@@ -51892,7 +51896,7 @@
 			<key>Place Prompt at First Column</key>
 			<false/>
 			<key>Prompt Before Closing 2</key>
-			<integer>1</integer>
+			<integer>2</integer>
 			<key>Right Option Key Sends</key>
 			<integer>0</integer>
 			<key>Rows</key>
@@ -52199,6 +52203,8 @@
 			</dict>
 			<key>Blend</key>
 			<real>0.050000000000000003</real>
+			<key>Blink Allowed</key>
+			<true/>
 			<key>Blinking Cursor</key>
 			<false/>
 			<key>Blur</key>
@@ -52638,7 +52644,7 @@
 			<key>Place Prompt at First Column</key>
 			<false/>
 			<key>Prompt Before Closing 2</key>
-			<integer>1</integer>
+			<integer>2</integer>
 			<key>Right Option Key Sends</key>
 			<integer>0</integer>
 			<key>Rows</key>
@@ -52877,7 +52883,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2018-05-02T16:21:15Z</date>
+	<date>2018-05-20T00:53:01Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>ShowBookmarkName</key>
