@@ -138,6 +138,11 @@ case Linux
   # xclip to behave as intended.
   set -gx DISPLAY "127.0.0.1:11.0"
   set -gx XAUTHORITY "$HOME/.Xauthority"
+  if [ -d $HOME/.terminfo ]
+    set -gx TERMINFO "$HOME/.terminfo"
+  else
+    # DO NOTHING!
+  end
 
   if type -q nvim
     set -gx EDITOR nvim
