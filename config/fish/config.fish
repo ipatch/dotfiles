@@ -140,6 +140,7 @@ case Linux
   set -gx XAUTHORITY "$HOME/.Xauthority"
   if [ -d $HOME/.terminfo ]
     set -gx TERMINFO "$HOME/.terminfo"
+    set -gx TERM xterm
   else
     # DO NOTHING!
   end
