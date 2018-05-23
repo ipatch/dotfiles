@@ -9,7 +9,11 @@
 /* set default namespace to XUL */
 
 /* hide the bookmark toolbar icon labels */
-.toolbarbutton-icon {
+/* .toolbarbutton-icon { */
+/*   display: none !important; */
+/* } */
+
+#personal-bookmarks .bookmark-item > .toolbarbutton-icon {
   display: none !important;
 }
 
