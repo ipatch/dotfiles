@@ -1,5 +1,35 @@
-set mbox_type=Maildir
+##
+# User specific settings file for the mutt email client.
+# Contact: @ipatch <- github
+##
 
+# Identity
+set realname="Chris Jones"
+
+# set the terminal emulator to be used by mutt
+setenv TERM xterm-256color-italic
+
+# set the default `from` email address when sending an email using mutt
+set from = "me@chrisrjones.com"
+
+# Editor
+set editor='nvim +/^$ "+setlocal fo+=w spell" +noh'
+set text_flowed
+
+# Message formatting
+alternative_order text/plain text/html
+auto_view text/html
+
+# Set encoding for sent emails 
+set send_charset="us-ascii:utf-8"
+
+# Contact management
+set alias_file="=aliases"
+source $alias_file
+
+
+# Mailbox shit
+set mbox_type="Maildir"
  set spoolfile="~/Maildir/"
  set folder="~/Maildir/"
  set mask=".*"    # the default mask hides dotfiles and maildirs are dotfiles now.
