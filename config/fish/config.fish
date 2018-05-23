@@ -145,7 +145,7 @@ case Linux
     # DO NOTHING!
   end
   if [ -n $TMUX ]
-    set -gx TERM xterm-256color-italic
+    set -gx TERM tmux-256color
   else
     # DO NOTHING
   end
