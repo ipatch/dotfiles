@@ -24,7 +24,7 @@ silent execute '!mkdir -p $HOME/.local/.vim/tmp/backup'
 silent execute '!mkdir -p $HOME/.local/.vim/tmp/sessions'
 silent execute '!mkdir -p $HOME/.local/.vim/tmp/swap'
 silent execute '!mkdir -p $HOME/.local/.vim/tmp/undo'
-silent execute '!mkidr -p $HOME/.local/.vim/tmp/views'
+silent execute '!mkdir -p $HOME/.local/.vim/tmp/views'
 
 " Enable smart joining of commented lines.
 " TODO: figure out sane way to use `shift+j` and `shift+k` to join lines
