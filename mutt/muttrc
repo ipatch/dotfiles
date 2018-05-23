@@ -7,7 +7,7 @@
 set realname="Chris Jones"
 
 # set the terminal emulator to be used by mutt
-setenv TERM xterm-256color-italic
+# setenv TERM xterm-256color-italic
 
 # set the default `from` email address when sending an email using mutt
 set from = "me@chrisrjones.com"
