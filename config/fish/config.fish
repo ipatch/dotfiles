@@ -144,6 +144,11 @@ case Linux
   else
     # DO NOTHING!
   end
+  if [ -n $TMUX ]
+    set -gx TERM xterm-256color-italic
+  else
+    # DO NOTHING
+  end
 
   if type -q nvim
     set -gx EDITOR nvim
