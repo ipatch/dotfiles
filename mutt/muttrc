@@ -23,9 +23,10 @@ auto_view text/html
 # Set encoding for sent emails 
 set send_charset="us-ascii:utf-8"
 
+# TODO: setup mail aliases
 # Contact management
-set alias_file="=aliases"
-source $alias_file
+# set alias_file="=aliases"
+# source $alias_file
 
 
 # Mailbox shit
