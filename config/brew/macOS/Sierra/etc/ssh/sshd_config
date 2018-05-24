@@ -37,7 +37,7 @@ PermitRootLogin no
 #MaxSessions 10
 
 # RSAAuthentication yes       # DEPRECATED
-# PubkeyAuthentication ye     # DEPRECATEDs
+# PubkeyAuthentication ye     # DEPRECATED
 
 # The default is to check both .ssh/authorized_keys and .ssh/authorized_keys2
 # but this is overridden so installations will only check .ssh/authorized_keys
@@ -62,7 +62,7 @@ HostbasedAuthentication no
 PasswordAuthentication yes
 PermitEmptyPasswords no
 
-# Change to no to disable s/key passwords
+# Change to no to disable key passwords
 #ChallengeResponseAuthentication yes
 ChallengeResponseAuthentication no
 
@@ -86,17 +86,15 @@ ChallengeResponseAuthentication no
 # PAM authentication, then enable this but set PasswordAuthentication
 # and ChallengeResponseAuthentication to 'no'.
 #UsePAM no
+
+# NOTE: enabling this setting is SUPER crucial to getting OpenSSH working properly on macOS.
 UsePAM yes
 
-#AllowAgentForwarding yes
-#AllowTcpForwarding yes
 #GatewayPorts no
-#X11Forwarding no
 #X11DisplayOffset 10
 #X11UseLocalhost yes
 #PermitTTY yes
 #PrintMotd yes
-#PrintLastLog yes
 #TCPKeepAlive yes
 #UseLogin no
 #PermitUserEnvironment no
@@ -122,8 +120,11 @@ Subsystem	sftp	/usr/local/Cellar/openssh/7.7p1/libexec/sftp-server
 
 # Example of overriding settings on a per-user basis
 #Match User anoncvs
+# X11Forwarding no
 X11Forwarding yes
 XAuthLocation /opt/X11/bin/xauth
+AllowAgentForwarding yes
+AllowTcpForwarding yes
 
 #	AllowTcpForwarding no
 #	PermitTTY no
