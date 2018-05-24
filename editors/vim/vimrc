@@ -507,12 +507,7 @@ noremap <leader>c :Commentary<cr>
 """"""""""""""""""""""""""""""
 " plugin (kindof) ctags
 ""
-<<<<<<< HEAD
 " set tags=.tags,tags,./.git/tags,../tags,$HOME,.tags;
-=======
-" set tags=./tags,tags,./.git/tags,../tags,$HOME,.tags;
-
->>>>>>> 0ffb83ac01d5bbe0d50fe5777e45a3d8bafcd11b
 
 """"""""""""""""""""""""""""""
 " plugin - FZF
