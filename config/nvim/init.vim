@@ -51,5 +51,5 @@ let $PAGER=''
 let $MANPAGER=''
 
 set ttyfast " faster redrawing
-set shell=/bin/sh
+" set shell=/bin/sh
 

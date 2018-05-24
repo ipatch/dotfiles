@@ -14,7 +14,7 @@
 " `:set autoindent?`
 " SEE: `~/.vim/after/ftplugin/vim.vim` for settings related to `.vim`
 
-" Want to set this first, the default 'leader' key is `\`
+" Want to set this first, the default `leader` key is `\`
 let g:mapleader = ','                 " set the 'leader' key to `,`
 
 " Don't allow vi compatibility mode; don't need it 🤽‍♂️
