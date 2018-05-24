@@ -126,8 +126,8 @@ switch (uname)
     ##
     # brew OpenSSH built with LibreSSL
     ##
-    abbr -a ssh-start "launchctl start homebrew.mxcl.sshd"
-    abbr -a ssh-stop "launchctl stop homebrew.mxcl.ssshd"
+    abbr -a ssh-start "launchctl load /Library/LaunchDaemons/homebrew.mxcl.sshd.plist"
+    abbr -a ssh-stop "launchctl unload /Library/LaunchDaemons/homebrew.mxcl.sshd.plist"
     #
     # setup an alias for quicklook from the terminal in macOS
     abbr -a ql 'qlmanage -p'
