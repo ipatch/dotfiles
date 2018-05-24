@@ -122,6 +122,12 @@ switch (uname)
     # redis
     abbr -a redis-start "launchctl load ~/Library/LaunchAgents/homebrew.mxcl.redis.plist"
     abbr -a redis-stop "launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.redis.plist"
+
+    ##
+    # brew OpenSSH built with LibreSSL
+    ##
+    abbr -a ssh-start "launchctl start homebrew.mxcl.sshd"
+    abbr -a ssh-stop "launchctl stop homebrew.mxcl.ssshd"
     #
     # setup an alias for quicklook from the terminal in macOS
     abbr -a ql 'qlmanage -p'
@@ -143,5 +149,5 @@ if type -q ccat
 end
 
 if type -q nvim
-  abbr -a vim 'nvim'
+  # abbr -a vim 'nvim'
 end
