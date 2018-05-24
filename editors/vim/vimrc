@@ -109,25 +109,6 @@ set smarttab     " <tab>/<BS> indent/dedent in leading whitespace
 set showtabline=0                       " only show if 2 or more tabs.
 
 """""""""""""""""""""""""""""
-" plugin - buftabline
-" TODO: move these below in document with other plugin settings
-" NOTE: to reload `buftabline` settings `:call buftabline#update(0)`
-""
-" let g:buftabline_show=1 " only if >1 buffer
-let g:buftabline_show=2 " always show buffer bar.
-let g:buftabline_numbers=2 " oridnal number
-let g:buftabline_indicators=1 " display state of buffer, `+` = unsaved changes
-nmap <Leader>1 <Plug>BufTabLine.Go(1)
-nmap <Leader>2 <Plug>BufTabLine.Go(2)
-nmap <Leader>3 <Plug>BufTabLine.Go(3)
-nmap <Leader>4 <Plug>BufTabLine.Go(4)
-nmap <Leader>5 <Plug>BufTabLine.Go(5)
-nmap <Leader>6 <Plug>BufTabLine.Go(6)
-nmap <Leader>7 <Plug>BufTabLine.Go(7)
-nmap <Leader>8 <Plug>BufTabLine.Go(8)
-nmap <Leader>9 <Plug>BufTabline.Go(9)
-
-"""""""""""""""""""""""""""""
 " Key mappings / bindings
 ""
 " NOTE: the below configuration line will map the 'space bar' to ':' so that
@@ -178,15 +159,14 @@ nmap <S-j> ddp
 vmap <S-k> xkP`[V`]
 vmap <S-j> xp`[V`]
 
-" TESTDRVIVE: going to try the below mappings to see if they are useful for
-" navigating lines that have been virtually wrapped within a document.
+" navigate lines that have been virtually wrapped within a document as single.
 nnoremap j gj
 nnoremap k gk
 " NOTE: if the `<C-o>` is not specified then the `gj` or `gk` will literally be
 " printed to the screen.
 inoremap <Down> <C-o>gj
 inoremap <Up> <C-o>gk
-" TESTDRIVE: create a directory if it doesn't exist
+" create a directory if it doesn't exist
 nmap <silent> <leader>md :!mkdir -p %:p:h<CR>
 
 
@@ -278,8 +258,8 @@ inoremap <M-\> :Lexplore<cr>
 " Per default, netrw leaves unmodified buffers open. This autocommand
 " deletes netrw's buffer once it's hidden (using ':q', for example)
 augroup netrw_delete_hidden_augroup
-    autocmd!
-    autocmd FileType netrw setl bufhidden=delete
+  autocmd!
+  autocmd FileType netrw setl bufhidden=delete
 augroup END
 
 """"""""""""""""""""""""""""""
@@ -427,9 +407,9 @@ call minpac#add('christoomey/vim-tmux-navigator') " vim / tmux navigation 👍
 call minpac#add('slashmili/alchemist.vim') " useful for working with Elixir
 call minpac#add('tpope/vim-dispatch') " compile 💩  asynchronously
 call minpac#add('radenling/vim-dispatch-neovim') " dispatch using neovims terminal features
-call minpac#add('w0rp/ale') " ALE Asynchronous Linting Edition
+call minpac#add('w0rp/ale') " ALE Asynchronous Linting Engine
 call minpac#add('janko-m/vim-test') " a plugin for running test suites.
-call minpac#add('ludovicchabant/vim-gutentags') " auto generate ctags
+" call minpac#add('ludovicchabant/vim-gutentags') " auto generate ctags
 call minpac#add('tpope/vim-fugitive') " useful for displaying git branch
 call minpac#add('itchyny/lightline.vim') " lightweight status line.
 call minpac#add('ap/vim-buftabline') " lightweight buffer bar @ top.
@@ -439,6 +419,24 @@ call minpac#add('ap/vim-buftabline') " lightweight buffer bar @ top.
 "" 
 command! PackUpdate packadd minpac | source $MYVIMRC | call minpac#update()
 command! PackClean  packadd minpac | source $MYVIMRC | call minpac#clean()
+
+"""""""""""""""""""""""""""""
+" plugin - buftabline
+" NOTE: to reload `buftabline` settings `:call buftabline#update(0)`
+""
+" let g:buftabline_show=1 " only if >1 buffer
+let g:buftabline_show=2 " always show buffer bar.
+let g:buftabline_numbers=2 " oridnal number
+let g:buftabline_indicators=1 " display state of buffer, `+` = unsaved changes
+nmap <Leader>1 <Plug>BufTabLine.Go(1)
+nmap <Leader>2 <Plug>BufTabLine.Go(2)
+nmap <Leader>3 <Plug>BufTabLine.Go(3)
+nmap <Leader>4 <Plug>BufTabLine.Go(4)
+nmap <Leader>5 <Plug>BufTabLine.Go(5)
+nmap <Leader>6 <Plug>BufTabLine.Go(6)
+nmap <Leader>7 <Plug>BufTabLine.Go(7)
+nmap <Leader>8 <Plug>BufTabLine.Go(8)
+nmap <Leader>9 <Plug>BufTabline.Go(9)
 
 """""""""""""""""""""""""""""
 " vim-fugitive settings - https://github.com/tpope/vim-fugitive
@@ -504,12 +502,17 @@ noremap <leader>c :Commentary<cr>
 """"""""""""""""""""""""""""""
 " plugin - guntentags
 ""
-set statusline+=%{gutentags#statusline()} " update status line if tags are building
+" set statusline+=%{gutentags#statusline()} " update status line if tags are building
 
 """"""""""""""""""""""""""""""
 " plugin (kindof) ctags
 ""
+<<<<<<< HEAD
 " set tags=.tags,tags,./.git/tags,../tags,$HOME,.tags;
+=======
+" set tags=./tags,tags,./.git/tags,../tags,$HOME,.tags;
+
+>>>>>>> 0ffb83ac01d5bbe0d50fe5777e45a3d8bafcd11b
 
 """"""""""""""""""""""""""""""
 " plugin - FZF
@@ -556,8 +559,7 @@ augroup END
 
 """"""""""""""""""""""""""""""
 " markdown `.md` syntax support
-" TODO: see if below `augroup` autocmd's can be made more terse.
-" NOTE: `conceallevel=0` text is shown normally = no concealing 
+" NOTE: `conceallevel=0` equals text shown normally, ie. no concealing 
 ""
 autocmd BufNewFile,BufReadPost *.{md,markdown,mkd,mkdn} set filetype=markdown 
 " autocmd BufNewFile,BufRead *{.md,markdwon,mkd,mkdn} setlocal conceallevel=0
@@ -602,7 +604,6 @@ set foldcolumn=2 " width of gutter outlining folds
 ""
 let g:indentLine_setColors = 1 " overwrite colorscheme, use default grey
 let g:indentLine_setConceal = 0
-
 
 """"""""""""""""""""""""""""""
 " plugin - ale-config - settings / configuration
