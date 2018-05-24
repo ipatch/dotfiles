@@ -21,6 +21,9 @@ editors/vim/vim/tmp/*
 !/editors/vim/vim/tmp/backup/.gitkeep
 !/editors/vim/vim/tmp/view/.gitkeep
 !/editors/vim/vim/pack/.gitkeep
+!/editors/vim/vim/pack/minpac/.gitkeep
+!/editors/vim/vim/pack/minpac/opt/.gitkeep
+!/editors/vim/vim/pack/minpac/start/.gitkeep
 editors/vim/vim/pack/*
 editors/vim/vim/.netrwhist
 editors/vim/vim/bundle/*
