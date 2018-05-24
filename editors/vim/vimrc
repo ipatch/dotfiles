@@ -509,7 +509,7 @@ set statusline+=%{gutentags#statusline()} " update status line if tags are build
 """"""""""""""""""""""""""""""
 " plugin (kindof) ctags
 ""
-set tags=.tags,tags,./.git/tags,../tags,$HOME,.tags;
+" set tags=.tags,tags,./.git/tags,../tags,$HOME,.tags;
 
 """"""""""""""""""""""""""""""
 " plugin - FZF
