@@ -97,7 +97,7 @@ UsePAM yes
 #PrintMotd yes
 #TCPKeepAlive yes
 #UseLogin no
-#PermitUserEnvironment no
+PermitUserEnvironment yes 
 #Compression delayed
 #ClientAliveInterval 0
 #ClientAliveCountMax 3
