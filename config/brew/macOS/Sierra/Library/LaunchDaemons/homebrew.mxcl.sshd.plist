@@ -14,11 +14,11 @@
 	<key>ProgramArguments</key>
 	<array>
     <string>/usr/local/sbin/sshd</string>
+    <string>-i</string>
     <string>-f</string>
     <string>/usr/local/etc/ssh/sshd_config</string>
     <string>-E</string>
     <string>/usr/local/var/log/sshd.log</string>
-    <string>-i</string>
     <!-- <string>-o</string> -->
     <!-- <string>PidFile=/usr/local/var/run/ssh/sshd.pid</string> -->
 	</array>
@@ -48,8 +48,8 @@
   <string>/usr/local/var/log/sshd-error.log</string>
   <key>StandardOutPath</key>
   <string>/usr/local/var/log/sshd-out.log</string>
-	<!-- <key>SHAuthorizationRight</key> -->
-	<!-- <string>system.preferences</string> -->
+	<key>SHAuthorizationRight</key>
+	<string>system.preferences</string>
 	<key>POSIXSpawnType</key>
 	<string>Interactive</string>
 </dict>
