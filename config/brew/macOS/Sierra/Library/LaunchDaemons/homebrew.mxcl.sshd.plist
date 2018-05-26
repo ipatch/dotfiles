@@ -6,24 +6,26 @@
 	<!-- <true/> -->
 	<key>Label</key>
 	<string>homebrew.mxcl.sshd</string>
-	<!-- <key>Program</key> -->
+	<key>Program</key>
 	<!-- <string>/usr/libexec/sshd-keygen-wrapper</string> -->
-  <!-- <string>/usr/local/sbin/sshd</string> -->
-  <key>Program</key>
   <string>/usr/local/sbin/sshd</string>
-	<key>ProgramArguments</key>
+  <!-- <key>Program</key> -->
+  <key>ProgramArguments</key>
+	<!-- <key>ProgramArguments</key> -->
 	<array>
     <string>/usr/local/sbin/sshd</string>
-    <string>-i</string>
+    <!-- <string>/usr/local/sbin/sshd</string> -->
+    <!-- <string>-i</string> -->
+    <string>-d</string>
     <string>-f</string>
     <string>/usr/local/etc/ssh/sshd_config</string>
     <string>-E</string>
     <string>/usr/local/var/log/sshd.log</string>
-    <!-- <string>-o</string> -->
-    <!-- <string>PidFile=/usr/local/var/run/ssh/sshd.pid</string> -->
+    <string>-o</string>
+    <string>PidFile /usr/local/var/run/ssh/sshd.pid</string>
 	</array>
   <key>RunAtLoad</key>
-  <false/>
+  <true/>
 	<key>Sockets</key>
 	<dict>
 		<key>Listeners</key>
