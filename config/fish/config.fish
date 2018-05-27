@@ -150,7 +150,12 @@ case Linux
     # DO NOTHING
   end
 
-  if type -q nvim
+  if type -q vim
+    set -gx EDITOR vim
+    set -gx VISUAL vim
+    set -gx MYVIMRC $HOME/.vimrc
+    set -gx VIMDATA $HOME/.vim
+  else if nvim
     set -gx EDITOR nvim
     set -gx VISUAL nvim
     set -gx MYVIMRC $HOME/.vimrc
