@@ -201,6 +201,11 @@
 [merge]
   # Include summaries of merged commits in newly created merge commit messages
   log = true
+  tool = vimdiff
+  conflictstyle = diff3
+
+[mergetool]
+  prompt = false
 
 [push]
   default = simple # git 1.8+ required
