@@ -109,16 +109,22 @@ else
   # echo "Your gunna need to do a `brew install rlwrap`"
 end
 
+################
+# working with brew src
+##
+if type -q brew
+  abbr -a cd-brew-src "cd (brew --prefix)/Homebrew/Library/Taps/homebrew/homebrew-core"
+end
+
 switch (uname)
   case Darwin
     ################
-    #
     # homebrew specifc abbreviations
-    #
+    ##
     # postgresql
     abbr -a pg-start "launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist"
     abbr -a pg-stop "launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist"
-    #
+    ##
     # redis
     abbr -a redis-start "launchctl load ~/Library/LaunchAgents/homebrew.mxcl.redis.plist"
     abbr -a redis-stop "launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.redis.plist"
@@ -137,9 +143,8 @@ switch (uname)
     abbr -a mac-updatedb 'sudo /usr/libexec/locate.updatedb'
 end
 ################
-#
 # Add special 🚌 aliases if certain binaries are found.
-#
+##
 if type -q pycp
   # abbr -a cp 'pycp -i'
 end
