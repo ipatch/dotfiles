@@ -1,3 +1,4 @@
+scriptencoding utf-8
 """"""""""""""""""""""""""""""
 "  ~ My init.vim ~ for Neovim
 """"""""""""""""""""""""""""""
@@ -56,7 +57,7 @@ set ttyfast " faster redrawing
 """"""""""""""""""""""""""""""
 " settings for displaying errors
 ""
-let errorformat =
+let g:errorformat =
   \ '%f:%l:%c: %trror: %m,' .
   \ '%f:%l:%c: %tarning: %m,' .
   \ '%f:%l:%c: %tote: %m'
