@@ -22,6 +22,8 @@ auto_view text/html
 
 # Set encoding for sent emails 
 set send_charset="us-ascii:utf-8"
+# Set encoding for reading emails
+set charset = "us-ascii:utf-8"
 
 # TODO: setup mail aliases
 # Contact management
