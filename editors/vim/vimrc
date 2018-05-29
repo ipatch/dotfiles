@@ -1,6 +1,8 @@
+set encoding=utf-8                    " terminal output encoding
+set fileencoding=utf-8                " Set utf-8 encoding on write
+scriptencoding utf-8
 """"""""""""""""""""""""""""""
 " ~ VIMRC ~ for Vim >= 8 && Neovim
-""""""""""""""""""""""""""""""
 " Author: Chris Jones
 " Source: http://github.com/ipatch/dotfiles/blob/master/editors/vim/vimrc
 " Source: https://git.io/vpEKR
@@ -8,21 +10,24 @@
 
 """"""""""""""""""""""""""""""
 " Notes / gotchas
+" NOTE: this rc file is being linted with `vint`
+" NOTE: https://github.com/Kuniwak/vint
 ""
 
 " To print the value of a below setting, ie. return the value set,
 " `:set autoindent?`
 " SEE: `~/.vim/after/ftplugin/vim.vim` for settings related to `.vim`
 
+
 " Want to set this first, the default `leader` key is `\`
 let g:mapleader = ','                 " set the 'leader' key to `,`
 
 " Don't allow vi compatibility mode; don't need it 🤽‍♂️
-set nocompatible
+" set nocompatible "Enable at own risk, can have undesired effects
+" SEE: `:help nocompatible` for more info.
+""
 " Settings
 set mouse=a                           " enable mouse support
-set fileencoding=utf-8                " Set utf-8 encoding on write
-set encoding=utf-8                    " terminal output encoding
 set termencoding=utf-8
 set title                             " Set the title on the terminal tab
 set number " display the absolute number on the current line
@@ -37,7 +42,7 @@ set showcmd                           " Show incomplete cmds in lower right
 set noshowmode                        " let status line show mode
 set laststatus=2
 set modelines=5
-set vb t_vb=
+set visualbell t_vb= " DON'T abbrev to `vb` use `visualbell`
 """"""""""""""""""""""""""""""
 " hidden chars
 ""
@@ -97,7 +102,7 @@ set tabstop=2        " Indicates how many `spaces` a `tab` will indent
 set expandtab                           " spaces are better than tabs 💥
 set nofoldenable
 set tabstop=2
-set ai                                  " set auto indent
+set autoindent " DON'T abbrv to `ai`, use `autointdent` set auto indent
 set smartindent
 set hidden                              " set sane buffer switching
 set smarttab     " <tab>/<BS> indent/dedent in leading whitespace
@@ -209,7 +214,9 @@ cnoreabbrev T tabe
 """"""""""""""""""""""""""""""
 " colorscheme
 ""
-let base16colorspace = 256 " Access colors present in 256 colorspace
+" NOTE: make scope explicit, ie. `let g:[mr-fancy-setting]` NOT `let
+" [mr-fancy-setting`
+let g:base16colorspace = 256 " Access colors present in 256 colorspace
 colorscheme base16-default-dark
 
 """"""""""""""""""""""""""""""
@@ -241,7 +248,7 @@ endfunction
 nnoremap <silent> ` :call ToggleConcealLevel()<CR>
 " set default conceal level
 " NOTE: if `indentLine` is installed it will control all the conceal levels
-set cole=0 " DO NOT conceal any text
+set conceallevel=0 " DO NOT conceal any text
 
 """""""""""""""""""""""""""""
 " netrw - file explorer
@@ -311,11 +318,11 @@ set scrolloff=3 " start scrolling 3 lines before edge of viewport
 
 " load `fzf` from homebrew install
 if has('macunix')
-  set rtp+=/usr/local/opt/fzf
+  set runtimepath+=/usr/local/opt/fzf
 endif
 
 if has('unix')
-  set rtp+=/home/linuxbrew/.linuxbrew/bin/fzf
+  set runtimepath+=/home/linuxbrew/.linuxbrew/bin/fzf
 endif
 
 " NOTE: clone minpac first before installing plugins.
@@ -399,9 +406,9 @@ else
         \ }
 
   function! LightlineFilename()
-    let filename = expand('%:t') !=# '' ? expand('%:t') : '[No Name]'
-    let modified = &modified ? ' +' : ''
-    return filename . modified
+    let l:filename = expand('%:t') !=# '' ? expand('%:t') : '[No Name]'
+    let l:modified = &modified ? ' +' : ''
+    return l:filename . l:modified
   endfunction
 
   """""""""""""""
@@ -441,7 +448,7 @@ else
   """"""""""""""""""""""""""""""
   " plugin - FZF
   ""
-  if &runtimepath =~ 'fzf'
+  if &runtimepath =~# 'fzf'
     nmap ; :Buffers<CR>
     nmap <Leader>f :Files<CR>
     command! FZFMru call fzf#run({
