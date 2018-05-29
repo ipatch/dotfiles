@@ -1,3 +1,8 @@
+scriptencoding utf-8
+
+
+👍
+
 """""""""""""""""""""""""""""
 " ~ settings.vim ~
 ""
