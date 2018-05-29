@@ -306,7 +306,7 @@ set wildignore+=*.bmp,*.gif,*.ico,*.jpg,*.png,*.pdf,*.psd,*.git/*,session.vim
 """"""""""""""""""""""""""""""
 " Scrolling
 ""
-set scrolloff=3              " start scrolling 3 lines before edge of viewport
+set scrolloff=3 " start scrolling 3 lines before edge of viewport
 
 " load `fzf` from homebrew install
 if has('macunix')
@@ -319,12 +319,194 @@ endif
 
 " NOTE: minpac will need to be cloned from github before packages can be installed.
 set packpath^=~/.vim
-packadd minpac
-call minpac#init()
-call minpac#add('k-takata/minpac', {'type': 'opt'})
+" Try to load minpac.
+silent! packadd minpac
+
+if !exists('*minpac#init')
+  " minpac is NOT available
+
+  " Settings for plugin-less environment.
+else
+  call minpac#init()
+  call minpac#add('k-takata/minpac', {'type': 'opt'})
+
+  " Load additional plugins here.
+  """"""""""""""""""""""""""""""
+  " minpac - plugins
+  ""
+  call minpac#add('machakann/vim-highlightedyank') " name says it all
+  call minpac#add('chriskempson/base16-vim') " pretty colors üåà and aesthetics 
+  call minpac#add('Yggdroot/indentLine') " Add vertical indentation lines
+  call minpac#add('sheerun/vim-polyglot') " lazy load syntax highlighting
+  call minpac#add('tpope/vim-commentary') " quickly comment lines, ie. Atom
+  call minpac#add('junegunn/fzf') " required! the below won't work without this!
+  call minpac#add('junegunn/fzf.vim') " fuzzy finding goodness
+  call minpac#add('christoomey/vim-tmux-navigator') " vim / tmux navigation üëç
+  " call minpac#add('slashmili/alchemist.vim') " useful for working with Elixir
+  " call minpac#add('tpope/vim-dispatch') " compile üí©  asynchronously
+  " call minpac#add('radenling/vim-dispatch-neovim') " dispatch using neovims terminal features
+  call minpac#add('w0rp/ale') " ALE Asynchronous Linting Engine
+  " call minpac#add('janko-m/vim-test') " a plugin for running test suites.
+  " call minpac#add('ludovicchabant/vim-gutentags') " auto generate ctags
+  call minpac#add('tpope/vim-fugitive') " useful for displaying git branch
+  call minpac#add('itchyny/lightline.vim') " lightweight status line.
+  call minpac#add('ap/vim-buftabline') " lightweight bufferbar @ top, show open buffers.
+
+  """""""""""""""""""""""""""""
+  " minpac - commands
+  "" 
+  command! PackUpdate packadd minpac | source $MYVIMRC | call minpac#update()
+  command! PackClean  packadd minpac | source $MYVIMRC | call minpac#clean()
+
+  " Plugin settings here.
+
+  """""""""""""""""""""""""""""
+  " plugin - buftabline
+  " NOTE: to reload `buftabline` settings `:call buftabline#update(0)`
+  ""
+  " let g:buftabline_show=1 " only if >1 buffer
+  let g:buftabline_show=2 " always show buffer bar.
+  let g:buftabline_numbers=2 " oridnal number
+  let g:buftabline_indicators=1 " display state of buffer, `+` = unsaved changes
+  nmap <Leader>1 <Plug>BufTabLine.Go(1)
+  nmap <Leader>2 <Plug>BufTabLine.Go(2)
+  nmap <Leader>3 <Plug>BufTabLine.Go(3)
+  nmap <Leader>4 <Plug>BufTabLine.Go(4)
+  nmap <Leader>5 <Plug>BufTabLine.Go(5)
+  nmap <Leader>6 <Plug>BufTabLine.Go(6)
+  nmap <Leader>7 <Plug>BufTabLine.Go(7)
+  nmap <Leader>8 <Plug>BufTabLine.Go(8)
+  nmap <Leader>9 <Plug>BufTabline.Go(9)
+
+
+  """""""""""""""""""""""""""""
+  " vim-fugitive settings - https://github.com/tpope/vim-fugitive
+  ""
+  " NOTE: let `lightline.vim` hanlde displaying the current git branch on status
+  " line
+  " set statusline=%{fugitive#statusline()}
+
+  """""""""""""""""""""""""""""
+  " plugin - lightline.vim
+  ""
+  let g:lightline = {
+        \ 'active': {
+        \ 'left': [ [ 'mode', 'paste' ],
+        \           [ 'gitbranch', 'readonly', 'filename' ] ],
+        \ },
+        \ 'component_function': {
+        \ 'gitbranch': 'fugitive#head',
+        \ 'filename': 'LightlineFilename'
+        \ },
+        \ }
+
+  function! LightlineFilename()
+    let filename = expand('%:t') !=# '' ? expand('%:t') : '[No Name]'
+    let modified = &modified ? ' +' : ''
+    return filename . modified
+  endfunction
+
+  """""""""""""""
+  " plugin - lightline - mode map
+  " NOTE: abbreviations for mode maps
+  " n - normal
+  " i - insert
+  " R - replace
+  " v - visual
+  " V - v-line
+  " c - command
+  " s - select
+  " S - s-line
+  " t - terminal
+  ""
+  let g:lightline.mode_map = {
+        \ 'n' : 'N',
+        \ 'i' : 'I',
+        \ 'R' : 'REPLACE',
+        \ 'v' : 'VISUAL',
+        \ 'V' : 'V-LINE',
+        \ "\<C-v>": 'V-BLOCK',
+        \ 'c' : 'COMMAND',
+        \ 's' : 'SELECT',
+        \ 'S' : 'S-LINE',
+        \ "\<C-s>": 'S-BLOCK',
+        \ 't': 'TERMINAL',
+        \ }
+
+  """"""""""""""""""""""""""""""
+  " plugin - commentary
+  ""
+  " Easy commenting of lines using tpope's plugin.
+  " CREDIT: üí≥ https://github.com/neovim/neovim/issues/5052#issuecomment-232083842
+  noremap <leader>c :Commentary<cr>
+
+  """"""""""""""""""""""""""""""
+  " plugin - FZF
+  ""
+  if &runtimepath =~ 'fzf'
+    nmap ; :Buffers<CR>
+    nmap <Leader>f :Files<CR>
+    command! FZFMru call fzf#run({
+          \  'source':  v:oldfiles,
+          \  'sink':    'e',
+          \  'options': '-m -x +s',
+          \  'down':    '40%'})
+    nmap <Leader>r :FZFMru<CR>
+    nnoremap <C-p> :<C-u>FZF<CR>
+    nnoremap <Leader>b :Buffers<CR>
+    nnoremap <Leader>t :BTags<CR>
+    nnoremap <Leader>m :History<CR>
+
+    " You can set up fzf window using a Vim command (Neovim or Vim 8 required)
+    let g:fzf_layout = { 'window': 'enew' }
+    let g:fzf_layout = { 'window': '-tabnew' }
+    let g:fzf_layout = { 'window': '10split enew' }
+
+    " --column: Show column number
+    " --line-number: Show line number
+    " --no-heading: Do not show file headings in results
+    " --fixed-strings: Search term as a literal string
+    " --ignore-case: Case insensitive search
+    " --no-ignore: Do not respect .gitignore, etc...
+    " --hidden: Search hidden files and folders
+    " --follow: Follow symlinks
+    " --glob: Additional conditions for search (in this case ignore everything in the .git/ folder)
+    " --color: Search color options
+
+    command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>), 1, <bang>0)
+  endif
+
+  """""""""""""""""""""""""""""
+  " plugin - indentLine - settings / configuration
+  ""
+  " SEE: https://github.com/Yggdroot/indentLine
+  ""
+  let g:indentLine_setColors = 1 " overwrite colorscheme, use default grey
+  let g:indentLine_setConceal = 0
+
+  """"""""""""""""""""""""""""""
+  " plugin - ale-config - settings / configuration
+  ""
+  let g:ale_linters = {
+        \ 'javascript': ['eslint'],
+        \ }
+  " Mappings in the style of unimpaired-next
+  nmap <silent> [W <Plug>(ale_first)
+  nmap <silent> [w <Plug>(ale_previous)
+  nmap <silent> ]w <Plug>(ale_next)
+  nmap <silent> ]W <Plug>(ale_last)
+
+  let g:ale_lint_on_text_changed = 'never'
+  let g:ale_lint_on_save = 1 " default
+  let g:ale_lint_on_enter = 0
+  let g:ale_lint_on_filetype_changed = 0
+  let g:ale_sign_error                 = '‚å¶'
+  let g:ale_sign_warning               = '‚òû'
+
+endif " END of git plugin settings loaded via minpac
 
 """""""""""""""""""""""""""""
-" Neovim - specific settings 
+" Neovim only settings 
 ""
 if has('nvim')
   let g:loaded_sensible=0
@@ -372,13 +554,13 @@ endif
 """"""""""""""""""""""""""""""
 " clipboard
 ""
-if has('clipboard')
-  if has('unnamedplus') && !has('nvim') " When possible use `+` register for copy-paste
-    set clipboard=unnamed,unnamedplus
-  else
-    set clipboard=unnamed
-  endif
-endif
+" if has('clipboard')
+"   if has('unnamedplus') && !has('nvim') " When possible use `+` register for copy-paste
+"     set clipboard=unnamed,unnamedplus
+"   else
+"     set clipboard=unnamed
+"   endif
+" endif
 
 " get sane copy / paste within nvim using iTerm2
 " CREDIT: 💳 https://github.com/neovim/neovim/issues/5052#issuecomment-232083842
@@ -394,112 +576,6 @@ nnoremap <M-z> u
 inoremap <M-z> <C-o>u
 
 """"""""""""""""""""""""""""""
-" minpac - plugins
-""
-call minpac#add('machakann/vim-highlightedyank') " name says it all
-call minpac#add('chriskempson/base16-vim') " pretty colors 🌈 and aesthetics 
-call minpac#add('Yggdroot/indentLine') " Add vertical indentation lines
-call minpac#add('sheerun/vim-polyglot') " lazy load syntax highlighting
-call minpac#add('tpope/vim-commentary') " quickly comment lines, ie. Atom
-call minpac#add('junegunn/fzf') " required! the below won't work without this!
-call minpac#add('junegunn/fzf.vim') " fuzzy finding goodness
-call minpac#add('christoomey/vim-tmux-navigator') " vim / tmux navigation 👍
-call minpac#add('slashmili/alchemist.vim') " useful for working with Elixir
-call minpac#add('tpope/vim-dispatch') " compile 💩  asynchronously
-call minpac#add('radenling/vim-dispatch-neovim') " dispatch using neovims terminal features
-call minpac#add('w0rp/ale') " ALE Asynchronous Linting Engine
-call minpac#add('janko-m/vim-test') " a plugin for running test suites.
-" call minpac#add('ludovicchabant/vim-gutentags') " auto generate ctags
-call minpac#add('tpope/vim-fugitive') " useful for displaying git branch
-call minpac#add('itchyny/lightline.vim') " lightweight status line.
-call minpac#add('ap/vim-buftabline') " lightweight buffer bar @ top.
-
-"""""""""""""""""""""""""""""
-" minpac - commands
-"" 
-command! PackUpdate packadd minpac | source $MYVIMRC | call minpac#update()
-command! PackClean  packadd minpac | source $MYVIMRC | call minpac#clean()
-
-"""""""""""""""""""""""""""""
-" plugin - buftabline
-" NOTE: to reload `buftabline` settings `:call buftabline#update(0)`
-""
-" let g:buftabline_show=1 " only if >1 buffer
-let g:buftabline_show=2 " always show buffer bar.
-let g:buftabline_numbers=2 " oridnal number
-let g:buftabline_indicators=1 " display state of buffer, `+` = unsaved changes
-nmap <Leader>1 <Plug>BufTabLine.Go(1)
-nmap <Leader>2 <Plug>BufTabLine.Go(2)
-nmap <Leader>3 <Plug>BufTabLine.Go(3)
-nmap <Leader>4 <Plug>BufTabLine.Go(4)
-nmap <Leader>5 <Plug>BufTabLine.Go(5)
-nmap <Leader>6 <Plug>BufTabLine.Go(6)
-nmap <Leader>7 <Plug>BufTabLine.Go(7)
-nmap <Leader>8 <Plug>BufTabLine.Go(8)
-nmap <Leader>9 <Plug>BufTabline.Go(9)
-
-"""""""""""""""""""""""""""""
-" vim-fugitive settings - https://github.com/tpope/vim-fugitive
-""
-" NOTE: let `lightline.vim` hanlde displaying the current git branch on status
-" line
-" set statusline=%{fugitive#statusline()}
-
-"""""""""""""""""""""""""""""
-" plugin - lightline.vim
-""
-let g:lightline = {
-      \ 'active': {
-      \ 'left': [ [ 'mode', 'paste' ],
-      \           [ 'gitbranch', 'readonly', 'filename' ] ],
-      \ },
-      \ 'component_function': {
-      \ 'gitbranch': 'fugitive#head',
-      \ 'filename': 'LightlineFilename'
-      \ },
-      \ }
-
-function! LightlineFilename()
-  let filename = expand('%:t') !=# '' ? expand('%:t') : '[No Name]'
-  let modified = &modified ? ' +' : ''
-  return filename . modified
-endfunction
-
-"""""""""""""""
-" plugin - lightline - mode map
-" NOTE: abbreviations for mode maps
-" n - normal
-" i - insert
-" R - replace
-" v - visual
-" V - v-line
-" c - command
-" s - select
-" S - s-line
-" t - terminal
-""
-let g:lightline.mode_map = {
-      \ 'n' : 'N',
-      \ 'i' : 'I',
-      \ 'R' : 'REPLACE',
-      \ 'v' : 'VISUAL',
-      \ 'V' : 'V-LINE',
-      \ "\<C-v>": 'V-BLOCK',
-      \ 'c' : 'COMMAND',
-      \ 's' : 'SELECT',
-      \ 'S' : 'S-LINE',
-      \ "\<C-s>": 'S-BLOCK',
-      \ 't': 'TERMINAL',
-      \ }
-
-""""""""""""""""""""""""""""""
-" plugin - commentary
-""
-" Easy commenting of lines using tpope's plugin.
-" CREDIT: 💳 https://github.com/neovim/neovim/issues/5052#issuecomment-232083842
-noremap <leader>c :Commentary<cr>
-
-""""""""""""""""""""""""""""""
 " plugin - guntentags
 ""
 " set statusline+=%{gutentags#statusline()} " update status line if tags are building
@@ -508,42 +584,6 @@ noremap <leader>c :Commentary<cr>
 " plugin (kindof) ctags
 ""
 " set tags=.tags,tags,./.git/tags,../tags,$HOME,.tags;
-
-""""""""""""""""""""""""""""""
-" plugin - FZF
-""
-if &runtimepath =~ 'fzf'
-  nmap ; :Buffers<CR>
-  nmap <Leader>f :Files<CR>
-  command! FZFMru call fzf#run({
-        \  'source':  v:oldfiles,
-        \  'sink':    'e',
-        \  'options': '-m -x +s',
-        \  'down':    '40%'})
-  nmap <Leader>r :FZFMru<CR>
-  nnoremap <C-p> :<C-u>FZF<CR>
-  nnoremap <Leader>b :Buffers<CR>
-  nnoremap <Leader>t :BTags<CR>
-  nnoremap <Leader>m :History<CR>
-
-  " You can set up fzf window using a Vim command (Neovim or Vim 8 required)
-  let g:fzf_layout = { 'window': 'enew' }
-  let g:fzf_layout = { 'window': '-tabnew' }
-  let g:fzf_layout = { 'window': '10split enew' }
-
-  " --column: Show column number
-  " --line-number: Show line number
-  " --no-heading: Do not show file headings in results
-  " --fixed-strings: Search term as a literal string
-  " --ignore-case: Case insensitive search
-  " --no-ignore: Do not respect .gitignore, etc...
-  " --hidden: Search hidden files and folders
-  " --follow: Follow symlinks
-  " --glob: Additional conditions for search (in this case ignore everything in the .git/ folder)
-  " --color: Search color options
-
-  command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>), 1, <bang>0)
-endif
 
 """"""""""""""""""""""""""""""
 " filetype syntax highlighting 🌈  shit 💩
@@ -592,30 +632,5 @@ set foldcolumn=2 " width of gutter outlining folds
 " NOTE: DON'T ENABLE `autochdir` makes easier for managing `session.vim` files
 " set autochdir " set working directory to the current file
 
-"""""""""""""""""""""""""""""
-" plugin - indentLine - settings / configuration
-""
-" SEE: https://github.com/Yggdroot/indentLine
-""
-let g:indentLine_setColors = 1 " overwrite colorscheme, use default grey
-let g:indentLine_setConceal = 0
 
-""""""""""""""""""""""""""""""
-" plugin - ale-config - settings / configuration
-""
-let g:ale_linters = {
-      \ 'javascript': ['eslint'],
-      \ }
-" Mappings in the style of unimpaired-next
-nmap <silent> [W <Plug>(ale_first)
-nmap <silent> [w <Plug>(ale_previous)
-nmap <silent> ]w <Plug>(ale_next)
-nmap <silent> ]W <Plug>(ale_last)
-
-let g:ale_lint_on_text_changed = 'never'
-let g:ale_lint_on_save = 1 " default
-let g:ale_lint_on_enter = 0
-let g:ale_lint_on_filetype_changed = 0
-let g:ale_sign_error                 = '⌦'
-let g:ale_sign_warning               = '☞'
 
