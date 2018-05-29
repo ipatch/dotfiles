@@ -500,8 +500,10 @@ else
   let g:ale_lint_on_save = 1 " default
   let g:ale_lint_on_enter = 0
   let g:ale_lint_on_filetype_changed = 0
-  let g:ale_sign_error                 = '‚å¶'
-  let g:ale_sign_warning               = '‚òû'
+  let g:ale_sign_error                 = '>>'
+  let g:ale_sign_warning               = '--'
+  highlight clear ALEErrorSign
+  highlight clear ALEWarningSign
 
 endif " END of git plugin settings loaded via minpac
 
