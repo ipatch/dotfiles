@@ -1,10 +1,10 @@
 """"""""""""""""""""""""""""""
-"  ~ My init.vim ~ for neovim
+"  ~ My init.vim ~ for Neovim
 """"""""""""""""""""""""""""""
 " Author: Chris Jones [http://chrisrjones.com]
 " Source: https://github.com/ipatch/dotfiles/blob/master/config/nvim/init.vim
 ""
-" NOTE: see `$HOME/vimcrc` for more settings
+" NOTE: see `$HOME/.vimrc` for more settings
 
 """"""""""""""""""""""""""""""
 " Load vim configuration, runtimepath, packpath, and .vimrc
@@ -33,23 +33,31 @@ if has('unix')
   " :echo has('clipboard')
 
   " Clipboard integration
-  set clipboard+=unnamedplus
+  " set clipboard+=unnamedplus
 
   " Try and get `command + c` to work on remote linux servers
   vnoremap <M-c> "+y
 
 endif
 
-"""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""
 " set (n)vim as pager
 ""
 let $PAGER=''
 
-"""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""
 " set nvim to manpager in env var
 "" 
 let $MANPAGER=''
 
 set ttyfast " faster redrawing
 " set shell=/bin/sh
+
+""""""""""""""""""""""""""""""
+" settings for displaying errors
+""
+let errorformat =
+  \ '%f:%l:%c: %trror: %m,' .
+  \ '%f:%l:%c: %tarning: %m,' .
+  \ '%f:%l:%c: %tote: %m'
 
