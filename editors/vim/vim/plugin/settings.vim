@@ -5,6 +5,9 @@ scriptencoding utf-8
 
 " üëç
 
+" üëç 
+
+"
 
 """""""""""""""""""""""""""""
 " ~ settings.vim ~
