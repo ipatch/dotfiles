@@ -3,7 +3,7 @@
 ""
 
 """"""""""""""""""""""""""""""
-" Optional settings
+" Optional settings for tmp files
 ""
 " set directory=~/.vim/tmp/backup                 " for the backup files
 " set directory=~/.vim/tmp/sessions               " for the session files
@@ -41,8 +41,8 @@ if exists('$SUDO_USER') " setup backup files for Vim & Neovim
   set nowritebackup       " don't create backup files for root
 else
   " backup files to `~/.vim` first if dir exists, if can't write then `~/.local`
-  set directory=~/.vim/tmp/backup      " keep backup files out of the way
-  set directory+=~/.local/.vim/tmp/backup 
+  set directory=~/.vim/tmp/backup//      " keep backup files out of the way
+  set directory+=~/.local/.vim/tmp/backup// 
   set directory+=. " as a last resort put backup files in the current directory.
 endif
 
@@ -102,7 +102,6 @@ if has('persistent_undo')
     set updatetime=2000                   " CursorHold intervalendif
   endif
 endif
-
 
 """"""""""""""""""""""""""""""
 " session - settings
