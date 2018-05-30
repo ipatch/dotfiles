@@ -267,9 +267,18 @@ if has('clipboard')
     else
       " catch all for clipboard
     endif
-  else
+  elseif has('unnamed')
     set clipboard+=unnamed " NOTE: also known as `*`
-  endif " NOTE: if (n)vim has access to both clipboards will put copy / paste operations into both clipboards.
+    if g:os == 'macos'
+      let g:clipboard = 'pbcopy'
+    elseif g:os == 'linux'
+      let g:clipboard = 'xclip'
+    elseif g:os == 'win'
+      " set windows clipboard
+    else
+      " catch all for clipboard
+    endif
+  endif " NOTE: if (n)vim has access to both clipboards it will put copy / paste operations into both clipboards.
 " sane copy / paste within nvim using iTerm2
 " CREDIT: 💳 https://github.com/neovim/neovim/issues/5052#issuecomment-232083842
   vnoremap <M-c> "+y
