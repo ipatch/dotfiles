@@ -258,22 +258,22 @@ let g:os = GetRunningOS()
 if has('clipboard')
   if has('unnamedplus')
     set clipboard+=unnamedplus " NOTE: also know as `*`
-    if g:os == 'macos'
+    if g:os ==? 'macos'
       let g:clipboard = 'pbcopy'
-    elseif g:os == 'linux'
+    elseif g:os ==? 'linux'
       let g:clipboard = 'xclip'
-    elseif g:os == 'win'
+    elseif g:os ==? 'win'
       " set windows clipboard
     else
       " catch all for clipboard
     endif
   elseif has('unnamed')
     set clipboard+=unnamed " NOTE: also known as `*`
-    if g:os == 'macos'
+    if g:os ==? 'macos'
       let g:clipboard = 'pbcopy'
-    elseif g:os == 'linux'
+    elseif g:os ==? 'linux'
       let g:clipboard = 'xclip'
-    elseif g:os == 'win'
+    elseif g:os ==? 'win'
       " set windows clipboard
     else
       " catch all for clipboard
