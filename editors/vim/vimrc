@@ -1,6 +1,40 @@
-set encoding=utf-8                    " terminal output encoding
+" set encoding=utf-8                    " terminal output encoding
 set fileencoding=utf-8                " Set utf-8 encoding on write
 scriptencoding utf-8
+" set ambiwidth=double " conflicts with `listchars`
+
+" 👍 copy me
+
+" üëç copy me
+
+
+" üëç copy me
+
+
+" üëç
+"
+"
+" üëå
+
+" üëå
+
+
+
+
+" 👍 copy me
+
+" 👍
+
+" üëå
+"
+"
+" Ô£ø√º√´√•
+
+" Ô£ø√º√´√•
+
+
+
+
 """"""""""""""""""""""""""""""
 " ~ VIMRC ~ for Vim >= 8 && Neovim
 " Author: Chris Jones
@@ -26,9 +60,10 @@ let g:mapleader = ','                 " set the 'leader' key to `,`
 " set nocompatible "Enable at own risk, can have undesired effects
 " SEE: `:help nocompatible` for more info.
 ""
+
 " Settings
 set mouse=a                           " enable mouse support
-set termencoding=utf-8
+" set termencoding=utf-8
 set title                             " Set the title on the terminal tab
 set number " display the absolute number on the current line
 set relativenumber                    " Show numbers relative to current line
@@ -42,7 +77,8 @@ set showcmd                           " Show incomplete cmds in lower right
 set noshowmode                        " let status line show mode
 set laststatus=2
 set modelines=5
-set visualbell t_vb= " DON'T abbrev to `vb` use `visualbell`
+set visualbell t_vb= " DON'T abbr to `vb` use `visualbell`
+
 """"""""""""""""""""""""""""""
 " hidden chars
 ""
@@ -114,10 +150,12 @@ set smarttab     " <tab>/<BS> indent/dedent in leading whitespace
 set showtabline=0                       " only show if 2 or more tabs.
 
 """""""""""""""""""""""""""""
-" Key mappings / bindings
+" Settings - map mapping Key mappings / bindings binding
 ""
-" NOTE: the below configuration line will map the 'space bar' to ':' so that
-" way 'Shift+;' does not have to be pressed to begin a command in normal mode.
+" NOTE: `meta` ie. `⌘.` within iTerm2 require escape sequences to be mapped
+" NOTE: apparently `:map` and `:map!` will map to all modes of (n)vim
+" NOTE: the below configuration line will map the `spacebar` to ':' so that
+" way `Shift+;` does not have to be pressed to begin a command in normal mode.
 nmap <space> :
 
 " cmap ,, <ESC> " NOTE: the following key binding did not work.
@@ -179,7 +217,6 @@ inoremap <Up> <C-o>gk
 " create a directory if it doesn't exist
 nmap <silent> <leader>md :!mkdir -p %:p:h<CR>
 
-
 """""""""""""""""""""""""""""
 " Useful hacks for working with `$HOME/.vimrc` or `$MYVIMRC`
 ""
@@ -198,8 +235,29 @@ map ,t :tabe <C-R>=expand("%:p:h") . "/" <CR>
 " If you opened a readonly file, ie. /etc/hosts `w!!` will solve :)
 cmap w!! w !sudo tee % >/dev/null %
 
+
 """"""""""""""""""""""""""""""
-" Buffer Handling
+" settings - clipboard
+""
+if has('clipboard')
+  if has('unnamedplus')
+    set clipboard+=unnamedplus " NOTE: also know as `*`
+  else
+    set clipboard+=unnamed " NOTE: also known as `*`
+  endif " NOTE: if (n)vim has access to both clipboards will put copy / paste operations into both clipboards.
+" sane copy / paste within nvim using iTerm2
+" CREDIT: 💳 https://github.com/neovim/neovim/issues/5052#issuecomment-232083842
+  vnoremap <M-c> "+y
+  nnoremap <M-v> "+p
+  inoremap <M-v> <esc>"+p
+endif
+
+" Generic undo using `⌘ + z` for normal and insert modes
+nnoremap <M-z> u
+inoremap <M-z> <C-o>u
+
+""""""""""""""""""""""""""""""
+" Settings - Buffer Handling
 ""
 nmap <Leader>t :enew<CR>
 nmap <Leader>] :bnext<CR>
@@ -229,7 +287,6 @@ set termguicolors " use guifg/guibg instead of ctermfg/ctermbg in terminal
 
 " set guifont=IBMPlexMono\ Nerd\ Font\ Mono\ ExtraLight:h13
 " set guifont=Monaco:h10
-
 
 """""""""""""""""""""""""""""
 " conceal levels
@@ -442,7 +499,7 @@ else
   " plugin - commentary
   ""
   " Easy commenting of lines using tpope's plugin.
-  " CREDIT: üí≥ https://github.com/neovim/neovim/issues/5052#issuecomment-232083842
+  " CREDIT: https://github.com/neovim/neovim/issues/5052#issuecomment-232083842
   noremap <leader>c :Commentary<cr>
 
   """"""""""""""""""""""""""""""
@@ -567,32 +624,6 @@ if has('nvim')
   ""
   call minpac#add('euclio/vim-markdown-composer', { 'do': '!cargo build --release'}, executable('cargo') && has('nvim'))
 endif
-
-""""""""""""""""""""""""""""""
-" clipboard
-""
-" if has('clipboard')
-"   if has('unnamedplus') && !has('nvim') " When possible use `+` register for copy-paste
-"     set clipboard=unnamed,unnamedplus
-"   else
-"     set clipboard=unnamed
-"   endif
-" endif
-
-" get sane copy / paste within nvim using iTerm2
-" CREDIT: 💳 https://github.com/neovim/neovim/issues/5052#issuecomment-232083842
-vnoremap <M-c> "+y
-nnoremap <M-v> "+p
-inoremap <M-v> <esc>"+p
-
-" NOTE: apparently `:map` and `:map!` will map to all modes of (n)vim
-" CREDIT: 💳 https://stackoverflow.com/a/21282417/708807
-" NOTE: if using iTerm2 on macOS make sure the proper escape sequence is
-" mapped within the iTerm2 settings.
-nnoremap <M-z> u
-inoremap <M-z> <C-o>u
-
-
 
 """"""""""""""""""""""""""""""
 " filetype syntax highlighting 🌈  shit 💩
