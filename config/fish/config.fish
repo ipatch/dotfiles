@@ -31,10 +31,15 @@ set -gx DOTFILES /opt/Code/dotfiles
 set -gx dotfiles /opt/Code/dotfiles
 set -gx dot /opt/Code/dotfiles
 set -gx dots /opt/Code/dotfiles
+set -gx XDG_CACHE_HOME $HOME/.cache
 set -gx XDG_CONFIG_HOME $HOME/.config
 set -gx XDG_CONFIG_DATA $HOME/.local/share
 set -gx CODE /opt/code
 set -gx code /opt/code
+set -gx fish_emoji_width 2
+
+# fix broken widths for emojis
+set -gx HAVE_BROKEN_WCWIDTH 0
 
 if type -q python
   set -gx PYTHONSTARTUP $HOME/.pystartup
