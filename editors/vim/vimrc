@@ -235,6 +235,22 @@ map ,t :tabe <C-R>=expand("%:p:h") . "/" <CR>
 " If you opened a readonly file, ie. /etc/hosts `w!!` will solve :)
 cmap w!! w !sudo tee % >/dev/null %
 
+""""""""""""""""""""""""""""""
+" check for current OS
+""
+function! GetRunningOS()
+  if has('win32')
+    return 'win'
+  endif
+  if has('unix')
+    if system('uname')=~#'Darwin'
+      return 'macos'
+    else
+      return 'linux'
+    endif
+  endif
+endfunction
+let g:os = GetRunningOS()
 
 """"""""""""""""""""""""""""""
 " settings - clipboard
@@ -242,6 +258,11 @@ cmap w!! w !sudo tee % >/dev/null %
 if has('clipboard')
   if has('unnamedplus')
     set clipboard+=unnamedplus " NOTE: also know as `*`
+    if g:os == 'macos'
+      let g:clipboard = 'pbcopy'
+    else
+      let g:clipboard = 'xclip'
+    endif
   else
     set clipboard+=unnamed " NOTE: also known as `*`
   endif " NOTE: if (n)vim has access to both clipboards will put copy / paste operations into both clipboards.
