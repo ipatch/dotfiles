@@ -30,15 +30,8 @@ if has('unix')
 
   let g:python3_host_prog = '/home/capin/.pyenv/versions/neovim3/bin/python'
 
-  " NOTE: to check whether clipboard support is enabled
-  " :echo has('clipboard')
-
-  " Clipboard integration
-  " set clipboard+=unnamedplus
-
   " Try and get `command + c` to work on remote linux servers
   vnoremap <M-c> "+y
-
 endif
 
 """"""""""""""""""""""""""""""
