@@ -260,8 +260,12 @@ if has('clipboard')
     set clipboard+=unnamedplus " NOTE: also know as `*`
     if g:os == 'macos'
       let g:clipboard = 'pbcopy'
-    else
+    elseif g:os == 'linux'
       let g:clipboard = 'xclip'
+    elseif g:os == 'win'
+      " set windows clipboard
+    else
+      " catch all for clipboard
     endif
   else
     set clipboard+=unnamed " NOTE: also known as `*`
