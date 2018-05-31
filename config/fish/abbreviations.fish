@@ -9,7 +9,11 @@ abbr -a editfish 'nvim $HOME/.config/fish/config.fish'
 abbr -a editnvim 'nvim $HOME/.config/nvim/init.vim'
 abbr -a editvim  'nvim $HOME/.vimrc'
 abbr -a editdots 'cd $dot; nvim;'
-switch (uname)
+
+set -gx os (uname)
+
+
+switch $os
   case Darwin
     abbr -a l 'ls -lah'
   case Linux
@@ -84,11 +88,6 @@ else
   # DO NOTHING
 end
 
-################
-# macOS specific abbreviations
-##
-abbr -a fs 'mac_toggle_hidden_files'
-abbr -a fh 'mac_toggle_hidden_files'
 
 ################
 # useful abbreviations for working NOC lists
@@ -116,8 +115,11 @@ if type -q brew
   abbr -a cd-brew-src "cd (brew --prefix)/Homebrew/Library/Taps/homebrew/homebrew-core"
 end
 
-switch (uname)
+switch $os
   case Darwin
+    ################
+    # macOS specific abbreviations
+    ##
     ################
     # homebrew specifc abbreviations
     ##
@@ -141,6 +143,11 @@ switch (uname)
     # NOTE: changed abbr to `mac-updatedb` because of homebrew installed
     #...`findutils` which provides the `updatedb` bin.
     abbr -a mac-updatedb 'sudo /usr/libexec/locate.updatedb'
+    abbr -a fs 'mac_toggle_hidden_files'
+    abbr -a fh 'mac_toggle_hidden_files'
+  
+  case Linux
+  abbr -a sc systemctl
 end
 ################
 # Add special 🚌 aliases if certain binaries are found.

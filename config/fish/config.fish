@@ -23,6 +23,11 @@ if status --is-interactive
 end
 
 #############################
+# check OS
+##
+set -gx os (uname) # macos = `Darwin` GNU/Linux = `Linux`
+
+#############################
 # USER defined environment variables
 ##
 # set -gx TERM xterm-256color # <= DON'T explicitly set this env var!
@@ -36,10 +41,7 @@ set -gx XDG_CONFIG_HOME $HOME/.config
 set -gx XDG_CONFIG_DATA $HOME/.local/share
 set -gx CODE /opt/code
 set -gx code /opt/code
-set -gx fish_emoji_width 2
-
-# fix broken widths for emojis
-set -gx HAVE_BROKEN_WCWIDTH 0
+set -gx fish_emoji_width 2 # NOT COMPATIBLE with fish <= 2.7.1
 
 if type -q python
   set -gx PYTHONSTARTUP $HOME/.pystartup
@@ -75,10 +77,10 @@ if type -q fzf
   # }
 end
 
-switch (uname)
+switch $os 
 case Darwin
   #########################
-  # macOS specific env vars
+  # macOS specific env vars boo
   ##
   if echo $TERM_PROGRAM | string match -r -q "iTerm.app"
     set -gx COLORTERM truecolor
