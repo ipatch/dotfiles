@@ -1,6 +1,7 @@
-# User specified file for configuring the fish shell.
+# User specified file for configuring BASH.
 # Author: Chris Jones
-# Contact: @truckmonth chris.r.jones.1983@gmail.com
+# Contact: @truckmonth <- twitter
+# Contact: chris.r.jones.1983@gmail.com <- email
 
 # echo hello from .bash_profile.
 
@@ -11,23 +12,6 @@
 
 # set the size of the command history for BASH
 HISTSIZE=1000000
-
-alias l='ls -lah'
-alias cp='cp -iv'
-alias rm='rm -iv'
-alias mv='mv -iv'
-
-# aliases for git projects
-alias gs='git status'
-alias gd='git diff --stat'
-alias ga='git add --all'
-alias gp='git push'
-
-# new aliases - added December 15, 2016
-alias df='df -h'
-alias du='du -h'
-
-alias dotfiles='cd /opt/Code/dotfiles'
 
 OS=$(uname)
 if [[ $OS == Darwin ]]; then
