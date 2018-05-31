@@ -1,6 +1,7 @@
-# User specified file for configuring the BASH.
+# User specified file for configuring BASH.
 # Author: Chris Jones
-# Contact: @truckmonth chris.r.jones.1983@gmail.com
+# Contact: @truckmonth <- twitter
+# Contact: chris.r.jones.1983@gmail.com <- email
 
 # NOTE: in macOS ~/.bashrc is loaded before ~/.bash_profile
 # 1) /etc/profile
@@ -10,6 +11,23 @@
 # 5) ~/.bash_login
 # 6) ~/.profile
 # 7) ~/.bash_logout
+
+alias l='ls -lah'
+alias cp='cp -iv'
+alias rm='rm -iv'
+alias mv='mv -iv'
+
+# aliases for git projects
+alias gs='git status'
+alias gd='git diff --stat'
+alias ga='git add --all'
+alias gp='git push'
+
+# new aliases - added December 15, 2016
+alias df='df -h'
+alias du='du -h'
+
+alias dotfiles='cd /opt/Code/dotfiles'
 
 # check to see if $HOME/.bash_profile exists then load in current shell session.
 if [ -f ~/.bash_profile ]; then
