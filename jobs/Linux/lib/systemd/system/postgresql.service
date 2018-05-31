@@ -1,0 +1,30 @@
+# systemd service for managing all PostgreSQL clusters on the system. This
+# service is actually a systemd target, but we are using a service since
+# targets cannot be reloaded.
+###
+# Install: `ln -sf $dots/jobs/Linux/systemd/system/postgresql.service /lib/systemd/system/postgresql.service`
+###
+# Changelog: upgraded postgres to 10.4.1
+
+[Unit]
+Description=PostgreSQL RDBMS database server
+After=network.target
+Documentation=man:postgres(1)
+
+[Service]
+# Type=oneshot
+Type=notify
+User=postgres
+ExecStart=/usr/lib/postgresql/10/bin/pg_ctl -D /var/lib/postgresql/10_4_1 -l /usr/local/var/postgres/10_4_1-server.log start
+
+# ExecStart=/usr/lib/postgresql/10/bin/pg_ctl -D /var/lib/postgresql/10_3_1 -l /usr/local/var/postgres/10_3_1-server.log start
+
+# ExecStart=/bin/true
+ExecReload=/bin/kill -HUP $MAINPID
+KillMode=mixed
+KillSignal=SIGINT
+TimeoutSec=0
+RemainAfterExit=on
+
+[Install]
+WantedBy=multi-user.target
