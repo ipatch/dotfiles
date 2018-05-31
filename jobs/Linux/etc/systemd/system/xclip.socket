@@ -1,0 +1,10 @@
+[Unit]
+Description=Network copy backend for tmux based on xclip
+
+[Socket]
+ListenStream=19988
+Accept=yes
+
+[Install]
+WantedBy=sockets.target
+
