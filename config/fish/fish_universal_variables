@@ -51,6 +51,7 @@ SET _fish_abbr_redis_2D_start:launchctl\x20load\x20\x7e/Library/LaunchAgents/hom
 SET _fish_abbr_redis_2D_stop:launchctl\x20unload\x20\x7e/Library/LaunchAgents/homebrew\x2emxcl\x2eredis\x2eplist
 SET _fish_abbr_rm:rm\x20\x2div
 SET _fish_abbr_rvm_2D_toggle:rvm_toggle
+SET _fish_abbr_sc:systemctl
 SET _fish_abbr_ssh_2D_start:launchctl\x20load\x20/Library/LaunchDaemons/homebrew\x2emxcl\x2esshd\x2eplist
 SET _fish_abbr_ssh_2D_stop:launchctl\x20unload\x20/Library/LaunchDaemons/homebrew\x2emxcl\x2esshd\x2eplist
 SET _fish_abbr_sudo:sudo\x20\x2dE
