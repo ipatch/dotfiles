@@ -98,5 +98,7 @@ lang/python/pyenv/**
 # tmux
 ##
 terms/tmux/tmux/resurrect/*
+!terms/tmux/tmux/resurrect/.gitkeep
 terms/tmux/tmux/resurrect/last
-terms/tmux/tmux/plugins*
+terms/tmux/tmux/plugins/*
+!terms/tmux/tmux/plugins/.gitkeep
