@@ -29,7 +29,8 @@ $HOME/bin/base16-shell \
 /bin \
 /sbin \
 /usr/games \
-/usr/sbin
+/usr/sbin \
+/usr/local/opt/llvm/bin 
 
 for p in $paths
   if not contains $p $PATH; and test -d $p
