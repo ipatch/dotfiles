@@ -93,3 +93,10 @@ config/mpv/* # Ignore `watch_later` directory from mpv
 # Python - pyenv
 ##
 lang/python/pyenv/**
+
+##############################
+# tmux
+##
+terms/tmux/tmux/resurrect/*
+terms/tmux/tmux/resurrect/last
+terms/tmux/tmux/plugins*
