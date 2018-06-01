@@ -17,7 +17,6 @@ $HOME/Library/Android/sdk/platform-tools \
 $HOME/.cargo/bin \
 $HOME/go/bin \
 $HOME/.local/bin \
-$HOME/bin \
 $HOME/.pyenv/bin \
 $HOME/bin/base16-shell \
 /usr/local/bin \
