@@ -1,0 +1,9 @@
+pane	0	1	:fish	1	:*	0	:/Users/capin	1	fish	:/usr/local/bin/fish
+pane	TGIF	1	:dots	1	:*	0	:/opt/Code/dotfiles	1	fish	:/usr/local/bin/fish
+pane	TGIF	2	:blah	0	:-	0	:/opt/Code/dotfiles	0	fish	:/usr/local/bin/fish
+pane	TGIF	2	:blah	0	:-	1	:/opt/Code/dotfiles	0	fish	:/usr/local/bin/fish
+pane	TGIF	2	:blah	0	:-	2	:/Users/capin	1	fish	:/usr/local/bin/fish
+window	0	1	1	:*	ce5d,88x49,0,0,0
+window	TGIF	1	1	:*	ce5e,88x49,0,0,1
+window	TGIF	2	0	:-	66e4,88x49,0,0[88x26,0,0,2,88x10,0,27,3,88x11,0,38,4]
+state	TGIF	0
