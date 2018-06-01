@@ -7,7 +7,7 @@
 [alias]
 
   # tags
-  renameTag = "!sh -c 'set -e;git tag $2 $1; git tag -d $1;git push origin :refs/tags/$1;git push --tags' -"
+  renametag = "!sh -c 'set -e;git tag $2 $1; git tag -d $1;git push origin :refs/tags/$1;git push --tags' -"
 
   # Clone a repository including all submodules
   c = clone --recursive
