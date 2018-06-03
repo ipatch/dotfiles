@@ -22,6 +22,7 @@
 		<string>/usr/local/var/log/sshd.log</string>
 		<string>-o</string>
 		<string>PidFile=/usr/local/var/run/ssh/sshd.pid</string>
+		<string>-D</string>
 	</array>
 	<key>RunAtLoad</key>
 	<true/>
