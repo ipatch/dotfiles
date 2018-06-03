@@ -2,6 +2,7 @@
 SET __fish_classic_git_prompt_initialized:\x1d
 SET __fish_init_2_39_8:\x1d
 SET __fish_init_2_3_0:\x1d
+SET __fish_init_3_x:\x1d
 SET _fish_abbr_cd_2D_brew_2D_src:cd\x20\x28brew\x20\x2d\x2dprefix\x29/Homebrew/Library/Taps/homebrew/homebrew\x2dcore
 SET _fish_abbr_cddotfiles:cd\x20\x24DOTFILES
 SET _fish_abbr_cddots:cd\x20\x24dot
@@ -34,6 +35,7 @@ SET _fish_abbr_gsru:git\x20srupdate
 SET _fish_abbr_hunh:emoji\x20\x2d\x2dhunh
 SET _fish_abbr_inode:rlwrap\x20node
 SET _fish_abbr_l:ls\x20\x2dlah
+SET _fish_abbr_lc:launchctl
 SET _fish_abbr_mac_2D_updatedb:sudo\x20/usr/libexec/locate\x2eupdatedb
 SET _fish_abbr_man:vman
 SET _fish_abbr_mv:mv\x20\x2div
@@ -52,8 +54,8 @@ SET _fish_abbr_redis_2D_stop:launchctl\x20unload\x20\x7e/Library/LaunchAgents/ho
 SET _fish_abbr_rm:rm\x20\x2div
 SET _fish_abbr_rvm_2D_toggle:rvm_toggle
 SET _fish_abbr_sc:systemctl
-SET _fish_abbr_ssh_2D_start:launchctl\x20load\x20/Library/LaunchDaemons/homebrew\x2emxcl\x2esshd\x2eplist
-SET _fish_abbr_ssh_2D_stop:launchctl\x20unload\x20/Library/LaunchDaemons/homebrew\x2emxcl\x2esshd\x2eplist
+SET _fish_abbr_ssh_2D_start:launchctl\x20load\x20/Library/LaunchDaemons/com\x2echrisrjones\x2esshd\x2eplist
+SET _fish_abbr_ssh_2D_stop:launchctl\x20unload\x20/Library/LaunchDaemons/com\x2echrisrjones\x2esshd\x2eplist
 SET _fish_abbr_sudo:sudo\x20\x2dE
 SET _fish_abbr_table_2D_flip:echo\x20\x22\x28\u256f\u00b0\u25a1\u00b0\uff09\u256f\ufe35\x20\u253b\u2501\u253b\x22
 SET _fish_abbr_tf:emoji\x20\x2d\x2dtable\x2dflip

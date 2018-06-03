@@ -12,7 +12,6 @@ abbr -a editdots 'cd $dot; nvim;'
 
 set -gx os (uname)
 
-
 switch $os
   case Darwin
     abbr -a l 'ls -lah'
@@ -23,6 +22,7 @@ end
 abbr -a cp 'cp -iv'
 abbr -a cddots 'cd $dot'
 abbr -a dots 'cd $dot'
+
 #############################
 # rsync
 #
@@ -38,16 +38,19 @@ abbr -a du 'du -h'
 abbr -a today 'date +"%A, %B %-d, %Y"'
 abbr -a dotfiles 'cd $DOTFILES'
 abbr -a cddotfiles 'cd $DOTFILES'
+
 ################
 # funny abbreviations
 ##
 abbr -a hunh 'emoji --hunh'
 abbr -a tf 'emoji --table-flip'
 abbr -a woot 'emoji --yay'
+
 ################
 # preserve the $USER environment when running the sudo command.
 ##
 abbr -a sudo 'sudo -E'
+
 ################
 # git abbreviations
 ##
@@ -62,6 +65,7 @@ abbr -a gpl 'git pull'
 abbr -a gru 'git remote -v update'
 abbr -a gco 'git checkout'
 abbr -a gsmru 'git smrupdate'
+
 ################
 # abbreviations for for custom functions
 ##
@@ -80,7 +84,7 @@ abbr -a rvm-toggle 'rvm_toggle'
 
 ################
 # Conditionally set `man` to `vman` fish function
-# NOTE: `vman` has trackpad support.
+# NOTE: `vman` has mouse support.
 ##
 if type -q vman
   abbr -a man 'vman'
@@ -88,9 +92,8 @@ else
   # DO NOTHING
 end
 
-
 ################
-# useful abbreviations for working NOC lists
+# useful abbreviations for working with NOC lists
 # `openssl aes-256-cbc -d -a -in secrets.txt.enc -out secrets.txt.new`
 ##
 if type -q openssl
@@ -108,36 +111,12 @@ else
   # echo "Your gunna need to do a `brew install rlwrap`"
 end
 
-################
-# working with brew src
-##
-if type -q brew
-  abbr -a cd-brew-src "cd (brew --prefix)/Homebrew/Library/Taps/homebrew/homebrew-core"
-end
-
 switch $os
   case Darwin
     ################
     # macOS specific abbreviations
     ##
-    ################
-    # homebrew specifc abbreviations
-    ##
-    # postgresql
-    abbr -a pg-start "launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist"
-    abbr -a pg-stop "launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist"
-    ##
-    # redis
-    abbr -a redis-start "launchctl load ~/Library/LaunchAgents/homebrew.mxcl.redis.plist"
-    abbr -a redis-stop "launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.redis.plist"
-
-    ##
-    # brew OpenSSH built with LibreSSL
-    ##
-    abbr -a ssh-start "launchctl load /Library/LaunchDaemons/homebrew.mxcl.sshd.plist"
-    abbr -a ssh-stop "launchctl unload /Library/LaunchDaemons/homebrew.mxcl.sshd.plist"
-    #
-    # setup an alias for quicklook from the terminal in macOS
+# setup an alias for quicklook from the terminal in macOS
     abbr -a ql 'qlmanage -p'
     # update location DB
     # NOTE: changed abbr to `mac-updatedb` because of homebrew installed
@@ -145,8 +124,38 @@ switch $os
     abbr -a mac-updatedb 'sudo /usr/libexec/locate.updatedb'
     abbr -a fs 'mac_toggle_hidden_files'
     abbr -a fh 'mac_toggle_hidden_files'
+
+    ################
+    # launchd / launchctl
+    ##
+    abbr -a lc 'launchctl'
   
-  case Linux
+    ################
+    # homebrew specifc abbreviations
+    ##
+if type -q brew
+# working with brew src and formula
+  abbr -a cd-brew-src "cd (brew --prefix)/Homebrew/Library/Taps/homebrew/homebrew-core"
+    ###
+    # postgresql
+    abbr -a pg-start "launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist"
+    abbr -a pg-stop "launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist"
+    
+    ###
+    # redis
+    abbr -a redis-start "launchctl load ~/Library/LaunchAgents/homebrew.mxcl.redis.plist"
+    abbr -a redis-stop "launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.redis.plist"
+
+    ##
+    # brew OpenSSH built with LibreSSL
+    ##
+    abbr -a ssh-start "launchctl load /Library/LaunchDaemons/com.chrisrjones.sshd.plist"
+    abbr -a ssh-stop "launchctl unload /Library/LaunchDaemons/com.chrisrjones.sshd.plist"
+ 
+end
+
+
+      case Linux
   abbr -a sc systemctl
 end
 ################

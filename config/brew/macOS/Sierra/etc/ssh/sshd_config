@@ -22,17 +22,17 @@ HostKey /usr/local/etc/ssh/ssh_host_ecdsa_key
 HostKey /usr/local/etc/ssh/ssh_host_ed25519_key
 
 # Ciphers and keying
-#RekeyLimit default none
+RekeyLimit default none
 
 # Logging
-#SyslogFacility AUTH
-#LogLevel INFO
+SyslogFacility AUTH
+LogLevel INFO
 
 # Authentication:
 
 #LoginGraceTime 2m
 PermitRootLogin no
-#StrictModes yes
+StrictModes yes # verifies perms of `$HOME/.ssh` dir
 #MaxAuthTries 6
 #MaxSessions 10
 
@@ -120,15 +120,14 @@ Subsystem	sftp	/usr/local/Cellar/openssh/7.7p1/libexec/sftp-server
 
 # Example of overriding settings on a per-user basis
 #Match User anoncvs
-# X11Forwarding no
-X11Forwarding yes
+X11Forwarding yes # set to either `yes` or `no`
 XAuthLocation /opt/X11/bin/xauth
 AllowAgentForwarding yes
 AllowTcpForwarding yes
 
-#	AllowTcpForwarding no
-#	PermitTTY no
-#	ForceCommand cvs server
+# AllowTcpForwarding no
+# PermitTTY no
+# ForceCommand cvs server
 PrintMotd no
 PrintLastLog yes
 TCPKeepAlive yes
