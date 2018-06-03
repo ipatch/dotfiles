@@ -11,9 +11,9 @@
 # default value.
 
 Port 4321
-#AddressFamily any
-#ListenAddress 0.0.0.0
-#ListenAddress ::
+AddressFamily any # options = `any` - both ipv6 & ipv4, `inet` - ipv4, `inet6`
+ListenAddress 0.0.0.0
+ListenAddress ::
 Protocol 2
 
 HostKey /usr/local/etc/ssh/ssh_host_rsa_key
