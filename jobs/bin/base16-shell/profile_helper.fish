@@ -1,1 +1,0 @@
-/opt/code/dotfiles/config/base16-shell/profile_helper.fish

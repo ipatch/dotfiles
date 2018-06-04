@@ -25,7 +25,8 @@ $HOME/bin/base16-shell \
 /home/linuxbrew/.linuxbrew/sbin \
 /home/linuxbrew/.linuxbrew/opt/libressl/bin \
 /usr/bin \
-/bin \
+# /bin \
+/usr/local/opt/coreutils/libexec/gnubin \
 /sbin \
 /usr/games \
 /usr/sbin \

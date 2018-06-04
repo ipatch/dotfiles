@@ -60,10 +60,12 @@ TERM screen.Eterm
 TERM screen.rxvt
 TERM screen.linux
 TERM terminator
+TERM tmux-256color
 TERM vt100
 TERM xterm
 TERM xterm-16color
 TERM xterm-256color
+TERM xterm-256color-italic
 TERM xterm-88color
 TERM xterm-color
 TERM xterm-debian
@@ -108,12 +110,13 @@ EXEC 01;32
 # (and any comments you want to add after a '#')
 # executables (bright green)
 #.cmd 01;32
-#.exe 01;32
+.exe 01;32
 #.com 01;32
 #.btm 01;32
 #.bat 01;32
-#.sh  01;32
-#.csh 01;32
+.sh  01;32
+.csh 01;32
+.fish 01;32
 # archives or compressed (bright red)
 .tar 01;31
 .tgz 01;31
