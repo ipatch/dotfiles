@@ -151,11 +151,10 @@ case Linux
   ###############################
   # Linux specific env vars
   ##
+    	eval (dircolors -c $HOME/.dir_colors)
+
  
-  # set $DISPLAY to allow X11 forwarding through SSH, necessary to get
-  # xclip to behave as intended.
-  # set -gx DISPLAY "127.0.0.1:11.0"
-  # set -gx XAUTHORITY "$HOME/.Xauthority"
+  # `$DISPLAY` should be set by SSH configs and not the shell 
   if [ -d $HOME/.terminfo ]
     set -gx TERMINFO "$HOME/.terminfo"
     set -gx TERM xterm
