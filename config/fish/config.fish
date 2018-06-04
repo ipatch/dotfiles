@@ -97,6 +97,17 @@ case Darwin
     # DO NOT PASS GO, DO NOT COLLECT $200
   end
 
+  #########################
+  # `ls` colorscheme for BSD / Darwin
+  ##
+set -gx LSCOLORS Exfxcxdxcxegedabagacad
+
+if test -d (brew --prefix)/opt/coreutils
+	
+	eval (dircolors -c $HOME/.dir_colors)
+	alias ls="/usr/local/opt/coreutils/libexec/gnubin/ls --color=auto"
+end
+
   ###############################
   # set env vars for git
   ##

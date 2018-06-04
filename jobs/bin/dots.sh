@@ -1,1 +1,1 @@
-/opt/Code/dotfiles/terms/tmux/bin/dot.sh
+/opt/Code/dotfiles/terms/tmux/bin/dots.sh
