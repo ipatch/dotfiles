@@ -19,7 +19,9 @@ if status --is-interactive
   source $HOME/.config/fish/interactive.fish
 
   # Base16 Shell - a sane colorscheme for better shell colors 🌈
-  eval sh $HOME/.config/base16-shell/scripts/base16-default-dark.sh
+  # eval sh $HOME/.config/base16-shell/scripts/base16-default-dark.sh
+  set BASE16_SHELL "$HOME/.config/base16-shell/"
+  source "$BASE16_SHELL/profile_helper.fish"
 end
 
 #############################
@@ -41,7 +43,13 @@ set -gx XDG_CONFIG_HOME $HOME/.config
 set -gx XDG_CONFIG_DATA $HOME/.local/share
 set -gx CODE /opt/code
 set -gx code /opt/code
+set -gx github /opt/code/github
 set -gx fish_emoji_width 2 # NOT COMPATIBLE with fish <= 2.7.1
+
+if type -q brew
+	set -gx blogs (brew --prefix)/var/log/
+end
+	
 
 if type -q python
   set -gx PYTHONSTARTUP $HOME/.pystartup

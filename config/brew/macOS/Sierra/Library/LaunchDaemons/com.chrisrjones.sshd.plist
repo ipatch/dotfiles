@@ -6,12 +6,12 @@
 	<!-- <true/> -->
 	<key>Label</key>
 	<string>com.chrisrjones.sshd</string>
-	<key>UserName</key>
-	<string>capin</string>
+	<!--<key>UserName</key>
+	<string>root</string>
 	<key>GroupName</key>
-	<string>staff</string>
-	<key>InitGroups</key>
-	<true/>
+	<string>wheel</string> -->
+	<!-- <key>InitGroups</key>
+	<true/> -->
 	
 	<key>Program</key>
 	<!-- <string>/usr/libexec/sshd-keygen-wrapper</string> -->

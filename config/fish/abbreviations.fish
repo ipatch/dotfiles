@@ -93,7 +93,7 @@ else
 end
 
 ################
-# useful abbreviations for working with NOC lists
+# useful abbreviations for working with NOC lists 💣
 # `openssl aes-256-cbc -d -a -in secrets.txt.enc -out secrets.txt.new`
 ##
 if type -q openssl
@@ -149,8 +149,8 @@ if type -q brew
     ##
     # brew OpenSSH built with LibreSSL
     ##
-    abbr -a ssh-start "launchctl load /Library/LaunchDaemons/com.chrisrjones.sshd.plist"
-    abbr -a ssh-stop "launchctl unload /Library/LaunchDaemons/com.chrisrjones.sshd.plist"
+    abbr -a ssh-start "sudo launchctl load /Library/LaunchDaemons/com.chrisrjones.sshd.plist"
+    abbr -a ssh-stop "sudo launchctl unload /Library/LaunchDaemons/com.chrisrjones.sshd.plist"
  
 end
 
