@@ -3,5 +3,5 @@
 # echo "Hello, BASH!"
 
 function hello() {
-	echo "My name is Chris"
+	echo "Hello, $USER 👋"
 }
