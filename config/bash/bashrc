@@ -1,0 +1,101 @@
+#!/usr/bin/env bash
+##############################
+# User specified file for configuring BASH.
+# Author: Chris Jones
+# Contact: @truckmonth <- twitter
+# Contact: chris.r.jones.1983@gmail.com <- email
+# Contact: @ipatch <- github
+##
+
+# shellcheck source=/dev/null
+
+##############################
+# NOTE: in macOS ~/.bashrc is loaded before ~/.bash_profile
+# 1) /etc/profile
+# 2) /etc/bash.bashrc
+# 3) ~/.bashrc # NOTE: this file is used for interactive shell sessions
+# 4) ~/.bash_profile # NOTE: this file is used for login shells
+# NOTE: for a deeper understanding of `interactive/login` see "INVOCATION" in the BASH man page.
+# 5) ~/.bash_login
+# 6) ~/.profile
+# 7) ~/.bash_logout
+##
+
+## Extremely helpful for debugging BASH scripts
+#set -x
+#trap read debug
+
+# Env Vars
+
+# User details
+export USERNAME="capin"
+export NICKNAME="capin"
+
+export XDG_CONFIG_HOME="$HOME/.config"
+export code="/opt/code"
+export dots="/opt/code/dotfiles"
+export github="/opt/code/github"
+
+# Env Vars for git
+export GIT_RC="$XDG_CONFIG_HOME/git"
+
+##############################
+# Aliases for interactive shell sessions
+##
+alias ..='cd ..'
+alias cd..='cd ..'
+alias l='ls -lahF'
+alias cp='cp -iv'
+alias rm='rm -iv'
+alias mv='mv -iv'
+
+# `git` aliases for git projects
+alias gs='git status'
+alias gd='git diff --stat'
+alias ga='git add --all'
+alias gp='git push'
+
+# "storage" aliases
+alias df='df -h'
+alias du='du -h'
+
+alias dotfiles='cd /opt/Code/dotfiles'
+
+
+# NOTE: functions in BASH are all stored in memory, ie. RAM and not on disk
+# test to see if a functions dir exists with `$XDG_CONFG_HOME`
+if [ -d ~/.config/bash/functions ]; then
+	export funcs_dir="$HOME/.config/bash/functions"
+	for file in "$funcs_dir"/*.bash; 
+	do 
+		source "$file";
+	done
+fi
+
+# check to see if $HOME/.bash_profile exists then load in current shell session.
+if [ -f ~/.bash_profile ]; then
+   source ~/.bash_profile
+fi
+
+# TODO: create a `paths` func to load paths into `PATH`
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+export PATH="$PATH:/home/linuxbrew/.linuxbrew/bin/" # Add linuxbrew to the PATH
+
+# source helpful files for working with the `asdf` version manager
+if [ -f ~/.asdf/asdf.sh ]; then
+	source ~/.asdf/asdf.sh
+fi
+
+if [ -f ~/.asdf/completions/asdf.bash ]; then 
+	source ~/.asdf/completions/asdf.bash
+fi
+
+# source helpful file for working with `fzf` CLI fuzzy finder
+# NOTE: the below statement tests to see the `.fzf.bash` file exists in ~ and then loads into the interactive BASH session.
+if [ -f ~/.fzf.bash ]; then
+	source ~/.fzf.bash
+fi
+
+# [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+
