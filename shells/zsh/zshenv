@@ -1,0 +1,25 @@
+#############################
+# User defined configuration file for Zsh
+##
+# zshevn
+##
+# Load order
+##
+# 1. /etc/zshenv
+# 2. ~/.zshenv
+# 3. /etc/zprofile
+# 4. ~/.zprofile
+# 5. /etc/zshrc
+# 6. ~/.zshrc
+# 7. /etc/zlogin
+# 8. ~/.zlogin
+
+###
+# Zsh Environment Variables
+##
+code="/opt/code"
+dots="/opt/code/dotfiles"
+github="/opt/code/github"
+
+
+alias l='ls -lah'

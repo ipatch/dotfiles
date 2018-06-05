@@ -1,0 +1,97 @@
+#
+# Colors
+# Modified from
+# https://github.com/wincent/wincent/blob/94a0ae02/roles/dotfiles/files/.shells/colors
+#
+
+BASE16_THEMES_DIR=~/.shells/base16-shell/scripts
+BASE16_CONFIG=~/.vim/.base16
+
+# Takes a hex color in the form of "RR/GG/BB" and outputs its luma (0-255, where
+# 0 is black and 255 is white)
+luma() {
+  COLOR_HEX=$1
+
+  if [ -z "$COLOR_HEX" ]
+  then
+    echo "Missing argument hex color (RR/GG/BB)"
+    return 1
+  fi
+
+  # Extract hex channels from backround color (RR/GG/BB)
+  COLOR_HEX_RED=$(echo "$COLOR_HEX" | cut -d/ -f1)
+  COLOR_HEX_GREEN=$(echo "$COLOR_HEX" | cut -d/ -f2)
+  COLOR_HEX_BLUE=$(echo "$COLOR_HEX" | cut -d/ -f3)
+
+  # Convert hex colors to decimal
+  COLOR_DEC_RED=$((16#$COLOR_HEX_RED))
+  COLOR_DEC_GREEN=$((16#$COLOR_HEX_GREEN))
+  COLOR_DEC_BLUE=$((16#$COLOR_HEX_BLUE))
+
+  # Calculate perceived brightness of background per ITU-R BT.709
+  # https://en.wikipedia.org/wiki/Rec._709#Luma_coefficients
+  # http://stackoverflow.com/a/12043228/18986
+  COLOR_LUMA_RED=$(echo "0.2126 * $COLOR_DEC_RED" | bc)
+  COLOR_LUMA_GREEN=$(echo "0.7152 * $COLOR_DEC_GREEN" | bc)
+  COLOR_LUMA_BLUE=$(echo "0.0722 * $COLOR_DEC_BLUE" | bc)
+
+  COLOR_LUMA=$(echo "$COLOR_LUMA_RED + $COLOR_LUMA_GREEN + $COLOR_LUMA_BLUE" | bc)
+
+  echo "$COLOR_LUMA"
+}
+
+color() {
+  SCHEME="$1"
+
+  if [ $# -eq 0 -a -s "$BASE16_CONFIG" ]; then
+    cat ~/.vim/.base16
+    return
+  fi
+
+  case "$SCHEME" in
+  help)
+    echo 'color [ashes|default|ocean|railscasts|tomorrow|twilight|...]'
+    echo
+    echo 'Available schemes:'
+    find "$BASE16_THEMES_DIR" -name 'base16-*.sh' | \
+      sed -E 's|.+/base16-||' | \
+      sed -E 's/\.sh//' | \
+      column
+      ;;
+
+  *)
+    FILE="$BASE16_THEMES_DIR/base16-$SCHEME.sh"
+    if [[ -s "$FILE" ]]; then
+      echo "$SCHEME" >! "$BASE16_CONFIG"
+
+      # Extract background color from file
+      COLOR_BG=$(grep color_background= "$FILE" | cut -d\" -f2)
+      COLOR_BG_LUMA=$(luma "$COLOR_BG")
+
+      if [ $(echo "$COLOR_BG_LUMA <= 127.5" | bc) -eq 1 ]; then
+        BACKGROUND="dark"
+      else
+        BACKGROUND="light"
+      fi
+
+      echo "$BACKGROUND" >> "$BASE16_CONFIG"
+      # shellcheck source=/dev/null
+      source "$FILE" # TODO silence bell
+    else
+      echo "Scheme '$SCHEME' not found in $BASE16_THEMES_DIR."
+      echo "Looking for $FILE"
+      return 1
+    fi
+    ;;
+
+  esac
+}
+
+if [[ -s "$BASE16_CONFIG" ]]; then
+  SCHEME=$(head -1 "$BASE16_CONFIG")
+  color "$SCHEME"
+else
+  # default
+  color default-dark
+fi
+

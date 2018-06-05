@@ -34,7 +34,7 @@ SET _fish_abbr_gsmru:git\x20smrupdate
 SET _fish_abbr_gsru:git\x20srupdate
 SET _fish_abbr_hunh:emoji\x20\x2d\x2dhunh
 SET _fish_abbr_inode:rlwrap\x20node
-SET _fish_abbr_l:ls\x20\x2dlah
+SET _fish_abbr_l:ls\x20\x2dlahF
 SET _fish_abbr_lc:launchctl
 SET _fish_abbr_mac_2D_updatedb:sudo\x20/usr/libexec/locate\x2eupdatedb
 SET _fish_abbr_man:vman
