@@ -1,6 +1,7 @@
 #!/usr/bin/env zsh
 #
 # Colors
+# `colors-zsh`
 #
 
 BASE16_CONFIG=~/.vim/.base16
