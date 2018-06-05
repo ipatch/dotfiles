@@ -1,3 +1,141 @@
 #!/usr/bin/env fish
+#
+# Colors
+# `colors-fish`
+#
 
-echo "woohoo"
+# Credit: boosted from https://raw.githubusercontent.com/wincent/wincent/master/roles/dotfiles/files/.zsh/colors
+
+set -g BASE16_CONFIG ~/.vim/.base16
+
+# Takes a hex color in the form of "RRGGBB" and outputs its luma (0-255, where 0 is black and 255 is white).
+#
+# Based on: https://github.com/lencioni/dotfiles/blob/b1632a04/.shells/colors
+function __fish_luma
+	set -l COLOR_HEX $argv[1]
+
+	if [ -z "$COLOR_HEX" ]
+		echo "Missing argument hex color (RRGGBB)"
+		return 1
+	end
+
+	# Extract hex channels from background color (RRGGBB).
+	set -l COLOR_HEX_RED (echo "$COLOR_HEX" | cut -c 1-2)
+	set -l COLOR_HEX_GREEN (echo "$COLOR_HEX" | cut -c 3-4)
+	set -l COLOR_HEX_BLUE (echo "$COLOR_HEX" | cut -c 5-6)
+
+	# Convert hex colors to decimal
+	# TODO: convert the below 3 lines to work with fish
+	set -l COLOR_DEC_RED $((16#$COLOR_HEX_RED))
+	set -l COLOR_DEC_GREEN $((16#$COLOR_HEX_GREEN))
+	set -l COLOR_DEC_BLUE $((16#$COLOR_HEX_BLUE))
+
+	# Calculate perceived brightness of background per ITU-R BT.709
+	# http://en.wikipedia.org/wiki/Rec._709#Luma_coefficients
+	# http://stackoverflow.com/a/12043228/18986
+	set -l COLOR_LUMA_RED $((0.2126 * $COLOR_DEC_RED))
+	set -l COLOR_LUMA_GREEN $((0.7152 * $COLOR_DEC_GREEN))
+	set -l COLOR_LUMA_BLUE $((0.0722 * $COLOR_DEC_BLUE))
+
+	set -l COLOR_LUMA $(($COLOR_LUMA_RED + $COLOR_LUMA_GREEN + $COLOR_LUMA_BLUE))
+
+	echo "$COLOR_LUMA"
+end
+
+function __fish_color
+	set -l SCHEME $argv[1]
+	set -l BASE16_DIR "$XDG_CONFIG_HOME/base16-shell/scripts"
+	set -l BASE16_CONFIG_PREVIOUS "${BASE16_CONFIG}.previous"
+	set -l STATUS 0
+
+	if [ (count $argv -eq 0) ]
+		if [ -s "$BASE16_CONFIG" ]
+			cat ~/vim/.base16
+			return
+		else
+			set SCHEME help
+		end
+	end
+
+	__fish__color
+		set SCHEME $argv[1]
+		set FILE "$BASE16_DIR/base16-$SCHEME.sh"
+		if [[ -e "$FILE" ]]
+			set -l BG (grep color_background= "$FILE" | cut -d \" -f2 | sed -e 's#/##g')
+			set -l LUMA (luma "$BG")
+			set -l LIGHT ((LUMA > 127.5))
+			set -l BACKGROUND dark
+			if [ "$LIGHT" -eq 1 ]
+				set BACKGROUND light
+			end
+
+			if [ -e "$BASE16_CONFIG" ]
+				cp "$BASE16_CONFIG" "$BASE16_CONFIG_PREVIOUS"
+			end
+			
+			# fish does not support `>!` a "clobber file anyways"
+			echo "$SCHEME" > "$BASE16_CONFIG"
+			echo "$BACKGROUND" >> "$BASE16_CONFIG"
+			sh "$FILE"
+
+			if [ -n "$TMUX" ]
+				set -l CC (grep color18= "$FILE" | cut -d \" -f2 | sed -e 's#/##g')
+				if [ -n "$BG" -a -n "$CC" ]
+					command tmux set -a window-active-style "bg=#$BG"
+					command tmux set -a window-style "bg=#$CC"
+					command tmux set -g pane-active-border-bg "#$CC"
+					command tmux set -g pane-border-bg "#$CC"
+				end
+			end
+			else
+				echo "Scheme '$SCHEME' not found in $BASE16_DIR"
+				set STATUS 1
+			end
+
+			end # end of `__fish__color`
+
+			switch "$SCHEME"
+			case help
+				echo 'colors-fish [tomorrow-night|ocean|grayscale-light|...]'
+				echo
+				echo 'Available schemes:'
+				__fish_color ls
+				return
+			case ls
+				find "$BASE16_DIR" -name 'base16-*.sh' | \
+				sed -E 's|.+/base16-||' | \
+				sed -E 's/\.sh//' | \
+				column
+
+			case '-'
+				if [[ -s "$BASE16_CONFIG_PREVIOUS" ]]
+					set -l PREVIOUS_SCHEME (head -1 "$BASE16_CONFIG_PREVIOUS")
+					__fish__color "$PREVIOUS_SCHEME"
+				else
+					echo "warning: no previous config found at $BASE16_CONFIG_PREVIOUS"
+					set STATUS 1
+				end
+			case '*'
+				__fish__color "$SCHEME"
+
+			end
+
+			functions -e __fish__color
+			return $STATUS
+
+end
+
+function ()
+	if [[ -s "$BASE16_CONFIG" ]]
+	set -l SCHEME (head -1 "$BASE16_CONFIG")
+	set -l BACKGROUND (sed -n -e '2 p' "$BASE16_CONFIG")
+	if [ "$BACKGROUND" != 'dark' -a "$BACKGROUND" != 'light' ]
+		echo "warning: unknown background type in $BASE16_CONFIG"
+	end
+		__fish_color "$SCHEME" # calls the `color` function
+	else
+		# Default
+		__fish_color tomorrow-night
+	end
+end
+end
