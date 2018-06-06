@@ -1,11 +1,4 @@
-<!-- <h2 align="center">dotfiles for Chris Jones</h2> -->
-<!-- ## dotfiles for Chris Jones {style=text-align:center} -->
-
-<p style="text-align: center;">
-
 ## dotfiles for Chris Jones
-
-</p>
 
 > Give me six hours to chop down a tree and I will spend the first four sharpening the axe.
 
@@ -15,7 +8,7 @@
 
 <h6 align="center"><em>These dotfiles have been known to stop working at a moments notice, so buyer beware.</em></h6>
 
-# Table of Contents
+## Table of Contents
 
 - [the dotfiles wiki](https://github.com/ipatch/dotfiles/wiki)
 > A collection of useful pages that complements 👏🏾 these dotfiles.
