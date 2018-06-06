@@ -1,5 +1,5 @@
 # This is Git's per-user configuration file.
-# NOTE: `git` alias are processed using a POSIX shell, NOT fish-shell
+# NOTE: `git` alias(es) are processed using a POSIX shell, NOT fish-shell
 
 [i18n]
   filesEncoding = utf-8
@@ -7,7 +7,9 @@
 [alias]
 
   # tags
-  renametag = "!sh -c 'set -e;git tag $2 $1; git tag -d $1;git push origin :refs/tags/$1;git push --tags' -"
+  # USAGE: git tag-mv [name-of-old-tag] [name-of-new-tag]
+  # EXAMPLE: git tag-mv v0.1.2.2 v0.1.2.3
+  tag-mv   = "!sh -c 'set -e;git tag $2 $1; git tag -d $1;git push origin :refs/tags/$1;git push --tags' -"
 
   # Clone a repository including all submodules
   c = clone --recursive
