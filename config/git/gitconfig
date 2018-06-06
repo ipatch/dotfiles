@@ -5,12 +5,7 @@
   filesEncoding = utf-8
 
 [alias]
-
-  # tags
-  # USAGE: git tag-mv [name-of-old-tag] [name-of-new-tag]
-  # EXAMPLE: git tag-mv v0.1.2.2 v0.1.2.3
-  tag-mv   = "!sh -c 'set -e;git tag $2 $1; git tag -d $1;git push origin :refs/tags/$1;git push --tags' -"
-
+  
   # Clone a repository including all submodules
   c = clone --recursive
 
@@ -57,7 +52,8 @@
   # pulling
   ###
   p = !git pull
-  ps = !git pull; and git submodule update 
+  # TODO: add a `pull` to recursively pull submodules
+  ps = !git pull 
 
   ###
   # diff
@@ -65,12 +61,18 @@
   d = diff
   dc = diff --cached
 
+  ###
+  # fetch
+  ###
   fo = fetch origin
 
+  ###
+  # merge
+  ###
   m = merge
 
   ###
-  # statusing
+  # status
   ##
   st = status
   s = status --short --branch
@@ -78,16 +80,19 @@
   sl = shortlog --summary --numbered
 
   ###
-  # remotes
+  # remote
   ###
   remotes = remote --verbose
 
   ###
-  # tagging
+  # tag
   ###
   t = tag
   # show verbose output about tags
   tags = tag --list
+  # USAGE: git tag-mv [name-of-old-tag] [name-of-new-tag]
+  # EXAMPLE: git tag-mv v0.1.2.2 v0.1.2.3
+  tag-mv   = "!sh -c 'set -e;git tag $2 $1; git tag -d $1;git push origin :refs/tags/$1;git push --tags' -"
 
   ###
   # 🚨 Danger zone 🚨
@@ -213,9 +218,14 @@
   prompt = false
 
 [push]
-  default = simple # git 1.8+ required
+  default = simple # git >= 1.8+ required
 
 # URL shorthands
+[url "git@gitlab.com"]
+  insteadOf = "gl:"
+  pustInsteadOf = "gitlab:"
+
+
 [url "git@github.com"]
   insteadOf = "gh:"
   pushInsteadOf = "github:"
@@ -257,8 +267,9 @@
 
 [github]
   user = ipatch
+  email = chris.r.jones.1983@gmail.com
 
-[user]
-	name = ipatch
-	email = chris.r.jones.1983@gmail.com
+[gitlab]
+	name = truckmonth
+	email = me@chrisrjones.com
   #signingKey = CD688E9D
