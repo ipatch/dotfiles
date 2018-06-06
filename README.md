@@ -1,6 +1,11 @@
-> <h2 align="center">dotfiles for Chris Jones</h2>
+<!-- <h2 align="center">dotfiles for Chris Jones</h2> -->
+<!-- ## dotfiles for Chris Jones {style=text-align:center} -->
 
-## dotfiles for Chris Jones {style=text-align:center}
+<div style="text-align: center;">
+
+## dotfiles for Chris Jones
+
+</div>
 
 > Give me six hours to chop down a tree and I will spend the first four sharpening the axe.
 
