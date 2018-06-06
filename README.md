@@ -1,4 +1,6 @@
-<h2 align="center">dotfiles for Chris Jones</h2>
+> <h2 align="center">dotfiles for Chris Jones</h2>
+
+## dotfiles for Chris Jones {style=text-align:center}
 
 > Give me six hours to chop down a tree and I will spend the first four sharpening the axe.
 
