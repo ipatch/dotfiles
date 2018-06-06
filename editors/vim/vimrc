@@ -3,38 +3,6 @@ set fileencoding=utf-8                " Set utf-8 encoding on write
 scriptencoding utf-8
 " set ambiwidth=double " conflicts with `listchars`
 
-" 👍 copy me
-
-" üëç copy me
-
-
-" üëç copy me
-
-
-" üëç
-"
-"
-" å
-
-" üëå
-
-
-
-
-" 👍 copy me
-
-" 👍
-
-" üëå
-"
-"
-" Ô£ø√º√´√•
-
-" Ô£ø√º√´√•
-
-
-
-
 """"""""""""""""""""""""""""""
 " ~ VIMRC ~ for Vim >= 8 && Neovim
 " Author: Chris Jones
@@ -53,8 +21,8 @@ scriptencoding utf-8
 " SEE: `~/.vim/after/ftplugin/vim.vim` for settings related to `.vim`
 
 
-" Want to set this first, the default `leader` key is `\`
-let g:mapleader = ','                 " set the 'leader' key to `,`
+" set this first, the default `leader` key is `\`
+let g:mapleader = ',' " set the 'leader' key to `,`
 
 " Don't allow vi compatibility mode; don't need it 🤽‍♂️
 " set nocompatible "Enable at own risk, can have undesired effects
@@ -150,7 +118,7 @@ set smarttab     " <tab>/<BS> indent/dedent in leading whitespace
 set showtabline=0                       " only show if 2 or more tabs.
 
 """""""""""""""""""""""""""""
-" Settings - map mapping Key mappings / bindings binding
+" Settings - Key mappings / bindings
 ""
 " NOTE: `meta` ie. `⌘.` within iTerm2 require escape sequences to be mapped
 " NOTE: apparently `:map` and `:map!` will map to all modes of (n)vim
@@ -161,7 +129,7 @@ nmap <space> :
 " cmap ,, <ESC> " NOTE: the following key binding did not work.
 " NOTE: use <Ctrl>+<[> to exit command line mode.
 
-" Note - the below insert mappings will bind 'jk' / 'kj' to the ESC
+" NOTE: - the below insert mappings will bind 'jk' / 'kj' to the ESC
 " key functionality, so the ESC key does not need to be pressed in insert 
 " mode.
 imap jk <esc>
