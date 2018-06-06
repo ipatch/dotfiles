@@ -273,3 +273,6 @@
 	name = truckmonth
 	email = me@chrisrjones.com
   #signingKey = CD688E9D
+[user]
+  name = truckmonth
+	email = me@chrisrjones.com
