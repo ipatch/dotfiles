@@ -6,12 +6,16 @@ set FOO	mr-fancy-bar
 
 echo "The output of FOO = $FOO"
 
-# NOTE: the below statement will echo the literally not executing the `set` builtin command for fish
+# NOTE: the below statement will echo literally, not executing the `set` builtin command for fish
 echo "(set -S FOO)"
 # OUTPUT: `(set -S FOO)`
 
 # NOTE: the below statement will echo the output of the `set` builtin fish command
 echo (set -S FOO)
 # OUTPUT: `$FOO: set in local scope, ...`
+
+function __hello_fish
+	echo "Hello $USER"
+end
 
 end

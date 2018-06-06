@@ -1,20 +1,5 @@
 scriptencoding utf-8
 
-
-" 👍
-
-" üëç
-
-" üëç 
-
-" 👍
-"
-" üëç
-
-"  üëç  
-
-
-
 """""""""""""""""""""""""""""
 " ~ settings.vim ~
 ""
@@ -29,19 +14,22 @@ scriptencoding utf-8
 " set directory=~/.vim/tmp/views                  " for the view files
 
 """"""""""""""""""""""""""""
-" create directories for Vim related files
+" create directories for Vim related files if they don't exist, ie. `-p`
 ""
-silent execute '!mkdir -p $HOME/.vim/tmp/backup'
-silent execute '!mkdir -p $HOME/.vim/tmp/sessions'
-silent execute '!mkdir -p $HOME/.vim/tmp/swap'
-silent execute '!mkdir -p $HOME/.vim/tmp/undo'
-silent execute '!mkdir -p $HOME/.vim/tmp/views'
+" DANGER: DO NOT UNCOMMENT the below lines unless you like terribly slow load
+" times 🤯
+""
+" silent execute '!mkdir -p $HOME/.vim/tmp/backup'
+" silent execute '!mkdir -p $HOME/.vim/tmp/sessions'
+" silent execute '!mkdir -p $HOME/.vim/tmp/swap'
+" silent execute '!mkdir -p $HOME/.vim/tmp/undo'
+" silent execute '!mkdir -p $HOME/.vim/tmp/views'
 
-silent execute '!mkdir -p $HOME/.local/.vim/tmp/backup'
-silent execute '!mkdir -p $HOME/.local/.vim/tmp/sessions'
-silent execute '!mkdir -p $HOME/.local/.vim/tmp/swap'
-silent execute '!mkdir -p $HOME/.local/.vim/tmp/undo'
-silent execute '!mkdir -p $HOME/.local/.vim/tmp/views'
+" silent execute '!mkdir -p $HOME/.local/.vim/tmp/backup'
+" silent execute '!mkdir -p $HOME/.local/.vim/tmp/sessions'
+" silent execute '!mkdir -p $HOME/.local/.vim/tmp/swap'
+" silent execute '!mkdir -p $HOME/.local/.vim/tmp/undo'
+" silent execute '!mkdir -p $HOME/.local/.vim/tmp/views'
 
 " Enable smart joining of commented lines.
 " TODO: figure out sane way to use `shift+j` and `shift+k` to join lines
@@ -58,9 +46,9 @@ if exists('$SUDO_USER') " setup backup files for Vim & Neovim
   set nowritebackup       " don't create backup files for root
 else
   " backup files to `~/.vim` first if dir exists, if can't write then `~/.local`
-  set directory=~/.vim/tmp/backup//      " keep backup files out of the way
-  set directory+=~/.local/.vim/tmp/backup// 
-  set directory+=. " as a last resort put backup files in the current directory.
+  set backupdir=~/.vim/tmp/backup/      " keep backup files out of the way
+  set backupdir+=~/.local/.vim/tmp/backup/ 
+  set backupdir+=. " last resort put backup files in the current directory.
 endif
 
 """"""""""""""""""""""""""""""
@@ -69,7 +57,7 @@ endif
 if exists('$SUDO_USER') " setup swap files for Vim & Neovim
   set noswapfile          " don't create root owned swap files
 else
-set updatecount=80                    " update swapfile every 80 typed chars
+  set updatecount=80                    " update swapfile every 80 typed chars
   set directory=~/.vim/tmp/swap//         " seperate swap files
   set directory+=~/.local/.vim/tmp/swap// " seperate swap files
   set directory+=.                        " last resort, store swap in directory
@@ -81,11 +69,11 @@ endif
 if has('folding')
   if has('windows')
     set fillchars=vert:┃ " BOX DRAWINGS HEAVY VERTICAL (U+2503, UTF-8: E2 94 83)
-    set fillchars+=fold:·             " MIDDLE DOT (U+00B7, UTF-8: C2 B7)
+    set fillchars+=fold:· " MIDDLE DOT (U+00B7, UTF-8: C2 B7)
   endif
   set foldmethod=indent                 " not as cool as syntax, but faster
   set foldlevelstart=99                 " start unfolded
-  set foldtext=wincent#settings#foldtext() " see `~/.vim/autoload/wincent/settings.vim` for the `foldtext` func def
+  "set foldtext=wincent#settings#foldtext() " see `~/.vim/autoload/wincent/settings.vim` for the `foldtext` func def
 endif
 
 set formatoptions+=n              " smart auto-indenting inside numbered lists
@@ -124,28 +112,32 @@ endif
 " session - settings
 ""
 if has('mksession')
-  if exists('$SUDO_USER')
-    " no session file
+  " if exists('$SUDO_USER')
+  "   " no session file
+	" let g:sessiondir =
+  if isdirectory('~/.vim/tmp')
+    set viewdir=~/.vim/tmp/view
   else
-    if isdirectory('~/.vim/tmp/sessions')
-      let g:sessiondir = $HOME.'/.vim/sessions'
-    endif
+    set viewdir=~/.local/view " vim defaults to `~/.vim/view`
+    " if isdirectory('~/.vim/tmp/sessions')
+    "   let g:sessiondir = $HOME.'/.vim/tmp/sessions'
+    " endif
   endif
 endif
 
 """"""""""""""""""""""""""""""
 " view - settings
 ""
-if has('mkview')
-  if exists('$SUDO_USER')
-    " no view file
-    set viewdir=
-  else
-    if isdirectory('~/.vim/tmp/views')
-      set viewdir=~/.vim/tmp/views
-    endif
-  endif
-endif
+" if has('mkview')
+"   if exists('$SUDO_USER')
+"     " no view file
+"     set viewdir=
+"   else
+"     if isdirectory('~/.vim/tmp/views')
+"       set viewdir=~/.vim/tmp/views
+"     endif
+"   endif
+" endif
 
 """"""""""""""""""""""""""""""
 " viminfo - settings
