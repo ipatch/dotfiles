@@ -3981,4 +3981,5 @@ ln -sf $DOTFILES/config/fish/ $HOME/.config/fish
 ## Contact
 - GithHub: [@ipatch](https://github.com/ipatch)<br />
 - Twitter: [@truckmonth](https://twitter.com/truckmonth)
+- GitLab: [@truckmonth](https://gitlab.com/truckmonth)
 
