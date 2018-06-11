@@ -159,7 +159,7 @@ case Linux
   ###############################
   # Linux specific env vars
   ##
-    	eval (dircolors -c $HOME/.dir_colors)
+  eval (dircolors -c $HOME/.dir_colors)
 
  
   # `$DISPLAY` should be set by SSH configs and not the shell 
