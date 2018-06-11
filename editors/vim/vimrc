@@ -247,8 +247,7 @@ if has('clipboard')
       " catch all for clipboard
     endif
   endif " NOTE: if (n)vim has access to both clipboards it will put copy / paste operations into both clipboards.
-" sane copy / paste within nvim using iTerm2
-" CREDIT: 💳 https://github.com/neovim/neovim/issues/5052#issuecomment-232083842
+  " NOTE: iterm2 make sure to set proper escape sequences.
   vnoremap <M-c> "+y
   nnoremap <M-v> "+p
   inoremap <M-v> <esc>"+p
