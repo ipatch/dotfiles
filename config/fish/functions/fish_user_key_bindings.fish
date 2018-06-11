@@ -1,6 +1,9 @@
 function fish_user_key_bindings
   # fzf_key_bindings
 
+  # User provided key bindings
+  bind \ev 'fish_clipboard_paste'
+
   if [ $TERM = tmux-256color ]
     # bind -k up 'history --merge ; up-or-search'
     bind \e\[A 'history --merge ; up-or-search'
