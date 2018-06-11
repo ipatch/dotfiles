@@ -20,7 +20,7 @@ if status --is-interactive
 
   # Base16 Shell - a sane colorscheme for better shell colors 🌈
   # eval sh $HOME/.config/base16-shell/scripts/base16-default-dark.sh
-  set BASE16_SHELL "$HOME/.config/base16-shell/"
+  set BASE16_SHELL "$HOME/.config/base16-shell"
   source "$BASE16_SHELL/profile_helper.fish"
 end
 
