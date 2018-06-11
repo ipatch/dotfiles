@@ -1,4 +1,5 @@
 #!/usr/bin/perl
+push(@INC, '/usr/bin/dpkg-gettext.pl');
 
 use warnings;
 use strict;
