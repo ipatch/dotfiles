@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>AllowClipboardAccess</key>
-	<true/>
+	<false/>
 	<key>AlternateMouseScroll</key>
 	<false/>
 	<key>AppleAntiAliasingThreshold</key>
@@ -16,6 +16,8 @@
 	<string>manual</string>
 	<key>CloseBookmarksWindowAfterOpening</key>
 	<true/>
+	<key>CopySelection</key>
+	<false/>
 	<key>Custom Color Presets</key>
 	<dict/>
 	<key>Default Arrangement Name</key>
@@ -259,11 +261,11 @@
 	<key>NSWindow Frame SessionsPreferences</key>
 	<string>269 76 606 469 0 0 1440 877 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>429 333 796 473 0 0 1440 877 </string>
+	<string>106 390 796 473 0 0 1440 877 </string>
 	<key>NSWindow Frame com.apple.typography_panel_ConsolasForPowerline</key>
 	<string>252 254 260 156 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>369 90 1426 451 0 0 1440 877 </string>
+	<string>3 43 1434 791 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>3 377 1426 451 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 10</key>
