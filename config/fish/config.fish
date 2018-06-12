@@ -7,6 +7,15 @@
 ##
 
 ##############################
+# NOTE: fish load order
+# https://fishshell.com/docs/current/index.html#initialization
+##
+# DONT edit files within `$__fish_datadir/config.fish` ie. /usr/share/fish/config.fish
+# System-wide config `/etc/fish/config.fish` if installed with brew
+# `(brew --prefix)/etc/fish/`
+# 
+
+##############################
 # fundle setup
 ##
 fundle plugin 'edc/bass'
@@ -24,10 +33,6 @@ if status --is-interactive
   source "$BASE16_SHELL/profile_helper.fish"
 end
 
-#############################
-# check OS
-##
-set -gx os (uname) # macos = `Darwin` GNU/Linux = `Linux`
 
 #############################
 # USER defined environment variables

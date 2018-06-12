@@ -14,6 +14,6 @@ if test -f $HOME/.config/fish/aliases.fish
 end
 
 if test -f $HOME/.asdf/asdf.fish
-  # Get asdf package manager working with fish shell.
+  # Get asdf version manager working with fish.
   source $HOME/.asdf/asdf.fish
 end
