@@ -6,13 +6,9 @@
 	<!-- <true/> -->
 	<key>Label</key>
 	<string>com.chrisrjones.sshd</string>
-	<!--<key>UserName</key>
-	<string>root</string>
-	<key>GroupName</key>
-	<string>wheel</string> -->
+  <!-- OpenSSH must be run as super user -->
 	<!-- <key>InitGroups</key>
 	<true/> -->
-	
 	<key>Program</key>
 	<!-- <string>/usr/libexec/sshd-keygen-wrapper</string> -->
 	<string>/usr/local/sbin/sshd</string>
