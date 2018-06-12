@@ -29,6 +29,8 @@ set -l paths \
 /usr/bin \
 /usr/sbin \
 /usr/games \
+/usr/local/bin \
+/usr/local/sbin \
 $HOME/.cargo/bin \
 $HOME/go/bin \
 $HOME/Library/Android/sdk/platform-tools \
