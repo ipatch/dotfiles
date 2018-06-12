@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Label</key>
+	<string>com.chrisrjones.ssh-agent</string>
+  <key>Program</key>
+	<!-- <string>/usr/libexec/sshd-keygen-wrapper</string> -->
+	<string>/usr/local/bin/ssh-agent</string>
+	<key>ProgramArguments</key>
+	<array>
+    <!-- <string>/usr/bin/ssh-agent</string> -->
+    <string>/usr/local/bin/ssh-agent</string>
+		<!-- <string>-l</string> -->
+    <!-- <string>-d</string> debug mode -->
+    <string>-D</string> <!-- launch in foreground, ie. launchd friendly -->
+    <!-- <string>-a</string> --> <!-- DONT set the socket ID -->
+    <!-- <string>~/.ssh/ssh-agent.sock</string> -->
+  </array>
+  <key>EnableTransactions</key>
+  <true/>
+  <!-- <key>ServiceIPC</key> -->
+  <!-- <true/> -->
+	<!-- <key>Sockets</key> -->
+	<!-- <dict> -->
+		<!-- <key>Listeners</key> -->
+		<!-- <dict> -->
+			<!-- <key>SecureSocketWithKey</key> -->
+			<!-- <string>SSH_AUTH_SOCK</string> -->
+		<!-- </dict> -->
+	<!-- </dict> -->
+  <key>KeepAlive</key>
+  <true/>
+  <key>RunAtLoad</key>
+  <true/>
+  <key>StandardErrorPath</key>
+  <string>/usr/local/var/log/ssh-agent-error.log</string>
+  <key>StandardOutPath</key>
+  <string>/usr/local/var/log/ssh-agent-out.log</string>
+</dict>
+</plist>
