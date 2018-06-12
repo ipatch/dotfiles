@@ -5,36 +5,54 @@
 ##############################
 # Global PATH
 ##
-# TODO: figure out a proper way to use `$XDG_CONFIG_HOME`
+# NOTE: on macOS, `/etc/paths`, `/etc/paths.d`, `/etc/profile` will need to be modified, ie. renamed.
+
+#############################
+# check OS
+##
+# NOTE: be sure to symlink `/bin/uname` to `/usr/bin/uname` on Debian
+set -gx os (/usr/bin/uname)  #macOS = `Darwin` GNU/Linux = `Linux`
+
+# echo $os <= use for debugging
+set -gx XDG_CONFIG_HOME $HOME/.config
+
+if [ "$os" = Darwin ]; and [ -n /usr/local/bin/brew ]
+    set -gx brew_prefix /usr/local
+else if [ "$os" = Linux ]; and [ -n /home/linuxbrew/.linuxbrew/bin/brew ]
+  set -gx brew_prefix /home/linuxbrew/
+end
+
 
 set -l paths \
-/usr/local/opt/ncurses/bin \
-/usr/local/opt/python/libexec/bin \
-/usr/local/opt/libressl/bin \
-/usr/local/opt/gnu-sed/libexec/gnubin \
-$XDG_CONFIG_HOME/.config/yarn/global/node_modules/.bin \
-$HOME/Library/Android/sdk/platform-tools \
+/usr/games \
 $HOME/.cargo/bin \
 $HOME/go/bin \
+$HOME/Library/Android/sdk/platform-tools \
+$XDG_CONFIG_HOME/.config/yarn/global/node_modules/.bin \
+/opt/X11/bin \
+$brew_prefix/bin \
+$brew_prefix/sbin \
+$brew_prefix/opt/llvm/bin \
+$brew_prefix/opt/gnu-sed/libexec/gnubin \
+$brew_prefix/opt/libressl/bin \
+$brew_prefix/opt/python/libexec/bin \
+$brew_prefix/opt/coreutils/libexec/gnubin \
+$brew_prefix/opt/ncurses/bin \
 $HOME/.local/bin \
 $HOME/.pyenv/bin \
-$HOME/bin/base16-shell \
-/usr/local/bin \
-/usr/local/sbin \
-/home/linuxbrew/.linuxbrew/bin \
-/home/linuxbrew/.linuxbrew/sbin \
-/home/linuxbrew/.linuxbrew/opt/libressl/bin \
-/usr/bin \
+# The below PATH entries are inherited from the `/usr/bin/env`
+# /usr/sbin \
+# /usr/bin \
+# /sbin \
 # /bin \
-/usr/local/opt/coreutils/libexec/gnubin \
-/sbin \
-/usr/games \
-/usr/sbin \
-/usr/local/opt/llvm/bin 
 
 for p in $paths
   if not contains $p $PATH; and test -d $p
-    set -x PATH $p $PATH
+    # append above PATH entries, ie. top entry appears first in PATH
+    # set -gx PATH $PATH $p
+
+    # prepend above PATH entries, so that `/usr/sbin:/usr/bin:/sbin:/bin` are the last 4 entries in the PATH
+    set -gx PATH $p $PATH
   end
 end
  
