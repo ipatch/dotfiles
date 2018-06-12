@@ -24,6 +24,10 @@ end
 
 
 set -l paths \
+/bin \
+/sbin \
+/usr/bin \
+/usr/sbin \
 /usr/games \
 $HOME/.cargo/bin \
 $HOME/go/bin \
