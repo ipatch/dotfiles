@@ -20,7 +20,7 @@
 	<array>
 		<string>/usr/local/sbin/sshd</string>
 		<!--	<string>-i</string> -->
-		<!-- <string>-d</string> -->
+    <!-- <string>-d</string> --> <!-- useful for debugging --> 
 		<string>-f</string>
 		<string>/usr/local/etc/ssh/sshd_config</string>
 		<string>-E</string>
