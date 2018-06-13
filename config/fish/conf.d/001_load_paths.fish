@@ -5,14 +5,14 @@
 ##############################
 # Global PATH
 ##
-# NOTE: on macOS, `/etc/paths`, `/etc/paths.d`, `/etc/profile` will need to be modified, ie. renamed.
+# SEE: `config/OS/macOS/10.13/etc/profile` within this repo 
 
 #############################
 # check OS
 ##
 # NOTE: be sure to symlink `/bin/uname` to `/usr/bin/uname` on Debian
-set -gx os (/usr/bin/uname)  #macOS = `Darwin` GNU/Linux = `Linux`
-
+# NOTE: macOS = `Darwin` GNU/Linux = `Linux`
+set -gx os (/usr/bin/uname)  
 # echo $os <= use for debugging
 set -gx XDG_CONFIG_HOME $HOME/.config
 
@@ -57,6 +57,7 @@ for p in $paths
     # set -gx PATH $PATH $p
 
     # prepend above PATH entries, so that `/usr/sbin:/usr/bin:/sbin:/bin` are the last 4 entries in the PATH
+    # NOTE: the path entry order can be tested w/ `pp` abbr in fish
     set -gx PATH $p $PATH
   end
 end

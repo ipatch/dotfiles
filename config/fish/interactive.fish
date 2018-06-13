@@ -1,7 +1,6 @@
-#############################
+##############################
 # fish shell - interactive.fish
 ##
-#
 # TODO: repeating the below expression `if test -f $HOME` seems like a code 👃
 
 # Load abbreviations.
