@@ -22,7 +22,6 @@ else if [ "$os" = Linux ]; and [ -n /home/linuxbrew/.linuxbrew/bin/brew ]
   set -gx brew_prefix /home/linuxbrew/.linuxbrew
 end
 
-
 set -l paths \
 /bin \
 /sbin \
@@ -46,7 +45,7 @@ $brew_prefix/opt/coreutils/libexec/gnubin \
 $brew_prefix/opt/ncurses/bin \
 $HOME/.local/bin \
 $HOME/.pyenv/bin \
-# The below PATH entries are inherited from the `/usr/bin/env`
+# The below PATH entries are inherited from the `/usr/bin/env` on macOS, Linux is another story
 # /usr/sbin \
 # /usr/bin \
 # /sbin \
