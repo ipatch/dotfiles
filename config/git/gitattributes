@@ -1,0 +1,6 @@
+
+# bogus Xcode shit
+# `-crlf` don't fuck with line endings
+# `-diff` don't diff `.pbxproj` files
+# `-merge` don't merge the file
+*.pbxproj -crlf -diff -merge

@@ -61,6 +61,7 @@ end
 # git related settings
 ##
 set -gx GIT_RC $XDG_CONFIG_HOME/git
+# set -gx GIT_DIR $XDG_CONFIG_HOME/git
 
 # set -gx LC_CTYPE "en_US.UTF-8" # only set this if you want to overwrite ALL locales!
 
