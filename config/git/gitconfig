@@ -5,73 +5,74 @@
   filesEncoding = utf-8
 
 [alias]
-  
   # Clone a repository including all submodules
   c = clone --recursive
+  clone = clone --recursive
 
   # branching
   b = branch
   
-  ###
+  ####
   # logging
-  ###
+  ##
   l = log --graph --pretty=format:'%C(yellow)%h%C(bold white red)%d%Creset %s %C(bold green)%cr %Creset%C(white)%an' --abbrev-commit --date=relative
 
-  ###
+  ####
   # checking out
-  ###
+  ##
   co = checkout
   cb = checkout -b
   master = checkout master
 
-  ###
+  ####
   # adding / staging files
+  ##
   aa = add --all
 
-  ###
+  ####
   # commiting
-  ###
+  ##
   ci = commit
   ca = commit --amend
   cm = commit -S -m
   ac = commit -am
   aac = "!git aa; "git commit -m""
-  ###
+  ####
   # for those random quick & fun commits 👍
-  ###
+  ##
   random = "!git smf "git add --all"; git add .; git commit -m \"`fortune`\""
 
-  ###
+  ####
   # pushing
-  ###
+  ##
   pom = push origin master
   pshom = !git push origin master
   pshsmom = !git push --recurse-submodules=on-demand origin master
 
-  ###
+  ####
   # pulling
-  ###
+  ##
   p = !git pull
   # TODO: add a `pull` to recursively pull submodules
   ps = !git pull 
 
-  ###
+  ####
   # diff
-  ###
+  ##
   d = diff
   dc = diff --cached
 
-  ###
+  ####
   # fetch
-  ###
+  ##
   fo = fetch origin
 
-  ###
+  ####
   # merge
-  ###
+  ##
   m = merge
 
-  ###
+  ####
   # status
   ##
   st = status
@@ -79,15 +80,15 @@
   # list contributors with number of commits
   sl = shortlog --summary --numbered
 
-  ###
+  ####
   # remote
-  ###
+  ##
   remotes = remote --verbose
   r = remote --verbose
 
-  ###
+  ####
   # tag
-  ###
+  ##
   t = tag
   # show verbose output about tags
   tags = tag --list
@@ -95,40 +96,40 @@
   # EXAMPLE: git tag-mv v0.1.2.2 v0.1.2.3
   tag-mv   = "!sh -c 'set -e;git tag $2 $1; git tag -d $1;git push origin :refs/tags/$1;git push --tags' -"
 
-  ###
+  ####
   # 🚨 Danger zone 🚨
-  ###
+  ##
   
-  ###
+  ####
   # to undo the last added / staged files
-  ###
+  ##
   undoadd = "!git reset HEAD -- ."
   undostage = reset HEAD
 
-  ###
+  ####
   # to undo the last commit
-  ###
+  ##
   undoci = "!git reset HEAD~"
 
   # Undo a `git push`
   undopush = push -f origin HEAD^:master
-  ###
+  ####
   # `restore` try and "undelete" a file
-  ###
+  ##
   restore = "!git checkout $(git rev-list -n 1 HEAD -- "$1")^ -- "$1""
   
-  ###
+  ####
   # git extras
-  ###
+  ##
 
-  ###
+  ####
   # randos
-  ###
+  ##
   last = show --show-signature
   
-  ###
+  ####
   # submodules -- ie. add, commit, push
-  ###
+  ##
   sm = submodule
   smu = submodule update
   smi = submodule init
@@ -145,9 +146,9 @@
   ###
   smp = "!git push --recurse-submodules=on-demand"
   
-  ###
+  ####
   # Useful Commands 👌 -- compound commands
-  ###
+  ##
   
   # Get a list of your defined aliases
   aliases = !git config --get-regexp 'alias.*' | colrm 1 6 | sed 's/[ ]/ = /'
@@ -221,11 +222,15 @@
 [push]
   default = simple # git >= 1.8+ required
 
+
+####
+# TODO: figure out what all this URL shorthand shit means
+##
+
 # URL shorthands
 [url "git@gitlab.com"]
   insteadOf = "gl:"
   pustInsteadOf = "gitlab:"
-
 
 [url "git@github.com"]
   insteadOf = "gh:"
@@ -272,13 +277,13 @@
 
 [gitlab]
 	name = truckmonth
-	email = me@chrisrjones.com
+  email = me@chrisrjones.com
   #signingKey = CD688E9D
 
 [bitbucket]
   name = ipatch
   email = chrisr.r.jones.1983@gmail.com
 
-[user]
-  name = truckmonth
-	email = me@chrisrjones.com
+# [user]
+#  name = truckmonth
+#	email = me@chrisrjones.com
