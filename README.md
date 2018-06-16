@@ -75,360 +75,61 @@ ln -sf $DOTFILES/config/fish/ $HOME/.config/fish
 ├── README.md
 ├── asdf
 ├── config
+│   ├── OS
+│   │   ├── Debian
+│   │   │   └── etc
+│   │   │       └── profile
+│   │   └── macOS
+│   │       └── 10.13
+│   │           └── etc
+│   │               └── profile
 │   ├── atom
 │   │   └── packages.list
-│   ├── base16-iterm2
-│   │   ├── LICENSE
-│   │   ├── Makefile
-│   │   ├── README.md
-│   │   ├── base16-iterm2-256.png
-│   │   ├── base16-iterm2.png
-│   │   ├── itermcolors
-│   │   │   ├── base16-3024-256.itermcolors
-│   │   │   ├── base16-3024.itermcolors
-│   │   │   ├── base16-apathy-256.itermcolors
-│   │   │   ├── base16-apathy.itermcolors
-│   │   │   ├── base16-ashes-256.itermcolors
-│   │   │   ├── base16-ashes.itermcolors
-│   │   │   ├── base16-atelier-cave-256.itermcolors
-│   │   │   ├── base16-atelier-cave-light-256.itermcolors
-│   │   │   ├── base16-atelier-cave-light.itermcolors
-│   │   │   ├── base16-atelier-cave.itermcolors
-│   │   │   ├── base16-atelier-dune-256.itermcolors
-│   │   │   ├── base16-atelier-dune-light-256.itermcolors
-│   │   │   ├── base16-atelier-dune-light.itermcolors
-│   │   │   ├── base16-atelier-dune.itermcolors
-│   │   │   ├── base16-atelier-estuary-256.itermcolors
-│   │   │   ├── base16-atelier-estuary-light-256.itermcolors
-│   │   │   ├── base16-atelier-estuary-light.itermcolors
-│   │   │   ├── base16-atelier-estuary.itermcolors
-│   │   │   ├── base16-atelier-forest-256.itermcolors
-│   │   │   ├── base16-atelier-forest-light-256.itermcolors
-│   │   │   ├── base16-atelier-forest-light.itermcolors
-│   │   │   ├── base16-atelier-forest.itermcolors
-│   │   │   ├── base16-atelier-heath-256.itermcolors
-│   │   │   ├── base16-atelier-heath-light-256.itermcolors
-│   │   │   ├── base16-atelier-heath-light.itermcolors
-│   │   │   ├── base16-atelier-heath.itermcolors
-│   │   │   ├── base16-atelier-lakeside-256.itermcolors
-│   │   │   ├── base16-atelier-lakeside-light-256.itermcolors
-│   │   │   ├── base16-atelier-lakeside-light.itermcolors
-│   │   │   ├── base16-atelier-lakeside.itermcolors
-│   │   │   ├── base16-atelier-plateau-256.itermcolors
-│   │   │   ├── base16-atelier-plateau-light-256.itermcolors
-│   │   │   ├── base16-atelier-plateau-light.itermcolors
-│   │   │   ├── base16-atelier-plateau.itermcolors
-│   │   │   ├── base16-atelier-savanna-256.itermcolors
-│   │   │   ├── base16-atelier-savanna-light-256.itermcolors
-│   │   │   ├── base16-atelier-savanna-light.itermcolors
-│   │   │   ├── base16-atelier-savanna.itermcolors
-│   │   │   ├── base16-atelier-seaside-256.itermcolors
-│   │   │   ├── base16-atelier-seaside-light-256.itermcolors
-│   │   │   ├── base16-atelier-seaside-light.itermcolors
-│   │   │   ├── base16-atelier-seaside.itermcolors
-│   │   │   ├── base16-atelier-sulphurpool-256.itermcolors
-│   │   │   ├── base16-atelier-sulphurpool-light-256.itermcolors
-│   │   │   ├── base16-atelier-sulphurpool-light.itermcolors
-│   │   │   ├── base16-atelier-sulphurpool.itermcolors
-│   │   │   ├── base16-bespin-256.itermcolors
-│   │   │   ├── base16-bespin.itermcolors
-│   │   │   ├── base16-brewer-256.itermcolors
-│   │   │   ├── base16-brewer.itermcolors
-│   │   │   ├── base16-bright-256.itermcolors
-│   │   │   ├── base16-bright.itermcolors
-│   │   │   ├── base16-brushtrees-256.itermcolors
-│   │   │   ├── base16-brushtrees-dark-256.itermcolors
-│   │   │   ├── base16-brushtrees-dark.itermcolors
-│   │   │   ├── base16-brushtrees.itermcolors
-│   │   │   ├── base16-chalk-256.itermcolors
-│   │   │   ├── base16-chalk.itermcolors
-│   │   │   ├── base16-circus-256.itermcolors
-│   │   │   ├── base16-circus.itermcolors
-│   │   │   ├── base16-classic-dark-256.itermcolors
-│   │   │   ├── base16-classic-dark.itermcolors
-│   │   │   ├── base16-classic-light-256.itermcolors
-│   │   │   ├── base16-classic-light.itermcolors
-│   │   │   ├── base16-codeschool-256.itermcolors
-│   │   │   ├── base16-codeschool.itermcolors
-│   │   │   ├── base16-cupcake-256.itermcolors
-│   │   │   ├── base16-cupcake.itermcolors
-│   │   │   ├── base16-cupertino-256.itermcolors
-│   │   │   ├── base16-cupertino.itermcolors
-│   │   │   ├── base16-darktooth-256.itermcolors
-│   │   │   ├── base16-darktooth.itermcolors
-│   │   │   ├── base16-default-dark-256.itermcolors
-│   │   │   ├── base16-default-dark.itermcolors
-│   │   │   ├── base16-default-light-256.itermcolors
-│   │   │   ├── base16-default-light.itermcolors
-│   │   │   ├── base16-dracula-256.itermcolors
-│   │   │   ├── base16-dracula.itermcolors
-│   │   │   ├── base16-eighties-256.itermcolors
-│   │   │   ├── base16-eighties.itermcolors
-│   │   │   ├── base16-embers-256.itermcolors
-│   │   │   ├── base16-embers.itermcolors
-│   │   │   ├── base16-flat-256.itermcolors
-│   │   │   ├── base16-flat.itermcolors
-│   │   │   ├── base16-github-256.itermcolors
-│   │   │   ├── base16-github.itermcolors
-│   │   │   ├── base16-google-dark-256.itermcolors
-│   │   │   ├── base16-google-dark.itermcolors
-│   │   │   ├── base16-google-light-256.itermcolors
-│   │   │   ├── base16-google-light.itermcolors
-│   │   │   ├── base16-grayscale-dark-256.itermcolors
-│   │   │   ├── base16-grayscale-dark.itermcolors
-│   │   │   ├── base16-grayscale-light-256.itermcolors
-│   │   │   ├── base16-grayscale-light.itermcolors
-│   │   │   ├── base16-greenscreen-256.itermcolors
-│   │   │   ├── base16-greenscreen.itermcolors
-│   │   │   ├── base16-gruvbox-dark-hard-256.itermcolors
-│   │   │   ├── base16-gruvbox-dark-hard.itermcolors
-│   │   │   ├── base16-gruvbox-dark-medium-256.itermcolors
-│   │   │   ├── base16-gruvbox-dark-medium.itermcolors
-│   │   │   ├── base16-gruvbox-dark-pale-256.itermcolors
-│   │   │   ├── base16-gruvbox-dark-pale.itermcolors
-│   │   │   ├── base16-gruvbox-dark-soft-256.itermcolors
-│   │   │   ├── base16-gruvbox-dark-soft.itermcolors
-│   │   │   ├── base16-gruvbox-light-hard-256.itermcolors
-│   │   │   ├── base16-gruvbox-light-hard.itermcolors
-│   │   │   ├── base16-gruvbox-light-medium-256.itermcolors
-│   │   │   ├── base16-gruvbox-light-medium.itermcolors
-│   │   │   ├── base16-gruvbox-light-soft-256.itermcolors
-│   │   │   ├── base16-gruvbox-light-soft.itermcolors
-│   │   │   ├── base16-harmonic-dark-256.itermcolors
-│   │   │   ├── base16-harmonic-dark.itermcolors
-│   │   │   ├── base16-harmonic-light-256.itermcolors
-│   │   │   ├── base16-harmonic-light.itermcolors
-│   │   │   ├── base16-hopscotch-256.itermcolors
-│   │   │   ├── base16-hopscotch.itermcolors
-│   │   │   ├── base16-irblack-256.itermcolors
-│   │   │   ├── base16-irblack.itermcolors
-│   │   │   ├── base16-isotope-256.itermcolors
-│   │   │   ├── base16-isotope.itermcolors
-│   │   │   ├── base16-macintosh-256.itermcolors
-│   │   │   ├── base16-macintosh.itermcolors
-│   │   │   ├── base16-marrakesh-256.itermcolors
-│   │   │   ├── base16-marrakesh.itermcolors
-│   │   │   ├── base16-materia-256.itermcolors
-│   │   │   ├── base16-materia.itermcolors
-│   │   │   ├── base16-material-256.itermcolors
-│   │   │   ├── base16-material-darker-256.itermcolors
-│   │   │   ├── base16-material-darker.itermcolors
-│   │   │   ├── base16-material-lighter-256.itermcolors
-│   │   │   ├── base16-material-lighter.itermcolors
-│   │   │   ├── base16-material-palenight-256.itermcolors
-│   │   │   ├── base16-material-palenight.itermcolors
-│   │   │   ├── base16-material.itermcolors
-│   │   │   ├── base16-mellow-purple-256.itermcolors
-│   │   │   ├── base16-mellow-purple.itermcolors
-│   │   │   ├── base16-mexico-light-256.itermcolors
-│   │   │   ├── base16-mexico-light.itermcolors
-│   │   │   ├── base16-mocha-256.itermcolors
-│   │   │   ├── base16-mocha.itermcolors
-│   │   │   ├── base16-monokai-256.itermcolors
-│   │   │   ├── base16-monokai.itermcolors
-│   │   │   ├── base16-nord-256.itermcolors
-│   │   │   ├── base16-nord.itermcolors
-│   │   │   ├── base16-ocean-256.itermcolors
-│   │   │   ├── base16-ocean.itermcolors
-│   │   │   ├── base16-oceanicnext-256.itermcolors
-│   │   │   ├── base16-oceanicnext.itermcolors
-│   │   │   ├── base16-one-light-256.itermcolors
-│   │   │   ├── base16-one-light.itermcolors
-│   │   │   ├── base16-onedark-256.itermcolors
-│   │   │   ├── base16-onedark.itermcolors
-│   │   │   ├── base16-paraiso-256.itermcolors
-│   │   │   ├── base16-paraiso.itermcolors
-│   │   │   ├── base16-phd-256.itermcolors
-│   │   │   ├── base16-phd.itermcolors
-│   │   │   ├── base16-pico-256.itermcolors
-│   │   │   ├── base16-pico.itermcolors
-│   │   │   ├── base16-pop-256.itermcolors
-│   │   │   ├── base16-pop.itermcolors
-│   │   │   ├── base16-railscasts-256.itermcolors
-│   │   │   ├── base16-railscasts.itermcolors
-│   │   │   ├── base16-rebecca-256.itermcolors
-│   │   │   ├── base16-rebecca.itermcolors
-│   │   │   ├── base16-seti-256.itermcolors
-│   │   │   ├── base16-seti.itermcolors
-│   │   │   ├── base16-shapeshifter-256.itermcolors
-│   │   │   ├── base16-shapeshifter.itermcolors
-│   │   │   ├── base16-solarflare-256.itermcolors
-│   │   │   ├── base16-solarflare.itermcolors
-│   │   │   ├── base16-solarized-dark-256.itermcolors
-│   │   │   ├── base16-solarized-dark.itermcolors
-│   │   │   ├── base16-solarized-light-256.itermcolors
-│   │   │   ├── base16-solarized-light.itermcolors
-│   │   │   ├── base16-spacemacs-256.itermcolors
-│   │   │   ├── base16-spacemacs.itermcolors
-│   │   │   ├── base16-summerfruit-dark-256.itermcolors
-│   │   │   ├── base16-summerfruit-dark.itermcolors
-│   │   │   ├── base16-summerfruit-light-256.itermcolors
-│   │   │   ├── base16-summerfruit-light.itermcolors
-│   │   │   ├── base16-tomorrow-256.itermcolors
-│   │   │   ├── base16-tomorrow-night-256.itermcolors
-│   │   │   ├── base16-tomorrow-night.itermcolors
-│   │   │   ├── base16-tomorrow.itermcolors
-│   │   │   ├── base16-tube-256.itermcolors
-│   │   │   ├── base16-tube.itermcolors
-│   │   │   ├── base16-twilight-256.itermcolors
-│   │   │   ├── base16-twilight.itermcolors
-│   │   │   ├── base16-unikitty-dark-256.itermcolors
-│   │   │   ├── base16-unikitty-dark.itermcolors
-│   │   │   ├── base16-unikitty-light-256.itermcolors
-│   │   │   ├── base16-unikitty-light.itermcolors
-│   │   │   ├── base16-woodland-256.itermcolors
-│   │   │   ├── base16-woodland.itermcolors
-│   │   │   ├── base16-zenburn-256.itermcolors
-│   │   │   └── base16-zenburn.itermcolors
-│   │   └── templates
-│   │       ├── config.yaml
-│   │       ├── default-256.mustache
-│   │       └── default.mustache
-│   ├── base16-shell
-│   │   ├── LICENSE.md
-│   │   ├── README.md
-│   │   ├── base16-shell.plugin.zsh
-│   │   ├── base16-shell.png
-│   │   ├── colortest
-│   │   ├── profile_helper.fish
-│   │   ├── profile_helper.sh
-│   │   ├── realpath
-│   │   │   ├── LICENSE.txt
-│   │   │   ├── Makefile
-│   │   │   ├── README.md
-│   │   │   ├── realpath.sh
-│   │   │   └── t
-│   │   │       ├── test_canonicalize_path
-│   │   │       ├── test_readlink_emulation
-│   │   │       ├── test_realpath_integration
-│   │   │       └── test_resolve_symlinks
-│   │   ├── scripts
-│   │   │   ├── base16-3024.sh
-│   │   │   ├── base16-apathy.sh
-│   │   │   ├── base16-ashes.sh
-│   │   │   ├── base16-atelier-cave-light.sh
-│   │   │   ├── base16-atelier-cave.sh
-│   │   │   ├── base16-atelier-dune-light.sh
-│   │   │   ├── base16-atelier-dune.sh
-│   │   │   ├── base16-atelier-estuary-light.sh
-│   │   │   ├── base16-atelier-estuary.sh
-│   │   │   ├── base16-atelier-forest-light.sh
-│   │   │   ├── base16-atelier-forest.sh
-│   │   │   ├── base16-atelier-heath-light.sh
-│   │   │   ├── base16-atelier-heath.sh
-│   │   │   ├── base16-atelier-lakeside-light.sh
-│   │   │   ├── base16-atelier-lakeside.sh
-│   │   │   ├── base16-atelier-plateau-light.sh
-│   │   │   ├── base16-atelier-plateau.sh
-│   │   │   ├── base16-atelier-savanna-light.sh
-│   │   │   ├── base16-atelier-savanna.sh
-│   │   │   ├── base16-atelier-seaside-light.sh
-│   │   │   ├── base16-atelier-seaside.sh
-│   │   │   ├── base16-atelier-sulphurpool-light.sh
-│   │   │   ├── base16-atelier-sulphurpool.sh
-│   │   │   ├── base16-bespin.sh
-│   │   │   ├── base16-brewer.sh
-│   │   │   ├── base16-bright.sh
-│   │   │   ├── base16-brushtrees-dark.sh
-│   │   │   ├── base16-brushtrees.sh
-│   │   │   ├── base16-chalk.sh
-│   │   │   ├── base16-circus.sh
-│   │   │   ├── base16-classic-dark.sh
-│   │   │   ├── base16-classic-light.sh
-│   │   │   ├── base16-codeschool.sh
-│   │   │   ├── base16-cupcake.sh
-│   │   │   ├── base16-cupertino.sh
-│   │   │   ├── base16-darktooth.sh
-│   │   │   ├── base16-default-dark.sh
-│   │   │   ├── base16-default-light.sh
-│   │   │   ├── base16-dracula.sh
-│   │   │   ├── base16-eighties.sh
-│   │   │   ├── base16-embers.sh
-│   │   │   ├── base16-flat.sh
-│   │   │   ├── base16-github.sh
-│   │   │   ├── base16-google-dark.sh
-│   │   │   ├── base16-google-light.sh
-│   │   │   ├── base16-grayscale-dark.sh
-│   │   │   ├── base16-grayscale-light.sh
-│   │   │   ├── base16-greenscreen.sh
-│   │   │   ├── base16-gruvbox-dark-hard.sh
-│   │   │   ├── base16-gruvbox-dark-medium.sh
-│   │   │   ├── base16-gruvbox-dark-pale.sh
-│   │   │   ├── base16-gruvbox-dark-soft.sh
-│   │   │   ├── base16-gruvbox-light-hard.sh
-│   │   │   ├── base16-gruvbox-light-medium.sh
-│   │   │   ├── base16-gruvbox-light-soft.sh
-│   │   │   ├── base16-harmonic-dark.sh
-│   │   │   ├── base16-harmonic-light.sh
-│   │   │   ├── base16-hopscotch.sh
-│   │   │   ├── base16-icy.sh
-│   │   │   ├── base16-irblack.sh
-│   │   │   ├── base16-isotope.sh
-│   │   │   ├── base16-macintosh.sh
-│   │   │   ├── base16-marrakesh.sh
-│   │   │   ├── base16-materia.sh
-│   │   │   ├── base16-material-darker.sh
-│   │   │   ├── base16-material-lighter.sh
-│   │   │   ├── base16-material-palenight.sh
-│   │   │   ├── base16-material.sh
-│   │   │   ├── base16-mellow-purple.sh
-│   │   │   ├── base16-mexico-light.sh
-│   │   │   ├── base16-mocha.sh
-│   │   │   ├── base16-monokai.sh
-│   │   │   ├── base16-nord.sh
-│   │   │   ├── base16-ocean.sh
-│   │   │   ├── base16-oceanicnext.sh
-│   │   │   ├── base16-one-light.sh
-│   │   │   ├── base16-onedark.sh
-│   │   │   ├── base16-paraiso.sh
-│   │   │   ├── base16-phd.sh
-│   │   │   ├── base16-pico.sh
-│   │   │   ├── base16-pop.sh
-│   │   │   ├── base16-porple.sh
-│   │   │   ├── base16-railscasts.sh
-│   │   │   ├── base16-rebecca.sh
-│   │   │   ├── base16-seti.sh
-│   │   │   ├── base16-shapeshifter.sh
-│   │   │   ├── base16-solarflare.sh
-│   │   │   ├── base16-solarized-dark.sh
-│   │   │   ├── base16-solarized-light.sh
-│   │   │   ├── base16-spacemacs.sh
-│   │   │   ├── base16-summerfruit-dark.sh
-│   │   │   ├── base16-summerfruit-light.sh
-│   │   │   ├── base16-tomorrow-night.sh
-│   │   │   ├── base16-tomorrow.sh
-│   │   │   ├── base16-tube.sh
-│   │   │   ├── base16-twilight.sh
-│   │   │   ├── base16-unikitty-dark.sh
-│   │   │   ├── base16-unikitty-light.sh
-│   │   │   ├── base16-woodland.sh
-│   │   │   ├── base16-xcode-dusk.sh
-│   │   │   └── base16-zenburn.sh
-│   │   ├── setting-256-colourspace-not-supported.png
-│   │   └── templates
-│   │       ├── config.yaml
-│   │       └── default.mustache
+│   ├── base16-shell -> /opt/code/github/base16-shell/
+│   ├── bash
+│   │   ├── bash_profile
+│   │   ├── bashrc
+│   │   └── functions
+│   │       ├── README.md
+│   │       ├── debug.bash
+│   │       └── foobar.bash
 │   ├── bitbar
+│   │   ├── cpu-temperature.5s.sh
+│   │   ├── fan-speed.5s.sh
 │   │   └── spotify.10s.sh
 │   ├── brew
 │   │   ├── Debian
-│   │   │   └── strech
-│   │   │       └── Brewfile
+│   │   │   └── stretch
+│   │   │       ├── Brewfile
+│   │   │       └── dir_colors -> /opt/Code/dotfiles/config/brew/macOS/10.13/gnu-coreutils/dir_colors
 │   │   ├── grc
 │   │   │   └── grc.conf
 │   │   └── macOS
+│   │       ├── 10.12 -> Sierra/
+│   │       ├── 10.13 -> High\ Sierra/
+│   │       ├── High\ Sierra
+│   │       │   ├── Brewfile
+│   │       │   ├── Library -> /opt/Code/dotfiles/config/brew/macOS/Sierra/Library
+│   │       │   ├── config
+│   │       │   │   └── karabiner -> /opt/Code/dotfiles/config/karabiner
+│   │       │   ├── etc -> /opt/Code/dotfiles/config/brew/macOS/Sierra/etc
+│   │       │   └── gnu-coreutils
+│   │       │       └── dir_colors
 │   │       └── Sierra
 │   │           ├── Brewfile
 │   │           ├── Library
 │   │           │   ├── LaunchAgents
-│   │           │   │   └── com.openssh.ssh-agent.plist
+│   │           │   │   └── com.chrisrjones.ssh-agent.plist
 │   │           │   └── LaunchDaemons
-│   │           │       └── homebrew.mxcl.sshd.plist
+│   │           │       └── com.chrisrjones.sshd.plist
 │   │           └── etc
 │   │               └── ssh
+│   │                   ├── ssh_config
 │   │                   └── sshd_config
 │   ├── code -> vscode
-│   ├── dir_colors
+│   ├── firefox
+│   │   └── chrome
+│   │       └── userChrome.css
 │   ├── fish
 │   │   ├── abbreviations.fish
 │   │   ├── aliases.fish
@@ -439,12 +140,11 @@ ln -sf $DOTFILES/config/fish/ $HOME/.config/fish
 │   │   ├── conf.d
 │   │   │   ├── 001_load_paths.fish
 │   │   │   ├── 002_load_ls_colors.fish
-│   │   │   ├── 003_load_ssh_agent.fish
 │   │   │   ├── 005_omf.fish
-│   │   │   ├── 006_load_docker.fish
 │   │   │   └── 007_load_pyen.fish
 │   │   ├── config.fish
 │   │   ├── config.fish.bkup
+│   │   ├── fish_universal_variables
 │   │   ├── fishd.b8e85636f766
 │   │   ├── frameworks
 │   │   │   └── omf
@@ -465,6 +165,7 @@ ln -sf $DOTFILES/config/fish/ $HOME/.config/fish
 │   │   ├── functions
 │   │   │   ├── bases.fish
 │   │   │   ├── brew_find_pkg.fish
+│   │   │   ├── color.fish
 │   │   │   ├── dbus_launch.fish
 │   │   │   ├── editfish.fish
 │   │   │   ├── emoji.fish
@@ -473,10 +174,11 @@ ln -sf $DOTFILES/config/fish/ $HOME/.config/fish
 │   │   │   ├── fish_term_wrap.fish
 │   │   │   ├── fish_title.fish
 │   │   │   ├── fish_user_key_bindings.fish
+│   │   │   ├── foobar.fish
 │   │   │   ├── fundle.fish
-│   │   │   ├── fzf_key_bindings.fish -> /usr/local/opt/fzf/shell/key-bindings.fish
 │   │   │   ├── git_submodule_add_commit.fish
 │   │   │   ├── gittree.fish
+│   │   │   ├── h.fish
 │   │   │   ├── key-bindings.fish -> /usr/local/opt/fzf/shell/key-bindings.fish
 │   │   │   ├── ln_asdf_man_pages.fish
 │   │   │   ├── ln_dotfiles.fish
@@ -497,6 +199,7 @@ ln -sf $DOTFILES/config/fish/ $HOME/.config/fish
 │   │   │   ├── rvm_toggle.fish
 │   │   │   ├── shell_color_palette.fish
 │   │   │   ├── test_256_color.fish
+│   │   │   ├── test_italic.fish
 │   │   │   ├── test_true_color.fish
 │   │   │   ├── toggle_anaconda_pythons.fish
 │   │   │   ├── toggle_asdf_shims_and_bins.fish
@@ -504,26 +207,19 @@ ln -sf $DOTFILES/config/fish/ $HOME/.config/fish
 │   │   │   ├── toggle_homebrew_ruby.fish
 │   │   │   └── vman.fish
 │   │   ├── fundle
-│   │   │   ├── edc
-│   │   │   │   └── bass
-│   │   │   │       ├── LICENSE
-│   │   │   │       ├── Makefile
-│   │   │   │       ├── README.md
-│   │   │   │       ├── functions
-│   │   │   │       │   ├── __bass.py
-│   │   │   │       │   └── bass.fish
-│   │   │   │       └── test
-│   │   │   │           ├── fixtures
-│   │   │   │           │   └── dollar_output.sh
-│   │   │   │           ├── test_bass.fish
-│   │   │   │           └── test_dollar_on_output.fish
-│   │   │   └── tuvistavie
-│   │   │       └── fish-ssh-agent
+│   │   │   └── edc
+│   │   │       └── bass
+│   │   │           ├── LICENSE
+│   │   │           ├── Makefile
 │   │   │           ├── README.md
 │   │   │           ├── functions
-│   │   │           │   ├── __ssh_agent_is_started.fish
-│   │   │           │   └── __ssh_agent_start.fish
-│   │   │           └── init.fish
+│   │   │           │   ├── __bass.py
+│   │   │           │   └── bass.fish
+│   │   │           └── test
+│   │   │               ├── fixtures
+│   │   │               │   └── dollar_output.sh
+│   │   │               ├── test_bass.fish
+│   │   │               └── test_dollar_on_output.fish
 │   │   └── interactive.fish
 │   ├── git
 │   │   ├── gitattributes
@@ -545,6 +241,56 @@ ln -sf $DOTFILES/config/fish/ $HOME/.config/fish
 │   │       ├── iset.conf
 │   │       ├── logger.conf
 │   │       ├── logs
+│   │       │   ├── core.weechat.weechatlog
+│   │       │   ├── irc.efnet.#netbsd.weechatlog
+│   │       │   ├── irc.freenode.##homebrew.weechatlog
+│   │       │   ├── irc.freenode.##sed.weechatlog
+│   │       │   ├── irc.freenode.#applescript.weechatlog
+│   │       │   ├── irc.freenode.#atom.weechatlog
+│   │       │   ├── irc.freenode.#blahblah.weechatlog
+│   │       │   ├── irc.freenode.#chromium-support.weechatlog
+│   │       │   ├── irc.freenode.#chromium.weechatlog
+│   │       │   ├── irc.freenode.#cmake.weechatlog
+│   │       │   ├── irc.freenode.#debian.weechatlog
+│   │       │   ├── irc.freenode.#facetimehd.weechatlog
+│   │       │   ├── irc.freenode.#filmsbykris.weechatlog
+│   │       │   ├── irc.freenode.#firefox-unregistered.weechatlog
+│   │       │   ├── irc.freenode.#fish.weechatlog
+│   │       │   ├── irc.freenode.#freenode.weechatlog
+│   │       │   ├── irc.freenode.#gcc.weechatlog
+│   │       │   ├── irc.freenode.#gdb.weechatlog
+│   │       │   ├── irc.freenode.#git.weechatlog
+│   │       │   ├── irc.freenode.#github.weechatlog
+│   │       │   ├── irc.freenode.#iterm2.weechatlog
+│   │       │   ├── irc.freenode.#kegbot.weechatlog
+│   │       │   ├── irc.freenode.#lfs-support.weechatlog
+│   │       │   ├── irc.freenode.#machomebrew.weechatlog
+│   │       │   ├── irc.freenode.#mipslinux.weechatlog
+│   │       │   ├── irc.freenode.#mpv.weechatlog
+│   │       │   ├── irc.freenode.#my-super-fancy-test-channel.weechatlog
+│   │       │   ├── irc.freenode.#my_super_fancy_test_channel.weechatlog
+│   │       │   ├── irc.freenode.#neomutt.weechatlog
+│   │       │   ├── irc.freenode.#netbsd.weechatlog
+│   │       │   ├── irc.freenode.#openjtag.weechatlog
+│   │       │   ├── irc.freenode.#openocd.weechatlog
+│   │       │   ├── irc.freenode.#openwrt.weechatlog
+│   │       │   ├── irc.freenode.#osxre.weechatlog
+│   │       │   ├── irc.freenode.#python-unregistered.weechatlog
+│   │       │   ├── irc.freenode.#radare.weechatlog
+│   │       │   ├── irc.freenode.#rsync.weechatlog
+│   │       │   ├── irc.freenode.#ruby.weechatlog
+│   │       │   ├── irc.freenode.#test-channel.weechatlog
+│   │       │   ├── irc.freenode.#theairportwiki.weechatlog
+│   │       │   ├── irc.freenode.#tmux.weechatlog
+│   │       │   ├── irc.freenode.#weechat.weechatlog
+│   │       │   ├── irc.freenode.#xorg.weechatlog
+│   │       │   ├── irc.freenode.capin.weechatlog
+│   │       │   ├── irc.freenode.capin1.weechatlog
+│   │       │   ├── irc.oftc.#fish.weechatlog
+│   │       │   ├── irc.oftc.#qemu.weechatlog
+│   │       │   ├── irc.server.efnet.weechatlog
+│   │       │   ├── irc.server.freenode.weechatlog
+│   │       │   └── irc.server.oftc.weechatlog
 │   │       ├── lua
 │   │       │   └── autoload
 │   │       ├── perl
@@ -584,6 +330,10 @@ ln -sf $DOTFILES/config/fish/ $HOME/.config/fish
 │   │       ├── weechat.png
 │   │       ├── xfer
 │   │       └── xfer.conf
+│   ├── karabiner
+│   │   ├── assets
+│   │   │   └── complex_modifications
+│   │   └── karabiner.json
 │   ├── mpv
 │   │   ├── input.conf
 │   │   ├── mpv.conf
@@ -595,9 +345,16 @@ ln -sf $DOTFILES/config/fish/ $HOME/.config/fish
 │   │       └── minpac
 │   │           ├── opt
 │   │           └── start
-│   └── vscode
-│       ├── keybindings.json
-│       └── settings.json
+│   ├── pt
+│   │   └── config.toml
+│   ├── vscode
+│   │   ├── keybindings.json
+│   │   └── settings.json
+│   └── zsh
+│       ├── functions
+│       ├── zlogin
+│       ├── zshenv
+│       └── zshrc
 ├── editors
 │   ├── atom -> /opt/Code/dotfiles/config/atom
 │   ├── code -> /opt/Code/dotfiles/config/code
@@ -609,10 +366,13 @@ ln -sf $DOTFILES/config/fish/ $HOME/.config/fish
 │       ├── vim
 │       │   ├── after
 │       │   │   ├── ftplugin
+│       │   │   │   ├── html.vim
 │       │   │   │   ├── javascript
 │       │   │   │   │   └── folding.vim
 │       │   │   │   ├── markdown
 │       │   │   │   │   └── folding.vim
+│       │   │   │   ├── markdown.vim
+│       │   │   │   ├── python.vim
 │       │   │   │   └── vim
 │       │   │   │       ├── folding.vim
 │       │   │   │       └── vim.vim
@@ -626,17 +386,6 @@ ln -sf $DOTFILES/config/fish/ $HOME/.config/fish
 │       │   │       └── settings.vim
 │       │   ├── colors
 │       │   ├── pack
-│       │   │   ├── bundle
-│       │   │   │   ├── opt
-│       │   │   │   │   └── vim-scriptease
-│       │   │   │   │       ├── README.markdown
-│       │   │   │   │       ├── autoload
-│       │   │   │   │       │   └── scriptease.vim
-│       │   │   │   │       ├── doc
-│       │   │   │   │       │   └── scriptease.txt
-│       │   │   │   │       └── plugin
-│       │   │   │   │           └── scriptease.vim
-│       │   │   │   └── start
 │       │   │   └── minpac
 │       │   │       ├── opt
 │       │   │       │   └── minpac
@@ -666,103 +415,6 @@ ln -sf $DOTFILES/config/fish/ $HOME/.config/fish
 │       │   │       │           ├── dl-kaoriya-vim.py
 │       │   │       │           └── pull-async-vim.sh
 │       │   │       └── start
-│       │   │           ├── alchemist.vim
-│       │   │           │   ├── CHANGELOG.md
-│       │   │           │   ├── LICENSE
-│       │   │           │   ├── README.md
-│       │   │           │   ├── __pycache__
-│       │   │           │   │   ├── elixir_sense.cpython-36.pyc
-│       │   │           │   │   └── erl_terms.cpython-36.pyc
-│       │   │           │   ├── after
-│       │   │           │   │   ├── ftplugin
-│       │   │           │   │   │   └── elixir.vim
-│       │   │           │   │   └── plugin
-│       │   │           │   │       └── alchemist.vim
-│       │   │           │   ├── autoload
-│       │   │           │   │   └── elixircomplete.vim
-│       │   │           │   ├── doc
-│       │   │           │   │   ├── alchemist.txt
-│       │   │           │   │   └── tags
-│       │   │           │   ├── elixir_sense
-│       │   │           │   │   ├── README.md
-│       │   │           │   │   ├── config
-│       │   │           │   │   │   └── config.exs
-│       │   │           │   │   ├── lib
-│       │   │           │   │   │   ├── alchemist
-│       │   │           │   │   │   │   └── helpers
-│       │   │           │   │   │   │       ├── complete.ex
-│       │   │           │   │   │   │       └── module_info.ex
-│       │   │           │   │   │   ├── elixir_sense
-│       │   │           │   │   │   │   ├── core
-│       │   │           │   │   │   │   │   ├── ast.ex
-│       │   │           │   │   │   │   │   ├── introspection.ex
-│       │   │           │   │   │   │   │   ├── metadata.ex
-│       │   │           │   │   │   │   │   ├── metadata_builder.ex
-│       │   │           │   │   │   │   │   ├── parser.ex
-│       │   │           │   │   │   │   │   ├── source.ex
-│       │   │           │   │   │   │   │   └── state.ex
-│       │   │           │   │   │   │   ├── providers
-│       │   │           │   │   │   │   │   ├── definition.ex
-│       │   │           │   │   │   │   │   ├── docs.ex
-│       │   │           │   │   │   │   │   ├── eval.ex
-│       │   │           │   │   │   │   │   ├── expand.ex
-│       │   │           │   │   │   │   │   ├── signature.ex
-│       │   │           │   │   │   │   │   └── suggestion.ex
-│       │   │           │   │   │   │   ├── server
-│       │   │           │   │   │   │   │   ├── context_loader.ex
-│       │   │           │   │   │   │   │   ├── request_handler.ex
-│       │   │           │   │   │   │   │   └── tcp_server.ex
-│       │   │           │   │   │   │   └── server.ex
-│       │   │           │   │   │   ├── elixir_sense.ex
-│       │   │           │   │   │   └── self_destruct_timer.ex
-│       │   │           │   │   ├── mix.exs
-│       │   │           │   │   ├── mix.lock
-│       │   │           │   │   ├── run.exs
-│       │   │           │   │   ├── run_test.exs
-│       │   │           │   │   ├── t.exs
-│       │   │           │   │   └── test
-│       │   │           │   │       ├── alchemist
-│       │   │           │   │       │   └── helpers
-│       │   │           │   │       │       └── module_info_test.exs
-│       │   │           │   │       ├── elixir_sense
-│       │   │           │   │       │   ├── all_modules_test.exs
-│       │   │           │   │       │   ├── core
-│       │   │           │   │       │   │   ├── ast_test.exs
-│       │   │           │   │       │   │   ├── introspection_test.exs
-│       │   │           │   │       │   │   ├── metadata_builder_test.exs
-│       │   │           │   │       │   │   ├── metadata_test.exs
-│       │   │           │   │       │   │   ├── parser_test.exs
-│       │   │           │   │       │   │   └── source_test.exs
-│       │   │           │   │       │   ├── definition_test.exs
-│       │   │           │   │       │   ├── docs_test.exs
-│       │   │           │   │       │   ├── eval_test.exs
-│       │   │           │   │       │   ├── providers
-│       │   │           │   │       │   │   └── suggestion_test.exs
-│       │   │           │   │       │   ├── signature_test.exs
-│       │   │           │   │       │   └── suggestions_test.exs
-│       │   │           │   │       ├── elixir_sense_test.exs
-│       │   │           │   │       ├── server_test.exs
-│       │   │           │   │       └── test_helper.exs
-│       │   │           │   ├── elixir_sense.py
-│       │   │           │   ├── elixir_sense_client
-│       │   │           │   ├── erl_terms.py
-│       │   │           │   ├── logo.png
-│       │   │           │   ├── rplugin
-│       │   │           │   │   └── python3
-│       │   │           │   │       └── deoplete
-│       │   │           │   │           └── sources
-│       │   │           │   │               ├── __pycache__
-│       │   │           │   │               │   └── alchemist.cpython-36.pyc
-│       │   │           │   │               └── alchemist.py
-│       │   │           │   ├── syntax
-│       │   │           │   │   └── exdoc.vim
-│       │   │           │   └── t
-│       │   │           │       ├── __init__.py
-│       │   │           │       ├── erl_terms_test.py
-│       │   │           │       └── fixtures
-│       │   │           │           └── alchemist_server
-│       │   │           │               ├── invalid.log
-│       │   │           │               └── valid.log
 │       │   │           ├── ale
 │       │   │           │   ├── CODE_OF_CONDUCT.md
 │       │   │           │   ├── CONTRIBUTING.md
@@ -771,9 +423,6 @@ ln -sf $DOTFILES/config/fish/ $HOME/.config/fish
 │       │   │           │   ├── LICENSE
 │       │   │           │   ├── PULL_REQUEST_TEMPLATE.md
 │       │   │           │   ├── README.md
-│       │   │           │   ├── after
-│       │   │           │   │   └── plugin
-│       │   │           │   │       └── ale.vim
 │       │   │           │   ├── ale_linters
 │       │   │           │   │   ├── ansible
 │       │   │           │   │   │   └── ansible_lint.vim
@@ -809,6 +458,7 @@ ln -sf $DOTFILES/config/fish/ $HOME/.config/fish
 │       │   │           │   │   │   ├── clangtidy.vim
 │       │   │           │   │   │   ├── cppcheck.vim
 │       │   │           │   │   │   ├── cpplint.vim
+│       │   │           │   │   │   ├── cquery.vim
 │       │   │           │   │   │   ├── flawfinder.vim
 │       │   │           │   │   │   └── gcc.vim
 │       │   │           │   │   ├── crystal
@@ -937,6 +587,8 @@ ln -sf $DOTFILES/config/fish/ $HOME/.config/fish
 │       │   │           │   │   │   └── mlint.vim
 │       │   │           │   │   ├── mercury
 │       │   │           │   │   │   └── mmc.vim
+│       │   │           │   │   ├── nasm
+│       │   │           │   │   │   └── nasm.vim
 │       │   │           │   │   ├── nim
 │       │   │           │   │   │   └── nimcheck.vim
 │       │   │           │   │   ├── nix
@@ -1143,11 +795,13 @@ ln -sf $DOTFILES/config/fish/ $HOME/.config/fish
 │       │   │           │   │   │   │   ├── rubocop.vim
 │       │   │           │   │   │   │   ├── rufo.vim
 │       │   │           │   │   │   │   ├── rustfmt.vim
+│       │   │           │   │   │   │   ├── scalafmt.vim
 │       │   │           │   │   │   │   ├── shfmt.vim
 │       │   │           │   │   │   │   ├── standard.vim
 │       │   │           │   │   │   │   ├── stylelint.vim
 │       │   │           │   │   │   │   ├── swiftformat.vim
 │       │   │           │   │   │   │   ├── tslint.vim
+│       │   │           │   │   │   │   ├── xo.vim
 │       │   │           │   │   │   │   └── yapf.vim
 │       │   │           │   │   │   ├── gradle
 │       │   │           │   │   │   │   └── init.gradle
@@ -1171,6 +825,7 @@ ln -sf $DOTFILES/config/fish/ $HOME/.config/fish
 │       │   │           │   │   │   │   ├── rubocop.vim
 │       │   │           │   │   │   │   ├── ruby.vim
 │       │   │           │   │   │   │   ├── rust.vim
+│       │   │           │   │   │   │   ├── sasslint.vim
 │       │   │           │   │   │   │   ├── scala.vim
 │       │   │           │   │   │   │   ├── sh.vim
 │       │   │           │   │   │   │   ├── sml.vim
@@ -1246,6 +901,7 @@ ln -sf $DOTFILES/config/fish/ $HOME/.config/fish
 │       │   │           │   │   ├── ale-lua.txt
 │       │   │           │   │   ├── ale-markdown.txt
 │       │   │           │   │   ├── ale-mercury.txt
+│       │   │           │   │   ├── ale-nasm.txt
 │       │   │           │   │   ├── ale-nroff.txt
 │       │   │           │   │   ├── ale-objc.txt
 │       │   │           │   │   ├── ale-objcpp.txt
@@ -1447,6 +1103,8 @@ ln -sf $DOTFILES/config/fish/ $HOME/.config/fish
 │       │   │           │       │   │   └── with_config
 │       │   │           │       │   ├── rust-rls-project
 │       │   │           │       │   │   └── Cargo.toml
+│       │   │           │       │   ├── scala_paths
+│       │   │           │       │   │   └── dummy.scala
 │       │   │           │       │   ├── standard-test-files
 │       │   │           │       │   │   ├── with-bin
 │       │   │           │       │   │   │   └── node_modules
@@ -1475,6 +1133,7 @@ ln -sf $DOTFILES/config/fish/ $HOME/.config/fish
 │       │   │           │       │   ├── test_cpp_clang_command_callbacks.vader
 │       │   │           │       │   ├── test_cpp_clangcheck_command_callbacks.vader
 │       │   │           │       │   ├── test_cpp_cppcheck_command_callbacks.vader
+│       │   │           │       │   ├── test_cpp_cquery_command_callbacks.vader
 │       │   │           │       │   ├── test_cpp_flawfinder_command_callbacks.vader
 │       │   │           │       │   ├── test_cpp_gcc_command_callbacks.vader
 │       │   │           │       │   ├── test_cpplint_command_callbacks.vader
@@ -1519,6 +1178,7 @@ ln -sf $DOTFILES/config/fish/ $HOME/.config/fish
 │       │   │           │       │   ├── test_mercury_mmc_command_callback.vader
 │       │   │           │       │   ├── test_mypy_command_callback.vader
 │       │   │           │       │   ├── test_nagelfar_command_callbacks.vader
+│       │   │           │       │   ├── test_nasm_nasm_command_callbacks.vader
 │       │   │           │       │   ├── test_ocaml_ols_callbacks.vader
 │       │   │           │       │   ├── test_perl_command_callback.vader
 │       │   │           │       │   ├── test_perlcritic_command_callback.vader
@@ -1526,6 +1186,7 @@ ln -sf $DOTFILES/config/fish/ $HOME/.config/fish
 │       │   │           │       │   ├── test_phpmd_command_callbacks.vader
 │       │   │           │       │   ├── test_phpstan_command_callbacks.vader
 │       │   │           │       │   ├── test_pony_ponyc_command_callbacks.vader
+│       │   │           │       │   ├── test_prospector_command_callback.vader
 │       │   │           │       │   ├── test_proto_command_callback.vader
 │       │   │           │       │   ├── test_puglint_command_callback.vader
 │       │   │           │       │   ├── test_pycodestyle_command_callback.vader
@@ -1539,6 +1200,7 @@ ln -sf $DOTFILES/config/fish/ $HOME/.config/fish
 │       │   │           │       │   ├── test_ruby_command_callback.vader
 │       │   │           │       │   ├── test_rust_rls_callbacks.vader
 │       │   │           │       │   ├── test_rustc_command_callback.vader
+│       │   │           │       │   ├── test_sasslint_command_callback.vader
 │       │   │           │       │   ├── test_scalac_command_callback.vader
 │       │   │           │       │   ├── test_scalastyle_command_callback.vader
 │       │   │           │       │   ├── test_shellcheck_command_callback.vader
@@ -1625,6 +1287,7 @@ ln -sf $DOTFILES/config/fish/ $HOME/.config/fish
 │       │   │           │       │   ├── test_ale_fix.vader
 │       │   │           │       │   ├── test_ale_fix_aliases.vader
 │       │   │           │       │   ├── test_ale_fix_completion.vader
+│       │   │           │       │   ├── test_ale_fix_completion_filter.vader
 │       │   │           │       │   └── test_ale_fix_suggest.vader
 │       │   │           │       ├── fixers
 │       │   │           │       │   ├── eslint-test-files
@@ -1678,6 +1341,7 @@ ln -sf $DOTFILES/config/fish/ $HOME/.config/fish
 │       │   │           │       │   ├── test_rubocop_fixer_callback.vader
 │       │   │           │       │   ├── test_rufo_fixer_callback.vader
 │       │   │           │       │   ├── test_rustfmt_fixer_callback.vader
+│       │   │           │       │   ├── test_scalafmt_fixer_callback.vader
 │       │   │           │       │   ├── test_shfmt_fixer_callback.vader
 │       │   │           │       │   ├── test_standard_fixer_callback.vader
 │       │   │           │       │   ├── test_stylelint_fixer_callback.vader
@@ -1793,8 +1457,10 @@ ln -sf $DOTFILES/config/fish/ $HOME/.config/fish
 │       │   │           │       │   ├── test_mcs_handler.vader
 │       │   │           │       │   ├── test_mcsc_handler.vader
 │       │   │           │       │   ├── test_mercury_mmc_handler.vader
+│       │   │           │       │   ├── test_msgfmt_hander.vader
 │       │   │           │       │   ├── test_mypy_handler.vader
 │       │   │           │       │   ├── test_nagelfar_handler.vader
+│       │   │           │       │   ├── test_nasm_handler.vader
 │       │   │           │       │   ├── test_nim_handler.vader
 │       │   │           │       │   ├── test_nix_handler.vader
 │       │   │           │       │   ├── test_perl_handler.vader
@@ -1851,6 +1517,7 @@ ln -sf $DOTFILES/config/fish/ $HOME/.config/fish
 │       │   │           │       │   ├── test_did_save_event.vader
 │       │   │           │       │   ├── test_lsp_client_messages.vader
 │       │   │           │       │   ├── test_lsp_connections.vader
+│       │   │           │       │   ├── test_lsp_error_parsing.vader
 │       │   │           │       │   ├── test_other_initialize_message_handling.vader
 │       │   │           │       │   ├── test_read_lsp_diagnostics.vader
 │       │   │           │       │   └── test_reset_lsp.vader
@@ -1920,6 +1587,7 @@ ln -sf $DOTFILES/config/fish/ $HOME/.config/fish
 │       │   │           │       ├── test_ale_lint_command.vader
 │       │   │           │       ├── test_ale_toggle.vader
 │       │   │           │       ├── test_ale_var.vader
+│       │   │           │       ├── test_alejobstarted_autocmd.vader
 │       │   │           │       ├── test_alelint_autocmd.vader
 │       │   │           │       ├── test_autocmd_commands.vader
 │       │   │           │       ├── test_backwards_compatibility.vader
@@ -1966,9 +1634,9 @@ ln -sf $DOTFILES/config/fish/ $HOME/.config/fish
 │       │   │           │       │       └── subdir
 │       │   │           │       │           ├── dummy
 │       │   │           │       │           └── file.c
+│       │   │           │       ├── test_checkingbuffer_autocmd.vader
 │       │   │           │       ├── test_cleanup.vader
 │       │   │           │       ├── test_command_chain.vader
-│       │   │           │       ├── test_conflicting_plugin_warnings.vader
 │       │   │           │       ├── test_csslint_config_detection.vader
 │       │   │           │       ├── test_cursor_warnings.vader
 │       │   │           │       ├── test_disabling_ale.vader
@@ -2090,8 +1758,20 @@ ln -sf $DOTFILES/config/fish/ $HOME/.config/fish
 │       │   │           │   │   ├── base16-atelier-sulphurpool-light.vim
 │       │   │           │   │   ├── base16-atelier-sulphurpool.vim
 │       │   │           │   │   ├── base16-bespin.vim
+│       │   │           │   │   ├── base16-black-metal-bathory.vim
+│       │   │           │   │   ├── base16-black-metal-burzum.vim
+│       │   │           │   │   ├── base16-black-metal-dark-funeral.vim
+│       │   │           │   │   ├── base16-black-metal-gorgoroth.vim
+│       │   │           │   │   ├── base16-black-metal-immortal.vim
+│       │   │           │   │   ├── base16-black-metal-khold.vim
+│       │   │           │   │   ├── base16-black-metal-marduk.vim
+│       │   │           │   │   ├── base16-black-metal-mayhem.vim
+│       │   │           │   │   ├── base16-black-metal-nile.vim
+│       │   │           │   │   ├── base16-black-metal-venom.vim
+│       │   │           │   │   ├── base16-black-metal.vim
 │       │   │           │   │   ├── base16-brewer.vim
 │       │   │           │   │   ├── base16-bright.vim
+│       │   │           │   │   ├── base16-brogrammer.vim
 │       │   │           │   │   ├── base16-brushtrees-dark.vim
 │       │   │           │   │   ├── base16-brushtrees.vim
 │       │   │           │   │   ├── base16-chalk.vim
@@ -2133,6 +1813,7 @@ ln -sf $DOTFILES/config/fish/ $HOME/.config/fish
 │       │   │           │   │   ├── base16-material-darker.vim
 │       │   │           │   │   ├── base16-material-lighter.vim
 │       │   │           │   │   ├── base16-material-palenight.vim
+│       │   │           │   │   ├── base16-material-vivid.vim
 │       │   │           │   │   ├── base16-material.vim
 │       │   │           │   │   ├── base16-mellow-purple.vim
 │       │   │           │   │   ├── base16-mexico-light.vim
@@ -2143,6 +1824,7 @@ ln -sf $DOTFILES/config/fish/ $HOME/.config/fish
 │       │   │           │   │   ├── base16-oceanicnext.vim
 │       │   │           │   │   ├── base16-one-light.vim
 │       │   │           │   │   ├── base16-onedark.vim
+│       │   │           │   │   ├── base16-outrun-dark.vim
 │       │   │           │   │   ├── base16-paraiso.vim
 │       │   │           │   │   ├── base16-phd.vim
 │       │   │           │   │   ├── base16-pico.vim
@@ -2152,6 +1834,7 @@ ln -sf $DOTFILES/config/fish/ $HOME/.config/fish
 │       │   │           │   │   ├── base16-rebecca.vim
 │       │   │           │   │   ├── base16-seti.vim
 │       │   │           │   │   ├── base16-shapeshifter.vim
+│       │   │           │   │   ├── base16-snazzy.vim
 │       │   │           │   │   ├── base16-solarflare.vim
 │       │   │           │   │   ├── base16-solarized-dark.vim
 │       │   │           │   │   ├── base16-solarized-light.vim
@@ -2279,6 +1962,7 @@ ln -sf $DOTFILES/config/fish/ $HOME/.config/fish
 │       │   │           ├── fzf
 │       │   │           │   ├── BUILD.md
 │       │   │           │   ├── CHANGELOG.md
+│       │   │           │   ├── Dockerfile
 │       │   │           │   ├── LICENSE
 │       │   │           │   ├── Makefile
 │       │   │           │   ├── README-VIM.md
@@ -2424,6 +2108,7 @@ ln -sf $DOTFILES/config/fish/ $HOME/.config/fish
 │       │   │           │   │   │   │   ├── powerline.vim
 │       │   │           │   │   │   │   ├── seoul256.vim
 │       │   │           │   │   │   │   ├── solarized.vim
+│       │   │           │   │   │   │   ├── srcery_drk.vim
 │       │   │           │   │   │   │   └── wombat.vim
 │       │   │           │   │   │   ├── colorscheme.vim
 │       │   │           │   │   │   ├── colortable.vim
@@ -2463,97 +2148,16 @@ ln -sf $DOTFILES/config/fish/ $HOME/.config/fish
 │       │   │           │   │   └── tags
 │       │   │           │   └── plugin
 │       │   │           │       └── commentary.vim
-│       │   │           ├── vim-devicons
-│       │   │           │   ├── CHANGELOG.md
-│       │   │           │   ├── CODE_OF_CONDUCT.md
-│       │   │           │   ├── CONTRIBUTING.md
-│       │   │           │   ├── DEVELOPER.md
-│       │   │           │   ├── LICENSE
-│       │   │           │   ├── README.md
-│       │   │           │   ├── autoload
-│       │   │           │   │   ├── airline
-│       │   │           │   │   │   └── extensions
-│       │   │           │   │   │       └── tabline
-│       │   │           │   │   │           └── formatters
-│       │   │           │   │   │               └── webdevicons.vim
-│       │   │           │   │   └── vimfiler
-│       │   │           │   │       └── columns
-│       │   │           │   │           └── devicons.vim
-│       │   │           │   ├── doc
-│       │   │           │   │   ├── tags
-│       │   │           │   │   └── webdevicons.txt
-│       │   │           │   ├── nerdtree_plugin
-│       │   │           │   │   └── webdevicons.vim
-│       │   │           │   ├── plugin
-│       │   │           │   │   └── webdevicons.vim
-│       │   │           │   ├── pythonx
-│       │   │           │   │   └── vim_devicons
-│       │   │           │   │       ├── __init__.py
-│       │   │           │   │       └── powerline
-│       │   │           │   │           ├── __init__.py
-│       │   │           │   │           └── segments.py
-│       │   │           │   └── rplugin
-│       │   │           │       └── python3
-│       │   │           │           └── denite
-│       │   │           │               └── filter
-│       │   │           │                   └── devicons_denite_converter.py
-│       │   │           ├── vim-dispatch
-│       │   │           │   ├── CONTRIBUTING.markdown
-│       │   │           │   ├── README.markdown
-│       │   │           │   ├── autoload
-│       │   │           │   │   ├── dispatch
-│       │   │           │   │   │   ├── headless.vim
-│       │   │           │   │   │   ├── iterm.vim
-│       │   │           │   │   │   ├── screen.vim
-│       │   │           │   │   │   ├── tmux.vim
-│       │   │           │   │   │   ├── windows.vim
-│       │   │           │   │   │   └── x11.vim
-│       │   │           │   │   └── dispatch.vim
-│       │   │           │   ├── doc
-│       │   │           │   │   ├── dispatch.txt
-│       │   │           │   │   └── tags
-│       │   │           │   └── plugin
-│       │   │           │       └── dispatch.vim
-│       │   │           ├── vim-dispatch-neovim
-│       │   │           │   ├── LICENSE
-│       │   │           │   ├── README.md
-│       │   │           │   ├── autoload
-│       │   │           │   │   └── dispatch
-│       │   │           │   │       └── neovim.vim
-│       │   │           │   └── plugin
-│       │   │           │       └── plugin.vim
 │       │   │           ├── vim-fugitive
 │       │   │           │   ├── CONTRIBUTING.markdown
 │       │   │           │   ├── README.markdown
+│       │   │           │   ├── autoload
+│       │   │           │   │   └── fugitive.vim
 │       │   │           │   ├── doc
 │       │   │           │   │   ├── fugitive.txt
 │       │   │           │   │   └── tags
 │       │   │           │   └── plugin
 │       │   │           │       └── fugitive.vim
-│       │   │           ├── vim-gutentags
-│       │   │           │   ├── CONTRIBUTING.md
-│       │   │           │   ├── LICENSE
-│       │   │           │   ├── README.md
-│       │   │           │   ├── autoload
-│       │   │           │   │   ├── gutentags
-│       │   │           │   │   │   ├── cscope.vim
-│       │   │           │   │   │   ├── ctags.vim
-│       │   │           │   │   │   └── gtags_cscope.vim
-│       │   │           │   │   └── gutentags.vim
-│       │   │           │   ├── doc
-│       │   │           │   │   ├── gutentags.txt
-│       │   │           │   │   └── tags
-│       │   │           │   ├── plat
-│       │   │           │   │   ├── unix
-│       │   │           │   │   │   ├── update_scopedb.sh
-│       │   │           │   │   │   └── update_tags.sh
-│       │   │           │   │   └── win32
-│       │   │           │   │       ├── update_scopedb.cmd
-│       │   │           │   │       └── update_tags.cmd
-│       │   │           │   ├── plugin
-│       │   │           │   │   └── gutentags.vim
-│       │   │           │   └── res
-│       │   │           │       └── ctags_recursive.options
 │       │   │           ├── vim-highlightedyank
 │       │   │           │   ├── README.md
 │       │   │           │   ├── autoload
@@ -2600,6 +2204,12 @@ ln -sf $DOTFILES/config/fish/ $HOME/.config/fish
 │       │   │           │   └── target
 │       │   │           │       └── release
 │       │   │           │           ├── build
+│       │   │           │           │   ├── mime_guess-52c4127d6208f28d
+│       │   │           │           │   │   ├── out
+│       │   │           │           │   │   │   └── mime_types_generated.rs
+│       │   │           │           │   │   ├── output
+│       │   │           │           │   │   ├── root-output
+│       │   │           │           │   │   └── stderr
 │       │   │           │           │   ├── mime_guess-7ddd4c845c47bf56
 │       │   │           │           │   │   ├── out
 │       │   │           │           │   │   ├── output
@@ -2613,8 +2223,19 @@ ln -sf $DOTFILES/config/fish/ $HOME/.config/fish
 │       │   │           │           │   │   ├── build-script-gen_mime_types
 │       │   │           │           │   │   ├── build_script_gen_mime_types-c93397470b680cd4
 │       │   │           │           │   │   └── build_script_gen_mime_types-c93397470b680cd4.d
+│       │   │           │           │   ├── mime_guess-d1fd67043daa3823
+│       │   │           │           │   │   ├── build-script-build
+│       │   │           │           │   │   ├── build_script_build-d1fd67043daa3823
+│       │   │           │           │   │   └── build_script_build-d1fd67043daa3823.d
 │       │   │           │           │   ├── mime_guess-e82a1b93fa535ff8
 │       │   │           │           │   │   ├── out
+│       │   │           │           │   │   ├── output
+│       │   │           │           │   │   ├── root-output
+│       │   │           │           │   │   └── stderr
+│       │   │           │           │   ├── miniz-sys-510946048a77b73f
+│       │   │           │           │   │   ├── out
+│       │   │           │           │   │   │   ├── libminiz.a
+│       │   │           │           │   │   │   └── miniz.o
 │       │   │           │           │   │   ├── output
 │       │   │           │           │   │   ├── root-output
 │       │   │           │           │   │   └── stderr
@@ -2622,6 +2243,10 @@ ln -sf $DOTFILES/config/fish/ $HOME/.config/fish
 │       │   │           │           │   │   ├── build-script-build
 │       │   │           │           │   │   ├── build_script_build-5c85da84c0883674
 │       │   │           │           │   │   └── build_script_build-5c85da84c0883674.d
+│       │   │           │           │   ├── miniz-sys-ba5b48186a04f2d8
+│       │   │           │           │   │   ├── build-script-build
+│       │   │           │           │   │   ├── build_script_build-ba5b48186a04f2d8
+│       │   │           │           │   │   └── build_script_build-ba5b48186a04f2d8.d
 │       │   │           │           │   ├── miniz-sys-da85115890d44987
 │       │   │           │           │   │   ├── out
 │       │   │           │           │   │   │   ├── libminiz.a
@@ -2640,10 +2265,37 @@ ln -sf $DOTFILES/config/fish/ $HOME/.config/fish
 │       │   │           │           │   │   ├── output
 │       │   │           │           │   │   ├── root-output
 │       │   │           │           │   │   └── stderr
+│       │   │           │           │   ├── num-integer-0a89fc4e1d9043b5
+│       │   │           │           │   │   ├── out
+│       │   │           │           │   │   ├── output
+│       │   │           │           │   │   ├── root-output
+│       │   │           │           │   │   └── stderr
+│       │   │           │           │   ├── num-integer-b9cb602f4228c83f
+│       │   │           │           │   │   ├── build-script-build
+│       │   │           │           │   │   ├── build_script_build-b9cb602f4228c83f
+│       │   │           │           │   │   └── build_script_build-b9cb602f4228c83f.d
+│       │   │           │           │   ├── num-traits-04daa4b7c88020ac
+│       │   │           │           │   │   ├── out
+│       │   │           │           │   │   ├── output
+│       │   │           │           │   │   ├── root-output
+│       │   │           │           │   │   └── stderr
+│       │   │           │           │   ├── num-traits-8d33ba1ec84f4d71
+│       │   │           │           │   │   ├── build-script-build
+│       │   │           │           │   │   ├── build_script_build-8d33ba1ec84f4d71
+│       │   │           │           │   │   └── build_script_build-8d33ba1ec84f4d71.d
+│       │   │           │           │   ├── pulldown-cmark-12b757dc56e23f77
+│       │   │           │           │   │   ├── out
+│       │   │           │           │   │   ├── output
+│       │   │           │           │   │   ├── root-output
+│       │   │           │           │   │   └── stderr
 │       │   │           │           │   ├── pulldown-cmark-384a20535d3e8207
 │       │   │           │           │   │   ├── build-script-build
 │       │   │           │           │   │   ├── build_script_build-384a20535d3e8207
 │       │   │           │           │   │   └── build_script_build-384a20535d3e8207.d
+│       │   │           │           │   ├── pulldown-cmark-44dd2cd34e1dbfcd
+│       │   │           │           │   │   ├── build-script-build
+│       │   │           │           │   │   ├── build_script_build-44dd2cd34e1dbfcd
+│       │   │           │           │   │   └── build_script_build-44dd2cd34e1dbfcd.d
 │       │   │           │           │   ├── pulldown-cmark-6a634cdad6ac06d6
 │       │   │           │           │   │   ├── out
 │       │   │           │           │   │   ├── output
@@ -2658,6 +2310,15 @@ ln -sf $DOTFILES/config/fish/ $HOME/.config/fish
 │       │   │           │           │   │   ├── output
 │       │   │           │           │   │   ├── root-output
 │       │   │           │           │   │   └── stderr
+│       │   │           │           │   ├── regex-7b98e50fabdf447b
+│       │   │           │           │   │   ├── out
+│       │   │           │           │   │   ├── output
+│       │   │           │           │   │   ├── root-output
+│       │   │           │           │   │   └── stderr
+│       │   │           │           │   ├── regex-c564c00e28555815
+│       │   │           │           │   │   ├── build-script-build
+│       │   │           │           │   │   ├── build_script_build-c564c00e28555815
+│       │   │           │           │   │   └── build_script_build-c564c00e28555815.d
 │       │   │           │           │   ├── unicase-2f1face903e00a0b
 │       │   │           │           │   │   ├── out
 │       │   │           │           │   │   ├── output
@@ -2679,34 +2340,48 @@ ln -sf $DOTFILES/config/fish/ $HOME/.config/fish
 │       │   │           │           ├── deps
 │       │   │           │           │   ├── aho_corasick-0e069905443baa5a.d
 │       │   │           │           │   ├── aho_corasick-64b2deae5796ee8e.d
+│       │   │           │           │   ├── aho_corasick-c442c95eb8611c4e.d
+│       │   │           │           │   ├── ansi_term-466fd77757641639.d
 │       │   │           │           │   ├── ansi_term-886e9bf3184fd84c.d
 │       │   │           │           │   ├── ansi_term-df4221087b2a2a14.d
 │       │   │           │           │   ├── antidote-340026ff4b7cd296.d
 │       │   │           │           │   ├── antidote-43ffe8ea30be867d.d
+│       │   │           │           │   ├── atty-149be734047b6f4e.d
 │       │   │           │           │   ├── atty-8992bb857b1de5df.d
 │       │   │           │           │   ├── atty-a4a1884e4837cbf3.d
+│       │   │           │           │   ├── aurelius-856bd7a0d0238f01.d
 │       │   │           │           │   ├── aurelius-8c80fef7b83b9a97.d
 │       │   │           │           │   ├── aurelius-f98e632472279b32.d
 │       │   │           │           │   ├── backtrace-39167ae2ffbe43e3.d
+│       │   │           │           │   ├── backtrace-e35bbc1ca31d74e3.d
 │       │   │           │           │   ├── backtrace-f8a6c1115938344d.d
 │       │   │           │           │   ├── base64-02f8ed3beec16725.d
+│       │   │           │           │   ├── base64-1a3d52f784d8d6e9.d
+│       │   │           │           │   ├── base64-585a1decc08c4e01.d
 │       │   │           │           │   ├── base64-c1068bbf8e1fc419.d
 │       │   │           │           │   ├── base64-c57d1025ca5fd0fd.d
 │       │   │           │           │   ├── base64-e83d444b552ea551.d
 │       │   │           │           │   ├── bitflags-0027123a6ee1ba3f.d
+│       │   │           │           │   ├── bitflags-563ee321af8ea45c.d
 │       │   │           │           │   ├── bitflags-597059c4d6ef8165.d
 │       │   │           │           │   ├── bitflags-628c5d0e9cdfbcd9.d
 │       │   │           │           │   ├── bitflags-c753293ce184b081.d
+│       │   │           │           │   ├── byteorder-47eb3e0a760228e8.d
 │       │   │           │           │   ├── byteorder-6eb1169fd0d412f7.d
 │       │   │           │           │   ├── byteorder-bbcf25548227edcf.d
 │       │   │           │           │   ├── cc-38085edab22b7dac.d
 │       │   │           │           │   ├── cc-9ecb56b83af2b7d8.d
+│       │   │           │           │   ├── cc-bd8671b8e19408b5.d
 │       │   │           │           │   ├── cfg_if-33afef4ba43c979a.d
+│       │   │           │           │   ├── cfg_if-a6db5dfe8ca049ce.d
 │       │   │           │           │   ├── cfg_if-f52d017e0871fbda.d
 │       │   │           │           │   ├── chan-3c02fd121d4bfea5.d
 │       │   │           │           │   ├── chan-aa2c5437b50a6433.d
+│       │   │           │           │   ├── chan-f391f1143ebfb320.d
 │       │   │           │           │   ├── chrono-15fb7e46e2825cdf.d
 │       │   │           │           │   ├── chrono-b079533e3f413a80.d
+│       │   │           │           │   ├── chrono-c9acf2ee8a188f8d.d
+│       │   │           │           │   ├── clap-1d56bb9c44dcd7d3.d
 │       │   │           │           │   ├── clap-55cbbdb6aab111cd.d
 │       │   │           │           │   ├── clap-b3838ef737386f43.d
 │       │   │           │           │   ├── crossbeam-3102631475657c77.d
@@ -2715,62 +2390,86 @@ ln -sf $DOTFILES/config/fish/ $HOME/.config/fish
 │       │   │           │           │   ├── dtoa-afe4e03449ff7cd7.d
 │       │   │           │           │   ├── error_chain-12692eab4dc4d98f.d
 │       │   │           │           │   ├── error_chain-8c412759fa2f7246.d
+│       │   │           │           │   ├── error_chain-c6d90c1a528a6433.d
+│       │   │           │           │   ├── flate2-134928d914863ba7.d
 │       │   │           │           │   ├── flate2-b4929aebd4aefbd7.d
 │       │   │           │           │   ├── flate2-e0f93e5d73cbecf1.d
 │       │   │           │           │   ├── fnv-7c5b5757ce1d9345.d
 │       │   │           │           │   ├── fnv-aff3d3c9c6435586.d
 │       │   │           │           │   ├── handlebars-3936d74b2bfa5359.d
+│       │   │           │           │   ├── handlebars-39dad435e1cac97d.d
 │       │   │           │           │   ├── handlebars-46c3e88c090bafe1.d
 │       │   │           │           │   ├── handlebars_iron-02d0d405b65347e1.d
+│       │   │           │           │   ├── handlebars_iron-70d64af9676a1485.d
 │       │   │           │           │   ├── handlebars_iron-7ed6baf25aa0b61e.d
 │       │   │           │           │   ├── httparse-63e7f6beb0bce946.d
 │       │   │           │           │   ├── httparse-76434a22de78f72f.d
 │       │   │           │           │   ├── humantime-03f8a3d9c80410c5.d
+│       │   │           │           │   ├── humantime-706956a71134d07a.d
 │       │   │           │           │   ├── humantime-7e1ad9454e1fefed.d
+│       │   │           │           │   ├── hyper-0f61958d35da08c2.d
 │       │   │           │           │   ├── hyper-5e184c0b77cf27c6.d
 │       │   │           │           │   ├── hyper-8774fa3011b1f1fd.d
 │       │   │           │           │   ├── idna-58320eba9229d578.d
 │       │   │           │           │   ├── idna-afe153bf65b3d195.d
+│       │   │           │           │   ├── idna-f19da11d969b4401.d
+│       │   │           │           │   ├── iron-16bd8de357bbf635.d
 │       │   │           │           │   ├── iron-560c85659505d88c.d
 │       │   │           │           │   ├── iron-ea0433c10be2a258.d
 │       │   │           │           │   ├── itoa-998e32fa2e7c4cd5.d
 │       │   │           │           │   ├── itoa-9f225c09e52eff28.d
+│       │   │           │           │   ├── itoa-c3a968abdf6cc962.d
 │       │   │           │           │   ├── language_tags-139325a534c4322d.d
 │       │   │           │           │   ├── language_tags-cefcaaf04c58d9f6.d
 │       │   │           │           │   ├── lazy_static-27baf624e7c4300b.d
 │       │   │           │           │   ├── lazy_static-a29c6a02c3d3f534.d
 │       │   │           │           │   ├── libaho_corasick-0e069905443baa5a.rlib
 │       │   │           │           │   ├── libaho_corasick-64b2deae5796ee8e.rlib
+│       │   │           │           │   ├── libaho_corasick-c442c95eb8611c4e.rlib
+│       │   │           │           │   ├── libansi_term-466fd77757641639.rlib
 │       │   │           │           │   ├── libansi_term-886e9bf3184fd84c.rlib
 │       │   │           │           │   ├── libansi_term-df4221087b2a2a14.rlib
 │       │   │           │           │   ├── libantidote-340026ff4b7cd296.rlib
 │       │   │           │           │   ├── libantidote-43ffe8ea30be867d.rlib
+│       │   │           │           │   ├── libatty-149be734047b6f4e.rlib
 │       │   │           │           │   ├── libatty-8992bb857b1de5df.rlib
 │       │   │           │           │   ├── libatty-a4a1884e4837cbf3.rlib
+│       │   │           │           │   ├── libaurelius-856bd7a0d0238f01.rlib
 │       │   │           │           │   ├── libaurelius-8c80fef7b83b9a97.rlib
 │       │   │           │           │   ├── libaurelius-f98e632472279b32.rlib
 │       │   │           │           │   ├── libbacktrace-39167ae2ffbe43e3.rlib
+│       │   │           │           │   ├── libbacktrace-e35bbc1ca31d74e3.rlib
 │       │   │           │           │   ├── libbacktrace-f8a6c1115938344d.rlib
 │       │   │           │           │   ├── libbase64-02f8ed3beec16725.rlib
+│       │   │           │           │   ├── libbase64-1a3d52f784d8d6e9.rlib
+│       │   │           │           │   ├── libbase64-585a1decc08c4e01.rlib
 │       │   │           │           │   ├── libbase64-c1068bbf8e1fc419.rlib
 │       │   │           │           │   ├── libbase64-c57d1025ca5fd0fd.rlib
 │       │   │           │           │   ├── libbase64-e83d444b552ea551.rlib
 │       │   │           │           │   ├── libbitflags-0027123a6ee1ba3f.rlib
+│       │   │           │           │   ├── libbitflags-563ee321af8ea45c.rlib
 │       │   │           │           │   ├── libbitflags-597059c4d6ef8165.rlib
 │       │   │           │           │   ├── libbitflags-628c5d0e9cdfbcd9.rlib
 │       │   │           │           │   ├── libbitflags-c753293ce184b081.rlib
+│       │   │           │           │   ├── libbyteorder-47eb3e0a760228e8.rlib
 │       │   │           │           │   ├── libbyteorder-6eb1169fd0d412f7.rlib
 │       │   │           │           │   ├── libbyteorder-bbcf25548227edcf.rlib
+│       │   │           │           │   ├── libc-2a73de8016118f52.d
 │       │   │           │           │   ├── libc-39d632c4f2a03e8e.d
 │       │   │           │           │   ├── libc-d7978a1eb45f036d.d
 │       │   │           │           │   ├── libcc-38085edab22b7dac.rlib
 │       │   │           │           │   ├── libcc-9ecb56b83af2b7d8.rlib
+│       │   │           │           │   ├── libcc-bd8671b8e19408b5.rlib
 │       │   │           │           │   ├── libcfg_if-33afef4ba43c979a.rlib
+│       │   │           │           │   ├── libcfg_if-a6db5dfe8ca049ce.rlib
 │       │   │           │           │   ├── libcfg_if-f52d017e0871fbda.rlib
 │       │   │           │           │   ├── libchan-3c02fd121d4bfea5.rlib
 │       │   │           │           │   ├── libchan-aa2c5437b50a6433.rlib
+│       │   │           │           │   ├── libchan-f391f1143ebfb320.rlib
 │       │   │           │           │   ├── libchrono-15fb7e46e2825cdf.rlib
 │       │   │           │           │   ├── libchrono-b079533e3f413a80.rlib
+│       │   │           │           │   ├── libchrono-c9acf2ee8a188f8d.rlib
+│       │   │           │           │   ├── libclap-1d56bb9c44dcd7d3.rlib
 │       │   │           │           │   ├── libclap-55cbbdb6aab111cd.rlib
 │       │   │           │           │   ├── libclap-b3838ef737386f43.rlib
 │       │   │           │           │   ├── libcrossbeam-3102631475657c77.rlib
@@ -2779,104 +2478,145 @@ ln -sf $DOTFILES/config/fish/ $HOME/.config/fish
 │       │   │           │           │   ├── libdtoa-afe4e03449ff7cd7.rlib
 │       │   │           │           │   ├── liberror_chain-12692eab4dc4d98f.rlib
 │       │   │           │           │   ├── liberror_chain-8c412759fa2f7246.rlib
+│       │   │           │           │   ├── liberror_chain-c6d90c1a528a6433.rlib
+│       │   │           │           │   ├── libflate2-134928d914863ba7.rlib
 │       │   │           │           │   ├── libflate2-b4929aebd4aefbd7.rlib
 │       │   │           │           │   ├── libflate2-e0f93e5d73cbecf1.rlib
 │       │   │           │           │   ├── libfnv-7c5b5757ce1d9345.rlib
 │       │   │           │           │   ├── libfnv-aff3d3c9c6435586.rlib
 │       │   │           │           │   ├── libhandlebars-3936d74b2bfa5359.rlib
+│       │   │           │           │   ├── libhandlebars-39dad435e1cac97d.rlib
 │       │   │           │           │   ├── libhandlebars-46c3e88c090bafe1.rlib
 │       │   │           │           │   ├── libhandlebars_iron-02d0d405b65347e1.rlib
+│       │   │           │           │   ├── libhandlebars_iron-70d64af9676a1485.rlib
 │       │   │           │           │   ├── libhandlebars_iron-7ed6baf25aa0b61e.rlib
 │       │   │           │           │   ├── libhttparse-63e7f6beb0bce946.rlib
 │       │   │           │           │   ├── libhttparse-76434a22de78f72f.rlib
 │       │   │           │           │   ├── libhumantime-03f8a3d9c80410c5.rlib
+│       │   │           │           │   ├── libhumantime-706956a71134d07a.rlib
 │       │   │           │           │   ├── libhumantime-7e1ad9454e1fefed.rlib
+│       │   │           │           │   ├── libhyper-0f61958d35da08c2.rlib
 │       │   │           │           │   ├── libhyper-5e184c0b77cf27c6.rlib
 │       │   │           │           │   ├── libhyper-8774fa3011b1f1fd.rlib
 │       │   │           │           │   ├── libidna-58320eba9229d578.rlib
 │       │   │           │           │   ├── libidna-afe153bf65b3d195.rlib
+│       │   │           │           │   ├── libidna-f19da11d969b4401.rlib
+│       │   │           │           │   ├── libiron-16bd8de357bbf635.rlib
 │       │   │           │           │   ├── libiron-560c85659505d88c.rlib
 │       │   │           │           │   ├── libiron-ea0433c10be2a258.rlib
 │       │   │           │           │   ├── libitoa-998e32fa2e7c4cd5.rlib
 │       │   │           │           │   ├── libitoa-9f225c09e52eff28.rlib
+│       │   │           │           │   ├── libitoa-c3a968abdf6cc962.rlib
 │       │   │           │           │   ├── liblanguage_tags-139325a534c4322d.rlib
 │       │   │           │           │   ├── liblanguage_tags-cefcaaf04c58d9f6.rlib
 │       │   │           │           │   ├── liblazy_static-27baf624e7c4300b.rlib
 │       │   │           │           │   ├── liblazy_static-a29c6a02c3d3f534.rlib
+│       │   │           │           │   ├── liblibc-2a73de8016118f52.rlib
 │       │   │           │           │   ├── liblibc-39d632c4f2a03e8e.rlib
 │       │   │           │           │   ├── liblibc-d7978a1eb45f036d.rlib
+│       │   │           │           │   ├── liblinked_hash_map-4807d584bcff9d53.rlib
 │       │   │           │           │   ├── liblinked_hash_map-4bcb44da9f9ef352.rlib
 │       │   │           │           │   ├── liblinked_hash_map-b86a0fabf9aa0b53.rlib
+│       │   │           │           │   ├── liblog-266adc3c7e50afd6.rlib
+│       │   │           │           │   ├── liblog-28506c453bcc6aa1.rlib
 │       │   │           │           │   ├── liblog-3241897c5353cb75.rlib
 │       │   │           │           │   ├── liblog-92fc16765557fd3a.rlib
 │       │   │           │           │   ├── liblog-bdfe9268fe871acb.rlib
 │       │   │           │           │   ├── liblog-f0fbff00f3e8212b.rlib
+│       │   │           │           │   ├── liblog4rs-18f8e6b5e2c8057f.rlib
 │       │   │           │           │   ├── liblog4rs-37377a85a622fc09.rlib
 │       │   │           │           │   ├── liblog4rs-530f940b2191f917.rlib
 │       │   │           │           │   ├── liblog_mdc-689cc4abcb6387e0.rlib
 │       │   │           │           │   ├── liblog_mdc-dd4de0a2fa6ea61f.rlib
 │       │   │           │           │   ├── liblog_panics-49d0cf4cdb94cd1a.rlib
 │       │   │           │           │   ├── liblog_panics-57cf11ee7f8ca9e8.rlib
+│       │   │           │           │   ├── liblog_panics-ba3a727c19b1d6f2.rlib
 │       │   │           │           │   ├── libmatches-4aeef7d23e89289a.rlib
 │       │   │           │           │   ├── libmatches-833c2c4d51183b7b.rlib
+│       │   │           │           │   ├── libmemchr-1e22fc6d00c04df0.rlib
 │       │   │           │           │   ├── libmemchr-3d12e12bb9bf5116.rlib
 │       │   │           │           │   ├── libmemchr-556c9977f9427875.rlib
 │       │   │           │           │   ├── libmime-5ef8be73b6e9e64a.rlib
+│       │   │           │           │   ├── libmime-6087a79a173b7fb6.rlib
 │       │   │           │           │   ├── libmime-fd8f224c5ebf5af9.rlib
 │       │   │           │           │   ├── libmime_guess-0e68c9baa6bf0522.rlib
+│       │   │           │           │   ├── libmime_guess-d6bfca8de0139995.rlib
 │       │   │           │           │   ├── libmime_guess-fd3899c43b2ae180.rlib
+│       │   │           │           │   ├── libminiz_sys-49ad59b13fb55993.rlib
 │       │   │           │           │   ├── libminiz_sys-4ea7083b612bbefe.rlib
 │       │   │           │           │   ├── libminiz_sys-9ebb6659d6d2cdb8.rlib
 │       │   │           │           │   ├── libmodifier-239988ac3532e42b.rlib
 │       │   │           │           │   ├── libmodifier-98b77b47fe7f9898.rlib
 │       │   │           │           │   ├── libmount-a9dd4cc1f5848b4f.rlib
 │       │   │           │           │   ├── libmount-e66dfd554ad38ae1.rlib
+│       │   │           │           │   ├── libmount-e87d034b8111cabd.rlib
 │       │   │           │           │   ├── libnum-2464e3f115589784.rlib
 │       │   │           │           │   ├── libnum-cb983e8cdbe0e987.rlib
 │       │   │           │           │   ├── libnum_cpus-005e6eb6cd71fa73.rlib
+│       │   │           │           │   ├── libnum_cpus-3d6b36ee12c66f29.rlib
 │       │   │           │           │   ├── libnum_cpus-c18aec78f840dbca.rlib
 │       │   │           │           │   ├── libnum_integer-624ef1933165d949.rlib
 │       │   │           │           │   ├── libnum_integer-c86b7e219dd6976c.rlib
+│       │   │           │           │   ├── libnum_integer-d5eb7bbd276ddf83.rlib
 │       │   │           │           │   ├── libnum_iter-8dcbd64b54dc20a2.rlib
 │       │   │           │           │   ├── libnum_iter-f2fa83377dc2ef2b.rlib
 │       │   │           │           │   ├── libnum_traits-45446b387d5047e5.rlib
 │       │   │           │           │   ├── libnum_traits-871a4fcadf8549fd.rlib
+│       │   │           │           │   ├── libnum_traits-9f24093bf088b6c1.rlib
+│       │   │           │           │   ├── libnum_traits-b98020ecc01218d7.rlib
+│       │   │           │           │   ├── libordered_float-1e576d5013fe8f03.rlib
 │       │   │           │           │   ├── libordered_float-c1740041383a373c.rlib
 │       │   │           │           │   ├── libordered_float-ca8d97b39c0fbc88.rlib
 │       │   │           │           │   ├── libpercent_encoding-02c8917eedd513f0.rlib
 │       │   │           │           │   ├── libpercent_encoding-7a8bae7514be74aa.rlib
 │       │   │           │           │   ├── libpest-5717699a28ec6aa0.rlib
+│       │   │           │           │   ├── libpest-7e71ac46aa57f8e7.rlib
 │       │   │           │           │   ├── libpest-ebcad2ebfb8c81a5.rlib
 │       │   │           │           │   ├── libpest_derive-408fb78939efdd02.dylib
+│       │   │           │           │   ├── libpest_derive-5ca63ce4cf7f239d.dylib
 │       │   │           │           │   ├── libpest_derive-5ce47561e713f4de.dylib
+│       │   │           │           │   ├── libphf-24558e41e8965a33.rlib
 │       │   │           │           │   ├── libphf-5677a1b5767070ed.rlib
 │       │   │           │           │   ├── libphf-cb83278788e3ebed.rlib
+│       │   │           │           │   ├── libphf_codegen-58fc07451458bea6.rlib
 │       │   │           │           │   ├── libphf_codegen-c5f6cf11b42e9832.rlib
 │       │   │           │           │   ├── libphf_codegen-caa444092a1d55b1.rlib
 │       │   │           │           │   ├── libphf_generator-7736f5f124a91dc4.rlib
 │       │   │           │           │   ├── libphf_generator-950daa3a05d7f239.rlib
+│       │   │           │           │   ├── libphf_generator-a3d2b723576fdf6c.rlib
 │       │   │           │           │   ├── libphf_shared-ba6ff8c8bbdcfaf2.rlib
+│       │   │           │           │   ├── libphf_shared-d76443840dddfef6.rlib
 │       │   │           │           │   ├── libphf_shared-ee39a6416ed1aaa0.rlib
 │       │   │           │           │   ├── libplugin-96c3d15270e47712.rlib
 │       │   │           │           │   ├── libplugin-9ec5aa182fb43d01.rlib
+│       │   │           │           │   ├── libproc_macro2-58e343f8ee2f3593.rlib
+│       │   │           │           │   ├── libpulldown_cmark-3d507a2d398eed0f.rlib
 │       │   │           │           │   ├── libpulldown_cmark-5f48fd78e207b466.rlib
 │       │   │           │           │   ├── libpulldown_cmark-9f00e677a5e54177.rlib
 │       │   │           │           │   ├── libquick_error-c898df68bd32cb70.rlib
 │       │   │           │           │   ├── libquick_error-d40f0d126a52a6c7.rlib
 │       │   │           │           │   ├── libquote-3cca359e759fa0d8.rlib
 │       │   │           │           │   ├── libquote-4b5518fb6d00a171.rlib
+│       │   │           │           │   ├── libquote-57f9c3d33cce9b4c.rlib
 │       │   │           │           │   ├── librand-80dcd34270f302c8.rlib
 │       │   │           │           │   ├── librand-a33b2ec292c86c16.rlib
+│       │   │           │           │   ├── librand-d06422b8f89b4315.rlib
+│       │   │           │           │   ├── librand-e7117b23b49b1e9e.rlib
+│       │   │           │           │   ├── libregex-130087211f928ad3.rlib
 │       │   │           │           │   ├── libregex-aa99691257b1a035.rlib
 │       │   │           │           │   ├── libregex-e2e51ad0e3e0b723.rlib
 │       │   │           │           │   ├── libregex_syntax-5d85aa8f236781ba.rlib
 │       │   │           │           │   ├── libregex_syntax-5f9a57a2c5eb9cb2.rlib
+│       │   │           │           │   ├── libregex_syntax-b44342623e0c3293.rlib
+│       │   │           │           │   ├── librmp-0e51cf94231ab604.rlib
 │       │   │           │           │   ├── librmp-127db9b721487fe2.rlib
 │       │   │           │           │   ├── librmp-18b15fbee6516f8f.rlib
 │       │   │           │           │   ├── librmp_serde-035eab872005f132.rlib
+│       │   │           │           │   ├── librmp_serde-1af2fd82b282a3fc.rlib
 │       │   │           │           │   ├── librmp_serde-fd151219f3ccdadf.rlib
 │       │   │           │           │   ├── librustc_demangle-c800d04f2e87ca8a.rlib
 │       │   │           │           │   ├── librustc_demangle-eee1da6fe9b363f6.rlib
+│       │   │           │           │   ├── librustc_demangle-f1b9fd8cbbf62da0.rlib
 │       │   │           │           │   ├── libsafemem-09f8afbf77eeedd0.rlib
 │       │   │           │           │   ├── libsafemem-a189df975b5c5afd.rlib
 │       │   │           │           │   ├── libsame_file-c92bd9b1ab292700.rlib
@@ -2885,27 +2625,36 @@ ln -sf $DOTFILES/config/fish/ $HOME/.config/fish
 │       │   │           │           │   ├── libsequence_trie-eaf72a304c332c72.rlib
 │       │   │           │           │   ├── libserde-1d53cfe3a3ecdfd7.rlib
 │       │   │           │           │   ├── libserde-4988bea5c2cf8796.rlib
+│       │   │           │           │   ├── libserde-fc123953f7b713b4.rlib
 │       │   │           │           │   ├── libserde_derive-6d7ac7f9f2c0a245.dylib
+│       │   │           │           │   ├── libserde_derive-ddc30972e593977b.dylib
 │       │   │           │           │   ├── libserde_derive-e3596893ab24a91c.dylib
 │       │   │           │           │   ├── libserde_derive_internals-15e8e17b5bd081fc.rlib
 │       │   │           │           │   ├── libserde_derive_internals-5c78287cd223cda3.rlib
+│       │   │           │           │   ├── libserde_json-112de609c516fa84.rlib
 │       │   │           │           │   ├── libserde_json-9ed42ffcc68da9f1.rlib
 │       │   │           │           │   ├── libserde_json-b25298dd40aa67e1.rlib
 │       │   │           │           │   ├── libserde_value-956d86e57834fdc1.rlib
 │       │   │           │           │   ├── libserde_value-bba89e100aab1a6a.rlib
+│       │   │           │           │   ├── libserde_value-e8424e72e97b4153.rlib
 │       │   │           │           │   ├── libserde_yaml-6d75199baa31c162.rlib
 │       │   │           │           │   ├── libserde_yaml-c447b6dc07cc5674.rlib
+│       │   │           │           │   ├── libserde_yaml-f7aae37c3e078577.rlib
 │       │   │           │           │   ├── libsha1-603a26c663602b8c.rlib
 │       │   │           │           │   ├── libsha1-879968bbcca291fd.rlib
 │       │   │           │           │   ├── libshlex-31c763da2a502e2d.rlib
 │       │   │           │           │   ├── libshlex-c2714093918d935d.rlib
 │       │   │           │           │   ├── libsiphasher-8676af8a5c116f88.rlib
 │       │   │           │           │   ├── libsiphasher-abbfdc968aa32639.rlib
+│       │   │           │           │   ├── libstaticfile-50cb9b627e286437.rlib
 │       │   │           │           │   ├── libstaticfile-9f097b7ba3edfbf7.rlib
 │       │   │           │           │   ├── libstaticfile-fe58f1a0c0b7f757.rlib
 │       │   │           │           │   ├── libstrsim-5cdc35fe7af8bf07.rlib
 │       │   │           │           │   ├── libstrsim-63f96b0e61b9c45f.rlib
+│       │   │           │           │   ├── libstrsim-754e49b0a0f1f257.rlib
+│       │   │           │           │   ├── libsyn-02915e4ef025dd8b.rlib
 │       │   │           │           │   ├── libsyn-a44e60fe20836d8d.rlib
+│       │   │           │           │   ├── libsyn-be604022eace9052.rlib
 │       │   │           │           │   ├── libsyn-f7bf4da4dd64ccb9.rlib
 │       │   │           │           │   ├── libsynom-e60392ea99488643.rlib
 │       │   │           │           │   ├── libsynom-fb0914a3d8164296.rlib
@@ -2915,20 +2664,24 @@ ln -sf $DOTFILES/config/fish/ $HOME/.config/fish
 │       │   │           │           │   ├── libthread_local-ea9dd4336c905c11.rlib
 │       │   │           │           │   ├── libtime-2c60cb46cdba05f3.rlib
 │       │   │           │           │   ├── libtime-3e875588a9788f53.rlib
+│       │   │           │           │   ├── libtime-68c1e7ecad1e3d4a.rlib
 │       │   │           │           │   ├── libtraitobject-3449ec392744c246.rlib
 │       │   │           │           │   ├── libtraitobject-8ca36cda4d6dcaf9.rlib
 │       │   │           │           │   ├── libtypeable-2bf798c470c8b1b7.rlib
 │       │   │           │           │   ├── libtypeable-b3228f65cf5f4131.rlib
 │       │   │           │           │   ├── libtypemap-c1dd20509670f7f7.rlib
 │       │   │           │           │   ├── libtypemap-cf024416166bd68c.rlib
+│       │   │           │           │   ├── libucd_util-2fa6be8f31594200.rlib
 │       │   │           │           │   ├── libunicase-450c89cf6c79f26b.rlib
 │       │   │           │           │   ├── libunicase-dfa7ad7ab4e2551d.rlib
 │       │   │           │           │   ├── libunicode_bidi-78e5e4c7667da33b.rlib
 │       │   │           │           │   ├── libunicode_bidi-a970e149e9dbbcb4.rlib
 │       │   │           │           │   ├── libunicode_normalization-1b04c098f93a8f08.rlib
+│       │   │           │           │   ├── libunicode_normalization-60738537dd5c27e7.rlib
 │       │   │           │           │   ├── libunicode_normalization-a1405d70b136e057.rlib
 │       │   │           │           │   ├── libunicode_width-cfc57006a7d6dc13.rlib
 │       │   │           │           │   ├── libunicode_width-fdf54158249adbce.rlib
+│       │   │           │           │   ├── libunicode_xid-6e4bc64e23e95afc.rlib
 │       │   │           │           │   ├── libunicode_xid-a1566504ffcb014d.rlib
 │       │   │           │           │   ├── libunicode_xid-ed340f58e921d9b5.rlib
 │       │   │           │           │   ├── libunreachable-7b409d7844ee3836.rlib
@@ -2938,10 +2691,12 @@ ln -sf $DOTFILES/config/fish/ $HOME/.config/fish
 │       │   │           │           │   ├── libunsafe_any-a8bb27a14398d33e.rlib
 │       │   │           │           │   ├── libunsafe_any-b9e4dbf89fdce58b.rlib
 │       │   │           │           │   ├── liburl-381925bca0afcc76.rlib
+│       │   │           │           │   ├── liburl-4269c1075468ee7d.rlib
 │       │   │           │           │   ├── liburl-be4b8a3b7d3af779.rlib
 │       │   │           │           │   ├── libutf8_ranges-4e93fd38394516a0.rlib
 │       │   │           │           │   ├── libutf8_ranges-8096a1785a919a70.rlib
 │       │   │           │           │   ├── libvec_map-01307a6a4110e620.rlib
+│       │   │           │           │   ├── libvec_map-2620090de31a2ab6.rlib
 │       │   │           │           │   ├── libvec_map-b1a7ccb544fc9963.rlib
 │       │   │           │           │   ├── libversion_check-01a60654f04cbb4c.rlib
 │       │   │           │           │   ├── libversion_check-73842fd8b9911f84.rlib
@@ -2950,85 +2705,120 @@ ln -sf $DOTFILES/config/fish/ $HOME/.config/fish
 │       │   │           │           │   ├── libwalkdir-9c081475f9974b55.rlib
 │       │   │           │           │   ├── libwalkdir-cc96a356fee977a9.rlib
 │       │   │           │           │   ├── libwebsocket-4ded63f71ef526fb.rlib
+│       │   │           │           │   ├── libwebsocket-51ce89ff7df6ad63.rlib
 │       │   │           │           │   ├── libwebsocket-e283ebbc91ff48e7.rlib
+│       │   │           │           │   ├── libyaml_rust-c40181ec7a1d029e.rlib
 │       │   │           │           │   ├── libyaml_rust-d5f405393779b771.rlib
 │       │   │           │           │   ├── libyaml_rust-e9efd65e86dcfc49.rlib
+│       │   │           │           │   ├── linked_hash_map-4807d584bcff9d53.d
 │       │   │           │           │   ├── linked_hash_map-4bcb44da9f9ef352.d
 │       │   │           │           │   ├── linked_hash_map-b86a0fabf9aa0b53.d
+│       │   │           │           │   ├── log-266adc3c7e50afd6.d
+│       │   │           │           │   ├── log-28506c453bcc6aa1.d
 │       │   │           │           │   ├── log-3241897c5353cb75.d
 │       │   │           │           │   ├── log-92fc16765557fd3a.d
 │       │   │           │           │   ├── log-bdfe9268fe871acb.d
 │       │   │           │           │   ├── log-f0fbff00f3e8212b.d
+│       │   │           │           │   ├── log4rs-18f8e6b5e2c8057f.d
 │       │   │           │           │   ├── log4rs-37377a85a622fc09.d
 │       │   │           │           │   ├── log4rs-530f940b2191f917.d
 │       │   │           │           │   ├── log_mdc-689cc4abcb6387e0.d
 │       │   │           │           │   ├── log_mdc-dd4de0a2fa6ea61f.d
 │       │   │           │           │   ├── log_panics-49d0cf4cdb94cd1a.d
 │       │   │           │           │   ├── log_panics-57cf11ee7f8ca9e8.d
+│       │   │           │           │   ├── log_panics-ba3a727c19b1d6f2.d
 │       │   │           │           │   ├── markdown_composer-03f103fda9cfb22a
 │       │   │           │           │   ├── markdown_composer-03f103fda9cfb22a.d
 │       │   │           │           │   ├── markdown_composer-92ed6aab75cd22bb
 │       │   │           │           │   ├── markdown_composer-92ed6aab75cd22bb.d
+│       │   │           │           │   ├── markdown_composer-fdbb119b911a4046
+│       │   │           │           │   ├── markdown_composer-fdbb119b911a4046.d
 │       │   │           │           │   ├── matches-4aeef7d23e89289a.d
 │       │   │           │           │   ├── matches-833c2c4d51183b7b.d
+│       │   │           │           │   ├── memchr-1e22fc6d00c04df0.d
 │       │   │           │           │   ├── memchr-3d12e12bb9bf5116.d
 │       │   │           │           │   ├── memchr-556c9977f9427875.d
 │       │   │           │           │   ├── mime-5ef8be73b6e9e64a.d
+│       │   │           │           │   ├── mime-6087a79a173b7fb6.d
 │       │   │           │           │   ├── mime-fd8f224c5ebf5af9.d
 │       │   │           │           │   ├── mime_guess-0e68c9baa6bf0522.d
+│       │   │           │           │   ├── mime_guess-d6bfca8de0139995.d
 │       │   │           │           │   ├── mime_guess-fd3899c43b2ae180.d
+│       │   │           │           │   ├── miniz_sys-49ad59b13fb55993.d
 │       │   │           │           │   ├── miniz_sys-4ea7083b612bbefe.d
 │       │   │           │           │   ├── miniz_sys-9ebb6659d6d2cdb8.d
 │       │   │           │           │   ├── modifier-239988ac3532e42b.d
 │       │   │           │           │   ├── modifier-98b77b47fe7f9898.d
 │       │   │           │           │   ├── mount-a9dd4cc1f5848b4f.d
 │       │   │           │           │   ├── mount-e66dfd554ad38ae1.d
+│       │   │           │           │   ├── mount-e87d034b8111cabd.d
 │       │   │           │           │   ├── num-2464e3f115589784.d
 │       │   │           │           │   ├── num-cb983e8cdbe0e987.d
 │       │   │           │           │   ├── num_cpus-005e6eb6cd71fa73.d
+│       │   │           │           │   ├── num_cpus-3d6b36ee12c66f29.d
 │       │   │           │           │   ├── num_cpus-c18aec78f840dbca.d
 │       │   │           │           │   ├── num_integer-624ef1933165d949.d
 │       │   │           │           │   ├── num_integer-c86b7e219dd6976c.d
+│       │   │           │           │   ├── num_integer-d5eb7bbd276ddf83.d
 │       │   │           │           │   ├── num_iter-8dcbd64b54dc20a2.d
 │       │   │           │           │   ├── num_iter-f2fa83377dc2ef2b.d
 │       │   │           │           │   ├── num_traits-45446b387d5047e5.d
 │       │   │           │           │   ├── num_traits-871a4fcadf8549fd.d
+│       │   │           │           │   ├── num_traits-9f24093bf088b6c1.d
+│       │   │           │           │   ├── num_traits-b98020ecc01218d7.d
+│       │   │           │           │   ├── ordered_float-1e576d5013fe8f03.d
 │       │   │           │           │   ├── ordered_float-c1740041383a373c.d
 │       │   │           │           │   ├── ordered_float-ca8d97b39c0fbc88.d
 │       │   │           │           │   ├── percent_encoding-02c8917eedd513f0.d
 │       │   │           │           │   ├── percent_encoding-7a8bae7514be74aa.d
 │       │   │           │           │   ├── pest-5717699a28ec6aa0.d
+│       │   │           │           │   ├── pest-7e71ac46aa57f8e7.d
 │       │   │           │           │   ├── pest-ebcad2ebfb8c81a5.d
 │       │   │           │           │   ├── pest_derive-408fb78939efdd02.d
+│       │   │           │           │   ├── pest_derive-5ca63ce4cf7f239d.d
 │       │   │           │           │   ├── pest_derive-5ce47561e713f4de.d
+│       │   │           │           │   ├── phf-24558e41e8965a33.d
 │       │   │           │           │   ├── phf-5677a1b5767070ed.d
 │       │   │           │           │   ├── phf-cb83278788e3ebed.d
+│       │   │           │           │   ├── phf_codegen-58fc07451458bea6.d
 │       │   │           │           │   ├── phf_codegen-c5f6cf11b42e9832.d
 │       │   │           │           │   ├── phf_codegen-caa444092a1d55b1.d
 │       │   │           │           │   ├── phf_generator-7736f5f124a91dc4.d
 │       │   │           │           │   ├── phf_generator-950daa3a05d7f239.d
+│       │   │           │           │   ├── phf_generator-a3d2b723576fdf6c.d
 │       │   │           │           │   ├── phf_shared-ba6ff8c8bbdcfaf2.d
+│       │   │           │           │   ├── phf_shared-d76443840dddfef6.d
 │       │   │           │           │   ├── phf_shared-ee39a6416ed1aaa0.d
 │       │   │           │           │   ├── plugin-96c3d15270e47712.d
 │       │   │           │           │   ├── plugin-9ec5aa182fb43d01.d
+│       │   │           │           │   ├── proc_macro2-58e343f8ee2f3593.d
+│       │   │           │           │   ├── pulldown_cmark-3d507a2d398eed0f.d
 │       │   │           │           │   ├── pulldown_cmark-5f48fd78e207b466.d
 │       │   │           │           │   ├── pulldown_cmark-9f00e677a5e54177.d
 │       │   │           │           │   ├── quick_error-c898df68bd32cb70.d
 │       │   │           │           │   ├── quick_error-d40f0d126a52a6c7.d
 │       │   │           │           │   ├── quote-3cca359e759fa0d8.d
 │       │   │           │           │   ├── quote-4b5518fb6d00a171.d
+│       │   │           │           │   ├── quote-57f9c3d33cce9b4c.d
 │       │   │           │           │   ├── rand-80dcd34270f302c8.d
 │       │   │           │           │   ├── rand-a33b2ec292c86c16.d
+│       │   │           │           │   ├── rand-d06422b8f89b4315.d
+│       │   │           │           │   ├── rand-e7117b23b49b1e9e.d
+│       │   │           │           │   ├── regex-130087211f928ad3.d
 │       │   │           │           │   ├── regex-aa99691257b1a035.d
 │       │   │           │           │   ├── regex-e2e51ad0e3e0b723.d
 │       │   │           │           │   ├── regex_syntax-5d85aa8f236781ba.d
 │       │   │           │           │   ├── regex_syntax-5f9a57a2c5eb9cb2.d
+│       │   │           │           │   ├── regex_syntax-b44342623e0c3293.d
+│       │   │           │           │   ├── rmp-0e51cf94231ab604.d
 │       │   │           │           │   ├── rmp-127db9b721487fe2.d
 │       │   │           │           │   ├── rmp-18b15fbee6516f8f.d
 │       │   │           │           │   ├── rmp_serde-035eab872005f132.d
+│       │   │           │           │   ├── rmp_serde-1af2fd82b282a3fc.d
 │       │   │           │           │   ├── rmp_serde-fd151219f3ccdadf.d
 │       │   │           │           │   ├── rustc_demangle-c800d04f2e87ca8a.d
 │       │   │           │           │   ├── rustc_demangle-eee1da6fe9b363f6.d
+│       │   │           │           │   ├── rustc_demangle-f1b9fd8cbbf62da0.d
 │       │   │           │           │   ├── safemem-09f8afbf77eeedd0.d
 │       │   │           │           │   ├── safemem-a189df975b5c5afd.d
 │       │   │           │           │   ├── same_file-c92bd9b1ab292700.d
@@ -3037,27 +2827,36 @@ ln -sf $DOTFILES/config/fish/ $HOME/.config/fish
 │       │   │           │           │   ├── sequence_trie-eaf72a304c332c72.d
 │       │   │           │           │   ├── serde-1d53cfe3a3ecdfd7.d
 │       │   │           │           │   ├── serde-4988bea5c2cf8796.d
+│       │   │           │           │   ├── serde-fc123953f7b713b4.d
 │       │   │           │           │   ├── serde_derive-6d7ac7f9f2c0a245.d
+│       │   │           │           │   ├── serde_derive-ddc30972e593977b.d
 │       │   │           │           │   ├── serde_derive-e3596893ab24a91c.d
 │       │   │           │           │   ├── serde_derive_internals-15e8e17b5bd081fc.d
 │       │   │           │           │   ├── serde_derive_internals-5c78287cd223cda3.d
+│       │   │           │           │   ├── serde_json-112de609c516fa84.d
 │       │   │           │           │   ├── serde_json-9ed42ffcc68da9f1.d
 │       │   │           │           │   ├── serde_json-b25298dd40aa67e1.d
 │       │   │           │           │   ├── serde_value-956d86e57834fdc1.d
 │       │   │           │           │   ├── serde_value-bba89e100aab1a6a.d
+│       │   │           │           │   ├── serde_value-e8424e72e97b4153.d
 │       │   │           │           │   ├── serde_yaml-6d75199baa31c162.d
 │       │   │           │           │   ├── serde_yaml-c447b6dc07cc5674.d
+│       │   │           │           │   ├── serde_yaml-f7aae37c3e078577.d
 │       │   │           │           │   ├── sha1-603a26c663602b8c.d
 │       │   │           │           │   ├── sha1-879968bbcca291fd.d
 │       │   │           │           │   ├── shlex-31c763da2a502e2d.d
 │       │   │           │           │   ├── shlex-c2714093918d935d.d
 │       │   │           │           │   ├── siphasher-8676af8a5c116f88.d
 │       │   │           │           │   ├── siphasher-abbfdc968aa32639.d
+│       │   │           │           │   ├── staticfile-50cb9b627e286437.d
 │       │   │           │           │   ├── staticfile-9f097b7ba3edfbf7.d
 │       │   │           │           │   ├── staticfile-fe58f1a0c0b7f757.d
 │       │   │           │           │   ├── strsim-5cdc35fe7af8bf07.d
 │       │   │           │           │   ├── strsim-63f96b0e61b9c45f.d
+│       │   │           │           │   ├── strsim-754e49b0a0f1f257.d
+│       │   │           │           │   ├── syn-02915e4ef025dd8b.d
 │       │   │           │           │   ├── syn-a44e60fe20836d8d.d
+│       │   │           │           │   ├── syn-be604022eace9052.d
 │       │   │           │           │   ├── syn-f7bf4da4dd64ccb9.d
 │       │   │           │           │   ├── synom-e60392ea99488643.d
 │       │   │           │           │   ├── synom-fb0914a3d8164296.d
@@ -3067,20 +2866,24 @@ ln -sf $DOTFILES/config/fish/ $HOME/.config/fish
 │       │   │           │           │   ├── thread_local-ea9dd4336c905c11.d
 │       │   │           │           │   ├── time-2c60cb46cdba05f3.d
 │       │   │           │           │   ├── time-3e875588a9788f53.d
+│       │   │           │           │   ├── time-68c1e7ecad1e3d4a.d
 │       │   │           │           │   ├── traitobject-3449ec392744c246.d
 │       │   │           │           │   ├── traitobject-8ca36cda4d6dcaf9.d
 │       │   │           │           │   ├── typeable-2bf798c470c8b1b7.d
 │       │   │           │           │   ├── typeable-b3228f65cf5f4131.d
 │       │   │           │           │   ├── typemap-c1dd20509670f7f7.d
 │       │   │           │           │   ├── typemap-cf024416166bd68c.d
+│       │   │           │           │   ├── ucd_util-2fa6be8f31594200.d
 │       │   │           │           │   ├── unicase-450c89cf6c79f26b.d
 │       │   │           │           │   ├── unicase-dfa7ad7ab4e2551d.d
 │       │   │           │           │   ├── unicode_bidi-78e5e4c7667da33b.d
 │       │   │           │           │   ├── unicode_bidi-a970e149e9dbbcb4.d
 │       │   │           │           │   ├── unicode_normalization-1b04c098f93a8f08.d
+│       │   │           │           │   ├── unicode_normalization-60738537dd5c27e7.d
 │       │   │           │           │   ├── unicode_normalization-a1405d70b136e057.d
 │       │   │           │           │   ├── unicode_width-cfc57006a7d6dc13.d
 │       │   │           │           │   ├── unicode_width-fdf54158249adbce.d
+│       │   │           │           │   ├── unicode_xid-6e4bc64e23e95afc.d
 │       │   │           │           │   ├── unicode_xid-a1566504ffcb014d.d
 │       │   │           │           │   ├── unicode_xid-ed340f58e921d9b5.d
 │       │   │           │           │   ├── unreachable-7b409d7844ee3836.d
@@ -3090,10 +2893,12 @@ ln -sf $DOTFILES/config/fish/ $HOME/.config/fish
 │       │   │           │           │   ├── unsafe_any-a8bb27a14398d33e.d
 │       │   │           │           │   ├── unsafe_any-b9e4dbf89fdce58b.d
 │       │   │           │           │   ├── url-381925bca0afcc76.d
+│       │   │           │           │   ├── url-4269c1075468ee7d.d
 │       │   │           │           │   ├── url-be4b8a3b7d3af779.d
 │       │   │           │           │   ├── utf8_ranges-4e93fd38394516a0.d
 │       │   │           │           │   ├── utf8_ranges-8096a1785a919a70.d
 │       │   │           │           │   ├── vec_map-01307a6a4110e620.d
+│       │   │           │           │   ├── vec_map-2620090de31a2ab6.d
 │       │   │           │           │   ├── vec_map-b1a7ccb544fc9963.d
 │       │   │           │           │   ├── version_check-01a60654f04cbb4c.d
 │       │   │           │           │   ├── version_check-73842fd8b9911f84.d
@@ -3102,7 +2907,9 @@ ln -sf $DOTFILES/config/fish/ $HOME/.config/fish
 │       │   │           │           │   ├── walkdir-9c081475f9974b55.d
 │       │   │           │           │   ├── walkdir-cc96a356fee977a9.d
 │       │   │           │           │   ├── websocket-4ded63f71ef526fb.d
+│       │   │           │           │   ├── websocket-51ce89ff7df6ad63.d
 │       │   │           │           │   ├── websocket-e283ebbc91ff48e7.d
+│       │   │           │           │   ├── yaml_rust-c40181ec7a1d029e.d
 │       │   │           │           │   ├── yaml_rust-d5f405393779b771.d
 │       │   │           │           │   └── yaml_rust-e9efd65e86dcfc49.d
 │       │   │           │           ├── examples
@@ -3137,6 +2944,8 @@ ln -sf $DOTFILES/config/fish/ $HOME/.config/fish
 │       │   │           │   │       ├── haml.vim
 │       │   │           │   │       ├── help.vim
 │       │   │           │   │       ├── html.vim
+│       │   │           │   │       ├── javascript
+│       │   │           │   │       │   └── graphql.vim
 │       │   │           │   │       ├── jsx.vim
 │       │   │           │   │       ├── mma.vim
 │       │   │           │   │       ├── objc.vim
@@ -3144,6 +2953,8 @@ ln -sf $DOTFILES/config/fish/ $HOME/.config/fish
 │       │   │           │   │       ├── ruby.vim
 │       │   │           │   │       ├── rust.vim
 │       │   │           │   │       ├── tex.vim
+│       │   │           │   │       ├── typescript
+│       │   │           │   │       │   └── graphql.vim
 │       │   │           │   │       └── yaml.vim
 │       │   │           │   ├── autoload
 │       │   │           │   │   ├── LaTeXtoUnicode.vim
@@ -3159,6 +2970,8 @@ ln -sf $DOTFILES/config/fish/ $HOME/.config/fish
 │       │   │           │   │   │   └── util.vim
 │       │   │           │   │   ├── elm.vim
 │       │   │           │   │   ├── fish.vim
+│       │   │           │   │   ├── go
+│       │   │           │   │   │   └── config.vim
 │       │   │           │   │   ├── htmlcomplete.vim
 │       │   │           │   │   ├── julia.vim
 │       │   │           │   │   ├── julia_blocks.vim
@@ -3193,6 +3006,7 @@ ln -sf $DOTFILES/config/fish/ $HOME/.config/fish
 │       │   │           │   │   ├── cake.vim
 │       │   │           │   │   ├── cargo.vim
 │       │   │           │   │   ├── coffee.vim
+│       │   │           │   │   ├── credo.vim
 │       │   │           │   │   ├── cryptol.vim
 │       │   │           │   │   ├── cucumber.vim
 │       │   │           │   │   ├── eruby.vim
@@ -3202,6 +3016,7 @@ ln -sf $DOTFILES/config/fish/ $HOME/.config/fish
 │       │   │           │   │   ├── go.vim
 │       │   │           │   │   ├── haml.vim
 │       │   │           │   │   ├── ls.vim
+│       │   │           │   │   ├── mix.vim
 │       │   │           │   │   ├── nim.vim
 │       │   │           │   │   ├── python.vim
 │       │   │           │   │   ├── rake.vim
@@ -3222,7 +3037,6 @@ ln -sf $DOTFILES/config/fish/ $HOME/.config/fish
 │       │   │           │   │   ├── ansible.vim
 │       │   │           │   │   ├── ansible_hosts.vim
 │       │   │           │   │   ├── blade.vim
-│       │   │           │   │   ├── cabal.vim
 │       │   │           │   │   ├── caddyfile.vim
 │       │   │           │   │   ├── clojure.vim
 │       │   │           │   │   ├── coffee.vim
@@ -3245,8 +3059,8 @@ ln -sf $DOTFILES/config/fish/ $HOME/.config/fish
 │       │   │           │   │   ├── gitconfig.vim
 │       │   │           │   │   ├── gitrebase.vim
 │       │   │           │   │   ├── gitsendemail.vim
+│       │   │           │   │   ├── graphql.vim
 │       │   │           │   │   ├── haml.vim
-│       │   │           │   │   ├── haskell.vim
 │       │   │           │   │   ├── html.vim
 │       │   │           │   │   ├── i3.vim
 │       │   │           │   │   ├── json.vim
@@ -3313,6 +3127,7 @@ ln -sf $DOTFILES/config/fish/ $HOME/.config/fish
 │       │   │           │   ├── indent
 │       │   │           │   │   ├── Jenkinsfile.vim
 │       │   │           │   │   ├── ansible.vim
+│       │   │           │   │   ├── applescript.vim
 │       │   │           │   │   ├── arduino.vim
 │       │   │           │   │   ├── autohotkey.vim
 │       │   │           │   │   ├── blade.vim
@@ -3338,6 +3153,7 @@ ln -sf $DOTFILES/config/fish/ $HOME/.config/fish
 │       │   │           │   │   ├── glsl.vim
 │       │   │           │   │   ├── go.vim
 │       │   │           │   │   ├── gohtmltmpl.vim
+│       │   │           │   │   ├── graphql.vim
 │       │   │           │   │   ├── haml.vim
 │       │   │           │   │   ├── handlebars.vim
 │       │   │           │   │   ├── haskell.vim
@@ -3393,7 +3209,6 @@ ln -sf $DOTFILES/config/fish/ $HOME/.config/fish
 │       │   │           │       ├── Jenkinsfile.vim
 │       │   │           │       ├── ansible.vim
 │       │   │           │       ├── ansible_hosts.vim
-│       │   │           │       ├── ansible_template.vim
 │       │   │           │       ├── apiblueprint.vim
 │       │   │           │       ├── applescript.vim
 │       │   │           │       ├── arduino.vim
@@ -3420,6 +3235,7 @@ ln -sf $DOTFILES/config/fish/ $HOME/.config/fish
 │       │   │           │       ├── emblem.vim
 │       │   │           │       ├── erlang.vim
 │       │   │           │       ├── eruby.vim
+│       │   │           │       ├── ferm.vim
 │       │   │           │       ├── fish.vim
 │       │   │           │       ├── fsharp.vim
 │       │   │           │       ├── git.vim
@@ -3431,11 +3247,16 @@ ln -sf $DOTFILES/config/fish/ $HOME/.config/fish
 │       │   │           │       ├── gmpl.vim
 │       │   │           │       ├── gnuplot.vim
 │       │   │           │       ├── go.vim
+│       │   │           │       ├── godebugoutput.vim
+│       │   │           │       ├── godebugstacktrace.vim
+│       │   │           │       ├── godebugvariables.vim
 │       │   │           │       ├── godefstack.vim
 │       │   │           │       ├── gohtmltmpl.vim
 │       │   │           │       ├── gotexttmpl.vim
+│       │   │           │       ├── graphql.vim
 │       │   │           │       ├── groovy.vim
 │       │   │           │       ├── haml.vim
+│       │   │           │       ├── haproxy.vim
 │       │   │           │       ├── haskell.vim
 │       │   │           │       ├── haxe.vim
 │       │   │           │       ├── html
@@ -3522,341 +3343,6 @@ ln -sf $DOTFILES/config/fish/ $HOME/.config/fish
 │       │   │           │       ├── vue.vim
 │       │   │           │       ├── xs.vim
 │       │   │           │       └── xsl.vim
-│       │   │           ├── vim-test
-│       │   │           │   ├── Flavorfile
-│       │   │           │   ├── README.md
-│       │   │           │   ├── autoload
-│       │   │           │   │   ├── test
-│       │   │           │   │   │   ├── base.vim
-│       │   │           │   │   │   ├── clojure
-│       │   │           │   │   │   │   └── fireplacetest.vim
-│       │   │           │   │   │   ├── crystal
-│       │   │           │   │   │   │   └── crystalspec.vim
-│       │   │           │   │   │   ├── csharp
-│       │   │           │   │   │   │   ├── dotnettest.vim
-│       │   │           │   │   │   │   └── xunit.vim
-│       │   │           │   │   │   ├── csharp.vim
-│       │   │           │   │   │   ├── elixir
-│       │   │           │   │   │   │   ├── espec.vim
-│       │   │           │   │   │   │   └── exunit.vim
-│       │   │           │   │   │   ├── elm
-│       │   │           │   │   │   │   └── elmtest.vim
-│       │   │           │   │   │   ├── erlang
-│       │   │           │   │   │   │   └── commontest.vim
-│       │   │           │   │   │   ├── erlang.vim
-│       │   │           │   │   │   ├── go
-│       │   │           │   │   │   │   ├── ginkgo.vim
-│       │   │           │   │   │   │   └── gotest.vim
-│       │   │           │   │   │   ├── go.vim
-│       │   │           │   │   │   ├── java
-│       │   │           │   │   │   │   └── maventest.vim
-│       │   │           │   │   │   ├── java.vim
-│       │   │           │   │   │   ├── javascript
-│       │   │           │   │   │   │   ├── ava.vim
-│       │   │           │   │   │   │   ├── cucumberjs.vim
-│       │   │           │   │   │   │   ├── intern.vim
-│       │   │           │   │   │   │   ├── jasmine.vim
-│       │   │           │   │   │   │   ├── jest.vim
-│       │   │           │   │   │   │   ├── karma.vim
-│       │   │           │   │   │   │   ├── lab.vim
-│       │   │           │   │   │   │   ├── mocha.vim
-│       │   │           │   │   │   │   ├── tap.vim
-│       │   │           │   │   │   │   └── webdriverio.vim
-│       │   │           │   │   │   ├── javascript.vim
-│       │   │           │   │   │   ├── lua
-│       │   │           │   │   │   │   └── busted.vim
-│       │   │           │   │   │   ├── perl
-│       │   │           │   │   │   │   └── prove.vim
-│       │   │           │   │   │   ├── php
-│       │   │           │   │   │   │   ├── behat.vim
-│       │   │           │   │   │   │   ├── codeception.vim
-│       │   │           │   │   │   │   ├── dusk.vim
-│       │   │           │   │   │   │   ├── kahlan.vim
-│       │   │           │   │   │   │   ├── peridot.vim
-│       │   │           │   │   │   │   ├── phpspec.vim
-│       │   │           │   │   │   │   └── phpunit.vim
-│       │   │           │   │   │   ├── php.vim
-│       │   │           │   │   │   ├── python
-│       │   │           │   │   │   │   ├── djangotest.vim
-│       │   │           │   │   │   │   ├── nose.vim
-│       │   │           │   │   │   │   ├── nose2.vim
-│       │   │           │   │   │   │   ├── pytest.vim
-│       │   │           │   │   │   │   └── pyunit.vim
-│       │   │           │   │   │   ├── python.vim
-│       │   │           │   │   │   ├── racket
-│       │   │           │   │   │   │   └── rackunit.vim
-│       │   │           │   │   │   ├── ruby
-│       │   │           │   │   │   │   ├── cucumber.vim
-│       │   │           │   │   │   │   ├── m.vim
-│       │   │           │   │   │   │   ├── minitest.vim
-│       │   │           │   │   │   │   ├── rails.vim
-│       │   │           │   │   │   │   └── rspec.vim
-│       │   │           │   │   │   ├── ruby.vim
-│       │   │           │   │   │   ├── rust
-│       │   │           │   │   │   │   └── cargotest.vim
-│       │   │           │   │   │   ├── shell
-│       │   │           │   │   │   │   └── bats.vim
-│       │   │           │   │   │   ├── strategy.vim
-│       │   │           │   │   │   ├── swift
-│       │   │           │   │   │   │   └── swiftpm.vim
-│       │   │           │   │   │   ├── swift.vim
-│       │   │           │   │   │   └── viml
-│       │   │           │   │   │       ├── themis.vim
-│       │   │           │   │   │       ├── vader.vim
-│       │   │           │   │   │       └── vspec.vim
-│       │   │           │   │   └── test.vim
-│       │   │           │   ├── bin
-│       │   │           │   │   ├── osx_iterm
-│       │   │           │   │   └── osx_terminal
-│       │   │           │   ├── doc
-│       │   │           │   │   ├── tags
-│       │   │           │   │   └── test.txt
-│       │   │           │   ├── plugin
-│       │   │           │   │   └── test.vim
-│       │   │           │   ├── screenshots
-│       │   │           │   │   ├── granularity.gif
-│       │   │           │   │   └── nearest.gif
-│       │   │           │   └── spec
-│       │   │           │       ├── ava_spec.vim
-│       │   │           │       ├── bats_spec.vim
-│       │   │           │       ├── behat_spec.vim
-│       │   │           │       ├── busted_spec.vim
-│       │   │           │       ├── cargotest_spec.vim
-│       │   │           │       ├── codeception_spec.vim
-│       │   │           │       ├── commands_spec.vim
-│       │   │           │       ├── commontest_spec.vim
-│       │   │           │       ├── crystal_spec.vim
-│       │   │           │       ├── cucumber_spec.vim
-│       │   │           │       ├── cucumberjs_spec.vim
-│       │   │           │       ├── djangotest_spec.vim
-│       │   │           │       ├── dotnet_spec.vim
-│       │   │           │       ├── dotnet_xunit_spec.vim
-│       │   │           │       ├── dusk_spec.vim
-│       │   │           │       ├── elmtest_spec.vim
-│       │   │           │       ├── espec_spec.vim
-│       │   │           │       ├── exunit_spec.vim
-│       │   │           │       ├── fireplacetest_spec.vim
-│       │   │           │       ├── fixtures
-│       │   │           │       │   ├── ava
-│       │   │           │       │   │   ├── package.json
-│       │   │           │       │   │   └── test
-│       │   │           │       │   │       └── normal.js
-│       │   │           │       │   ├── bats
-│       │   │           │       │   │   └── normal.bats
-│       │   │           │       │   ├── behat
-│       │   │           │       │   │   ├── features
-│       │   │           │       │   │   │   └── bootstrap
-│       │   │           │       │   │   │       └── FeatureContext.php
-│       │   │           │       │   │   └── normal.feature
-│       │   │           │       │   ├── busted
-│       │   │           │       │   │   └── normal_spec.lua
-│       │   │           │       │   ├── cargo
-│       │   │           │       │   │   └── normal_test.rs
-│       │   │           │       │   ├── clojure
-│       │   │           │       │   │   └── math_test.clj
-│       │   │           │       │   ├── codeception
-│       │   │           │       │   │   ├── codeception.yml
-│       │   │           │       │   │   └── tests
-│       │   │           │       │   │       └── functional
-│       │   │           │       │   │           ├── Normal.feature
-│       │   │           │       │   │           ├── NormalCept.php
-│       │   │           │       │   │           ├── NormalCest.php
-│       │   │           │       │   │           ├── NormalTest.php
-│       │   │           │       │   │           └── _bootstrap.php
-│       │   │           │       │   ├── commontest
-│       │   │           │       │   │   ├── test.erl
-│       │   │           │       │   │   └── test_SUITE.erl
-│       │   │           │       │   ├── crystal
-│       │   │           │       │   │   └── normal_spec.cr
-│       │   │           │       │   ├── cucumber
-│       │   │           │       │   │   └── features
-│       │   │           │       │   │       ├── code.rb
-│       │   │           │       │   │       └── normal.feature
-│       │   │           │       │   ├── cucumberjs
-│       │   │           │       │   │   ├── features
-│       │   │           │       │   │   │   ├── normal.feature
-│       │   │           │       │   │   │   └── step_definitions
-│       │   │           │       │   │   │       └── steps.js
-│       │   │           │       │   │   └── package.json
-│       │   │           │       │   ├── django
-│       │   │           │       │   │   └── module
-│       │   │           │       │   │       ├── test_class.py
-│       │   │           │       │   │       └── test_method.py
-│       │   │           │       │   ├── dotnet
-│       │   │           │       │   │   ├── NestedTests.cs
-│       │   │           │       │   │   ├── Tests.cs
-│       │   │           │       │   │   └── Tests.csproj
-│       │   │           │       │   ├── dotnet-xunit
-│       │   │           │       │   │   ├── NestedTests.cs
-│       │   │           │       │   │   ├── Tests.cs
-│       │   │           │       │   │   ├── Tests.csproj
-│       │   │           │       │   │   └── TestsWithFixture.cs
-│       │   │           │       │   ├── dusk
-│       │   │           │       │   │   └── BrowserTest.php
-│       │   │           │       │   ├── elmtest
-│       │   │           │       │   │   └── tests
-│       │   │           │       │   │       └── NormalTest.elm
-│       │   │           │       │   ├── espec
-│       │   │           │       │   │   └── normal_spec.exs
-│       │   │           │       │   ├── exunit
-│       │   │           │       │   │   ├── mix.exs
-│       │   │           │       │   │   └── normal_test.exs
-│       │   │           │       │   ├── ginkgo
-│       │   │           │       │   │   ├── mypackage
-│       │   │           │       │   │   │   └── normal_test.go
-│       │   │           │       │   │   └── normal_test.go
-│       │   │           │       │   ├── gotest
-│       │   │           │       │   │   ├── mypackage
-│       │   │           │       │   │   │   └── normal_test.go
-│       │   │           │       │   │   └── normal_test.go
-│       │   │           │       │   ├── intern
-│       │   │           │       │   │   ├── outside.js
-│       │   │           │       │   │   ├── package.json
-│       │   │           │       │   │   └── tests
-│       │   │           │       │   │       ├── bdd.js
-│       │   │           │       │   │       ├── functional
-│       │   │           │       │   │       │   ├── bdd.js
-│       │   │           │       │   │       │   ├── object.js
-│       │   │           │       │   │       │   └── tdd.js
-│       │   │           │       │   │       ├── intern.js
-│       │   │           │       │   │       ├── object.js
-│       │   │           │       │   │       ├── qunit.js
-│       │   │           │       │   │       ├── tdd.js
-│       │   │           │       │   │       └── unit
-│       │   │           │       │   │           ├── bdd.js
-│       │   │           │       │   │           ├── object.js
-│       │   │           │       │   │           └── tdd.js
-│       │   │           │       │   ├── jasmine
-│       │   │           │       │   │   ├── package.json
-│       │   │           │       │   │   └── spec
-│       │   │           │       │   │       └── normal_spec.js
-│       │   │           │       │   ├── jest
-│       │   │           │       │   │   ├── __tests__
-│       │   │           │       │   │   │   ├── context-test.js
-│       │   │           │       │   │   │   ├── normal-test.coffee
-│       │   │           │       │   │   │   ├── normal-test.js
-│       │   │           │       │   │   │   └── normal-test.jsx
-│       │   │           │       │   │   ├── outside-test.js
-│       │   │           │       │   │   └── package.json
-│       │   │           │       │   ├── kahlan
-│       │   │           │       │   │   ├── bin
-│       │   │           │       │   │   │   └── kahlan
-│       │   │           │       │   │   └── spec
-│       │   │           │       │   │       └── Normal.spec.php
-│       │   │           │       │   ├── karma
-│       │   │           │       │   │   ├── node_modules
-│       │   │           │       │   │   │   └── karma-cli-runner
-│       │   │           │       │   │   │       └── karma-args.js
-│       │   │           │       │   │   ├── normal_spec.js
-│       │   │           │       │   │   └── package.json
-│       │   │           │       │   ├── lab
-│       │   │           │       │   │   ├── package.json
-│       │   │           │       │   │   └── test
-│       │   │           │       │   │       └── normal.js
-│       │   │           │       │   ├── maven
-│       │   │           │       │   │   ├── MathTest.java
-│       │   │           │       │   │   ├── MathTestCase.java
-│       │   │           │       │   │   ├── MathTests.java
-│       │   │           │       │   │   └── TestMath.java
-│       │   │           │       │   ├── minitest
-│       │   │           │       │   │   ├── Rakefile
-│       │   │           │       │   │   ├── classic_spec_test.rb
-│       │   │           │       │   │   ├── classic_unit_test.rb
-│       │   │           │       │   │   ├── explicit_spec_test.rb
-│       │   │           │       │   │   └── rails_unit_test.rb
-│       │   │           │       │   ├── mocha
-│       │   │           │       │   │   ├── outside.js
-│       │   │           │       │   │   ├── package.json
-│       │   │           │       │   │   └── test
-│       │   │           │       │   │       ├── context.js
-│       │   │           │       │   │       ├── normal.coffee
-│       │   │           │       │   │       ├── normal.js
-│       │   │           │       │   │       └── normal.jsx
-│       │   │           │       │   ├── nose
-│       │   │           │       │   │   ├── test_class.py
-│       │   │           │       │   │   └── test_method.py
-│       │   │           │       │   ├── peridot
-│       │   │           │       │   │   ├── arrayobject.spec.php
-│       │   │           │       │   │   └── bin
-│       │   │           │       │   │       └── peridot
-│       │   │           │       │   ├── phpspec
-│       │   │           │       │   │   └── NormalSpec.php
-│       │   │           │       │   ├── phpunit
-│       │   │           │       │   │   └── NormalTest.php
-│       │   │           │       │   ├── prove
-│       │   │           │       │   │   └── t
-│       │   │           │       │   │       └── math_test.t
-│       │   │           │       │   ├── rackunit
-│       │   │           │       │   │   └── testrackunit.rkt
-│       │   │           │       │   ├── rails
-│       │   │           │       │   │   └── Gemfile.lock
-│       │   │           │       │   ├── rspec
-│       │   │           │       │   │   └── normal_spec.rb
-│       │   │           │       │   ├── swiftpm
-│       │   │           │       │   │   ├── Package.swift
-│       │   │           │       │   │   ├── Sources
-│       │   │           │       │   │   │   └── VimTest.swift
-│       │   │           │       │   │   └── Tests
-│       │   │           │       │   │       ├── LinuxMain.swift
-│       │   │           │       │   │       └── VimTestTests
-│       │   │           │       │   │           └── VimTestTests.swift
-│       │   │           │       │   ├── tap
-│       │   │           │       │   │   ├── node_modules
-│       │   │           │       │   │   ├── package.json
-│       │   │           │       │   │   ├── test
-│       │   │           │       │   │   │   └── normal.js
-│       │   │           │       │   │   └── tests
-│       │   │           │       │   │       └── normal.js
-│       │   │           │       │   ├── themis
-│       │   │           │       │   │   └── math.vim
-│       │   │           │       │   ├── vader
-│       │   │           │       │   │   └── math.vader
-│       │   │           │       │   ├── vspec
-│       │   │           │       │   │   ├── outside.vim
-│       │   │           │       │   │   └── test
-│       │   │           │       │   │       └── normal.vim
-│       │   │           │       │   └── webdriverio
-│       │   │           │       │       ├── package.json
-│       │   │           │       │       ├── test
-│       │   │           │       │       │   └── specs
-│       │   │           │       │       │       └── example.js
-│       │   │           │       │       └── wdio.conf.js
-│       │   │           │       ├── ginkgo_spec.vim
-│       │   │           │       ├── go_runner_spec.vim
-│       │   │           │       ├── gotest_spec.vim
-│       │   │           │       ├── intern_spec.vim
-│       │   │           │       ├── jasmine_spec.vim
-│       │   │           │       ├── jest_spec.vim
-│       │   │           │       ├── kahlan_spec.vim
-│       │   │           │       ├── karma_spec.vim
-│       │   │           │       ├── lab_spec.vim
-│       │   │           │       ├── m_spec.vim
-│       │   │           │       ├── maventest_spec.vim
-│       │   │           │       ├── minitest_spec.vim
-│       │   │           │       ├── mocha_spec.vim
-│       │   │           │       ├── nose2_spec.vim
-│       │   │           │       ├── nose_spec.vim
-│       │   │           │       ├── options_spec.vim
-│       │   │           │       ├── peridot_spec.vim
-│       │   │           │       ├── phpspec_spec.vim
-│       │   │           │       ├── phpunit_spec.vim
-│       │   │           │       ├── prove_spec.vim
-│       │   │           │       ├── pytest_spec.vim
-│       │   │           │       ├── pyunit_spec.vim
-│       │   │           │       ├── rackunit_spec.vim
-│       │   │           │       ├── rails_spec.vim
-│       │   │           │       ├── rspec_spec.vim
-│       │   │           │       ├── strategy_spec.vim
-│       │   │           │       ├── support
-│       │   │           │       │   ├── helpers.vim
-│       │   │           │       │   └── test
-│       │   │           │       │       └── strategy.vim
-│       │   │           │       ├── swiftpm_spec.vim
-│       │   │           │       ├── tap_spec.vim
-│       │   │           │       ├── themis_spec.vim
-│       │   │           │       ├── vader_spec.vim
-│       │   │           │       ├── vspec_spec.vim
-│       │   │           │       └── webdriverio_spec.vim
 │       │   │           └── vim-tmux-navigator
 │       │   │               ├── License.md
 │       │   │               ├── README.md
@@ -3874,34 +3360,67 @@ ln -sf $DOTFILES/config/fish/ $HOME/.config/fish
 │       │   │   │   └── visual.vim
 │       │   │   ├── sessions.vim
 │       │   │   └── settings.vim
-│       │   ├── sessions
 │       │   ├── spell
 │       │   │   ├── en.utf-8.add
-│       │   │   └── en.utf-8.add.spl
-│       │   ├── tmp
-│       │   │   ├── backup
-│       │   │   ├── swap
-│       │   │   └── undo
-│       │   ├── undo
-│       │   └── view
+│       │   │   ├── en.utf-8.add.spl
+│       │   │   ├── en.utf-8.spl
+│       │   │   └── en.utf-8.sug
+│       │   └── tmp
+│       │       ├── backup
+│       │       ├── sessions
+│       │       │   ├── brew-services.vim
+│       │       │   ├── crj.com.vim
+│       │       │   ├── crj.vim
+│       │       │   ├── dots.vim
+│       │       │   ├── dropbear.vim
+│       │       │   ├── fuse-ext2.rb.vim
+│       │       │   ├── fuse-ext2.vim
+│       │       │   ├── github-battle.vim
+│       │       │   ├── kegcop.vim
+│       │       │   ├── qemu.vim
+│       │       │   ├── re.vim
+│       │       │   └── react-tm.vim
+│       │       ├── swap
+│       │       ├── undo
+        │       ├── views
+│       │       │   └── dots.vim
+│       │       └── viminfo
 │       ├── vimrc
 │       └── vimrc.pre-feb-26-2018
 ├── install.sh
 ├── jobs
 │   ├── Linux
+│   │   ├── etc
+│   │   │   └── systemd
+│   │   │       └── system
+│   │   │           ├── xclip.socket
+│   │   │           └── xclip@.service
+│   │   ├── lib
+│   │   │   └── systemd
+│   │   │       └── system
+│   │   │           └── postgresql.service
 │   │   ├── pg_backup.config
 │   │   ├── pg_backup.sh
 │   │   ├── pg_backup_borked.sh
-│   │   ├── pg_backup_rotated.sh
-│   │   └── systemd
-│   │       └── postgresql.service
+│   │   └── pg_backup_rotated.sh
 │   ├── bin
 │   │   ├── battery -> /opt/Code/dotfiles/terms/tmux/bin/battery
+│   │   ├── colors-fish
+│   │   ├── colors-lencioni
+│   │   ├── colors-lencioni.orig
+│   │   ├── colors-wincent
+│   │   ├── colors-wincent.orig
+│   │   ├── colors-zsh
+│   │   ├── defunct
+│   │   │   ├── tmux-session -> tmux_session.sh
+│   │   │   ├── tmux_session -> tmux_session.sh
+│   │   │   └── tmux_session.sh
 │   │   ├── docker-uninstall-on-macos.sh
-│   │   ├── dots.sh -> /opt/Code/dotfiles/terms/tmux/bin/dot.sh
-│   │   ├── easy_install
-│   │   ├── easy_install-3.6
-│   │   ├── nvr
+│   │   ├── dots.sh -> /opt/Code/dotfiles/terms/tmux/bin/dots.sh
+│   │   ├── dpkg-gettext.pl
+│   │   ├── dpkg-scanpackages-cydia
+│   │   ├── jtool -> /opt/code/ios-dev/tools/jtool/jtool
+│   │   ├── print_ls_colors
 │   │   └── rm_ds_store_files.sh
 │   ├── macOS
 │   │   └── com.chrisrjones.rm_ds_store_files.plist
@@ -3910,7 +3429,8 @@ ln -sf $DOTFILES/config/fish/ $HOME/.config/fish
 │   ├── elixir
 │   │   └── iex.exs
 │   └── python
-│       └── pyenv
+│       ├── pyenv
+│       └── pystartup
 ├── mutt
 │   └── muttrc
 ├── re
@@ -3920,32 +3440,151 @@ ln -sf $DOTFILES/config/fish/ $HOME/.config/fish
 │   └── radare
 │       └── radare2rc
 ├── shells
-│   ├── bash
-│   │   ├── bash_profile
-│   │   └── bashrc
+│   ├── bash -> /opt/Code/dotfiles/config/bash
 │   ├── fish -> /opt/Code/dotfiles/config/fish
-│   └── zsh
-│       ├── zlogin
-│       └── zshrc
+│   └── zsh -> /opt/Code/dotfiles/config/zsh
 ├── tags
-└── terms
-    ├── alacritty
-    │   └── alacritty.yml
-    ├── hyper
-    │   └── hyper.js
-    ├── iterm2
-    │   ├── com.googlecode.iterm2.plist
-    │   └── xterm-256color.terminfo.txt
-    └── tmux
-        ├── bin
-        │   ├── battery
-        │   └── dots.sh
-        ├── tmux-256color.terminfo
-        ├── tmux.conf
-        ├── tmux.macos.conf
-        └── xterm-256color-italic.terminfo
+├── terms
+│   ├── Terminal-app
+│   │   └── macOS-10.13.terminal
+│   ├── alacritty
+│   │   └── alacritty.yml
+│   ├── hyper
+│   │   └── hyper.js
+│   ├── iterm2
+│   │   └── com.googlecode.iterm2.plist
+│   └── tmux
+│       ├── bin
+│       │   ├── battery
+│       │   └── dots.sh
+│       ├── tmux
+│       │   ├── plugins
+│       │   │   ├── tmux-resurrect
+│       │   │   │   ├── CHANGELOG.md
+│       │   │   │   ├── CONTRIBUTING.md
+│       │   │   │   ├── LICENSE.md
+│       │   │   │   ├── README.md
+│       │   │   │   ├── docs
+│       │   │   │   │   ├── custom_key_bindings.md
+│       │   │   │   │   ├── migrating_from_tmuxinator.md
+│       │   │   │   │   ├── restoring_pane_contents.md
+│       │   │   │   │   ├── restoring_programs.md
+│       │   │   │   │   ├── restoring_shell_history.md
+│       │   │   │   │   ├── restoring_vim_and_neovim_sessions.md
+│       │   │   │   │   └── save_dir.md
+│       │   │   │   ├── lib
+│       │   │   │   │   └── tmux-test
+│       │   │   │   │       ├── CHANGELOG.md
+│       │   │   │   │       ├── LICENSE.md
+│       │   │   │   │       ├── README.md
+│       │   │   │   │       ├── Vagrantfile
+│       │   │   │   │       ├── run_framework_tests
+│       │   │   │   │       ├── run_tests
+│       │   │   │   │       ├── setup
+│       │   │   │   │       ├── tests
+│       │   │   │   │       │   ├── helpers
+│       │   │   │   │       │   │   └── helpers.sh
+│       │   │   │   │       │   ├── run_tests_in_isolation
+│       │   │   │   │       │   ├── test_basic_script_execution.sh
+│       │   │   │   │       │   ├── test_default_session_name.sh
+│       │   │   │   │       │   └── test_tmux_scripting.sh
+│       │   │   │   │       ├── vagrant_centos_provisioning.sh
+│       │   │   │   │       └── vagrant_ubuntu_provisioning.sh
+│       │   │   │   ├── resurrect.tmux
+│       │   │   │   ├── run_tests -> lib/tmux-test/run_tests
+│       │   │   │   ├── save_command_strategies
+│       │   │   │   │   ├── gdb.sh
+│       │   │   │   │   ├── pgrep.sh
+│       │   │   │   │   └── ps.sh
+│       │   │   │   ├── scripts
+│       │   │   │   │   ├── check_tmux_version.sh
+│       │   │   │   │   ├── helpers.sh
+│       │   │   │   │   ├── process_restore_helpers.sh
+│       │   │   │   │   ├── restore.exp
+│       │   │   │   │   ├── restore.sh
+│       │   │   │   │   ├── save.sh
+│       │   │   │   │   ├── spinner_helpers.sh
+│       │   │   │   │   ├── tmux_spinner.sh
+│       │   │   │   │   └── variables.sh
+│       │   │   │   ├── strategies
+│       │   │   │   │   ├── irb_default_strategy.sh
+│       │   │   │   │   ├── nvim_session.sh
+│       │   │   │   │   └── vim_session.sh
+│       │   │   │   ├── tests
+│       │   │   │   │   ├── fixtures
+│       │   │   │   │   │   ├── restore_file.txt
+│       │   │   │   │   │   └── save_file.txt
+│       │   │   │   │   ├── helpers
+│       │   │   │   │   │   ├── create_and_save_tmux_test_environment.exp
+│       │   │   │   │   │   ├── expect_helpers.exp
+│       │   │   │   │   │   ├── helpers.sh -> ../../lib/tmux-test/tests/helpers/helpers.sh
+│       │   │   │   │   │   ├── restore_and_save_tmux_test_environment.exp
+│       │   │   │   │   │   └── resurrect_helpers.sh
+│       │   │   │   │   ├── run_tests_in_isolation -> ../lib/tmux-test/tests/run_tests_in_isolation
+│       │   │   │   │   ├── test_resurrect_restore.sh
+│       │   │   │   │   └── test_resurrect_save.sh
+│       │   │   │   └── video
+│       │   │   │       ├── issue_vid.png
+│       │   │   │       ├── screencast_img.png
+│       │   │   │       └── script.md
+│       │   │   └── tpm
+│       │   │       ├── CHANGELOG.md
+│       │   │       ├── HOW_TO_PLUGIN.md
+│       │   │       ├── LICENSE.md
+│       │   │       ├── README.md
+│       │   │       ├── bin
+│       │   │       │   ├── clean_plugins
+│       │   │       │   ├── install_plugins
+│       │   │       │   └── update_plugins
+│       │   │       ├── bindings
+│       │   │       │   ├── clean_plugins
+│       │   │       │   ├── install_plugins
+│       │   │       │   └── update_plugins
+│       │   │       ├── docs
+│       │   │       │   ├── automatic_tpm_installation.md
+│       │   │       │   ├── changing_plugins_install_dir.md
+│       │   │       │   ├── how_to_create_plugin.md
+│       │   │       │   ├── managing_plugins_via_cmd_line.md
+│       │   │       │   └── tpm_not_working.md
+│       │   │       ├── lib
+│       │   │       │   └── tmux-test
+│       │   │       ├── scripts
+│       │   │       │   ├── check_tmux_version.sh
+│       │   │       │   ├── clean_plugins.sh
+│       │   │       │   ├── helpers
+│       │   │       │   │   ├── plugin_functions.sh
+│       │   │       │   │   ├── shell_echo_functions.sh
+│       │   │       │   │   ├── tmux_echo_functions.sh
+│       │   │       │   │   ├── tmux_utils.sh
+│       │   │       │   │   └── utility.sh
+│       │   │       │   ├── install_plugins.sh
+│       │   │       │   ├── source_plugins.sh
+│       │   │       │   ├── update_plugin.sh
+│       │   │       │   ├── update_plugin_prompt_handler.sh
+│       │   │       │   └── variables.sh
+│       │   │       ├── tests
+│       │   │       │   ├── expect_failed_plugin_download
+│       │   │       │   ├── expect_successful_clean_plugins
+│       │   │       │   ├── expect_successful_multiple_plugins_download
+│       │   │       │   ├── expect_successful_plugin_download
+│       │   │       │   ├── expect_successful_update_of_a_single_plugin
+│       │   │       │   ├── expect_successful_update_of_all_plugins
+│       │   │       │   ├── helpers
+│       │   │       │   │   └── tpm.sh
+│       │   │       │   ├── test_plugin_clean.sh
+│       │   │       │   ├── test_plugin_installation.sh
+│       │   │       │   ├── test_plugin_installation_legacy.sh
+│       │   │       │   ├── test_plugin_sourcing.sh
+│       │   │       │   └── test_plugin_update.sh
+│       │   │       └── tpm
+│       │   ├── resurrect
+        │   └── tmux.macos.conf
+│       ├── tmux-256color.terminfo
+│       ├── tmux.conf
+│       └── xterm-256color-italic.terminfo
+└── tmp
 
-817 directories, 3128 files
+705 directories, 3022 files
 
 </pre>
 </details>
