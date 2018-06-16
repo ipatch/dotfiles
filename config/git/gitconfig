@@ -290,6 +290,6 @@
 #  path = /opt/code/dotfiles/.gitconfig
 
 # Keep `[user]` at BOTTOM
+# NOTE: to rm values from CLI `git config --global --unset user.{name,email}
 [user]
-  name = ipatch
-  email = chris.r.jones.1983@gmail.com
+
