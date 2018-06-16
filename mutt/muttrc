@@ -20,10 +20,14 @@ set text_flowed
 alternative_order text/plain text/html
 auto_view text/html
 
+
+##############################
+# TODO: figure out the correct charsets for mutt
+##
 # Set encoding for sent emails 
-set send_charset="us-ascii:utf-8"
+# set send_charset="us-ascii:utf-8"
 # Set encoding for reading emails
-set charset = "us-ascii:utf-8"
+# set charset = "en_US.UTF-8"
 
 # TODO: setup mail aliases
 # Contact management
