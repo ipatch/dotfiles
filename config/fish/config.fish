@@ -11,8 +11,7 @@
 # https://fishshell.com/docs/current/index.html#initialization
 ##
 # DONT edit files within `$__fish_datadir/config.fish` ie. /usr/share/fish/config.fish
-# System-wide config `/etc/fish/config.fish` if installed with brew
-# `(brew --prefix)/etc/fish/`
+# System-wide config `/etc/fish/config.fish` if installed with homebrew `(brew --prefix)/etc/fish/`
 # 
 
 ##############################
@@ -44,7 +43,6 @@ set -gx dotfiles /opt/Code/dotfiles
 set -gx dot /opt/Code/dotfiles
 set -gx dots /opt/Code/dotfiles
 set -gx XDG_CACHE_HOME $HOME/.cache
-set -gx XDG_CONFIG_HOME $HOME/.config
 set -gx XDG_CONFIG_DATA $HOME/.local/share
 set -gx CODE /opt/code
 set -gx code /opt/code
@@ -55,7 +53,6 @@ if type -q brew
 	set -gx blogs (brew --prefix)/var/log/
 end
 	
-
 if type -q python
   set -gx PYTHONSTARTUP $HOME/.pystartup
 end
@@ -64,6 +61,7 @@ end
 # git related settings
 ##
 set -gx GIT_RC $XDG_CONFIG_HOME/git
+# set -gx GIT_DIR $XDG_CONFIG_HOME/git
 
 # set -gx LC_CTYPE "en_US.UTF-8" # only set this if you want to overwrite ALL locales!
 
@@ -95,7 +93,7 @@ case Darwin
   #########################
   # macOS specific env vars boo
   ##
-  if echo $TERM_PROGRAM | string match -r -q "iTerm.app"
+  if [ "$TERM_PROGRAM" = iTerm.app ]
     set -gx COLORTERM truecolor
   else
     # DO NOTHIGH
@@ -113,13 +111,13 @@ case Darwin
   #########################
   # `ls` colorscheme for BSD / Darwin
   ##
-set -gx LSCOLORS Exfxcxdxcxegedabagacad
+  set -gx LSCOLORS Exfxcxdxcxegedabagacad
 
-if test -d (brew --prefix)/opt/coreutils
+  if test -d (brew --prefix)/opt/coreutils
 	
-	eval (dircolors -c $HOME/.dir_colors)
-	alias ls="/usr/local/opt/coreutils/libexec/gnubin/ls --color=auto"
-end
+    eval (dircolors -c $HOME/.dir_colors)
+    alias ls="/usr/local/opt/coreutils/libexec/gnubin/ls --color=auto"
+  end
 
   ###############################
   # set env vars for git
@@ -133,10 +131,8 @@ end
     # TODO: figure out why this was breaking `tab` completion in node 🤷‍♀️
     # set -gx NODE_NO_READLINE 1
   else
-    # DO SOMETHING
     # echo "Your gunna need to do a `brew install rlwrap`"
   end
-
 
   if type -q nvim
     set -gx EDITOR nvim
@@ -167,13 +163,14 @@ case Linux
   eval (dircolors -c $HOME/.dir_colors)
 
  
-  # `$DISPLAY` should be set by SSH configs and not the shell 
+  # `$DISPLAY` should be set by SSH configs and NOT shell config files 
   if [ -d $HOME/.terminfo ]
     set -gx TERMINFO "$HOME/.terminfo"
     set -gx TERM xterm
   else
     # DO NOTHING!
   end
+
   if [ -n $TMUX ]
     set -gx TERM tmux-256color
   else
@@ -200,8 +197,8 @@ case Linux
 end
 
 ##############################
-# NOTE: fish suports both a left & right prompt
-# NOTE: don't enable the below functions if using an external theme from omf such as lambda
+# NOTE: fish suports both left & right prompts
+# NOTE: don't enable the below functions if using an external theme from omf ie, neolambda
 ##
 
 # function fish_prompt
