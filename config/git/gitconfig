@@ -83,6 +83,7 @@
   # remote
   ###
   remotes = remote --verbose
+  r = remote --verbose
 
   ###
   # tag
