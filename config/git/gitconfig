@@ -181,7 +181,7 @@
 
 [core]
   editor = nvim
-	excludesfile = /home/capin/.config/git/ignore
+	excludesfile = /home/capin/.config/git/gitexcludes
 	attributes = /home/capin/.config/git/attributes
   ###############################
   # To set a `core.excludesfile` on a per $HOME dir basis, see `config.fish or `.bashrc`
@@ -224,6 +224,61 @@
   default = simple # git >= 1.8+ required
 
 
+# `git config --global diff.submodule log` will add the below 2 lines
+[diff]
+  submodule = log
+
+[status]
+  submodulesummary = 1
+
+[commit]
+  # gpgsign = true
+  verbose = true
+
+[fetch]
+  prune = true
+
+[rebase]
+  stat = true
+
+[gpg]
+  program = gpg
+
+##############################
+# Identity bull shit
+##
+
+
+[init]
+  templatedir = ~/.config/git/git-templates
+
+[user]
+	name = Chris Jones
+  # email =
+	useConfigOnly = true
+	email = me@chrisrjones.com
+
+[github]
+	name = ipatch
+	email = chris.r.jones.1983@gmail.com
+
+[gitlab]
+	name = truckmonth
+  email = me@chrisrjones.com
+  #signingKey = CD688E9D
+
+[bitbucket]
+  name = ipatch
+  email = chrisr.r.jones.1983@gmail.com
+
+# NOTE: the below settings require at least git v2.13
+# [includeIf ="gitdir:/opt/code/dotfiles/"
+#  path = /opt/code/dotfiles/.gitconfig
+
+# Keep `[user]` at BOTTOM
+# NOTE: to rm values from CLI `git config --global --unset user.{name,email}
+
+
 ####
 # TODO: figure out what all this URL shorthand shit means
 ##
@@ -252,51 +307,7 @@
 [url "git://bitbucket.org:"]
   insteadOf = "bb:"
 
-# `git config --global diff.submodule log` will add the below 2 lines
-[diff]
-  submodule = log
-
-[status]
-  submodulesummary = 1
-
-[commit]
-  # gpgsign = true
-  verbose = true
-
-[fetch]
-  prune = true
-
-[rebase]
-  stat = true
-
-[gpg]
-  program = gpg
-
-[github]
-	name = ipatch
-	email = chris.r.jones.1983@gmail.com
-
-[gitlab]
-	name = truckmonth
-  email = me@chrisrjones.com
-  #signingKey = CD688E9D
-
-[bitbucket]
-  name = ipatch
-  email = chrisr.r.jones.1983@gmail.com
-
-# NOTE: the below settings require at least git v2.13
-# [includeIf ="gitdir:/opt/code/dotfiles/"
-#  path = /opt/code/dotfiles/.gitconfig
-
-# Keep `[user]` at BOTTOM
-# NOTE: to rm values from CLI `git config --global --unset user.{name,email}
-
-[init]
-  templatedir = ~/.config/git/git-templates
-
-[user]
-	userConfigOnly = true
-
 
 ### hmmmm 🤔
+[user "github"]
+	name = ipatch
