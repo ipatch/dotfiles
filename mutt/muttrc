@@ -14,7 +14,8 @@ set from = "me@chrisrjones.com"
 
 # Editor
 set editor='nvim +/^$ "+setlocal fo+=w spell" +noh'
-set text_flowed
+set text_flowed # "Just say no"™ to line breaks when sending emails 👍
+set smart_wrap # Read emails in a sane 👩‍⚕️manner.
 
 # Message formatting
 alternative_order text/plain text/html
