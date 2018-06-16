@@ -183,8 +183,21 @@
   editor = nvim
 	excludesfile = /home/capin/.config/git/gitexcludes
 	attributes = /home/capin/.config/git/attributes
+  ##############################
+  # Make macOS, Linux, and Windows all play nice
+  ##
+  ###############
+  # Windows
+  ##
+  # autocrlf = true
+  ###############
+  # macOS / Linux specific
+  ##
+	autocrlf = input
   ###############################
   # To set a `core.excludesfile` on a per $HOME dir basis, see `config.fish or `.bashrc`
+
+
 
 [color]
   ui = auto
@@ -254,9 +267,9 @@
 
 [user]
 	name = Chris Jones
-  # email =
+  email = chris.r.jones.1983@gmail.com
 	useConfigOnly = true
-	email = me@chrisrjones.com
+  # email = me@chrisrjones.com
 
 
 #
