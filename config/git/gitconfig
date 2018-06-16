@@ -272,16 +272,16 @@
 [gpg]
   program = gpg
 
-[user "github"]
+[github]
 	name = ipatch
 	email = chris.r.jones.1983@gmail.com
 
-[user "gitlab"]
+[gitlab]
 	name = truckmonth
   email = me@chrisrjones.com
   #signingKey = CD688E9D
 
-[user "bitbucket"]
+[bitbucket]
   name = ipatch
   email = chrisr.r.jones.1983@gmail.com
 
@@ -291,5 +291,10 @@
 
 # Keep `[user]` at BOTTOM
 # NOTE: to rm values from CLI `git config --global --unset user.{name,email}
+
+[init]
+  templatedir = ~/.config/git/git-templates
+
 [user]
+	userConfigOnly = true
 
