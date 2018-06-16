@@ -272,28 +272,24 @@
 [gpg]
   program = gpg
 
-[github]
-  user = ipatch
-  email = chris.r.jones.1983@gmail.com
+[user "github"]
+	name = ipatch
+	email = chris.r.jones.1983@gmail.com
 
-[gitlab]
+[user "gitlab"]
 	name = truckmonth
   email = me@chrisrjones.com
   #signingKey = CD688E9D
 
-[bitbucket]
+[user "bitbucket"]
   name = ipatch
   email = chrisr.r.jones.1983@gmail.com
-
-[user]
-  name = ipatch
-  email = chris.r.jones.1983@gmail.com
 
 # NOTE: the below settings require at least git v2.13
 # [includeIf ="gitdir:/opt/code/dotfiles/"
 #  path = /opt/code/dotfiles/.gitconfig
 
-
-[user "github"]
-	name = ipatch
-	email = chris.r.jones.1983@gmail.com
+# Keep `[user]` at BOTTOM
+[user]
+  name = ipatch
+  email = chris.r.jones.1983@gmail.com
