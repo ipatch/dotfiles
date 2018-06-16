@@ -267,12 +267,9 @@
 
 [user]
 	name = Chris Jones
+  # Note: GitHub and git associate commits with email addresses
   email = chris.r.jones.1983@gmail.com
 	useConfigOnly = true
-  # email = me@chrisrjones.com
-
-
-#
 
 [github]
 	name = ipatch
@@ -322,8 +319,3 @@
 
 [url "git://bitbucket.org:"]
   insteadOf = "bb:"
-
-
-### hmmmm 🤔
-[user "github"]
-	name = ipatch
