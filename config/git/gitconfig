@@ -170,6 +170,7 @@
 
   # graph
   graphviz = "!f() { echo 'digraph git {' ; git log --pretty='format:  %h -> { %p }' \"$@\" | sed 's/[0-9a-f][0-9a-f]*/\"&\"/g' ; echo '}'; }; f"
+	identity = "! git config user.name $(git config user.$1.name); git config user.email $git config user.$1.eail); :"
 
 # Use `origin` as the default remote on the `master` branch in all cases
 [branch "master"]
@@ -284,6 +285,15 @@
   name = ipatch
   email = chrisr.r.jones.1983@gmail.com
 
-# [user]
-#  name = truckmonth
-#	email = me@chrisrjones.com
+[user]
+  name = ipatch
+  email = chris.r.jones.1983@gmail.com
+
+# NOTE: the below settings require at least git v2.13
+# [includeIf ="gitdir:/opt/code/dotfiles/"
+#  path = /opt/code/dotfiles/.gitconfig
+
+
+[user "github"]
+	name = ipatch
+	email = chris.r.jones.1983@gmail.com
