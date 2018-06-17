@@ -5,73 +5,74 @@
   filesEncoding = utf-8
 
 [alias]
-  
   # Clone a repository including all submodules
   c = clone --recursive
+  clone = clone --recursive
 
   # branching
   b = branch
   
-  ###
+  ####
   # logging
-  ###
+  ##
   l = log --graph --pretty=format:'%C(yellow)%h%C(bold white red)%d%Creset %s %C(bold green)%cr %Creset%C(white)%an' --abbrev-commit --date=relative
 
-  ###
+  ####
   # checking out
-  ###
+  ##
   co = checkout
   cb = checkout -b
   master = checkout master
 
-  ###
+  ####
   # adding / staging files
+  ##
   aa = add --all
 
-  ###
+  ####
   # commiting
-  ###
+  ##
   ci = commit
   ca = commit --amend
   cm = commit -S -m
   ac = commit -am
   aac = "!git aa; "git commit -m""
-  ###
+  ####
   # for those random quick & fun commits 👍
-  ###
+  ##
   random = "!git smf "git add --all"; git add .; git commit -m \"`fortune`\""
 
-  ###
+  ####
   # pushing
-  ###
+  ##
   pom = push origin master
   pshom = !git push origin master
   pshsmom = !git push --recurse-submodules=on-demand origin master
 
-  ###
+  ####
   # pulling
-  ###
+  ##
   p = !git pull
   # TODO: add a `pull` to recursively pull submodules
   ps = !git pull 
 
-  ###
+  ####
   # diff
-  ###
+  ##
   d = diff
   dc = diff --cached
 
-  ###
+  ####
   # fetch
-  ###
+  ##
   fo = fetch origin
 
-  ###
+  ####
   # merge
-  ###
+  ##
   m = merge
 
-  ###
+  ####
   # status
   ##
   st = status
@@ -79,15 +80,15 @@
   # list contributors with number of commits
   sl = shortlog --summary --numbered
 
-  ###
+  ####
   # remote
-  ###
+  ##
   remotes = remote --verbose
   r = remote --verbose
 
-  ###
+  ####
   # tag
-  ###
+  ##
   t = tag
   # show verbose output about tags
   tags = tag --list
@@ -95,40 +96,40 @@
   # EXAMPLE: git tag-mv v0.1.2.2 v0.1.2.3
   tag-mv   = "!sh -c 'set -e;git tag $2 $1; git tag -d $1;git push origin :refs/tags/$1;git push --tags' -"
 
-  ###
+  ####
   # 🚨 Danger zone 🚨
-  ###
+  ##
   
-  ###
+  ####
   # to undo the last added / staged files
-  ###
+  ##
   undoadd = "!git reset HEAD -- ."
   undostage = reset HEAD
 
-  ###
+  ####
   # to undo the last commit
-  ###
+  ##
   undoci = "!git reset HEAD~"
 
   # Undo a `git push`
   undopush = push -f origin HEAD^:master
-  ###
+  ####
   # `restore` try and "undelete" a file
-  ###
+  ##
   restore = "!git checkout $(git rev-list -n 1 HEAD -- "$1")^ -- "$1""
   
-  ###
+  ####
   # git extras
-  ###
+  ##
 
-  ###
+  ####
   # randos
-  ###
+  ##
   last = show --show-signature
   
-  ###
+  ####
   # submodules -- ie. add, commit, push
-  ###
+  ##
   sm = submodule
   smu = submodule update
   smi = submodule init
@@ -145,9 +146,9 @@
   ###
   smp = "!git push --recurse-submodules=on-demand"
   
-  ###
+  ####
   # Useful Commands 👌 -- compound commands
-  ###
+  ##
   
   # Get a list of your defined aliases
   aliases = !git config --get-regexp 'alias.*' | colrm 1 6 | sed 's/[ ]/ = /'
@@ -169,6 +170,7 @@
 
   # graph
   graphviz = "!f() { echo 'digraph git {' ; git log --pretty='format:  %h -> { %p }' \"$@\" | sed 's/[0-9a-f][0-9a-f]*/\"&\"/g' ; echo '}'; }; f"
+	identity = "! git config user.name $(git config user.$1.name); git config user.email $git config user.$1.eail); :"
 
 # Use `origin` as the default remote on the `master` branch in all cases
 [branch "master"]
@@ -179,10 +181,23 @@
 
 [core]
   editor = nvim
-	excludesfile = /home/capin/.config/git/ignore
+	excludesfile = /home/capin/.config/git/gitexcludes
 	attributes = /home/capin/.config/git/attributes
+  ##############################
+  # Make macOS, Linux, and Windows all play nice
+  ##
+  ###############
+  # Windows
+  ##
+  # autocrlf = true
+  ###############
+  # macOS / Linux specific
+  ##
+	autocrlf = input
   ###############################
   # To set a `core.excludesfile` on a per $HOME dir basis, see `config.fish or `.bashrc`
+
+
 
 [color]
   ui = auto
@@ -221,30 +236,6 @@
 [push]
   default = simple # git >= 1.8+ required
 
-# URL shorthands
-[url "git@gitlab.com"]
-  insteadOf = "gl:"
-  pustInsteadOf = "gitlab:"
-
-
-[url "git@github.com"]
-  insteadOf = "gh:"
-  pushInsteadOf = "github:"
-  pushInsteadOf = "git://github.com/"
-
-[url "git://github.com/"]
-  insteadOf = "github:"
-
-[url "git@gist.github.com:"]
-  insteadOf = "gst:"
-  pushInsteadOf = "gist:"
-  pushInsteadOf = "git://gist.github.com/"
-
-[url "git://gist.github.com/"]
-  insteadOf = "gist:"
-
-[url "git://bitbucket.org:"]
-  insteadOf = "bb:"
 
 # `git config --global diff.submodule log` will add the below 2 lines
 [diff]
@@ -266,19 +257,65 @@
 [gpg]
   program = gpg
 
-[github]
-  user = ipatch
+##############################
+# Identity bull shit
+##
+
+
+[init]
+  templatedir = ~/.config/git/git-templates
+
+[user]
+	name = Chris Jones
+  # Note: GitHub and git associate commits with email addresses
   email = chris.r.jones.1983@gmail.com
+	useConfigOnly = true
+
+[github]
+	name = ipatch
+	email = chris.r.jones.1983@gmail.com
 
 [gitlab]
 	name = truckmonth
-	email = me@chrisrjones.com
+  email = me@chrisrjones.com
   #signingKey = CD688E9D
 
 [bitbucket]
   name = ipatch
   email = chrisr.r.jones.1983@gmail.com
 
-[user]
-  name = truckmonth
-	email = me@chrisrjones.com
+# NOTE: the below settings require at least git v2.13
+# [includeIf ="gitdir:/opt/code/dotfiles/"
+#  path = /opt/code/dotfiles/.gitconfig
+
+# Keep `[user]` at BOTTOM
+# NOTE: to rm values from CLI `git config --global --unset user.{name,email}
+
+
+####
+# TODO: figure out what all this URL shorthand shit means
+##
+
+# URL shorthands
+[url "git@gitlab.com"]
+  insteadOf = "gl:"
+  pustInsteadOf = "gitlab:"
+
+[url "git@github.com"]
+  insteadOf = "gh:"
+  pushInsteadOf = "github:"
+  pushInsteadOf = "git://github.com/"
+
+[url "git://github.com/"]
+  insteadOf = "github:"
+
+[url "git@gist.github.com:"]
+  insteadOf = "gst:"
+  pushInsteadOf = "gist:"
+  pushInsteadOf = "git://gist.github.com/"
+
+[url "git://gist.github.com/"]
+  insteadOf = "gist:"
+
+[url "git://bitbucket.org:"]
+  insteadOf = "bb:"
