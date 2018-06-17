@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+
+# make regex matching below case insensitive
+shopt -s nocasematch
+
+# values in the services array should have a corresponding section in
+# .gitconfig where the 'name' and 'email' for that service are specified
+remote_url="$( git config --get --local remote.origin.url )"
+services=(
+    'github'
+    'gitlab'
+    'bitbucket'
+)
+
+set_local_user_config() {
+    local service="${1}"
+    local config="${2}"
+    local service_config="$( git config --get ${service}.${config} )"
+    local local_config="$( git config --get --local user.${config} )"
+
+    if [[ "${local_config}" != "${service_config}" ]]; then
+        git config --local "user.${config}" "${service_config}"
+        echo "repo 'user.${config}' has been set to '${service_config}'"
+    fi
+}
+
+# if remote_url doesn't contain the any of the values in the services
+# array the user name and email will remain unset and the
+# user.useConfigOnly = true setting in .gitconfig will prompt for those
+# credentials and prevent commits until they are defined
+for s in "${services[@]}"; do
+    if [[ "${remote_url}" =~ "${s}" ]]; then
+        set_local_user_config "${s}" 'name'
+        set_local_user_config "${s}" 'email'
+        break
+    fi
+done
