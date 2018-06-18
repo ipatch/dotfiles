@@ -30,7 +30,10 @@ if has('unix')
 
   let g:python3_host_prog = '/home/capin/.pyenv/versions/neovim3/bin/python'
 
-  " Try and get `command + c` to work on remote linux servers
+  " TODO: Try and get `command + c` to work on remote linux servers
+
+  " let g:node_host_prog = '/home/.asdf/installs/nodejs/10.4.1/.npm/bin/neovim-node-host'
+  let g:node_host_prog = '/usr/local/bin/neovim-node-host'
   vnoremap <M-c> "+y
 endif
 
