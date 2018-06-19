@@ -3,7 +3,7 @@
 # Author: Chris Jones
 # Contact: @truckmonth <- twitter
 # Contact: @ipatch <- github 
-# Email: chris.r.jones.1983@gmail.com
+# Email: chris.r.jones.1983 [at] gmail [dot] com
 ##
 
 ##############################

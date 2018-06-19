@@ -21,7 +21,7 @@ set textwidth=0
 " ~ OS ~ specific settings
 ""
 " CREDIT: 💳 https://vi.stackexchange.com/a/2574/10550
-if has('unix')
+if os ==? 'macos' || 'Linux' 
   " set the default python PATH, to supposedly boost 🏎  performance
   let g:python_host_prog = '/home/capin/.pyenv/versions/neovim2/bin/python'
 
@@ -33,7 +33,7 @@ if has('unix')
   " TODO: Try and get `command + c` to work on remote linux servers
 
   " let g:node_host_prog = '/home/.asdf/installs/nodejs/10.4.1/.npm/bin/neovim-node-host'
-  let g:node_host_prog = '/usr/local/bin/neovim-node-host'
+  let g:node_host_prog = system("echo -n \"$(brew --prefix)/bin/neovim-node-host\"")
   vnoremap <M-c> "+y
 endif
 
@@ -48,7 +48,6 @@ let $PAGER=''
 let $MANPAGER=''
 
 set ttyfast " faster redrawing
-" set shell=/bin/sh
 
 """"""""""""""""""""""""""""""
 " settings for displaying errors
