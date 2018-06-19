@@ -16,7 +16,7 @@
 
 - [Installation](#installation)
   - [Fish shell setup](#fish-shell-setup)
-  - [Neovim setup](#neovim-setup)
+  - [Neovim setup](https://github.com/ipatch/dotfiles/tree/master/editors/vim)
 - [File Structure](#file-structure)
 - [Useful Links](#useful-links)
 - [TODOs](#todos)
