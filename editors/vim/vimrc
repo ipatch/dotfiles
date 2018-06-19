@@ -1,7 +1,5 @@
-" set encoding=utf-8                    " terminal output encoding
 set fileencoding=utf-8                " Set utf-8 encoding on write
 scriptencoding utf-8
-" set ambiwidth=double " conflicts with `listchars`
 
 """"""""""""""""""""""""""""""
 " ~ VIMRC ~ for Vim >= 8 && Neovim
@@ -11,20 +9,18 @@ scriptencoding utf-8
 ""
 
 """"""""""""""""""""""""""""""
-" Notes / gotchas
+" Notes / gotchas - some good things to know before hacking `~/.vimrc`
 " NOTE: this rc file is being linted with `vint`
 " NOTE: https://github.com/Kuniwak/vint
-""
-
-" To print the value of a below setting, ie. return the value set,
+" NOTE: To print the value of a setting, ie. return the value set,
 " `:set autoindent?`
 " SEE: `~/.vim/after/ftplugin/vim.vim` for settings related to `.vim`
-
+""
 
 " set this first, the default `leader` key is `\`
-let g:mapleader = ',' " set the 'leader' key to `,`
+let g:mapleader = ',' " set the 'leader' key to `,` ie. comma
 
-" Don't allow vi compatibility mode; don't need it 🤽‍♂️
+" Don't allow vi compatibility mode; don't need it 🤽
 " set nocompatible "Enable at own risk, can have undesired effects
 " SEE: `:help nocompatible` for more info.
 ""
@@ -47,10 +43,10 @@ set laststatus=2
 set modelines=5
 set visualbell t_vb= " DON'T abbr to `vb` use `visualbell`
 
-""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""
 " hidden chars
 ""
-set listchars=tab:‣\
+set listchars+=tab:‣\
 set listchars+=nbsp:⦸   " CIRCLED REVERSE SOLIDUS (U+29B8, UTF-8: E2 A6 B8)
 set listchars+=extends:» " RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK (U+00BB, UTF-8: C2 BB)
 set listchars+=precedes:« " LEFT-POINTING DOUBLE ANGLE QUOTATION MARK (U+00AB, UTF-8: C2 AB)
@@ -60,7 +56,7 @@ set fillchars+=stl:\ ,stlnc:\
 """""""""""""""
 " toggle hidden chars & Settings for hidden chars
 ""
-nmap <leader>l :set list!<CR>
+nmap <leader>h :set list!<CR>
 
 if has('linebreak')
   let &showbreak='↳ ' " DOWNWARDS ARROW WITH TIP RIGHTWARDS (U+21B3, UTF-8: E2 86 B3)
@@ -73,7 +69,7 @@ if has('syntax')
   set spellcapcheck= " don't check for capital letters at start of sentence
 endif
 
-" set spell                           " disable spell checking
+" set spell                           
 set spelllang=en_us                   " set the language for spelling words
 language en_US
 
@@ -126,18 +122,15 @@ set showtabline=0                       " only show if 2 or more tabs.
 " way `Shift+;` does not have to be pressed to begin a command in normal mode.
 nmap <space> :
 
-" cmap ,, <ESC> " NOTE: the following key binding did not work.
-" NOTE: use <Ctrl>+<[> to exit command line mode.
 
 " NOTE: - the below insert mappings will bind 'jk' / 'kj' to the ESC
-" key functionality, so the ESC key does not need to be pressed in insert 
-" mode.
+" key functionality, so need for the <ESC> key in insert mode
 imap jk <esc>
 imap kj <esc>
 imap jj <esc>
 imap kk <esc>
 
-" use ,, for escape <ESC>
+" use `,,` for escape <ESC>
 inoremap ,, <ESC>
 
 noremap <silent> <Up> <ESC><Up>
@@ -155,15 +148,7 @@ map <Leader>i mmgg=G`m<CR>
 
 " go into command mode and print the working dir
 " TODO: figure out a way to print the `cwd` or `pwd` quckily from `NORMAL` mode
-" NOTE: none of the below mappings with work properly until `%%` is resolved 🤷‍♀️
-" cnoremap %% <C-R>=fnamescape(expand('%:h')).'/'<cr>
-" map <leader>ew :e %%
-" " open file in new split
-" map <leader>es :sp %%
-" " edit file in new vertical split
-" map <leader>ev :vsp %%
-" " edit file in new tab
-" map <leader>et :tabe %%
+" NOTE: `:pwd` works for the time being 🤷  
 
 " bubbling text - Normal mode
 nmap <S-k> ddkP
@@ -183,39 +168,46 @@ inoremap <Down> <C-o>gj
 inoremap <Up> <C-o>gk
 
 " create a directory if it doesn't exist
-nmap <silent> <leader>md :!mkdir -p %:p:h<CR>
+nmap <silent> <leader>mkd :!mkdir -p %:p:h<CR>
 
 """""""""""""""""""""""""""""
 " Useful hacks for working with `$HOME/.vimrc` or `$MYVIMRC`
 ""
-nmap <leader>v :edit $MYVIMRC<CR>
-map <leader>so :source $MYVIMRC<CR>
+" TODO: come up with sane mappings for editing `~/.vimrc` and `~/.config/nvim/init.vim`
+" nmap <leader>ovimrc :edit $MYVIMRC<CR>
+" map <leader>svim :source $MYVIMRC<CR>
 
 " Toggle spell checking
 nmap <silent> <leader>s :set spell!<CR>
 
-" Toggle between last 2 buffers
-nnoremap <leader><tab> <c-^>
-
+" Open a new buffer in current session
 map ,e :e <C-R>=expand("%:p:h") . "/" <CR>
-map ,t :tabe <C-R>=expand("%:p:h") . "/" <CR>
 
-" If you opened a readonly file, ie. /etc/hosts `w!!` will solve :)
-cmap w!! w !sudo tee % >/dev/null %
+" When opening a readonly file, ie. /etc/hosts `w!!` 🚑
+" cmap w!! w !sudo tee % >/dev/null %
+cmap w!! %!sudo tee > /dev/null %
 
 """"""""""""""""""""""""""""""
 " check for current OS
+" NOTE: `:echo os` to print the value in the current buffer
 ""
 function! GetRunningOS()
   if has('win32')
-    return 'win'
-  endif
-  if has('unix')
-    if system('uname')=~#'Darwin'
-      return 'macos'
-    else
+    return 'win32'
+  elseif has('win32unix')
+    return 'win32unix'
+  elseif has('macunix')
+    set shell=bash
+    set clipboard+=unnamedplus
+    return 'macos'
+  elseif has ('unix')
+    if system('uname')=~#'Linux'
+      set shell=bash
+      set clipboard+=xclip
       return 'linux'
     endif
+  else
+    " catch all 🎣 everything else
   endif
 endfunction
 let g:os = GetRunningOS()
@@ -254,11 +246,11 @@ let g:os = GetRunningOS()
 "  endif 
 " endif
 
- " NOTE: if (n)vim has access to both clipboards it will put copy / paste operations into both clipboards.
-  " NOTE: iterm2 make sure to set proper escape sequences.
-  vnoremap <M-c> "+y
-  nnoremap <M-v> "+p
-  inoremap <M-v> <esc>"+p
+" NOTE: if (n)vim has access to both clipboards it will put copy / paste operations into both clipboards.
+" NOTE: iterm2 make sure to set proper escape sequences.
+vnoremap <M-c> "+y
+nnoremap <M-v> "+p
+inoremap <M-v> <esc>"+p
 " Generic undo using `⌘ + z` for normal and insert modes
 nnoremap <M-z> u
 inoremap <M-z> <C-o>u
@@ -267,14 +259,8 @@ inoremap <M-z> <C-o>u
 " Settings - Buffer Handling
 ""
 nmap <Leader>t :enew<CR>
-nmap <Leader>] :bnext<CR>
-nmap <Leader>[ :bprevious<CR>
-
-"""""""""""""""""""""""""""""
-" Abbreviations
-""
-cnoreabbrev t tabe
-cnoreabbrev T tabe
+nnoremap <silent> <leader>T :bp<CR>
+nnoremap <silent> <leader>t :bn<CR>
 
 """"""""""""""""""""""""""""""
 " colorscheme
@@ -311,7 +297,7 @@ endfunction
 
 nnoremap <silent> ` :call ToggleConcealLevel()<CR>
 " set default conceal level
-" NOTE: if `indentLine` is installed it will control all the conceal levels
+" NOTE: `indentLine` will control conceal levels if installed
 set conceallevel=0 " DO NOT conceal any text
 
 """""""""""""""""""""""""""""
@@ -327,6 +313,8 @@ let g:netrw_winsize = 25 " set the default width for netrw
 let g:netrw_altv = 1
 " Set atom style macOS key binding to open the project drawer
 " CREDIT: https://stackoverflow.com/a/23069285/708807
+" NOTE: toggling netrw sucks!
+" TODO: get a sane toggle expierence going ...eventually!
 nnoremap <M-\> :Lexplore<cr>
 inoremap <M-\> :Lexplore<cr>
 
@@ -348,8 +336,8 @@ augroup END
 
 """"""""""""""""""""""""""""""
 " autocommand - `line_return`
+" NOTE: return to the line number when reopening a buffer / file
 ""
-" Make Vim return to the same line when reopening a buffer / file.
 augroup line_return
   au!
   au BufReadPost *
@@ -358,35 +346,52 @@ augroup line_return
         \ endif
 augroup END
 
+""""""""""""""""""""""""""""""
+" autocommand - `conceal_return`
+" NOTE: a simple command / function to resume conceal settings when reopening a
+" bufffer
+""
+augroup conceal_return
+
+augroup END
+
+""""""""""""""""""""""""""""""
+" autocommand - `fold_return`
+" NOTE: a simple command / function to resume fold settings when reopening a
+" buffer
+""
+augroup fold_return
+
+augroup END
+
 """""""""""""""""""""""""""""
 " wildmenu -  completion
 ""
 if has('wildmenu')
   set wildmenu " display menu when using `tab` completeion
+  set wildmode=full " Specifies how the `tab` completion works in wildmenu
+  set wildignore=*.o,*.obj,*~           "stuff to ignore when tab completing
+  set wildignore+=*/.git/*      " ignore the below directories with wild menu
+  set wildignore+=*logs*
+  set wildignore+=*node_modules/**
+  set wildignore+=*DS_Store*
+  set wildignore+=*.gem
+  set wildignore+=log/**
+  set wildignore+=*.bmp,*.gif,*.ico,*.jpg,*.png,*.pdf,*.psd,session.vim
 endif
-set wildmode=full " Specifies how the `tab` completion works in wildmenu
-set wildignore=*.o,*.obj,*~           "stuff to ignore when tab completing
-set wildignore+=*/tmp/*,*/.git/*      " ignore the below directories with wild menu
-set wildignore+=*logs*
-set wildignore+=*node_modules/**
-set wildignore+=*DS_Store*
-set wildignore+=*.gem
-set wildignore+=log/**
-set wildignore+=tmp/**
-set wildignore+=*.bmp,*.gif,*.ico,*.jpg,*.png,*.pdf,*.psd,*.git/*,session.vim
 
 """"""""""""""""""""""""""""""
 " Scrolling
 ""
 set scrolloff=3 " start scrolling 3 lines before edge of viewport
 
-" load `fzf` from homebrew install
-if has('macunix')
+" load `fzf` from homebrew  / Linuxbrew installs
+if os ==? 'macos'
   set runtimepath+=/usr/local/opt/fzf
-endif
-
-if has('unix')
+elseif os ==? 'Linux'
   set runtimepath+=/home/linuxbrew/.linuxbrew/bin/fzf
+else
+  " No love 💔 for the other guys
 endif
 
 " NOTE: clone minpac first before installing plugins.
@@ -396,69 +401,147 @@ silent! packadd minpac
 
 if !exists('*minpac#init')
   " minpac is NOT available
-
-  " Settings for plugin-less environment.
+  echo 'Yo!, you need minpac dawg!'
+  " Settings for plugin-less, ie no minpac 😥 environment.
+  if empty(glob('~/.vim/pack/minpac/opt/minpac/plugin/minpac.vim'))
+    silent !curl -fLo ~/.vim/pack/minpac/opt/minpac/plugin/minpac.vim
+          \--create-dirs
+          \https://raw.githubusercontent.com/k-takata/minpac/master/plugin/minpac.vim 
+   autocmd VimEnter * packadd minpac
+   call minpac#init()
+   call minpac#add('k-takata/minpac', {'type': 'opt'})
+  endif
 else
   call minpac#init()
   call minpac#add('k-takata/minpac', {'type': 'opt'})
 
-  " Load additional plugins here.
   """"""""""""""""""""""""""""""
-  " minpac - plugins
+  " Load additional plugins below.
   ""
   call minpac#add('machakann/vim-highlightedyank') " name says it all
-  call minpac#add('chriskempson/base16-vim') " pretty colors üåà and aesthetics 
+  call minpac#add('chriskempson/base16-vim') " pretty colors 🌈 and aesthetics 
   call minpac#add('Yggdroot/indentLine') " Add vertical indentation lines
   call minpac#add('sheerun/vim-polyglot') " lazy load syntax highlighting
-  call minpac#add('tpope/vim-commentary') " quickly comment lines, ie. Atom
+  call minpac#add('tpope/vim-commentary') " quickly comment lines
   call minpac#add('junegunn/fzf') " required! the below won't work without this!
   call minpac#add('junegunn/fzf.vim') " fuzzy finding goodness
-  call minpac#add('christoomey/vim-tmux-navigator') " vim / tmux navigation üëç
-  " call minpac#add('slashmili/alchemist.vim') " useful for working with Elixir
-  " call minpac#add('tpope/vim-dispatch') " compile üí©  asynchronously
-  " call minpac#add('radenling/vim-dispatch-neovim') " dispatch using neovims terminal features
+  call minpac#add('christoomey/vim-tmux-navigator') " vim / tmux navigation
   call minpac#add('w0rp/ale') " ALE Asynchronous Linting Engine
-  " call minpac#add('janko-m/vim-test') " a plugin for running test suites.
-  " call minpac#add('ludovicchabant/vim-gutentags') " auto generate ctags
   call minpac#add('tpope/vim-fugitive') " useful for displaying git branch
   call minpac#add('itchyny/lightline.vim') " lightweight status line.
   call minpac#add('ap/vim-buftabline') " lightweight bufferbar @ top, show open buffers.
 
   """""""""""""""""""""""""""""
+  " minpac - conditional plugins
+  ""
+  if has('nvim')
+    call minpac#add('Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' })
+    call minpac#add('autozimu/LanguageClient-neovim', {
+          \'branch': 'next',
+          \'do': {-> system('bash install.sh')}})
+    """"""""""""""""""""""""""""""
+    " plugin - vim-markdown-composer - preview `.md` docs in default browser
+    ""
+    call minpac#add('euclio/vim-markdown-composer', { 
+          \'do': '!cargo build --release'}, executable('cargo'))
+  elseif v:version > 8 || v:version == 8 " Check for Vim8 ...sort of
+    call minpac#add('Shougu/deoplete.nvim')
+    call minpac#add('roxma/nvim-yarp')
+    call minpac#add('roxma/vim-hug-neovim-rpc')
+    call minpac#add('autozimu/LanguageClient-neovim', {
+          \'branch': 'next', 'do': {-> system('bash install.sh')}})
+    call minpac#add('euclio/vim-markdown-composer', { 
+          \'do': '!cargo build --release --no-default-features --features json-rpc'}, executable('cargo'))
+  endif
+  """""""""""""""""""""""""""""
   " minpac - Custom commands
   "" 
   command! PackUpdate packadd minpac | source $MYVIMRC | call minpac#update()
   command! PackClean  packadd minpac | source $MYVIMRC | call minpac#clean()
+  command! PackList echo join(minpac#getpackages("minpac", "start"), "\n")
 
-  " Plugin settings here.
+  " Settings for plugins added via minpac.
+  if has('nvim')
+   " plugin - deoplete
+   let g:deoplete#enable_at_startup = 1
+   let g:deoplete#sources = {}
+
+   " plugin - LanguageClient-neovim
+   let g:LanguageClient_serverCommands = {
+         \ 'javascript': ['javascript-typescript-stdio'],
+         \ 'typescript': ['javascript-typescript-stdio'],
+         \ }
+   let g:LanguageClient_logginLeve = 'DEBUG'
+   let g:LanguageClient_autostart = 1
+   let g:LanguageClient_loadSettings = 1
+
+   " nnoremap <leader>x :call LanguageClient_contextMenu()<CR>
+
+
+   " NOTE: may need to load these settings after LanguageClient Settings
+   let g:deoplete#source = { '_': ['LanguageClient'] }
+   " call deoplete#custom#option('sources', { '_': ['LanguageClient'] })
+
+   " call deoplete#initialize()
+
+   set omnifunc=LanguageClient#complete
+   set completefunc=LanguageClient#complete
+
+   inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+   inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+   inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
+
+   inoremap <expr> <C-space> deoplete#manual_complete('omni')
+
+   inoremap <expr> <C-l> deoplete#refresh()
+
+ else
+   " Do something fancy ...maybe later
+ end
+
+  " let g:LanguageClient_serverCommands = {
+  "       \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
+  "       \ 'javascript': ['javascript-typescript-stdio'],
+  "       \ 'javascript.jsx': ['tcp://127.0.0.1:2089'],
+  "       \ 'python': ['pyls'],
+  "       \ }
+  " let g:LanguageClient_autoStart = 1
+
+  " Minimal LSP configuration for JavaScript
+  " let g:LanguageClient_serverCommands = {}
+  " if executable('javascript-typescript-stdio')
+  "   let g:LanguageClient_serverCommands.javascript = ['javascript-typescript-stdio']
+  "   " Use LanguageServer for omnifunc completion
+  "   autocmd FileType javascript setlocal omnifunc=LanguageClient#complete
+  " else
+
+  "
   """""""""""""""""""""""""""""
   " plugin - buftabline
   " NOTE: to reload `buftabline` settings `:call buftabline#update(0)`
   ""
   " let g:buftabline_show=1 " only if >1 buffer
-  let g:buftabline_show=2 " always show buffer bar.
-  let g:buftabline_numbers=2 " oridnal number
-  let g:buftabline_indicators=1 " display state of buffer, `+` = unsaved changes
-  nmap <Leader>1 <Plug>BufTabLine.Go(1)
-  nmap <Leader>2 <Plug>BufTabLine.Go(2)
-  nmap <Leader>3 <Plug>BufTabLine.Go(3)
-  nmap <Leader>4 <Plug>BufTabLine.Go(4)
-  nmap <Leader>5 <Plug>BufTabLine.Go(5)
-  nmap <Leader>6 <Plug>BufTabLine.Go(6)
-  nmap <Leader>7 <Plug>BufTabLine.Go(7)
-  nmap <Leader>8 <Plug>BufTabLine.Go(8)
-  nmap <Leader>9 <Plug>BufTabline.Go(9)
+  " let g:buftabline_show=2 " always show buffer bar.
+  " let g:buftabline_numbers=2 " oridnal number
+  " let g:buftabline_indicators=1 " display state of buffer, `+` = unsaved changes
+  " nmap <Leader>1 <Plug>BufTabLine.Go(1)
+  " nmap <Leader>2 <Plug>BufTabLine.Go(2)
+  " nmap <Leader>3 <Plug>BufTabLine.Go(3)
+  " nmap <Leader>4 <Plug>BufTabLine.Go(4)
+  " nmap <Leader>5 <Plug>BufTabLine.Go(5)
+  " nmap <Leader>6 <Plug>BufTabLine.Go(6)
+  " nmap <Leader>7 <Plug>BufTabLine.Go(7)
+  " nmap <Leader>8 <Plug>BufTabLine.Go(8)
+  " nmap <Leader>9 <Plug>BufTabline.Go(9)
 
-  """""""""""""""""""""""""""""
-  " plugin - vim-fugitive settings - https://github.com/tpope/vim-fugitive
-  ""
-  " NOTE: use `lightline.vim` for displaying git branch on status line 
-  " set statusline=%{fugitive#statusline()}
-
+  "
   """""""""""""""""""""""""""""
   " plugin - lightline.vim
   ""
   let g:lightline = {
+        \ 'tabline': {'left': [['buffers']], 'right': [['close']]},
+        \ 'component_expand': {'buffers': 'lightline#bufferline#buffers'},
+        \ 'component_type': {'buffers': 'tabsel'},
         \ 'active': {
         \ 'left': [ [ 'mode', 'paste' ],
         \           [ 'gitbranch', 'readonly', 'filename' ] ],
@@ -469,11 +552,24 @@ else
         \ },
         \ }
 
+  let g:lightline#bufferline#show_number = 1
+  let g:lightline#bufferline#unnamed = '[No Name]'
+
   function! LightlineFilename()
     let l:filename = expand('%:t') !=# '' ? expand('%:t') : '[No Name]'
     let l:modified = &modified ? ' +' : ''
     return l:filename . l:modified
   endfunction
+
+  nmap <Leader>1 <Plug>Lightline#bufferline#go(1)
+  nmap <Leader>2 <Plug>Lightline#bufferline#go(2)
+  nmap <Leader>3 <Plug>Lightline#bufferline#go(3)
+  nmap <Leader>4 <Plug>Lightline#bufferline#go(4)
+  nmap <Leader>5 <Plug>Lightline#bufferline#go(5)
+  nmap <Leader>6 <Plug>Lightline#bufferline#go(6)
+  nmap <Leader>7 <Plug>Lightline#bufferline#go(7)
+  nmap <Leader>8 <Plug>Lightline#bufferline#go(8)
+  nmap <Leader>9 <Plug>Lightline#bufferline#go(9)
 
   """""""""""""""
   " plugin - lightline - mode map
@@ -505,7 +601,7 @@ else
   """"""""""""""""""""""""""""""
   " plugin - commentary
   ""
-  " Easy commenting of lines using tpope's plugin.
+  " Easy commenting in source files using tpope's plugin.
   " CREDIT: https://github.com/neovim/neovim/issues/5052#issuecomment-232083842
   noremap <leader>c :Commentary<cr>
 
@@ -522,8 +618,6 @@ else
           \  'down':    '40%'})
     nmap <Leader>r :FZFMru<CR>
     nnoremap <C-p> :<C-u>FZF<CR>
-    nnoremap <Leader>b :Buffers<CR>
-    nnoremap <Leader>t :BTags<CR>
     nnoremap <Leader>m :History<CR>
 
     " You can set up fzf window using a Vim command (Neovim or Vim 8 required)
@@ -542,7 +636,18 @@ else
     " --glob: Additional conditions for search (in this case ignore everything in the .git/ folder)
     " --color: Search color options
 
-    command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>), 1, <bang>0)
+    command! -bang -nargs=* Find call fzf#vim#grep(
+          \'rg
+          \--column
+          \--line-number
+          \--no-heading 
+          \--fixed-strings 
+          \--ignore-case 
+          \--no-ignore 
+          \--hidden 
+          \--follow 
+          \--glob "!.git/*" 
+          \--color "always" '.shellescape(<q-args>), 1, <bang>0)
   endif
 
   """""""""""""""""""""""""""""
@@ -574,70 +679,35 @@ else
   highlight clear ALEErrorSign
   highlight clear ALEWarningSign
 
-  """"""""""""""""""""""""""""""
-  " plugin - guntentags
-  ""
-  " set statusline+=%{gutentags#statusline()} " update status line if tags are building
 
-  """"""""""""""""""""""""""""""
-  " plugin (kindof) ctags
-  ""
-  " set tags=.tags,tags,./.git/tags,../tags,$HOME,.tags;
-
-endif " END of git plugin settings loaded via minpac
+endif " END - minpac added plugin settings 
 
 """""""""""""""""""""""""""""
-" Neovim only settings 
+" For Neovim's eyes only 
 ""
 if has('nvim')
   let g:loaded_sensible=0
   " Keymappings for Neovim
-  " By default to exit out of `terminal` mode in nvim use `<C-\><C-n>`
-  " Instead map `<Esc>`
+  " Neovim defaults to `<C-\><C-n>` to exit a virtual terminal
   tnoremap <Esc> <C-\><C-n>
   tnoremap <A-[> <Esc>
 
-  """""""""""""""""""""""""""
-  " color - true color support
-  ""
-  let $NVIM_TUI_ENABLE_TRUE_COLOR = 1   " Legacy way to enable 24bit color.
-
-  " NOTE: the above line is ignored in Neovim 0.1.5 above, use below instead.
   if has('nvim-0.1.5')
     set termguicolors " use guifg/guibg instead of ctermfg/ctermbg in terminal
     hi Cursor guifg=green guibg=green
     hi Cursor2 guifg=red guibg=red
     set guicursor=n-v-c:block-Cursor/lCursor,i-ci-ve:ver25-Cursor2/lCursor2,r-cr:hor20,o:hor50
+  elseif
+    let $NVIM_TUI_ENABLE_TRUE_COLOR = 1   " Legacy way to enable 24bit color.
   endif
-  """""""""""""""""""""""""""
-  " Neovim only plugins
-  ""
-  call minpac#add('Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' })
-  """"""""""""""""""""""""""""""
-  " deoplete specific settings
-  ""
-  " let g:deoplete#enable_ignore_case = 1
-  " let g:deoplete#enable_smart_case = 1
-  " filetype plugin on
-  " set omnifunc=sytnaxcomplete#Complete
-  " set completeopt=longest,menuone,preview
-  " let g:deoplete#enable_at_startup = 1
-  " let g:deoplete#file#enable_buffer_path = 1
-
-  " deoplete tab-complete
-  inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
-  """"""""""""""""""""""""""""""
-  " plugin - vim-markdown-composer - markdown / .md preview in default browser
-  ""
-  call minpac#add('euclio/vim-markdown-composer', { 'do': '!cargo build --release'}, executable('cargo') && has('nvim'))
-endif
+endif " END Neovim only settings
 
 """"""""""""""""""""""""""""""
 " filetype syntax highlighting 🌈  shit 💩
 ""
-augroup filetypedetect
-  autocmd BufNewFile,BufRead *.fish set filetype=fish
-augroup END
+" augroup filetypedetect
+ " autocmd BufNewFile,BufRead *.fish set filetype=fish
+" augroup END
 
 """"""""""""""""""""""""""""""
 " markdown `.md` syntax support
