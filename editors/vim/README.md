@@ -5,7 +5,7 @@
 ## Contents
 - [Neovim](#neovim)
 
-> For an exhaustive collection of notes I have taken while actively working with these dotfiles using Vim and Neovim 👉 [click me](https://github.com/ipatch/dotfiles/wiki/vim-neovim-Notes)
+> For an exhaustive collection of notes I have taken while actively working with these dotfiles using Vim and Neovim 👉 [click me](https://github.com/ipatch/dotfiles/wiki/vim-neovim-Notes) 👈
 
 <a href="neovim"></a>
 
