@@ -203,7 +203,7 @@ function! GetRunningOS()
   elseif has ('unix')
     if system('uname')=~#'Linux'
       set shell=bash
-      set clipboard+=xclip
+      set clipboard+=unnamedplus
       return 'linux'
     endif
   else
