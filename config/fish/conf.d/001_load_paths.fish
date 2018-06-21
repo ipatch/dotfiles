@@ -54,10 +54,10 @@ $HOME/.pyenv/bin \
 
 for p in $paths
   if not contains $p $PATH; and test -d $p
-    # append above PATH entries, ie. top entry appears first in PATH
+    # append PATH entries, ie. top entry appears first in PATH
     # set -gx PATH $PATH $p
 
-    # prepend above PATH entries, so that `/usr/sbin:/usr/bin:/sbin:/bin` are the last 4 entries in the PATH
+    # prepend PATH entries, so that `/usr/sbin:/usr/bin:/sbin:/bin` are the last 4 entries in the PATH
     # NOTE: the path entry order can be tested w/ `pp` abbr in fish
     set -gx PATH $p $PATH
   end
