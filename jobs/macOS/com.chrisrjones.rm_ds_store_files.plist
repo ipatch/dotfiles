@@ -6,10 +6,12 @@
     <!-- <key>GroupName</key> -->
     <!-- <string>capin</string> -->
     <key>Label</key>
-    <string>com.chrisrjones.rm_ds_store_files.sh</string>
+    <string>com.chrisrjones.rm_ds_store_files</string>
 
     <key>ProgramArguments</key>
     <array>
+      <string>sh</string>
+      <string>-c</string>
       <string>/Users/capin/.local/bin/rm_ds_store_files.sh</string>
     </array>
 
