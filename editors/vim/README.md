@@ -1,9 +1,12 @@
+<a href="vim-neovim-setup"></a>
+
 ## Vim & Neovim Setup
 
 <a href="contents"></a>
 
 ## Contents
 - [Neovim](#neovim)
+  - [Neovim Boot Time](#neovim-boot-time)
 
 > For an exhaustive collection of notes I have taken while actively working with these dotfiles using Vim and Neovim 👉 [click me](https://github.com/ipatch/dotfiles/wiki/vim-neovim-Notes) 👈
 
@@ -26,3 +29,8 @@
 :CheckHealth
 ```
 
+<a href="neovim-boot-time"></a>
+
+### Neovim Boot Time
+
+![Neovim boot time June](https://imgur.com/a/8uxl0nu)
