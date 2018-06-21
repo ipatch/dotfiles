@@ -201,7 +201,7 @@ function! GetRunningOS()
     set clipboard+=unnamedplus
     return 'macos'
   elseif has ('unix')
-    if system('uname')=~#'Linux'
+    if system('uname')=~?'Linux'
       set shell=bash
       set clipboard+=unnamedplus
       return 'linux'

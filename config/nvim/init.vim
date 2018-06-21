@@ -20,8 +20,9 @@ set textwidth=0
 """"""""""""""""""""""""""""""
 " ~ OS ~ specific settings
 ""
+
 " CREDIT: 💳 https://vi.stackexchange.com/a/2574/10550
-if os ==? 'macos' || 'Linux' 
+if os ==? 'macos' 
   " set the default python PATH, to supposedly boost 🏎  performance
   let g:python_host_prog = '/home/capin/.pyenv/versions/neovim2/bin/python'
 
@@ -34,7 +35,11 @@ if os ==? 'macos' || 'Linux'
 
   " let g:node_host_prog = '/home/.asdf/installs/nodejs/10.4.1/.npm/bin/neovim-node-host'
   let g:node_host_prog = system("echo -n \"$(brew --prefix)/bin/neovim-node-host\"")
-  vnoremap <M-c> "+y
+elseif os ==? 'linux'
+  let g:python_host_prog = '/home/capin/.pyenv/versions/neovim2/bin/python'
+  let g:python3_host_prog = '/home/capin/.pyenv/versions/neovim3/bin/python'
+  let g:node_host_prog = system("echo -n \"$(brew --prefix)/bin/neovim-node-host\"")
+  " vnoremap <M-c> "+y
 endif
 
 """"""""""""""""""""""""""""""
