@@ -33,4 +33,4 @@
 
 ### Neovim Boot Time
 
-![Neovim boot time June](https://imgur.com/a/8uxl0nu)
+![Neovim boot time June](https://i.imgur.com/8UAyTlC.png)
