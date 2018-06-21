@@ -8,12 +8,12 @@
 # SEE: `config/OS/macOS/10.13/etc/profile` within this repo 
 
 #############################
-# check OS
+# OS check
 ##
 # NOTE: be sure to symlink `/bin/uname` to `/usr/bin/uname` on Debian
 # NOTE: macOS = `Darwin` GNU/Linux = `Linux`
 set -gx os (/usr/bin/uname)  
-# echo $os <= use for debugging
+# echo $os <= useful for debugging
 set -gx XDG_CONFIG_HOME $HOME/.config
 
 if [ "$os" = Darwin ]; and [ -n /usr/local/bin/brew ]
@@ -28,6 +28,7 @@ set -l paths \
 /usr/bin \
 /usr/sbin \
 /usr/games \
+/usr/libexec \
 /usr/local/bin \
 /usr/local/sbin \
 $HOME/.cargo/bin \
