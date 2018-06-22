@@ -2,6 +2,9 @@
 " filetype settings for fish scripts
 ""
 
-" augroup filetypedetect
-"   autocmd BufNewfile,BufRead *.fish set filetype=fish
-" augroup END
+""""""""""""""""""""""""""""""
+" filetype syntax highlighting 🌈  shit 💩
+""
+augroup filetypedetect
+ autocmd BufNewFile,BufRead *.fish set filetype=fish
+augroup END
