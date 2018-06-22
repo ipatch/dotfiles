@@ -323,12 +323,12 @@ augroup END
 """"""""""""""""""""""""""""""
 " autocommand - `line_return`
 " NOTE: return to the line number when reopening a buffer / file
+" NOTE: buffer does not need saving to remember position 👍
 ""
 augroup line_return
-  au!
-  au BufReadPost *
-        \ if line("'\"") > 0 && line("'\"") <= line("$") |
-        \   execute 'normal! g`"zvzz' |
+  autocmd BufReadPost *
+        \ if line("'\"") > 1 && line("'\"") <= line("$") |
+        \   execute "normal! g`\"" |
         \ endif
 augroup END
 
@@ -371,10 +371,10 @@ set packpath^=~/.vim
 " Try to load minpac.
 silent! packadd minpac
 
-function! BuildVimMarkdownComposer()
+function! BuildStaticVimMarkdownComposer()
   " if a:info.status != 'unchanged' || a:info.force
     if has('nvim')
-      !(cd '/opt/Code/dotfiles/editors/vim/vim/pack/minpac/start/vim-markdown-composer'; cargo build --release > ~/logs/vim-markdown-composer-static-build.log)
+      !(cd '/opt/Code/dotfiles/editors/vim/vim/pack/minpac/start/vim-markdown-composer'; cargo build --release)
       " !cargo build --release
     else " Vim8 support!
       !cargo build --release --no-default-features --features json-rpc
@@ -423,16 +423,20 @@ else
     """"""""""""""""""""""""""""""
     " plugin - vim-markdown-composer - preview `.md` docs in default browser
     ""
-    call minpac#add('euclio/vim-markdown-composer', { 
-          \'do': function('BuildVimMarkdownComposer') } )
+    " TODO: getting a working `post-install` function working with minpac
+    " function! s:hook(hooktype, name)
+    "   echom a:hooktype
+    "   echom 'Directory:' minpac#getplugininfo(a:name).dir
+    "   call system('cargo build --release')
+    " endfunction
+    " call minpac#add('euclio/vim-markdown-composer', { 'do': function('s:hook')})
+    call minpac#add('euclio/vim-markdown-composer', {'do': '!cargo build --release'})
   elseif v:version > 8 || v:version == 8 " Check for Vim8 ...sort of
     call minpac#add('Shougu/deoplete.nvim')
     call minpac#add('roxma/nvim-yarp')
     call minpac#add('roxma/vim-hug-neovim-rpc')
     call minpac#add('autozimu/LanguageClient-neovim', {
           \'branch': 'next', 'do': {-> system('bash install.sh')}})
-    call minpac#add('euclio/vim-markdown-composer', { 
-          \'do': '!cargo build --release --no-default-features --features json-rpc'}, executable('cargo'))
   endif
   """""""""""""""""""""""""""""
   " minpac - Custom commands
