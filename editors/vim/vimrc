@@ -197,13 +197,22 @@ function! GetRunningOS()
   elseif has('win32unix')
     return 'win32unix'
   elseif has('macunix')
+    if !empty($TMUX)
+      " echom 'wtf'
+      " let g:clipboard+=tmux
+    else
+      set clipboard+=unnamedplus
+    endif
     set shell=bash
-    set clipboard+=unnamedplus
     return 'macos'
   elseif has ('unix')
     if system('uname')=~?'Linux'
+      if !empty($TMUX)
+        " let g:clipboard+=tmux
+      else
+        set clipboard+=xclip
+      endif 
       set shell=bash
-      set clipboard+=unnamedplus
       return 'linux'
     endif
   else
@@ -211,40 +220,6 @@ function! GetRunningOS()
   endif
 endfunction
 let g:os = GetRunningOS()
-
-""""""""""""""""""""""""""""""
-" settings - clipboard
-""
-" if has('clipboard')
-"   if has('unnamedplus')
-"     set clipboard+=unnamedplus " NOTE: also know as `*`
-"     if g:os ==? 'macos'
-"       let g:clipboard = 'pbcopy'
-"     elseif g:os ==? 'linux'
-"       let g:clipboard = 'xclip'
-"     elseif g:os ==? 'win'
-"       " set windows clipboard
-"     else
-"       " catch all for clipboard
-"     endif
-"   elseif has('unnamed')
-"     set clipboard+=unnamed " NOTE: also known as `*`
-"     if g:os ==? 'macos'
-"       let g:clipboard = 'pbcopy'
-"     elseif g:os ==? 'linux'
-"       let g:clipboard = 'xclip'
-"     elseif g:os ==? 'win'
-"       " set windows clipboard
-"     else
-"       " catch all for clipboard
-"     endif
-
-"     " Add check for `$TERM` to see if (n)vim is running within `tmux`
-
-"   elseif !exists('$TMUX')
-"     let g:clipboard = 'tmux'
-"  endif 
-" endif
 
 " NOTE: if (n)vim has access to both clipboards it will put copy / paste operations into both clipboards.
 " NOTE: iterm2 make sure to set proper escape sequences.
@@ -449,7 +424,7 @@ else
     call minpac#add('roxma/nvim-yarp')
     call minpac#add('roxma/vim-hug-neovim-rpc')
     call minpac#add('autozimu/LanguageClient-neovim', {
-          \'branch': 'next', 'do': {-> system('bash install.sh')}})
+          \'branch': 'next', 'do': {-> system('bash install.sh')} 'do': ':UpdateRemotePlugins' })
     call minpac#add('euclio/vim-markdown-composer', { 
           \'do': '!cargo build --release --no-default-features --features json-rpc'}, executable('cargo'))
   endif
@@ -462,27 +437,50 @@ else
 
   " Settings for plugins added via minpac.
   if has('nvim')
+   """"""""""""""""""""""""""""""""""""
    " plugin - deoplete
+   ""
    let g:deoplete#enable_at_startup = 1
-   let g:deoplete#sources = {}
+   let g:deoplete#enable_debug = 1
+   let g:deoplete#enable_profile = 1
+   " call deoplete#enable_logging('DEBUG', '/Users/capin/logs/deoplete.log')
+   let g:deoplete#enable_smart_case = 1
 
+   if !exists('g.deoplete#omni#input_patterns')
+     let g:deoplete#omni#input_patterns = {}
+   endif
+
+   " NOTE: `g:deoplete#sources` has been deprecated
+   "https://gist.github.com/afnanenayet/8c2ee0fdabb8d1e292b788f9723673c5#gistcomment-2593832
+   " call deoplete#custom#option({
+   "       \ 'camel_case': v:true,
+   "       \ 'sources': {
+   "       \   'go': ['LanguageClient'],
+   "       \   'python': ['LanguageClient'],
+   "       \ },
+   "       \ })
+   "   call deoplete#custom#source('_', 'matchers', ['matcher_fuzzy', 'matcher_length'])
+   " call deoplete#custom#source('_', 'disabled_syntaxes', ['Comment', 'String'])
+
+   """""""""""""""""""""""""""""""""""""
    " plugin - LanguageClient-neovim
-   let g:LanguageClient_serverCommands = {
-         \ 'javascript': ['javascript-typescript-stdio'],
-         \ 'typescript': ['javascript-typescript-stdio'],
-         \ }
-   let g:LanguageClient_logginLeve = 'DEBUG'
-   let g:LanguageClient_autostart = 1
+   ""
+   let g:LanguageClient_autoStart = 1
+   let g:LanguageClient_logginLevel = 'DEBUG'
    let g:LanguageClient_loadSettings = 1
 
+   let g:LanguageClient_serverCommands = {
+         \ 'javascript': ['javascript-typescript-stdio'],
+         \ 'javascript.jsx': ['javascript-typescript-stdio'],
+         \ 'typescript': ['javascript-typescript-stdio'],
+         \ }
+
    " nnoremap <leader>x :call LanguageClient_contextMenu()<CR>
-
-
-   " NOTE: may need to load these settings after LanguageClient Settings
-   let g:deoplete#source = { '_': ['LanguageClient'] }
-   " call deoplete#custom#option('sources', { '_': ['LanguageClient'] })
-
-   " call deoplete#initialize()
+   " NOTE: <silent> does not echo to the command line
+   noremap <silent> H :call LanguageClient_textDocument_hover()<CR>
+   noremap <silent> Z :call LanguageClient_textDocument_definition()<CR>
+   noremap <silent> R :call LanguageClient_textDocument_rename()<CR>
+   noremap <silent> S :call LanguageClient_textDocument_documentSymbol()<CR>
 
    set omnifunc=LanguageClient#complete
    set completefunc=LanguageClient#complete
@@ -499,23 +497,6 @@ else
    " Do something fancy ...maybe later
  end
 
-  " let g:LanguageClient_serverCommands = {
-  "       \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
-  "       \ 'javascript': ['javascript-typescript-stdio'],
-  "       \ 'javascript.jsx': ['tcp://127.0.0.1:2089'],
-  "       \ 'python': ['pyls'],
-  "       \ }
-  " let g:LanguageClient_autoStart = 1
-
-  " Minimal LSP configuration for JavaScript
-  " let g:LanguageClient_serverCommands = {}
-  " if executable('javascript-typescript-stdio')
-  "   let g:LanguageClient_serverCommands.javascript = ['javascript-typescript-stdio']
-  "   " Use LanguageServer for omnifunc completion
-  "   autocmd FileType javascript setlocal omnifunc=LanguageClient#complete
-  " else
-
-  "
   """""""""""""""""""""""""""""
   " plugin - buftabline
   " NOTE: to reload `buftabline` settings `:call buftabline#update(0)`
@@ -701,35 +682,6 @@ if has('nvim')
     let $NVIM_TUI_ENABLE_TRUE_COLOR = 1   " Legacy way to enable 24bit color.
   endif
 endif " END Neovim only settings
-
-""""""""""""""""""""""""""""""
-" filetype syntax highlighting 🌈  shit 💩
-""
-" augroup filetypedetect
- " autocmd BufNewFile,BufRead *.fish set filetype=fish
-" augroup END
-
-""""""""""""""""""""""""""""""
-" markdown `.md` syntax support
-" NOTE: `conceallevel=0` equals text shown normally, ie. no concealing 
-""
-augroup markdown_filetype
-  autocmd BufNewFile,BufReadPost *.{md,markdown,mkd,mkdn} set filetype=markdown 
-augroup END
-
-" for fenced language support in markdown documents
-let g:markdown_fenced_languages = ['html', 'python', 'bash=sh', 'js=javascript', 'json=javascript', 'ruby']
-
-"""""""""""""""""""""""""""""'
-" shell `.sh` syntax support
-""
-"""""""""""""""
-" NOTE: vim  defaults to `sh` syntax, NOT `bash` syntax for `.sh` files
-"""""""""""""""
-" SEE: :help ft-sh-syntax
-"""""""""""""""
-let g:is_bash = 1 " set default sh syntax to that of bash
-let g:sh_fold_enabled = 1 " default = 0, 1 = function folding
 
 """"""""""""""""""""""""""""""
 " session - settings
