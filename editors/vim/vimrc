@@ -27,7 +27,6 @@ let g:mapleader = ',' " set the 'leader' key to `,` ie. comma
 
 " Settings
 set mouse=a                           " enable mouse support
-" set termencoding=utf-8
 set title                             " Set the title on the terminal tab
 set number " display the absolute number on the current line
 set relativenumber                    " Show numbers relative to current line
@@ -106,12 +105,27 @@ set autoindent " DON'T abbrv to `ai`, use `autointdent` set auto indent
 set smartindent
 set hidden                              " set sane buffer switching
 set smarttab     " <tab>/<BS> indent/dedent in leading whitespace
+""""""""""""""""""""""""""""""
+" Scrolling
+""
+set scrolloff=3 " start scrolling 3 lines before edge of viewport
 
 """""""""""""""""""""""""""""
 " Settings - Visual Tabs
 ""
 " NOTE: tabs AREN"T buffers, always try and use buffers when possible.
 set showtabline=0                       " only show if 2 or more tabs.
+
+""""""""""""""""""""""""""""""
+" settings - sessions
+""
+set sessionoptions=buffers,folds,winsize,blank,slash,unix
+
+""""""""""""""""""""""""""""""
+" settings - views - folds, etc etc
+""
+set foldcolumn=2 " width of gutter outlining folds
+" set viewoptions+=folds,slash,unix
 
 """""""""""""""""""""""""""""
 " Settings - Key mappings / bindings
@@ -143,7 +157,7 @@ noremap <leader>w :w<CR>
 cmap cwd lcd %:p:h
 cmap cd. lcd %:p:h
 
-" the below key mapping will indent the entire file
+" the below key mapping will indent the entire file 😯
 map <Leader>i mmgg=G`m<CR>
 
 " go into command mode and print the working dir
@@ -170,13 +184,6 @@ inoremap <Up> <C-o>gk
 " create a directory if it doesn't exist
 nmap <silent> <leader>mkd :!mkdir -p %:p:h<CR>
 
-"""""""""""""""""""""""""""""
-" Useful hacks for working with `$HOME/.vimrc` or `$MYVIMRC`
-""
-" TODO: come up with sane mappings for editing `~/.vimrc` and `~/.config/nvim/init.vim`
-" nmap <leader>ovimrc :edit $MYVIMRC<CR>
-" map <leader>svim :source $MYVIMRC<CR>
-
 " Toggle spell checking
 nmap <silent> <leader>s :set spell!<CR>
 
@@ -189,7 +196,8 @@ cmap w!! %!sudo tee > /dev/null %
 
 """"""""""""""""""""""""""""""
 " check for current OS
-" NOTE: `:echo os` to print the value in the current buffer
+" NOTE: `:echo os` to print the variable value in the current buffer
+" NOTE: if (n)vim has access to both clipboards it will put copy / paste operations into both clipboards.
 ""
 function! GetRunningOS()
   if has('win32')
@@ -204,6 +212,7 @@ function! GetRunningOS()
       set clipboard+=unnamedplus
     endif
     set shell=bash
+    set runtimepath+=/usr/local/opt/fzf
     return 'macos'
   elseif has ('unix')
     if system('uname')=~?'Linux'
@@ -213,15 +222,16 @@ function! GetRunningOS()
         set clipboard+=xclip
       endif 
       set shell=bash
+      set runtimepath+=/home/linuxbrew/.linuxbrew/bin/fzf
       return 'linux'
     endif
   else
     " catch all 🎣 everything else
+    " No love 💔 for the other guys
   endif
 endfunction
 let g:os = GetRunningOS()
 
-" NOTE: if (n)vim has access to both clipboards it will put copy / paste operations into both clipboards.
 " NOTE: iterm2 make sure to set proper escape sequences.
 vnoremap <M-c> "+y
 nnoremap <M-v> "+p
@@ -233,9 +243,7 @@ inoremap <M-z> <C-o>u
 """"""""""""""""""""""""""""""
 " Settings - Buffer Handling
 ""
-nmap <Leader>t :enew<CR>
-nnoremap <silent> <leader>T :bp<CR>
-nnoremap <silent> <leader>t :bn<CR>
+nnoremap <leader>t :enew<CR>
 
 """"""""""""""""""""""""""""""
 " colorscheme
@@ -253,13 +261,11 @@ let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
 set termguicolors " use guifg/guibg instead of ctermfg/ctermbg in terminal
 
-" set guifont=IBMPlexMono\ Nerd\ Font\ Mono\ ExtraLight:h13
-" set guifont=Monaco:h10
-
 """""""""""""""""""""""""""""
 " conceal levels
-""
 " toggle between different conceal levels
+" NOTE: `indentLine` will control conceal levels if installed
+""
 function! ToggleConcealLevel()
   if &conceallevel == 0
     setlocal conceallevel=2
@@ -271,14 +277,14 @@ function! ToggleConcealLevel()
 endfunction
 
 nnoremap <silent> ` :call ToggleConcealLevel()<CR>
+
 " set default conceal level
-" NOTE: `indentLine` will control conceal levels if installed
 set conceallevel=0 " DO NOT conceal any text
 
 """""""""""""""""""""""""""""
 " netrw - file explorer
-""
 " CREDIT: https://shapeshed.com/vim-netrw/   
+""
 
 let g:netrw_liststyle = 3 " tree style
 let g:netrw_banner = 0 " Do not display the banner when using Netrw
@@ -295,18 +301,18 @@ inoremap <M-\> :Lexplore<cr>
 
 " https://vi.stackexchange.com/a/13012
 " Per default, netrw leaves unmodified buffers open. This autocommand
-" deletes netrw's buffer once it's hidden (using ':q', for example)
+" deletes netrw's buffer once it's hidden (using `:q`, for example)
 augroup netrw_delete_hidden_augroup
   autocmd!
   autocmd FileType netrw setl bufhidden=delete
 augroup END
 
 """""""""""""""""""""""""""""
-" autocommands
+" autocommand - update buffer if file has changed on window focus 
 ""
 augroup buffer_refresh
   autocmd!
-  autocmd buffer_refresh FocusGained,BufEnter * checktime "reload buffer on focus
+  autocmd buffer_refresh FocusGained,BufEnter * checktime 
 augroup END
 
 """"""""""""""""""""""""""""""
@@ -355,20 +361,6 @@ if has('wildmenu')
   set wildignore+=*.bmp,*.gif,*.ico,*.jpg,*.png,*.pdf,*.psd,session.vim
 endif
 
-""""""""""""""""""""""""""""""
-" Scrolling
-""
-set scrolloff=3 " start scrolling 3 lines before edge of viewport
-
-" load `fzf` from homebrew  / Linuxbrew installs
-if os ==? 'macos'
-  set runtimepath+=/usr/local/opt/fzf
-elseif os ==? 'Linux'
-  set runtimepath+=/home/linuxbrew/.linuxbrew/bin/fzf
-else
-  " No love 💔 for the other guys
-endif
-
 " NOTE: clone minpac first before installing plugins.
 set packpath^=~/.vim
 " Try to load minpac.
@@ -404,7 +396,6 @@ else
   call minpac#add('w0rp/ale') " ALE Asynchronous Linting Engine
   call minpac#add('tpope/vim-fugitive') " useful for displaying git branch
   call minpac#add('itchyny/lightline.vim') " lightweight status line.
-  call minpac#add('ap/vim-buftabline') " lightweight bufferbar @ top, show open buffers.
 
   """""""""""""""""""""""""""""
   " minpac - conditional plugins
@@ -439,6 +430,7 @@ else
   if has('nvim')
    """"""""""""""""""""""""""""""""""""
    " plugin - deoplete
+   " NOTE: requires `python3` provider to be installed
    ""
    let g:deoplete#enable_at_startup = 1
    let g:deoplete#enable_debug = 1
@@ -497,24 +489,6 @@ else
    " Do something fancy ...maybe later
  end
 
-  """""""""""""""""""""""""""""
-  " plugin - buftabline
-  " NOTE: to reload `buftabline` settings `:call buftabline#update(0)`
-  ""
-  " let g:buftabline_show=1 " only if >1 buffer
-  " let g:buftabline_show=2 " always show buffer bar.
-  " let g:buftabline_numbers=2 " oridnal number
-  " let g:buftabline_indicators=1 " display state of buffer, `+` = unsaved changes
-  " nmap <Leader>1 <Plug>BufTabLine.Go(1)
-  " nmap <Leader>2 <Plug>BufTabLine.Go(2)
-  " nmap <Leader>3 <Plug>BufTabLine.Go(3)
-  " nmap <Leader>4 <Plug>BufTabLine.Go(4)
-  " nmap <Leader>5 <Plug>BufTabLine.Go(5)
-  " nmap <Leader>6 <Plug>BufTabLine.Go(6)
-  " nmap <Leader>7 <Plug>BufTabLine.Go(7)
-  " nmap <Leader>8 <Plug>BufTabLine.Go(8)
-  " nmap <Leader>9 <Plug>BufTabline.Go(9)
-
   "
   """""""""""""""""""""""""""""
   " plugin - lightline.vim
@@ -542,6 +516,7 @@ else
     return l:filename . l:modified
   endfunction
 
+  " TODO: figure out why this shit a'int working 🙄
   nmap <Leader>1 <Plug>Lightline#bufferline#go(1)
   nmap <Leader>2 <Plug>Lightline#bufferline#go(2)
   nmap <Leader>3 <Plug>Lightline#bufferline#go(3)
@@ -683,16 +658,7 @@ if has('nvim')
   endif
 endif " END Neovim only settings
 
-""""""""""""""""""""""""""""""
-" session - settings
-""
-set sessionoptions=buffers,folds,winsize,blank,slash,unix
 
-""""""""""""""""""""""""""""""
-" views - folds, etc etc
-""
-set foldcolumn=2 " width of gutter outlining folds
-" set viewoptions+=folds,slash,unix
 
 """"""""""""""""""""""""""""""
 " save view sate
