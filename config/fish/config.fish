@@ -166,13 +166,13 @@ case Linux
   # `$DISPLAY` should be set by SSH configs and NOT shell config files 
   if [ -d $HOME/.terminfo ]
     set -gx TERMINFO "$HOME/.terminfo"
-    set -gx TERM xterm
+    # set -gx TERM xterm
   else
     # DO NOTHING!
   end
 
   if [ -n $TMUX ]
-    set -gx TERM tmux-256color
+    # set -gx TERM tmux-256color
   else
     # DO NOTHING
   end
