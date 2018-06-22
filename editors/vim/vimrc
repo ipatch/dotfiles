@@ -128,13 +128,13 @@ set foldcolumn=2 " width of gutter outlining folds
 " set viewoptions+=folds,slash,unix
 
 """""""""""""""""""""""""""""
-" Settings - Key mappings / bindings
+" Key mappings / bindings
 ""
 " NOTE: `meta` ie. `⌘.` within iTerm2 require escape sequences to be mapped
 " NOTE: apparently `:map` and `:map!` will map to all modes of (n)vim
 " NOTE: the below configuration line will map the `spacebar` to ':' so that
 " way `Shift+;` does not have to be pressed to begin a command in normal mode.
-nmap <space> :
+nnoremap <space> :
 
 
 " NOTE: - the below insert mappings will bind 'jk' / 'kj' to the ESC
@@ -158,15 +158,15 @@ cmap cwd lcd %:p:h
 cmap cd. lcd %:p:h
 
 " the below key mapping will indent the entire file 😯
-map <Leader>i mmgg=G`m<CR>
+nnoremap <Leader>i mmgg=G`m<CR>
 
 " go into command mode and print the working dir
 " TODO: figure out a way to print the `cwd` or `pwd` quckily from `NORMAL` mode
 " NOTE: `:pwd` works for the time being 🤷  
 
 " bubbling text - Normal mode
-nmap <S-k> ddkP
-nmap <S-j> ddp
+nnoremap <S-k> ddkP
+nnoremap <S-j> ddp
 
 " bubble multiple lines - Visual mode
 vmap <S-k> xkP`[V`]
@@ -182,13 +182,13 @@ inoremap <Down> <C-o>gj
 inoremap <Up> <C-o>gk
 
 " create a directory if it doesn't exist
-nmap <silent> <leader>mkd :!mkdir -p %:p:h<CR>
+nnoremap <silent> <leader>mkd :!mkdir -p %:p:h<CR>
 
 " Toggle spell checking
-nmap <silent> <leader>s :set spell!<CR>
+nnoremap <silent> <leader>s :set spell!<CR>
 
 " Open a new buffer in current session
-map ,e :e <C-R>=expand("%:p:h") . "/" <CR>
+nnoremap ,e :e <C-R>=expand("%:p:h") . "/" <CR>
 
 " When opening a readonly file, ie. /etc/hosts `w!!` 🚑
 " cmap w!! w !sudo tee % >/dev/null %
@@ -208,6 +208,7 @@ function! GetRunningOS()
     if !empty($TMUX)
       " echom 'wtf'
       " let g:clipboard+=tmux
+      set clipboard+=unnamedplus
     else
       set clipboard+=unnamedplus
     endif
@@ -218,6 +219,7 @@ function! GetRunningOS()
     if system('uname')=~?'Linux'
       if !empty($TMUX)
         " let g:clipboard+=tmux
+        set clipboard+=xclip
       else
         set clipboard+=xclip
       endif 
@@ -298,6 +300,8 @@ let g:netrw_altv = 1
 " TODO: get a sane toggle expierence going ...eventually!
 nnoremap <M-\> :Lexplore<cr>
 inoremap <M-\> :Lexplore<cr>
+" OPTIONAL: keep netrw browsing dir the same as current dir
+" `let g:netrw-keepdir = 0`
 
 " https://vi.stackexchange.com/a/13012
 " Per default, netrw leaves unmodified buffers open. This autocommand
@@ -323,7 +327,7 @@ augroup line_return
   au!
   au BufReadPost *
         \ if line("'\"") > 0 && line("'\"") <= line("$") |
-        \     execute 'normal! g`"zvzz' |
+        \   execute 'normal! g`"zvzz' |
         \ endif
 augroup END
 
@@ -365,6 +369,16 @@ endif
 set packpath^=~/.vim
 " Try to load minpac.
 silent! packadd minpac
+
+function! BuildVimMarkdownComposer()
+  " if a:info.status != 'unchanged' || a:info.force
+    if has('nvim')
+      !(cd '/opt/Code/dotfiles/editors/vim/vim/pack/minpac/start/vim-markdown-composer'; cargo build --release > ~/logs/vim-markdown-composer-static-build.log)
+      " !cargo build --release
+    else " Vim8 support!
+      !cargo build --release --no-default-features --features json-rpc
+    endif
+endfunction
 
 if !exists('*minpac#init')
   " minpac is NOT available
@@ -409,13 +423,13 @@ else
     " plugin - vim-markdown-composer - preview `.md` docs in default browser
     ""
     call minpac#add('euclio/vim-markdown-composer', { 
-          \'do': '!cargo build --release'}, executable('cargo'))
+          \'do': function('BuildVimMarkdownComposer') } )
   elseif v:version > 8 || v:version == 8 " Check for Vim8 ...sort of
     call minpac#add('Shougu/deoplete.nvim')
     call minpac#add('roxma/nvim-yarp')
     call minpac#add('roxma/vim-hug-neovim-rpc')
     call minpac#add('autozimu/LanguageClient-neovim', {
-          \'branch': 'next', 'do': {-> system('bash install.sh')} 'do': ':UpdateRemotePlugins' })
+          \'branch': 'next', 'do': {-> system('bash install.sh')}})
     call minpac#add('euclio/vim-markdown-composer', { 
           \'do': '!cargo build --release --no-default-features --features json-rpc'}, executable('cargo'))
   endif
