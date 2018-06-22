@@ -219,9 +219,9 @@ function! GetRunningOS()
     if system('uname')=~?'Linux'
       if !empty($TMUX)
         " let g:clipboard+=tmux
-        set clipboard+=xclip
+        set clipboard+=xsel
       else
-        set clipboard+=xclip
+        set clipboard+=xsel
       endif 
       set shell=bash
       set runtimepath+=/home/linuxbrew/.linuxbrew/bin/fzf
