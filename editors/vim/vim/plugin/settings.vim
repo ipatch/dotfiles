@@ -1,8 +1,115 @@
 scriptencoding utf-8
 
+""""""""""""""""""""""""""""""
+" ~ settings.vim ~ for Vim >= 8 && Neovim
+" Author: Chris Jones
+" Source: http://github.com/ipatch/dotfiles/blob/master/editors/vim/settings.vim
+""
+
 """""""""""""""""""""""""""""
 " ~ settings.vim ~
 ""
+set mouse=a                           " enable mouse support
+set title                             " Set the title on the terminal tab
+set number " display the absolute number on the current line
+set relativenumber                    " Show numbers relative to current line
+set background=dark
+set cursorline                        " Highlight current line
+set backspace=eol,start,indent        " Configure sane backspace
+filetype plugin indent on " detect & enable filetype specific plugins
+syntax on
+set history=500                       " History for days 😛
+set showcmd                           " Show incomplete cmds in lower right 
+set noshowmode                        " let status line show mode
+set laststatus=2
+set modelines=5
+set visualbell t_vb= " DON'T abbr to `vb` use `visualbell`
+
+"""""""""""""""""""""""""""""
+" hidden chars
+""
+set listchars+=tab:‣\
+set listchars+=nbsp:⦸   " CIRCLED REVERSE SOLIDUS (U+29B8, UTF-8: E2 A6 B8)
+set listchars+=extends:» " RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK (U+00BB, UTF-8: C2 BB)
+set listchars+=precedes:« " LEFT-POINTING DOUBLE ANGLE QUOTATION MARK (U+00AB, UTF-8: C2 AB)
+set listchars+=trail:•    " BULLET (U+2022, UTF-8: E2 80 A2)
+set listchars+=eol:¬
+set fillchars+=stl:\ ,stlnc:\
+"""""""""""""""
+" toggle hidden chars & Settings for hidden chars
+""
+nmap <leader>h :set list!<CR>
+
+if has('linebreak')
+  let &showbreak='↳ ' " DOWNWARDS ARROW WITH TIP RIGHTWARDS (U+21B3, UTF-8: E2 86 B3)
+endif
+
+""""""""""""""""""""""""""""""
+" Spelling
+""
+if has('syntax')
+  set spellcapcheck= " don't check for capital letters at start of sentence
+endif
+
+" set spell                           
+set spelllang=en_us                   " set the language for spelling words
+language en_US
+
+""""""""""""""""""""""""""""""
+" wrapping
+""
+set wrap
+set linebreak
+
+""""""""""""""""""""""""""""""
+" search
+""
+set hlsearch                          " Highlight search results
+set ignorecase                        " Ignore case when sarching
+set smartcase                         " become case-sensitive if uppercase present
+" Stop highlighting on Enter
+map <CR> :nohl<CR> 
+set incsearch
+set nojoinspaces
+set display+=lastline
+set showmatch                         " show matching braces
+
+"""""""""""""""""""""""""""""
+" Indentation / tab shit
+""
+" set ts=2 sts=2 sw=2 expandtab 
+set shiftwidth=2 " Indent 2 spaces < and > commands as well.
+set softtabstop=2
+set tabstop=2        " Indicates how many `spaces` a `tab` will indent
+set expandtab                           " spaces are better than tabs 💥
+set nofoldenable
+set tabstop=2
+set autoindent " DON'T abbrv to `ai`, use `autointdent` set auto indent
+set smartindent
+set hidden                              " set sane buffer switching
+set smarttab     " <tab>/<BS> indent/dedent in leading whitespace
+""""""""""""""""""""""""""""""
+" Scrolling
+""
+set scrolloff=3 " start scrolling 3 lines before edge of viewport
+
+"""""""""""""""""""""""""""""
+" Settings - Visual Tabs
+""
+" NOTE: tabs AREN"T buffers, always try and use buffers when possible.
+set showtabline=0                       " only show if 2 or more tabs.
+
+""""""""""""""""""""""""""""""
+" settings - sessions
+""
+set sessionoptions=buffers,folds,winsize,blank,slash,unix
+
+""""""""""""""""""""""""""""""
+" settings - views - folds, etc etc
+""
+set foldcolumn=2 " width of gutter outlining folds
+" set viewoptions+=folds,slash,unix
+
 
 """"""""""""""""""""""""""""""
 " Optional settings for tmp files

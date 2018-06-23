@@ -25,174 +25,14 @@ let g:mapleader = ',' " set the 'leader' key to `,` ie. comma
 " SEE: `:help nocompatible` for more info.
 ""
 
-" Settings
-set mouse=a                           " enable mouse support
-set title                             " Set the title on the terminal tab
-set number " display the absolute number on the current line
-set relativenumber                    " Show numbers relative to current line
-set background=dark
-set cursorline                        " Highlight current line
-set backspace=eol,start,indent        " Configure sane backspace
-filetype plugin indent on " detect & enable filetype specific plugins
-syntax on
-set history=500                       " History for days 😛
-set showcmd                           " Show incomplete cmds in lower right 
-set noshowmode                        " let status line show mode
-set laststatus=2
-set modelines=5
-set visualbell t_vb= " DON'T abbr to `vb` use `visualbell`
-
 """""""""""""""""""""""""""""
-" hidden chars
+" NOTE: Settings - June 23 2018 moved to `~/.vim/plugin/settings.vim`
 ""
-set listchars+=tab:‣\
-set listchars+=nbsp:⦸   " CIRCLED REVERSE SOLIDUS (U+29B8, UTF-8: E2 A6 B8)
-set listchars+=extends:» " RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK (U+00BB, UTF-8: C2 BB)
-set listchars+=precedes:« " LEFT-POINTING DOUBLE ANGLE QUOTATION MARK (U+00AB, UTF-8: C2 AB)
-set listchars+=trail:•    " BULLET (U+2022, UTF-8: E2 80 A2)
-set listchars+=eol:¬
-set fillchars+=stl:\ ,stlnc:\
-"""""""""""""""
-" toggle hidden chars & Settings for hidden chars
-""
-nmap <leader>h :set list!<CR>
-
-if has('linebreak')
-  let &showbreak='↳ ' " DOWNWARDS ARROW WITH TIP RIGHTWARDS (U+21B3, UTF-8: E2 86 B3)
-endif
-
-""""""""""""""""""""""""""""""
-" Spelling
-""
-if has('syntax')
-  set spellcapcheck= " don't check for capital letters at start of sentence
-endif
-
-" set spell                           
-set spelllang=en_us                   " set the language for spelling words
-language en_US
-
-""""""""""""""""""""""""""""""
-" wrapping
-""
-set wrap
-set linebreak
-
-""""""""""""""""""""""""""""""
-" search
-""
-set hlsearch                          " Highlight search results
-set ignorecase                        " Ignore case when sarching
-set smartcase                         " become case-sensitive if uppercase present
-" Stop highlighting on Enter
-map <CR> :nohl<CR> 
-set incsearch
-set nojoinspaces
-set display+=lastline
-set showmatch                         " show matching braces
-
-"""""""""""""""""""""""""""""
-" Indentation / tab shit
-""
-" set ts=2 sts=2 sw=2 expandtab 
-set shiftwidth=2 " Indent 2 spaces < and > commands as well.
-set softtabstop=2
-set tabstop=2        " Indicates how many `spaces` a `tab` will indent
-set expandtab                           " spaces are better than tabs 💥
-set nofoldenable
-set tabstop=2
-set autoindent " DON'T abbrv to `ai`, use `autointdent` set auto indent
-set smartindent
-set hidden                              " set sane buffer switching
-set smarttab     " <tab>/<BS> indent/dedent in leading whitespace
-""""""""""""""""""""""""""""""
-" Scrolling
-""
-set scrolloff=3 " start scrolling 3 lines before edge of viewport
-
-"""""""""""""""""""""""""""""
-" Settings - Visual Tabs
-""
-" NOTE: tabs AREN"T buffers, always try and use buffers when possible.
-set showtabline=0                       " only show if 2 or more tabs.
-
-""""""""""""""""""""""""""""""
-" settings - sessions
-""
-set sessionoptions=buffers,folds,winsize,blank,slash,unix
-
-""""""""""""""""""""""""""""""
-" settings - views - folds, etc etc
-""
-set foldcolumn=2 " width of gutter outlining folds
-" set viewoptions+=folds,slash,unix
 
 """""""""""""""""""""""""""""
 " Key mappings / bindings
+" NOTE: mappings - June 23 2018 moved to `~/.vim/plugin/mappings.vim`
 ""
-" NOTE: `meta` ie. `⌘.` within iTerm2 require escape sequences to be mapped
-" NOTE: apparently `:map` and `:map!` will map to all modes of (n)vim
-" NOTE: the below configuration line will map the `spacebar` to ':' so that
-" way `Shift+;` does not have to be pressed to begin a command in normal mode.
-nnoremap <space> :
-
-
-" NOTE: - the below insert mappings will bind 'jk' / 'kj' to the ESC
-" key functionality, so need for the <ESC> key in insert mode
-imap jk <esc>
-imap kj <esc>
-imap jj <esc>
-imap kk <esc>
-
-" use `,,` for escape <ESC>
-inoremap ,, <ESC>
-
-noremap <silent> <Up> <ESC><Up>
-inoremap <silent> <Down> <ESC><Down>
-
-" Fast saving
-noremap <leader>w :w<CR>
-
-" Command mode shortcuts
-cmap cwd lcd %:p:h
-cmap cd. lcd %:p:h
-
-" the below key mapping will indent the entire file 😯
-nnoremap <Leader>i mmgg=G`m<CR>
-
-" go into command mode and print the working dir
-" TODO: figure out a way to print the `cwd` or `pwd` quckily from `NORMAL` mode
-" NOTE: `:pwd` works for the time being 🤷  
-
-" bubbling text - Normal mode
-nnoremap <S-k> ddkP
-nnoremap <S-j> ddp
-
-" bubble multiple lines - Visual mode
-vmap <S-k> xkP`[V`]
-vmap <S-j> xp`[V`]
-
-" navigate lines that have been virtually wrapped within a document as single.
-nnoremap j gj
-nnoremap k gk
-
-" NOTE: if the `<C-o>` is not specified then the `gj` or `gk` will literally be
-" printed to the screen.
-inoremap <Down> <C-o>gj
-inoremap <Up> <C-o>gk
-
-" create a directory if it doesn't exist
-nnoremap <silent> <leader>mkd :!mkdir -p %:p:h<CR>
-
-" Toggle spell checking
-nnoremap <silent> <leader>s :set spell!<CR>
-
-" Open a new buffer in current session
-nnoremap ,e :e <C-R>=expand("%:p:h") . "/" <CR>
-
-" When opening a readonly file, ie. /etc/hosts `w!!` 🚑
-" cmap w!! w !sudo tee % >/dev/null %
-cmap w!! %!sudo tee > /dev/null %
 
 """"""""""""""""""""""""""""""
 " check for current OS
@@ -234,14 +74,6 @@ function! GetRunningOS()
   endif
 endfunction
 let g:os = GetRunningOS()
-
-" NOTE: iterm2 make sure to set proper escape sequences.
-vnoremap <M-c> "+y
-nnoremap <M-v> "+p
-inoremap <M-v> <esc>"+p
-" Generic undo using `⌘ + z` for normal and insert modes
-nnoremap <M-z> u
-inoremap <M-z> <C-o>u
 
 """"""""""""""""""""""""""""""
 " Settings - Buffer Handling
