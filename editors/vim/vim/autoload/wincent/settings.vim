@@ -1,8 +1,5 @@
 scriptencoding utf-8
 
-blah
-
-
 let s:middot='·'
 let s:raquo='»'
 let s:small_l='ℓ'
