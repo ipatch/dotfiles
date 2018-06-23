@@ -145,42 +145,8 @@ augroup netrw_delete_hidden_augroup
 augroup END
 
 """""""""""""""""""""""""""""
-" autocommand - update buffer if file has changed on window focus 
+" Autocommands - moved to `~/.vim/plugin/autocmds.vim`
 ""
-augroup buffer_refresh
-  autocmd!
-  autocmd buffer_refresh FocusGained,BufEnter * checktime 
-augroup END
-
-""""""""""""""""""""""""""""""
-" autocommand - `line_return`
-" NOTE: return to the line number when reopening a buffer / file
-" NOTE: buffer does not need saving to remember position 👍
-""
-augroup line_return
-  autocmd BufReadPost *
-        \ if line("'\"") > 1 && line("'\"") <= line("$") |
-        \   execute "normal! g`\"" |
-        \ endif
-augroup END
-
-""""""""""""""""""""""""""""""
-" autocommand - `conceal_return`
-" NOTE: a simple command / function to resume conceal settings when reopening a
-" bufffer
-""
-augroup conceal_return
-
-augroup END
-
-""""""""""""""""""""""""""""""
-" autocommand - `fold_return`
-" NOTE: a simple command / function to resume fold settings when reopening a
-" buffer
-""
-augroup fold_return
-
-augroup END
 
 """""""""""""""""""""""""""""
 " wildmenu -  completion
@@ -511,15 +477,4 @@ if has('nvim')
     let $NVIM_TUI_ENABLE_TRUE_COLOR = 1   " Legacy way to enable 24bit color.
   endif
 endif " END Neovim only settings
-
-
-
-""""""""""""""""""""""""""""""
-" save view sate
-""
-" autocmd BufWinLeave * silent! mkview " save view (state) (folds, cursor, etc)
-" autocmd BufWinEnter * silent! loadview " load view (state)
-
-" NOTE: DON'T ENABLE `autochdir` makes easier for managing `session.vim` files
-" set autochdir " set working directory to the current file
 
