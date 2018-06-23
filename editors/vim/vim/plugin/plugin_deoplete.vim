@@ -13,11 +13,11 @@ if has('nvim')
   call deoplete#custom#source('_',
         \ 'disabled_syntaxes', ['Comment', 'String'])
 
-  let g:deoplete#sources.python = ['LanguageClient']
-  let g:deoplete#sources.js =['LanguageClient']
-  let g:deoplete#sources.javascript = ['LanguageClient']
-  let g:deoplete#sources.rs = ['LanguageClient']
-   " let g:deoplete#enable_at_startup = 1
+  " let g:deoplete#sources.python = ['LanguageClient']
+  " let g:deoplete#sources.js =['LanguageClient']
+  " let g:deoplete#sources.javascript = ['LanguageClient']
+  " let g:deoplete#sources.rs = ['LanguageClient']
+  "  " let g:deoplete#enable_at_startup = 1
   " let g:deoplete#enable_debug = 1
   " let g:deoplete#enable_profile = 1
   " " call deoplete#enable_logging('DEBUG', '/Users/capin/logs/deoplete.log')
