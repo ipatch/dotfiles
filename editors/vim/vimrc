@@ -76,7 +76,7 @@ endfunction
 let g:os = GetRunningOS()
 
 """"""""""""""""""""""""""""""
-" Settings - Buffer Handling
+" Binding - Buffer Handling
 ""
 nnoremap <leader>t :enew<CR>
 
@@ -244,219 +244,16 @@ else
   command! PackClean  packadd minpac | source $MYVIMRC | call minpac#clean()
   command! PackList echo join(minpac#getpackages("minpac", "start"), "\n")
 
-  " Settings for Neovim plugins added via minpac.
-  if has('nvim')
-   """"""""""""""""""""""""""""""""""""
-   " plugin - deoplete
-   " NOTE: requires `python3` provider to be installed
-   ""
-   let g:deoplete#enable_at_startup = 1
-   let g:deoplete#enable_debug = 1
-   let g:deoplete#enable_profile = 1
-   " call deoplete#enable_logging('DEBUG', '/Users/capin/logs/deoplete.log')
-   let g:deoplete#enable_smart_case = 1
+  inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+  inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+  inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
 
-   if !exists('g.deoplete#omni#input_patterns')
-     let g:deoplete#omni#input_patterns = {}
-   endif
+  inoremap <expr> <C-space> deoplete#manual_complete('omni')
 
-   " NOTE: `g:deoplete#sources` has been deprecated
-   "https://gist.github.com/afnanenayet/8c2ee0fdabb8d1e292b788f9723673c5#gistcomment-2593832
-   " call deoplete#custom#option({
-   "       \ 'camel_case': v:true,
-   "       \ 'sources': {
-   "       \   'go': ['LanguageClient'],
-   "       \   'python': ['LanguageClient'],
-   "       \ },
-   "       \ })
-   "   call deoplete#custom#source('_', 'matchers', ['matcher_fuzzy', 'matcher_length'])
-   " call deoplete#custom#source('_', 'disabled_syntaxes', ['Comment', 'String'])
+  inoremap <expr> <C-l> deoplete#refresh()
+endif
 
-   """""""""""""""""""""""""""""""""""""
-   " plugin - LanguageClient-neovim
-   ""
-   let g:LanguageClient_autoStart = 0
-   " let g:LanguageClient_logginLevel = 'DEBUG'
-   " let g:LanguageClient_loadSettings = 1
-
-   let g:LanguageClient_serverCommands = {
-         \ 'rust': ['rustup', 'run', 'stable', 'rls'],
-         \ 'javascript': ['javascript-typescript-stdio'],
-         \ 'javascript.jsx': ['javascript-typescript-stdio'],
-         \ 'typescript': ['javascript-typescript-stdio'],
-         \ }
-
-   " nnoremap <leader>x :call LanguageClient_contextMenu()<CR>
-   " NOTE: <silent> does not echo to the command line
-   noremap <silent> H :call LanguageClient_textDocument_hover()<CR>
-   noremap <silent> Z :call LanguageClient_textDocument_definition()<CR>
-   noremap <silent> R :call LanguageClient_textDocument_rename()<CR>
-   noremap <silent> S :call LanguageClient_textDocument_documentSymbol()<CR>
-
-   set omnifunc=LanguageClient#complete
-   set completefunc=LanguageClient#complete
-
-   inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-   inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-   inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
-
-   inoremap <expr> <C-space> deoplete#manual_complete('omni')
-
-   inoremap <expr> <C-l> deoplete#refresh()
-
- else
-   " Do something fancy ...maybe later
- end
-
-  let g:autofmt_autosave = 1
-
-  """""""""""""""""""""""""""""
-  " plugin - lightline.vim
-  ""
-  let g:lightline = {
-        \ 'tabline': {'left': [['buffers']], 'right': [['close']]},
-        \ 'component_expand': {'buffers': 'lightline#bufferline#buffers'},
-        \ 'component_type': {'buffers': 'tabsel'},
-        \ 'active': {
-        \ 'left': [ [ 'mode', 'paste' ],
-        \           [ 'gitbranch', 'readonly', 'filename' ] ],
-        \ },
-        \ 'component_function': {
-        \ 'gitbranch': 'fugitive#head',
-        \ 'filename': 'LightlineFilename'
-        \ },
-        \ }
-
-  let g:lightline#bufferline#show_number = 1
-  let g:lightline#bufferline#unnamed = '[No Name]'
-
-  function! LightlineFilename()
-    let l:filename = expand('%:t') !=# '' ? expand('%:t') : '[No Name]'
-    let l:modified = &modified ? ' +' : ''
-    return l:filename . l:modified
-  endfunction
-
-  " TODO: figure out why this shit a'int working 🙄
-  nmap <Leader>1 <Plug>Lightline#bufferline#go(1)
-  nmap <Leader>2 <Plug>Lightline#bufferline#go(2)
-  nmap <Leader>3 <Plug>Lightline#bufferline#go(3)
-  nmap <Leader>4 <Plug>Lightline#bufferline#go(4)
-  nmap <Leader>5 <Plug>Lightline#bufferline#go(5)
-  nmap <Leader>6 <Plug>Lightline#bufferline#go(6)
-  nmap <Leader>7 <Plug>Lightline#bufferline#go(7)
-  nmap <Leader>8 <Plug>Lightline#bufferline#go(8)
-  nmap <Leader>9 <Plug>Lightline#bufferline#go(9)
-
-  """""""""""""""
-  " plugin - lightline - mode map
-  " NOTE: abbreviations for mode maps
-  " n - normal
-  " i - insert
-  " R - replace
-  " v - visual
-  " V - v-line
-  " c - command
-  " s - select
-  " S - s-line
-  " t - terminal
-  ""
-  let g:lightline.mode_map = {
-        \ 'n' : 'N',
-        \ 'i' : 'I',
-        \ 'R' : 'REPLACE',
-        \ 'v' : 'VISUAL',
-        \ 'V' : 'V-LINE',
-        \ "\<C-v>": 'V-BLOCK',
-        \ 'c' : 'COMMAND',
-        \ 's' : 'SELECT',
-        \ 'S' : 'S-LINE',
-        \ "\<C-s>": 'S-BLOCK',
-        \ 't': 'TERMINAL',
-        \ }
-
-  """"""""""""""""""""""""""""""
-  " plugin - commentary
-  ""
-  " Easy commenting in source files using tpope's plugin.
-  " CREDIT: https://github.com/neovim/neovim/issues/5052#issuecomment-232083842
-  noremap <leader>c :Commentary<cr>
-
-  """"""""""""""""""""""""""""""
-  " plugin - FZF
-  ""
-  if &runtimepath =~# 'fzf'
-    nmap ; :Buffers<CR>
-    nmap <Leader>f :Files<CR>
-    command! FZFMru call fzf#run({
-          \  'source':  v:oldfiles,
-          \  'sink':    'e',
-          \  'options': '-m -x +s',
-          \  'down':    '40%'})
-    nmap <Leader>r :FZFMru<CR>
-    nnoremap <C-p> :<C-u>FZF<CR>
-    nnoremap <Leader>m :History<CR>
-
-    " You can set up fzf window using a Vim command (Neovim or Vim 8 required)
-    let g:fzf_layout = { 'window': 'enew' }
-    let g:fzf_layout = { 'window': '-tabnew' }
-    let g:fzf_layout = { 'window': '10split enew' }
-
-    " --column: Show column number
-    " --line-number: Show line number
-    " --no-heading: Do not show file headings in results
-    " --fixed-strings: Search term as a literal string
-    " --ignore-case: Case insensitive search
-    " --no-ignore: Do not respect .gitignore, etc...
-    " --hidden: Search hidden files and folders
-    " --follow: Follow symlinks
-    " --glob: Additional conditions for search (in this case ignore everything in the .git/ folder)
-    " --color: Search color options
-
-    command! -bang -nargs=* Find call fzf#vim#grep(
-          \'rg
-          \--column
-          \--line-number
-          \--no-heading 
-          \--fixed-strings 
-          \--ignore-case 
-          \--no-ignore 
-          \--hidden 
-          \--follow 
-          \--glob "!.git/*" 
-          \--color "always" '.shellescape(<q-args>), 1, <bang>0)
-  endif
-
-  """""""""""""""""""""""""""""
-  " plugin - indentLine
-  ""
-  " SEE: https://github.com/Yggdroot/indentLine
-  ""
-  let g:indentLine_setColors = 1 " overwrite colorscheme, use default grey
-  let g:indentLine_setConceal = 0
-
-  """"""""""""""""""""""""""""""
-  " plugin - ALE
-  ""
-  let g:ale_linters = {
-        \ 'javascript': ['eslint'],
-        \ }
-  " Mappings in the style of unimpaired-next
-  nmap <silent> [W <Plug>(ale_first)
-  nmap <silent> [w <Plug>(ale_previous)
-  nmap <silent> ]w <Plug>(ale_next)
-  nmap <silent> ]W <Plug>(ale_last)
-
-  let g:ale_lint_on_text_changed = 'never'
-  let g:ale_lint_on_save = 1 " default
-  let g:ale_lint_on_enter = 0
-  let g:ale_lint_on_filetype_changed = 0
-  let g:ale_sign_error                 = '>>'
-  let g:ale_sign_warning               = '--'
-  highlight clear ALEErrorSign
-  highlight clear ALEWarningSign
-
-
-endif " END - minpac added plugin settings 
+let g:autofmt_autosave = 1
 
 """""""""""""""""""""""""""""
 " For Neovim's eyes only 
