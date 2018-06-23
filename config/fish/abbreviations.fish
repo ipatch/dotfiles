@@ -111,6 +111,11 @@ else
   # echo "Your gunna need to do a `brew install rlwrap`"
 end
 
+#################
+# rust tooling
+##
+abbr -a rrepl "rustup run nightly-2016-08-01 ~/.cargo/bin/rusti"
+
 switch $os
   case Darwin
     ################
@@ -167,8 +172,4 @@ end
 
 if type -q ccat
   # abbr -a cat 'ccat'
-end
-
-if type -q nvim
-  # abbr -a vim 'nvim'
 end
