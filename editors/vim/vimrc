@@ -411,6 +411,7 @@ else
   call minpac#add('w0rp/ale') " ALE Asynchronous Linting Engine
   call minpac#add('tpope/vim-fugitive') " useful for displaying git branch
   call minpac#add('itchyny/lightline.vim') " lightweight status line.
+  call minpac#add('rust-lang/rust.vim')
 
   """""""""""""""""""""""""""""
   " minpac - conditional plugins
@@ -445,7 +446,7 @@ else
   command! PackClean  packadd minpac | source $MYVIMRC | call minpac#clean()
   command! PackList echo join(minpac#getpackages("minpac", "start"), "\n")
 
-  " Settings for plugins added via minpac.
+  " Settings for Neovim plugins added via minpac.
   if has('nvim')
    """"""""""""""""""""""""""""""""""""
    " plugin - deoplete
@@ -476,11 +477,12 @@ else
    """""""""""""""""""""""""""""""""""""
    " plugin - LanguageClient-neovim
    ""
-   let g:LanguageClient_autoStart = 1
-   let g:LanguageClient_logginLevel = 'DEBUG'
-   let g:LanguageClient_loadSettings = 1
+   let g:LanguageClient_autoStart = 0
+   " let g:LanguageClient_logginLevel = 'DEBUG'
+   " let g:LanguageClient_loadSettings = 1
 
    let g:LanguageClient_serverCommands = {
+         \ 'rust': ['rustup', 'run', 'stable', 'rls'],
          \ 'javascript': ['javascript-typescript-stdio'],
          \ 'javascript.jsx': ['javascript-typescript-stdio'],
          \ 'typescript': ['javascript-typescript-stdio'],
@@ -508,7 +510,8 @@ else
    " Do something fancy ...maybe later
  end
 
-  "
+  let g:autofmt_autosave = 1
+
   """""""""""""""""""""""""""""
   " plugin - lightline.vim
   ""
