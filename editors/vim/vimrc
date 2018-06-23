@@ -76,11 +76,6 @@ endfunction
 let g:os = GetRunningOS()
 
 """"""""""""""""""""""""""""""
-" Binding - Buffer Handling
-""
-nnoremap <leader>t :enew<CR>
-
-""""""""""""""""""""""""""""""
 " colorscheme
 ""
 " NOTE: make scope explicit, ie. `let g:[mr-fancy-setting]` NOT `let
