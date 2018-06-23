@@ -17,4 +17,44 @@ if has('autocmd')
     endif
 
   augroup END
+
+  """""""""""""""""""""""""""""
+  " autocommand - update buffer if file has changed on window focus 
+  ""
+  augroup buffer_refresh
+    autocmd!
+    autocmd buffer_refresh FocusGained,BufEnter * checktime 
+  augroup END
+
+  """"""""""""""""""""""""""""""
+  " autocommand - `line_return`
+  " NOTE: return to the line number when reopening a buffer / file
+  " NOTE: buffer does not need saving to remember position 👍
+  ""
+  augroup line_return
+    autocmd BufReadPost *
+          \ if line("'\"") > 1 && line("'\"") <= line("$") |
+          \   execute "normal! g`\"" |
+          \ endif
+  augroup END
+
+  """"""""""""""""""""""""""""""
+  " autocommand - `conceal_return`
+  " NOTE: a simple command / function to resume conceal settings when reopening a
+  " bufffer
+  ""
+  augroup conceal_return
+
+  augroup END
+
+  """"""""""""""""""""""""""""""
+  " autocommand - `fold_return`
+  " NOTE: a simple command / function to resume fold settings when reopening a
+  " buffer
+  ""
+  augroup fold_return
+
+  augroup END
 endif
+
+
