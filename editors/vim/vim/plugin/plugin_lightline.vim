@@ -61,6 +61,3 @@ let g:lightline.mode_map = {
       \ "\<C-s>": 'S-BLOCK',
       \ 't': 'TERMINAL',
       \ }
-
-   endif " END - minpac added plugin settings 
-
