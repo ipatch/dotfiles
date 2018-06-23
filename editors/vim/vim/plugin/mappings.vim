@@ -81,3 +81,9 @@ inoremap <M-v> <esc>"+p
 nnoremap <M-z> u
 inoremap <M-z> <C-o>u
 
+""""""""""""""""""""""""""""""
+" Binding - Buffer Handling
+""
+nnoremap <leader>t :enew<CR>
+
+
