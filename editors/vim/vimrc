@@ -167,7 +167,7 @@ silent! packadd minpac
 function! BuildStaticVimMarkdownComposer()
   " if a:info.status != 'unchanged' || a:info.force
     if has('nvim')
-      !(cd '/opt/Code/dotfiles/editors/vim/vim/pack/minpac/start/vim-markdown-composer'; cargo build --release)
+      !(cd '/opt/Code/dotfiles/editors/vim/vim/pack/minpac/start/vim-markdown-composer'; cargo +nightly build --release)
       " !cargo build --release
     else " Vim8 support!
       !cargo build --release --no-default-features --features json-rpc
@@ -224,7 +224,7 @@ else
     "   call system('cargo build --release')
     " endfunction
     " call minpac#add('euclio/vim-markdown-composer', { 'do': function('s:hook')})
-    call minpac#add('euclio/vim-markdown-composer', {'do': '!cargo build --release'})
+    call minpac#add('euclio/vim-markdown-composer', {'do': '!cargo +nightly build --release'})
   elseif v:version > 8 || v:version == 8 " Check for Vim8 ...sort of
     call minpac#add('Shougu/deoplete.nvim')
     call minpac#add('roxma/nvim-yarp')
