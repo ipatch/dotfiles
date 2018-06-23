@@ -2,7 +2,7 @@
 
 ## Using asdf with rust
 
-As of June 22 2018 asdf does play well with [rust](https://www.rust-lang.org/en-US/) ...surprise surprise. 🤷
+As of June 22 2018 asdf does not play well with [rust](https://www.rust-lang.org/en-US/) ...surprise surprise. 🤷
 
 Fortunately rust provides its own language manager 👍
 
