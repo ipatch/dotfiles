@@ -2,6 +2,7 @@
 " plugin - LanguageClient-neovim
 ""
 let g:LanguageClient_autoStart = 0
+nnoremap <leader>lcs :LanguageClientStart<CR>
 " let g:LanguageClient_logginLevel = 'DEBUG'
 " let g:LanguageClient_loadSettings = 1
 
