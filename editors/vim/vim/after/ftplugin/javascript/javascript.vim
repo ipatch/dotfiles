@@ -1,7 +1,10 @@
 " Syntax bullshit for JS files using Vim / Neovim
 
-augroup auto_filetype
-  autocmd BufNewFile,BufRead *.js *.jsx set filetype=javascript
+" augroup auto_filetype
+"   " autocmd BufNewFile,BufRead *.jsx set filetype=javascript
+" augroup END
+augroup filetypedetect
+  autocmd! BufNewFile,BufRead *.js setfiletype javascript
 augroup END
 
 " if executable('javascript-typescript-stdio')
