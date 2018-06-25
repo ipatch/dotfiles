@@ -8,4 +8,9 @@ Fortunately rust provides its own language manager 👍
 
 > Homebrew can cause complications when using the official rust installer, it is adviced to use `rustup` provided by http://www.rust-lang.org/en-US/
 
+To switch to a different rust toolchain
+
+```
+rustup override set stable
+```
 
