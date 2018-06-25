@@ -38,6 +38,7 @@ $XDG_CONFIG_HOME/.config/yarn/global/node_modules/.bin \
 /opt/X11/bin \
 $brew_prefix/bin \
 $brew_prefix/sbin \
+$brew_prefix/opt/go/libexec/bin \
 $brew_prefix/opt/llvm/bin \
 $brew_prefix/opt/gnu-sed/libexec/gnubin \
 $brew_prefix/opt/libressl/bin \

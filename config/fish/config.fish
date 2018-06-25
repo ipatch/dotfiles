@@ -104,6 +104,7 @@ case Darwin
   ##
   if test -x (brew --prefix)/bin/go
     set -gx GOPATH $HOME/go
+    # set -gx GOROOT (brew --prefix)/opt/go
   else
     # DO NOT PASS GO, DO NOT COLLECT $200
   end
