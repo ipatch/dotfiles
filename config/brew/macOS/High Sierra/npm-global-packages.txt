@@ -1,0 +1,11 @@
+/usr/local/lib
+├── create-react-app@1.5.2
+├── eslint@5.0.0
+├── flow-language-server@0.5.0
+├── javascript-typescript-langserver@2.10.0
+├── jshint@2.9.5
+├── neovim@4.1.0
+├── npm@6.1.0
+├── npm-check-updates@2.14.2
+└── stacks-cli@1.0.0
+
