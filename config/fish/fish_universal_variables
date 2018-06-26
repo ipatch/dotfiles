@@ -10,6 +10,7 @@ SET _fish_abbr_cp:cp\x20\x2div
 SET _fish_abbr_cpv:rsync\x20\x2dah\x20\x2d\x2dinfo\x3dprogress2
 SET _fish_abbr_decrypt:openssl\x20enc\x20\x2daes\x2d256\x2dcbc\x20\x2dd\x20\x2din
 SET _fish_abbr_df:df\x20\x2dh
+SET _fish_abbr_dm:docker\x2dmachine
 SET _fish_abbr_dotfiles:cd\x20\x24DOTFILES
 SET _fish_abbr_dots:cd\x20\x24dot
 SET _fish_abbr_du:du\x20\x2dh
