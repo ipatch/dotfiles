@@ -112,12 +112,19 @@ else
 end
 
 #################
+# docker tooling
+##
+if type -q docker-machine
+  abbr -a dm "docker-machine"
+end
+
+#################
 # rust tooling
 ##
 abbr -a rrepl "rustup run nightly-2016-08-01 ~/.cargo/bin/rusti"
 
 switch $os
-  case Darwin
+case Darwin
     ################
     # macOS specific abbreviations
     ##
@@ -160,7 +167,7 @@ if type -q brew
 end
 
 
-      case Linux
+case Linux
   abbr -a sc systemctl
 end
 ################
