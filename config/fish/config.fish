@@ -58,6 +58,10 @@ if type -q python
 end
 
 ##############################
+# OCaml tooling
+##
+
+##############################
 # git related settings
 ##
 set -gx GIT_RC $XDG_CONFIG_HOME/git
@@ -210,3 +214,4 @@ end
 # TODO: flesh out the right prompt to display the current
 #...python, ruby, elixir, etc etc with a pretty glyph
 # end
+
