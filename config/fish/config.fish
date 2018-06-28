@@ -62,6 +62,12 @@ end
 ##
 
 ##############################
+# dotnet tooling
+##
+set -gx DOTNET_CLI_TELEMETRY_OPTOUT 1
+# To trust the certificate run 'dotnet dev-certs https --trust' (Windows and macOS only). 
+
+##############################
 # git related settings
 ##
 set -gx GIT_RC $XDG_CONFIG_HOME/git
