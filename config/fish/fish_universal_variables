@@ -3,6 +3,7 @@ SET __fish_classic_git_prompt_initialized:\x1d
 SET __fish_init_2_39_8:\x1d
 SET __fish_init_2_3_0:\x1d
 SET __fish_init_3_x:\x1d
+SET _fish_abbr_be:bundle\x20exec
 SET _fish_abbr_cd_2D_brew_2D_src:cd\x20\x28brew\x20\x2d\x2dprefix\x29/Homebrew/Library/Taps/homebrew/homebrew\x2dcore
 SET _fish_abbr_cddotfiles:cd\x20\x24DOTFILES
 SET _fish_abbr_cddots:cd\x20\x24dot

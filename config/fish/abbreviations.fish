@@ -24,6 +24,13 @@ abbr -a cddots 'cd $dot'
 abbr -a dots 'cd $dot'
 
 #############################
+# ruby tooling
+##
+if [ -d "$HOME/.rvm" ]
+  abbr -a be 'bundle exec'
+end
+
+#############################
 # rsync
 #
 # rysnc -ah --progress [source] [destination]
