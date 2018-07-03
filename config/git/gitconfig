@@ -1,5 +1,6 @@
 # This is Git's per-user configuration file.
 # NOTE: `git` alias(es) are processed using a POSIX shell, NOT fish-shell
+# NOTE: to rm values from CLI `git config --global --unset user.{name,email}
 
 [i18n]
   filesEncoding = utf-8
@@ -197,8 +198,6 @@
   ###############################
   # To set a `core.excludesfile` on a per $HOME dir basis, see `config.fish or `.bashrc`
 
-
-
 [color]
   ui = auto
   branch = auto
@@ -236,7 +235,6 @@
 [push]
   default = simple # git >= 1.8+ required
 
-
 # `git config --global diff.submodule log` will add the below 2 lines
 [diff]
   submodule = log
@@ -255,21 +253,21 @@
   stat = true
 
 [gpg]
-  program = gpg
-
-##############################
-# Identity bull shit
-##
-
+  # Make certain `gpg` is in the $USER $PATH
+	program = gpg
 
 [init]
   templatedir = ~/.config/git/git-templates
 
+##############################
+# Identity bull shit
+##
 [user]
 	name = Chris Jones
   # Note: GitHub and git associate commits with email addresses
   email = chris.r.jones.1983@gmail.com
 	useConfigOnly = true
+	signingkey = 338F11B7
 
 [github]
 	name = ipatch
@@ -287,10 +285,6 @@
 # NOTE: the below settings require at least git v2.13
 # [includeIf ="gitdir:/opt/code/dotfiles/"
 #  path = /opt/code/dotfiles/.gitconfig
-
-# Keep `[user]` at BOTTOM
-# NOTE: to rm values from CLI `git config --global --unset user.{name,email}
-
 
 ####
 # TODO: figure out what all this URL shorthand shit means
