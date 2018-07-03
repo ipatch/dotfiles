@@ -90,14 +90,15 @@
 
   ####
   # tag
+  # NOTE: `tag` cannot be set as an alias, because it is a subcommand
   ##
-  tag = tag -s
+  # tag = tag -s <- Will not work!
   t = tag -s
   # show verbose output about tags
   tags = tag --list
   # USAGE: git tag-mv [name-of-old-tag] [name-of-new-tag]
   # EXAMPLE: git tag-mv v0.1.2.2 v0.1.2.3
-  tag-mv   = "!sh -c 'set -e;git tag $2 $1; git tag -d $1;git push origin :refs/tags/$1;git push --tags' -"
+  tag-mv   = "!sh -c 'set -e;git t $2 $1; git t -d $1;git push origin :refs/tags/$1;git push --tags' -"
 
   ####
   # 🚨 Danger zone 🚨
