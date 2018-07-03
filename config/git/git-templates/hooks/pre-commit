@@ -1,7 +1,7 @@
 #! /usr/bin/env sh
 
-# source ./pre-commit.d/01-encryption.sh
+# source ./pre-commit.d/01-crypto.sh
 
-echo "no commits for you, COME BACK IN ONE YEAR!"
+# echo "no commits for you, COME BACK IN ONE YEAR!"
 
-exit 1
+# exit 1
