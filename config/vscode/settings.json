@@ -45,5 +45,6 @@
     "editor.tabCompletion": true,
 
     // Stop from scrolling past bottom of open file
-    "editor.scrollBeyondLastLine": false
+    "editor.scrollBeyondLastLine": false,
+    "editor.minimap.enabled": true
 }
