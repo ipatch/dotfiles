@@ -7,6 +7,6 @@
 
 *.shh filter=git-crypt diff=git-crypt
 *.weechatlog filter=git-crypt diff=git-crypt
-irc.conf filter=git-crypt diff=git-crypt
+**/irc.conf filter=git-crypt diff=git-crypt
 # Don't encrypt the `.gitattributes file itself
 .gitattributes !filter !diff
