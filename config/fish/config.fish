@@ -58,6 +58,16 @@ if type -q python
 end
 
 ##############################
+# OCaml tooling
+##
+
+##############################
+# dotnet tooling
+##
+set -gx DOTNET_CLI_TELEMETRY_OPTOUT 1
+# To trust the certificate run 'dotnet dev-certs https --trust' (Windows and macOS only). 
+
+##############################
 # git related settings
 ##
 set -gx GIT_RC $XDG_CONFIG_HOME/git
@@ -210,3 +220,4 @@ end
 # TODO: flesh out the right prompt to display the current
 #...python, ruby, elixir, etc etc with a pretty glyph
 # end
+
