@@ -35,6 +35,7 @@
   ##
   ci = commit
   ca = commit --amend
+  # `-S` will sign commits
   cm = commit -S -m
   ac = commit -am
   aac = "!git aa; "git commit -m""
