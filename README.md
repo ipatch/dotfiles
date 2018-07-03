@@ -1,5 +1,7 @@
 <h2 align="center">dotfiles for Chris Jones</h2>
 
+<!-- foobar -->
+
 > Give me six hours to chop down a tree and I will spend the first four sharpening the axe.
 
 ![abe](https://raw.githubusercontent.com/wiki/ipatch/dotfiles/lib/abe.circle.png)
