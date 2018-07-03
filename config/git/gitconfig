@@ -245,6 +245,7 @@
 [commit]
   # gpgsign = true
   verbose = true
+	gpgsign = true
 
 [fetch]
   prune = true
