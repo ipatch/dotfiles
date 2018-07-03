@@ -58,6 +58,13 @@ if type -q python
 end
 
 ##############################
+# Crypto
+##
+if type -q gpg-agent
+  set -gx GPG_TTY (tty)
+end
+
+##############################
 # OCaml tooling
 ##
 
@@ -129,11 +136,6 @@ case Darwin
     eval (dircolors -c $HOME/.dir_colors)
     alias ls="/usr/local/opt/coreutils/libexec/gnubin/ls --color=auto"
   end
-
-  ###############################
-  # set env vars for git
-  ##
-  set -gx GPG_TTY (tty)
 
   ###############################
   # Node.js env setup
