@@ -53,9 +53,10 @@ if has('autocmd')
   " NOTE: a simple command / function to resume fold settings when reopening a
   " buffer
   ""
-  augroup fold_return
-
-  augroup END
+  " augroup fold_return
+  "   au BufWinLeave * mkview
+  "   au BufWinEnter * silent loadview
+  " augroup END
 endif
 
 

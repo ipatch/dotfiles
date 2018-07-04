@@ -51,7 +51,6 @@ if has('syntax')
   set spellcapcheck= " don't check for capital letters at start of sentence
 endif
 
-" set spell                           
 set spelllang=en_us                   " set the language for spelling words
 language en_US
 
@@ -180,7 +179,6 @@ if has('folding')
   endif
   set foldmethod=indent                 " not as cool as syntax, but faster
   set foldlevelstart=99                 " start unfolded
-  "set foldtext=wincent#settings#foldtext() " see `~/.vim/autoload/wincent/settings.vim` for the `foldtext` func def
 endif
 
 set formatoptions+=n              " smart auto-indenting inside numbered lists
@@ -211,7 +209,7 @@ if has('persistent_undo')
     set undodir+=~/.local/.vim/tmp/undo
     set undodir+=.
     set undofile                      " actually use undo files
-    set updatetime=2000                   " CursorHold intervalendif
+    set updatetime=2000               " CursorHold intervalendif
   endif
 endif
 
@@ -234,24 +232,30 @@ endif
 
 """"""""""""""""""""""""""""""
 " view - settings
+" NOTE: `~/.vim/tmp/views` is the default directory to save folds
 ""
-" if has('mkview')
-"   if exists('$SUDO_USER')
-"     " no view file
-"     set viewdir=
-"   else
-"     if isdirectory('~/.vim/tmp/views')
-"       set viewdir=~/.vim/tmp/views
-"     endif
-"   endif
-" endif
+if has('mkview')
+  if exists('$SUDO_USER')
+    " no view file
+    set viewdir=
+    
+  else
+    if isdirectory('~/.vim/tmp/views')
+      set viewdir=~/.vim/tmp/views
+      augroup fold_return
+        au BufWinLeave * silent! mkview
+        au BufWinEnter * silent! loadview
+      augroup END
+    endif
+  endif
+endif
 
 """"""""""""""""""""""""""""""
 " viminfo - settings
 ""
 if has('viminfo')
   if exists('$SUDO_USER')
-    set viminfo=                    " don't create root-owned files
+    set viminfo= " don't create root-owned files
   else
     if isdirectory('~/.vim/tmp')
       set viminfo+=n~/.vim/tmp/viminfo
