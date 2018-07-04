@@ -5,3 +5,10 @@
 " CREDIT: https://github.com/neovim/neovim/issues/5052#issuecomment-232083842
 noremap <leader>c :Commentary<cr>
 
+""""""""""""""""""""""""""""""
+" vim-commentary JSX
+"""
+"augroup
+ autocmd FileType javascript.jsx setlocal commentstring={/*\ %s\ */}
+"augroup END
+
