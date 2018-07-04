@@ -30,6 +30,7 @@ if has('autocmd')
   " autocommand - `line_return`
   " NOTE: return to the line number when reopening a buffer / file
   " NOTE: buffer does not need saving to remember position 👍
+  " NOTE: the line position is written to `~/.viminfo`
   ""
   augroup line_return
     autocmd BufReadPost *
