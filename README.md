@@ -34,7 +34,7 @@ git clone --recursive git@github.com:ipatch/dotfiles.git
 
 <a href="fish-shell-setup"></a>
 
-### [🐟🐚 _Fish Shell_](https://github.com/fish-shell/fish-shell)
+### [Fish Shell](https://github.com/fish-shell/fish-shell)
 
 > To symlink the fish-shell configuration directory with supporting files.
 
