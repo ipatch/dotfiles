@@ -152,8 +152,8 @@ if exists('$SUDO_USER') " setup backup files for Vim & Neovim
   set nowritebackup       " don't create backup files for root
 else
   " backup files to `~/.vim` first if dir exists, if can't write then `~/.local`
-  set backupdir=~/.vim/tmp/backup/      " keep backup files out of the way
-  set backupdir+=~/.local/.vim/tmp/backup/ 
+  set backupdir=~/.vim/tmp/backup//      " keep backup files out of the way
+  set backupdir+=~/.local/.vim/tmp/backup// 
   set backupdir+=. " last resort put backup files in the current directory.
 endif
 
@@ -205,8 +205,8 @@ if has('persistent_undo')
   if exists('$SUDO_USER')
     set noundofile                    " don't create root-owned files
   else
-    set undodir=~/.vim/tmp/undo      " keep undo files out of the way
-    set undodir+=~/.local/.vim/tmp/undo
+    set undodir=~/.vim/tmp/undo//      " keep undo files out of the way
+    set undodir+=~/.local/.vim/tmp/undo//
     set undodir+=.
     set undofile                      " actually use undo files
     set updatetime=2000               " CursorHold intervalendif
@@ -220,33 +220,35 @@ if has('mksession')
   " if exists('$SUDO_USER')
   "   " no session file
 	" let g:sessiondir =
-  if isdirectory('~/.vim/tmp')
-    set viewdir=~/.vim/tmp/view
-  else
-    set viewdir=~/.local/view " vim defaults to `~/.vim/view`
-    " if isdirectory('~/.vim/tmp/sessions')
-    "   let g:sessiondir = $HOME.'/.vim/tmp/sessions'
-    " endif
-  endif
+  " if isdirectory('~/.vim/tmp')
+  "   set viewdir=~/.vim/tmp/view
+  " else
+  "   set viewdir=~/.local/view " vim defaults to `~/.vim/view`
+  "   " if isdirectory('~/.vim/tmp/sessions')
+  "   "   let g:sessiondir = $HOME.'/.vim/tmp/sessions'
+  "   " endif
+  " endif
 endif
 
 """"""""""""""""""""""""""""""
 " view - settings
 " NOTE: `~/.vim/tmp/views` is the default directory to save folds
 ""
-if has('mkview')
+" `== 2` checks for an exact match of `mkview`
+if exists(':mkview') == 2
+  " echom 'making views is a thing'
   if exists('$SUDO_USER')
     " no view file
     set viewdir=
-    
   else
-    if isdirectory('~/.vim/tmp/views')
-      set viewdir=~/.vim/tmp/views
-      augroup fold_return
-        au BufWinLeave * silent! mkview
-        au BufWinEnter * silent! loadview
-      augroup END
-    endif
+    set viewdir=~/.vim/tmp/views
+    au BufWinLeave *.* silent! mkview
+    au BufWinEnter *.* silent! loadview
+    " Save fold settings.
+    " autocmd BufWritePost * if expand('%') != '' && &buftype !~ 'nofile' | mkview | endif
+    " autocmd BufRead * if expand('%') != '' && &buftype !~ 'nofile' | silent loadview | endif
+    " Don't save options.
+    set viewoptions-=options
   endif
 endif
 
