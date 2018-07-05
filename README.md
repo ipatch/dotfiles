@@ -298,56 +298,6 @@ ln -sf $dots/config/fish $HOME/.config/fish
 │   │       ├── iset.conf
 │   │       ├── logger.conf
 │   │       ├── logs
-│   │       │   ├── core.weechat.weechatlog
-│   │       │   ├── irc.efnet.#netbsd.weechatlog
-│   │       │   ├── irc.freenode.##homebrew.weechatlog
-│   │       │   ├── irc.freenode.##sed.weechatlog
-│   │       │   ├── irc.freenode.#applescript.weechatlog
-│   │       │   ├── irc.freenode.#atom.weechatlog
-│   │       │   ├── irc.freenode.#blahblah.weechatlog
-│   │       │   ├── irc.freenode.#chromium-support.weechatlog
-│   │       │   ├── irc.freenode.#chromium.weechatlog
-│   │       │   ├── irc.freenode.#cmake.weechatlog
-│   │       │   ├── irc.freenode.#debian.weechatlog
-│   │       │   ├── irc.freenode.#facetimehd.weechatlog
-│   │       │   ├── irc.freenode.#filmsbykris.weechatlog
-│   │       │   ├── irc.freenode.#firefox-unregistered.weechatlog
-│   │       │   ├── irc.freenode.#fish.weechatlog
-│   │       │   ├── irc.freenode.#freenode.weechatlog
-│   │       │   ├── irc.freenode.#gcc.weechatlog
-│   │       │   ├── irc.freenode.#gdb.weechatlog
-│   │       │   ├── irc.freenode.#git.weechatlog
-│   │       │   ├── irc.freenode.#github.weechatlog
-│   │       │   ├── irc.freenode.#iterm2.weechatlog
-│   │       │   ├── irc.freenode.#kegbot.weechatlog
-│   │       │   ├── irc.freenode.#lfs-support.weechatlog
-│   │       │   ├── irc.freenode.#machomebrew.weechatlog
-│   │       │   ├── irc.freenode.#mipslinux.weechatlog
-│   │       │   ├── irc.freenode.#mpv.weechatlog
-│   │       │   ├── irc.freenode.#my-super-fancy-test-channel.weechatlog
-│   │       │   ├── irc.freenode.#my_super_fancy_test_channel.weechatlog
-│   │       │   ├── irc.freenode.#neomutt.weechatlog
-│   │       │   ├── irc.freenode.#netbsd.weechatlog
-│   │       │   ├── irc.freenode.#openjtag.weechatlog
-│   │       │   ├── irc.freenode.#openocd.weechatlog
-│   │       │   ├── irc.freenode.#openwrt.weechatlog
-│   │       │   ├── irc.freenode.#osxre.weechatlog
-│   │       │   ├── irc.freenode.#python-unregistered.weechatlog
-│   │       │   ├── irc.freenode.#radare.weechatlog
-│   │       │   ├── irc.freenode.#rsync.weechatlog
-│   │       │   ├── irc.freenode.#ruby.weechatlog
-│   │       │   ├── irc.freenode.#test-channel.weechatlog
-│   │       │   ├── irc.freenode.#theairportwiki.weechatlog
-│   │       │   ├── irc.freenode.#tmux.weechatlog
-│   │       │   ├── irc.freenode.#weechat.weechatlog
-│   │       │   ├── irc.freenode.#xorg.weechatlog
-│   │       │   ├── irc.freenode.capin.weechatlog
-│   │       │   ├── irc.freenode.capin1.weechatlog
-│   │       │   ├── irc.oftc.#fish.weechatlog
-│   │       │   ├── irc.oftc.#qemu.weechatlog
-│   │       │   ├── irc.server.efnet.weechatlog
-│   │       │   ├── irc.server.freenode.weechatlog
-│   │       │   └── irc.server.oftc.weechatlog
 │   │       ├── lua
 │   │       │   └── autoload
 │   │       ├── perl
@@ -2814,13 +2764,13 @@ ln -sf $dots/config/fish $HOME/.config/fish
         │   │       └── tpm
         │   ├── resurrect
         │   │   ├── .gitkeep
-        │   │   └── last -> tmux_resurrect_2018-07-05T02:49:31.txt
+        │   │   └── last -> tmux_resurrect_2018-07-05T13:23:04.txt
         │   └── tmux.macos.conf
         ├── tmux-256color.terminfo
         ├── tmux.conf
         └── xterm-256color-italic.terminfo
 
-743 directories, 2024 files
+743 directories, 1974 files
 </pre>
 </details>
 
