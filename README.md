@@ -2795,7 +2795,7 @@ ln -sf $dots/config/fish $HOME/.config/fish
 ### Neovim
   - [x] ~~~Figure out a way to save fold settings across all open buffers when quiting Vim.~~~
   - [x] ~~~Figure out why folds are only being saved / preserved for the last open buffer when quiting Vim 🤔~~~
-  - [ ] Vim Sesssions, Folds, and Conceals will be the death of me 💀
+  - [ ] Vim Sesssions, ~~~Folds,~~~ and Conceals will be the death of me 💀
   - [x] ~~don't create session files when launching a man page~~
   - [x] ~~Figure out a sane solution for previewing markdown ie. .md documents~~
   - [x] ~~Figure out what is causing lines to be hard wrapped! 😖~~
