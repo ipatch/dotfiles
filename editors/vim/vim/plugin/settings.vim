@@ -245,8 +245,6 @@ if exists(':mkview') == 2
     au BufWinLeave *.* silent! mkview
     au BufWinEnter *.* silent! loadview
     " Save fold settings.
-    " autocmd BufWritePost * if expand('%') != '' && &buftype !~ 'nofile' | mkview | endif
-    " autocmd BufRead * if expand('%') != '' && &buftype !~ 'nofile' | silent loadview | endif
     " Don't save options.
     set viewoptions-=options
   endif

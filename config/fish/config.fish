@@ -68,6 +68,17 @@ end
 # OCaml tooling
 ##
 
+#########################
+# Go language tooling
+##
+if test -x (brew --prefix)/bin/go
+  set -gx GOPATH $HOME/go
+  # DO NOT set `GOROOT` permanently
+  # set -gx GOROOT (brew --prefix)/opt/go
+else
+  # DO NOT PASS GO, DO NOT COLLECT $200
+end
+
 ##############################
 # dotnet tooling
 ##
@@ -80,6 +91,9 @@ set -gx DOTNET_CLI_TELEMETRY_OPTOUT 1
 set -gx GIT_RC $XDG_CONFIG_HOME/git
 # set -gx GIT_DIR $XDG_CONFIG_HOME/git
 
+##############################
+# locale settings
+##
 # set -gx LC_CTYPE "en_US.UTF-8" # only set this if you want to overwrite ALL locales!
 
 ##############################
@@ -108,22 +122,12 @@ end
 switch $os 
 case Darwin
   #########################
-  # macOS specific env vars boo
+  # macOS specific env vars, boo
   ##
   if [ "$TERM_PROGRAM" = iTerm.app ]
     set -gx COLORTERM truecolor
   else
     # DO NOTHIGH
-  end
-
-  #########################
-  # macOS specific language env vars
-  ##
-  if test -x (brew --prefix)/bin/go
-    set -gx GOPATH $HOME/go
-    # set -gx GOROOT (brew --prefix)/opt/go
-  else
-    # DO NOT PASS GO, DO NOT COLLECT $200
   end
 
   #########################
@@ -141,7 +145,7 @@ case Darwin
   # Node.js env setup
   ##
   if type -q node; and type -q rlwrap;
-    # TODO: figure out why this was breaking `tab` completion in node 🤷‍♀️
+    # TODO: figure out why this was breaking `tab` completion in node 🤷
     # set -gx NODE_NO_READLINE 1
   else
     # echo "Your gunna need to do a `brew install rlwrap`"
