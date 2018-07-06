@@ -9,6 +9,11 @@ noremap <leader>c :Commentary<cr>
 " vim-commentary JSX
 """
 "augroup
- autocmd FileType javascript.jsx setlocal commentstring={/*\ %s\ */}
+autocmd FileType javascript.jsx setlocal commentstring={/*\ %s\ */}
 "augroup END
+
+""""""""""""""""""""""""""""""
+" gitconfig
+""
+autocmd FileType gitconfig setlocal commentstring=#\ %s
 

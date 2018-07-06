@@ -20,7 +20,7 @@
 Host *
   SendEnv LANG LC_*
   XAuthLocation /opt/X11/bin/xauth
-#   ForwardAgent no
+  ForwardAgent yes
 #   ForwardX11 no
 #   PasswordAuthentication yes
 #   HostbasedAuthentication no
