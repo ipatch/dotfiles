@@ -14,3 +14,10 @@ To switch to a different rust toolchain
 rustup override set stable
 ```
 
+## Working with rust
+
+### rust Useful Links
+
+- [**GitHub** rustup](https://github.com/rust-lang-nursery/rustup.rs)
+- [rustup.rs](https://rustup.rs/)
+
