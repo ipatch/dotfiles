@@ -13,7 +13,7 @@ autocmd FileType javascript.jsx setlocal commentstring={/*\ %s\ */}
 "augroup END
 
 """"""""""""""""""""""""""""""
-" gitconfig
+" gitconfig - use `#` for commenting lines in `~/.gitconfig`
 ""
 autocmd FileType gitconfig setlocal commentstring=#\ %s
 
