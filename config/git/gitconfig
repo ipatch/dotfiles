@@ -287,6 +287,10 @@
   email = me@chrisrjones.com
   #signingKey = CD688E9D
 
+# [salsa.debian]
+#   name = truckmonth-guest
+#   email = me@chrisrjones.com
+
 [bitbucket]
   name = ipatch
   email = chrisr.r.jones.1983@gmail.com
