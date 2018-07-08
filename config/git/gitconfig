@@ -273,7 +273,12 @@
 [user]
 	name = Chris Jones
   email = chris.r.jones.1983@gmail.com
-	# useConfigOnly = true
+	useConfigOnly = true
+	signingkey = CDE31AD7ED85062F02F01B40F115EA48338F11B7
+
+[github]
+  name = Chris Jones
+  email = chris.r.jones.1983@gmail.com
 	signingkey = CDE31AD7ED85062F02F01B40F115EA48338F11B7
 
 [gitlab]
