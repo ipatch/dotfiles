@@ -69,7 +69,6 @@ tags
 # track all files with a name of `.gitkeep`
 !.gitkeep
 
-
 ##############################
 # weechat
 ##
