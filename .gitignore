@@ -104,5 +104,4 @@ terms/tmux/tmux/plugins/*
 ##############################
 # tmp - ignore files
 ##
-config/git/gitconfig
-
+# config/git/gitconfig
