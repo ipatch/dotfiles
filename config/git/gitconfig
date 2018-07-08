@@ -246,9 +246,8 @@
   submodulesummary = 1
 
 [commit]
-  # gpgsign = true
   verbose = true
-	# gpgsign = true
+	gpgsign = true
 
 [tag]
   verbose = true
