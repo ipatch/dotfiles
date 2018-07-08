@@ -246,9 +246,8 @@
   submodulesummary = 1
 
 [commit]
-  # gpgsign = true
   verbose = true
-	# gpgsign = true
+	gpgsign = true
 
 [tag]
   verbose = true
@@ -277,6 +276,12 @@
 	useConfigOnly = true
 	signingkey = CDE31AD7ED85062F02F01B40F115EA48338F11B7
 
+[user]
+  name = Chris Jones
+  email = me@chrisrjones.com
+  useConfigOnly = true
+  signingKey = 3F98A728548D2525EBBF723719F956DA5A23E31D
+
  [github]
  	name = Chris Jones
  	email = chris.r.jones.1983@gmail.com
@@ -285,7 +290,6 @@
 [gitlab]
 	name = truckmonth
   email = me@chrisrjones.com
-  #signingKey = CD688E9D
 
 [bitbucket]
   name = ipatch
