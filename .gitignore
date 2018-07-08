@@ -27,7 +27,6 @@ editors/vim/vim/tmp/*
 editors/vim/vim/pack/*
 editors/vim/vim/.netrwhist
 editors/vim/vim/bundle/*
-# editors/vim/vim/plugin/*
 editors/vim/vim/tmp/viminfo
 editors/vim/vim/tmp/swap/*.swp
 editors/vim/vim/tmp/view/*
@@ -101,3 +100,9 @@ terms/tmux/tmux/resurrect/*
 terms/tmux/tmux/resurrect/last
 terms/tmux/tmux/plugins/*
 !terms/tmux/tmux/plugins/.gitkeep
+
+##############################
+# tmp - ignore files
+##
+config/git/gitconfig
+
