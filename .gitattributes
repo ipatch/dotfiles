@@ -5,9 +5,9 @@
 # EXAMPLE
 # secretfile filter=git-crypt diff=git-crypt
 
-*.shh filter=git-crypt diff=git-crypt
-*.weechatlog filter=git-crypt diff=git-crypt
-**/irc.conf filter=git-crypt diff=git-crypt
+# *.shh filter=git-crypt diff=git-crypt
+# *.weechatlog filter=git-crypt diff=git-crypt
+# **/irc.conf filter=git-crypt diff=git-crypt
 
 
 
