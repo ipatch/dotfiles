@@ -47,6 +47,7 @@ $brew_prefix/opt/coreutils/libexec/gnubin \
 $brew_prefix/opt/ncurses/bin \
 $HOME/.local/bin \
 $HOME/.pyenv/bin \
+$HOME/.config/yarn/global/bin \
 # The below PATH entries are inherited from the `/usr/bin/env` on macOS, Linux is another story
 # /usr/sbin \
 # /usr/bin \
