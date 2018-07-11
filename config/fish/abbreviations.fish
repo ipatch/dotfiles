@@ -182,8 +182,8 @@ case Linux
   ###############################
   # make copy / paste a little bit easier for pengiuns 🐧
   ##
-  abbr -a pbcopy 'xclip -selection clipboard'
-  abbr -a pbpaste 'xclip -selection clipboard -o'
+  abbr -a pbcopy "xclip -selection clipboard"
+  abbr -a pbpaste "xclip -selection clipboard -o"
 end
 ################
 # Add special 🚌 aliases if certain binaries are found.
