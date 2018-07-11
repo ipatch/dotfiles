@@ -173,9 +173,17 @@ if type -q brew
  
 end
 
-
 case Linux
+  ###############################
+  # sytemd BS 🙄
+  ##
   abbr -a sc systemctl
+
+  ###############################
+  # make copy / paste a little bit easier for pengiuns 🐧
+  ##
+  abbr pbcopy='xclip -selection clipboard'
+  abbr pbpaste='xclip -selection clipboard -o'
 end
 ################
 # Add special 🚌 aliases if certain binaries are found.
