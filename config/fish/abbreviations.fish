@@ -157,19 +157,19 @@ if type -q brew
   abbr -a cd-brew-src "cd (brew --prefix)/Homebrew/Library/Taps/homebrew/homebrew-core"
     ###
     # postgresql
-    abbr -a pg-start "launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist"
-    abbr -a pg-stop "launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist"
+  abbr -a pg-start "launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist"
+  abbr -a pg-stop "launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist"
     
-    ###
-    # redis
-    abbr -a redis-start "launchctl load ~/Library/LaunchAgents/homebrew.mxcl.redis.plist"
-    abbr -a redis-stop "launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.redis.plist"
+  ###
+  # redis
+  abbr -a redis-start "launchctl load ~/Library/LaunchAgents/homebrew.mxcl.redis.plist"
+  abbr -a redis-stop "launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.redis.plist"
 
-    ##
-    # brew OpenSSH built with LibreSSL
-    ##
-    abbr -a ssh-start "sudo launchctl load /Library/LaunchDaemons/com.chrisrjones.sshd.plist"
-    abbr -a ssh-stop "sudo launchctl unload /Library/LaunchDaemons/com.chrisrjones.sshd.plist"
+  ###
+  # brew OpenSSH built with LibreSSL
+  ##
+  abbr -a ssh-start "sudo launchctl load /Library/LaunchDaemons/com.chrisrjones.sshd.plist"
+  abbr -a ssh-stop "sudo launchctl unload /Library/LaunchDaemons/com.chrisrjones.sshd.plist"
  
 end
 
