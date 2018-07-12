@@ -30,6 +30,28 @@ echo "more wtfz"
 
 # > the above was cool, but did not play well with Alpine Linux /bin/sh inside a docker container
 
+##############################
+# clear all previous environment variables 👩
+## 
+
+# retrieve 🐕 running Operating System
+if test -x /usr/bin/uname
+then
+  dots_os="/usr/bin/uname"
+  echo "Your OS appears to be $dots_os"
+elif test -x /bin/uname
+then
+  dots_os="/bin/uname"
+  echo "Your OS appears to be $dots_os"
+else
+  echo "Could not indentifiy your OS 🤷"
+fi
+
+
+
+
+
+
 # look for bash v2
 if test -x /usr/local/bin/bash
 then
@@ -38,8 +60,8 @@ then
   echo "dots_bash_bin = $dots_bash_bin"
 elif test -x /usr/bin/bash
 then
-  echo "found /usr/bin/bash"
-  dots_bash_bin="/usr/bin/bash"
+  echo "found /usr/bin/sh"
+  dots_bash_bin="/usr/bin/sh"
 else
   echo "404 bash not found"
 fi
