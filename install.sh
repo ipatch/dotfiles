@@ -35,4 +35,5 @@ printf '%s\n' "$DOTS_BASH_PATH"
 # > However, if using `echo` do `echo "$MY_VAR"` as opposed to `echo $MY_VAR` to properly interpret new line, ie. `\n`
 
 echo "$SHELL"
+echo "$0"
 echo "foo"
