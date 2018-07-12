@@ -21,3 +21,8 @@ echo "more wtfz"
 # INSTALLATION
 ##
 # curl -s https://raw.githubusercontent.com/ipatch/dotfiles/feature-exp-with-curl/develop/install.sh | /bin/sh
+
+
+# look for bash
+BASH_PATH="type -a bash"
+echo $PATH
