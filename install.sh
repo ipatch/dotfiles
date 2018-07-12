@@ -22,7 +22,8 @@ echo "more wtfz"
 ##
 # curl -s https://raw.githubusercontent.com/ipatch/dotfiles/feature-exp-with-curl/develop/install.sh | /bin/sh
 
+# prefix all `local` vars in this script with `DOTS`, and I use the word local very loosely
 
 # look for bash
-BASH_PATH="type -a bash"
-echo $PATH
+DOTS_BASH_PATH="type -a bash"
+echo $DOTS_BASH_PATH
