@@ -1,5 +1,8 @@
 #!/bin/sh
 
+##############################
+# CONTACT
+##
 # GitHub: @ipatch
 # Twitter: @truckmonth
 # Email: me@chrisrjones.com
@@ -19,9 +22,9 @@
 #############################
 # INSTALLATION
 ##
-# curl -s https://raw.githubusercontent.com/ipatch/dotfiles/feature-exp-with-curl/develop/install.sh | /bin/sh
+  # curl -s https://raw.githubusercontent.com/ipatch/dotfiles/feature-exp-with-curl/develop/install.sh | /bin/sh
 
-# prefix all local vars in this script with `dots`,I use the word local very loosely
+# TODO: prefix all local vars in this script with `dots`, I use the word local very loosely
 
 # look for bash v1
 # dots_bash_path="$(type -a bash)"
@@ -30,8 +33,13 @@
 # > the above was cool, but did not play well with Alpine Linux /bin/sh inside a docker container
 
 ##############################
-# clear all previous environment variables 👩
+# TODO: clear all previous environment variables 👩
 ## 
+
+##############################
+# NOTE: setup some colors
+##
+
 
 # retrieve 🐕 running Operating System
 if test -x /usr/bin/uname
@@ -41,19 +49,27 @@ then
   # ask $USER if the above is correct?
   read -p "Is your OS macOS (y/n)?" choice
   case "$choice" in
-    y|Y ) echo "yes";;
-    n|N ) echo "no";;
-    *) echo "invalid";;
+    y|Y ) printf "\n👌 Okay, let\'s continue...\n";;
+    n|N ) printf "\nWell 💩 that\'s embarrassing 🙈\n...and we can\'t continue.\n";;
+    # TODO: add color for 'y' and 'n' if possible
+    *) echo "\nyou gotta mash 'y' or 'n'\n"
+
   esac
-
-
 elif test -x /bin/uname
 then
   dots_os="$(/bin/uname)"
   echo "Your OS appears to be $dots_os"
   # ask $USER if the above is correct?
+  read -p "Is your OS Linux (y/n)?" choice
+  case "$choice" in
+    y|Y ) printf "👌 Okay, wtf let\'s \ncontinue...\n";;
+    n|N ) printf "well 💩 that\'s embarrassing 💩\nand we can't contine.\n";;
+    # TODO: add color for 'y' and 'n' if possible
+    *) echo "you gotta mash 'y' or 'n'"
+  esac
 
 else
+  # TODO: test this condition using a FreeBSD docker image
   echo "Could not identify your OS 🤷"
 fi
 
