@@ -5,7 +5,6 @@
 # Email: me@chrisrjones.com
 # Install script for @ipatch dotfiles.
 # version: 0.0.5
-echo "more wtfz"
 
 ##############################
 # PREAMBLE
@@ -38,19 +37,25 @@ echo "more wtfz"
 if test -x /usr/bin/uname
 then
   dots_os="$(/usr/bin/uname)"
-  echo "Your OS appears to be $dots_os"
+  echo "Your OS appears to be $dots_os, ie. macOS"
+  # ask $USER if the above is correct?
+  read -p "Is your OS macOS (y/n)?" choice
+  case "$choice" in
+    y|Y ) echo "yes";;
+    n|N ) echo "no";;
+    *) echo "invalid";;
+  esac
+
+
 elif test -x /bin/uname
 then
   dots_os="$(/bin/uname)"
   echo "Your OS appears to be $dots_os"
+  # ask $USER if the above is correct?
+
 else
-  echo "Could not indentifiy your OS 🤷"
+  echo "Could not identify your OS 🤷"
 fi
-
-
-
-
-
 
 # look for bash v2
 if test -x /usr/local/bin/bash
@@ -60,8 +65,8 @@ then
   echo "dots_bash_bin = $dots_bash_bin"
 elif test -x /usr/bin/bash
 then
-  echo "found /usr/bin/sh"
-  dots_bash_bin="/usr/bin/sh"
+  echo "found /usr/bin/bash"
+  dots_bash_bin="/usr/bin/bash"
 else
   echo "404 bash not found"
 fi
