@@ -37,11 +37,11 @@ echo "more wtfz"
 # retrieve 🐕 running Operating System
 if test -x /usr/bin/uname
 then
-  dots_os=/usr/bin/uname
+  dots_os="$(/usr/bin/uname)"
   echo "Your OS appears to be $dots_os"
 elif test -x /bin/uname
 then
-  dots_os=/bin/uname
+  dots_os="$(/bin/uname)"
   echo "Your OS appears to be $dots_os"
 else
   echo "Could not indentifiy your OS 🤷"
