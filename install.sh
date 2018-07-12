@@ -7,6 +7,16 @@
 # version: 0.0.5
 echo "more wtfz"
 
+##############################
+# PREAMBLE
+##
+# `curl`
+  # -f = fail silently
+  # -s = silent mode, ie. no progress bar
+  # -S = works in conjunction with `-s` and shows errors if something fails "F-"
+  # -L = useful for redirection
+##
+
 #############################
 # INSTALLATION
 ##
