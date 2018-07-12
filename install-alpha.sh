@@ -8,3 +8,4 @@
 # NOTE: the above command will download the script using `curl` contained within the `$USER` `$PATH` and run it through the Bourne Shell on the `$USER`s system.
 
 echo "wtf"
+echo "$SHELL"
