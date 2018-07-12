@@ -25,7 +25,12 @@ echo "more wtfz"
 # prefix all `local` vars in this script with `DOTS`, and I use the word local very loosely
 
 # look for bash
-DOTS_BASH_PATH=$(type -a bash)
-echo $DOTS_BASH_PATH
+DOTS_BASH_PATH="$(type -a bash)"
+printf '%s\n' "$DOTS_BASH_PATH"
 
+# > When setting the output of a command to a variable make sure to enclose `$(command)` within double quotes
+  # Ex. `"$(type -a bash)"
+
+# > `printf` is preferred over `echo`
+# > However, if using `echo` do `echo "$MY_VAR"` as opposed to `echo $MY_VAR` to properly interpret new line, ie. `\n`
 
