@@ -25,5 +25,7 @@ echo "more wtfz"
 # prefix all `local` vars in this script with `DOTS`, and I use the word local very loosely
 
 # look for bash
-DOTS_BASH_PATH="type -a bash"
+DOTS_BASH_PATH=$(type -a bash)
 echo $DOTS_BASH_PATH
+
+
