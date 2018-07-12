@@ -20,6 +20,8 @@
   # -L = useful for redirection
 ##
 
+echo "I'm gunna do my best and try and setup some dotfiles ...no guranetees"
+
 
 # setup some env vars for install script
 GREEN_COLOR="\033[0;32m"
