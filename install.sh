@@ -34,6 +34,25 @@ printf '%s\n' "$DOTS_BASH_PATH"
 # > `printf` is preferred over `echo`
 # > However, if using `echo` do `echo "$MY_VAR"` as opposed to `echo $MY_VAR` to properly interpret new line, ie. `\n`
 
-echo "$SHELL"
+# echo "$SHELL"
 echo "$0"
+# > Running `echo "$0"` locally echos `./install.sh`
 echo "foo"
+
+# if $DOTS_BASH_PATH contains `/usr/local/bin/bash` or `/usr/bin/bash`
+    # change the current shell to `bash`
+# end / fi
+if expr "$DOTS_BASH_PATH" : ".*bash" >/dev/null;
+then echo "found bash"
+else
+  echo "you need to install BASH to continue"
+  exit 1
+fi
+
+# check to see if script will stop if bash isn't found
+echo "how the hell did i get here without bash"
+
+# swith from /bin/sh to /usr/bin/env bash
+
+
+

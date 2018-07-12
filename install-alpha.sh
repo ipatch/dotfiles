@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/binsh
 
 # NOTE: in order to download and execute this script in one swoop 🦅
 
