@@ -37,22 +37,45 @@
 ## 
 
 ##############################
-# NOTE: setup some colors
+# NOTE: taste the rainbow™ 🌈
 ##
+Bld='\e[1m' # Enable Bold text
+Itl='\e[3m' # Enable Italic
+Und='\e[4m' # Enable Underline
+Rst='\e[0m' # Reset text
 
+# Regular             High Intensity      BoldHigh Intens  
+Bla='\e[0;30m';     IBla='\e[0;90m';    BIBla='\e[1;90m';  
+Red='\e[0;31m';     IRed='\e[0;91m';    BIRed='\e[1;91m';  
+Gre='\e[0;32m';     IGre='\e[0;92m';    BIGre='\e[1;92m';  
+Yel='\e[0;33m';     IYel='\e[0;93m';    BIYel='\e[1;93m';  
+Blu='\e[0;34m';     IBlu='\e[0;94m';    BIBlu='\e[1;94m';  
+Pur='\e[0;35m';     IPur='\e[0;95m';    BIPur='\e[1;95m';  
+Cya='\e[0;36m';     ICya='\e[0;96m';    BICya='\e[1;96m';  
+Whi='\e[0;37m';     IWhi='\e[0;97m';    BIWhi='\e[1;97m';  
+
+# Usage: `echo -e "${Blu}blue ${Red}red ${RCol}etc..."`
+printf "${Blu}blue ${Red}red ${Rst}etc...\n"
+printf "${Gre}Hello World${Rst}\n"
+printf "${Itl}italics${Rst}\n"
+printf "${Itl}${Red}italics${Rst}\n"
+
+printf "${Itl}${Bld}BOLD + italics${Rst}\n"
+printf "${Bld}${Itl}bold ++ italics${Rst}\n"
 
 # retrieve 🐕 running Operating System
 if test -x /usr/bin/uname
 then
   dots_os="$(/usr/bin/uname)"
-  echo "Your OS appears to be $dots_os, ie. macOS"
+  echo "Your ${BWhi}OS${RCol} appears to be $dots_os, ie. ${BWhi}macOS${RCol}"
   # ask $USER if the above is correct?
-  read -p "Is your OS macOS (y/n)?" choice
+  read -p "I'm going to test the color ${Gre}Green"
+  read -p "Is your OS macOS (${Gre}y${CRol}/${Red}n${CRol})?" choice
   case "$choice" in
-    y|Y ) printf "\n👌 Okay, let\'s continue...\n";;
-    n|N ) printf "\nWell 💩 that\'s embarrassing 🙈\n...and we can\'t continue.\n";;
+    y|Y ) printf "\n👌 ${Gre}Okay, let\'s continue...\n";;
+    n|N ) printf "\n${Red}Well 💩 that\'s embarrassing 🙈\n...and we can\'t continue.\n";;
     # TODO: add color for 'y' and 'n' if possible
-    *) echo "\nyou gotta mash 'y' or 'n'\n"
+    *) echo "\n${RCol}You gotta mash ${Gre}y ${CRol}or ${Red}n'\n"
 
   esac
 elif test -x /bin/uname
