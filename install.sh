@@ -54,7 +54,7 @@ Pur='\e[0;35m';     IPur='\e[0;95m';    BIPur='\e[1;95m';
 Cya='\e[0;36m';     ICya='\e[0;96m';    BICya='\e[1;96m';  
 Whi='\e[0;37m';     IWhi='\e[0;97m';    BIWhi='\e[1;97m';  
 
-# Usage: `echo -e "${Blu}blue ${Red}red ${RCol}etc..."`
+# Usage: `printf "${Blu}blue ${Red}red ${Rst}etc..."`
 printf "${Blu}blue ${Red}red ${Rst}etc...\n"
 printf "${Gre}Hello World${Rst}\n"
 printf "${Itl}italics${Rst}\n"
@@ -62,7 +62,7 @@ printf "${Itl}${Red}italics${Rst}\n"
 
 printf "${Itl}${Bld}BOLD + italics${Rst}\n"
 printf "${Bld}${Itl}bold ++ italics${Rst}\n"
-
+printf "${Bld}${Blu}This text should bold + blue${Rst}\n"
 # retrieve 🐕 running Operating System
 if test -x /usr/bin/uname
 then
