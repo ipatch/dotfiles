@@ -26,6 +26,8 @@
 
 ## Installation
 
+<!-- simple comment to aid video about git workflow -->
+
 
 ```diff
 - git clone --recursive git@github.com:ipatch/dotfiles.git
