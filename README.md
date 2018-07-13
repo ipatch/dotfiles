@@ -32,20 +32,10 @@
 ```
 
 ```sh
-curl https://git.io/fNLDA | /bin/sh
+curl https://raw.githubusercontent.com/ipatch/dotfiles/feature-exp-with-curl/develop/install.sh | /bin/sh
 ```
 
 > The above shell command will clone this repo and all submodule related repos.  🤙.  To find out more about git submodules, click [here](https://github.com/ipatch/dotfiles/wiki/git-Notes#git-submodules)
-
-<a href="fish-shell-setup"></a>
-
-### [Fish Shell](https://github.com/fish-shell/fish-shell)
-
-> To symlink the fish-shell configuration directory with supporting files.
-
-```sh
-ln -sf $dots/config/fish $HOME/.config/fish
-```
 
 <a href="file-structure"></a>
 
