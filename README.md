@@ -27,6 +27,7 @@
 ## Installation
 
 <!-- simple comment to aid video about git workflow -->
+<!-- more explanation of my git workflow -->
 
 
 ```diff
