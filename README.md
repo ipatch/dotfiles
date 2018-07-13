@@ -1,5 +1,3 @@
-<!-- -->
-
 <h2 align="center">dotfiles for Chris Jones</h2>
 
 > Give me six hours to chop down a tree and I will spend the first four sharpening the axe.
@@ -28,8 +26,13 @@
 
 ## Installation
 
+
+```diff
+- git clone --recursive git@github.com:ipatch/dotfiles.git
+```
+
 ```sh
-git clone --recursive git@github.com:ipatch/dotfiles.git
+curl https://git.io/fNLDA | /bin/sh
 ```
 
 > The above shell command will clone this repo and all submodule related repos.  🤙.  To find out more about git submodules, click [here](https://github.com/ipatch/dotfiles/wiki/git-Notes#git-submodules)
