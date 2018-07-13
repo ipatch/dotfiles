@@ -1,5 +1,5 @@
 ##############################
-# User specified file for configuring the fish shell.
+# User specified file for configuring fish shell.
 # Author: Chris Jones
 # Contact: @truckmonth <- twitter
 # Contact: @ipatch <- github 
@@ -32,7 +32,6 @@ if status --is-interactive
   source "$BASE16_SHELL/profile_helper.fish"
 end
 
-
 #############################
 # USER defined environment variables
 ##
@@ -47,6 +46,7 @@ set -gx XDG_CONFIG_DATA $HOME/.local/share
 set -gx CODE /opt/code
 set -gx code /opt/code
 set -gx github /opt/code/github
+set -gx private /opt/code/github/PRIVATE
 set -gx fish_emoji_width 2 # NOT COMPATIBLE with fish <= 2.7.1
 
 if type -q brew
@@ -84,6 +84,13 @@ end
 ##
 set -gx DOTNET_CLI_TELEMETRY_OPTOUT 1
 # To trust the certificate run 'dotnet dev-certs https --trust' (Windows and macOS only). 
+
+##############################
+# Erlang & Elixir tooling
+##
+if [ -x $HOME/.asdf/shims/erl ] || [ -x $HOME/.asdf/shims/iex ]
+  set -gx ERL_AFLAGS "-kernel shell_history enabled"
+end
 
 ##############################
 # git related settings
