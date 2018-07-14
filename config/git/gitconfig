@@ -143,7 +143,7 @@
   sma = "!git smf "git add --all";"
   ###
   # TODO: figure out how to submit a commit message from CLI
-  ###
+  ##
   smac = "!git smf "git commit -a"; git commit -a;"
   ###
   # push all files including submodule files
