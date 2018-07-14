@@ -26,9 +26,14 @@
 
 ## Installation
 
+<<<<<<< HEAD
 <!-- simple comment to aid video about git workflow -->
 <!-- more explanation of my git workflow -->
 
+||||||| merged common ancestors
+=======
+<!-- simple HTML comment to help aid in explaingin my git work flow -->
+>>>>>>> release
 
 ```diff
 - git clone --recursive git@github.com:ipatch/dotfiles.git
