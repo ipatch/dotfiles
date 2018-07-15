@@ -247,7 +247,7 @@
 
 [commit]
   verbose = true
-	# gpgsign = true
+	gpgsign = true
 
 [tag]
   verbose = true
@@ -287,7 +287,7 @@
 
 [bitbucket]
   name = ipatch
-  email = chrisr.r.jones.1983@gmail.com
+  email = chris.r.jones.1983@gmail.com
 
 # NOTE: the below settings require at least git v2.13
 # [includeIf ="gitdir:/opt/code/dotfiles/"
