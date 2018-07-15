@@ -26,14 +26,12 @@
 
 ## Installation
 
-<!-- hmmm --> 
-
 ```diff
 - git clone --recursive git@github.com:ipatch/dotfiles.git
 ```
 
 ```sh
-curl https://raw.githubusercontent.com/ipatch/dotfiles/feature-exp-with-curl/develop/install.sh | /bin/sh
+curl https://raw.githubusercontent.com/ipatch/dotfiles/master/install.sh | /bin/sh
 ```
 
 > The above shell command will clone this repo and all submodule related repos.  🤙.  To find out more about git submodules, click [here](https://github.com/ipatch/dotfiles/wiki/git-Notes#git-submodules)
