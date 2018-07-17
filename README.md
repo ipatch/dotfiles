@@ -2773,11 +2773,11 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/install.sh | /bin/
 
 <a href="useful-links"></a>
 
-## Useful Links ___in no particular order___
-- [Github - philtr/dotfiles](https://github.com/philtr/dotfiles)
-- [Github - wincent/wincent](https://github.com/wincent/wincent)
-- [Github - mathiasbynenes/dotfiles](https://github.com/mathiasbynens/dotfiles)
-- [Github - Awesome-dotfiles](https://github.com/webpro/awesome-dotfiles)
+## Useful Links ___no particular order___
+- [**Github** philtr/dotfiles](https://github.com/philtr/dotfiles)
+- [**Github** wincent/wincent](https://github.com/wincent/wincent)
+- [**Github** mathiasbynenes/dotfiles](https://github.com/mathiasbynens/dotfiles)
+- [**Github** Awesome-dotfiles](https://github.com/webpro/awesome-dotfiles)
 
 <a href="todos"></a>
 
