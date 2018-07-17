@@ -22,7 +22,7 @@ _"Give me six hours to chop down a tree and I will spend the first four sharpeni
 
 - [Installation](#installation)
 - [File Structure](#file-structure)
-- [Useful Links](#useful-links)
+- [Useful dotfiles](#useful-links)
 - [TODOs](#todos)
 - [Contact](#contact)
 
@@ -34,11 +34,12 @@ _"Give me six hours to chop down a tree and I will spend the first four sharpeni
 - git clone --recursive git@github.com:ipatch/dotfiles.git
 ```
 
+
+> The above shell command will clone this repo and all submodule related repos.  🤙.  To find out more about git submodules, click [here](https://github.com/ipatch/dotfiles/wiki/git-Notes#git-submodules)
+
 ```sh
 curl https://raw.githubusercontent.com/ipatch/dotfiles/master/install.sh | /bin/sh
 ```
-
-> The above shell command will clone this repo and all submodule related repos.  🤙.  To find out more about git submodules, click [here](https://github.com/ipatch/dotfiles/wiki/git-Notes#git-submodules)
 
 <a href="file-structure"></a>
 
