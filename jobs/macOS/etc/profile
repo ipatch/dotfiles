@@ -1,0 +1,18 @@
+# System-wide .profile for sh(1)
+
+if [ "`id -u`" -eq 0 ]; then # Super User, ie `root`
+  # DO NOTHING, ie. don't user `path_helper -s`
+  # echo ""
+  if [ -x /usr/libexec/path/helper ]; then
+    eval /usr/libexec/path_helper -s
+  fi
+elif [ "`id -un`" = capin ]; then
+  :
+else
+  if [ -x /usr/libexec/path_helper ]; then
+    eval /usr/libexec/path_helper -s
+    if [ "${BASH-no}" != "no" ]; then
+      [ -r /etc/bashrc ] && . /etc/bashrc
+    fi
+  fi
+fi
