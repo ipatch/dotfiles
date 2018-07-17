@@ -1,0 +1,58 @@
+##
+# User specific settings file for the mutt email client.
+# Contact: @ipatch <- github
+##
+
+# Identity
+set realname="Chris Jones"
+
+# set the terminal emulator to be used by mutt
+# setenv TERM xterm-256color-italic
+
+# set the default `from` email address when sending an email using mutt
+set from = "me@chrisrjones.com"
+
+# Editor
+set editor='nvim +/^$ "+setlocal fo+=w spell" +noh'
+set text_flowed # "Just say no"™ to line breaks when sending emails 👍
+set smart_wrap # Read emails in a sane 👩‍⚕️manner.
+
+# Message formatting
+alternative_order text/plain text/html
+auto_view text/html
+
+
+##############################
+# TODO: figure out the correct charsets for mutt
+##
+# Set encoding for sent emails 
+# set send_charset="us-ascii:utf-8"
+# Set encoding for reading emails
+# set charset = "en_US.UTF-8"
+
+# TODO: setup mail aliases
+# Contact management
+# set alias_file="=aliases"
+# source $alias_file
+
+
+# Mailbox shit
+set mbox_type="Maildir"
+ set spoolfile="~/Maildir/"
+ set folder="~/Maildir/"
+ set mask=".*"    # the default mask hides dotfiles and maildirs are dotfiles now.
+ # set mask="!^\.[^.]"  # this line intentionally commented out
+ set record="+.Sent"
+ set postponed="+.Drafts"
+
+ mailboxes ! + `\
+ for file in ~/Maildir/.*; do \
+   box=$(basename "$file"); \
+   if [ ! "$box" = '.' -a ! "$box" = '..' -a ! "$box" = '.customflags' \
+       -a ! "$box" = '.subscriptions' ]; then \
+     echo -n "\"+$box\" "; \
+   fi; \
+ done`
+
+ macro index c "<change-folder>?<toggle-mailboxes>" "open a different folder"
+ macro pager c "<change-folder>?<toggle-mailboxes>" "open a different folder"
