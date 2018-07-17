@@ -1,22 +1,26 @@
 <h2 align="center">dotfiles for Chris Jones</h2>
 
-> Give me six hours to chop down a tree and I will spend the first four sharpening the axe.
+<div align="right">
 
-![abe](https://raw.githubusercontent.com/wiki/ipatch/dotfiles/lib/abe.circle.png)
+_"Give me six hours to chop down a tree and I will spend the first four sharpening the axe."_
+
+</div>
+
+<img align="right" src="https://raw.githubusercontent.com/wiki/ipatch/dotfiles/lib/abe.circle.png" />
+
+<br />
 
 <h3 align="center">Drink Responsibly™ 🥃 while configuring dot files.</h3>
 
 <h6 align="center"><em>These dotfiles have been known to stop working at a moments notice, so buyer beware.</em></h6>
 
-## Table of Contents
+## Contents
 
-- [the dotfiles wiki](https://github.com/ipatch/dotfiles/wiki)
+- [awesome dotfiles wiki](https://github.com/ipatch/dotfiles/wiki)
 
 > A collection of useful pages that complements 👏 these dotfiles.
 
 - [Installation](#installation)
-  - [Fish shell setup](#fish-shell-setup)
-  - [Neovim setup](https://github.com/ipatch/dotfiles/tree/master/editors/vim)
 - [File Structure](#file-structure)
 - [Useful Links](#useful-links)
 - [TODOs](#todos)
