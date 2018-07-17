@@ -101,7 +101,7 @@ set -gx GIT_RC $XDG_CONFIG_HOME/git
 ##############################
 # locale settings
 ##
-# set -gx LC_CTYPE "en_US.UTF-8" # only set this if you want to overwrite ALL locales!
+# set -gx LC_ALL "en_US.UTF-8" # only set this if you want to overwrite ALL locales!
 
 ##############################
 # fzf
@@ -193,12 +193,6 @@ case Linux
     # set -gx TERM xterm
   else
     # DO NOTHING!
-  end
-
-  if [ -n $TMUX ]
-    # set -gx TERM tmux-256color
-  else
-    # DO NOTHING
   end
 
   if type -q vim
