@@ -45,8 +45,6 @@ SET _fish_abbr_path_2D_add:path_add
 SET _fish_abbr_path_2D_pretty:path_pretty
 SET _fish_abbr_path_2D_remove:path_remove
 SET _fish_abbr_path_2D_rm:path_remove
-SET _fish_abbr_pbcopy:xclip\x20\x2dselection\x20clipboard
-SET _fish_abbr_pbpaste:xclip\x20\x2dselection\x20clipboard\x20\x2do
 SET _fish_abbr_pg_2D_start:launchctl\x20load\x20\x7e/Library/LaunchAgents/homebrew\x2emxcl\x2epostgresql\x2eplist
 SET _fish_abbr_pg_2D_stop:launchctl\x20unload\x20\x7e/Library/LaunchAgents/homebrew\x2emxcl\x2epostgresql\x2eplist
 SET _fish_abbr_pp:path_pretty
