@@ -16,9 +16,7 @@ _"Give me six hours to chop down a tree and I will spend the first four sharpeni
 
 ## Contents
 
-- [awesome dotfiles wiki](https://github.com/ipatch/dotfiles/wiki)
-
-> A collection of useful pages that complements 👏 these dotfiles.
+> [awesome dotfiles wiki](https://github.com/ipatch/dotfiles/wiki) A collection of useful pages that complements 👏 these dotfiles.
 
 - [Installation](#installation)
 - [File Structure](#file-structure)
