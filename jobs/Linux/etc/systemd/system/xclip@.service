@@ -1,9 +1,0 @@
-[Unit]
-Description=Copy backend service piping input to xclip
-
-[Service]
-Type=simple
-ExecStart=/usr/bin/xclip -i -f -selection primary | /usr/bin/xclip -i selection clipboard
-StandardInput=socket
-StandardOutput=socket
-
