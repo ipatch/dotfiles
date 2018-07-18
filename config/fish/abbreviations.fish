@@ -55,11 +55,6 @@ abbr -ag tf 'emoji --table-flip'
 abbr -ag woot 'emoji --yay'
 
 ################
-# preserve the $USER environment when running the sudo command.
-##
-abbr -ag sudo 'sudo -E'
-
-################
 # git abbreviations
 ##
 abbr -ag gs 'git status'
@@ -145,14 +140,14 @@ case Darwin
   abbr -ag fs 'mac_toggle_hidden_files'
   abbr -ag fh 'mac_toggle_hidden_files'
 
-    ################
-    # launchd / launchctl
-    ##
-    abbr -ag lc 'launchctl'
+  ################
+  # launchd / launchctl
+  ##
+  abbr -ag lc 'launchctl'
   
-    ################
-    # homebrew specifc abbreviations
-    ##
+  ################
+  # homebrew specifc abbreviations
+  ##
 if type -q brew
 # working with brew src and formula
   abbr -ag cd-brew-src "cd (brew --prefix)/Homebrew/Library/Taps/homebrew/homebrew-core"
@@ -163,6 +158,7 @@ if type -q brew
     
   ###
   # redis
+  ##
   abbr -ag redis-start "launchctl load ~/Library/LaunchAgents/homebrew.mxcl.redis.plist"
   abbr -ag redis-stop "launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.redis.plist"
 
@@ -171,7 +167,6 @@ if type -q brew
   ##
   abbr -ag ssh-start "sudo launchctl load /Library/LaunchDaemons/com.chrisrjones.sshd.plist"
   abbr -ag ssh-stop "sudo launchctl unload /Library/LaunchDaemons/com.chrisrjones.sshd.plist"
- 
 end
 
 case Linux
