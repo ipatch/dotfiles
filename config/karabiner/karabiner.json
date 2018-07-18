@@ -13,9 +13,77 @@
                     "basic.to_if_alone_timeout_milliseconds": 1000,
                     "basic.to_if_held_down_threshold_milliseconds": 500
                 },
-                "rules": []
+                "rules": [
+                    {
+                        "description": "Toggle caps_lock by pressing left_shift + right_shift at the same time",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "left_shift",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "right_shift"
+                                        ],
+                                        "optional": [
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "caps_lock"
+                                    }
+                                ],
+                                "to_if_alone": [
+                                    {
+                                        "key_code": "left_shift"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "right_shift",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_shift"
+                                        ],
+                                        "optional": [
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "caps_lock"
+                                    }
+                                ],
+                                "to_if_alone": [
+                                    {
+                                        "key_code": "right_shift"
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    }
+                ]
             },
-            "devices": [],
+            "devices": [
+                {
+                    "disable_built_in_keyboard_if_exists": false,
+                    "fn_function_keys": [],
+                    "identifiers": {
+                        "is_keyboard": true,
+                        "is_pointing_device": false,
+                        "product_id": 610,
+                        "vendor_id": 1452
+                    },
+                    "ignore": false,
+                    "manipulate_caps_lock_led": true,
+                    "simple_modifications": []
+                }
+            ],
             "fn_function_keys": [
                 {
                     "from": {
