@@ -60,10 +60,10 @@ echo Would you like to proceed? "(Y or N)"
 
 # exit
 
-echo -n "Prompting for yes or no"
+echo "Prompting for yes or no"
 read yesno < /dev/tty
 
-if [ "x$yesno" = "xy" ]; then
+if [ "$yesno" = "xy" ]; then
   echo "yup"
 else
   echo "nay"
