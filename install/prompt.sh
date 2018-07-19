@@ -49,13 +49,22 @@ echo Would you like to proceed? "(Y or N)"
 #  echo "nope"
 #fi
 
-read -r input
+# read -r input
 
-case $input in
-  "Y") echo "yay"
-  ;;
-  "N") echo "nay"
-  ;;
-esac
+# case $input in
+#   "Y") echo "yay"
+#   ;;
+#   "N") echo "nay"
+#   ;;
+# esac
 
-exit
+# exit
+
+echo -n "Prompting for yes or no"
+read yesno < /dev/tty
+
+if [ "x$yesno" = "xy" ]; then
+  echo "yup"
+else
+  echo "nay"
+fi
