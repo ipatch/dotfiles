@@ -40,7 +40,7 @@ set -e
 
 echo Would you like to proceed? "(Y or N)"
 
-read -r x
+read x
 
 #now check if $x is "y"
 if [ "$x" = "y" ]; then
