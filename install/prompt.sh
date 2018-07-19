@@ -40,11 +40,22 @@ set -e
 
 echo Would you like to proceed? "(Y or N)"
 
-read x
+#read x
 
-#now check if $x is "y"
-if [ "$x" = "y" ]; then
-  echo "yup"
-else
-  echo "nope"
-fi
+##now check if $x is "y"
+#if [ "$x" = "y" ]; then
+#  echo "yup"
+#else
+#  echo "nope"
+#fi
+
+read -r input
+
+case $input in
+  "Y") echo "yay"
+  ;;
+  "N") echo "nay"
+  ;;
+esac
+
+exit
