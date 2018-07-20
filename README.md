@@ -1,24 +1,26 @@
 <h2 align="center">dotfiles for Chris Jones</h2>
 
-> Give me six hours to chop down a tree and I will spend the first four sharpening the axe.
+<div align="center">
 
-![abe](https://raw.githubusercontent.com/wiki/ipatch/dotfiles/lib/abe.circle.png)
+_"Give me six hours to chop down a tree and I will spend the first four sharpening the axe."_
+
+</div>
+
+<img align="right" src="https://raw.githubusercontent.com/wiki/ipatch/dotfiles/lib/abe.circle.png" />
+
+<br />
 
 <h3 align="center">Drink Responsibly™ 🥃 while configuring dot files.</h3>
 
 <h6 align="center"><em>These dotfiles have been known to stop working at a moments notice, so buyer beware.</em></h6>
 
-## Table of Contents
+## Contents
 
-- [the dotfiles wiki](https://github.com/ipatch/dotfiles/wiki)
-
-> A collection of useful pages that complements 👏 these dotfiles.
+> [awesome dotfiles wiki](https://github.com/ipatch/dotfiles/wiki) A collection of useful pages that complements 👏 these dotfiles.
 
 - [Installation](#installation)
-  - [Fish shell setup](#fish-shell-setup)
-  - [Neovim setup](https://github.com/ipatch/dotfiles/tree/master/editors/vim)
 - [File Structure](#file-structure)
-- [Useful Links](#useful-links)
+- [Useful dotfiles](#useful-links)
 - [TODOs](#todos)
 - [Contact](#contact)
 
@@ -30,11 +32,12 @@
 - git clone --recursive git@github.com:ipatch/dotfiles.git
 ```
 
+
+> The above shell command will clone this repo and all submodule related repos.  🤙.  To find out more about git submodules, click [here](https://github.com/ipatch/dotfiles/wiki/git-Notes#git-submodules)
+
 ```sh
 curl https://raw.githubusercontent.com/ipatch/dotfiles/master/install.sh | /bin/sh
 ```
-
-> The above shell command will clone this repo and all submodule related repos.  🤙.  To find out more about git submodules, click [here](https://github.com/ipatch/dotfiles/wiki/git-Notes#git-submodules)
 
 <a href="file-structure"></a>
 
@@ -2770,11 +2773,11 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/install.sh | /bin/
 
 <a href="useful-links"></a>
 
-## Useful Links ___in no particular order___
-- [Github - philtr/dotfiles](https://github.com/philtr/dotfiles)
-- [Github - wincent/wincent](https://github.com/wincent/wincent)
-- [Github - mathiasbynenes/dotfiles](https://github.com/mathiasbynens/dotfiles)
-- [Github - Awesome-dotfiles](https://github.com/webpro/awesome-dotfiles)
+## Useful Links ___no particular order___
+- [**Github** philtr/dotfiles](https://github.com/philtr/dotfiles)
+- [**Github** wincent/wincent](https://github.com/wincent/wincent)
+- [**Github** mathiasbynenes/dotfiles](https://github.com/mathiasbynens/dotfiles)
+- [**Github** Awesome-dotfiles](https://github.com/webpro/awesome-dotfiles)
 
 <a href="todos"></a>
 
