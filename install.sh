@@ -1,4 +1,5 @@
 #!/bin/sh
+set -e
 
 ##############################
 # CONTACT
@@ -46,7 +47,7 @@ Rst='\e[0m' # Reset text
 
 # Regular             High Intensity      BoldHigh Intens  
 Bla='\e[0;30m';     IBla='\e[0;90m';    BIBla='\e[1;90m';  
-Red='\e[0;31m';     IRed='\e[0;91m';    BIRed='\e[1;91m';  
+Red='\e[0;31m'; #    IRed='\e[0;91m';    BIRed='\e[1;91m';  
 Gre='\e[0;32m';     IGre='\e[0;92m';    BIGre='\e[1;92m';  
 Yel='\e[0;33m';     IYel='\e[0;93m';    BIYel='\e[1;93m';  
 Blu='\e[0;34m';     IBlu='\e[0;94m';    BIBlu='\e[1;94m';  
@@ -54,28 +55,38 @@ Pur='\e[0;35m';     IPur='\e[0;95m';    BIPur='\e[1;95m';
 Cya='\e[0;36m';     ICya='\e[0;96m';    BICya='\e[1;96m';  
 Whi='\e[0;37m';     IWhi='\e[0;97m';    BIWhi='\e[1;97m';  
 
-# Usage: `printf "${Blu}blue ${Red}red ${Rst}etc..."`
-printf "${Blu}blue ${Red}red ${Rst}etc...\n"
-printf "${Gre}Hello World${Rst}\n"
-printf "${Itl}italics${Rst}\n"
-printf "${Itl}${Red}italics${Rst}\n"
+blue=$(tput setaf 4)
+normal=$(tput sgr0)
 
-printf "${Itl}${Bld}BOLD + italics${Rst}\n"
-printf "${Bld}${Itl}bold ++ italics${Rst}\n"
-printf "${Bld}${Blu}This text should bold + blue${Rst}\n"
+# NOTE: from the printf(1) man page, `%b` interprets a string with a `\`
+
+printf "%bThis text is red%s""\\n" "$Red" "$normal"
+printf "%sThis text is blue%s""\\n" "$blue" "$normal"
+# printf "%bThis text is going to be purple." "\\n" "$Pur"
+
+# Usage: `printf "${Blu}blue ${Red}red ${Rst}etc..."`
+printf "%bblue %bred %betc...""\\n" "$Blu" "$Red" "$Rst"
+printf "%bHello World""\\n" "$Gre" "$Rst"
+printf "%bitalics""\\n" "$Itl" "$Rst"
+# printf "%b %bitalics""\\n" "$Itl" "$Red" "$Rst"
+
+printf "%bBOLD + italics""\\n" "$Bld" "$Itl" "$Rst"
+printf "%bbold + italics""\\n" "$Bld" "$Itl" "$Rst"
+printf "%bThis text should bold + blue""\\n" "$Bld" "$Blu" "$Rst"
 # retrieve 🐕 running Operating System
 if test -x /usr/bin/uname
 then
   dots_os="$(/usr/bin/uname)"
-  echo "Your ${BWhi}OS${RCol} appears to be $dots_os, ie. ${BWhi}macOS${RCol}"
+  printf "Your %bOS%b appears to be %s, ie. %bmacOS%b""\\n" "$BIWhi" "$Rst" "$dots_os" "$BIWhi" "$Rst"
   # ask $USER if the above is correct?
-  read -p "I'm going to test the color ${Gre}Green"
-  read -p "Is your OS macOS (${Gre}y${CRol}/${Red}n${CRol})?" choice
+  printf "Im going to test the color %bGreen%b""\\n" "$Gre" "$Rst"
+  printf "Is your OS, macOS (%by%b/%bn%b)?""\\n" "$Gre" "$Rst" "$Red" "$Rst"
+  read -r choice < /dev/tty
   case "$choice" in
-    y|Y ) printf "\n👌 ${Gre}Okay, let\'s continue...\n";;
-    n|N ) printf "\n${Red}Well 💩 that\'s embarrassing 🙈\n...and we can\'t continue.\n";;
+    y|Y ) printf "👌 %bOkay, lets continue...%b""\\n" "$Gre" "$Rst";;
+    n|N ) printf "%bWell 💩 thats embarrassing'\\n'...and we cant continue.%b""\\n" "$Red" "$Rst";;
     # TODO: add color for 'y' and 'n' if possible
-    *) echo "\n${RCol}You gotta mash ${Gre}y ${CRol}or ${Red}n'\n"
+    *) printf "You gotta mash %by%b or %bn%b""\\n" "$Gre" "$Rst" "$Red" "$Rst"
 
   esac
 elif test -x /bin/uname
@@ -83,25 +94,25 @@ then
   dots_os="$(/bin/uname)"
   echo "Your OS appears to be $dots_os"
   # ask $USER if the above is correct?
-  read -p "Is your OS Linux (y/n)?" choice
+  read -r "Is your OS Linux (y/n)?" choice < /dev/tty
   case "$choice" in
-    y|Y ) printf "👌 Okay, wtf let\'s \ncontinue...\n";;
-    n|N ) printf "well 💩 that\'s embarrassing 💩\nand we can't contine.\n";;
+    y|Y ) printf "👌 Okay, wtf lets  '\\n' continue...""\\n";;
+    n|N ) printf "well 💩 that'\\''s embarrassing '\\n' and we can't continue.""\\n";;
     # TODO: add color for 'y' and 'n' if possible
     *) echo "you gotta mash 'y' or 'n'"
   esac
 
 else
   # TODO: test this condition using a FreeBSD docker image
-  echo "Could not identify your OS 🤷"
+  printf "Could not identify your OS 🤷"
 fi
 
 # look for bash v2
 if test -x /usr/local/bin/bash
 then
-  echo "found /usr/local/bin/bash"
+  printf "found /usr/local/bin/bash"
   dots_bash_bin="/usr/local/bin/bash" 
-  echo "dots_bash_bin = $dots_bash_bin"
+  printf "%s =" "$dots_bash_bin"
 elif test -x /usr/bin/bash
 then
   echo "found /usr/bin/bash"
@@ -110,7 +121,7 @@ else
   echo "404 bash not found"
 fi
 
-echo "$dots_bash_bin"
+printf "%s" "$dots_bash_bin"
 
 # > When setting the output of a command to a variable make sure to enclose `$(command)` within double quotes
   # Ex. `"$(type -a bash)"
@@ -139,6 +150,4 @@ echo "$dots_bash_bin"
 # echo "how the hell did i get here without bash"
 
 # swith from /bin/sh to /usr/bin/env bash
-
-
 
