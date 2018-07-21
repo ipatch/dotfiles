@@ -1,0 +1,4 @@
+; User config file for asciinema settings
+
+; Limit recorded terminal inactivity to max n seconds, default: off
+idle_time_limit = 2
