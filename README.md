@@ -1,9 +1,7 @@
 <h2 align="center">dotfiles for Chris Jones</h2>
 
 <div align="center">
-
 _"Give me six hours to chop down a tree and I will spend the first four sharpening the axe."_
-
 </div>
 
 <img align="right" src="https://raw.githubusercontent.com/wiki/ipatch/dotfiles/lib/abe.circle.png" />
