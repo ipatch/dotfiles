@@ -8,9 +8,16 @@ then
   # echo "found bus pirate"
   sudo ln -sf /dev/tty.usbserial-A700dzDq /dev/buspirate
   osascript -e 'display notification "Bus Pirate connected via USB" with title "Bus Pirate"' 
+elif [ ! -c /dev/tty.usbserial-A700dzDq ]
+then
+  # echo "no bp found"
+  osascript -e 'display notification "No Bus Pirate found 🤷" with title "Bus Pirate"'
 else
   # echo "no bus pirate"
-  sudo rm -rf /dev/buspirate
-  osascript -e 'display notification "Bus Pirate disconnected via USB" with title "Bus Pirate"'
+  if [ -h /dev/buspirate ]
+  then
+    sudo rm -r /dev/buspirate
+    osascript -e 'display notification "Bus Pirate disconnected via USB" with title "Bus Pirate"'
+  fi
 fi
 
