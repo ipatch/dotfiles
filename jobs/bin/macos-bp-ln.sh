@@ -12,17 +12,19 @@ case $os in
       # echo "found bus pirate"
       sudo ln -sf /dev/tty.usbserial-A700dzDq /dev/buspirate
       osascript -e 'display notification "Bus Pirate connected via USB" with title "Bus Pirate"' 
-    elif [ ! -c /dev/tty.usbserial-A700dzDq ]
+    elif [ ! -c /dev/tty.usbserial-A700dzDq ] && [ -h /dev/buspirate ]
     then
       # echo "no bp found"
-      osascript -e 'display notification "No Bus Pirate found 🤷" with title "Bus Pirate"'
+      sudo rm /dev/buspirate
+      osascript -e 'display notification "No Bus Pirate found 🤷, and removed /dev/buspirate" with title "Bus Pirate"'
     else
+      echo "how the fuck did we get here"
       # echo "no bus pirate"
-      if [ -h /dev/buspirate ]
-      then
-        sudo rm -r /dev/buspirate
-        osascript -e 'display notification "Bus Pirate disconnected via USB" with title "Bus Pirate"'
-      fi
+      # if [ -h /dev/buspirate ]
+      # then
+      #   sudo rm -r /dev/buspirate
+      #   osascript -e 'display notification "Bus Pirate disconnected via USB" with title "Bus Pirate"'
+      # fi
     fi
     ;;
   Linux)
