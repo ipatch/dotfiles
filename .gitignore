@@ -110,7 +110,7 @@ config/asciinema/install-id
 ##############################
 # build artifacts
 ##
-**/.o
+**/*.o
 
 ##############################
 # tmp - ignore files
