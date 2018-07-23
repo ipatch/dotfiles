@@ -22,3 +22,10 @@ unencrypted
 nfsd
 launchctl
 STDOUT
+PreferencePanes
+unmount
+Postgres
+PostgreSQL
+ioregistry
+profiler
+ioreg
