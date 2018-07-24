@@ -46,5 +46,6 @@
 
     // Stop from scrolling past bottom of open file
     "editor.scrollBeyondLastLine": false,
-    "editor.minimap.enabled": true
+    "editor.minimap.enabled": true,
+    "workbench.sideBar.location": "left"
 }
