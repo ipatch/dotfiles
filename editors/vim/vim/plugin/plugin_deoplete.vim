@@ -15,7 +15,6 @@ if has('nvim')
   let g:deoplete#sources = {}
   let g:deoplete#sources.javascript = ['LanguageClient', 'file', 'buffer']
   let g:deoplete#sources.typescript = ['LanguageClient', 'file', 'buffer']
-  " let g:deoplete#sources.javascript = ['LanguageClient', 'file', 'buffer']
 
   " Disable the candidates in Comment/String syntaxes.
   " call deoplete#custom#source('_',
