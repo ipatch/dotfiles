@@ -90,7 +90,8 @@ abbr -ag rvm-toggle 'rvm_toggle'
 # NOTE: `vman` has mouse support.
 ##
 if type -q vman
-  abbr -ag man 'vman'
+  # NOTE: the below was breaking <tab> completion for displaying man pages for various commands
+  # abbr -ag man 'vman'
 else
   # DO NOTHING
 end

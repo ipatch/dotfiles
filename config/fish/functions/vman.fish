@@ -1,5 +1,4 @@
-function vman --description 'use vim / nvim to read man pages'
-
+function vman --wraps man --description 'use vim / nvim for displaying man pages'
   # col `-b` flag = don't output any backspaces
   # col `-p` flag = force uknown control sequences
   # ===
