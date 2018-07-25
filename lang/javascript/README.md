@@ -1,6 +1,17 @@
 <a href="contents"></a>
 
 ## ECMAScript _the language formerly known as JavaScript_ Tooling
+- [Working with Node.js](#working-with-nodejs)
+- [package.json](#package.json)
+- [Working with ESLint](#working-with-eslint)
+- [Setup ESLint to play nice with VS Code](#setup-eslint-to-play-nice-with-vs-code)
+- [Using Node.js with Neovim](#using-nodejs-with-neovim)
+- [Working with NPM](#working-with-npm)
+  - [NPM Security](#npm-security)
+- [Working with Yarn](#working-with-yarn)
+  - [Working with Yarn on Debian](#working-with-yarn-on-debian)
+- [Useful Links](#useful-links)
+- [TODOs](#todos)
 
 <a href="working-with-nodejs"></a>
 
@@ -20,7 +31,7 @@ What are the differences between **devDependencies** and **dependencies** in _pa
 
 <a href="working-with-eslint"></a>
 
-## Working with [eslint](https://eslint.org)
+## Working with [ESlint](https://eslint.org)
 
 To setup a `$USER`, ie. a global configuration file for eslint for a particular user that will be used for pretty much every Node.js project, or `.js` / `.jsx` file, create `~/.eslintrc`, which can be formatted using JSON. 👍
 
@@ -101,7 +112,7 @@ npm -g ls --depth=0
 
 <a href="npm-security"></a>
 
-## NPM security 
+### NPM security 
 
 To update a vulnerable package contained within a `package.json` file
 
@@ -181,7 +192,7 @@ yarn add <package> [-D/--dev]
 
 <a href="working-with-yarn-on-debian"></a>
 
-## Working with yarn on Debian
+### Working with Yarn on Debian
 
 If the below error message arises run the command below the error message.
 
@@ -235,5 +246,5 @@ wget -qO - https://raw.githubusercontent.com/yarnpkg/releases/gh-pages/debian/pu
 
 ## TODOs
 - [ ] Review all links recently added.
-- [ ] flesh out TOC
+- [x] ~~flesh out TOC~~
 - [ ] organize contents of the doc a little better _time permitting_
