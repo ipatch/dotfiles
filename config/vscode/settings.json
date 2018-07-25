@@ -47,5 +47,9 @@
     // Stop from scrolling past bottom of open file
     "editor.scrollBeyondLastLine": false,
     "editor.minimap.enabled": true,
-    "workbench.sideBar.location": "left"
+    "workbench.sideBar.location": "left",
+
+    // use global eslint installed via yarn
+    "eslint.packageManager": "yarn",
+    "eslint.enable": true
 }
