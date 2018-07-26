@@ -1,0 +1,3 @@
+# Machine-generated file - use "minicom -s" to change parameters.
+pu lock             /usr/local/Cellar/minicom/2.7.1/var
+pu escape-key       Escape (Meta)

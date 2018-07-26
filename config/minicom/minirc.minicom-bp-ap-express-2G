@@ -1,0 +1,4 @@
+# Machine-generated file - use "minicom -s" to change parameters.
+pu port             /dev/tty.usbserial-A700dzDq
+pu lock             /usr/local/Cellar/minicom/2.7.1/var
+pu escape-key       Escape (Meta)

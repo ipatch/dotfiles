@@ -50,7 +50,7 @@ set -gx private /opt/code/github/PRIVATE
 set -gx fish_emoji_width 2 # NOT COMPATIBLE with fish <= 2.7.1
 
 if type -q brew
-	set -gx blogs (brew --prefix)/var/log/
+	set -gx brew_logs (brew --prefix)/var/log/
 end
 	
 if type -q python
