@@ -1,0 +1,8 @@
+# Machine-generated file - use "minicom -s" to change parameters.
+pu port             /dev/tty.usbserial-A700dzDq
+pu lock             /usr/local/Cellar/minicom/2.7.1/var
+pu updir            /Users/capin/.config/minicom
+pu downdir          /Users/capin/.config/minicom
+pu scriptdir        
+pu escape-key       Escape (Meta)
+pu logfname         /Users/capin/.config/minicom/minicom.log
