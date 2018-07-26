@@ -28,12 +28,13 @@ _"Give me six hours to chop down a tree and I will spend the first four sharpeni
 
 ## Installation
 
+> The below shell command will clone this repo and all submodule related repos.  🤙.  To find out more about git submodules, click [here](https://github.com/ipatch/dotfiles/wiki/git-Notes#git-submodules)
+
 ```diff
 - git clone --recursive git@github.com:ipatch/dotfiles.git
 ```
 
-
-> The above shell command will clone this repo and all submodule related repos.  🤙.  To find out more about git submodules, click [here](https://github.com/ipatch/dotfiles/wiki/git-Notes#git-submodules)
+> 👷 The below install script has not been completed, so you'll have to do the good ol [StackOverflow](https://i.imgur.com/QZj4hxp.jpg) if you want to expierment with any of the settings from this repo. 🚧
 
 ```sh
 curl https://raw.githubusercontent.com/ipatch/dotfiles/master/install.sh | /bin/sh
