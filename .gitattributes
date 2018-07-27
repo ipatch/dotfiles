@@ -7,7 +7,7 @@
 
 # *.shh filter=git-crypt diff=git-crypt
 # *.weechatlog filter=git-crypt diff=git-crypt
-**/irc.conf filter=git-crypt diff=git-crypt
+**/irc.conf.shh filter=git-crypt diff=git-crypt
 jobs/bin/openvpn/** filter=git-crypt diff=git-crypt
 
 # mpv history
