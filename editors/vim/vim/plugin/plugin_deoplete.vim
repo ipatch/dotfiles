@@ -8,7 +8,6 @@ if has('nvim')
   let g:deoplete#enable_at_startup = 1
   let g:deoplete#enable_smart_case = 1
   " let b:deoplete_disable_auto_complete = 1
-  " let g:deoplete_disable_auto_complete = 1
   let g:deoplete#omni#input_patterns = {}
 
   set completeopt=longest,menuone,preview
@@ -16,7 +15,6 @@ if has('nvim')
   let g:deoplete#sources = {}
   let g:deoplete#sources.javascript = ['LanguageClient', 'file', 'buffer']
   let g:deoplete#sources.typescript = ['LanguageClient', 'file', 'buffer']
-  " let g:deoplete#sources.javascript = ['LanguageClient', 'file', 'buffer']
 
   " Disable the candidates in Comment/String syntaxes.
   " call deoplete#custom#source('_',
