@@ -1,0 +1,439 @@
+#
+# weechat -- irc.conf
+#
+# WARNING: It is NOT recommended to edit this file by hand,
+# especially if WeeChat is running.
+#
+# Use /set or similar command to change settings in WeeChat.
+#
+# For more info, see: https://weechat.org/doc/quickstart
+#
+
+[look]
+buffer_open_before_autojoin = on
+buffer_open_before_join = off
+buffer_switch_autojoin = on
+buffer_switch_join = on
+color_nicks_in_names = off
+color_nicks_in_nicklist = off
+color_nicks_in_server_messages = on
+color_pv_nick_like_channel = on
+ctcp_time_format = "%a, %d %b %Y %T %z"
+display_away = local
+display_ctcp_blocked = on
+display_ctcp_reply = on
+display_ctcp_unknown = on
+display_host_join = on
+display_host_join_local = on
+display_host_quit = on
+display_join_message = "329,332,333,366"
+display_old_topic = on
+display_pv_away_once = on
+display_pv_back = on
+highlight_channel = "$nick"
+highlight_pv = "$nick"
+highlight_server = "$nick"
+highlight_tags_restrict = "irc_privmsg,irc_notice"
+item_channel_modes_hide_args = "k"
+item_display_server = buffer_plugin
+item_nick_modes = on
+item_nick_prefix = on
+join_auto_add_chantype = off
+msgbuffer_fallback = current
+new_channel_position = none
+new_pv_position = none
+nick_completion_smart = speakers
+nick_mode = prefix
+nick_mode_empty = off
+nicks_hide_password = "nickserv"
+notice_as_pv = auto
+notice_welcome_redirect = on
+notice_welcome_tags = ""
+notify_tags_ison = "notify_message"
+notify_tags_whois = "notify_message"
+part_closes_buffer = off
+pv_buffer = independent
+pv_tags = "notify_private"
+raw_messages = 256
+server_buffer = independent
+smart_filter = on
+smart_filter_delay = 5
+smart_filter_join = on
+smart_filter_join_unmask = 30
+smart_filter_mode = "+"
+smart_filter_nick = on
+smart_filter_quit = on
+temporary_servers = off
+topic_strip_colors = off
+
+[color]
+input_nick = lightcyan
+item_channel_modes = default
+item_lag_counting = default
+item_lag_finished = yellow
+item_nick_modes = default
+message_join = green
+message_quit = red
+mirc_remap = "1,-1:darkgray"
+nick_prefixes = "y:lightred;q:lightred;a:lightcyan;o:lightgreen;h:lightmagenta;v:yellow;*:lightblue"
+notice = green
+reason_quit = 244
+topic_current = default
+topic_new = 36
+topic_old = 244
+
+[network]
+autoreconnect_delay_growing = 2
+autoreconnect_delay_max = 600
+ban_mask_default = "*!$ident@$host"
+channel_encode = off
+colors_receive = on
+colors_send = on
+lag_check = 60
+lag_max = 1800
+lag_min_show = 500
+lag_reconnect = 300
+lag_refresh_interval = 1
+notify_check_ison = 1
+notify_check_whois = 5
+sasl_fail_unavailable = on
+send_unknown_commands = off
+whois_double_nick = off
+
+[msgbuffer]
+
+[ctcp]
+
+[ignore]
+
+[server_default]
+addresses = ""
+anti_flood_prio_high = 2
+anti_flood_prio_low = 2
+autoconnect = off
+autojoin = ""
+autoreconnect = on
+autoreconnect_delay = 10
+autorejoin = off
+autorejoin_delay = 30
+away_check = 0
+away_check_max_nicks = 25
+capabilities = ""
+command = ""
+command_delay = 0
+connection_timeout = 60
+ipv6 = on
+local_hostname = ""
+msg_kick = ""
+msg_part = "WeeChat ${info:version}"
+msg_quit = "WeeChat ${info:version}"
+nicks = "capin,capin1,capin2,capin3,capin4"
+nicks_alternate = on
+notify = ""
+password = ""
+proxy = ""
+realname = ""
+sasl_fail = continue
+sasl_key = ""
+sasl_mechanism = plain
+sasl_password = ""
+sasl_timeout = 15
+sasl_username = ""
+split_msg_max_length = 512
+ssl = off
+ssl_cert = ""
+ssl_dhkey_size = 2048
+ssl_fingerprint = ""
+ssl_priorities = "NORMAL:-VERS-SSL3.0"
+ssl_verify = on
+usermode = ""
+username = "capin"
+
+[server]
+freenode.addresses = "irc.freenode.net"
+freenode.proxy
+freenode.ipv6
+freenode.ssl
+freenode.ssl_cert
+freenode.ssl_priorities
+freenode.ssl_dhkey_size
+freenode.ssl_fingerprint
+freenode.ssl_verify
+freenode.password
+freenode.capabilities
+freenode.sasl_mechanism
+freenode.sasl_username
+freenode.sasl_password
+freenode.sasl_key
+freenode.sasl_timeout
+freenode.sasl_fail
+freenode.autoconnect = on
+freenode.autoreconnect
+freenode.autoreconnect_delay
+freenode.nicks
+freenode.nicks_alternate
+freenode.username
+freenode.realname = "Chris"
+freenode.local_hostname
+freenode.usermode
+freenode.command
+freenode.command_delay
+freenode.autojoin = "#theairportwiki,#kegbot,#OSXRE,#NetBSD,#openwrt,#weechat,#tmux,#neomutt,##homebrew,#machomebrew,#radare,#facetimehd,#mipslinux,#openocd,#openjtag,#mpv,#applescript,#xorg,#lfs-support,#inkscape,#macosx,#vim,#neovim,#alacritty,#Node.js,#bash,#flashrom,#coreboot,##re,#macdev"
+freenode.autorejoin
+freenode.autorejoin_delay
+freenode.connection_timeout
+freenode.anti_flood_prio_high
+freenode.anti_flood_prio_low
+freenode.away_check
+freenode.away_check_max_nicks
+freenode.msg_kick
+freenode.msg_part
+freenode.msg_quit
+freenode.notify
+freenode.split_msg_max_length
+2600.addresses = "irc.2600.net"
+2600.proxy
+2600.ipv6
+2600.ssl
+2600.ssl_cert
+2600.ssl_priorities
+2600.ssl_dhkey_size
+2600.ssl_fingerprint
+2600.ssl_verify
+2600.password
+2600.capabilities
+2600.sasl_mechanism
+2600.sasl_username
+2600.sasl_password
+2600.sasl_key
+2600.sasl_timeout
+2600.sasl_fail
+2600.autoconnect
+2600.autoreconnect
+2600.autoreconnect_delay
+2600.nicks
+2600.nicks_alternate
+2600.username
+2600.realname
+2600.local_hostname
+2600.usermode
+2600.command
+2600.command_delay
+2600.autojoin = "#tx2600"
+2600.autorejoin
+2600.autorejoin_delay
+2600.connection_timeout
+2600.anti_flood_prio_high
+2600.anti_flood_prio_low
+2600.away_check
+2600.away_check_max_nicks
+2600.msg_kick
+2600.msg_part
+2600.msg_quit
+2600.notify
+2600.split_msg_max_length
+oftc.addresses = "irc.oftc.net"
+oftc.proxy
+oftc.ipv6
+oftc.ssl
+oftc.ssl_cert
+oftc.ssl_priorities
+oftc.ssl_dhkey_size
+oftc.ssl_fingerprint
+oftc.ssl_verify
+oftc.password
+oftc.capabilities
+oftc.sasl_mechanism
+oftc.sasl_username
+oftc.sasl_password
+oftc.sasl_key
+oftc.sasl_timeout
+oftc.sasl_fail
+oftc.autoconnect = on
+oftc.autoreconnect
+oftc.autoreconnect_delay
+oftc.nicks
+oftc.nicks_alternate
+oftc.username
+oftc.realname
+oftc.local_hostname
+oftc.usermode
+oftc.command
+oftc.command_delay
+oftc.autojoin = "#fish,#qemu"
+oftc.autorejoin
+oftc.autorejoin_delay
+oftc.connection_timeout
+oftc.anti_flood_prio_high
+oftc.anti_flood_prio_low
+oftc.away_check
+oftc.away_check_max_nicks
+oftc.msg_kick
+oftc.msg_part
+oftc.msg_quit
+oftc.notify
+oftc.split_msg_max_length
+efnet.addresses = "irc.efnet.org"
+efnet.proxy
+efnet.ipv6
+efnet.ssl
+efnet.ssl_cert
+efnet.ssl_priorities
+efnet.ssl_dhkey_size
+efnet.ssl_fingerprint
+efnet.ssl_verify
+efnet.password
+efnet.capabilities
+efnet.sasl_mechanism
+efnet.sasl_username
+efnet.sasl_password
+efnet.sasl_key
+efnet.sasl_timeout
+efnet.sasl_fail
+efnet.autoconnect = on
+efnet.autoreconnect
+efnet.autoreconnect_delay
+efnet.nicks
+efnet.nicks_alternate
+efnet.username
+efnet.realname
+efnet.local_hostname
+efnet.usermode
+efnet.command
+efnet.command_delay
+efnet.autojoin = "#switchdev"
+efnet.autorejoin
+efnet.autorejoin_delay
+efnet.connection_timeout
+efnet.anti_flood_prio_high
+efnet.anti_flood_prio_low
+efnet.away_check
+efnet.away_check_max_nicks
+efnet.msg_kick
+efnet.msg_part
+efnet.msg_quit
+efnet.notify
+efnet.split_msg_max_length
+saurik.addresses = "irc.saurik.com"
+saurik.proxy
+saurik.ipv6
+saurik.ssl
+saurik.ssl_cert
+saurik.ssl_priorities
+saurik.ssl_dhkey_size
+saurik.ssl_fingerprint
+saurik.ssl_verify
+saurik.password
+saurik.capabilities
+saurik.sasl_mechanism
+saurik.sasl_username
+saurik.sasl_password
+saurik.sasl_key
+saurik.sasl_timeout
+saurik.sasl_fail
+saurik.autoconnect
+saurik.autoreconnect
+saurik.autoreconnect_delay
+saurik.nicks
+saurik.nicks_alternate
+saurik.username
+saurik.realname
+saurik.local_hostname
+saurik.usermode
+saurik.command
+saurik.command_delay
+saurik.autojoin = "#iphonedev"
+saurik.autorejoin
+saurik.autorejoin_delay
+saurik.connection_timeout
+saurik.anti_flood_prio_high
+saurik.anti_flood_prio_low
+saurik.away_check
+saurik.away_check_max_nicks
+saurik.msg_kick
+saurik.msg_part
+saurik.msg_quit
+saurik.notify
+saurik.split_msg_max_length
+hackint.addresses = "irc.hackint.org"
+hackint.proxy
+hackint.ipv6
+hackint.ssl
+hackint.ssl_cert
+hackint.ssl_priorities
+hackint.ssl_dhkey_size
+hackint.ssl_fingerprint
+hackint.ssl_verify
+hackint.password
+hackint.capabilities
+hackint.sasl_mechanism
+hackint.sasl_username
+hackint.sasl_password
+hackint.sasl_key
+hackint.sasl_timeout
+hackint.sasl_fail
+hackint.autoconnect
+hackint.autoreconnect
+hackint.autoreconnect_delay
+hackint.nicks
+hackint.nicks_alternate
+hackint.username
+hackint.realname
+hackint.local_hostname
+hackint.usermode
+hackint.command
+hackint.command_delay
+hackint.autojoin = "#dallashackers"
+hackint.autorejoin
+hackint.autorejoin_delay
+hackint.connection_timeout
+hackint.anti_flood_prio_high
+hackint.anti_flood_prio_low
+hackint.away_check
+hackint.away_check_max_nicks
+hackint.msg_kick
+hackint.msg_part
+hackint.msg_quit
+hackint.notify
+hackint.split_msg_max_length
+highway.addresses = "irc.irchighway.net"
+highway.proxy
+highway.ipv6
+highway.ssl
+highway.ssl_cert
+highway.ssl_priorities
+highway.ssl_dhkey_size
+highway.ssl_fingerprint
+highway.ssl_verify
+highway.password
+highway.capabilities
+highway.sasl_mechanism
+highway.sasl_username
+highway.sasl_password
+highway.sasl_key
+highway.sasl_timeout
+highway.sasl_fail
+highway.autoconnect
+highway.autoreconnect
+highway.autoreconnect_delay
+highway.nicks
+highway.nicks_alternate
+highway.username
+highway.realname
+highway.local_hostname
+highway.usermode
+highway.command
+highway.command_delay
+highway.autojoin
+highway.autorejoin
+highway.autorejoin_delay
+highway.connection_timeout
+highway.anti_flood_prio_high
+highway.anti_flood_prio_low
+highway.away_check
+highway.away_check_max_nicks
+highway.msg_kick
+highway.msg_part
+highway.msg_quit
+highway.notify
+highway.split_msg_max_length
