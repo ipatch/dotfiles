@@ -83,6 +83,10 @@ config/irc-clients/weechat/xfer/*
 ##
 # Ignore fishd.<hash-files>
 config/fish/fishd.*
+**/fish_history
+**/fish_read_history
+**/generated_completions/
+
 ##############################
 # mpv
 ##
