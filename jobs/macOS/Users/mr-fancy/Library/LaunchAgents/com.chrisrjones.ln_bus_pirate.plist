@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple/DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <key>Label</key>
+    <string>com.chrisrjones.ln_bus_pirate</string>
+
+     <key>ProgramArguments</key>
+    <array>
+      <string>sh</string>
+      <string>-c</string>
+      <string>/Users/capin/.local/bin/macos-bp-ln.sh</string>
+    </array>
+
+
+    <key>RunAtLoad</key>
+    <false/>
+    <!-- <key>KeepAlive</key> -->
+    <!-- <dict> -->
+      <!-- <key>PathState</key> -->
+      <!-- <dict> -->
+        <!-- <key>/dev/tty.usbserial-A700dzDq</key> -->
+        <!-- <true/> -->
+      <!-- </dict> -->
+    <!-- </dict> -->
+    <key>LaunchEvents</key>
+    <dict>
+      <key>com.apple.iokit.matching</key>
+      <dict>
+        <key>com.apple.device-attach</key>
+        <dict>
+          <key>IOProviderClass</key>
+          <string>IOUSBDevice</string>
+          <key>idProduct</key>
+          <string>24577</string>
+          <key>idVendor</key>
+          <string>1027</string>
+          <key>IOMatchLaunchStream</key>
+          <true/>
+          <!-- <key>IOMatchStream</key> -->
+          <!-- <true/> -->
+        </dict>
+      </dict>
+    </dict>
+    <!-- <key>WatchPaths</key> -->
+    <!-- <array> -->
+    <!--   <string>/dev/tty.usbserial-A700dzDq</string> -->
+    <!-- </array> -->
+
+    <!-- <key>StandardErrorPath</key> -->
+    <!-- <string>/usr/local/var/log/ln_bus_pirate.err</string> -->
+
+    <!-- <key>StandardOutPath</key> -->
+    <!-- <string>/usr/local/var/log/ln_bus_pirate.out</string> -->
+  </dict>
+</plist>
+

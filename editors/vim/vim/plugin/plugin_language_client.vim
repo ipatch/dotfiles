@@ -13,6 +13,10 @@ let g:LanguageClient_serverCommands = {
       \ 'javascript': ['javascript-typescript-stdio'],
       \ 'javascript.jsx': ['javascript-typescript-stdio'],
       \ 'typescript': ['javascript-typescript-stdio'],
+      \ 'cpp': ['clangd'],
+      \ 'objc': ['clangd'],
+      \ 'c': ['clangd'],
+      \ 'objcpp': ['clangd']
       \ }
 
       " \ 'javascript': ['flow-language-server', '--stdio'],
