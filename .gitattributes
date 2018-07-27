@@ -1,6 +1,6 @@
 ##############################
 # Some of the files in this repo are encrypted using `git-crypt`
-##
+#
 
 # EXAMPLE
 # secretfile filter=git-crypt diff=git-crypt
