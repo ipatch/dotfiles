@@ -1,13 +1,16 @@
 ##############################
 # Some of the files in this repo are encrypted using `git-crypt`
-#
+##
 
 # EXAMPLE
 # secretfile filter=git-crypt diff=git-crypt
 
-# *.shh filter=git-crypt diff=git-crypt
+####
+# Global `git-crypt` files, ie. all files in this repo with a `.shu` 🤫
+##
+*.shu filter=git-crypt diff=git-crypt
 # *.weechatlog filter=git-crypt diff=git-crypt
-**/irc.conf.shh filter=git-crypt diff=git-crypt
+**/irc.conf.shu filter=git-crypt diff=git-crypt
 jobs/bin/openvpn/** filter=git-crypt diff=git-crypt
 
 # mpv history
@@ -15,7 +18,7 @@ jobs/bin/openvpn/** filter=git-crypt diff=git-crypt
 
 # asciicenma install ID, ie. API token
 # config/asciinema/install-id filter=git-crypt diff=git-crypt
-config/asciinema/install-id.shh filter=git-crypt diff=git-crypt
+config/asciinema/install-id.shu filter=git-crypt diff=git-crypt
 
 # Don't encrypt the `.gitattributes file itself
 .gitattributes !filter !diff
