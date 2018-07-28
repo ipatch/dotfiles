@@ -113,7 +113,7 @@
   ####
   # to undo the last commit
   ##
-  undoci = "!git reset HEAD~"
+  undocommit = "!git-reset HEAD~"
 
   # Undo a `git push`
   undopush = push -f origin HEAD^:master
