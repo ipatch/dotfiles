@@ -1,0 +1,41 @@
+"""""""""""""""""""""""""""""""""""""
+" plugin - LanguageClient-neovim
+""
+
+if has('nvim')
+  call minpac#add('autozimu/LanguageClient-neovim', {
+        \'branch': 'next',
+        \'do': {-> system('bash install.sh')}})
+elseif v:version > 8 || v:version == 8 " Check for Vim8 ...sort of
+  call minpac#add('autozimu/LanguageClient-neovim', {
+        \'branch': 'next', 'do': {-> system('bash install.sh')}})
+endif
+
+let g:LanguageClient_autoStart = 1
+" nnoremap <leader>lcs :LanguageClientStart<CR>
+" let g:LanguageClient_logginLevel = 'DEBUG'
+" let g:LanguageClient_loggingFile = '~/logs/languageclient.log'
+" let g:LanguageClient_serverStderr = '~/logs/languageserver.log'
+" let g:LanguageClient_loadSettings = 1
+
+let g:LanguageClient_serverCommands = {
+      \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
+      \ 'javascript': ['javascript-typescript-stdio'],
+      \ 'javascript.jsx': ['javascript-typescript-stdio'],
+      \ 'typescript': ['javascript-typescript-stdio'],
+      \ 'cpp': ['clangd'],
+      \ 'objc': ['clangd'],
+      \ 'c': ['clangd'],
+      \ 'objcpp': ['clangd']
+      \ }
+
+      " \ 'javascript': ['flow-language-server', '--stdio'],
+" NOTE: <silent> does not echo to the command line
+noremap <silent> H :call LanguageClient_textDocument_hover()<CR>
+noremap <silent> Z :call LanguageClient_textDocument_definition()<CR>
+noremap <silent> R :call LanguageClient_textDocument_rename()<CR>
+noremap <silent> S :call LanguageClient_textDocument_documentSymbol()<CR>
+
+set omnifunc=LanguageClient#complete
+set completefunc=LanguageClient#complete
+
