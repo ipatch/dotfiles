@@ -211,6 +211,69 @@ else
   " minpac - conditional plugins
   ""
   if has('nvim')
+
+    """""""""""""""""""""""""""""
+    " LSP clients
+    ""
+    call minpac#add('prabirshrestha/async.vim')
+    call minpac#add('prabirshrestha/vim-lsp')
+    call minpac#add('prabirshrestha/asyncomplete-lsp.vim')
+    call minpac#add('ryanolsonx/vim-lsp-typescript')
+    call minpac#add('prabirshrestha/asyncomplete.vim')
+    call minpac#add('ajh17/VimCompletesMe')
+
+    """"""""""""""""""""""""""""
+    " LSP server settings
+    ""
+    if executable('typescript-language-server')
+      au User lsp_setup call lsp#register_server({
+            \ 'name': 'typescript-language-server',
+            \ 'cmd': {server_info->[&shell, &shellcmdflag, 'typescript-language-server --stdio']},
+            \ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), '.git/..'))},
+            \ 'whitelist': ['typescript', 'javascript', 'javascript.jsx'],
+            \ })
+      " autocmd FileType typescript setlocal omnifunc=lsp#complete
+      " autocmd FileType javascript setlocal omnifunc=lsp#complete
+      " autocmd FileType javascript.jsx setlocal omnifunc=lsp#complete
+
+    endif
+
+    
+    """""""""""""""""""""""""""""
+    " plugin - vim-lsp
+    ""
+    let g:lsp_signs_enabled = 1 " enable signs
+    let g:lsp_diagnostics_echo_cursor = 1 " enable echo under cursor when in normal mode
+
+    let g:lsp_signs_error = {'text': '🚨'}
+    let g:lsp_signs_warning = { 'text': '⚠️'}
+    let g:lsp_signs_hint = { 'text': '🙋'}
+    """"""""""""""""""""""""""""
+    " plugin - vim-lsp - omnifunc
+    ""
+    " let g:lsp_async_completion = 1
+    " autocmd FileType typescript setlocal omnifunc=lsp#complete
+    " autocmd FileType javascript setlocal omnifunc=lsp#complete
+    " autocmd FileType javascript.jsx setlocal omnifunc=lsp#complete
+    
+    " Added as said in https://github.com/keremc/asyncomplete-racer.vim#installation
+    autocmd User asyncomplete_setup call asyncomplete#register_source(asyncomplete#sources#racer#get_source_options())
+
+    """"""""""""""""""""""""""""
+    " plugin - asynccomplete - omnifunc
+    ""
+    inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+    inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+    inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>"
+
+    imap <c-space> <Plug>(asyncomplete_force_refresh)
+    let g:asyncomplete_auto_popup = 1
+    set completeopt+=preview
+    autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
+
+
+            " \ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'tsconfig.json'))},
+
     " call minpac#add('autozimu/LanguageClient-neovim', {
           " \'branch': 'next',
           " \'do': {-> system('bash install.sh')}})

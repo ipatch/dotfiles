@@ -21,7 +21,6 @@ switch $os
     abbr -ag l 'ls -lahF'
 end
 abbr -ag cp 'cp -iv'
-abbr -ag cddots 'cd $dot'
 abbr -ag dots 'cd $dot'
 
 #############################
@@ -44,8 +43,6 @@ abbr -ag mv 'mv -iv'
 abbr -ag df 'df -h'
 abbr -ag du 'du -h'
 abbr -ag today 'date +"%A, %B %-d, %Y"'
-abbr -ag dotfiles 'cd $DOTFILES'
-abbr -ag cddotfiles 'cd $DOTFILES'
 
 ################
 # funny abbreviations
@@ -81,20 +78,6 @@ abbr -ag path-remove 'path_remove'
 abbr -ag path-rm 'path_remove'
 abbr -ag toggle_all_python_paths "toggle_anaconda_pythons; \
 toggle_asdf_shims_and_bins; toggle_homebrew_python_paths;"
-abbr -ag toggle_rvm 'rvm_toggle'
-abbr -ag toggle-rvm 'rvm_toggle'
-abbr -ag rvm-toggle 'rvm_toggle'
-
-################
-# Conditionally set `man` to `vman` fish function
-# NOTE: `vman` has mouse support.
-##
-if type -q vman
-  # NOTE: the below was breaking <tab> completion for displaying man pages for various commands
-  # abbr -ag man 'vman'
-else
-  # DO NOTHING
-end
 
 ################
 # useful abbreviations for working with NOC lists 💣
@@ -150,10 +133,10 @@ case Darwin
   # homebrew specifc abbreviations
   ##
 if type -q brew
-# working with brew src and formula
+  # working with brew src and formula
   abbr -ag cd-brew-src "cd (brew --prefix)/Homebrew/Library/Taps/homebrew/homebrew-core"
-    ###
-    # postgresql
+  ###
+  # postgresql
   abbr -ag pg-start "launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist"
   abbr -ag pg-stop "launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist"
     
@@ -181,14 +164,18 @@ case Linux
   ##
   abbr -ag pbcopy "xclip -selection clipboard"
   abbr -ag pbpaste "xclip -selection clipboard -o"
+
+  ###############################
+  # Linuxbrew
+  ##
+  if type -q brew
+    # working with brew src and formula
+    abbr -ag cd-brew-src "cd (brew --prefix)/Homebrew/Library/Taps/homebrew/homebrew-core"
+  end
 end
 ################
 # Add special 🚌 aliases if certain binaries are found.
 ##
-if type -q pycp
-  # abbr -a cp 'pycp -i'
-end
-
 if type -q ccat
-  # abbr -a cat 'ccat'
+  # abbr -ag cat 'ccat'
 end
