@@ -4,8 +4,8 @@
   <dict>
     <key>Label</key>
     <string>com.chrisrjones.test.launchd-notif-center</string>
-    <key>RunAtLoad</key>
-    <true/>
+    <!-- <key>RunAtLoad</key> -->
+    <!-- <true/> -->
 
     <key>ProgramArguments</key>
     <array>
