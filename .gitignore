@@ -77,6 +77,8 @@ config/irc-clients/weechat/weechat.log
 **/.weechatlog
 config/irc-clients/weechat/logs/*.weechatlog
 config/irc-clients/weechat/xfer/*
+config/irc-clients/weechat/irc.conf
+config/irc-clients/weechat/weechat.conf
 
 ##############################
 # Fish shell
