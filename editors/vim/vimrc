@@ -156,6 +156,7 @@ if has('wildmenu')
   set wildignore+=*DS_Store*
   set wildignore+=*.gem
   set wildignore+=log/**
+  set wildignore+=_build/**
   set wildignore+=*.bmp,*.gif,*.ico,*.jpg,*.png,*.pdf,*.psd,session.vim
 endif
 
@@ -210,9 +211,9 @@ else
   " minpac - conditional plugins
   ""
   if has('nvim')
-    call minpac#add('autozimu/LanguageClient-neovim', {
-          \'branch': 'next',
-          \'do': {-> system('bash install.sh')}})
+    " call minpac#add('autozimu/LanguageClient-neovim', {
+          " \'branch': 'next',
+          " \'do': {-> system('bash install.sh')}})
     call minpac#add('Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' })
     """"""""""""""""""""""""""""""
     " plugin - vim-markdown-composer - preview `.md` docs in default browser
@@ -238,14 +239,6 @@ else
   command! PackUpdate packadd minpac | source $MYVIMRC | call minpac#update()
   command! PackClean  packadd minpac | source $MYVIMRC | call minpac#clean()
   command! PackList echo join(minpac#getpackages("minpac", "start"), "\n")
-
-  inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-  inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-  inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
-
-  inoremap <expr> <C-space> deoplete#manual_complete('omni')
-
-  inoremap <expr> <C-l> deoplete#refresh()
 endif
 
 " Setting for rust.vim
