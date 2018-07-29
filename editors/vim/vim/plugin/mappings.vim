@@ -65,8 +65,6 @@ nnoremap ,e :e <C-R>=expand("%:p:h") . "/" <CR>
 " cmap w!! w !sudo tee % >/dev/null %
 cmap w!! %!sudo tee > /dev/null %
 
-
-
 " Normal mode mappings
 " CREDIT: @wincent
 
@@ -86,4 +84,14 @@ inoremap <M-z> <C-o>u
 ""
 nnoremap <leader>t :enew<CR>
 
+""""""""""""""""""""""""""""""
+" Splits - vertical & horizontal
+""
+" nnoremap <C-w>- :split<CR>
+
+" Split current buffer vertically
+nnoremap <silent> sv <C-w>v
+
+" Split current buffer horizontally
+nnoremap <silent> sh :split<CR>
 
