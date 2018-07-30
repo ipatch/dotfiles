@@ -2,8 +2,17 @@
 " plugin - ALE
 ""
 let g:ale_linters = {
+      \ 'sh' : ['shellcheck'],
+      \ 'html' : ['tidy'],
+      \ 'markdown' : ['mdl'],
       \ 'javascript': ['eslint'],
+      \ 'javascript.jsx' : ['eslint'],
       \ }
+
+let g:ale_fixer = {
+      \ 'javascript': ['eslint'],
+      \}
+
 " Mappings in the style of unimpaired-next
 nmap <silent> [W <Plug>(ale_first)
 nmap <silent> [w <Plug>(ale_previous)
