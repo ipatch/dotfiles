@@ -257,7 +257,7 @@ else
     " autocmd FileType javascript.jsx setlocal omnifunc=lsp#complete
     
     " Added as said in https://github.com/keremc/asyncomplete-racer.vim#installation
-    autocmd User asyncomplete_setup call asyncomplete#register_source(asyncomplete#sources#racer#get_source_options())
+    " autocmd User asyncomplete_setup call asyncomplete#register_source(asyncomplete#sources#racer#get_source_options())
 
     """"""""""""""""""""""""""""
     " plugin - asynccomplete - omnifunc
