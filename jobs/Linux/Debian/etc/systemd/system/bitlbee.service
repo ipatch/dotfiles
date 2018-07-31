@@ -1,0 +1,19 @@
+[Unit]
+Description=BitlBee IRC/IM gateway
+After=network.target
+
+# NOTE: To use this systemd unit file, `bitlbee` should be installed using Linuxbrew with `brew install --with-libotr --with-systemd bitlbee --verbose`
+
+# `-F` forking daemon. (one process per client)
+# `-u` Run daemon as specific user.
+# `-c` Load alternative configuration file
+
+[Service]
+ExecStart=/home/linuxbrew/.linuxbrew/sbin/bitlbee -F -u nobody -c /home/linuxbrew/.linuxbrew/etc/bitlbee/bitlbee.conf
+PIDFile=/home/linuxbrew/.linuxbrew/var/bitlbee/run/bitlbee.pid
+ExecReload=/bin/kill -HUP $MAINPID
+KillMode=process
+Restart=on-failure
+
+[Install]
+WantedBy=mulit-user.target
