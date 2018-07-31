@@ -1,15 +1,15 @@
 [submodule "config/base16-shell"]
-	path = config/base16-shell
-	url = https://github.com/ipatch/base16-shell.git
+  path = config/base16-shell
+  url = https://github.com/ipatch/base16-shell.git
 
 [submodule ".wiki"]
-	path = .wiki
-	url = https://github.com/ipatch/dotfiles.wiki.git
+  path = .wiki
+  url = https://github.com/ipatch/dotfiles.wiki.git
 
 [submodule "config/fish/fundle/edc/bass"]
   path = config/fish/fundle/edc/bass
   url = https://github.com/edc/bass.git
 
 [submodule "config/fish/frameworks/omf/themes/theme-neolambda"]
-	path = config/fish/frameworks/omf/themes/theme-neolambda
-	url = https://github.com/ipatch/theme-neolambda.git
+  path = config/fish/frameworks/omf/themes/theme-neolambda
+  url = https://github.com/ipatch/theme-neolambda.git
