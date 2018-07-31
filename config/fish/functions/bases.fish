@@ -4,7 +4,11 @@ function bases --description 'convert between hex binary & decimal'
       return 0
 
     case -h2d
-      echo "ibase=16; $argv"|bc
+      # bc (echo "ibase=16; $argv" | psub)
+      # set -l ibase 16
+      # eval (math $ibase $argv | psub) | bc
+        # BASH
+        # bash echo "ibase=16; $@"|bc
 
     case -d2h
 
