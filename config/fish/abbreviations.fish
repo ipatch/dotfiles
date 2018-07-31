@@ -15,10 +15,14 @@ set -gx os (uname)
 
 switch $os
   case Darwin
-    abbr -ag l 'ls -lahF'
+    # NOTE: removed below abbr, and created an alias for `l`
+    # NOTE: aliases don't expand like an abbr does
+    # abbr -ag l 'ls -lahF'
   case Linux
+    # NOTE: removed below abbr, and created an alias for `l`
+    # NOTE: aliases don't expand like an abbr does
     # DO NOTHING -- see aliases.fish
-    abbr -ag l 'ls -lahF'
+    # abbr -ag l 'ls -lahF'
 end
 abbr -ag cp 'cp -iv'
 abbr -ag dots 'cd $dot'
