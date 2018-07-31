@@ -190,6 +190,12 @@ To add a package as a development dependency, see [🙈](https://yarnpkg.com/lan
 yarn add <package> [-D/--dev]
 ```
 
+### Troubleshooting yarn
+
+**yarn** as of July 31 2018 has difficulty updating packages listed in `package.json`, but [**npm-check-updates**](https://www.npmjs.com/package/npm-check-updates) does a decent job in keeping packages updated in the **package.json**
+
+See the above link for working with **npm-check-updates** / **ncu**
+
 <a href="working-with-yarn-on-debian"></a>
 
 ### Working with Yarn on Debian
