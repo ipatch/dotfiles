@@ -47,6 +47,7 @@ set -gx CODE /opt/code
 set -gx code /opt/code
 set -gx github /opt/code/github
 set -gx private /opt/code/github/PRIVATE
+set -gx public /opt/code/PUBLIC
 set -gx fish_emoji_width 2 # NOT COMPATIBLE with fish <= 2.7.1
 
 if type -q brew
