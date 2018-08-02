@@ -86,7 +86,7 @@ EIGHTBIT 1
 ##RESET 0 # reset to "normal" color
 DIR 01;34	# directory
 LINK 01;36	# symbolic link (If you set this to 'target' instead of a
-		# numerical value, the color is as for the file pointed to.)
+# numerical value, the color is as for the file pointed to.)
 ##MULTIHARDLINK 00	# regular file with more than one link
 FIFO 40;33	# pipe
 SOCK 01;35	# socket
@@ -98,8 +98,9 @@ MISSING 01;05;37;41 # ... and the files they point to
 SETUID 37;41	# file that is setuid (u+s)
 SETGID 30;43	# file that is setgid (g+s)
 ##CAPABILITY 30;41	# file with capability
-STICKY_OTHER_WRITABLE 30;42 # dir that is sticky and other-writable (+t,o+w)
-OTHER_WRITABLE 34;42 # dir that is other-writable (o+w) and not sticky
+# STICKY_OTHER_WRITABLE 30;42 # dir that is sticky and other-writable (+t,o+w)
+# OTHER_WRITABLE 01;42 # dir that is other-writable (o+w) and not sticky
+OTHER_WRITABLE 1;34
 STICKY 37;44	# dir with the sticky bit set (+t) and not other-writable
 
 # This is for files with execute permission:
