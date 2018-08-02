@@ -36,6 +36,8 @@ $HOME/go/bin \
 $HOME/Library/Android/sdk/platform-tools \
 $XDG_CONFIG_HOME/.config/yarn/global/node_modules/.bin \
 /opt/X11/bin \
+/opt/gnu/bin \
+/opt/gnu/sbin \
 $brew_prefix/bin \
 $brew_prefix/sbin \
 $brew_prefix/opt/go/libexec/bin \
