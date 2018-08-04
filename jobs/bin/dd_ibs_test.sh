@@ -2,6 +2,7 @@
 
 # CREDIT: https://stackoverflow.com/a/27772496/708807
 # USER: tdg5 from StackOverflow
+# NOTE: bash script to test the optimal read speed for a storage device.
 # USAGE: dd_ibs_test.sh
 
 # Since we're dealing with dd, abort if any errors occur

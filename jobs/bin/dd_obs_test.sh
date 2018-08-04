@@ -2,6 +2,7 @@
 
 # CREDIT: https://stackoverflow.com/a/27772496/708807
 # USER: tdg5 from StackOverflow
+# NOTE: bash script to test optimal write speed for a storage device
 # USAGE: dd_obs_test.sh /path/to/disk/test_file
 
 # Since we're dealing with dd, abort if any errors occur
