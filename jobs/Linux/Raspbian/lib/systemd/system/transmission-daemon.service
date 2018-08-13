@@ -1,0 +1,13 @@
+[Unit]
+Description=Transmission BitTorrent Daemon
+After=network.target
+
+[Service]
+User=transmissioner
+Type=notify
+ExecStart=/usr/bin/transmission-daemon -f --logfile /home/transmissioner/transd.log --log-debug --download-dir /home/transmissioner/transmission/downloads --watch-dir /home/transmissioner/transmission/watch --dht --utp --encryption-required --config-dir /home/transmissioner/.config/transmission/config --auth --username transmission --allowed 192.168.*.*
+ExecStop=/bin/kill -s STOP $MAINPID
+ExecReload=/bin/kill -s HUP $MAINPID
+
+[Install]
+WantedBy=multi-user.target
