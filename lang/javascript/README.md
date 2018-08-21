@@ -128,6 +128,10 @@ npm install mr-fancy-package@42.0 --save
 
 > ⚠️  Before installing a global package with yarn installed via homebrew, make sure the `global bin` and `global prefix` have been set, ie.
 
+<a href="yarn-global-package-module-setup"></a>
+
+### Yarn Global Package / Module setup
+
 To set the **global** prefix bin where packages that are installed with yarn globally and store the binaires
 
 ```fish
@@ -150,6 +154,10 @@ yarn global dir
 yarn global bin
 ```
 
+<a href="yarn-global-package-module-installation"></a>
+
+### Yarn Global Package / Module Installation
+
 To install a package / module globally using yarn
 
 ```fish
@@ -171,6 +179,18 @@ To list globally installed modules ie. packages within yarn
 ```
 yarn global list
 ```
+
+<a href="yarn-upgrade-a-global-package-module"></a>
+
+### Yarn Upgrade a Global Package / Module
+
+To upgrade a global package / module installed with yarn
+
+1. First check to if there are any outdated global packages
+```
+yarn global upgrade-interactive
+```
+2. Select which global packages you would like to update
 
 To upgrade a specific npm module / package using yarn
 
@@ -207,6 +227,29 @@ If the below error message arises run the command below the error message.
 ```
 wget -qO - https://raw.githubusercontent.com/yarnpkg/releases/gh-pages/debian/pubkey.gpg | sudo apt-key add -
 ```
+
+<a href="working-with-project-based-package-dependencies"></a>
+
+## Working with project based packages / dependencies
+
+To check for outdated packages / modules on a project basis
+
+1. Install [**npm-check-updates**](https://www.npmjs.com/package/npm-check-updates) either globally using yarn or npm, however you are managing global packages.
+
+2. Once **npm-check-updates** has been installed, project based packages can be checked to see if they are outdated.
+
+```
+ncu
+```
+
+> The above command needs to be run within the project root, ie. the directory that contains **pacakge.json**
+
+3. To upgrade the outdated packages.
+
+```
+ncu -u
+```
+
 
 <a href="useful-links"></a>
 
