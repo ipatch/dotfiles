@@ -5,7 +5,7 @@
 ##############################
 # Global PATH
 ##
-# SEE: `config/OS/macOS/10.13/etc/profile` within this repo 
+# SEE: `jobs/macOS/etc/profile` within this repo for a list of default paths for macOS, ie. paths defined for every user on the system.
 
 #############################
 # OS check
@@ -29,6 +29,7 @@ set -l paths \
 /usr/sbin \
 /usr/games \
 /usr/libexec \
+# /System/Library/CoreServices \ 
 /usr/local/bin \
 /usr/local/sbin \
 $HOME/.cargo/bin \
