@@ -9,8 +9,17 @@ set realname="Chris Jones"
 # set the terminal emulator to be used by mutt
 # setenv TERM xterm-256color-italic
 
+set use_from=yes
 # set the default `from` email address when sending an email using mutt
-set from = "me@chrisrjones.com"
+set from="Chris Jones <me@chrisrjones.com>"
+set hostname="chrisrjones.com"
+set envelope_from=yes
+set use_domain=no
+
+set edit_headers=yes
+
+# set sorting style
+set sort = threads
 
 # Editor
 set editor='nvim +/^$ "+setlocal fo+=w spell" +noh'
