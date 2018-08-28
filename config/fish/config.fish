@@ -183,6 +183,10 @@ case Darwin
 
   if [ -d $HOME/Library/Android/sdk ]
     set -gx ANDROID_SDK_ROOT "$HOME/Library/Android/sdk"
+    set -gx ANDROID_AVD_HOME "$HOME/.android/avd"
+    # TODO: figure out how to properly set the below env var
+    # SEE: https://stackoverflow.com/a/47346176/708807
+    # set -gx DEFAULT_JVM_OPTS "-Dcom.android.sdklib.toolsdir=$APP_HOME --add-modules java.xml.bind"
   end
 
 case Linux
