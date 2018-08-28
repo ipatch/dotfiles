@@ -181,6 +181,10 @@ case Darwin
     set -gx MYVIMRC $HOME/.vimrc
   end
 
+  if [ -d $HOME/Library/Android/sdk ]
+    set -gx ANDROID_SDK_ROOT "$HOME/Library/Android/sdk"
+  end
+
 case Linux
   ###############################
   # Linux specific env vars
