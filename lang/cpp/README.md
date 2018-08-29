@@ -1,8 +1,9 @@
 <a href="contents"></a>
 
 ## Contents
+- [General C++ Commands & Usage](#general-c++-commands-and-usage)
 
-
+<a href="general-c++-commands-and-usage"></a>
 
 ## General C++ Commands & Usage
 
