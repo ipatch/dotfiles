@@ -94,7 +94,8 @@ config/fish/fishd.*
 ##############################
 # mpv
 ##
-config/mpv/* # Ignore `watch_later` directory from mpv
+config/mpv/watch_later/* # Ignore `watch_later` directory from mpv
+config/mpv/mpv_history.log
 
 ##############################
 # Python - pyenv
