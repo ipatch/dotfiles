@@ -1,13 +1,13 @@
-local HISTFILE = (os.getenv('APPDATA') or os.getenv('HOME')..'/.config')..'/mpv/mpv_history.log';
+local HISTFILE = os.getenv("APPDATA") or os.getenv("HOME") .. "/.config/mpv/mpv_history.log"
 
-mp.register_event('file-loaded', function()
+mp.register_event("file-loaded", function()
     local title, fp;
 
-    title = mp.get_property('media-title');  
-    title = (title == mp.get_property('filename') and '' or (' (%s)'):format(title));
+    title = mp.get_property("media-title");  
+    title = (title == mp.get_property("filename") and "" or (" (%s)"):format(title));
     -- title = ''; -- uncomment here
 
-    fp = io.open(HISTFILE, 'a+');
-    fp:write(('[%s] %s%s\n'):format(os.date('%Y-%m-%d %X'), mp.get_property('path'), title));    
+    fp = io.open(HISTFILE, "a+");
+    fp:write(("[%s] %s%s\n"):format(os.date("%Y-%m-%d %X"), mp.get_property("path"), title));    
     fp:close();
 end
