@@ -14,6 +14,9 @@ _"Give me six hours to chop down a tree and I will spend the first four sharpeni
 
 <h6 align="center"><em>These dotfiles have been known to stop working at a moments notice, so buyer beware.</em></h6>
 
+
+<!-- silly markdown / html comment -->
+
 ## Contents
 
 > [awesome dotfiles wiki](https://github.com/ipatch/dotfiles/wiki) A collection of useful pages that complements 👏 these dotfiles.
