@@ -204,7 +204,6 @@ brew "watch"
 brew "watchman"
 brew "weechat", args: ["with-aspell", "with-lua", "with-perl", "with-python@2", "with-ruby"]
 brew "wemux"
-brew "wget"
 brew "wxmac"
 brew "xhyve"
 brew "xorriso"
