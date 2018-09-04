@@ -39,12 +39,12 @@
     </dict>
 
     <key>StandardErrorPath</key>
-    <!-- <string>$HOME/logs/brew-update-install-list.err</string> -->
-    <string>/Users/capin/logs/brew-update-install-list.err</string>
+    <string>$HOME/logs/brew-update-install-list.err</string>
+    <!-- <string>/Users/capin/logs/brew-update-install-list.err</string> -->
 
     <key>StandardOutPath</key>
-    <!-- <string>$HOME/logs/brew-update-install-list.out</string> -->
-    <string>/Users/capin/logs/brew-update-install-list.out</string>
+    <string>$HOME/logs/brew-update-install-list.out</string>
+    <!-- <string>/Users/capin/logs/brew-update-install-list.out</string> -->
 
     <key>WorkingDirectory</key>
     <!-- <string>$HOME</string> -->
