@@ -2,7 +2,7 @@
 <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
   <dict>
-    <!-- # NOTE: the below key has not been implemented --> 
+    <!-- # NOTE: the below keys are not been supported --> 
     <!-- <key>RootDirectory</key> -->
     <!-- <string>~</string> -->
     <!-- <key>GroupName</key> -->
@@ -29,21 +29,7 @@
       <string>-c</string>
       <string>launchctl setenv USER "${USER}";</string>
       <string>launchctl setenv HOME "${HOME}";</string>
-      <!-- <string>launchctl</string> -->
-      <!-- <string>setenv</string> -->
-      <!-- <string>USER</string> -->
-      <!-- <string>"${USER}"</string> -->
     </array>
-
-    <!-- <key>ProgramArguments</key> -->
-    <!-- <array> -->
-      <!-- <string>/bin/sh</string> -->
-      <!-- <string>-c</string> -->
-      <!-- <string>launchctl</string> -->
-      <!-- <string>setenv</string> -->
-      <!-- <string>HOME</string> -->
-      <!-- <string>"${HOME}"</string> -->
-    <!-- </array> -->
 
     <key>ProgramArguments</key>
     <!-- <key>Program</key> -->
