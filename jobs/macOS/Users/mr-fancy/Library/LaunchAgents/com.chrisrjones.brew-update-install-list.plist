@@ -23,13 +23,24 @@
       <string>/usr/local/bin:/usr/bin:/bin</string>
     </dict>
 
-    <key>ProgramArguments</key>
-    <array>
-      <string>/bin/bash</string>
-      <string>-c</string>
-      <string>launchctl setenv USER "${USER}"</string>
-      <string>launchctl setenv HOME "${HOME}"</string>
-    </array>
+    <!-- <key>ProgramArguments</key> -->
+    <!-- <array> -->
+    <!--   <string>/bin/sh</string> -->
+    <!--   <string>-c</string> -->
+    <!--   <string>launchctl</string> -->
+    <!--   <string>setenv</string> -->
+    <!--   <string>USER</string> -->
+    <!--   <string>"${USER}"</string> -->
+    <!-- </array> -->
+
+    <!-- <key>ProgramArguments</key> -->
+    <!-- <array> -->
+    <!--   <string>/bin/sh</string> -->
+    <!--   <string>launchctl</string> -->
+    <!--   <string>setenv</string> -->
+    <!--   <string>HOME</string> -->
+    <!--   <string>"${HOME}"</string> -->
+    <!-- </array> -->
 
     <key>ProgramArguments</key>
     <!-- <key>Program</key> -->
