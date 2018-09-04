@@ -16,7 +16,7 @@
     <key>Program</key>
     <!-- <string>/bin/sh</string> -->
     <!-- <string>-c</string> -->
-    <string>/Users/capin/.local/bin/brew-update-install-list.sh</string>
+    <string>~/.local/bin/brew-update-install-list.sh</string>
     
     <key>RunAtLoad</key>
     <true/>
@@ -34,13 +34,13 @@
     </dict>
 
     <key>StandardErrorPath</key>
-    <string>/Users/capin/logs/brew-update-install-list.err</string>
+    <string>~/logs/brew-update-install-list.err</string>
 
     <key>StandardOutPath</key>
-    <string>/Users/capin/logs/brew-update-install-list.out</string>
+    <string>~/logs/brew-update-install-list.out</string>
 
     <key>WorkingDirectory</key>
-    <string>/Users/capin</string>
+    <string>~</string>
 
 	<!-- <key>StartCalendarInterval</key> -->
 	<!-- <array> -->
