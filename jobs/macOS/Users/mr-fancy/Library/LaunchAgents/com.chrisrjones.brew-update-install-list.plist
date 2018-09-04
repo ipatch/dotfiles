@@ -3,14 +3,17 @@
 <plist version="1.0">
   <dict>
     <!-- # NOTE: the below key has not been implemented --> 
-    <!-- <string>~</string> -->
     <!-- <key>RootDirectory</key> -->
+    <!-- <string>~</string> -->
     <!-- <key>GroupName</key> -->
     <!-- <string>staff</string> -->
     <!-- <key>UserName</key> -->
     <!-- <string>capin</string> -->
     <!-- <key>WorkingDirectory</key> -->
     <!-- <string>~</string> -->
+    <!-- <key>EnableGlobbing</key> -->
+    <!-- <true/> -->
+
     <key>Label</key>
     <string>com.chrisrjones.brew-update-install-list</string>
 
@@ -22,8 +25,13 @@
       <!-- <string>/Users/capin</string> -->
     </dict>
 
-    <key>EnableGlobbing</key>
-    <true/>
+    <key>ProgramArguments</key>
+    <array>
+      <string>/bin/sh</string>
+      <string>-c</string>
+      <string>launchctl setenv USER "${USER}"</string>
+      <string>launchctl setenv HOME "${HOME}"</string>
+    </array>
 
     <key>ProgramArguments</key>
     <!-- <key>Program</key> -->
@@ -43,20 +51,20 @@
     </dict>
 
     <key>StandardErrorPath</key>
-    <!-- <string>/Users/capin/logs/brew-update-install-list.err</string> -->
+    <string>/Users/capin/logs/brew-update-install-list.err</string>
     <!-- <string>$HOME/logs/brew-update-install-list.err</string> -->
     <!-- <string>/Users/$USER$/logs/brew-update-install-list.err</string> -->
-    <string>~/logs/brew-update-install-list.err</string>
+    <!-- <string>~/logs/brew-update-install-list.err</string> -->
 
     <key>StandardOutPath</key>
-    <!-- <string>/Users/capin/logs/brew-update-install-list.out</string> -->
+    <string>/Users/capin/logs/brew-update-install-list.out</string>
     <!-- <string>$HOME/logs/brew-update-install-list.out</string> -->
     <!-- <string>/Users/$USER$/logs/brew-update-install-list.out</string> -->
-    <string>~/logs/brew-update-install-list.out</string>
+    <!-- <string>~/logs/brew-update-install-list.out</string> -->
 
-    <key>WorkingDirectory</key>
+    <!-- <key>WorkingDirectory</key> -->
     <!-- <string>$HOME</string> -->
-    <string>~</string>
+    <!-- <string>~</string> -->
 
     <!-- <key>StartCalendarInterval</key> -->
     <!-- <array> -->
