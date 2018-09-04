@@ -22,7 +22,7 @@
     <array>
       <string>/bin/sh</string>
       <string>-c</string>
-      <string>$HOME/.local/bin/com.chrisrjones.brew-updatedb.sh</string>
+      <string>$HOME/.local/bin/brew-updatedb.sh</string>
     </array>
 
     <key>RunAtLoad</key>
