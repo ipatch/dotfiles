@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # NOTE: a simple bash script to update a list of formula installed via homebrew on macOS / Linux
+# NOTE: thank you 🙏 very much http://launched.zerowidth.com/
 
 set -e
 
