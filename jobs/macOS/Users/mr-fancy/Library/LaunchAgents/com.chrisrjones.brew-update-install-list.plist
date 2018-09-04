@@ -13,30 +13,33 @@
     <!-- <string>~</string> -->
     <key>Label</key>
     <string>com.chrisrjones.brew-update-install-list</string>
+
+    <key>EnvironmentVariables</key>
+    <dict>
+      <key>PATH</key>
+      <string>/usr/local/bin:/usr/bin:/bin</string>
+      <key>HOME</key>
+      <string>/Users/capin</string>
+    </dict>
+
+
     <!-- <key>ProgramArguments</key> -->
     <key>Program</key>
     <!-- <array> -->
       <!-- <string>sh</string> -->
       <!-- <string>-c</string> -->
       <string>/Users/capin/.local/bin/brew-update-install-list.sh</string>
-    <!-- </array> -->
-    
+      <!-- </array> -->
+
     <key>RunAtLoad</key>
     <true/>
 
     <key>KeepAlive</key>
-      <dict>
-        <key>SuccessfulExit</key>
-        <false/>
-      </dict>
-
-    <key>EnvironmentVariables</key>
     <dict>
-      <key>PATH</key>
-      <string>/bin:/usr/bin:/usr/local/bin</string>
-      <key>HOME</key>
-      <string>/Users/capin</string>
+      <key>SuccessfulExit</key>
+      <false/>
     </dict>
+
 
     <key>StandardErrorPath</key>
     <string>$HOME/logs/brew-update-install-list.err</string>
@@ -50,128 +53,128 @@
     <!-- <string>$HOME</string> -->
     <string>/Users/capin</string>
 
-	<!-- <key>StartCalendarInterval</key> -->
-	<!-- <array> -->
-	<!-- 	<dict> -->
-	<!-- 		<key>Hour</key> -->
-	<!-- 		<integer>23</integer> -->
-	<!-- 		<key>Minute</key> -->
-	<!-- 		<integer>0</integer> -->
-	<!-- 		<key>Month</key> -->
-	<!-- 		<integer>0</integer> -->
-	<!-- 		<key>Weekday</key> -->
-	<!-- 		<integer>4</integer> -->
-	<!-- 	</dict> -->
-	<!-- 	<dict> -->
-	<!-- 		<key>Hour</key> -->
-	<!-- 		<integer>23</integer> -->
-	<!-- 		<key>Minute</key> -->
-	<!-- 		<integer>0</integer> -->
-	<!-- 		<key>Month</key> -->
-	<!-- 		<integer>1</integer> -->
-	<!-- 		<key>Weekday</key> -->
-	<!-- 		<integer>4</integer> -->
-	<!-- 	</dict> -->
-	<!-- 	<dict> -->
-	<!-- 		<key>Hour</key> -->
-	<!-- 		<integer>23</integer> -->
-	<!-- 		<key>Minute</key> -->
-	<!-- 		<integer>0</integer> -->
-	<!-- 		<key>Month</key> -->
-	<!-- 		<integer>2</integer> -->
-	<!-- 		<key>Weekday</key> -->
-	<!-- 		<integer>4</integer> -->
-	<!-- 	</dict> -->
-	<!-- 	<dict> -->
-	<!-- 		<key>Hour</key> -->
-	<!-- 		<integer>23</integer> -->
-	<!-- 		<key>Minute</key> -->
-	<!-- 		<integer>0</integer> -->
-	<!-- 		<key>Month</key> -->
-	<!-- 		<integer>3</integer> -->
-	<!-- 		<key>Weekday</key> -->
-	<!-- 		<integer>4</integer> -->
-	<!-- 	</dict> -->
-	<!-- 	<dict> -->
-	<!-- 		<key>Hour</key> -->
-	<!-- 		<integer>23</integer> -->
-	<!-- 		<key>Minute</key> -->
-	<!-- 		<integer>0</integer> -->
-	<!-- 		<key>Month</key> -->
-	<!-- 		<integer>4</integer> -->
-	<!-- 		<key>Weekday</key> -->
-	<!-- 		<integer>4</integer> -->
-	<!-- 	</dict> -->
-	<!-- 	<dict> -->
-	<!-- 		<key>Hour</key> -->
-	<!-- 		<integer>23</integer> -->
-	<!-- 		<key>Minute</key> -->
-	<!-- 		<integer>0</integer> -->
-	<!-- 		<key>Month</key> -->
-	<!-- 		<integer>5</integer> -->
-	<!-- 		<key>Weekday</key> -->
-	<!-- 		<integer>4</integer> -->
-	<!-- 	</dict> -->
-	<!-- 	<dict> -->
-	<!-- 		<key>Hour</key> -->
-	<!-- 		<integer>23</integer> -->
-	<!-- 		<key>Minute</key> -->
-	<!-- 		<integer>0</integer> -->
-	<!-- 		<key>Month</key> -->
-	<!-- 		<integer>6</integer> -->
-	<!-- 		<key>Weekday</key> -->
-	<!-- 		<integer>4</integer> -->
-	<!-- 	</dict> -->
-	<!-- 	<dict> -->
-	<!-- 		<key>Hour</key> -->
-	<!-- 		<integer>23</integer> -->
-	<!-- 		<key>Minute</key> -->
-	<!-- 		<integer>0</integer> -->
-	<!-- 		<key>Month</key> -->
-	<!-- 		<integer>7</integer> -->
-	<!-- 		<key>Weekday</key> -->
-	<!-- 		<integer>4</integer> -->
-	<!-- 	</dict> -->
-	<!-- 	<dict> -->
-	<!-- 		<key>Hour</key> -->
-	<!-- 		<integer>23</integer> -->
-	<!-- 		<key>Minute</key> -->
-	<!-- 		<integer>0</integer> -->
-	<!-- 		<key>Month</key> -->
-	<!-- 		<integer>8</integer> -->
-	<!-- 		<key>Weekday</key> -->
-	<!-- 		<integer>4</integer> -->
-	<!-- 	</dict> -->
-	<!-- 	<dict> -->
-	<!-- 		<key>Hour</key> -->
-	<!-- 		<integer>23</integer> -->
-	<!-- 		<key>Minute</key> -->
-	<!-- 		<integer>0</integer> -->
-	<!-- 		<key>Month</key> -->
-	<!-- 		<integer>9</integer> -->
-	<!-- 		<key>Weekday</key> -->
-	<!-- 		<integer>4</integer> -->
-	<!-- 	</dict> -->
-	<!-- 	<dict> -->
-	<!-- 		<key>Hour</key> -->
-	<!-- 		<integer>23</integer> -->
-	<!-- 		<key>Minute</key> -->
-	<!-- 		<integer>0</integer> -->
-	<!-- 		<key>Month</key> -->
-	<!-- 		<integer>10</integer> -->
-	<!-- 		<key>Weekday</key> -->
-	<!-- 		<integer>4</integer> -->
-	<!-- 	</dict> -->
-	<!-- 	<dict> -->
-	<!-- 		<key>Hour</key> -->
-	<!-- 		<integer>23</integer> -->
-	<!-- 		<key>Minute</key> -->
-	<!-- 		<integer>0</integer> -->
-	<!-- 		<key>Month</key> -->
-	<!-- 		<integer>11</integer> -->
-	<!-- 		<key>Weekday</key> -->
-	<!-- 		<integer>4</integer> -->
-	<!-- 	</dict> -->
-	<!-- </array> -->
-</dict>
+    <!-- <key>StartCalendarInterval</key> -->
+    <!-- <array> -->
+      <!-- 	<dict> -->
+        <!-- 		<key>Hour</key> -->
+        <!-- 		<integer>23</integer> -->
+        <!-- 		<key>Minute</key> -->
+        <!-- 		<integer>0</integer> -->
+        <!-- 		<key>Month</key> -->
+        <!-- 		<integer>0</integer> -->
+        <!-- 		<key>Weekday</key> -->
+        <!-- 		<integer>4</integer> -->
+        <!-- 	</dict> -->
+      <!-- 	<dict> -->
+        <!-- 		<key>Hour</key> -->
+        <!-- 		<integer>23</integer> -->
+        <!-- 		<key>Minute</key> -->
+        <!-- 		<integer>0</integer> -->
+        <!-- 		<key>Month</key> -->
+        <!-- 		<integer>1</integer> -->
+        <!-- 		<key>Weekday</key> -->
+        <!-- 		<integer>4</integer> -->
+        <!-- 	</dict> -->
+      <!-- 	<dict> -->
+        <!-- 		<key>Hour</key> -->
+        <!-- 		<integer>23</integer> -->
+        <!-- 		<key>Minute</key> -->
+        <!-- 		<integer>0</integer> -->
+        <!-- 		<key>Month</key> -->
+        <!-- 		<integer>2</integer> -->
+        <!-- 		<key>Weekday</key> -->
+        <!-- 		<integer>4</integer> -->
+        <!-- 	</dict> -->
+      <!-- 	<dict> -->
+        <!-- 		<key>Hour</key> -->
+        <!-- 		<integer>23</integer> -->
+        <!-- 		<key>Minute</key> -->
+        <!-- 		<integer>0</integer> -->
+        <!-- 		<key>Month</key> -->
+        <!-- 		<integer>3</integer> -->
+        <!-- 		<key>Weekday</key> -->
+        <!-- 		<integer>4</integer> -->
+        <!-- 	</dict> -->
+      <!-- 	<dict> -->
+        <!-- 		<key>Hour</key> -->
+        <!-- 		<integer>23</integer> -->
+        <!-- 		<key>Minute</key> -->
+        <!-- 		<integer>0</integer> -->
+        <!-- 		<key>Month</key> -->
+        <!-- 		<integer>4</integer> -->
+        <!-- 		<key>Weekday</key> -->
+        <!-- 		<integer>4</integer> -->
+        <!-- 	</dict> -->
+      <!-- 	<dict> -->
+        <!-- 		<key>Hour</key> -->
+        <!-- 		<integer>23</integer> -->
+        <!-- 		<key>Minute</key> -->
+        <!-- 		<integer>0</integer> -->
+        <!-- 		<key>Month</key> -->
+        <!-- 		<integer>5</integer> -->
+        <!-- 		<key>Weekday</key> -->
+        <!-- 		<integer>4</integer> -->
+        <!-- 	</dict> -->
+      <!-- 	<dict> -->
+        <!-- 		<key>Hour</key> -->
+        <!-- 		<integer>23</integer> -->
+        <!-- 		<key>Minute</key> -->
+        <!-- 		<integer>0</integer> -->
+        <!-- 		<key>Month</key> -->
+        <!-- 		<integer>6</integer> -->
+        <!-- 		<key>Weekday</key> -->
+        <!-- 		<integer>4</integer> -->
+        <!-- 	</dict> -->
+      <!-- 	<dict> -->
+        <!-- 		<key>Hour</key> -->
+        <!-- 		<integer>23</integer> -->
+        <!-- 		<key>Minute</key> -->
+        <!-- 		<integer>0</integer> -->
+        <!-- 		<key>Month</key> -->
+        <!-- 		<integer>7</integer> -->
+        <!-- 		<key>Weekday</key> -->
+        <!-- 		<integer>4</integer> -->
+        <!-- 	</dict> -->
+      <!-- 	<dict> -->
+        <!-- 		<key>Hour</key> -->
+        <!-- 		<integer>23</integer> -->
+        <!-- 		<key>Minute</key> -->
+        <!-- 		<integer>0</integer> -->
+        <!-- 		<key>Month</key> -->
+        <!-- 		<integer>8</integer> -->
+        <!-- 		<key>Weekday</key> -->
+        <!-- 		<integer>4</integer> -->
+        <!-- 	</dict> -->
+      <!-- 	<dict> -->
+        <!-- 		<key>Hour</key> -->
+        <!-- 		<integer>23</integer> -->
+        <!-- 		<key>Minute</key> -->
+        <!-- 		<integer>0</integer> -->
+        <!-- 		<key>Month</key> -->
+        <!-- 		<integer>9</integer> -->
+        <!-- 		<key>Weekday</key> -->
+        <!-- 		<integer>4</integer> -->
+        <!-- 	</dict> -->
+      <!-- 	<dict> -->
+        <!-- 		<key>Hour</key> -->
+        <!-- 		<integer>23</integer> -->
+        <!-- 		<key>Minute</key> -->
+        <!-- 		<integer>0</integer> -->
+        <!-- 		<key>Month</key> -->
+        <!-- 		<integer>10</integer> -->
+        <!-- 		<key>Weekday</key> -->
+        <!-- 		<integer>4</integer> -->
+        <!-- 	</dict> -->
+      <!-- 	<dict> -->
+        <!-- 		<key>Hour</key> -->
+        <!-- 		<integer>23</integer> -->
+        <!-- 		<key>Minute</key> -->
+        <!-- 		<integer>0</integer> -->
+        <!-- 		<key>Month</key> -->
+        <!-- 		<integer>11</integer> -->
+        <!-- 		<key>Weekday</key> -->
+        <!-- 		<integer>4</integer> -->
+        <!-- 	</dict> -->
+      <!-- </array> -->
+  </dict>
 </plist>
