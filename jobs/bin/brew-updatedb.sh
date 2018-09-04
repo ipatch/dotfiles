@@ -1,4 +1,5 @@
 #!/bin/sh
+set -e
 
 /bin/launchctl setenv PATH /Users/capin/.local/bin
 
