@@ -2,6 +2,7 @@
 
 # NOTE: a simple bash script to update a list of formula installed via homebrew on macOS / Linux
 # NOTE: thank you 🙏 very much http://launched.zerowidth.com/
+# NOTE: this script should be called via a launchd service file that runs every Thursday at 11PM
 
 set -e
 
