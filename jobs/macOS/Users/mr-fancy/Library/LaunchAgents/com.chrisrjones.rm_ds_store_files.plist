@@ -14,7 +14,7 @@
       <string>-c</string>
       <string>/Users/capin/.local/bin/rm_ds_store_files.sh</string>
     </array>
-   
+
     <key>StandardErrorPath</key>
     <string>/Users/capin/logs/rm_ds_store_files.err</string>
 
@@ -210,7 +210,6 @@
         <integer>23</integer>
       </dict>
     </array>
-
-     </dict>
+  </dict>
 </plist>
 
