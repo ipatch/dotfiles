@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # NOTE: a simple bash script to update a list of formula installed via homebrew on macOS / Linux
 # NOTE: thank you 🙏 very much http://launched.zerowidth.com/
@@ -23,7 +23,7 @@ if [ -x "$path_to_brew" ]; then
       fi
 
       cd $dots/config/brew/macOS/10.13/
-      echo $PATH;
+      echo "$PATH";
       brew bundle --force dump
       ;;
     Linux)
