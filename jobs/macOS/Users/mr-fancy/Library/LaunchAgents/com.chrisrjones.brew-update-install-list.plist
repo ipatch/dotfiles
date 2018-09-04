@@ -22,13 +22,16 @@
       <!-- <string>/Users/capin</string> -->
     </dict>
 
-    <!-- <key>ProgramArguments</key> -->
-    <key>Program</key>
-    <!-- <array> -->
-      <!-- <string>sh</string> -->
-      <!-- <string>-c</string> -->
-      <string>/Users/capin/.local/bin/brew-update-install-list.sh</string>
-      <!-- </array> -->
+    <key>EnableGlobbing</key>
+    <true/>
+
+    <key>ProgramArguments</key>
+    <!-- <key>Program</key> -->
+    <array>
+      <string>/bin/sh</string>
+      <string>-c</string>
+      <string>~/.local/bin/brew-update-install-list.sh</string>
+    </array>
 
     <key>RunAtLoad</key>
     <true/>
@@ -40,18 +43,20 @@
     </dict>
 
     <key>StandardErrorPath</key>
+    <!-- <string>/Users/capin/logs/brew-update-install-list.err</string> -->
     <!-- <string>$HOME/logs/brew-update-install-list.err</string> -->
-    <string>/Users/capin/logs/brew-update-install-list.err</string>
     <!-- <string>/Users/$USER$/logs/brew-update-install-list.err</string> -->
+    <string>~/logs/brew-update-install-list.err</string>
 
     <key>StandardOutPath</key>
+    <!-- <string>/Users/capin/logs/brew-update-install-list.out</string> -->
     <!-- <string>$HOME/logs/brew-update-install-list.out</string> -->
-    <string>/Users/capin/logs/brew-update-install-list.out</string>
     <!-- <string>/Users/$USER$/logs/brew-update-install-list.out</string> -->
+    <string>~/logs/brew-update-install-list.out</string>
 
     <key>WorkingDirectory</key>
     <!-- <string>$HOME</string> -->
-    <string>/Users/capin</string>
+    <string>~</string>
 
     <!-- <key>StartCalendarInterval</key> -->
     <!-- <array> -->
