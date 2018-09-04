@@ -23,28 +23,32 @@
       <string>/usr/local/bin:/usr/bin:/bin</string>
     </dict>
 
-    <!-- <key>ProgramArguments</key> -->
-    <!-- <array> -->
-    <!--   <string>/bin/sh</string> -->
-    <!--   <string>-c</string> -->
-    <!--   <string>launchctl</string> -->
-    <!--   <string>setenv</string> -->
-    <!--   <string>USER</string> -->
-    <!--   <string>"${USER}"</string> -->
-    <!-- </array> -->
+    <key>ProgramArguments</key>
+    <array>
+      <string>/bin/sh</string>
+      <string>-c</string>
+      <string>launchctl setenv USER "${USER}";</string>
+      <string>launchctl setenv HOME "${HOME}";</string>
+      <!-- <string>launchctl</string> -->
+      <!-- <string>setenv</string> -->
+      <!-- <string>USER</string> -->
+      <!-- <string>"${USER}"</string> -->
+    </array>
 
     <!-- <key>ProgramArguments</key> -->
     <!-- <array> -->
-    <!--   <string>/bin/sh</string> -->
-    <!--   <string>launchctl</string> -->
-    <!--   <string>setenv</string> -->
-    <!--   <string>HOME</string> -->
-    <!--   <string>"${HOME}"</string> -->
+      <!-- <string>/bin/sh</string> -->
+      <!-- <string>-c</string> -->
+      <!-- <string>launchctl</string> -->
+      <!-- <string>setenv</string> -->
+      <!-- <string>HOME</string> -->
+      <!-- <string>"${HOME}"</string> -->
     <!-- </array> -->
 
     <key>ProgramArguments</key>
     <!-- <key>Program</key> -->
     <array>
+      <!-- <string>/bin/sh -c $HOME/.local/bin/brew-update-install-list.sh;</string> -->
       <string>/bin/sh</string>
       <string>-c</string>
       <string>$HOME/.local/bin/brew-update-install-list.sh</string>
@@ -60,14 +64,14 @@
     </dict>
 
     <key>StandardErrorPath</key>
-    <!-- <string>/Users/capin/logs/brew-update-install-list.err</string> -->
-    <string>$HOME/logs/brew-update-install-list.err</string>
+    <string>/Users/capin/logs/brew-update-install-list.err</string>
+    <!-- <string>$HOME/logs/brew-update-install-list.err</string> -->
     <!-- <string>/Users/$USER$/logs/brew-update-install-list.err</string> -->
     <!-- <string>~/logs/brew-update-install-list.err</string> -->
 
     <key>StandardOutPath</key>
-    <!-- <string>/Users/capin/logs/brew-update-install-list.out</string> -->
-    <string>$HOME/logs/brew-update-install-list.out</string>
+    <string>/Users/capin/logs/brew-update-install-list.out</string>
+    <!-- <string>$HOME/logs/brew-update-install-list.out</string> -->
     <!-- <string>/Users/$USER$/logs/brew-update-install-list.out</string> -->
     <!-- <string>~/logs/brew-update-install-list.out</string> -->
 
