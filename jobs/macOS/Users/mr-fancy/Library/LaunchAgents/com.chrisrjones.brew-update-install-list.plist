@@ -13,10 +13,13 @@
     <!-- <string>~</string> -->
     <key>Label</key>
     <string>com.chrisrjones.brew-update-install-list</string>
+    <!-- <key>ProgramArguments</key> -->
     <key>Program</key>
-    <!-- <string>/bin/sh</string> -->
-    <!-- <string>-c</string> -->
-    <string>~/.local/bin/brew-update-install-list.sh</string>
+    <!-- <array> -->
+      <!-- <string>sh</string> -->
+      <!-- <string>-c</string> -->
+      <string>/Users/capin/.local/bin/brew-update-install-list.sh</string>
+    <!-- </array> -->
     
     <key>RunAtLoad</key>
     <true/>
@@ -31,16 +34,21 @@
     <dict>
       <key>PATH</key>
       <string>/bin:/usr/bin:/usr/local/bin</string>
+      <key>HOME</key>
+      <string>/Users/capin</string>
     </dict>
 
     <key>StandardErrorPath</key>
-    <string>~/logs/brew-update-install-list.err</string>
+    <!-- <string>$HOME/logs/brew-update-install-list.err</string> -->
+    <string>/Users/capin/logs/brew-update-install-list.err</string>
 
     <key>StandardOutPath</key>
-    <string>~/logs/brew-update-install-list.out</string>
+    <!-- <string>$HOME/logs/brew-update-install-list.out</string> -->
+    <string>/Users/capin/logs/brew-update-install-list.out</string>
 
     <key>WorkingDirectory</key>
-    <string>~</string>
+    <!-- <string>$HOME</string> -->
+    <string>/Users/capin</string>
 
 	<!-- <key>StartCalendarInterval</key> -->
 	<!-- <array> -->
