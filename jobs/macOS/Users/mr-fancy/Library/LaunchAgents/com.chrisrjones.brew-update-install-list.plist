@@ -1,20 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-<dict>
-	<!-- <key>GroupName</key> -->
-	<!-- <string>staff</string> -->
-	<key>Label</key>
-	<string>com.chrisrjones.brew-update-install-list</string>
-	<key>ProgramArguments</key>
-	<array>
-    <string>/bin/sh</string>
-		<string>-c</string>
-    <string>/Users/capin/.local/bin/brew-update-install-list.sh</string>
-	</array>
- <!-- # NOTE: the `RootDirectory` key has not been implemented --> 
-	<!-- <key>RootDirectory</key> -->
-	<!-- <string>~</string> -->
+  <dict>
+    <!-- # NOTE: the below key has not been implemented --> 
+    <!-- <string>~</string> -->
+    <!-- <key>RootDirectory</key> -->
+    <!-- <key>GroupName</key> -->
+    <!-- <string>staff</string> -->
+    <!-- <key>UserName</key> -->
+    <!-- <string>capin</string> -->
+    <!-- <key>WorkingDirectory</key> -->
+    <!-- <string>~</string> -->
+    <key>Label</key>
+    <string>com.chrisrjones.brew-update-install-list</string>
+    <key>ProgramArguments</key>
+    <array>
+      <!-- <string>/bin/sh</string> -->
+      <!-- <string>-c</string> -->
+      <string>/Users/capin/.local/bin/brew-update-install-list.sh</string>
+    </array>
+
+    <key>StandardErrorPath</key>
+    <string>/Users/capin/logs/brew-update-install-list.err</string>
+
+    <key>StandardOutPath</key>
+    <string>/Users/capin/logs/brew-update-install-list.out</string>
+
 	<!-- <key>StartCalendarInterval</key> -->
 	<!-- <array> -->
 	<!-- 	<dict> -->
@@ -138,11 +149,7 @@
 	<!-- 		<integer>4</integer> -->
 	<!-- 	</dict> -->
 	<!-- </array> -->
-	<!-- <key>UserName</key> -->
-	<!-- <string>capin</string> -->
-	<!-- <key>WorkingDirectory</key> -->
-	<!-- <string>~</string> -->
-  <key>RunAtLoad</key>
+	  <key>RunAtLoad</key>
   <true/>
 </dict>
 </plist>

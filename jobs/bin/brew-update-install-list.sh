@@ -6,8 +6,9 @@
 
 set -e
 
-if [ "$(type -a brew)" ]; then
-  # echo "brew found"
+path_to_brew=$(command -v brew)
+if [ -x "$path_to_brew" ]; then
+  echo "brew found"
   dots_os="$(/usr/bin/uname)"
 
   case $dots_os in
@@ -22,6 +23,7 @@ if [ "$(type -a brew)" ]; then
       fi
 
       cd $dots/config/brew/macOS/10.13/
+      echo $PATH;
       brew bundle --force dump
       ;;
     Linux)
