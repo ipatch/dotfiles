@@ -213,9 +213,11 @@
 	<key>NSFontPanelSizeSliderParams</key>
 	<string>2 0 100</string>
 	<key>NSNavLastRootDirectory</key>
-	<string>/opt/Code/dotfiles/terms/iterm2</string>
+	<string>~/logs</string>
 	<key>NSNavPanelExpandedSizeForOpenMode</key>
 	<string>{720, 448}</string>
+	<key>NSNavPanelExpandedSizeForSaveMode</key>
+	<string>{712, 448}</string>
 	<key>NSQuotedKeystrokeBinding</key>
 	<string></string>
 	<key>NSRepeatCountBinding</key>
@@ -261,11 +263,11 @@
 	<key>NSWindow Frame SessionsPreferences</key>
 	<string>269 76 606 469 0 0 1440 877 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>153 65 918 512 0 0 1440 877 </string>
+	<string>48 174 796 486 0 0 1440 877 </string>
 	<key>NSWindow Frame com.apple.typography_panel_ConsolasForPowerline</key>
 	<string>252 254 260 156 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>14 341 1426 451 0 0 1440 877 </string>
+	<string>7 426 1426 451 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>3 383 1426 451 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 10</key>
@@ -285,9 +287,9 @@
 	<key>NSWindow Frame iTerm Window 17</key>
 	<string>719 343 714 452 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
-	<string>419 123 1426 451 0 0 1440 877 </string>
+	<string>14 123 1426 451 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 3</key>
-	<string>125 341 1426 451 0 0 1440 877 </string>
+	<string>14 341 1426 451 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 4</key>
 	<string>3 426 1426 451 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 5</key>
@@ -567,7 +569,7 @@
 			<key>Columns</key>
 			<integer>177</integer>
 			<key>Command</key>
-			<string></string>
+			<string>/usr/local/bin/zsh</string>
 			<key>Cursor Boost</key>
 			<real>0.0</real>
 			<key>Cursor Color</key>
@@ -606,7 +608,7 @@
 				<real>0.094117649999999997</real>
 			</dict>
 			<key>Custom Command</key>
-			<string>Yes</string>
+			<string>No</string>
 			<key>Custom Directory</key>
 			<string>Recycle</string>
 			<key>Default Bookmark</key>
@@ -992,7 +994,7 @@
 			<key>Screen</key>
 			<integer>-1</integer>
 			<key>Scrollback Lines</key>
-			<integer>1000</integer>
+			<integer>0</integer>
 			<key>Scrollback With Status Bar</key>
 			<true/>
 			<key>Selected Text Color</key>
@@ -1319,7 +1321,7 @@
 			<key>Columns</key>
 			<integer>88</integer>
 			<key>Command</key>
-			<string>/usr/bin/env</string>
+			<string>/usr/local/bin/zsh</string>
 			<key>Cursor Boost</key>
 			<real>0.0</real>
 			<key>Cursor Color</key>
@@ -1774,7 +1776,7 @@
 			<key>Set Local Environment Vars</key>
 			<true/>
 			<key>Shortcut</key>
-			<string></string>
+			<string>R</string>
 			<key>Show Mark Indicators</key>
 			<false/>
 			<key>Silence Bell</key>
@@ -2069,7 +2071,7 @@
 			<key>Columns</key>
 			<integer>178</integer>
 			<key>Command</key>
-			<string></string>
+			<string>/usr/local/bin/zsh</string>
 			<key>Cursor Boost</key>
 			<real>0.0</real>
 			<key>Cursor Color</key>
@@ -2581,6 +2583,11 @@
 	<integer>0</integer>
 	<key>NoSyncPermissionToShowTip</key>
 	<true/>
+	<key>NoSyncSavePanelSavedSettings_StartSessionLog</key>
+	<dict>
+		<key>Initial Directory</key>
+		<string>/Users/capin/logs</string>
+	</dict>
 	<key>NoSyncSilenceAnnoyingBellAutomatically</key>
 	<true/>
 	<key>NoSyncSuppressClipboardAccessDeniedWarning</key>
@@ -2715,7 +2722,7 @@
 	<key>PromptOnQuit</key>
 	<true/>
 	<key>QuitWhenAllWindowsClosed</key>
-	<true/>
+	<false/>
 	<key>SUEnableAutomaticChecks</key>
 	<false/>
 	<key>SUFeedAlternateAppNameKey</key>
