@@ -84,6 +84,7 @@ brew "ext4fuse"
 brew "fakeroot"
 brew "fd"
 brew "libtiff"
+brew "gdk-pixbuf"
 brew "lame"
 brew "x264"
 brew "ffmpeg", args: ["HEAD", "with-fdk-aac", "with-fontconfig", "with-freetype", "with-game-music-emu", "with-libbluray", "with-librsvg", "with-libvorbis", "with-libvpx", "with-openh264", "with-rtmpdump", "with-sdl2", "with-srt", "with-tools", "with-wavpack", "with-x265"]
