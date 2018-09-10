@@ -23,7 +23,6 @@ else if [ "$os" = Linux ]; and [ -n /home/linuxbrew/.linuxbrew/bin/brew ]
 end
 
 set -l paths \
-/opt/Code/github/PUBLIC/chromium/depot_tools \
 /bin \
 /sbin \
 /usr/bin \
@@ -37,6 +36,7 @@ $HOME/.cargo/bin \
 $HOME/go/bin \
 $HOME/Library/Android/sdk/platform-tools \
 $XDG_CONFIG_HOME/.config/yarn/global/node_modules/.bin \
+/opt/Code/github/PUBLIC/chromium/depot_tools \
 /opt/X11/bin \
 /opt/gnu/grub/bin \
 /opt/gnu/grub/sbin \
@@ -72,4 +72,3 @@ for p in $paths
     set -gx PATH $p $PATH
   end
 end
- 
