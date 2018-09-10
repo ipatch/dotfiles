@@ -198,6 +198,7 @@
   # macOS / Linux specific
   ##
 	autocrlf = input
+	precomposeUnicode = true
   ###############################
   # To set a `core.excludesfile` on a per $HOME dir basis, see `config.fish or `.bashrc`
 

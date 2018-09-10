@@ -23,6 +23,7 @@ else if [ "$os" = Linux ]; and [ -n /home/linuxbrew/.linuxbrew/bin/brew ]
 end
 
 set -l paths \
+/opt/Code/github/PUBLIC/chromium/depot_tools \
 /bin \
 /sbin \
 /usr/bin \
