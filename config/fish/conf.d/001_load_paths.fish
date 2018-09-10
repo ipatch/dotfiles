@@ -55,6 +55,7 @@ $HOME/.local/bin \
 $HOME/.pyenv/bin \
 $HOME/.config/yarn/global/bin \
 /Applications/microchip/xc16/v1.35/bin \
+/usr/local/opt/ccache/libexec \
 # The below PATH entries are inherited from the `/usr/bin/env` on macOS, Linux is another story
 # /usr/sbin \
 # /usr/bin \
