@@ -1,4 +1,4 @@
-function cpu_code_name --description "print the code name for a CPU, ie. Haswell"
+function print_cpu_code_name --description "print the code name for a CPU, ie. Haswell"
   
   # NOTE: `os` is a user defined in `001_load_paths.fish` environment variable  that is globally exported, ie. not required to redefine at a fish function level.
   switch $os
