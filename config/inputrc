@@ -1,5 +1,6 @@
 # Test to see if comments are supported in `.inputrc` file
-set enable-bracketed-paste
+# NOTE: alacritty currently does not support bracketed-paste
+set enable-bracketed-paste on
 
 # Make Tab autocomplete
 set completion-ignore-case on
