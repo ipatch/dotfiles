@@ -10,7 +10,6 @@ _"Give me six hours to chop down a tree and I will spend the first four sharpeni
 
 <br />
 
-<<<<<<< HEAD
 <h3 align="center">Drink Responsibly™ 🥃 while configuring dot files.</h3>
 
 <h6 align="center"><em>These dotfiles have been known to stop working at a moments notice, so buyer beware.</em></h6>
@@ -31,46 +30,6 @@ _"Give me six hours to chop down a tree and I will spend the first four sharpeni
 <a href="installation"></a>
 
 ## Installation
-
-> The below shell command will clone this repo and all submodule related repos.  🤙.  To find out more about git submodules, click [here](https://github.com/ipatch/dotfiles/wiki/git-Notes#git-submodules)
-
-```diff
-- git clone --recursive git@github.com:ipatch/dotfiles.git
-||||||| merged common ancestors
-```shell
-curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-=======
-<h3 align="center">Drink Responsibly™ 🥃 while configuring dot files.</h3>
-
-<h6 align="center"><em>These dotfiles have been known to stop working at a moments notice, so buyer beware.</em></h6>
-
-
-<!-- silly markdown / html comment -->
-
-## Contents
-
-> [awesome dotfiles wiki](https://github.com/ipatch/dotfiles/wiki) A collection of useful pages that complements 👏 these dotfiles.
-
-- [Contents](#contents)
-- [Installation](#installation)
-- [File Structure](#file-structure)
-- [Useful Links ___no particular order___](#useful-links-no-particular-order)
-- [TODOs](#todos)
-  - [Neovim](#neovim)
-  - [Fish](#fish)
-- [Contact](#contact)
-
-<a href="installation"></a>
-
-## Installation
-
-> The below shell command will clone this repo and all submodule related repos.  🤙.  To find out more about git submodules, click [here](https://github.com/ipatch/dotfiles/wiki/git-Notes#git-submodules)
-
-```diff
-- git clone --recursive git@github.com:ipatch/dotfiles.git
->>>>>>> 15ec5fef3e6bab4341bf8d9af88c7b945aec5ef4
-```
 
 > 👷 The below install script has not been completed, so you'll have to do the good ol [StackOverflow](https://i.imgur.com/QZj4hxp.jpg) if you want to expierment with any of the settings from this repo. 🚧
 
@@ -739,19 +698,17 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/install.sh | /bin/
 - [x] ~~Add images in the lib dir of this repo to the .wiki submodule repo.~~
 - [x] ~~Figure out why cloning the dotfiles repo is cloning the submodules with detached heads~~ see [this](https://stackoverflow.com/a/20797186/70880) for detailed explanation.
 ### Neovim
-  - [x] ~~~Figure out a way to save fold settings across all open buffers when quiting Vim.~~~
-  - [x] ~~~Figure out why folds are only being saved / preserved for the last open buffer when quiting Vim 🤔~~~
-  - [ ] Vim Sesssions, ~~~Folds,~~~ and Conceals will be the death of me 💀
-  - [x] ~~don't create session files when launching a man page~~
-  - [x] ~~Figure out a sane solution for previewing markdown ie. .md documents~~
-  - [x] ~~Figure out what is causing lines to be hard wrapped! 😖~~
+- [x] ~~~Figure out a way to save fold settings across all open buffers when quiting Vim.~~~
+- [x] ~~~Figure out why folds are only being saved / preserved for the last open buffer when quiting Vim 🤔~~~
+- [ ] Vim Sesssions, ~~~Folds,~~~ and Conceals will be the death of me 💀
+- [x] ~~don't create session files when launching a man page~~
+- [x] ~~Figure out a sane solution for previewing markdown ie. .md documents~~
+- [x] ~~Figure out what is causing lines to be hard wrapped! 😖~~
 ### Fish
-  - [x] ~~Figure out why `grc` is borking PATH on Linux 😑~~
+- [x] ~~Figure out why `grc` is borking PATH on Linux 😑~~
 
 <a href="contact"></a>
 
 ## Contact
-- **GithHub** [@ipatch](https://github.com/ipatch)
-- **Twitter** [@truckmonth](https://twitter.com/truckmonth)
-- **GitLab** [@truckmonth](https://gitlab.com/truckmonth)
+• [**GithHub**](https://github.com/ipatch) • [**Twitter**](https://twitter.com/truckmonth) • [**GitLab**](https://gitlab.com/truckmonth)
 
