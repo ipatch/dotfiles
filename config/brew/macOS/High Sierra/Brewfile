@@ -17,6 +17,7 @@ cask "java"
 cask "osxfuse"
 cask "xquartz"
 brew "adns"
+brew "apr"
 brew "openssl"
 brew "archey"
 brew "gdbm"
@@ -169,7 +170,7 @@ brew "py2cairo"
 brew "nmap", args: ["with-pygtk"]
 brew "node"
 brew "opam"
-brew "openssh", args: ["with-ldns"]
+brew "openssh", args: ["with-ldns", "with-libressl"]
 brew "openssl@1.1"
 brew "openvpn"
 brew "picocom"

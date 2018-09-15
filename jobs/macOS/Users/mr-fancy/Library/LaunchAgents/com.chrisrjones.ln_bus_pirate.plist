@@ -11,8 +11,6 @@
       <string>-c</string>
       <string>/Users/capin/.local/bin/macos-bp-ln.sh</string>
     </array>
-
-
     <key>RunAtLoad</key>
     <false/>
     <!-- <key>KeepAlive</key> -->
@@ -47,11 +45,11 @@
     <!--   <string>/dev/tty.usbserial-A700dzDq</string> -->
     <!-- </array> -->
 
-    <!-- <key>StandardErrorPath</key> -->
-    <!-- <string>/usr/local/var/log/ln_bus_pirate.err</string> -->
+    <key>StandardErrorPath</key>
+    <string>/Users/capin/Library/Logs/ln_bus_pirate.err</string>
 
-    <!-- <key>StandardOutPath</key> -->
-    <!-- <string>/usr/local/var/log/ln_bus_pirate.out</string> -->
+    <key>StandardOutPath</key>
+    <string>/Users/capin/Library/Logs/ln_bus_pirate.out</string>
   </dict>
 </plist>
 

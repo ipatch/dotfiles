@@ -4,13 +4,20 @@
   <dict>
     <key>Label</key>
     <string>com.chrisrjones.test.launchd-notif-center</string>
-    <!-- <key>RunAtLoad</key> -->
-    <!-- <true/> -->
-
     <key>ProgramArguments</key>
     <array>
       <string>sh</string>
-      <string>/Users/capin/.local/bin/macos-notif-center-test.sh</string>
+      <string>-c</string>
+      <string>$HOME/.local/bin/macos-notif-center-test.sh</string>
     </array>
+
+    <key>RunAtLoad</key>
+    <true/>
+
+    <key>StandardErrorPath</key>
+    <string>/usr/local/var/log/launchd/com.chrisrjones.test.macos-notif-center-test.err</string>
+
+    <key>StandardOutPath</key>
+    <string>/usr/local/var/log/launchd/com.chrisrjones.test.macos-notif-center-test.out</string>
   </dict>
 </plist>
