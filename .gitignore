@@ -94,7 +94,10 @@ config/fish/fishd.*
 ##############################
 # mpv
 ##
-config/mpv/watch_later/** # Ignore `watch_later` directory from mpv
+# Ignore files within the watch_later dir for mpv
+**/config/mpv/watch_later/ 
+# Ignore `watch_later` directory from mpv
+config/mpv/watch_later/** 
 config/mpv/mpv_history.log
 
 ##############################
