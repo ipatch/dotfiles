@@ -50,7 +50,10 @@ $brew_prefix/opt/gnu-sed/libexec/gnubin \
 $brew_prefix/opt/libressl/bin \
 $brew_prefix/opt/python/libexec/bin \
 $brew_prefix/opt/coreutils/libexec/gnubin \
+$brew_prefix/opt/texinfo/bin \
+$brew_prefix/opt/gettext/bin \
 $brew_prefix/opt/ncurses/bin \
+$brew_prefix/opt/m4/bin \
 $HOME/.local/bin \
 $HOME/.pyenv/bin \
 $HOME/.config/yarn/global/bin \
