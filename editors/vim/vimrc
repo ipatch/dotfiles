@@ -206,9 +206,13 @@ else
   call minpac#add('tpope/vim-fugitive') " useful for displaying git branch
   call minpac#add('itchyny/lightline.vim') " lightweight status line.
   call minpac#add('rust-lang/rust.vim')
+  call minpac#add('euclio/vim-markdown-composer')
 
   """""""""""""""""""""""""""""
   " minpac - conditional plugins
+  " ===============================================================
+  " neovim only plugins!!!
+  " ===============================================================
   ""
   if has('nvim')
 
@@ -288,7 +292,7 @@ else
     "   call system('cargo build --release')
     " endfunction
     " call minpac#add('euclio/vim-markdown-composer', { 'do': function('s:hook')})
-    call minpac#add('euclio/vim-markdown-composer', {'do': '!cargo +nightly build --release'})
+    " call minpac#add('euclio/vim-markdown-composer', {'do': '!cargo +nightly build --release'})
   elseif v:version > 8 || v:version == 8 " Check for Vim8 ...sort of
     call minpac#add('Shougu/deoplete.nvim')
     call minpac#add('roxma/nvim-yarp')
