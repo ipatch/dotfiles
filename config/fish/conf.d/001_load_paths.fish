@@ -29,7 +29,6 @@ set -l paths \
 /usr/sbin \
 /usr/games \
 /usr/libexec \
-# /System/Library/CoreServices \ 
 /usr/local/bin \
 /usr/local/sbin \
 $HOME/.cargo/bin \
@@ -40,8 +39,6 @@ $XDG_CONFIG_HOME/.config/yarn/global/node_modules/.bin \
 /opt/X11/bin \
 /opt/gnu/grub/bin \
 /opt/gnu/grub/sbin \
-/opt/gnu/bin \
-/opt/gnu/sbin \
 $brew_prefix/bin \
 $brew_prefix/sbin \
 $brew_prefix/opt/go/libexec/bin \

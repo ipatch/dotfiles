@@ -35,6 +35,8 @@ export XDG_CONFIG_HOME="$HOME/.config"
 export code="/opt/code"
 export dots="/opt/code/dotfiles"
 export github="/opt/code/github"
+export public="/opt/code/github/PUBLIC"
+export private="/opt/code/github/PRIVATE"
 
 # Env Vars for git
 export GIT_RC="$XDG_CONFIG_HOME/git"
@@ -48,6 +50,11 @@ alias l='ls -lahF'
 alias cp='cp -iv'
 alias rm='rm -iv'
 alias mv='mv -iv'
+# move quickly to directories
+alias dots='cd $dots'
+alias public='cd $public'
+alias private='cd $private'
+alias dotfiles='cd /opt/Code/dotfiles'
 
 # `git` aliases for git projects
 alias gs='git status'
@@ -57,9 +64,8 @@ alias gp='git push'
 
 # "storage" aliases
 alias df='df -h'
-alias du='du -h'
+alias du='du -sh'
 
-alias dotfiles='cd /opt/Code/dotfiles'
 
 
 # NOTE: functions in BASH are all stored in memory, ie. RAM and not on disk
