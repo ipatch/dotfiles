@@ -16,6 +16,7 @@ _"Give me six hours to chop down a tree and I will spend the first four sharpeni
 
 ## Contents
 > [awesome dotfiles wiki](https://github.com/ipatch/dotfiles/wiki) A collection of useful pages that complements 👏 these dotfiles.
+- [Contents](#contents)
 - [Installation](#installation)
 - [File Structure](#file-structure)
 - [Useful Links ___no particular order___](#useful-links-no-particular-order)
@@ -44,19 +45,19 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/install.sh | /bin/
 <summary>File Structure</summary>
 <pre>
 .
-├── .git-crypt
+├── .git-crypt/
 │   ├── .gitattributes
-│   └── keys
-│       └── default
-│           └── 0
+│   └── keys/
+│       └── default/
+│           └── 0/
 ├── .gitattributes
-├── .github
+├── .github/
 │   ├── CONTRIBUTING.md
 │   ├── ISSUE_TEMPLATE.md
 │   └── PULL_REQUEST_TEMPLATE.md
 ├── .gitignore
 ├── .gitmodules
-├── .wiki
+├── .wiki/
 │   ├── .gitignore
 │   ├── Home.md
 │   ├── _Footer.md
@@ -72,7 +73,7 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/install.sh | /bin/
 │   ├── graphics-and-image-processing.md
 │   ├── gui-text-editor-Notes.md
 │   ├── homebrew-and-linuxbrew-formula-Notes.md
-│   ├── lib
+│   ├── lib/
 │   │   ├── Neovim-2018-april-late.png
 │   │   ├── Neovim-2018-april.png
 │   │   ├── abe.circle.png
@@ -81,8 +82,11 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/install.sh | /bin/
 │   │   ├── abe.tmp.xcf
 │   │   ├── custom-motd.png
 │   │   ├── fish-tab-completions.png
+│   │   ├── macos-opengl-support.png
 │   │   ├── merica.gif
-│   │   └── vim-2017.png
+│   │   ├── restore-app-windows.png
+│   │   ├── vim-2017.png
+│   │   └── windows-10-boot-time.png
 │   ├── linux-macos-administration-Notes.md
 │   ├── linux-macos-troubleshooting-Notes.md
 │   ├── macbookpro-late-2013-Notes.md
@@ -98,77 +102,85 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/install.sh | /bin/
 │   └── working-with-video.md
 ├── LICENSE
 ├── README.md
-├── asdf
+├── asdf/
+│   ├── .default-gems
 │   ├── .default-npm-packages
 │   ├── .tool-versions.nathan.capin
 │   ├── .tool-versions.nathan.root
 │   ├── README.md
 │   └── tool-versions.rogue.capin
-├── config
+├── config/
 │   ├── README.md
-│   ├── asciinema
+│   ├── alacritty/
+│   │   └── alacritty.yml
+│   ├── asciinema/
 │   │   ├── config
-│   │   └── install-id.shh
-│   ├── atom
+│   │   ├── install-id
+│   │   └── install-id.shu
+│   ├── atom/
 │   │   └── packages.list
-│   ├── base16-shell -> /opt/code/github/base16-shell/
-│   ├── bash
+│   ├── base16-shell -> /opt/code/github/PUBLIC/base16-shell/
+│   ├── bash/
 │   │   ├── .gitkeep
+│   │   ├── bash_completion/
+│   │   │   └── alacritty-completions.bash
 │   │   ├── bash_profile
 │   │   ├── bashrc
-│   │   └── functions
+│   │   └── functions/
+│   │       ├── .fzf.bash
 │   │       ├── .gitkeep
 │   │       ├── README.md
-│   │       ├── debug.bash
+│   │       ├── debug.bash*
 │   │       ├── foobar.bash
-│   │       └── print_256_colors.bash
-│   ├── bitbar
-│   │   ├── cpu-temperature.5s.sh
-│   │   ├── fan-speed.5s.sh
-│   │   └── spotify.10s.sh
-│   ├── brew
-│   │   ├── Debian
-│   │   │   └── stretch
+│   │       └── print_256_colors.bash*
+│   ├── bitbar/
+│   │   ├── cpu-temperature.5s.sh*
+│   │   ├── fan-speed.5s.sh*
+│   │   └── spotify.10s.sh*
+│   ├── brew/
+│   │   ├── Debian/
+│   │   │   └── stretch/
 │   │   │       ├── .gitkeep
 │   │   │       ├── Brewfile
-│   │   │       └── dir_colors -> /opt/Code/dotfiles/config/brew/macOS/10.13/gnu-coreutils/dir_colors
-│   │   ├── grc
+│   │   │       ├── dir_colors -> /opt/Code/dotfiles/config/brew/macOS/10.13/gnu-coreutils/dir_colors
+│   │   │       └── nathan.stretch.package-list.txt -> /opt/Code/dotfiles/jobs/Linux/Debian/etc/apt/nathan.stretch.package-list.txt
+│   │   ├── grc/
 │   │   │   └── grc.conf
-│   │   └── macOS
-│   │       ├── 10.12 -> Sierra/
-│   │       ├── 10.13 -> High\ Sierra/
-│   │       ├── High\ Sierra
+│   │   └── macOS/
+│   │       ├── 10.12 -> Sierra//
+│   │       ├── 10.13 -> High\ Sierra//
+│   │       ├── High\ Sierra/
 │   │       │   ├── Brewfile
-│   │       │   ├── Library -> /opt/Code/dotfiles/config/brew/macOS/Sierra/Library
-│   │       │   ├── config
-│   │       │   │   └── karabiner -> /opt/Code/dotfiles/config/karabiner
-│   │       │   ├── etc -> /opt/Code/dotfiles/config/brew/macOS/Sierra/etc
-│   │       │   └── gnu-coreutils
+│   │       │   ├── Library -> /opt/Code/dotfiles/config/brew/macOS/Sierra/Library/
+│   │       │   ├── config/
+│   │       │   │   └── karabiner -> /opt/Code/dotfiles/config/karabiner/
+│   │       │   ├── etc -> /opt/Code/dotfiles/config/brew/macOS/Sierra/etc/
+│   │       │   └── gnu-coreutils/
 │   │       │       └── dir_colors
-│   │       └── Sierra
+│   │       └── Sierra/
 │   │           ├── Brewfile
-│   │           ├── Library
-│   │           │   ├── LaunchAgents
+│   │           ├── Library/
+│   │           │   ├── LaunchAgents/
 │   │           │   │   └── com.chrisrjones.ssh-agent.plist
-│   │           │   └── LaunchDaemons
+│   │           │   └── LaunchDaemons/
 │   │           │       └── com.chrisrjones.sshd.plist
-│   │           └── etc
-│   │               └── ssh
+│   │           └── etc/
+│   │               └── ssh/
 │   │                   ├── ssh_config
 │   │                   └── sshd_config
-│   ├── code -> vscode
-│   ├── firefox
-│   │   └── chrome
+│   ├── code -> vscode/
+│   ├── firefox/
+│   │   └── chrome/
 │   │       └── userChrome.css
-│   ├── fish
+│   ├── fish/
 │   │   ├── abbreviations.fish
 │   │   ├── aliases.fish
-│   │   ├── completions
+│   │   ├── completions/
 │   │   │   ├── alacritty.fish
 │   │   │   ├── asdf.fish
 │   │   │   ├── docker.fish
 │   │   │   └── rustup.fish
-│   │   ├── conf.d
+│   │   ├── conf.d/
 │   │   │   ├── 001_load_paths.fish
 │   │   │   ├── 002_load_ls_colors.fish
 │   │   │   ├── 005_omf.fish
@@ -177,23 +189,22 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/install.sh | /bin/
 │   │   ├── config.fish
 │   │   ├── config.fish.bkup
 │   │   ├── fish_universal_variables
-│   │   ├── fishd.b8e85636f766
-│   │   ├── frameworks
-│   │   │   └── omf
+│   │   ├── frameworks/
+│   │   │   └── omf/
 │   │   │       ├── bundle
 │   │   │       ├── channel
 │   │   │       ├── theme
-│   │   │       └── themes
-│   │   │           └── theme-neolambda
+│   │   │       └── themes/
+│   │   │           └── theme-neolambda/
 │   │   │               ├── LICENSE
 │   │   │               ├── README.md
 │   │   │               ├── fish_prompt.fish
 │   │   │               ├── fish_right_prompt.fish
-│   │   │               └── lib
+│   │   │               └── lib/
 │   │   │                   ├── fish-shell-lambda-theme.png
 │   │   │                   ├── virtualenv-double-prompt.png
 │   │   │                   └── virtualenv.png
-│   │   ├── functions
+│   │   ├── functions/
 │   │   │   ├── bases.fish
 │   │   │   ├── brew_find_pkg.fish
 │   │   │   ├── color.fish
@@ -207,6 +218,7 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/install.sh | /bin/
 │   │   │   ├── fish_user_key_bindings.fish
 │   │   │   ├── foobar.fish
 │   │   │   ├── fundle.fish
+│   │   │   ├── fzf_key_bindings.fish -> /usr/local/opt/fzf/shell/key-bindings.fish
 │   │   │   ├── git_submodule_add_commit.fish
 │   │   │   ├── gittree.fish
 │   │   │   ├── h.fish
@@ -223,6 +235,7 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/install.sh | /bin/
 │   │   │   ├── path_pretty.fish
 │   │   │   ├── path_remove.fish
 │   │   │   ├── perl_print_emoji.fish
+│   │   │   ├── print_cpu_code_name.fish
 │   │   │   ├── print_fish.fish
 │   │   │   ├── print_wan_ip.fish
 │   │   │   ├── rtail.fish
@@ -237,38 +250,38 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/install.sh | /bin/
 │   │   │   ├── toggle_homebrew_python_path.fish
 │   │   │   ├── toggle_homebrew_ruby.fish
 │   │   │   └── vman.fish
-│   │   ├── fundle
-│   │   │   └── edc
-│   │   │       └── bass
+│   │   ├── fundle/
+│   │   │   └── edc/
+│   │   │       └── bass/
 │   │   │           ├── .travis.yml
 │   │   │           ├── LICENSE
 │   │   │           ├── Makefile
 │   │   │           ├── README.md
-│   │   │           ├── functions
+│   │   │           ├── functions/
 │   │   │           │   ├── __bass.py
 │   │   │           │   └── bass.fish
-│   │   │           └── test
-│   │   │               ├── fixtures
-│   │   │               │   └── dollar_output.sh
+│   │   │           └── test/
+│   │   │               ├── fixtures/
+│   │   │               │   └── dollar_output.sh*
 │   │   │               ├── test_bass.fish
 │   │   │               └── test_dollar_on_output.fish
 │   │   └── interactive.fish
-│   ├── git
-│   │   ├── git-templates
-│   │   │   └── hooks
-│   │   │       ├── legacy.pre-commit
-│   │   │       ├── post-checkout
-│   │   │       ├── pre-commit
-│   │   │       └── pre-commit.d
-│   │   │           └── 01-crypto.sh
+│   ├── git/
+│   │   ├── git-templates/
+│   │   │   └── hooks/
+│   │   │       ├── legacy.pre-commit*
+│   │   │       ├── post-checkout*
+│   │   │       ├── pre-commit*
+│   │   │       └── pre-commit.d/
+│   │   │           └── 01-crypto.sh*
 │   │   ├── gitattributes
 │   │   ├── gitconfig
 │   │   └── gitexcludes
-│   ├── htop
+│   ├── htop/
 │   │   └── htoprc
 │   ├── inputrc
-│   ├── irc-clients
-│   │   └── weechat
+│   ├── irc-clients/
+│   │   └── weechat/
 │   │       ├── alias.conf
 │   │       ├── aspell.conf
 │   │       ├── buffers.conf
@@ -278,14 +291,15 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/install.sh | /bin/
 │   │       ├── exec.conf
 │   │       ├── fifo.conf
 │   │       ├── fset.conf
-│   │       ├── irc.conf
+│   │       ├── irc.conf.shu
 │   │       ├── iset.conf
 │   │       ├── logger.conf
-│   │       ├── logs
-│   │       ├── lua
-│   │       │   └── autoload
-│   │       ├── perl
-│   │       │   ├── autoload
+│   │       ├── logs/
+│   │       │   └── .gitkeep
+│   │       ├── lua/
+│   │       │   └── autoload/
+│   │       ├── perl/
+│   │       │   ├── autoload/
 │   │       │   │   ├── iset.pl -> ../iset.pl
 │   │       │   │   ├── multiline.pl -> ../multiline.pl
 │   │       │   │   └── nickregain.pl -> ../nickregain.pl
@@ -294,9 +308,9 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/install.sh | /bin/
 │   │       │   └── nickregain.pl
 │   │       ├── perl.conf
 │   │       ├── plugins.conf
-│   │       ├── python
+│   │       ├── python/
 │   │       │   ├── autojoin.py
-│   │       │   ├── autoload
+│   │       │   ├── autoload/
 │   │       │   │   ├── autojoin.py -> ../autojoin.py
 │   │       │   │   ├── colorize_nicks.py -> ../colorize_nicks.py
 │   │       │   │   ├── histsearch.py -> ../histsearch.py
@@ -306,237 +320,276 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/install.sh | /bin/
 │   │       │   └── pyrnotify.py
 │   │       ├── python.conf
 │   │       ├── relay.conf
-│   │       ├── ruby
-│   │       │   └── autoload
+│   │       ├── ruby/
+│   │       │   └── autoload/
 │   │       ├── ruby.conf
-│   │       ├── script
+│   │       ├── script/
 │   │       │   └── plugins.xml.gz
 │   │       ├── script.conf
-│   │       ├── sec.conf
-│   │       ├── tcl
-│   │       │   └── autoload
+│   │       ├── sec.conf.shu
+│   │       ├── tcl/
+│   │       │   └── autoload/
 │   │       ├── trigger.conf
-│   │       ├── weechat.conf
+│   │       ├── weechat.conf.shu
 │   │       ├── weechat.log
 │   │       ├── weechat.png
-│   │       ├── xfer
+│   │       ├── xfer/
+│   │       │   └── .gitkeep
 │   │       └── xfer.conf
-│   ├── karabiner
-│   │   ├── assets
-│   │   │   └── complex_modifications
+│   ├── karabiner/
+│   │   ├── assets/
+│   │   │   └── complex_modifications/
 │   │   │       ├── .gitkeep
 │   │   │       └── 1531852685.json
 │   │   └── karabiner.json
-│   ├── minicom
+│   ├── minicom/
 │   │   ├── minirc.bp-apex2g
 │   │   ├── minirc.dfl
 │   │   ├── minirc.minicom-bp-ap-express-2G
 │   │   └── minirc.minicom-bp-ap2g
-│   ├── mpv
+│   ├── mpv/
 │   │   ├── input.conf
 │   │   ├── mpv.conf
 │   │   ├── mpv_history.log
-│   │   ├── scripts
+│   │   ├── scripts/
 │   │   │   └── history.lua
-│   │   └── watch_later
-│   ├── mutt
+│   │   └── watch_later/
+│   │       ├── .gitkeep
+│   │       ├── 16BDAD0EF35D15879302723703612C96
+│   │       ├── 183D4B3B19174B54291AECC845FC12C4
+│   │       └── 6267CB20C03F5A5634589F80ED8FD6E5
+│   ├── mutt/
 │   │   └── muttrc
-│   ├── nvim
-│   │   ├── autoload
+│   ├── nvim/
+│   │   ├── autoload/
 │   │   │   └── .gitkeep
 │   │   └── init.vim
-│   ├── pt
+│   ├── pt/
 │   │   └── config.toml
-│   ├── vscode
+│   ├── vscode/
 │   │   ├── keybindings.json
 │   │   └── settings.json
-│   └── zsh
-│       ├── functions
+│   └── zsh/
+│       ├── functions/
 │       │   └── .fzf.zsh
 │       ├── zlogin
 │       ├── zshenv
 │       └── zshrc
-├── editors
-│   ├── atom -> /opt/Code/dotfiles/config/atom
-│   ├── code -> /opt/Code/dotfiles/config/code
+├── editors/
+│   ├── atom -> /opt/Code/dotfiles/config/atom/
+│   ├── code -> /opt/Code/dotfiles/config/code/
 │   ├── ctags
-│   ├── nvim -> /opt/Code/dotfiles/config/nvim
-│   └── vim
+│   ├── nvim -> /opt/Code/dotfiles/config/nvim/
+│   └── vim/
 │       ├── README.md
 │       ├── editorconfig
 │       ├── init.vim -> /opt/Code/dotfiles/config/nvim/init.vim
-│       ├── vim
+│       ├── vim/
 │       │   ├── .base16
 │       │   ├── .base16.previous
-│       │   ├── after
+│       │   ├── after/
 │       │   │   ├── .gitkeep
-│       │   │   ├── ftplugin
-│       │   │   │   ├── bash
+│       │   │   ├── ftplugin/
+│       │   │   │   ├── bash/
 │       │   │   │   │   └── bash.vim
-│       │   │   │   ├── fish
+│       │   │   │   ├── fish/
 │       │   │   │   │   └── fish.vim
 │       │   │   │   ├── html.vim
-│       │   │   │   ├── javascript
+│       │   │   │   ├── javascript/
 │       │   │   │   │   ├── folding.vim
 │       │   │   │   │   └── javascript.vim
-│       │   │   │   ├── markdown
+│       │   │   │   ├── markdown/
 │       │   │   │   │   ├── folding.vim
 │       │   │   │   │   └── markdown.vim
 │       │   │   │   ├── python.vim
-│       │   │   │   └── vim
+│       │   │   │   └── vim/
 │       │   │   │       ├── folding.vim
 │       │   │   │       └── vim.vim
-│       │   │   └── plugin
-│       │   │       └── indentLine.vim
-│       │   ├── autoload
-│       │   │   └── wincent
+│       │   │   └── plugin/
+│       │   │       ├── plugin_ale.vim
+│       │   │       ├── plugin_deoplete.vim
+│       │   │       ├── plugin_fzf.vim
+│       │   │       ├── plugin_identLine.vim
+│       │   │       ├── plugin_indent_line.vim
+│       │   │       ├── plugin_language_client.vim
+│       │   │       ├── plugin_lightline.vim
+│       │   │       └── plugin_vim_commentary.vim
+│       │   ├── autoload/
+│       │   │   └── wincent/
 │       │   │       ├── autocmds.vim
-│       │   │       ├── mappings
+│       │   │       ├── mappings/
 │       │   │       │   └── visual.vim
 │       │   │       └── settings.vim
-│       │   ├── colors
+│       │   ├── colors/
 │       │   │   └── .gitkeep
-│       │   ├── plugin
+│       │   ├── plugin/
 │       │   │   ├── autocmds.vim
 │       │   │   ├── mappings.vim
-│       │   │   ├── plugin_ale.vim
-│       │   │   ├── plugin_deoplete.vim
-│       │   │   ├── plugin_fzf.vim
-│       │   │   ├── plugin_indent_line.vim
-│       │   │   ├── plugin_language_client.vim
-│       │   │   ├── plugin_lightline.vim
-│       │   │   ├── plugin_vim_commentary.vim
 │       │   │   ├── sessions.vim
 │       │   │   └── settings.vim
-│       │   └── spell
+│       │   └── spell/
 │       │       ├── en.utf-8.add
 │       │       ├── en.utf-8.add.spl
 │       │       ├── en.utf-8.spl
 │       │       └── en.utf-8.sug
 │       ├── vimrc
 │       └── vimrc.pre-feb-26-2018
-├── install
-│   ├── install-alpha.sh
-│   ├── install-alpha02.sh
-│   └── prompt.sh
-├── install.sh
-├── jobs
-│   ├── Linux
-│   │   ├── Debian
+├── install/
+│   ├── install-alpha.sh*
+│   ├── install-alpha02.sh*
+│   └── prompt.sh*
+├── install.sh*
+├── jobs/
+│   ├── Linux/
+│   │   ├── Debian/
 │   │   │   ├── _load_selinux_policy
-│   │   │   └── etc
-│   │   │       ├── apt
+│   │   │   └── etc/
+│   │   │       ├── apt/
+│   │   │       │   ├── Brewfile -> /opt/Code/dotfiles/config/brew/Debian/stretch/Brewfile
 │   │   │       │   ├── nathan.stretch.package-list.txt
-│   │   │       │   └── sources.list.d
+│   │   │       │   └── sources.list.d/
 │   │   │       │       ├── .gitkeep
 │   │   │       │       └── debian-stretch-backports.list
 │   │   │       ├── bash.bashrc
 │   │   │       ├── profile
-│   │   │       └── systemd
+│   │   │       └── systemd/
 │   │   │           ├── journald.conf
-│   │   │           └── system
+│   │   │           └── system/
+│   │   │               ├── bitlbee.service
 │   │   │               ├── postgresql.service
 │   │   │               ├── xclip.socket
 │   │   │               └── xclip@.service
+│   │   ├── Raspbian/
+│   │   │   └── lib/
+│   │   │       └── systemd/
+│   │   │           └── system/
+│   │   │               └── transmission-daemon.service
 │   │   ├── pg_backup.config
-│   │   ├── pg_backup.sh
-│   │   ├── pg_backup_borked.sh
-│   │   └── pg_backup_rotated.sh
-│   ├── bin
-│   │   ├── battery -> /opt/Code/dotfiles/terms/tmux/bin/battery
-│   │   ├── brew-updatedb.sh
-│   │   ├── color-spaces.pl
-│   │   ├── colors-fish
-│   │   ├── colors-lencioni
-│   │   ├── colors-lencioni.orig
-│   │   ├── colors-wincent
-│   │   ├── colors-wincent.orig
-│   │   ├── colors-zsh
-│   │   ├── colortest -> /opt/Code/dotfiles/config/base16-shell/colortest
-│   │   ├── defunct
-│   │   │   └── tmux_session.sh
-│   │   ├── docker-uninstall-on-macos.sh
-│   │   ├── dots.sh -> /opt/Code/dotfiles/terms/tmux/bin/dots.sh
+│   │   ├── pg_backup.sh*
+│   │   ├── pg_backup_borked.sh*
+│   │   └── pg_backup_rotated.sh*
+│   ├── bin/
+│   │   ├── airport -> /System/Library/PrivateFrameworks/Apple80211.framework/Versions/A/Resources/airport*
+│   │   ├── battery -> /opt/Code/dotfiles/terms/tmux/bin/battery*
+│   │   ├── brew-update-Brewfile.sh*
+│   │   ├── brew-updatedb.sh*
+│   │   ├── color-spaces.pl*
+│   │   ├── colors-fish*
+│   │   ├── colors-lencioni*
+│   │   ├── colors-lencioni.orig*
+│   │   ├── colors-wincent*
+│   │   ├── colors-wincent.orig*
+│   │   ├── colors-zsh*
+│   │   ├── colortest -> /opt/Code/dotfiles/config/base16-shell/colortest*
+│   │   ├── dd_ibs_test.sh*
+│   │   ├── dd_obs_test.sh*
+│   │   ├── defunct/
+│   │   │   └── tmux_session.sh*
+│   │   ├── docker-uninstall-on-macos.sh*
+│   │   ├── dots.sh -> /opt/Code/dotfiles/terms/tmux/bin/dots.sh*
 │   │   ├── dpkg-gettext.pl
-│   │   ├── dpkg-scanpackages-cydia
-│   │   ├── jtool -> /opt/code/ios-dev/tools/jtool/jtool
-│   │   ├── macos-bp-ln.sh
-│   │   ├── macos-notif-center-test.sh
-│   │   ├── openvpn
-│   │   │   └── test-routes.sh
-│   │   ├── print_ls_colors
-│   │   └── rm_ds_store_files.sh
-│   ├── macOS
-│   │   ├── System
-│   │   │   └── Library
-│   │   │       └── LaunchDaemons
+│   │   ├── dpkg-scanpackages-cydia*
+│   │   ├── git-gc-all-ferocious.sh*
+│   │   ├── git-grab-all-the-branches.sh*
+│   │   ├── git-large-files.sh*
+│   │   ├── git_find_big.sh*
+│   │   ├── jtool -> /opt/code/ios-dev/tools/jtool/jtool*
+│   │   ├── launchd-setup-env-vars.sh
+│   │   ├── macos-bp-ln.sh*
+│   │   ├── macos-ls-usb.sh*
+│   │   ├── macos-notif-center-test.sh*
+│   │   ├── objconv*
+│   │   ├── openvpn/
+│   │   │   └── test-routes.sh*
+│   │   ├── print_ls_colors*
+│   │   ├── rm_ds_store_files.sh*
+│   │   └── sysbenc-cpu-temp.sh*
+│   ├── macOS/
+│   │   ├── System/
+│   │   │   └── Library/
+│   │   │       └── LaunchDaemons/
 │   │   │           └── com.apple.nfsd.plist
-│   │   ├── Users
-│   │   │   └── mr-fancy
-│   │   │       └── Library
-│   │   │           └── LaunchAgents
-│   │   │               ├── com.chrisrjones.brew-updateb.plist
-│   │   │               ├── com.chrisrjones.ln_bus_pirate.plist
-│   │   │               ├── com.chrisrjones.rm_ds_store_files.plist
-│   │   │               └── com.chrisrjones.test.launchd-notif-center.plist
-│   │   ├── etc
-│   │   │   └── profile
-│   │   └── usr
-│   │       └── local
+│   │   ├── Users/
+│   │   │   └── mr-fancy/
+│   │   │       └── Library/
+│   │   │           ├── LaunchAgents/
+│   │   │           │   ├── com.chrisrjones.brew-update-Brewfile.plist
+│   │   │           │   ├── com.chrisrjones.brew-updatedb.plist
+│   │   │           │   ├── com.chrisrjones.ln_bus_pirate.plist
+│   │   │           │   ├── com.chrisrjones.rm_ds_store_files.plist
+│   │   │           │   └── com.chrisrjones.test.launchd-notif-center.plist
+│   │   │           └── Preferences/
+│   │   │               └── .gitkeep
+│   │   ├── etc -> /opt/Code/dotfiles/jobs/macOS/private/
+│   │   ├── private/
+│   │   │   └── etc/
+│   │   │       ├── autofs.conf
+│   │   │       ├── paths.default
+│   │   │       └── profile
+│   │   └── usr/
+│   │       └── local/
 │   │           ├── xpc_set_event_stream_handler.m
 │   │           └── xpc_set_event_stream_handler.o
-│   └── scripts
+│   └── scripts/
 │       └── .gitkeep
-├── lang
-│   ├── elixir
+├── lang/
+│   ├── cpp/
+│   │   └── README.md
+│   ├── elixir/
+│   │   ├── README.md
 │   │   └── iex.exs
-│   ├── javascript
+│   ├── java/
+│   │   └── README.md
+│   ├── javascript/
 │   │   ├── README.md
 │   │   ├── eslintrc
 │   │   ├── npm-global-packages.txt
-│   │   ├── npm-install.sh
+│   │   ├── npm-install.sh*
 │   │   ├── npmrc
-│   │   └── yarnrc
-│   ├── js -> /opt/Code/dotfiles/lang/javascript
-│   ├── python
+│   │   └── yarnrc.rogue.capin
+│   ├── js -> /opt/Code/dotfiles/lang/javascript/
+│   ├── lua/
+│   │   └── README.md
+│   ├── python/
 │   │   ├── README.md
-│   │   ├── pyenv
+│   │   ├── pyenv/
 │   │   │   └── .gitkeep
 │   │   └── pystartup
-│   ├── ruby
+│   ├── ruby/
+│   │   ├── README.md
 │   │   ├── gemrc
 │   │   └── irbrc
-│   └── rust
+│   └── rust/
 │       └── README.md
-├── re
-│   ├── gdb
+├── re/
+│   ├── gdb/
 │   │   └── .gdbinit
-│   ├── lldb
+│   ├── lldb/
 │   │   └── lldbinit
-│   └── radare
+│   └── radare/
 │       └── radare2rc
-├── shells
-│   ├── bash -> /opt/Code/dotfiles/config/bash
-│   ├── fish -> /opt/Code/dotfiles/config/fish
-│   └── zsh -> /opt/Code/dotfiles/config/zsh
+├── shells/
+│   ├── bash -> /opt/Code/dotfiles/config/bash/
+│   ├── fish -> /opt/Code/dotfiles/config/fish/
+│   └── zsh -> /opt/Code/dotfiles/config/zsh/
 ├── tags
-└── terms
-    ├── Terminal-app
+└── terms/
+    ├── Terminal-app/
     │   └── macOS-10.13.terminal
-    ├── alacritty
+    ├── alacritty/
     │   └── alacritty.yml
-    ├── hyper
+    ├── hyper/
     │   └── hyper.js
-    ├── iterm2
+    ├── iterm2/
     │   └── com.googlecode.iterm2.plist
-    └── tmux
-        ├── bin
-        │   ├── battery
-        │   └── dots.sh
-        ├── tmux
-        │   ├── plugins
+    └── tmux/
+        ├── bin/
+        │   ├── battery*
+        │   └── dots.sh*
+        ├── tmux/
+        │   ├── plugins/
         │   │   ├── .gitkeep
-        │   │   ├── tmux-resurrect
+        │   │   ├── tmux-resurrect/
         │   │   │   ├── .gitattributes
         │   │   │   ├── .gitignore
         │   │   │   ├── .gitmodules
@@ -545,7 +598,7 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/install.sh | /bin/
         │   │   │   ├── CONTRIBUTING.md
         │   │   │   ├── LICENSE.md
         │   │   │   ├── README.md
-        │   │   │   ├── docs
+        │   │   │   ├── docs/
         │   │   │   │   ├── custom_key_bindings.md
         │   │   │   │   ├── migrating_from_tmuxinator.md
         │   │   │   │   ├── restoring_pane_contents.md
@@ -553,64 +606,64 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/install.sh | /bin/
         │   │   │   │   ├── restoring_shell_history.md
         │   │   │   │   ├── restoring_vim_and_neovim_sessions.md
         │   │   │   │   └── save_dir.md
-        │   │   │   ├── lib
-        │   │   │   │   └── tmux-test
+        │   │   │   ├── lib/
+        │   │   │   │   └── tmux-test/
         │   │   │   │       ├── .gitignore
         │   │   │   │       ├── .travis.yml
         │   │   │   │       ├── CHANGELOG.md
         │   │   │   │       ├── LICENSE.md
         │   │   │   │       ├── README.md
         │   │   │   │       ├── Vagrantfile
-        │   │   │   │       ├── run_framework_tests
-        │   │   │   │       ├── run_tests
-        │   │   │   │       ├── setup
-        │   │   │   │       ├── tests
-        │   │   │   │       │   ├── helpers
+        │   │   │   │       ├── run_framework_tests*
+        │   │   │   │       ├── run_tests*
+        │   │   │   │       ├── setup*
+        │   │   │   │       ├── tests/
+        │   │   │   │       │   ├── helpers/
         │   │   │   │       │   │   └── helpers.sh
-        │   │   │   │       │   ├── run_tests_in_isolation
-        │   │   │   │       │   ├── test_basic_script_execution.sh
-        │   │   │   │       │   ├── test_default_session_name.sh
-        │   │   │   │       │   └── test_tmux_scripting.sh
+        │   │   │   │       │   ├── run_tests_in_isolation*
+        │   │   │   │       │   ├── test_basic_script_execution.sh*
+        │   │   │   │       │   ├── test_default_session_name.sh*
+        │   │   │   │       │   └── test_tmux_scripting.sh*
         │   │   │   │       ├── vagrant_centos_provisioning.sh
         │   │   │   │       └── vagrant_ubuntu_provisioning.sh
-        │   │   │   ├── resurrect.tmux
-        │   │   │   ├── run_tests -> lib/tmux-test/run_tests
-        │   │   │   ├── save_command_strategies
-        │   │   │   │   ├── gdb.sh
-        │   │   │   │   ├── pgrep.sh
-        │   │   │   │   └── ps.sh
-        │   │   │   ├── scripts
-        │   │   │   │   ├── check_tmux_version.sh
+        │   │   │   ├── resurrect.tmux*
+        │   │   │   ├── run_tests -> lib/tmux-test/run_tests*
+        │   │   │   ├── save_command_strategies/
+        │   │   │   │   ├── gdb.sh*
+        │   │   │   │   ├── pgrep.sh*
+        │   │   │   │   └── ps.sh*
+        │   │   │   ├── scripts/
+        │   │   │   │   ├── check_tmux_version.sh*
         │   │   │   │   ├── helpers.sh
         │   │   │   │   ├── process_restore_helpers.sh
-        │   │   │   │   ├── restore.exp
-        │   │   │   │   ├── restore.sh
-        │   │   │   │   ├── save.sh
+        │   │   │   │   ├── restore.exp*
+        │   │   │   │   ├── restore.sh*
+        │   │   │   │   ├── save.sh*
         │   │   │   │   ├── spinner_helpers.sh
-        │   │   │   │   ├── tmux_spinner.sh
+        │   │   │   │   ├── tmux_spinner.sh*
         │   │   │   │   └── variables.sh
-        │   │   │   ├── strategies
-        │   │   │   │   ├── irb_default_strategy.sh
-        │   │   │   │   ├── nvim_session.sh
-        │   │   │   │   └── vim_session.sh
-        │   │   │   ├── tests
-        │   │   │   │   ├── fixtures
+        │   │   │   ├── strategies/
+        │   │   │   │   ├── irb_default_strategy.sh*
+        │   │   │   │   ├── nvim_session.sh*
+        │   │   │   │   └── vim_session.sh*
+        │   │   │   ├── tests/
+        │   │   │   │   ├── fixtures/
         │   │   │   │   │   ├── restore_file.txt
         │   │   │   │   │   └── save_file.txt
-        │   │   │   │   ├── helpers
-        │   │   │   │   │   ├── create_and_save_tmux_test_environment.exp
+        │   │   │   │   ├── helpers/
+        │   │   │   │   │   ├── create_and_save_tmux_test_environment.exp*
         │   │   │   │   │   ├── expect_helpers.exp
         │   │   │   │   │   ├── helpers.sh -> ../../lib/tmux-test/tests/helpers/helpers.sh
-        │   │   │   │   │   ├── restore_and_save_tmux_test_environment.exp
+        │   │   │   │   │   ├── restore_and_save_tmux_test_environment.exp*
         │   │   │   │   │   └── resurrect_helpers.sh
-        │   │   │   │   ├── run_tests_in_isolation -> ../lib/tmux-test/tests/run_tests_in_isolation
-        │   │   │   │   ├── test_resurrect_restore.sh
-        │   │   │   │   └── test_resurrect_save.sh
-        │   │   │   └── video
+        │   │   │   │   ├── run_tests_in_isolation -> ../lib/tmux-test/tests/run_tests_in_isolation*
+        │   │   │   │   ├── test_resurrect_restore.sh*
+        │   │   │   │   └── test_resurrect_save.sh*
+        │   │   │   └── video/
         │   │   │       ├── issue_vid.png
         │   │   │       ├── screencast_img.png
         │   │   │       └── script.md
-        │   │   └── tpm
+        │   │   └── tpm/
         │   │       ├── .gitattributes
         │   │       ├── .gitignore
         │   │       ├── .gitmodules
@@ -619,60 +672,61 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/install.sh | /bin/
         │   │       ├── HOW_TO_PLUGIN.md
         │   │       ├── LICENSE.md
         │   │       ├── README.md
-        │   │       ├── bin
-        │   │       │   ├── clean_plugins
-        │   │       │   ├── install_plugins
-        │   │       │   └── update_plugins
-        │   │       ├── bindings
-        │   │       │   ├── clean_plugins
-        │   │       │   ├── install_plugins
-        │   │       │   └── update_plugins
-        │   │       ├── docs
+        │   │       ├── bin/
+        │   │       │   ├── clean_plugins*
+        │   │       │   ├── install_plugins*
+        │   │       │   └── update_plugins*
+        │   │       ├── bindings/
+        │   │       │   ├── clean_plugins*
+        │   │       │   ├── install_plugins*
+        │   │       │   └── update_plugins*
+        │   │       ├── docs/
         │   │       │   ├── automatic_tpm_installation.md
         │   │       │   ├── changing_plugins_install_dir.md
         │   │       │   ├── how_to_create_plugin.md
         │   │       │   ├── managing_plugins_via_cmd_line.md
         │   │       │   └── tpm_not_working.md
-        │   │       ├── lib
-        │   │       │   └── tmux-test
-        │   │       ├── scripts
-        │   │       │   ├── check_tmux_version.sh
-        │   │       │   ├── clean_plugins.sh
-        │   │       │   ├── helpers
+        │   │       ├── lib/
+        │   │       │   └── tmux-test/
+        │   │       ├── scripts/
+        │   │       │   ├── check_tmux_version.sh*
+        │   │       │   ├── clean_plugins.sh*
+        │   │       │   ├── helpers/
         │   │       │   │   ├── plugin_functions.sh
         │   │       │   │   ├── shell_echo_functions.sh
         │   │       │   │   ├── tmux_echo_functions.sh
         │   │       │   │   ├── tmux_utils.sh
         │   │       │   │   └── utility.sh
-        │   │       │   ├── install_plugins.sh
-        │   │       │   ├── source_plugins.sh
-        │   │       │   ├── update_plugin.sh
-        │   │       │   ├── update_plugin_prompt_handler.sh
+        │   │       │   ├── install_plugins.sh*
+        │   │       │   ├── source_plugins.sh*
+        │   │       │   ├── update_plugin.sh*
+        │   │       │   ├── update_plugin_prompt_handler.sh*
         │   │       │   └── variables.sh
-        │   │       ├── tests
-        │   │       │   ├── expect_failed_plugin_download
-        │   │       │   ├── expect_successful_clean_plugins
-        │   │       │   ├── expect_successful_multiple_plugins_download
-        │   │       │   ├── expect_successful_plugin_download
-        │   │       │   ├── expect_successful_update_of_a_single_plugin
-        │   │       │   ├── expect_successful_update_of_all_plugins
-        │   │       │   ├── helpers
+        │   │       ├── tests/
+        │   │       │   ├── expect_failed_plugin_download*
+        │   │       │   ├── expect_successful_clean_plugins*
+        │   │       │   ├── expect_successful_multiple_plugins_download*
+        │   │       │   ├── expect_successful_plugin_download*
+        │   │       │   ├── expect_successful_update_of_a_single_plugin*
+        │   │       │   ├── expect_successful_update_of_all_plugins*
+        │   │       │   ├── helpers/
         │   │       │   │   └── tpm.sh
-        │   │       │   ├── test_plugin_clean.sh
-        │   │       │   ├── test_plugin_installation.sh
-        │   │       │   ├── test_plugin_installation_legacy.sh
-        │   │       │   ├── test_plugin_sourcing.sh
-        │   │       │   └── test_plugin_update.sh
-        │   │       └── tpm
-        │   ├── resurrect
+        │   │       │   ├── test_plugin_clean.sh*
+        │   │       │   ├── test_plugin_installation.sh*
+        │   │       │   ├── test_plugin_installation_legacy.sh*
+        │   │       │   ├── test_plugin_sourcing.sh*
+        │   │       │   └── test_plugin_update.sh*
+        │   │       └── tpm*
+        │   ├── resurrect/
         │   │   ├── .gitkeep
-        │   │   └── last -> tmux_resurrect_2018-07-27T14:12:08.txt
+        │   │   └── last -> tmux_resurrect_2018-09-19T13:56:22.txt
         │   └── tmux.macos.conf
         ├── tmux-256color.terminfo
         ├── tmux.conf
         └── xterm-256color-italic.terminfo
 
-179 directories, 448 files
+191 directories, 488 files
+
 </pre>
 </details>
 
