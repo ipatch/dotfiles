@@ -283,7 +283,7 @@ else
     " call minpac#add('autozimu/LanguageClient-neovim', {
           " \'branch': 'next',
           " \'do': {-> system('bash install.sh')}})
-    call minpac#add('Shougo/deoplete.nvim', { 'type': 'opt' 'do': ':UpdateRemotePlugins' })
+    call minpac#add('Shougo/deoplete.nvim', { 'type': 'opt', 'do': ':UpdateRemotePlugins' })
     """"""""""""""""""""""""""""""
     " plugin - vim-markdown-composer - preview `.md` docs in default browser
     ""

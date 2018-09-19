@@ -17,10 +17,10 @@ vim/*.swp
 **/.tmp.*
 **/.tmp.a
 # Ignore bundled packages for vim
-!/editors/vim/vim/pack/.gitkeep
-!/editors/vim/vim/pack/minpac/.gitkeep
-!/editors/vim/vim/pack/minpac/opt/.gitkeep
-!/editors/vim/vim/pack/minpac/start/.gitkeep
+!editors/vim/vim/pack/.gitkeep
+!editors/vim/vim/pack/minpac/.gitkeep
+!editors/vim/vim/pack/minpac/opt/.gitkeep
+!editors/vim/vim/pack/minpac/start/.gitkeep
 editors/vim/vim/pack/*
 editors/vim/vim/.netrwhist
 editors/vim/vim/bundle/*
