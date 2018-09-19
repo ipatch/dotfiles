@@ -170,8 +170,11 @@ function! BuildStaticVimMarkdownComposer()
     if has('nvim')
       !(cd '/opt/Code/dotfiles/editors/vim/vim/pack/minpac/start/vim-markdown-composer'; cargo +nightly build --release)
       " !cargo build --release
-    else " Vim8 support!
-      !cargo build --release --no-default-features --features json-rpc
+    elseif v:version > 8 || v:version == 8 " Check for Vim8 ...sort of
+      !(cd '/opt/Code/dotfiles/editors/vim/vim/pack/minpac/start_vim8/vim-markdown-composer';cargo build --release --no-default-features --features json-rpc)
+      " Explicity set path for Vim8 build of vim-markdown-composer
+      set runtimepath+=/opt/Code/dotfiles/editors/vim/vim/pack/minpac/start_vim8/vim-markdown-composer
+      set runtimepath-=/opt/Code/dotfiles/editors/vim/vim/pack/minpac/start/vim-markdown-composer
     endif
 endfunction
 
@@ -206,7 +209,7 @@ else
   call minpac#add('tpope/vim-fugitive') " useful for displaying git branch
   call minpac#add('itchyny/lightline.vim') " lightweight status line.
   call minpac#add('rust-lang/rust.vim')
-  call minpac#add('euclio/vim-markdown-composer')
+  call minpac#add('euclio/vim-markdown-composer', {'type': 'opt'})
 
   """""""""""""""""""""""""""""
   " minpac - conditional plugins
@@ -219,12 +222,12 @@ else
     """""""""""""""""""""""""""""
     " LSP clients
     ""
-    call minpac#add('prabirshrestha/async.vim')
-    call minpac#add('prabirshrestha/vim-lsp')
-    call minpac#add('prabirshrestha/asyncomplete-lsp.vim')
-    call minpac#add('ryanolsonx/vim-lsp-typescript')
-    call minpac#add('prabirshrestha/asyncomplete.vim')
-    call minpac#add('ajh17/VimCompletesMe')
+    call minpac#add('prabirshrestha/async.vim', {'type': 'opt'})
+    call minpac#add('prabirshrestha/vim-lsp', {'type': 'opt'})
+    call minpac#add('prabirshrestha/asyncomplete-lsp.vim', {'type': 'opt'})
+    call minpac#add('ryanolsonx/vim-lsp-typescript', {'type': 'opt'})
+    call minpac#add('prabirshrestha/asyncomplete.vim', {'type': 'opt'})
+    call minpac#add('ajh17/VimCompletesMe', {'type': 'opt'})
 
     """"""""""""""""""""""""""""
     " LSP server settings
@@ -242,7 +245,6 @@ else
 
     endif
 
-    
     """""""""""""""""""""""""""""
     " plugin - vim-lsp
     ""
@@ -281,7 +283,7 @@ else
     " call minpac#add('autozimu/LanguageClient-neovim', {
           " \'branch': 'next',
           " \'do': {-> system('bash install.sh')}})
-    call minpac#add('Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' })
+    call minpac#add('Shougo/deoplete.nvim', { 'type': 'opt' 'do': ':UpdateRemotePlugins' })
     """"""""""""""""""""""""""""""
     " plugin - vim-markdown-composer - preview `.md` docs in default browser
     ""
@@ -294,18 +296,20 @@ else
     " call minpac#add('euclio/vim-markdown-composer', { 'do': function('s:hook')})
     " call minpac#add('euclio/vim-markdown-composer', {'do': '!cargo +nightly build --release'})
   elseif v:version > 8 || v:version == 8 " Check for Vim8 ...sort of
-    call minpac#add('Shougu/deoplete.nvim')
-    call minpac#add('roxma/nvim-yarp')
-    call minpac#add('roxma/vim-hug-neovim-rpc')
-    call minpac#add('autozimu/LanguageClient-neovim', {
+    call minpac#add('Shougu/deoplete.nvim', {'type': 'opt'})
+    call minpac#add('roxma/nvim-yarp', {'type': 'opt'})
+    call minpac#add('roxma/vim-hug-neovim-rpc', {'type': 'opt'})
+    call minpac#add('autozimu/LanguageClient-neovim', {'type': 'opt',
           \'branch': 'next', 'do': {-> system('bash install.sh')}})
   endif
+  
   """""""""""""""""""""""""""""
   " minpac - Custom commands
   "" 
-  command! PackUpdate packadd minpac | source $MYVIMRC | call minpac#update()
+  command! PackUpdate packadd minpac | source $MYVIMRC | call minpac#update('', {'do': 'call minpac#status()'})
   command! PackClean  packadd minpac | source $MYVIMRC | call minpac#clean()
   command! PackList echo join(minpac#getpackages("minpac", "start"), "\n")
+  command! PackStatus packadd minpac | source $MYVIMRC | call minpac#status()
 endif
 
 " Setting for rust.vim
@@ -329,5 +333,9 @@ if has('nvim')
   elseif
     let $NVIM_TUI_ENABLE_TRUE_COLOR = 1   " Legacy way to enable 24bit color.
   endif
+
+  " Remove plugins useful for Vim8 but not Neovim from runtime path
+  " set runtimepath-=/opt/code/dotfiles/editors/vim/vim/pack/minpac/start/vim/,cvim-hug-neovim-rpc
+  " set runtimepath-=/opt/Code/dotfiles/editors/vim/vim/pack/minpac/start/vim-hug-neovim-rpc,
 endif " END Neovim only settings
 
