@@ -13,12 +13,11 @@
 # DONT edit files within `$__fish_datadir/config.fish` ie. /usr/share/fish/config.fish
 # System-wide config `/etc/fish/config.fish` if installed with homebrew `(brew --prefix)/etc/fish/`
 ##
-# NOTE: if a directory has been added to the $PATH but no longer is in this file but is still listed in the $PATH env var then manually remove the directory from the $PATH using the `path_remove` function contained with the `functions` dir
+# NOTE: if a directory has been added to the $PATH but no longer is in ./conf.d/001_load_paths.fish but is still listed in the $PATH env var then manually remove the directory from the $PATH using the `path_remove` function contained with the `functions` dir
 
 ##############################
 # fundle setup BYE, BYE
 ##
-
 
 set fish_greeting "" # disable default fish greeting
 
@@ -58,7 +57,7 @@ if type -q python
 end
 
 ##############################
-# Crypto
+# Cryptography
 ##
 if type -q gpg-agent
   set -gx GPG_TTY (tty)
