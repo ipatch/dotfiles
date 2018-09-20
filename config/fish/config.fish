@@ -16,11 +16,9 @@
 # NOTE: if a directory has been added to the $PATH but no longer is in this file but is still listed in the $PATH env var then manually remove the directory from the $PATH using the `path_remove` function contained with the `functions` dir
 
 ##############################
-# fundle setup
+# fundle setup BYE, BYE
 ##
-fundle plugin 'edc/bass'
 
-fundle init
 
 set fish_greeting "" # disable default fish greeting
 
