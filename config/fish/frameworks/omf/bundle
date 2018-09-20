@@ -1,3 +1,4 @@
+package bass
 package battery
 package foreign-env
 theme default
