@@ -34,6 +34,7 @@ set listchars+=extends:» " RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK (U+00BB, 
 set listchars+=precedes:« " LEFT-POINTING DOUBLE ANGLE QUOTATION MARK (U+00AB, UTF-8: C2 AB)
 set listchars+=trail:•    " BULLET (U+2022, UTF-8: E2 80 A2)
 set listchars+=eol:¬
+set listchars+=space:␣ " Symbol for the space key
 set fillchars+=stl:\ ,stlnc:\
 """""""""""""""
 " toggle hidden chars & Settings for hidden chars
