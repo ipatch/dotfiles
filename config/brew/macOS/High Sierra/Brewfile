@@ -102,6 +102,7 @@ brew "git-extras"
 brew "glib-networking"
 brew "glide"
 brew "gnu-sed", args: ["with-default-names"]
+brew "gnu-time", args: ["with-default-names"]
 brew "libgpg-error"
 brew "libgcrypt"
 brew "libksba"
@@ -173,12 +174,12 @@ brew "picocom"
 brew "pidgin"
 brew "poppler"
 brew "postgresql", restart_service: true
+brew "pstree"
 brew "pv"
 brew "qemu", args: ["HEAD", "with-docs", "with-hax", "with-hvf", "with-libusb"]
 brew "rdesktop"
 brew "reattach-to-user-namespace"
 brew "redis", restart_service: true
-brew "ripgrep"
 brew "rlwrap"
 brew "rsync"
 brew "screenfetch"
