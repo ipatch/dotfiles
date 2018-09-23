@@ -219,7 +219,6 @@ brew "ipatch/us-05/fuse-ext2"
 brew "ipatch/us-05/openssh", args: ["with-libressl"]
 brew "lukechilds/tap/gifgen"
 brew "universal-ctags/universal-ctags/universal-ctags", args: ["HEAD"]
-cask "adium"
 cask "android-platform-tools"
 cask "android-studio"
 cask "arduino"
