@@ -2,4 +2,6 @@
 # yarn lockfile v1
 
 
+bin true
 lastUpdateCheck 1537820228339
+prefix "/opt/Code/dotfiles/true"
