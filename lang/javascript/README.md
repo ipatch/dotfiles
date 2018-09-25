@@ -132,27 +132,41 @@ npm install mr-fancy-package@42.0 --save
 
 ### Yarn Global Package / Module setup
 
-To set the **global** prefix bin where packages that are installed with yarn globally and store the binaires
+> 🚨 When working with **global** sub command in yarn the **global** sub command must be the first argument after the yarn command, ie.
 
-```fish
-yarn config set prefix ~/.config/yarn
+**Ex**
+
+```shell
+yarn global [add] [package]
 ```
 
-> The above configuration command will create `bin` dir within `global` dir to store the symlinks to the globally installed binaries.
-
-```fish
-yarn config set bin -g ~/.config/yarn/bin
+```shell
+yarn global bin
 ```
+
+To set the **global** prefix where yarn global packages are installed
+
+```shell
+yarn config set prefix $HOME/.yarn
+```
+
+> The above configuration command will create `bin` dir within `global` dir, ie. `$HOME/.yarn/` to store the symlinks to the globally installed binaries.
 
 The above settings can be verified / checked with
 
-```fish
-yarn global dir
+```shell
+yarn config get prefix
 ```
 
-```fish
+To print the path where globally installed packages via yarn are located on the system.
+
+```shell
 yarn global bin
 ```
+
+> Only the **prefix** needs to be set in order to set the path for global packages installed via **yarn**
+
+For more information about working with **global** in yarn [see](https://yarnpkg.com/en/docs/cli/global)
 
 <a href="yarn-global-package-module-installation"></a>
 
@@ -296,4 +310,4 @@ ncu -u
 ## TODOs
 - [ ] Review all links recently added.
 - [x] ~~flesh out TOC~~
-- [ ] organize contents of the doc a little better _time permitting_
+- [x] organize contents of the doc a little better _time permitting_
