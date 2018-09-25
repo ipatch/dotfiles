@@ -39,7 +39,6 @@ brew "automake"
 brew "awk", link: false
 brew "bash"
 brew "bash-completion"
-brew "bat"
 brew "bdw-gc"
 brew "bfg"
 brew "gmp"
