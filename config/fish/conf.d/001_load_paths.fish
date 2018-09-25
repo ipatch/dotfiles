@@ -50,7 +50,7 @@ $brew_prefix/opt/gnu-sed/libexec/gnubin \
 $brew_prefix/opt/coreutils/libexec/gnubin \
 $HOME/.local/bin \
 $HOME/.pyenv/bin \
-$HOME/.config/yarn/global/bin \
+$HOME/.config/yarn/bin \
 /Applications/microchip/xc16/v1.35/bin \
 # The below PATH entries are inherited from the `/usr/bin/env` on macOS, Linux is another story
 # /usr/sbin \
