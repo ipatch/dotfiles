@@ -82,7 +82,7 @@ tags
 *.bkup
 
 # track all files with a name of `.gitkeep`
-!/.gitkeep
+!*.gitkeep
 
 ##############################
 # weechat
