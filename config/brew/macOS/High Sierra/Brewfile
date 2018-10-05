@@ -175,7 +175,6 @@ brew "poppler"
 brew "postgresql", restart_service: true
 brew "pstree"
 brew "pv"
-brew "qemu", args: ["HEAD", "with-docs", "with-hax", "with-hvf", "with-libusb"]
 brew "rdesktop"
 brew "reattach-to-user-namespace"
 brew "redis", restart_service: true
@@ -216,6 +215,7 @@ brew "zlib"
 brew "zsh"
 brew "ipatch/us-05/fuse-ext2"
 brew "ipatch/us-05/openssh", args: ["with-libressl"]
+brew "ipatch/us-05/qemu", args: ["HEAD", "with-docs", "with-hax", "with-hvf", "with-libusb"]
 brew "lukechilds/tap/gifgen"
 brew "universal-ctags/universal-ctags/universal-ctags", args: ["HEAD"]
 cask "android-platform-tools"
