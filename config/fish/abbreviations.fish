@@ -177,9 +177,7 @@ case Linux
     abbr -ag cd-brew-src "cd (brew --prefix)/Homebrew/Library/Taps/homebrew/homebrew-core"
   end
 end
+
 ################
 # Add special 🚌 aliases if certain binaries are found.
 ##
-if type -q ccat
-  # abbr -ag cat 'ccat'
-end

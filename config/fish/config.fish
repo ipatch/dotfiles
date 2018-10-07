@@ -15,10 +15,6 @@
 ##
 # NOTE: if a directory has been added to the $PATH but no longer is in ./conf.d/001_load_paths.fish but is still listed in the $PATH env var then manually remove the directory from the $PATH using the `path_remove` function contained with the `functions` dir
 
-##############################
-# fundle setup BYE, BYE
-##
-
 set fish_greeting "" # disable default fish greeting
 
 if status --is-interactive
@@ -35,13 +31,10 @@ end
 ##
 # set -gx TERM xterm-256color # <= DON'T explicitly set this env var!
 set -gx HOSTNAME (hostname -s)
-set -gx DOTFILES /opt/Code/dotfiles
 set -gx dotfiles /opt/Code/dotfiles
-set -gx dot /opt/Code/dotfiles
 set -gx dots /opt/Code/dotfiles
 set -gx XDG_CACHE_HOME $HOME/.cache
 set -gx XDG_CONFIG_DATA $HOME/.local/share
-set -gx CODE /opt/code
 set -gx code /opt/code
 set -gx github /opt/code/github
 set -gx private /opt/code/github/PRIVATE
@@ -95,7 +88,6 @@ end
 # git related settings
 ##
 set -gx GIT_RC $XDG_CONFIG_HOME/git
-# set -gx GIT_DIR $XDG_CONFIG_HOME/git
 
 ##############################
 # locale settings
@@ -106,7 +98,7 @@ set -gx GIT_RC $XDG_CONFIG_HOME/git
 # fzf
 ##
 if type -q fzf
-  # NOTE: the below `rg` is short for ripgrep and can be installed via homebrew
+  # NOTE: `rg` stands for ripgrep and can be installed via brew
   # --files: List files that would be searched but do not search
   # --no-ignore: Do not respect .gitignore, etc...
   # --hidden: Search hidden files and folders
@@ -137,13 +129,12 @@ case Darwin
   end
 
   #########################
-  # `ls` colorscheme for BSD / Darwin
+  # `ls` colorscheme for BSD and Darwin
   ##
   set -gx LSCOLORS Exfxcxdxcxegedabagacad
 
   if test -d (brew --prefix)/opt/coreutils
-	
-    eval (dircolors -c $HOME/.dir_colors)
+    dircolors -c $HOME/.dir_colors | source
     alias ls="/usr/local/opt/coreutils/libexec/gnubin/ls --color=auto"
   end
 
@@ -191,9 +182,8 @@ case Linux
   ###############################
   # Linux specific env vars
   ##
-  eval (dircolors -c $HOME/.dir_colors)
+  dircolors -c $HOME/.dir_colors | source
 
- 
   # `$DISPLAY` should be set by SSH configs and NOT shell config files 
   if [ -d $HOME/.terminfo ]
     set -gx TERMINFO "$HOME/.terminfo"
