@@ -36,17 +36,13 @@ $HOME/go/bin \
 $HOME/Library/Android/sdk/platform-tools \
 /opt/Code/github/PUBLIC/chromium/depot_tools \
 /opt/X11/bin \
-/opt/gnu/grub/bin \
-/opt/gnu/grub/sbin \
 $brew_prefix/bin \
 $brew_prefix/sbin \
 $brew_prefix/opt/ccache/libexec \
-$brew_prefix/opt/ncurses/bin \
 $brew_prefix/opt/llvm/bin \
 $brew_prefix/opt/libressl/bin \
 $brew_prefix/opt/python/libexec/bin \
 $brew_prefix/opt/go/libexec/bin \
-$brew_prefix/opt/gnu-sed/libexec/gnubin \
 $brew_prefix/opt/coreutils/libexec/gnubin \
 $HOME/.local/bin \
 $HOME/.pyenv/bin \
