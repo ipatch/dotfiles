@@ -9,7 +9,7 @@
 abbr -ag editfish 'nvim $HOME/.config/fish/config.fish'
 abbr -ag editnvim 'nvim $HOME/.config/nvim/init.vim'
 abbr -ag editvim  'nvim $HOME/.vimrc'
-abbr -ag editdots 'cd $dot; nvim;'
+abbr -ag editdots 'cd $dots; nvim;'
 
 set -gx os (uname)
 
@@ -25,7 +25,7 @@ switch $os
     # abbr -ag l 'ls -lahF'
 end
 abbr -ag cp 'cp -iv'
-abbr -ag dots 'cd $dot'
+abbr -ag dots 'cd $dots'
 
 #############################
 # ruby tooling
