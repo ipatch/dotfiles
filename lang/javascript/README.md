@@ -39,7 +39,7 @@ To setup a `$USER`, ie. a global configuration file for eslint for a particular 
 
 To setup a ECMAScript project to use a local eslint configuration file, eslint provides a wizard by running the below command in the project root.
 
-```
+```shell
 eslint --init
 ```
 
@@ -51,12 +51,16 @@ To get VS Code and ESLint to play nice with each other
 1. Install ESLint globally using yarn or npm, whichever you are using to manage global npmjs.com packages / modules.
 2. A global **.eslintrc** file can be set up in `$HOME` or a local **.eslintrc.{js,json,yaml}** file can be setup in the project root.
 3. Install **standard** ie. standardjs.com
-```
+
+```shell
 yarn global add standard eslint-config-standard
 ```
+
 3. If installing globally using yarn, a couple of settings will have to be added to VS Code's **settings.json**.
+
 **Ex**
-```
+
+```javascript
 // use global eslint installed via yarn
 "eslint.packageManager": "yarn",
 "eslint.enable": true
@@ -69,7 +73,7 @@ yarn global add standard eslint-config-standard
 
 To install the Node.js provider package for Neovim make sure the **neovim** package has been installed using a Node.js package manager.
 
-```
+```shell
 npm -g i neovim
 yarn global add neovim
 ```
@@ -80,7 +84,7 @@ yarn global add neovim
 
 To update NPM to latest stable release
 
-```fish
+```shell
 npm install npm@latest -g
 ```
 
@@ -88,26 +92,43 @@ To install a NPM package / module globally for a user on the system that should 
 
 > If the NPM prefix is not set, the homebrew version of Nodejs / NPM will put global packages with in `/usr/local/bin`
 
-```fish
+```shell
 npm install -g [name-of-package]
 ```
 
 ie.
 
-```fish
+```shell
 npm install -g create-react-app
 ```
 
 To uninstall a npm package / module from a project.
 
-```fish
+```shell
 npm uninstall [module] --save
 ```
 
 To list all globally installed packages for a node instance
 
-```fish
+```shell
 npm -g ls --depth=0
+```
+
+<a href="npm-troubleshooting"></a>
+
+### NPM troubleshooting
+
+When running into an issue such as the one below,
+
+```
+npm WARN bootstrap@4.1.3 requires a peer of popper.js@^1.14.3 but none is installed. You must install peer dependencies yourself.
+```
+
+The quick fix, trash the **node_modules** directory and then recreate 🧙‍♂️  it.
+
+```shell
+rm -rf ./node_modules
+npm install
 ```
 
 <a href="npm-security"></a>
