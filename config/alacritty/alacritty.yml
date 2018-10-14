@@ -267,6 +267,7 @@ key_bindings:
   - { key: Left,     mods: Alt,     chars: "\x1bb"                       }
   - { key: Right,    mods: Alt,     chars: "\x1bf"                       }
   - { key: L,        mods: Alt,     chars: "\x1bl"                       }
+  - { key: T,        mods: Alt,     chars: "\x1bt"                            }
 
 
   - { key: V,        mods: Command, action: Paste                        }
