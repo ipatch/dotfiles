@@ -1,6 +1,8 @@
 ##############################
 # A place to store abbreviations for making things a tad bit quicker.
-# NOTE: abbr's will default to universal scope, ie. conditional logic will not "work" for different systems, ie. macOS and Linux, thus use the `-g` flag with `abbr` to make global scope which will NOT be universal.
+# NOTE: abbr's will default to universal scope, ie. conditional logic will not "work" for different systems, ie. macOS and Linux, thus use the `-g` flag with `abbr` to make global scope which will NOT be universal thus making conditional logic work.
+###
+# NOTE: when adding new `abbr`'s to this file, fish will need to reload the file, ie. `exec fish` for every fish shell instance to pick up on the newly added `abbr`'s.
 ##
 
 ##############################
@@ -88,8 +90,11 @@ toggle_asdf_shims_and_bins; toggle_homebrew_python_paths;"
 # `openssl aes-256-cbc -d -a -in secrets.txt.enc -out secrets.txt.new`
 ##
 if type -q openssl
-  abbr -ag encrypt "openssl enc -aes-256-cbc -in" #/path/to/file #/path/to/file.dat
-  abbr -ag decrypt "openssl enc -aes-256-cbc -d -in" #/path/to/file.dat -out #/path/to/file
+  #/path/to/file #/path/to/file.dat
+  abbr -ag encrypt "openssl enc -aes-256-cbc -in"
+
+  #/path/to/file.dat -out #/path/to/file
+  abbr -ag decrypt "openssl enc -aes-256-cbc -d -in"
 end
 
 #################
@@ -139,6 +144,12 @@ case Darwin
 if type -q brew
   # working with brew src and formula
   abbr -ag cd-brew-src "cd (brew --prefix)/Homebrew/Library/Taps/homebrew/homebrew-core"
+
+
+  # youtube-dl
+  abbr -ag ytl "youtube-dl"
+  abbr -ag you "youtube-dl"
+
   ###
   # postgresql
   abbr -ag pg-start "launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist"
