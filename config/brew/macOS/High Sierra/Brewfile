@@ -94,6 +94,7 @@ brew "harfbuzz"
 brew "lame"
 brew "pango"
 brew "x264"
+brew "x265"
 brew "ffmpeg", args: ["HEAD", "with-fdk-aac", "with-fontconfig", "with-freetype", "with-game-music-emu", "with-libbluray", "with-librsvg", "with-libvorbis", "with-libvpx", "with-openh264", "with-rtmpdump", "with-sdl2", "with-srt", "with-tools", "with-wavpack", "with-x265"]
 brew "findutils", args: ["with-default-names"]
 brew "pcre2"
@@ -188,6 +189,7 @@ brew "reattach-to-user-namespace"
 brew "redis", restart_service: true
 brew "rlwrap"
 brew "rsync"
+brew "ruby"
 brew "screenfetch"
 brew "shellcheck"
 brew "siege"
@@ -217,7 +219,6 @@ brew "weechat", args: ["with-aspell", "with-lua", "with-perl", "with-python@2", 
 brew "wemux"
 brew "wget"
 brew "wxmac"
-brew "x265"
 brew "xhyve"
 brew "xorriso"
 brew "yarn"
