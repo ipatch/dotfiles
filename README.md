@@ -16,7 +16,6 @@ _"Give me six hours to chop down a tree and I will spend the first four sharpeni
 
 ## Contents
 > [awesome dotfiles wiki](https://github.com/ipatch/dotfiles/wiki) A collection of useful pages that complements 👏 these dotfiles.
-- [Contents](#contents)
 - [Installation](#installation)
 - [File Structure](#file-structure)
 - [Useful Links ___no particular order___](#useful-links-no-particular-order)
@@ -733,7 +732,6 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/install.sh | /bin/
 <a href="useful-links"></a>
 
 ## Useful Links ___no particular order___
-- [**Github** philtr/dotfiles](https://github.com/philtr/dotfiles)
 - [**Github** wincent/wincent](https://github.com/wincent/wincent)
 - [**Github** mathiasbynenes/dotfiles](https://github.com/mathiasbynens/dotfiles)
 - [**Github** Awesome-dotfiles](https://github.com/webpro/awesome-dotfiles)
@@ -749,9 +747,9 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/install.sh | /bin/
 - [x] ~~Add images in the lib dir of this repo to the .wiki submodule repo.~~
 - [x] ~~Figure out why cloning the dotfiles repo is cloning the submodules with detached heads~~ see [this](https://stackoverflow.com/a/20797186/70880) for detailed explanation.
 ### Neovim
-- [x] ~~~Figure out a way to save fold settings across all open buffers when quiting Vim.~~~
-- [x] ~~~Figure out why folds are only being saved / preserved for the last open buffer when quiting Vim 🤔~~~
-- [ ] Vim Sesssions, ~~~Folds,~~~ and Conceals will be the death of me 💀
+- [x] ~~Figure out a way to save fold settings across all open buffers when quiting Vim.~~
+- [x] ~~Figure out why folds are only being saved / preserved for the last open buffer when quiting Vim 🤔~~
+- [ ] Vim Sesssions, ~~Folds,~~ and Conceals will be the death of me 💀
 - [x] ~~don't create session files when launching a man page~~
 - [x] ~~Figure out a sane solution for previewing markdown ie. .md documents~~
 - [x] ~~Figure out what is causing lines to be hard wrapped! 😖~~
