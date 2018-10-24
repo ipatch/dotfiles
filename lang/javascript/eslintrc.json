@@ -1,0 +1,16 @@
+{
+  // for ES6 syntax
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  }
+
+  // environments
+  "env": {
+    "browser": true,
+    "node": true
+  }
+}
