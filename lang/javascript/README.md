@@ -13,6 +13,14 @@
 - [Useful Links](#useful-links)
 - [TODOs](#todos)
 
+<a href="javascript-style-guidelines"></a>
+
+## JavaScript Style Guidelines
+
+This information can be considered highly opinionated;
+- I prefer to use ESLint to lint JavaScript files contained through various JavaScript files and node projects I work with.
+- Looking at the source of project maintained by TC39 and hosted on GitHub it appears they are using semi colons throughout the project, as well as the guys and gals at facebook are using semi colons throughout React.js, that said, I'm going to do my best to start using semi colons throughout various node projects I work with.
+
 <a href="working-with-nodejs"></a>
 
 ## Working with Node.js
