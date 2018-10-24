@@ -29,9 +29,15 @@ What are the differences between **devDependencies** and **dependencies** in _pa
 **dependencies** are installed for both _production_ and _development_.
 > see [🙈](https://stackoverflow.com/a/22004559/708807) for a more detailed explanation.
 
-<a href="working-with-eslint"></a>
+<a href="javascript-linting"></a>
 
-## Working with [ESlint](https://eslint.org)
+## Linting in JavaScript
+
+Two popular linters for JavaScript are ESLint & JSHint.  ESLint is more commonly used for linting JavaScript source files, and module files located in Node.js projects.  That said, JSHint can lint JSON files out of the box, so when editing a **.eslintrc.json** file use **jshint**. ESLint uses a modular architecture and can lint JSON files, but requires an addtional NPM module be installed.
+
+<a href="javascript-working-with-eslint"></a>
+
+### Working with [ESlint](https://eslint.org)
 
 To setup a `$USER`, ie. a global configuration file for eslint for a particular user that will be used for pretty much every Node.js project, or `.js` / `.jsx` file, create `~/.eslintrc`, which can be formatted using JSON. 👍
 
@@ -43,9 +49,9 @@ To setup a ECMAScript project to use a local eslint configuration file, eslint p
 eslint --init
 ```
 
-<a href="setup-eslint-to-play-nice-with-vs-code"></a>
+<a href="javascript-setup-eslint-to-play-nice-with-vs-code"></a>
 
-### Setup ESLint to play nice with VS Code
+#### Setup ESLint to play nice with VS Code
 
 To get VS Code and ESLint to play nice with each other
 1. Install ESLint globally using yarn or npm, whichever you are using to manage global npmjs.com packages / modules.
