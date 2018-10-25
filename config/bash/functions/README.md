@@ -1,8 +1,12 @@
-> BASH functions stored in this direcotry do not require an executable bit in order to run.
+# BASH Functions
+
+<a id="contents"></a>
+
+> BASH functions stored in this direcotry do not require an executable bit to run.
 
 To test uncomment
 
-```bash
+```shell
 echo "Hello, BASH!"
 ```
 
@@ -12,6 +16,6 @@ If everything works as intended functions defined within the `$XDG_CONFIG_HOME/b
 
 To test the above behavior, run the `hello` function from the CLI that is contained within the `foobar.bash` file in the `$funcs_dir` by running,
 
-```bash
+```shell
 hello
 ```
