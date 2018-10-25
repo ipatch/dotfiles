@@ -1,6 +1,9 @@
-<a href="contents"></a>
+# ECMAScript _the language formerly known as JavaScript_ Tooling
 
-## ECMAScript _the language formerly known as JavaScript_ Tooling
+<a id="contents"></a>
+
+## Contents
+
 - [Working with Node.js](#working-with-nodejs)
 - [package.json](#package.json)
 - [Working with ESLint](#working-with-eslint)
@@ -13,39 +16,40 @@
 - [Useful Links](#useful-links)
 - [TODOs](#todos)
 
-<a href="javascript-style-guidelines"></a>
+<a id="javascript-style-guidelines"></a>
 
-## JavaScript Style Guidelines
+## JavaScript Style Guidelines [🔝](#contents)
 
 This information can be considered highly opinionated;
+
 - I prefer to use ESLint to lint JavaScript files contained through various JavaScript files and node projects I work with.
 - Looking at the source of project maintained by TC39 and hosted on GitHub it appears they are using semi colons throughout the project, as well as the guys and gals at facebook are using semi colons throughout React.js, that said, I'm going to do my best to start using semi colons throughout various node projects I work with.
 
-<a href="working-with-nodejs"></a>
+<a id="working-with-nodejs"></a>
 
-## Working with Node.js
+## Working with Node.js [🔝](#contents)
 
-> Node.js v10.0.0 ships with NPM v5.6.0 if downloading the `.pkg` install.
+Node.js v10.0.0 ships with NPM v5.6.0 if downloading the `.pkg` install.
 
 > In the past certain NPM modules / packages can create a `.v8flags.{version}.{md5-hash-of-username}.json within the users home directory.  These files can safely be deleted. see [this](https://stackoverflow.com/questions/34612415) for more information.
 
-<a href="package-json"></a>
+<a id="package-json"></a>
 
-## package.json
+## package.json [🔝](#contents)
 
 What are the differences between **devDependencies** and **dependencies** in _package.json_<br />
 **dependencies** are installed for both _production_ and _development_.
 > see [🙈](https://stackoverflow.com/a/22004559/708807) for a more detailed explanation.
 
-<a href="javascript-linting"></a>
+<a id="javascript-linting"></a>
 
-## Linting in JavaScript
+## Linting in JavaScript [🔝](#contents)
 
 Two popular linters for JavaScript are ESLint & JSHint.  ESLint is more commonly used for linting JavaScript source files, and module files located in Node.js projects.  That said, JSHint can lint JSON files out of the box, so when editing a **.eslintrc.json** file use **jshint**. ESLint uses a modular architecture and can lint JSON files, but requires an addtional NPM module be installed.
 
-<a href="javascript-working-with-eslint"></a>
+<a id="javascript-working-with-eslint"></a>
 
-### Working with [ESlint](https://eslint.org)
+### Working with [ESlint](https://eslint.org) [🔝](#contents)
 
 To setup a `$USER`, ie. a global configuration file for eslint for a particular user that will be used for pretty much every Node.js project, or `.js` / `.jsx` file, create `~/.eslintrc`, which can be formatted using JSON. 👍
 
@@ -57,11 +61,12 @@ To setup a ECMAScript project to use a local eslint configuration file, eslint p
 eslint --init
 ```
 
-<a href="javascript-setup-eslint-to-play-nice-with-vs-code"></a>
+<a id="javascript-setup-eslint-to-play-nice-with-vs-code"></a>
 
-#### Setup ESLint to play nice with VS Code
+#### Setup ESLint to play nice with VS Code [🔝](#contents)
 
 To get VS Code and ESLint to play nice with each other
+
 1. Install ESLint globally using yarn or npm, whichever you are using to manage global npmjs.com packages / modules.
 2. A global **.eslintrc** file can be set up in `$HOME` or a local **.eslintrc.{js,json,yaml}** file can be setup in the project root.
 3. Install **standard** ie. standardjs.com
@@ -70,20 +75,21 @@ To get VS Code and ESLint to play nice with each other
 yarn global add standard eslint-config-standard
 ```
 
-3. If installing globally using yarn, a couple of settings will have to be added to VS Code's **settings.json**.
+If installing globally using yarn, a couple of settings will have to be added to VS Code's **settings.json**.
 
-**Ex**
+<strong>Ex</strong>
 
 ```javascript
 // use global eslint installed via yarn
 "eslint.packageManager": "yarn",
 "eslint.enable": true
 ```
-4. Install unmet peer dependenices globally or locally using preferred package manager.
 
-<a href="using-nodejs-with-neovim"></a>
+1. Install unmet peer dependenices globally or locally using preferred package manager.
 
-## Using Node.js with Neovim
+<a id="using-nodejs-with-neovim"></a>
+
+## Using Node.js with Neovim [🔝](#contents)
 
 To install the Node.js provider package for Neovim make sure the **neovim** package has been installed using a Node.js package manager.
 
@@ -92,9 +98,9 @@ npm -g i neovim
 yarn global add neovim
 ```
 
-<a href="working-with-npm"></a>
+<a id="working-with-npm"></a>
 
-## Working with NPM
+## Working with NPM [🔝](#contents)
 
 To update NPM to latest stable release
 
@@ -128,13 +134,13 @@ To list all globally installed packages for a node instance
 npm -g ls --depth=0
 ```
 
-<a href="npm-troubleshooting"></a>
+<a id="npm-troubleshooting"></a>
 
-### NPM troubleshooting
+### NPM troubleshooting [🔝](#contents)
 
 When running into an issue such as the one below,
 
-```
+```conf
 npm WARN bootstrap@4.1.3 requires a peer of popper.js@^1.14.3 but none is installed. You must install peer dependencies yourself.
 ```
 
@@ -145,31 +151,31 @@ rm -rf ./node_modules
 npm install
 ```
 
-<a href="npm-security"></a>
+<a id="npm-security"></a>
 
-### NPM security 
+### NPM security [🔝](#contents)
 
 To update a vulnerable package contained within a `package.json` file
 
-```fish
+```shell
 npm install mr-fancy-package@42.0 --save
 ```
 
 > The above command will explicity define the package within the `package.json` file.
 
-<a href="working-with-yarn"></a>
+<a id="working-with-yarn"></a>
 
-## Working with [Yarn](https://yarnpkg.com/en/)
+## Working with [Yarn](https://yarnpkg.com/en/) [🔝](#contents)
 
 > ⚠️  Before installing a global package with yarn installed via homebrew, make sure the `global bin` and `global prefix` have been set, ie.
 
-<a href="yarn-global-package-module-setup"></a>
+<a id="yarn-global-package-module-setup"></a>
 
-### Yarn Global Package / Module setup
+### Yarn Global Package / Module setup [🔝](#contents)
 
 > 🚨 When working with **global** sub command in yarn the **global** sub command must be the first argument after the yarn command, ie.
 
-**Ex**
+<strong>Ex</strong>
 
 ```shell
 yarn global [add] [package]
@@ -203,19 +209,19 @@ yarn global bin
 
 For more information about working with **global** in yarn [see](https://yarnpkg.com/en/docs/cli/global)
 
-<a href="yarn-global-package-module-installation"></a>
+<a id="yarn-global-package-module-installation"></a>
 
-### Yarn Global Package / Module Installation
+### Yarn Global Package / Module Installation [🔝](#contents)
 
 To install a package / module globally using yarn
 
-```fish
+```shell
 yarn global add [mr-fancy-node-module]
 ```
 
 ie.
 
-```fish
+```shell
 yarn global add create-react-app
 ```
 
@@ -225,61 +231,65 @@ The dependencies, ie. `node_modules` for `create-react-app` should be within `~/
 
 To list globally installed modules ie. packages within yarn
 
-```
+```shell
 yarn global list
 ```
 
-<a href="yarn-upgrade-a-global-package-module"></a>
+<a id="yarn-upgrade-a-global-package-module"></a>
 
-### Yarn Upgrade a Global Package / Module
+### Yarn Upgrade a Global Package / Module [🔝](#contents)
 
 To upgrade a global package / module installed with yarn
 
-1. First check to if there are any outdated global packages
-```
+- First check to if there are any outdated global packages
+
+```shell
 yarn global upgrade-interactive
 ```
-2. Select which global packages you would like to update
+
+- Select which global packages you would like to update
 
 To upgrade a specific npm module / package using yarn
 
-```
+```shell
 yarn upgrade package@version
 ```
 
-**Ex**
+<strong>Ex</strong>
 
-```
+```shell
 yarn upgrade marked@0.3.9
 ```
 
 To add a package as a development dependency, see [🙈](https://yarnpkg.com/lang/en/docs/cli/add/)
 
-```fish
+```shell
 yarn add <package> [-D/--dev]
 ```
 
-### Troubleshooting yarn
+<a id="troubleshooting-yarn"></a>
+
+### Troubleshooting yarn [🔝](#contents)
 
 **yarn** as of July 31 2018 has difficulty updating packages listed in `package.json`, but [**npm-check-updates**](https://www.npmjs.com/package/npm-check-updates) does a decent job in keeping packages updated in the **package.json**
 
 See the above link for working with **npm-check-updates** / **ncu**
 
-<a href="working-with-yarn-on-debian"></a>
+<a id="working-with-yarn-on-debian"></a>
 
-### Working with Yarn on Debian
+### Working with Yarn on Debian [🔝](#contents)
 
 If the below error message arises run the command below the error message.
 
-> W: An error occurred during the signature verification. The repository is not updated and the previous index files will be used. GPG error: https://dl.yarnpkg.com stable InRelease: The following signatures couldn't be verified because the public key is not available: NO_PUBKEY
+> W: An error occurred during the signature verification. The repository is not updated and the previous index files will be used. GPG error: [yarnpkg.com](https://dl.yarnpkg.com) stable InRelease: The following signatures couldn't be verified because the public key is not available: NO_PUBKEY
 
-```
+```shell
 wget -qO - https://raw.githubusercontent.com/yarnpkg/releases/gh-pages/debian/pubkey.gpg | sudo apt-key add -
 ```
 
-<a href="working-with-project-based-package-dependencies"></a>
+<a id="working-with-project-based-package-dependencies"></a>
 
-## Working with project based packages / dependencies
+## Working with project based packages / dependencies [🔝](#contents)
 
 To check for outdated packages / modules on a project basis
 
@@ -287,62 +297,69 @@ To check for outdated packages / modules on a project basis
 
 2. Once **npm-check-updates** has been installed, project based packages can be checked to see if they are outdated.
 
-```
+```shell
 ncu
 ```
 
 > The above command needs to be run within the project root, ie. the directory that contains **pacakge.json**
 
-3. To upgrade the outdated packages.
+To upgrade the outdated packages.
 
-```
+```shell
 ncu -u
 ```
 
+<a id="useful-links"></a>
 
-<a href="useful-links"></a>
+## Useful Links [🔝](#contents)
 
-## Useful Links
 - [**YouTube** JavaScript's event loop](https://www.youtube.com/watch?v=8aGhZQkoFbQ)
 
-<a href="react"></a>
+<a id="react"></a>
 
-### react
+### react [🔝](#contents)
+
 - [**facebook.com** future of react](https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freact%2Fvideos%2F1552821821462886%2F&show_text=0&width=560&mute=0)
 
-<a href="tutorials"></a>
+<a id="tutorials"></a>
 
-## Tutorials
+## Tutorials [🔝](#contents)
+
 - [**medium.com** building a CLI app using node.js](https://tech.cars.com/developing-command-line-tools-in-node-js-14eeb1ac877e)
 - [**codeburst.io** 25 Useful Node.js Tutorials _March 13, 2018_](https://codeburst.io/25-node-js-tutorials-1db3b1da0260)
 - [All about Node.js](https://codeburst.io/all-about-node-js-you-wanted-to-know-25f3374e0be7)
 - [Using OAuth with Express & Node](http://ranjithnair.github.io/2018/01/30/Oauth-Express.html)
 
-<a href="web-scrapping"></a>
+<a id="web-scrapping"></a>
 
-### Web Scrapping
+### Web Scrapping [🔝](#contents)
+
 - [A Guide to Automating & Scraping the Web with JavaScript](https://codeburst.io/a-guide-to-automating-scraping-the-web-with-javascript-chrome-puppeteer-node-js-b18efb9e9921)
 
-<a href="real-time"></a>
+<a id="real-time"></a>
 
-### real-time
+### real-time [🔝](#contents)
+
 - [Going real time with Socket.IO](https://codeburst.io/going-real-time-with-socket-io-node-js-and-react-3e0f02d3d447)
 - [**medium** Building a Node.js WebSocket Chat App with Socket.io and React](https://itnext.io/building-a-node-js-websocket-chat-app-with-socket-io-and-react-473a0686d1e1)
 
-<a href="v8"></a>
+<a id="v8"></a>
 
-### V8
+### V8 [🔝](#contents)
+
 - [Node.js V8 internals](https://codeburst.io/node-js-v8-internals-an-illustrative-primer-83766e983bf6)
 
-<a href="graphql"></a>
+<a id="graphql"></a>
 
-### GraphQL
+### GraphQL [🔝](#contents)
+
 - [How GraphQL Replaces Redux](https://hackernoon.com/how-graphql-replaces-redux-3fff8289221d)
 - [Securing a GraphQL API from malicious queries](https://dev-blog.apollodata.com/securing-your-graphql-api-from-malicious-queries-16130a324a6b)
 
-<a href="todos"></a>
+<a id="todos"></a>
 
-## TODOs
+## TODOs [🔝](#contents)
+
 - [ ] Review all links recently added.
 - [x] ~~flesh out TOC~~
 - [x] organize contents of the doc a little better _time permitting_
