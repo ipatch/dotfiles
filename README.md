@@ -1,9 +1,7 @@
 <h2 align="center">dotfiles for Chris Jones</h2>
 
 <div align="center">
-
-_"Give me six hours to chop down a tree and I will spend the first four sharpening the axe."_
-
+<em>Give me six hours to chop down a tree and I will spend the first four sharpening the axe.</em>
 </div>
 
 <img align="right" src="https://raw.githubusercontent.com/wiki/ipatch/dotfiles/lib/abe.circle.png">
@@ -17,6 +15,7 @@ _"Give me six hours to chop down a tree and I will spend the first four sharpeni
 <a id="contents"></a>
 
 ## Contents
+
 > [awesome dotfiles wiki](https://github.com/ipatch/dotfiles/wiki) A collection of useful pages that complements 👏 these dotfiles.
 - [Installation](#installation)
 - [File Structure](#file-structure)
@@ -40,7 +39,7 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/install.sh | /bin/
 
 ## File Structure [🔝](#contents)
 
-> Certain files and folders have been omitted for brevity and security, most notably the `pack` directory that was poluting the **File Structure** with plugin files. 
+> Certain files and folders have been omitted for brevity and security, most notably the `pack` directory that was poluting the **File Structure** with plugin files.
 
 <details>
 <summary>File Structure</summary>
@@ -734,6 +733,7 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/install.sh | /bin/
 <a id="useful-links"></a>
 
 ## Useful Links ___no particular order___ [🔝](#contents)
+
 - [**Github** wincent/wincent](https://github.com/wincent/wincent)
 - [**Github** mathiasbynenes/dotfiles](https://github.com/mathiasbynens/dotfiles)
 - [**Github** Awesome-dotfiles](https://github.com/webpro/awesome-dotfiles)
@@ -741,6 +741,7 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/install.sh | /bin/
 <a id="todos"></a>
 
 ## TODOs [🔝](#contents)
+
 - [x] ~~migrate all installed apps to be installed using homebrew / linuxbrew~~
 - [ ] spend some time working with hammerspoon
 - [x] ~~troubleshoot why italics isn't working in (n)vim.~~
@@ -748,18 +749,22 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/install.sh | /bin/
 - [x] ~~Add a collection of inspirational dotfile repos.~~
 - [x] ~~Add images in the lib dir of this repo to the .wiki submodule repo.~~
 - [x] ~~Figure out why cloning the dotfiles repo is cloning the submodules with detached heads~~ see [this](https://stackoverflow.com/a/20797186/70880) for detailed explanation.
+
 ### Neovim [🔝](#contents)
+
 - [x] ~~Figure out a way to save fold settings across all open buffers when quiting Vim.~~
 - [x] ~~Figure out why folds are only being saved / preserved for the last open buffer when quiting Vim 🤔~~
 - [ ] Vim Sesssions, ~~Folds,~~ and Conceals will be the death of me 💀
 - [x] ~~don't create session files when launching a man page~~
 - [x] ~~Figure out a sane solution for previewing markdown ie. .md documents~~
 - [x] ~~Figure out what is causing lines to be hard wrapped! 😖~~
+
 ### Fish [🔝](#contents)
+
 - [x] ~~Figure out why `grc` is borking PATH on Linux 😑~~
 
 <a id="contact"></a>
 
 ## Contact [🔝](#contents)
-• [**GithHub**](https://github.com/ipatch) • [**Twitter**](https://twitter.com/truckmonth) • [**GitLab**](https://gitlab.com/truckmonth)
 
+• [**GithHub**](https://github.com/ipatch) • [**Twitter**](https://twitter.com/truckmonth) • [**GitLab**](https://gitlab.com/truckmonth)

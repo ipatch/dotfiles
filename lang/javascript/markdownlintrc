@@ -1,25 +1,32 @@
 {
   "default": true,
   "line-length": false,
+  "first-line-h1": false,
   "first-header-h1": false,
   "header-increment": false,
-  "consistent": atx,
-  "consistent": dash,
+  "consistent": "atx",
+  "consistent": "dash",
   "no-reversed-links": true,
   "no-multiple-blanks": true,
   "no-inline-html": {
     "allowed_elements": [
       "br",
+      "em",
+      "strong",
       "h1",
       "h2",
       "h3",
       "h4",
       "h5",
-      "h7"
+      "h6",
       "ul",
       "li",
+      "details",
+      "summary",
+      "pre",
       "div",
-      "a"
+      "a",
       "img"
     ]
   }
+}
