@@ -4,7 +4,7 @@
 let g:ale_linters = {
       \ 'sh' : ['shellcheck'],
       \ 'html' : ['tidy'],
-      \ 'markdown' : ['mdl'],
+      \ 'markdown' : ['markdownlint'],
       \ 'javascript': ['eslint'],
       \ 'javascript.jsx' : ['eslint'],
       \ }
