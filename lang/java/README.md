@@ -1,4 +1,4 @@
-## Working with the Java Programming Language
+# Working with the Java Programming Language
 
 To build and run a Java program, ie. **HelloWorld.java** from a CLI
 
@@ -8,7 +8,7 @@ To build and run a Java program, ie. **HelloWorld.java** from a CLI
 import java.io.*;
 
 public class HelloWorld {
-  public static void main ( String[] args) 
+  public static void main ( String[] args)
   {
     System.out.println("Hello, Java!\n");
   }
