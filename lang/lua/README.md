@@ -1,11 +1,17 @@
-<a href="contents"></a>
+# Tooling with Lua
+
+<a id="contents"></a>
 
 ## Contents
 
-## General Lua Commands / Usage
+- [Linting](#linting)
+
+<a id="linting"></a>
+
+## Linting
 
 To lint a lua file from the command line
 
-```
+```lua
 lua /path/to/mr-fancy-42.lua
 ```
