@@ -10,12 +10,6 @@ if has('autocmd')
     if has('nvim')
       " Sync with corresponding non-nvim settings in ~/.vim/plugin/settings.vim
     endif
-
-    if has('mksession')
-      " Save / restore folds and cursor position.
-      
-    endif
-
   augroup END
 
   """""""""""""""""""""""""""""
@@ -44,19 +38,11 @@ if has('autocmd')
   " NOTE: a simple command / function to resume conceal settings when reopening a
   " bufffer
   ""
-  augroup conceal_return
-
-  augroup END
 
   """"""""""""""""""""""""""""""
   " autocommand - `fold_return`
   " NOTE: a simple command / function to resume fold settings when reopening a
   " buffer
   ""
-  " augroup fold_return
-  "   au BufWinLeave * mkview
-  "   au BufWinEnter * silent loadview
-  " augroup END
 endif
-
 

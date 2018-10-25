@@ -23,7 +23,7 @@
 	<key>Default Arrangement Name</key>
 	<string>single-window-main-desktop</string>
 	<key>Default Bookmark Guid</key>
-	<string>7FFF2ED5-A192-4539-A537-616FC8ED512D</string>
+	<string>96493488-76CB-451C-84DB-A6B52B4BB38F</string>
 	<key>DimBackgroundWindows</key>
 	<true/>
 	<key>DimInactiveSplitPanes</key>
@@ -267,7 +267,7 @@
 	<key>NSWindow Frame com.apple.typography_panel_ConsolasForPowerline</key>
 	<string>252 254 260 156 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>289 153 810 451 0 0 1440 877 </string>
+	<string>264 180 810 451 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>3 383 1426 451 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 10</key>

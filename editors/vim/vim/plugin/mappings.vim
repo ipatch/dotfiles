@@ -1,15 +1,15 @@
 """""""""""""""""""""""""""""
 " Key mappings / bindings
 " NOTE: `meta` ie. `⌘.` within iTerm2 require escape sequences to be mapped
-" NOTE: apparently `:map` and `:map!` will map to all modes of (n)vim
+" NOTE: apparently `:map` and `:map!` will map to all modes in (n)vim
 " NOTE: the below configuration line will map the `spacebar` to ':' so that
 " way `Shift+;` does not have to be pressed to begin a command in normal mode.
 ""
 
 nnoremap <space> :
 
-" NOTE: - the below insert mappings will bind 'jk' / 'kj' to the ESC
-" key functionality, so need for the <ESC> key in insert mode
+" NOTE: - the below insert mappings will bind 'jk' / 'kj' to ESC
+" key functionality, so need to use <ESC> in insert mode
 imap jk <esc>
 imap kj <esc>
 imap jj <esc>
@@ -29,11 +29,11 @@ cmap cwd lcd %:p:h
 cmap cd. lcd %:p:h
 
 " the below key mapping will indent the entire file 😯
-nnoremap <Leader>i mmgg=G`m<CR>
+nnoremap <leader>i mmgg=G`m<CR>
 
 " go into command mode and print the working dir
 " TODO: figure out a way to print the `cwd` or `pwd` quckily from `NORMAL` mode
-" NOTE: `:pwd` works for the time being 🤷  
+" NOTE: `:pwd` is hacky  
 
 " bubbling text - Normal mode
 nnoremap <S-k> ddkP
@@ -47,7 +47,7 @@ vmap <S-j> xp`[V`]
 nnoremap j gj
 nnoremap k gk
 
-" NOTE: if the `<C-o>` is not specified then the `gj` or `gk` will literally be
+" NOTE: if `<C-o>` is not specified then the `gj` or `gk` will literally be
 " printed to the screen.
 inoremap <Down> <C-o>gj
 inoremap <Up> <C-o>gk

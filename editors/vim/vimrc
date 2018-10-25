@@ -12,7 +12,7 @@ scriptencoding utf-8
 " Notes / gotchas - some good things to know before hacking `~/.vimrc`
 " NOTE: this rc file is being linted with `vint`
 " NOTE: https://github.com/Kuniwak/vint
-" NOTE: To print the value of a setting, ie. return the value set,
+" NOTE: To print the value of a setting, ie. return the set value
 " `:set autoindent?`
 " SEE: `~/.vim/after/ftplugin/vim.vim` for settings related to `.vim`
 ""
@@ -69,7 +69,7 @@ function! GetRunningOS()
       return 'linux'
     endif
   else
-    " catch all 🎣 everything else
+    " catch all 🎣 for everything else
     " No love 💔 for the other guys
   endif
 endfunction
