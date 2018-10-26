@@ -177,6 +177,7 @@ brew "nghttp2"
 brew "py2cairo"
 brew "nmap", args: ["with-pygtk"]
 brew "node"
+brew "nss"
 brew "opam"
 brew "openssl@1.1"
 brew "openvpn"

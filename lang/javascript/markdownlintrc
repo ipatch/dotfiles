@@ -27,7 +27,10 @@
       "div",
       "a",
       "img",
-      "kbd"
+      "kbd",
+      "code",
+      "key",
+      "string"
     ]
   }
 }
