@@ -1,12 +1,15 @@
-<a href="contents"></a>
+# Ruby Tooling
+
+<a id="contents"></a>
 
 ## Contents
+
 - [Ruby](#ruby)
 - [Working with shell commands in Ruby source files](#working-with-shell-cmds-in-rb-files)
 
-<a href="ruby"></a>
+<a id="ruby"></a>
 
-## Ruby
+## Ruby [🔝](#contents)
 
 > Notes regarding the Ruby programming language
 
@@ -16,9 +19,9 @@ To lint, ie. check a ruby source file for syntax errors
 ruby -c /path/to/mr-fancy-42.rb
 ```
 
-<a href="working-with-shell-cmds-in-rb-files"></a>
+<a id="working-with-shell-cmds-in-rb-files"></a>
 
-### Working with system / shell commands in ruby files, ie. mr-fancy-42.rb
+### Working with system / shell commands in ruby files [🔝](#contents)
 
 To execute a shell command within a Ruby source file
 
@@ -33,6 +36,3 @@ system "echo 'hello from shell'"
 ```
 
 > I had better results using back ticks as opposed to using **system** for storing information into and out of variables.
-
-
-

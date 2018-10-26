@@ -26,7 +26,8 @@
       "pre",
       "div",
       "a",
-      "img"
+      "img",
+      "kbd"
     ]
   }
 }
