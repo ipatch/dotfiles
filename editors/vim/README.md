@@ -1,4 +1,4 @@
-# Vim & Neovim Setup
+# Vim & Neovim Setup & Tooling
 
 <a id="contents"></a>
 
@@ -33,3 +33,29 @@
 ### Neovim Boot Time
 
 ![Neovim boot time June](https://i.imgur.com/8UAyTlC.png)
+
+<a id="linting-source-files"></a>
+
+## Linting source files
+
+> I use ALE, in conjunction with various language linters
+- **HTML** tidy
+- **shell** shellcheck
+- **markdown** markdownlint
+- **javascript** eslint
+
+<a id="working-with-html-tidy"></a>
+
+### Working with HTML tidy
+
+To invoke HTML 5 tidy from a CLI
+
+```shell
+tidy [FILE.html]
+```
+
+To **not** show any output, and only errors & warning if there are any present in an HTML file
+
+```shell
+tidy -eq [FILE.html]
+```
