@@ -27,7 +27,7 @@
 
 <a id="installation"></a>
 
-## Installation [🔝](#contents)
+## Installation
 
 > 👷 The below install script has not been completed, so you'll have to do the good ol [StackOverflow](https://i.imgur.com/QZj4hxp.jpg) if you want to expierment with any of the settings from this repo. 🚧
 
@@ -37,7 +37,7 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/install.sh | /bin/
 
 <a id="file-structure"></a>
 
-## File Structure [🔝](#contents)
+## File Structure
 
 > Certain files and folders have been omitted for brevity and security, most notably the `pack` directory that was poluting the **File Structure** with plugin files.
 
@@ -732,7 +732,7 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/install.sh | /bin/
 
 <a id="useful-links"></a>
 
-## Useful Links ___no particular order___ [🔝](#contents)
+## Useful Links ___no particular order___
 
 - [**Github** wincent/wincent](https://github.com/wincent/wincent)
 - [**Github** mathiasbynenes/dotfiles](https://github.com/mathiasbynens/dotfiles)
@@ -742,26 +742,11 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/install.sh | /bin/
 
 ## TODOs [🔝](#contents)
 
-- [x] ~~migrate all installed apps to be installed using homebrew / linuxbrew~~
-- [ ] spend some time working with hammerspoon
-- [x] ~~troubleshoot why italics isn't working in (n)vim.~~
 - [ ] Write an install script for easy installation of dotfiles.
-- [x] ~~Add a collection of inspirational dotfile repos.~~
-- [x] ~~Add images in the lib dir of this repo to the .wiki submodule repo.~~
-- [x] ~~Figure out why cloning the dotfiles repo is cloning the submodules with detached heads~~ see [this](https://stackoverflow.com/a/20797186/70880) for detailed explanation.
 
-### Neovim [🔝](#contents)
+### Neovim
 
-- [x] ~~Figure out a way to save fold settings across all open buffers when quiting Vim.~~
-- [x] ~~Figure out why folds are only being saved / preserved for the last open buffer when quiting Vim 🤔~~
 - [ ] Vim Sesssions, ~~Folds,~~ and Conceals will be the death of me 💀
-- [x] ~~don't create session files when launching a man page~~
-- [x] ~~Figure out a sane solution for previewing markdown ie. .md documents~~
-- [x] ~~Figure out what is causing lines to be hard wrapped! 😖~~
-
-### Fish [🔝](#contents)
-
-- [x] ~~Figure out why `grc` is borking PATH on Linux 😑~~
 
 <a id="contact"></a>
 
