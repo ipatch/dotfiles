@@ -107,6 +107,8 @@ config/fish/fishd.*
 **/fish_history
 **/fish_read_history
 **/generated_completions/
+config/fish/fisher/functions/*
+!config/fish/fisher/functions/.gitkeep
 
 ##############################
 # mpv

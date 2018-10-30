@@ -178,6 +178,18 @@ case Darwin
     # set -gx DEFAULT_JVM_OPTS "-Dcom.android.sdklib.toolsdir=$APP_HOME --add-modules java.xml.bind"
   end
 
+  ###############################
+  # fisher | fish shell plugin manager
+  ##
+  set -gx fisher_path "$XDG_CONFIG_HOME/fish/fisher"
+
+  set fish_function_path $fish_function_path $fisher_path/functions
+  set fish_complete_path $fish_complete_path $fisher_path/completions
+
+  for file in $fisher_path/conf.d/*.fish
+    builtin source $file 2> /dev/null
+  end
+
 case Linux
   ###############################
   # Linux specific env vars
