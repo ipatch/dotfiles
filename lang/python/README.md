@@ -23,19 +23,29 @@ python -m py_compile [mr_fancy_python_script]
 
 ## Working with `pyenv` [🔝](#contents)
 
-To list available Python versions that can be installed.
+To update the **pyenv** python version manager to the latest git master
+
+```shell
+cd $PYENV_ROOT; git pull upstream; git push origin master;
+```
+
+> The above commands are useful for updating the list of installable pythons
+
+To list installable Python versions
 
 ```shell
 pyenv install -l
 ```
 
-To download and keep the source for a particular python and put build output to STDOUT
+To download and keep the source for a particular python version and print build output to `$STDOUT`
 
 ```shell
-pyenv install -kv
+pyenv install -kv [MARJOR.MINOR.PATCH]
 ```
 
 > The source for a particular Python is downloaded in `$PYENV_ROOT/sources/[MAJOR.MINOR.PATCH]/Python-[MAJOR.MINOR.PATCH]
+
+**protip** when installing a version of python on macOS `/usr/local/{sbin/bin}` should be in the `$PATH` or pyenv will fail to build python due to SSL errors.  However the opposite is true for Debian with linuxbrew installed and setup.
 
 To install Python 2.7.15 on Debian Stretch 9.4 using **pyenv** make certain that linuxbrew pythons **ARE NOT** in the users `$PATH` when using pyenv to install a particular version of python.
 
