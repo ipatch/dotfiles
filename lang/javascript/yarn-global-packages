@@ -1,10 +1,10 @@
-yarn global v1.10.1
+yarn global v1.12.1
 info "@babel/cli@7.1.2" has binaries:
    - babel
    - babel-external-helpers
 info "create-react-app@1.5.2" has binaries:
    - create-react-app
-info "eslint@5.7.0" has binaries:
+info "eslint@5.8.0" has binaries:
    - eslint
 info "flow-language-server@0.6.0" has binaries:
    - flow-language-server
@@ -19,7 +19,7 @@ info "markdownlint-cli@0.13.0" has binaries:
    - markdownlint
 info "neovim@4.2.1" has binaries:
    - neovim-node-host
-info "nodemon@1.18.4" has binaries:
+info "nodemon@1.18.5" has binaries:
    - nodemon
 info "stacks-cli@1.0.0" has binaries:
    - stacks-cli
@@ -30,10 +30,10 @@ info "typescript@2.9.2" has binaries:
    - tsserver
 info "typescript-language-server@0.1.14" has binaries:
    - typescript-language-server
-info "webpack@4.23.0" has binaries:
+info "webpack@4.23.1" has binaries:
    - webpack
 info "webpack-cli@3.1.2" has binaries:
    - webpack-cli
 info "webpack-dev-server@3.1.10" has binaries:
    - webpack-dev-server
-Done in 1.06s.
+Done in 1.09s.

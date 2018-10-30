@@ -169,9 +169,12 @@ if type -q brew
   ###
   # brew MongoDB
   ##
-  abbr -ag mongodb-start "launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mongodb.plist; set -gx mongod_pid (pgrep mongod); exec fish"
-  abbr -ag mongodb-stop "kill $mongod_pid; set -e $mongod_pid; launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.mongodb.plist;"
-  abbr -ag print-mongod-pid "echo $mongod_pid"
+  # abbr -ag mongodb-start "launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mongodb.plist; set -gx mongod_pid (pgrep mongod); exec fish"
+  # abbr -ag mongodb-stop "kill $mongod_pid; set -e mongod_pid; launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.mongodb.plist;"
+  # abbr -ag print-mongod-pid "echo $mongod_pid"
+
+  abbr -ag mongod-start "launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mongodb.plist"
+  abbr -ag mongod-stop "launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.mongodb.plist"
 end
 
 case Linux

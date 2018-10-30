@@ -255,7 +255,7 @@ else
   if has('nvim')
     call minpac#add('neoclide/coc.nvim') " code completion
     call minpac#add('neoclide/jsonc.vim') " json syntax highlight w/ comments
-    call minpac#add('Shougo/denite.nvim')
+    " call minpac#add('Shougo/denite.nvim')
     " call minpac#add('Shougo/deoplete.nvim', { 'type': 'opt', 'do': ':UpdateRemotePlugins' })
   elseif v:version > 8 || v:version == 8 " Check for Vim8 ...sort of
     " call minpac#add('Shougu/deoplete.nvim', {'type': 'opt'})
