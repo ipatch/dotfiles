@@ -110,7 +110,7 @@ config/fish/fishd.*
 config/fish/fisher/completions/*
 !config/fish/fisher/completions/.gitkeep
 config/fish/fisher/conf.d/*
-config/fish/fisher/conf.d/.gitkeep
+!config/fish/fisher/conf.d/.gitkeep
 config/fish/fisher/functions/*
 !config/fish/fisher/functions/.gitkeep
 
