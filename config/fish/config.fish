@@ -186,7 +186,7 @@ case Darwin
   set fish_function_path $fish_function_path $fisher_path/functions
   set fish_complete_path $fish_complete_path $fisher_path/completions
 
-  for file in $fisher_path/conf.d/*.fish
+  for file in "$HOME/.config/fisher/conf.d/*.fish"
     builtin source $file 2> /dev/null
   end
 
