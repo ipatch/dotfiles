@@ -1,6 +1,10 @@
 """"""""""""""""""""""""""""""
 " plugin - ALE
 ""
+
+" expiermenting with code completion
+" let g:ale_completion_enabled = 1
+
 let g:ale_linters = {
       \ 'sh' : ['shellcheck'],
       \ 'html' : ['tidy'],
