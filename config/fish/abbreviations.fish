@@ -145,18 +145,17 @@ if type -q brew
   # working with brew src and formula
   abbr -ag cd-brew-src "cd (brew --prefix)/Homebrew/Library/Taps/homebrew/homebrew-core"
 
-
   # youtube-dl
   abbr -ag ytl "youtube-dl"
   abbr -ag you "youtube-dl"
 
   ###
-  # postgresql
+  # brew postgresql
   abbr -ag pg-start "launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist"
   abbr -ag pg-stop "launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist"
     
   ###
-  # redis
+  # brew redis
   ##
   abbr -ag redis-start "launchctl load ~/Library/LaunchAgents/homebrew.mxcl.redis.plist"
   abbr -ag redis-stop "launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.redis.plist"
@@ -166,6 +165,13 @@ if type -q brew
   ##
   abbr -ag ssh-start "sudo launchctl load /Library/LaunchDaemons/com.chrisrjones.sshd.plist"
   abbr -ag ssh-stop "sudo launchctl unload /Library/LaunchDaemons/com.chrisrjones.sshd.plist"
+
+  ###
+  # brew MongoDB
+  ##
+  abbr -ag mongodb-start "launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mongodb.plist; set -gx mongod_pid (pgrep mongod); exec fish"
+  abbr -ag mongodb-stop "kill $mongod_pid; set -e $mongod_pid; launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.mongodb.plist;"
+  abbr -ag print-mongod-pid "echo $mongod_pid"
 end
 
 case Linux
