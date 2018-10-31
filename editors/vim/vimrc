@@ -206,6 +206,9 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 " plugin - coc - no new line / carriage return after selection
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>"
 
+" plugin - coc - trigger autocomplete menu
+inoremap <silent><expr> <c-space> coc#refresh()
+
 " plugin - coc - close preview window when completion is done.
 augroup coc_close_pum
   autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
