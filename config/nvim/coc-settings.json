@@ -22,3 +22,5 @@
     "eslint.options": { "configFile": "/Users/capin/.eslintrc.json" }
   }
 }
+
+// vim: ft=jsonc
