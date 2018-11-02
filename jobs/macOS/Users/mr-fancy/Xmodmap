@@ -1,0 +1,9 @@
+! remove any meta keys already set
+clear Mod1
+! keycodes 63 and 71 correspond to command {L,R} on the keyboard
+keycode 63 = Meta_L
+keycode 71 = Meta_R
+keycode 66 = Alt_L
+! tell X11 that command L acts as Mod1 (meta) modifer
+! add Mod1 = Meta_L Meta_R
+! add Mod1 = Meta_L
