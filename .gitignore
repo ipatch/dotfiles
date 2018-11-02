@@ -125,6 +125,12 @@ config/mpv/watch_later/*
 config/mpv/mpv_history.log
 
 ##############################
+# GIMP
+##
+config/GIMP/2.10/themes/*
+!config/GIMP/2.10/.gitkeep
+
+##############################
 # Python - pyenv
 ##
 lang/python/pyenv/**
