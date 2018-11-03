@@ -337,8 +337,8 @@
        style="fill:black;fill-opacity:1;stroke:none;font-family:sans-serif;font-style:normal;font-weight:normal;font-size:40px;line-height:125%;letter-spacing:0px;word-spacing:0px"
        selcue="1">
       <group
-         display_unit="9"
-         id="lineheight" />
+         id="lineheight"
+         display_unit="9" />
     </eventcontext>
     <eventcontext
        id="nodes"
@@ -426,12 +426,12 @@
        offset="0"
        offsetunits="pt" />
     <group
-       offset="5"
-       scale="100"
-       precision="2"
-       id="measure"
+       unit="mm"
        fontsize="10"
-       unit="mm" />
+       id="measure"
+       precision="2"
+       scale="100"
+       offset="5" />
   </group>
   <group
      id="palette">
@@ -601,8 +601,8 @@
        panel_border="0"
        x="0"
        y="0"
-       w="622"
-       h="403"
+       w="339"
+       h="266"
        visible="1"
        state="2"
        placement="1" />
@@ -673,7 +673,7 @@
        default="org.inkscape.output.svg.inkscape"
        append_extension="1"
        enable_preview="1"
-       path="/Users/capin/gfx/inkscape"
+       path="/Users/capin/graphics/inkscape"
        use_current_dir="1" />
     <group
        id="save_copy"
@@ -772,8 +772,8 @@
        panel_border="0"
        x="0"
        y="0"
-       w="620"
-       h="174"
+       w="337"
+       h="171"
        visible="1"
        state="2"
        placement="5" />
@@ -795,10 +795,10 @@
        panel_mode="1"
        panel_wrap="0"
        panel_border="0"
-       x="1140"
+       x="0"
        y="0"
-       w="620"
-       h="174"
+       w="337"
+       h="171"
        visible="1"
        state="2"
        placement="5" />
@@ -1092,8 +1092,8 @@
        colorsontop="0"
        partialdynamic="0" />
     <group
-       id="spacepans"
-       value="0" />
+       value="0"
+       id="spacepans" />
     <group
        id="rendering" />
   </group>
