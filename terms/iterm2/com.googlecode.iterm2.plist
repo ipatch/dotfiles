@@ -267,7 +267,7 @@
 	<key>NSWindow Frame com.apple.typography_panel_ConsolasForPowerline</key>
 	<string>252 254 260 156 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>264 180 810 451 0 0 1440 877 </string>
+	<string>370 190 810 451 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>3 383 1426 451 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 10</key>
@@ -4228,7 +4228,7 @@
 	<key>Print In Black And White</key>
 	<true/>
 	<key>PromptOnQuit</key>
-	<true/>
+	<false/>
 	<key>QuitWhenAllWindowsClosed</key>
 	<false/>
 	<key>SUEnableAutomaticChecks</key>
@@ -8004,7 +8004,7 @@
 	<key>findMode_iTerm</key>
 	<integer>0</integer>
 	<key>iTerm Version</key>
-	<string>3.2.3</string>
+	<string>3.2.5</string>
 	<key>kCPKSelectionViewPreferredModeKey</key>
 	<integer>0</integer>
 	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>

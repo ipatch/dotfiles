@@ -43,7 +43,7 @@ $brew_prefix/opt/llvm/bin \
 $brew_prefix/opt/libressl/bin \
 $brew_prefix/opt/python/libexec/bin \
 $brew_prefix/opt/go/libexec/bin \
-$brew_prefix/opt/coreutils/libexec/gnubin \
+$brew_prefix/opt/coreutils/libexec/bin \
 $HOME/.local/bin \
 $HOME/.pyenv/bin \
 $HOME/.config/yarn/bin \

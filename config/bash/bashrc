@@ -66,8 +66,6 @@ alias gp='git push'
 alias df='df -h'
 alias du='du -sh'
 
-
-
 # NOTE: functions in BASH are all stored in memory, ie. RAM and not on disk
 # test to see if a functions dir exists with `$XDG_CONFG_HOME`
 if [ -d ~/.config/bash/functions ]; then
