@@ -20,21 +20,21 @@ fi
 HISTSIZE=1000000 # 1 Megabyte a.k.a 1MB
 
 # test for git completions and git prompt
-OS=$(uname)
-if [[ $OS == Darwin ]]; then
-	if [ -f "/Applications/Xcode.app/Contents/Developer/usr/share/git-core/git-completion.bash" ]; then
-  source "/Applications/Xcode.app/Contents/Developer/usr/share/git-core/git-completion.bash"
-  	fi
-  	if [ -f "/Applications/Xcode.app/Contents/Develper/usr/share/git-core/git-prompt.sh" ]; then
-  source "/Applications/Xcode.app/Contents/Developer/usr/share/git-core/git-prompt.sh"
-	fi
+# OS=$(uname)
+# if [[ $OS == Darwin ]]; then
+# 	if [ -f "/Applications/Xcode.app/Contents/Developer/usr/share/git-core/git-completion.bash" ]; then
+#   source "/Applications/Xcode.app/Contents/Developer/usr/share/git-core/git-completion.bash"
+#   	fi
+#   	if [ -f "/Applications/Xcode.app/Contents/Develper/usr/share/git-core/git-prompt.sh" ]; then
+#   source "/Applications/Xcode.app/Contents/Developer/usr/share/git-core/git-prompt.sh"
+# 	fi
 
 	# TODO: figure out why below 2 env vars were not loading properly
   #GIT_PS1_SHOWDIRTYSTATE=true;
 
   #PS1='\[\033[32m\]\u@\h\[\033[00m\]:\[\033[34m\]\w\[\033[31m\]$(__git_ps1)\[\033[00m\]\$ ';
 
-fi
+# fi
 
 
 # 💳 https://stackoverflow.com/a/18915067/708807

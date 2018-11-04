@@ -81,18 +81,46 @@ if [ -f ~/.bash_profile ]; then
    source ~/.bash_profile
 fi
 
+# nuke $PATH because I manually set it up below
+# NOTE: since $PATH is being nuked for each interactive bash session there presently isn't a need to check for duplicate path entries, "BONUS".
+PATH=""
+
 # TODO: create a `paths` func to load paths into `PATH`
+
+# setup an $OS env var for distinguishing between different Operating Systems
+# NOTE: Darwin = macOS, Linux = Debian; and other assorted Linux distros
+os=$(/usr/bin/uname)
+export os
+
+# some homebrew magic
+if [ "$os" = Darwin ] && [ -e /usr/local/bin/brew ]; then
+  brew_prefix="/usr/local"
+  export brew_prefix
+elif [ "$os" = Linux ] && [ -e /home/linuxbrew/.linuxbrew/bin/brew ]; then
+  brew_prefix="/home/linuxbrew/.linuxbrew"
+  export brew_prefix
+fi
+
+# TODO: conditionally only add paths for different operating systems
+# NOTE: since $PATH has been nuked, these paths are added from top to bottom, ie. .../sbin will be the first entry in $PATH unless other bash files hijack the $PATH; ...i'm looking at you asdf
+export PATH="$PATH:/Users/capin/.asdf/installs/elixir/1.7.4/bin"
+export PATH="$PATH:$brew_prefix/sbin"
+export PATH="$PATH:$brew_prefix/bin"
+export PATH="$PATH:$brew_prefix/opt/coreutils/libexec/gnubin"
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-export PATH="$PATH:/home/linuxbrew/.linuxbrew/bin/" # Add linuxbrew to the PATH
+export PATH="$PATH:/usr/sbin"
+export PATH="$PATH:/usr/bin"
+export PATH="$PATH:/sbin"
+export PATH="$PATH:/bin"
 
 # source helpful files for working with the `asdf` version manager
-if [ -f ~/.asdf/asdf.sh ]; then
-	source ~/.asdf/asdf.sh
-fi
+# if [ -f ~/.asdf/asdf.sh ]; then
+# 	source ~/.asdf/asdf.sh
+# fi
 
-if [ -f ~/.asdf/completions/asdf.bash ]; then 
-	source ~/.asdf/completions/asdf.bash
-fi
+# if [ -f ~/.asdf/completions/asdf.bash ]; then 
+# 	source ~/.asdf/completions/asdf.bash
+# fi
 
 # source helpful file for working with `fzf` CLI fuzzy finder
 # NOTE: the below statement tests to see the `.fzf.bash` file exists in ~ and then loads into the interactive BASH session.
@@ -100,10 +128,7 @@ if [ -f ~/.fzf.bash ]; then
 	source ~/.fzf.bash
 fi
 
-# [ -f ~/.fzf.bash ] && source ~/.fzf.bash
-
-
-
+# TODO: setup bash to use node.js provided by nvm and not homebrew
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
