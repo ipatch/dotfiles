@@ -158,6 +158,8 @@ Chris
 
 </details>
 
+---
+
 <a id="man-page-directory-layout"></a>
 
 ## `man` page directory layout [🔝](#contents)
