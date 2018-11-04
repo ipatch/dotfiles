@@ -153,7 +153,7 @@ now that macOS has mapped `/path/to/asdf/install/elixir/version/share/man/man1`
 
 I can read the man page for iex from within any directory on my system without having to explicitly set the path to the man page, and I did not need to fiddle with any super user; ie. root owned files on the system for man page configuration.  So all in all I made some progress with understanding how man pages work on macOS. However v3, this isn't a permanent solution but rather an explanation of what is going on with man pages on macOS, and hopefully begins a dialogue of how we should get asdf to read man pages from languages, runtimes, various other utilities asdf manages.
 
-cheers 🍻
+cheers 🍻<br>
 Chris
 
 </details>
