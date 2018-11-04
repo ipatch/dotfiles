@@ -1103,10 +1103,10 @@
      id="desktop"
      style="line-height:125%;fill:#008080">
     <group
-       width="1035"
-       height="684"
-       x="188"
-       y="55"
+       width="1023"
+       height="616"
+       x="0"
+       y="1"
        fullscreen="0"
        id="geometry"
        maximized="1" />
