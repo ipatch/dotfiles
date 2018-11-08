@@ -224,7 +224,7 @@ brew "vim"
 brew "w3m"
 brew "watch"
 brew "watchman"
-brew "weechat", args: ["with-aspell", "with-lua", "with-perl", "with-python@2", "with-ruby"]
+brew "weechat"
 brew "wemux"
 brew "wget"
 brew "wxmac"
