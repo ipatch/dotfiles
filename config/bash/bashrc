@@ -13,11 +13,11 @@
 # NOTE: in macOS ~/.bashrc is loaded before ~/.bash_profile
 # 1) /etc/profile
 # 2) /etc/bash.bashrc
-# 3) ~/.bashrc # NOTE: this file is used for interactive shell sessions
-# 4) ~/.bash_profile # NOTE: this file is used for login shells
+# 3) ~/.bashrc | NOTE non-login interactive mode 
+# 4) ~/.bash_profile | NOTE used for interactive login shell, typically used for console logins, ie. ctrl+alt+f1
 # NOTE: for a deeper understanding of `interactive/login` see "INVOCATION" in the BASH man page.
 # 5) ~/.bash_login
-# 6) ~/.profile
+# 6) ~/.profile | NOTE used for graphical sessions, ie. KDE, | NOTE `~/.bash_profile` is not sourced
 # 7) ~/.bash_logout
 ##
 
@@ -27,7 +27,7 @@
 
 # Env Vars
 
-# User details
+# User details | IRC
 export USERNAME="capin"
 export NICKNAME="capin"
 
@@ -76,10 +76,11 @@ if [ -d ~/.config/bash/functions ]; then
 	done
 fi
 
+# WRONG!!!
 # check to see if $HOME/.bash_profile exists then load in current shell session.
-if [ -f ~/.bash_profile ]; then
-   source ~/.bash_profile
-fi
+# if [ -f ~/.bash_profile ]; then
+#   source ~/.bash_profile
+# fi
 
 # nuke $PATH because I manually set it up below
 # NOTE: since $PATH is being nuked for each interactive bash session there presently isn't a need to check for duplicate path entries, "BONUS".
@@ -89,8 +90,16 @@ PATH=""
 
 # setup an $OS env var for distinguishing between different Operating Systems
 # NOTE: Darwin = macOS, Linux = Debian; and other assorted Linux distros
-os=$(/usr/bin/uname)
-export os
+if [ -x /usr/bin/uname ]; then
+	os=$(/usr/bin/uname)
+	export os
+elif [ -x /bin/uname ]; then
+	os=$(/bin/uname)
+	export os
+fi
+
+# os=$(/usr/bin/uname)
+# export os
 
 # some homebrew magic
 if [ "$os" = Darwin ] && [ -e /usr/local/bin/brew ]; then
@@ -103,15 +112,16 @@ fi
 
 # TODO: conditionally only add paths for different operating systems
 # NOTE: since $PATH has been nuked, these paths are added from top to bottom, ie. .../sbin will be the first entry in $PATH unless other bash files hijack the $PATH; ...i'm looking at you asdf
-export PATH="$PATH:/Users/capin/.asdf/installs/elixir/1.7.4/bin"
-export PATH="$PATH:$brew_prefix/sbin"
-export PATH="$PATH:$brew_prefix/bin"
-export PATH="$PATH:$brew_prefix/opt/coreutils/libexec/gnubin"
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-export PATH="$PATH:/usr/sbin"
-export PATH="$PATH:/usr/bin"
-export PATH="$PATH:/sbin"
-export PATH="$PATH:/bin"
+PATH=/Users/capin/.asdf/installs/elixir/1.7.4/bin
+# below entries will be appened to $PATH
+PATH=$PATH:$brew_prefix/sbin
+PATH=$PATH:$brew_prefix/bin
+PATH=$PATH:$brew_prefix/opt/coreutils/libexec/gnubin
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+PATH=$PATH:/usr/sbin
+PATH=$PATH:/usr/bin
+PATH=$PATH:/sbin
+PATH=$PATH:/bin
 
 # source helpful files for working with the `asdf` version manager
 # if [ -f ~/.asdf/asdf.sh ]; then
