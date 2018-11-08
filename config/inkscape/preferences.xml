@@ -133,8 +133,8 @@
          id="rect"
          style="fill:blue;"
          usecurrent="1"
-         width="171.429"
-         height="491.429"
+         width="679.037"
+         height="262.883"
          rx="0"
          ry="0" />
       <eventcontext
@@ -326,7 +326,7 @@
        id="lpetool"
        mode="drag"
        style="fill:#ff0000;fill-opacity:1;fill-rule:nonzero;stroke:none;"
-       unit="mm"
+       unit="px"
        show_bbox="1" />
     <eventcontext
        id="text"
@@ -337,8 +337,8 @@
        style="fill:black;fill-opacity:1;stroke:none;font-family:sans-serif;font-style:normal;font-weight:normal;font-size:40px;line-height:125%;letter-spacing:0px;word-spacing:0px"
        selcue="1">
       <group
-         id="lineheight"
-         display_unit="9" />
+         display_unit="9"
+         id="lineheight" />
     </eventcontext>
     <eventcontext
        id="nodes"
@@ -407,7 +407,7 @@
        gradientdrag="1"
        pick="1"
        setalpha="1"
-       onetimepick="1" />
+       onetimepick="0" />
     <eventcontext
        id="select"
        selcue="1"
@@ -416,7 +416,7 @@
        id="connector"
        style="fill:none;fill-rule:evenodd;stroke:black;stroke-opacity:1;stroke-linejoin:miter;stroke-width:1px;stroke-linecap:butt;"
        selcue="1"
-       curvature="3"
+       curvature="0"
        length="100" />
     <eventcontext
        id="paintbucket"
@@ -426,12 +426,12 @@
        offset="0"
        offsetunits="pt" />
     <group
-       unit="mm"
-       fontsize="10"
-       id="measure"
-       precision="2"
+       offset="5"
        scale="100"
-       offset="5" />
+       precision="2"
+       id="measure"
+       fontsize="10"
+       unit="px" />
   </group>
   <group
      id="palette">
@@ -570,7 +570,20 @@
     <group
        id="toolbox" />
     <group
-       id="fillstroke" />
+       id="fillstroke"
+       panel_size="1"
+       panel_ratio="100"
+       panel_mode="1"
+       panel_wrap="0"
+       panel_border="0"
+       page="0"
+       x="0"
+       y="0"
+       w="1"
+       h="1"
+       visible="1"
+       state="3"
+       placement="1" />
     <group
        id="filtereffects"
        panel_size="1"
@@ -586,7 +599,19 @@
        state="2"
        placement="1" />
     <group
-       id="textandfont" />
+       id="textandfont"
+       panel_size="1"
+       panel_ratio="100"
+       panel_mode="1"
+       panel_wrap="0"
+       panel_border="0"
+       x="0"
+       y="0"
+       w="361"
+       h="328"
+       visible="0"
+       state="2"
+       placement="1" />
     <group
        id="transformation"
        applyseparately="0" />
@@ -601,10 +626,10 @@
        panel_border="0"
        x="0"
        y="0"
-       w="339"
-       h="266"
+       w="1"
+       h="1"
        visible="1"
-       state="2"
+       state="3"
        placement="1" />
     <group
        id="find" />
@@ -622,23 +647,23 @@
        panel_mode="1"
        panel_wrap="0"
        panel_border="0"
-       x="363"
+       x="88"
        y="0"
        w="570"
-       h="792"
+       h="824"
        visible="0"
        placement="1" />
     <group
        id="preferences"
        state="1"
-       page="46"
+       page="7"
        panel_size="1"
        panel_ratio="100"
        panel_mode="1"
        panel_wrap="0"
        panel_border="0"
-       x="149"
-       y="131"
+       x="167"
+       y="148"
        w="1142"
        h="637" />
     <group
@@ -657,14 +682,14 @@
        panel_border="0"
        x="0"
        y="0"
-       w="338"
+       w="326"
        h="446"
        visible="0"
        state="2"
        placement="1">
       <group
          id="exportarea"
-         value="page" />
+         value="custom" />
       <group
          id="defaultxdpi" />
     </group>
@@ -673,7 +698,7 @@
        default="org.inkscape.output.svg.inkscape"
        append_extension="1"
        enable_preview="1"
-       path="/Users/capin/graphics/inkscape"
+       path="/Users/capin/gfx/inkscape"
        use_current_dir="1" />
     <group
        id="save_copy"
@@ -772,11 +797,11 @@
        panel_border="0"
        x="0"
        y="0"
-       w="337"
-       h="171"
+       w="1"
+       h="1"
        visible="1"
-       state="2"
-       placement="5" />
+       state="3"
+       placement="1" />
     <group
        id="extensioneditor" />
     <group
@@ -797,11 +822,11 @@
        panel_border="0"
        x="0"
        y="0"
-       w="337"
-       h="171"
+       w="1"
+       h="1"
        visible="1"
-       state="2"
-       placement="5" />
+       state="3"
+       placement="1" />
     <group
        id="transparency"
        on-focus="1.0"
@@ -1092,8 +1117,8 @@
        colorsontop="0"
        partialdynamic="0" />
     <group
-       value="0"
-       id="spacepans" />
+       id="spacepans"
+       value="0" />
     <group
        id="rendering" />
   </group>
@@ -1101,15 +1126,15 @@
      id="extensions" />
   <group
      id="desktop"
-     style="line-height:125%;fill:#008080">
+     style="line-height:125%;fill:#cfe2f3;opacity:0.64;fill-opacity:1;-inkscape-font-specification:'sans-serif, Normal';font-family:sans-serif;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-size:18.66666667px;text-anchor:start;text-align:start;writing-mode:lr;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;stroke:#000000;stroke-opacity:1">
     <group
-       width="1023"
-       height="616"
+       width="640"
+       height="480"
        x="0"
-       y="1"
+       y="0"
        fullscreen="0"
        id="geometry"
-       maximized="1" />
+       maximized="0" />
     <group
        id="XYfront" />
     <group
