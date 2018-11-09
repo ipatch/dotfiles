@@ -17,8 +17,8 @@ window:
   # Window dimensions in character columns and lines
   # (changes require restart)
   dimensions:
-    columns: 102
-    lines: 11
+    columns: 100
+    lines: 24
 
   # Adds this many blank pixels of padding around the window
   # Units are physical pixels; this is not DPI aware.
@@ -29,7 +29,8 @@ window:
 
   # Window decorations
   # Setting this to false will result in window without borders and title bar.
-  decorations: true
+  # decorations: true # Deprecated in v0.21
+    decorations: full
 
 # Display tabs using this many cells (changes require restart)
 tabspaces: 8
@@ -83,7 +84,7 @@ render_timer: false
 
 # Use custom cursor colors. If true, display the cursor in the cursor.foreground
 # and cursor.background colors, otherwise invert the colors of the cursor.
-custom_cursor_colors: true
+# custom_cursor_colors: true # Deprecated in v0.21
 
 # Colors (Tomorrow Night Bright)
 colors:
@@ -197,13 +198,25 @@ mouse:
   # To disable this completely, set `faux_scrollback_lines` to 0.
   # DEPRECATED: faux_scrollback_lines: 1
   faux_scrolling_lines: 1
+  
+  # hide pointer while typing in the terminal
+  # hide_cursor_when_typing: true
+  hide_when_typing: false
+
+  url:
+    # URL launcher
+    #
+    # This program is executed when clicking on a text which is recognized as a URL.
+    # This URL is always added to the command as the last parameter.
+    launcher: open
 
 selection:
   semantic_escape_chars: ",│`|:\"' ()[]{}<>"
 
 dynamic_title: true
 
-hide_cursor_when_typing: true
+
+
 
 # Style of the cursor
 #
@@ -211,7 +224,8 @@ hide_cursor_when_typing: true
 # - Block
 # - Underline
 # - Beam
-cursor_style: Block
+# cursor_style: Block # Deprecated in v0.21
+cursor.style: Block
 
 # Live config reload (changes require restart)
 live_config_reload: true
