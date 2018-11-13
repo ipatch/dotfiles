@@ -133,5 +133,6 @@ AllowTcpForwarding yes
 # PermitTTY no
 # ForceCommand cvs server
 PrintMotd no
-PrintLastLog yes
+# PrintLastLog yes
+PrintLastLog no
 TCPKeepAlive yes
