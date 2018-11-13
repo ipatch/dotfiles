@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# Reference: http://osxdaily.com/2009/09/23/hide-all-desktop-icons-in-mac-os-x/
+
 # exit if any part of script fails
 set -e
 
