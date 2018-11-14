@@ -1,0 +1,6 @@
+# User defined `.profile` for custom $USER settings
+
+if [ -f "$HOME/.dir_colors" ]; then
+  eval "$(dircolors ~/.dir_colors)"
+fi
+
