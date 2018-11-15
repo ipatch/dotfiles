@@ -19,3 +19,15 @@ To test the above behavior, run the `hello` function from the CLI that is contai
 ```shell
 hello
 ```
+
+To print a list of all function names defined in the current bash session
+
+```shell
+declare -F
+```
+
+To print a list of all functions available to bash and their source
+
+```shell
+declare -f
+```
