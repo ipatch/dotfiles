@@ -134,6 +134,8 @@ config/GIMP/2.10/themes/*
 # Python - pyenv
 ##
 lang/python/pyenv/**
+# airpy tools for working with AirPort devices
+jobs/bin/acp
 
 ##############################
 # tmux
