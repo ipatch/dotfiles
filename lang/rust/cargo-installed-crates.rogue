@@ -1,12 +1,16 @@
-alacritty v0.2.0 (https://github.com/jwilm/alacritty#00bd0987):
+alacritty v0.2.1 (https://github.com/jwilm/alacritty#81617983):
     alacritty
-cargo-update v1.6.2:
+bat v0.8.0:
+    bat
+cargo-update v1.6.3:
     cargo-install-update
     cargo-install-update-config
 fd-find v7.1.0:
     fd
-racer v2.1.5:
+racer v2.1.9:
     racer
+ripgrep v0.10.0:
+    rg
 rusti v0.0.1 (https://github.com/murarth/rusti#2dddea34):
     rusti
 termpix v0.1.0 (https://github.com/hopey-dishwasher/termpix#bb2fcc5e):
