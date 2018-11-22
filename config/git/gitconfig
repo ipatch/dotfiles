@@ -59,6 +59,14 @@
   ps = !git pull 
 
   ####
+  # updating forks
+  ##
+  pusm = !git pull upstream master
+  pom = !git push origin master
+  curnt = "!sh -c 'git pull upstream master; git push origin master'"
+  fresh = "!sh -c 'git pull upstream master; git push origin master'"
+
+  ####
   # diff
   ##
   d = diff
