@@ -100,9 +100,12 @@ brew "ffmpeg", args: ["HEAD", "with-fdk-aac", "with-fontconfig", "with-freetype"
 brew "file-formula"
 brew "findutils", args: ["with-default-names"]
 brew "fish", args: ["HEAD"]
+brew "libusb"
+brew "flashrom"
 brew "fortune"
 brew "fzf"
 brew "gawk"
+brew "webp"
 brew "gdb"
 brew "ghostscript"
 brew "git"
@@ -115,7 +118,6 @@ brew "gnu-time", args: ["with-default-names"]
 brew "libgpg-error"
 brew "libgcrypt"
 brew "libksba"
-brew "libusb"
 brew "npth"
 brew "pinentry"
 brew "gnupg"
@@ -230,8 +232,8 @@ brew "xorriso"
 brew "yarn"
 brew "zlib"
 brew "zsh"
-brew "ipatch/us-05/openssh", args: ["with-libressl"]
-brew "ipatch/us-05/qemu", args: ["HEAD", "with-docs", "with-hax", "with-hvf", "with-libusb"]
+brew "ipatch/us-05/openssh", args: ["HEAD", "with-ldns"]
+brew "ipatch/us-05/qemu", args: ["HEAD", "with-docs", "with-hax", "with-hvf"]
 brew "lukechilds/tap/gifgen"
 brew "universal-ctags/universal-ctags/universal-ctags", args: ["HEAD"]
 cask "android-platform-tools"
