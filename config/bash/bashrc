@@ -77,6 +77,11 @@ if [ -d ~/.config/bash/functions ]; then
 	done
 fi
 
+# read man specific entries for shell builtins
+bashman () {
+  man bash | man bash | less -p "^       $1 "
+}
+
 # WRONG!!!
 # check to see if $HOME/.bash_profile exists then load in current shell session.
 # if [ -f ~/.bash_profile ]; then

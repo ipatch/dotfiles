@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
 set -e
+# Debugging
+## set -ex # `-x` will print each line / statement of a bash script
 
 # setup an $OS env var for distinguishing between different Operating Systems
 # NOTE: Darwin = macOS, Linux = Debian; and other assorted Linux distros
