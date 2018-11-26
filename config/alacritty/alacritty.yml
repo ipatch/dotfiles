@@ -215,9 +215,6 @@ selection:
 
 dynamic_title: true
 
-
-
-
 # Style of the cursor
 #
 # Values for 'cursor_style':
@@ -281,7 +278,8 @@ key_bindings:
   - { key: Left,     mods: Alt,     chars: "\x1bb"                       }
   - { key: Right,    mods: Alt,     chars: "\x1bf"                       }
   - { key: L,        mods: Alt,     chars: "\x1bl"                       }
-  - { key: T,        mods: Alt,     chars: "\x1bt"                            }
+  - { key: T,        mods: Alt,     chars: "\x1bt"                       }
+  - { key: K,        mods: Alt,     chars: "\x1bk"                       }
 
 
   - { key: V,        mods: Command, action: Paste                        }
