@@ -75,11 +75,8 @@ tags
 
 # Ignore those pesky macOS .DS_Store files recursively throughout repo
 **/.DS_Store
-*.DS_Store
-*/.DS_Store
 
-**/.bkup
-*.bkup
+**/*.bkup
 
 # track all files with a name of `.gitkeep`
 !*.gitkeep
@@ -104,6 +101,8 @@ config/irc-clients/weechat/sec.conf
 ##
 # Ignore fishd.<hash-files>
 config/fish/fishd.*
+# `fish_variables` > fish shell's new `fishd.*` uni vars file
+config/fish/fish_variables
 **/fish_history
 **/fish_read_history
 **/generated_completions/
