@@ -326,7 +326,7 @@
        id="lpetool"
        mode="drag"
        style="fill:#ff0000;fill-opacity:1;fill-rule:nonzero;stroke:none;"
-       unit="px"
+       unit="mm"
        show_bbox="1" />
     <eventcontext
        id="text"
@@ -337,8 +337,8 @@
        style="fill:black;fill-opacity:1;stroke:none;font-family:sans-serif;font-style:normal;font-weight:normal;font-size:40px;line-height:125%;letter-spacing:0px;word-spacing:0px"
        selcue="1">
       <group
-         display_unit="9"
-         id="lineheight" />
+         id="lineheight"
+         display_unit="9" />
     </eventcontext>
     <eventcontext
        id="nodes"
@@ -426,12 +426,12 @@
        offset="0"
        offsetunits="pt" />
     <group
-       offset="5"
-       scale="100"
-       precision="2"
-       id="measure"
+       unit="mm"
        fontsize="10"
-       unit="px" />
+       id="measure"
+       precision="2"
+       scale="100"
+       offset="5" />
   </group>
   <group
      id="palette">
@@ -1117,8 +1117,8 @@
        colorsontop="0"
        partialdynamic="0" />
     <group
-       id="spacepans"
-       value="0" />
+       value="0"
+       id="spacepans" />
     <group
        id="rendering" />
   </group>
@@ -1134,7 +1134,7 @@
        y="0"
        fullscreen="0"
        id="geometry"
-       maximized="0" />
+       maximized="1" />
     <group
        id="XYfront" />
     <group
