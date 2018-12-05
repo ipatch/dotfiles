@@ -18,8 +18,8 @@
     <key>StandardOutPath</key>
     <string>/usr/local/var/log/launchd/com.chrisrjones.rm_ds_store_files.out</string>
 
-    <key>RunAtLoad</key>
-    <true/>
+    <!-- <key>RunAtLoad</key> -->
+    <!-- <true/> -->
 
     <key>StartCalendarInterval</key>
     <array>
