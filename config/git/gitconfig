@@ -16,7 +16,11 @@
   ####
   # logging
   ##
-  l = log --graph --pretty=format:'%C(yellow)%h%C(bold white red)%d%Creset %s %C(bold green)%cr %Creset%C(white)%an' --abbrev-commit --date=relative
+  # l = "!sh -c 'git log --graph --pretty=format:%C(yellow)%h%C(bold white red)%d%Creset %s %C(bold green)%cr %Creset%C(white)%an --abbrev-commit --date=relative --color=always; | less'"
+  # l = !git log --color=always --graph --abbrev-commit --date=relative | less -r
+  # no mouse for you
+
+  l = "!sh -c 'git log | less'"
 
   ####
   # checking out
@@ -210,6 +214,11 @@
 	precomposeUnicode = true
   ###############################
   # To set a `core.excludesfile` on a per $HOME dir basis, see `config.fish or `.bashrc`
+
+  ###############################
+  # give me some mouse 🐭 support please
+  ##
+  pager = less -r # NOTE `-r` flag may break things from time to time
 
 [color]
   ui = auto

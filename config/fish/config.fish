@@ -157,8 +157,11 @@ case Darwin
     #########################
     # Add check for syntax highlighting for `less`
     ##
-    [ -x "/usr/local/share/nvim/runtime/macros/less.sh" ]; and \
-    alias less='/usr/local/share/nvim/runtime/macros/less.sh';
+    if not test -x "/usr/local/share/nvim/runtime/macros/less.sh" \
+    -a -L "$HOME/.local/bin/less"
+      ln -sf /usr/local/share/nvim/runtime/macros/less.sh $dots/jobs/bin/less
+      # echo "less ln made"
+    end
   else if type -q vim
     set -gx EDITOR /usr/local/bin/vim
     set -gx VISUAL /usr/local/binvim
