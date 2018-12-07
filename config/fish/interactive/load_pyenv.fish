@@ -2,21 +2,17 @@
 set -gx PYENV_ROOT $HOME/.pyenv
 
 set -l pyenv_bin $PYENV_ROOT/bin
+set -l pyenv_shims $PYENV_ROOT/shims
 
-# for x in $pyenv_bin
-#   if begin not contains $x $PATH; and test -d $x; end
-#     set -gx PATH $x $PATH
-#   end
-# end
-
-for p in $pyenv_bin
-  if not contains $p $PATH; and test -d $p
+for p in $pyenv_bin and $pyenv_shims
+  if not contains $p $PATH && test -d $p
     set -gx PATH $p $PATH
   end
 end
 
 set -gx PYENV_SHELL fish
 source '/Users/capin/.pyenv/libexec/../completions/pyenv.fish'
+# NOTE for reasons I do NOT know the below statement will bolt on ~ 200ms to fish load time
 # command pyenv rehash 2>/dev/null
 function pyenv
   set command $argv[1]

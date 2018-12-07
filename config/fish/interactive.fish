@@ -2,11 +2,9 @@
 # fish shell - interactive.fish
 ##
 
-if test -d $HOME/.config/fish/interactive -a -z "$fish_interactive_sourced"
+# NOTE abbr(s) and aliases set within the interactive fish files will need to reset everytime fish is reinitialized or else the will no persist when running `exec fish`
+if test -d $HOME/.config/fish/interactive
   for f in $HOME/.config/fish/interactive/*.fish
     source $f
-  # echo "interactive fish files sourced"
   end
-else
-  # echo "interactive fish files already sourced"
 end
