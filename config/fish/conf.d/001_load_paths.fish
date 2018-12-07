@@ -50,6 +50,7 @@ $HOME/.config/yarn/bin \
 # /sbin \
 # /bin \
 
+# TODO remove entries from $PATH if their not in the above list
 for p in $paths
   if not contains $p $PATH; and test -d $p
     # append PATH entries, ie. top entry appears first in PATH
