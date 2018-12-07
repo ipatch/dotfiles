@@ -3,8 +3,10 @@
 ##
 
 if test -d $HOME/.config/fish/interactive -a -z "$fish_interactive_sourced"
-  source $HOME/.config/fish/interactive/*.fish && set fish_interactive_sourced 1
-  # echo "interactive fish files source"
+  for f in $HOME/.config/fish/interactive/*.fish
+    source $f
+  # echo "interactive fish files sourced"
+  end
 else
   # echo "interactive fish files already sourced"
 end
