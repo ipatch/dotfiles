@@ -25,12 +25,14 @@ set textwidth=0
 if os ==? 'macos' || os ==? 'linux'
 
   " set the default python PATH, to supposedly boost 🏎  performance
-  let g:python_host_prog = '/home/capin/.pyenv/versions/neovim2/bin/python'
+  " let g:python_host_prog = '/home/capin/.pyenv/versions/neovim2/bin/python'
+  let g:python_host_prog = '/home/capin/.pyenv/versions/py2neovim/bin/python'
 
   " To disable python 2 support, uncomment the below line
   " let g:loaded_python_provider = 1
 
-  let g:python3_host_prog = '/home/capin/.pyenv/versions/neovim3/bin/python'
+  " let g:python3_host_prog = '/home/capin/.pyenv/versions/neovim3/bin/python'
+  let g:python3_host_prog = '/home/capin/.pyenv/versions/py3neovim/bin/python'
 
   " TODO: Try and get `command + c` to work on remote linux servers
 
