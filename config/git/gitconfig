@@ -20,7 +20,10 @@
   # l = !git log --color=always --graph --abbrev-commit --date=relative | less -r
   # no mouse for you
 
-  l = "!sh -c 'git log | less'"
+  # l = "!sh -c 'git log --graph | less -R'"
+  l = !git --no-pager log
+
+  # rlog = !"git --no-pager log --all --graph --decorate --oneline --color=always | tac | awk -f ~/.config/git/switchslashes.awk | less -X +G -r"
 
   ####
   # checking out
@@ -65,10 +68,9 @@
   ####
   # updating forks
   ##
-  pllum = !git pull upstream master
-  pllom = !git pull origin master
+  pulum = !git pull upstream master
+  pulom = !git pull origin master
   pshom = !git push origin master
-  curnt = "!sh -c 'git pull upstream master; git push origin master'"
   fresh = "!sh -c 'git pull upstream master; git push origin master'"
 
   ####
@@ -218,7 +220,7 @@
   ###############################
   # give me some mouse 🐭 support please
   ##
-  pager = less -r # NOTE `-r` flag may break things from time to time
+  # pager = less # NOTE `-r` flag may break things from time to time
 
 [color]
   ui = auto
