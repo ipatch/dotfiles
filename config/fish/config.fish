@@ -104,7 +104,8 @@ if type -q fzf
   # --follow: Follow symlinks
   # --glob: Additional conditions for search (in this case ignore everything in the .git/ folder)
   if type -q rg
-    set -gx FZF_DEFAULT_COMMAND 'rg --files --no-ignore --hidden --follow --glob "!.git/*"'
+    set -gx FZF_DEFAULT_COMMAND 'rg \
+    --files --no-ignore --hidden --follow --glob "!.git/*"'
   else
   # DO SOMETHING!
   end
@@ -158,7 +159,10 @@ case Darwin
     ##
     if not test -x "/usr/local/share/nvim/runtime/macros/less.sh" \
     -a -L "$HOME/.local/bin/less"
-      ln -sf /usr/local/share/nvim/runtime/macros/less.sh $dots/jobs/bin/less
+      # ln -sf /usr/local/share/nvim/runtime/macros/less.sh $dots/jobs/bin/less
+      alias less='$brew_prefix/share/nvim/runtime/macros/less.sh';
+      # alias less='/home/linuxbrew/.linuxbrew/share/nvim/runtime/macros/less.sh';
+
       # echo "less ln made"
     end
   else if type -q vim
