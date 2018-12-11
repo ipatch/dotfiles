@@ -130,8 +130,8 @@ case Darwin
   # NOTE: changed abbr to `mac-updatedb` because of homebrew installed
   #...`findutils` which provides the `updatedb` bin.
   abbr -ag mac-updatedb 'sudo /usr/libexec/locate.updatedb'
-  abbr -ag fs 'mac_toggle_hidden_files'
-  abbr -ag fh 'mac_toggle_hidden_files'
+  abbr -ag mac-hide-files 'mac_toggle_hidden_files'
+  abbr -ag mac-show-files 'mac_toggle_hidden_files'
 
   ################
   # launchd / launchctl
@@ -148,6 +148,7 @@ if type -q brew
   # youtube-dl
   abbr -ag ytl "youtube-dl"
   abbr -ag you "youtube-dl"
+  abbr -a -g ydl 'youtube-dl --output "%(title)s.%(ext)s"'
 
   ###
   # brew postgresql
