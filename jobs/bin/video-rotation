@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+declare file="$1"
+
+exiftool "$file" | sed -n '/^Rotation/s/^.*: \(.*\)$/\1/p'
