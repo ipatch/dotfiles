@@ -156,6 +156,8 @@ if has('wildmenu')
   set wildignore+=*/.git/*      " ignore the below directories with wild menu
   set wildignore+=*logs*
   set wildignore+=*node_modules/**
+  set wildignore+=package-lock.json
+  set wildignore+=yarn.lock
   set wildignore+=*DS_Store*
   set wildignore+=*.gem
   set wildignore+=log/**
