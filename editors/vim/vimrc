@@ -90,6 +90,7 @@ colorscheme base16-default-dark
 " fonts
 ""
 highlight Comment gui=italic
+highlight Comment cterm=italic
 let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
 set termguicolors " use guifg/guibg instead of ctermfg/ctermbg in terminal
@@ -241,7 +242,8 @@ else
   call minpac#add('chriskempson/base16-vim') " pretty colors 🌈 and aesthetics 
   call minpac#add('Yggdroot/indentLine') " Add vertical indentation lines
   call minpac#add('sheerun/vim-polyglot') " lazy load syntax highlighting
-  call minpac#add('tpope/vim-commentary') " quickly comment lines
+  " call minpac#add('tpope/vim-commentary') " quickly comment lines
+  call minpac#add('tomtom/tcomment_vim') " alt commmenting plugin
   call minpac#add('junegunn/fzf') " required! the below won't work without this!
   " call minpac#add('junegunn/fzf.vim') " fuzzy finding goodness
   call minpac#add('christoomey/vim-tmux-navigator') " vim / tmux navigation

@@ -336,10 +336,11 @@
        show_sample_in_list="1"
        style="fill:black;fill-opacity:1;stroke:none;font-family:sans-serif;font-style:normal;font-weight:normal;font-size:40px;line-height:125%;letter-spacing:0px;word-spacing:0px"
        selcue="1"
-       align_mode="0">
+       align_mode="1"
+       outer_style="0">
       <group
-         id="lineheight"
-         display_unit="9" />
+         display_unit="9"
+         id="lineheight" />
     </eventcontext>
     <eventcontext
        id="nodes"
@@ -427,12 +428,12 @@
        offset="0"
        offsetunits="pt" />
     <group
-       unit="px"
-       fontsize="10"
-       id="measure"
-       precision="2"
+       offset="5"
        scale="100"
-       offset="5" />
+       precision="2"
+       id="measure"
+       fontsize="10"
+       unit="px" />
   </group>
   <group
      id="palette">
@@ -580,10 +581,10 @@
        page="0"
        x="0"
        y="0"
-       w="1"
-       h="1"
-       visible="1"
-       state="3"
+       w="340"
+       h="411"
+       visible="0"
+       state="2"
        placement="1" />
     <group
        id="filtereffects"
@@ -608,8 +609,8 @@
        panel_border="0"
        x="0"
        y="0"
-       w="1"
-       h="1"
+       w="348"
+       h="330"
        visible="1"
        state="3"
        placement="1" />
@@ -630,7 +631,7 @@
        w="326"
        h="266"
        visible="1"
-       state="2"
+       state="3"
        placement="1" />
     <group
        id="find" />
@@ -650,8 +651,8 @@
        panel_border="0"
        x="0"
        y="0"
-       w="645"
-       h="792"
+       w="563"
+       h="736"
        visible="0"
        placement="1" />
     <group
@@ -699,7 +700,7 @@
        default="org.inkscape.output.svg.inkscape"
        append_extension="1"
        enable_preview="1"
-       path="/Users/capin/graphics/inkscape/kegcop-icon"
+       path="/Users/capin/gfx/inkscape/shockleykustoms"
        use_current_dir="1" />
     <group
        id="save_copy"
@@ -710,7 +711,7 @@
     <group
        id="open"
        enable_preview="1"
-       path="/Users/capin/Downloads/Lynda - Inkscape Essential Training/Exercise Files/Chapter 01/" />
+       path="/Users/capin/Desktop/shockleykustoms/" />
     <group
        id="import"
        enable_preview="1"
@@ -718,7 +719,7 @@
        ask="1"
        link="embed"
        scale="auto"
-       forcexdpi="1" />
+       forcexdpi="0" />
     <group
        id="debug"
        redirect="0" />
@@ -800,10 +801,10 @@
        panel_border="0"
        x="0"
        y="0"
-       w="1"
-       h="1"
+       w="257"
+       h="173"
        visible="1"
-       state="3"
+       state="2"
        placement="1" />
     <group
        id="extensioneditor" />
@@ -836,33 +837,33 @@
        on-blur="0.50"
        animate-time="100" />
     <group
-       placement="1"
-       state="3"
-       visible="1"
-       h="1"
-       w="1"
-       y="0"
-       x="0"
-       panel_border="0"
-       panel_wrap="0"
-       panel_mode="1"
-       panel_ratio="100"
+       id="objects"
        panel_size="1"
-       id="objects" />
+       panel_ratio="100"
+       panel_mode="1"
+       panel_wrap="0"
+       panel_border="0"
+       x="0"
+       y="0"
+       w="1"
+       h="1"
+       visible="1"
+       state="3"
+       placement="1" />
     <group
-       placement="1"
-       state="3"
-       visible="1"
-       h="1"
-       w="1"
-       y="0"
-       x="0"
-       panel_border="0"
-       panel_wrap="0"
-       panel_mode="1"
-       panel_ratio="100"
+       id="livepatheffect"
        panel_size="1"
-       id="livepatheffect" />
+       panel_ratio="100"
+       panel_mode="1"
+       panel_wrap="0"
+       panel_border="0"
+       x="0"
+       y="0"
+       w="216"
+       h="127"
+       visible="0"
+       state="2"
+       placement="1" />
   </group>
   <group
      id="printing">
@@ -1148,8 +1149,8 @@
        colorsontop="0"
        partialdynamic="0" />
     <group
-       value="0"
-       id="spacepans" />
+       id="spacepans"
+       value="0" />
     <group
        id="rendering" />
   </group>
@@ -1158,12 +1159,12 @@
      org.inkscape.input.gdkpixbuf.jpeg.dpi="from_default" />
   <group
      id="desktop"
-     style="line-height:125%;opacity:1;fill-opacity:1;-inkscape-font-specification:'Arial, Bold';font-family:Arial;font-weight:bold;font-style:normal;font-stretch:normal;font-variant:normal;font-size:14.66666667px;text-anchor:start;text-align:start;writing-mode:lr;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;stroke:none;stroke-opacity:1;fill-rule:nonzero;fill:#de0000">
+     style="line-height:194.7%;opacity:1;fill-opacity:1;-inkscape-font-specification:Georgia;font-family:Georgia;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-size:120px;text-anchor:middle;text-align:center;writing-mode:lr;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;stroke:none;stroke-opacity:1;fill-rule:nonzero;fill:#de0000">
     <group
-       width="1054"
-       height="747"
-       x="0"
-       y="0"
+       width="1299"
+       height="611"
+       x="232"
+       y="42"
        fullscreen="0"
        id="geometry"
        maximized="0" />
