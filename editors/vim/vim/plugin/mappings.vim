@@ -89,9 +89,9 @@ nnoremap <leader>t :enew<CR>
 ""
 " nnoremap <C-w>- :split<CR>
 
-" Split current buffer vertically
-nnoremap <silent> sv <C-w>v
+" Split current buffer vertically and add an empty buffer to the right
+nnoremap <silent> <leader>v :vsplit 0<CR>
 
-" Split current buffer horizontally
-nnoremap <silent> sh :split<CR>
+" Split current buffer horizontally, and add an empty buffer below
+nnoremap <silent> sh :split 0<CR>
 
