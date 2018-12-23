@@ -242,8 +242,10 @@ else
   call minpac#add('chriskempson/base16-vim') " pretty colors 🌈 and aesthetics 
   call minpac#add('Yggdroot/indentLine') " Add vertical indentation lines
   call minpac#add('sheerun/vim-polyglot') " lazy load syntax highlighting
-  " call minpac#add('tpope/vim-commentary') " quickly comment lines
-  call minpac#add('tomtom/tcomment_vim') " alt commmenting plugin
+  call minpac#add('tpope/vim-commentary') " quickly comment lines
+  call minpac#add('mxw/vim-jsx') " allow working with JSX syntax for react components
+  call minpac#add('suy/vim-context-commentstring') " allow modifying comment strings
+  " call minpac#add('tomtom/tcomment_vim') " alt commmenting plugin
   call minpac#add('junegunn/fzf') " required! the below won't work without this!
   " call minpac#add('junegunn/fzf.vim') " fuzzy finding goodness
   call minpac#add('christoomey/vim-tmux-navigator') " vim / tmux navigation
