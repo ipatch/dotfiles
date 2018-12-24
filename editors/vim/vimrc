@@ -243,7 +243,9 @@ else
   call minpac#add('Yggdroot/indentLine') " Add vertical indentation lines
   call minpac#add('sheerun/vim-polyglot') " lazy load syntax highlighting
   call minpac#add('tpope/vim-commentary') " quickly comment lines
-  call minpac#add('mxw/vim-jsx') " allow working with JSX syntax for react components
+  " call minpac#add('pangloss/vim-javascript') " `vim-jsx` requires `vim-javascript` to function
+  " call minpac#add('mxw/vim-jsx') " allow working with JSX syntax for react components
+  call minpac#add('MaxMEllon/vim-jsx-pretty') " alt vim plugin for JSX syntax highlighting
   call minpac#add('suy/vim-context-commentstring') " allow modifying comment strings
   " call minpac#add('tomtom/tcomment_vim') " alt commmenting plugin
   call minpac#add('junegunn/fzf') " required! the below won't work without this!
