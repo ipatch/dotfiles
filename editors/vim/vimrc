@@ -245,7 +245,7 @@ else
   call minpac#add('tpope/vim-commentary') " quickly comment lines
   " call minpac#add('pangloss/vim-javascript') " aid in working with js files
   " call minpac#add('mxw/vim-jsx') " depends on `vim-javascript`
-  call minpac#add('MaxMEllon/vim-jsx-pretty') " alt vim plugin for JSX syntax highlighting
+  " call minpac#add('MaxMEllon/vim-jsx-pretty') " alt vim plugin for JSX syntax highlighting
   " call minpac#add('suy/vim-context-commentstring') " allow modifying comment strings
   " call minpac#add('tomtom/tcomment_vim') " alt commmenting plugin
   call minpac#add('junegunn/fzf') " required! the below won't work without this!
