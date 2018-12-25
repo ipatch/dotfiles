@@ -130,6 +130,11 @@ config/GIMP/2.10/themes/*
 !config/GIMP/2.10/.gitkeep
 
 ##############################
+# Blender
+##
+config/Blender/2.79/config/recent-files.txt
+
+##############################
 # Python - pyenv
 ##
 lang/python/pyenv/**
