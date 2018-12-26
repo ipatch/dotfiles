@@ -41,6 +41,8 @@ draw_bold_text_with_bright_colors: true
 # Font configuration (changes require restart)
 font:
   # The normal (roman) font face to use.
+  # size: 18
+  size: 20
   normal:
     family: "IBMPlexMono Nerd Font Mono"
     # Style can be specified to pick a specific face.
@@ -59,7 +61,7 @@ font:
     style: "ExtraLight Italic"
 
   # Point size of the font
-    size: 72.0
+    # size: 72.0
     # size: 24.0
     # siee: 40.0
   # size: 20.0 # external display
