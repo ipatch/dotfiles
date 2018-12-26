@@ -59,7 +59,12 @@ font:
     style: "ExtraLight Italic"
 
   # Point size of the font
-  size: 20.0 # external display
+    size: 72.0
+    # size: 24.0
+    # siee: 40.0
+  # size: 20.0 # external display
+  # size 22.0
+    # size: 16.0 # ext 4K display
   # size : 13.0 # internal 15" retina display
 
   # Offset is the extra space around each character. offset.y can be thought of
