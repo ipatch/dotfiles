@@ -42,7 +42,10 @@ draw_bold_text_with_bright_colors: true
 font:
   # The normal (roman) font face to use.
   # size: 18
+
+  # Point size of the font
   size: 20
+
   normal:
     family: "IBMPlexMono Nerd Font Mono"
     # Style can be specified to pick a specific face.
@@ -59,15 +62,6 @@ font:
     family: "IBMPlexMono Nerd Font Mono"
     # Style can be specified to pick a specific face.
     style: "ExtraLight Italic"
-
-  # Point size of the font
-    # size: 72.0
-    # size: 24.0
-    # siee: 40.0
-  # size: 20.0 # external display
-  # size 22.0
-    # size: 16.0 # ext 4K display
-  # size : 13.0 # internal 15" retina display
 
   # Offset is the extra space around each character. offset.y can be thought of
   # as modifying the linespacing, and offset.x as modifying the letter spacing.
