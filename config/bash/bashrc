@@ -1,16 +1,16 @@
 #!/usr/bin/env bash
+
 ##############################
-# User specified file for configuring BASH.
+# $USER specified file for configuring BASH.
 # Author: Chris Jones
-# Contact: @truckmonth <- twitter
-# Contact: chris.r.jones.1983@gmail.com <- email
-# Contact: @ipatch <- github
+# Contact: twitter > @truckmonth
+# Contact: email > chris.r.jones.1983@gmail.com <- email
+# Contact: github > @ipatch
 ##
 
 # shellcheck source=/dev/null
 
 ##############################
-# NOTE: in macOS ~/.bashrc is loaded before ~/.bash_profile
 # 1) /etc/profile
 # 2) /etc/bash.bashrc
 # 3) ~/.bashrc | NOTE non-login interactive mode 
