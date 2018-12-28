@@ -1,0 +1,42 @@
+#!/usr/bin/env bash
+
+if [[ $# -lt 2 ]]
+then
+  echo "Usage: rotate-video <file> <rotation-in-degrees>"
+  exit 1
+fi
+
+declare file="$1"
+declare rotation="$2"
+
+declare newfile="${file%.*}.rotated.${file##*.}"
+
+if [[ -f "$newfile" ]]
+then
+  echo "rotate-video: File $newfile already exists. Nothing to do."
+  exit 0
+fi
+
+case "$rotation" in
+    0)
+      echo "rotate-video: Video has no rotation. Nothing to do."
+      exit 0
+      ;;
+   90) declare vf='transpose=clock' ;;
+  -90) declare vf='transpose=cclock' ;;
+  180) declare vf='transpose=clock,transpose=clock' ;;
+  *)
+    echo "rotate-video: Unknown rotation value: $rotation" >&2
+    exit 2
+    ;;
+esac
+
+if [[ -z "$vf" ]]
+then
+  echo "rotate-video: No video filter!" >&2
+  exit 3
+fi
+
+ffmpeg -i "file:$file" \
+       -vf "$vf" \
+       "file:$newfile"

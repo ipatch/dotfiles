@@ -18,10 +18,9 @@
 set fish_greeting "" # disable default fish greeting
 
 if status --is-interactive
-  source $HOME/.config/fish/interactive.fish
+  source $HOME/.config/fish/interactive.fish # interactive.fish sources files contained within `~/.config/fish/interactive/`
 
   # Base16 Shell - a sane colorscheme for better shell colors 🌈
-  # eval sh $HOME/.config/base16-shell/scripts/base16-default-dark.sh
   set BASE16_SHELL "$HOME/.config/base16-shell"
   source "$BASE16_SHELL/profile_helper.fish"
 end
@@ -37,6 +36,7 @@ set -gx XDG_CACHE_HOME $HOME/.cache
 set -gx XDG_CONFIG_DATA $HOME/.local/share
 set -gx code /opt/code
 set -gx github /opt/code/github
+set -gx gitlab /opt/code/gitlab
 set -gx private /opt/code/github/PRIVATE
 set -gx public /opt/code/github/PUBLIC
 set -gx fish_emoji_width 2 # NOT COMPATIBLE with fish <= 2.7.1
@@ -105,7 +105,8 @@ if type -q fzf
   # --follow: Follow symlinks
   # --glob: Additional conditions for search (in this case ignore everything in the .git/ folder)
   if type -q rg
-    set -gx FZF_DEFAULT_COMMAND 'rg --files --no-ignore --hidden --follow --glob "!.git/*"'
+    set -gx FZF_DEFAULT_COMMAND 'rg \
+    --files --no-ignore --hidden --follow --glob "!.git/*"'
   else
   # DO SOMETHING!
   end
@@ -157,8 +158,14 @@ case Darwin
     #########################
     # Add check for syntax highlighting for `less`
     ##
-    [ -x "/usr/local/share/nvim/runtime/macros/less.sh" ]; and \
-    alias less='/usr/local/share/nvim/runtime/macros/less.sh';
+    if not test -x "/usr/local/share/nvim/runtime/macros/less.sh" \
+    -a -L "$HOME/.local/bin/less"
+      # ln -sf /usr/local/share/nvim/runtime/macros/less.sh $dots/jobs/bin/less
+      alias less='$brew_prefix/share/nvim/runtime/macros/less.sh';
+      # alias less='/home/linuxbrew/.linuxbrew/share/nvim/runtime/macros/less.sh';
+
+      # echo "less ln made"
+    end
   else if type -q vim
     set -gx EDITOR /usr/local/bin/vim
     set -gx VISUAL /usr/local/binvim

@@ -1,18 +1,11 @@
 ##############################
 # fish shell - interactive.fish
 ##
-# TODO: repeating the below expression `if test -f $HOME` seems like a code 👃
 
-# Load abbreviations.
-if test -f $HOME/.config/fish/abbreviations.fish
-  source $HOME/.config/fish/abbreviations.fish
-end
-
-if test -f $HOME/.config/fish/aliases.fish
-  source $HOME/.config/fish/aliases.fish
-end
-
-if test -f $HOME/.asdf/asdf.fish
-  # Get asdf version manager working with fish.
+# NOTE abbr(s) and aliases set within the interactive fish files will need to reset everytime fish is reinitialized or else the will no persist when running `exec fish`
+if test -d $HOME/.config/fish/interactive
+  for f in $HOME/.config/fish/interactive/*.fish
+    source $f
+  end
   source $HOME/.asdf/asdf.fish
 end

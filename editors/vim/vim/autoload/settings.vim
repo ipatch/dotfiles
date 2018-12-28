@@ -1,5 +1,9 @@
 scriptencoding utf-8
 
+""""
+" SEE: https://github.com/wincent/wincent
+""
+
 let s:middot='·'
 let s:raquo='»'
 let s:small_l='ℓ'

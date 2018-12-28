@@ -18,8 +18,8 @@
       <string>$HOME/.local/bin/brew-updatedb.sh</string>
     </array>
 
-    <key>RunAtLoad</key>
-    <true/>
+    <!-- <key>RunAtLoad</key> -->
+    <!-- <true/> -->
 
     <key>KeepAlive</key>
     <dict>

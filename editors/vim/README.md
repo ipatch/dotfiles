@@ -7,7 +7,29 @@
 - [Neovim](#neovim)
   - [Neovim Boot Time](#neovim-boot-time)
 
-> For an exhaustive collection of notes I have taken while actively working with these dotfiles using Vim and Neovim 👉 [click me](https://github.com/ipatch/dotfiles/wiki/vim-neovim-Notes) 👈
+> For an exhaustive collection of notes I have taken while actively working with these dotfiles using Vim and Neovim [click me](https://github.com/ipatch/dotfiles/wiki/vim-neovim-Notes) 👈
+
+<a id="general-notes"></a>
+
+## General Notes
+
+I use the same vimrc file for both Vim 8 and Neovim on macOS and GNU+Linux distros.  That said there are a few specific settings related to Neovim contained with the `init.vim`
+
+I use a custom code fold function provided by wincent's [dotfiles](https://github.com/wincent/wincent) for customizing the display output chars for code folds throughout various source files.  The file that contains the settings related to custom code fold settings is located below
+
+```shell
+./vim/autoload/settings.vim
+```
+
+I use minpac to install and update various Vim and Neovim Plugins, and the list of plugins I have installed can be found within my **vimrc**.
+
+**autocmds.vim** found in `./vim/plugin` contains a few autocmds, ie. functions for various tasks, ie. there is an autocmd that places the cursor at the previous position when reopening a file / buffer after it has been closed.  There is another useful autocmd that will refresh / update a buffer when the buffer regains focus, ie. move focus away from current Vim / Neovim buffer, make some changes to the file that is currently open in Vim via another Vim buffer or other form of file manipulation, and when putting focus back in the buffer the changes made by the external command should be present in the Vim buffer.
+
+**mappings.vim** found in `./vim/plugin` contains various mappings for making life easier while using Vim and Neovim, some useful mappings are those for opening files, creating horizontal and vertical empty buffer splits for viewing different files within the same pane / window of a Vim / Neovim session, and a few different mappings for chaning the **lcd** and exiting the **insert** mode.
+
+**settings.vim** found in `./vim/plugin` contains settings related to configuring Vim and Neovim, ie. enabling mouse support, incremental searching through files.  Sets up directories where swap, undo, session, and view files should be saved when working with Vim and Neovim.
+
+`./vim/plugin/after` is the directory that contains all the `.vim` files for configuring plugins for Vim and Neovim, ie. deoplete, lightline, indentLine, and what not.
 
 <a id="neovim"></a>
 

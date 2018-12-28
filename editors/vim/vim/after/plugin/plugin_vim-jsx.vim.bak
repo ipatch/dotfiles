@@ -1,0 +1,7 @@
+""""
+" SEE: https://github.com/mxw/vim-jsx
+""
+
+" NOTE: if the above plugin is installed then the below setting will allow the plugin to update color syntax for JSX contained within a `.js` " file which is typical of react components.
+
+let g:jsx_ext_required = 0

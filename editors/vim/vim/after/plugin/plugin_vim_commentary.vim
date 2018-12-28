@@ -3,6 +3,8 @@
 ""
 " Easy commenting in source files using tpope's plugin.
 " CREDIT: https://github.com/neovim/neovim/issues/5052#issuecomment-232083842
+" TODO; figure out how to only load settings from this file if
+" vim-commentary is loaded
 noremap <leader>c :Commentary<cr>
 
 """"""""""""""""""""""""""""""

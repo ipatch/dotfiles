@@ -90,6 +90,7 @@ colorscheme base16-default-dark
 " fonts
 ""
 highlight Comment gui=italic
+highlight Comment cterm=italic
 let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
 set termguicolors " use guifg/guibg instead of ctermfg/ctermbg in terminal
@@ -156,6 +157,8 @@ if has('wildmenu')
   set wildignore+=*/.git/*      " ignore the below directories with wild menu
   set wildignore+=*logs*
   set wildignore+=*node_modules/**
+  set wildignore+=package-lock.json
+  set wildignore+=yarn.lock
   set wildignore+=*DS_Store*
   set wildignore+=*.gem
   set wildignore+=log/**
@@ -240,6 +243,11 @@ else
   call minpac#add('Yggdroot/indentLine') " Add vertical indentation lines
   call minpac#add('sheerun/vim-polyglot') " lazy load syntax highlighting
   call minpac#add('tpope/vim-commentary') " quickly comment lines
+  " call minpac#add('pangloss/vim-javascript') " aid in working with js files
+  " call minpac#add('mxw/vim-jsx') " depends on `vim-javascript`
+  call minpac#add('MaxMEllon/vim-jsx-pretty') " alt vim plugin for JSX syntax highlighting
+  " call minpac#add('suy/vim-context-commentstring') " allow modifying comment strings
+  " call minpac#add('tomtom/tcomment_vim') " alt commmenting plugin
   call minpac#add('junegunn/fzf') " required! the below won't work without this!
   " call minpac#add('junegunn/fzf.vim') " fuzzy finding goodness
   call minpac#add('christoomey/vim-tmux-navigator') " vim / tmux navigation
@@ -257,8 +265,8 @@ else
   ""
   if has('nvim')
     call minpac#add('neoclide/coc.nvim') " code completion
-    call minpac#add('neoclide/jsonc.vim') " json syntax highlight w/ comments
-    call minpac#add('Shougo/denite.nvim')
+    " call minpac#add('neoclide/jsonc.vim') " json syntax highlight w/ comments
+    " call minpac#add('Shougo/denite.nvim')
     " call minpac#add('Shougo/deoplete.nvim', { 'type': 'opt', 'do': ':UpdateRemotePlugins' })
   elseif v:version > 8 || v:version == 8 " Check for Vim8 ...sort of
     " call minpac#add('Shougu/deoplete.nvim', {'type': 'opt'})

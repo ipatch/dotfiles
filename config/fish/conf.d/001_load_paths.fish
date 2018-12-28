@@ -34,18 +34,14 @@ set -l paths \
 $HOME/.cargo/bin \
 $HOME/go/bin \
 $HOME/Library/Android/sdk/platform-tools \
-/opt/Code/github/PUBLIC/chromium/depot_tools \
 /opt/X11/bin \
 $brew_prefix/bin \
 $brew_prefix/sbin \
-$brew_prefix/opt/ccache/libexec \
-$brew_prefix/opt/llvm/bin \
 $brew_prefix/opt/libressl/bin \
 $brew_prefix/opt/python/libexec/bin \
 $brew_prefix/opt/go/libexec/bin \
 $brew_prefix/opt/coreutils/libexec/bin \
 $HOME/.local/bin \
-$HOME/.pyenv/bin \
 $HOME/.config/yarn/bin \
 /Applications/microchip/xc16/v1.35/bin \
 # The below PATH entries are inherited from the `/usr/bin/env` on macOS, Linux is another story
@@ -54,6 +50,7 @@ $HOME/.config/yarn/bin \
 # /sbin \
 # /bin \
 
+# TODO remove entries from $PATH if their not in the above list
 for p in $paths
   if not contains $p $PATH; and test -d $p
     # append PATH entries, ie. top entry appears first in PATH
