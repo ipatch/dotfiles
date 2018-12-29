@@ -87,7 +87,8 @@ toggle_asdf_shims_and_bins; toggle_homebrew_python_paths;"
 
 ################
 # alacritty abbrs
-abbr -ag irc-win-4k "alacritty -d 93 22 &; disown"
+abbr -ag al-win-4k-irc "alacritty -d 93 22 &; disown"
+abbr -ag al-win-4k-cast "alacritty -d 60 14 &; disown"
 
 ################
 # useful abbreviations for working with NOC lists 💣
