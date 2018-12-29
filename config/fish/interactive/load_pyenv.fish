@@ -11,7 +11,7 @@ for p in $pyenv_bin and $pyenv_shims
 end
 
 set -gx PYENV_SHELL fish
-source '/Users/capin/.pyenv/libexec/../completions/pyenv.fish'
+source $HOME/.pyenv/libexec/../completions/pyenv.fish
 # NOTE for reasons I do NOT know the below statement will bolt on ~ 200ms to fish load time
 # command pyenv rehash 2>/dev/null
 function pyenv
