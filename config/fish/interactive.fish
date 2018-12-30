@@ -8,4 +8,7 @@ if test -d $HOME/.config/fish/interactive
     source $f
   end
   source $HOME/.asdf/asdf.fish
+
+  # set created & updated files to 664 & 775
+  umask 002
 end
