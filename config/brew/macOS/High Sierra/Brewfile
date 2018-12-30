@@ -20,6 +20,7 @@ cask "java8"
 cask "osxfuse"
 cask "xquartz"
 brew "adns"
+brew "apktool"
 brew "apr"
 brew "openssl"
 brew "archey"
@@ -108,7 +109,7 @@ brew "x265"
 brew "ffmpeg", args: ["HEAD", "with-fdk-aac", "with-fontconfig", "with-freetype", "with-game-music-emu", "with-libbluray", "with-librsvg", "with-openh264", "with-rtmpdump", "with-srt", "with-wavpack"]
 brew "file-formula"
 brew "findutils", args: ["with-default-names"]
-brew "fish", args: ["HEAD"]
+brew "fish"
 brew "libusb"
 brew "flashrom"
 brew "fop"
@@ -141,6 +142,7 @@ brew "grep", args: ["with-default-names"]
 brew "gsl"
 brew "gtk-gnutella"
 brew "pangomm"
+brew "hello", link: false
 brew "help2man"
 brew "highlight"
 brew "html-xml-utils"
@@ -182,7 +184,7 @@ brew "make", args: ["with-default-names"]
 brew "maven"
 brew "minicom"
 brew "mkvtoolnix"
-brew "mongodb", restart_service: true
+brew "mongodb"
 brew "mujs"
 brew "youtube-dl"
 brew "mpv", link: false
@@ -207,12 +209,12 @@ brew "pandoc"
 brew "picocom"
 brew "pidgin"
 brew "poppler"
-brew "postgresql", restart_service: true
+brew "postgresql"
 brew "pstree"
 brew "pv"
 brew "rdesktop"
 brew "reattach-to-user-namespace"
-brew "redis", restart_service: true
+brew "redis"
 brew "rlwrap"
 brew "rsync"
 brew "ruby", link: true
