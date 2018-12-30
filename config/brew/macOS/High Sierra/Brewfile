@@ -142,7 +142,6 @@ brew "grep", args: ["with-default-names"]
 brew "gsl"
 brew "gtk-gnutella"
 brew "pangomm"
-brew "hello", link: false
 brew "help2man"
 brew "highlight"
 brew "html-xml-utils"
