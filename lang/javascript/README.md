@@ -293,12 +293,8 @@ wget -qO - https://raw.githubusercontent.com/yarnpkg/releases/gh-pages/debian/pu
 
 To check for outdated packages / modules on a project basis
 
-1. Install [**npm-check-updates**](https://www.npmjs.com/package/npm-check-updates) either globally using yarn or npm, however you are managing global packages.
-
-2. Once **npm-check-updates** has been installed, project based packages can be checked to see if they are outdated.
-
 ```shell
-ncu
+npm outdated
 ```
 
 > The above command needs to be run within the project root, ie. the directory that contains **pacakge.json**
@@ -306,7 +302,7 @@ ncu
 To upgrade the outdated packages.
 
 ```shell
-ncu -u
+npm upgrade [pkgname]
 ```
 
 <a id="useful-links"></a>
