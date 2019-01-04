@@ -285,6 +285,17 @@ else
   command! PackStatus packadd minpac | source $MYVIMRC | call minpac#status()
 endif
 
+"""""""""""""""""""""""""""""
+" DANGER ZONE > experimental settings
+""
+"
+" map <Esc>[1;3D
+" " map Alt-RightArrow to jump to the next tab
+"
+" map <silent><A-Right> :bn<CR> 
+" silent! nmap <a-right> :bn<CR>
+map ^[f<Esc>[1;3C :bn<CR>
+
 " Setting for rust.vim
 let g:autofmt_autosave = 1
 
