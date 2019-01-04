@@ -183,7 +183,7 @@ brew "make", args: ["with-default-names"]
 brew "maven"
 brew "minicom"
 brew "mkvtoolnix"
-brew "mongodb"
+brew "mongodb", restart_service: true
 brew "mujs"
 brew "youtube-dl"
 brew "mpv", link: false
@@ -208,12 +208,12 @@ brew "pandoc"
 brew "picocom"
 brew "pidgin"
 brew "poppler"
-brew "postgresql"
+brew "postgresql", restart_service: true
 brew "pstree"
 brew "pv"
 brew "rdesktop"
 brew "reattach-to-user-namespace"
-brew "redis"
+brew "redis", restart_service: true
 brew "rlwrap"
 brew "rsync"
 brew "ruby", link: true
