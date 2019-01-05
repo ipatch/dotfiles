@@ -75,7 +75,7 @@ cargo install --list
 To update **all** crates / packages using **cargo-update**
 
 ```shell
-cargo install -a
+cargo install-update -a
 ```
 
 To check and see if a single package / crate can be updated
