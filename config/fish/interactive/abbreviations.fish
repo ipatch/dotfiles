@@ -90,6 +90,8 @@ toggle_asdf_shims_and_bins; toggle_homebrew_python_paths;"
 abbr -ag al-win-4k-irc "alacritty -d 93 22 &; disown"
 abbr -ag al-win-4k-cast "alacritty -d 60 14 &; disown"
 abbr -ag al-win-ipad2-irc "alacritty -d 210 60 &; disown"
+# NOTE creating al windows on macOS with a retinal screen requires 2x the dimensions
+abbr -ag al-win-retina-split "alacritty -d 112 30 &; disown"
 
 ################
 # useful abbreviations for working with NOC lists 💣
