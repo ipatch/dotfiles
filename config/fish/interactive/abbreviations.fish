@@ -82,16 +82,16 @@ abbr -ag pp 'path_pretty'
 abbr -ag path-add 'path_add'
 abbr -ag path-remove 'path_remove'
 abbr -ag path-rm 'path_remove'
-abbr -ag toggle_all_python_paths "toggle_anaconda_pythons; \
-toggle_asdf_shims_and_bins; toggle_homebrew_python_paths;"
 
 ################
 # alacritty abbrs
+##
+# NOTE creating al windows on macOS with a retinal screen requires 2x the dimensions
+abbr -ag al-win-retina-irc "alacritty -d 210 60 &; disown"
+abbr -ag al-win-retina-split "alacritty -d 112 30 &; disown"
 abbr -ag al-win-4k-irc "alacritty -d 93 22 &; disown"
 abbr -ag al-win-4k-cast "alacritty -d 60 14 &; disown"
 abbr -ag al-win-ipad2-irc "alacritty -d 210 60 &; disown"
-# NOTE creating al windows on macOS with a retinal screen requires 2x the dimensions
-abbr -ag al-win-retina-split "alacritty -d 112 30 &; disown"
 
 ################
 # useful abbreviations for working with NOC lists 💣
@@ -140,6 +140,8 @@ case Darwin
   abbr -ag mac-updatedb 'sudo /usr/libexec/locate.updatedb'
   abbr -ag mac-hide-files 'mac_toggle_hidden_files'
   abbr -ag mac-show-files 'mac_toggle_hidden_files'
+  abbr -ag mac-toggle-desktop-icons 'mac_toggle_desktop_icons.sh'
+  abbr -ag mac-print-users 'mac_lsusers'
 
   ################
   # launchd / launchctl
@@ -154,9 +156,8 @@ if type -q brew
   abbr -ag cd-brew-src "cd (brew --prefix)/Homebrew/Library/Taps/homebrew/homebrew-core"
 
   # youtube-dl
-  abbr -ag ytl "youtube-dl"
   abbr -ag you "youtube-dl"
-  abbr -a -g ydl 'youtube-dl --output "%(title)s.%(ext)s"'
+  abbr -a -g youdl 'youtube-dl --output "%(title)s.%(ext)s"'
 
   ###
   # brew postgresql
