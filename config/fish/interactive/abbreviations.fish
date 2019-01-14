@@ -127,6 +127,13 @@ end
 ##
 abbr -ag rrepl "rustup run nightly-2016-08-01 ~/.cargo/bin/rusti"
 
+####################
+# VirtualBox tooling
+##
+if type -q virtualbox
+  abbr -ag vboxm "VirtualBoxManage"
+end
+
 switch $os
 case Darwin
   ################
