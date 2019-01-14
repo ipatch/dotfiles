@@ -134,6 +134,13 @@ if type -q virtualbox
   abbr -ag vboxm "VBoxManage"
 end
 
+####################
+# email clients
+##
+if type -q neomutt
+  abbr -ag nmutt "neomutt"
+end
+
 switch $os
 case Darwin
   ################
