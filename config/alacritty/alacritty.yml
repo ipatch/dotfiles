@@ -31,8 +31,9 @@ window:
   # Setting this to false will result in window without borders and title bar.
   # decorations: true # Deprecated in v0.21
     # decorations: full
-    decorations: none
+    # decorations: none
     # decorations: transparent
+    decorations: buttonless
 
 # Display tabs using this many cells (changes require restart)
 tabspaces: 8

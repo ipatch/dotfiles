@@ -51,7 +51,7 @@
     "eslint.packageManager": "yarn",
     "eslint.enable": true,
     "editor.fontLigatures": true,
-    "editor.fontFamily": "'IBMPlexMono Nerd Font Mono', Menlo, Monaco, 'Courier New', monospace",
+    "editor.fontFamily": "IBMPlexMonoPlusPlus, 'Fira Code iScript', Menlo, Monaco, 'Courier New', monospace",
     "workbench.editor.tabCloseButton": "off",
     "window.restoreWindows": "all",
     "search.smartCase": true,
@@ -79,7 +79,7 @@
                     "keyword.operator.new.js", // new
                 ],
                 "settings": {
-                    "fonStyle": "italic"
+                    "fontStyle": "italic"
                 }
             },
             {
