@@ -4,6 +4,7 @@ acpi-support-base
 acpid
 adduser
 apt
+apt-file
 apt-listchanges
 apt-transport-https
 apt-utils
@@ -52,6 +53,7 @@ debootstrap
 devscripts
 dh-autoreconf
 diffutils
+dirmngr
 discover
 dmidecode
 dmsetup
@@ -83,6 +85,7 @@ gconf2
 gdisk
 gettext
 gettext-base
+ghostscript
 git
 git-buildpackage
 gnome-mime-data
@@ -283,6 +286,8 @@ libxtst-dev
 libyajl-dev
 libyaml-dev
 linux-base
+linux-headers-amd64
+linux-image-4.9.0-8-amd64
 linux-image-amd64
 llvm
 localepurge
@@ -315,6 +320,8 @@ netcat-traditional
 nfacct
 nfs-common
 nginx
+openjdk-8-jre
+openjdk-8-jre-headless
 openssh-client
 openssh-server
 openssl
@@ -359,6 +366,7 @@ resolvconf
 rng-tools
 rpcbind
 rsyslog
+ruby
 sed
 selinux-basics
 selinux-policy-default
@@ -382,7 +390,6 @@ time
 tk-dev
 tk8.6-dev
 tmux
-tor
 traceroute
 tzdata
 ucf
