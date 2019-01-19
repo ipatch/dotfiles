@@ -6,12 +6,9 @@ set -l pyenv_shims $PYENV_ROOT/shims
 
 # echo $os # returns my local `os` env var
 
-switch $os
-  case Darwin
-    for p in $pyenv_bin and $pyenv_shims
-      if not contains $p $PATH && test -d $p
-        set -gx PATH $p $PATH
-      end
+for p in $pyenv_bin and $pyenv_shims
+  if not contains $p $PATH && test -d $p
+    set -gx PATH $p $PATH
     end
 end
 
