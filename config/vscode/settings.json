@@ -14,7 +14,6 @@
     // will be detected based on the file contents.
     "editor.detectIndentation": true,
     "explorer.confirmDragAndDrop": false,
-    "workbench.statusBar.visible": true,
 
     // disable workbench preview, so when opening a file
     // from ⌘+p it opens in a new tab
@@ -47,9 +46,57 @@
     // Stop from scrolling past bottom of open file
     "editor.scrollBeyondLastLine": false,
     "editor.minimap.enabled": true,
-    "workbench.sideBar.location": "left",
 
     // use global eslint installed via yarn
     "eslint.packageManager": "yarn",
-    "eslint.enable": true
+    "eslint.enable": true,
+    "editor.fontLigatures": true,
+    "editor.fontFamily": "IBMPlexMonoPlusPlus, 'Fira Code iScript', Menlo, Monaco, 'Courier New', monospace",
+    "workbench.editor.tabCloseButton": "off",
+    "window.restoreWindows": "all",
+    "search.smartCase": true,
+    "telemetry.enableTelemetry": false,
+    "telemetry.enableCrashReporter": false,
+
+    "editor.tokenColorCustomizations": {
+        "textMateRules": [
+            {
+                "scope": [
+                    //following will be in italics (=IBMPlexMono Nerd Font Mono)
+                    "comment",
+                    "entity.name.type.class", //class names
+                    "keyword", //import, export, return
+                    "constant", //String, Number, Boolean, this, super
+                    "storage.modifier", //static keyword
+                    "storage.type.class.js", //class keyword
+                    "storage.type.function.js", //function keyword
+                    "storage.type.js", // Variable declarations
+                    "keyword.control.import.js", // Imports
+                    "keyword.control.from.js", // From-Keyword
+                    "keyword.control.flow.js", // await
+                    "keyword.control.conditional.js", // if
+                    "keyword.control.loop.js", // for
+                    "keyword.operator.new.js", // new
+                ],
+                "settings": {
+                    "fontStyle": "italic"
+                }
+            },
+            {
+                "scope": [
+                    // will be excluded from italic formatting
+                    "invalid",
+                    "keyword.operator",
+                    "constant.numeric.css",
+                    "keyword.other.unit.px.css",
+                    "constant.numeric.decial.js",
+                    "constant.numeric.json"
+                ],
+                "settings": {
+                    "fontStyle": ""
+                }
+            }
+        
+        ]
+    }
 }

@@ -4,10 +4,12 @@ set -gx PYENV_ROOT $HOME/.pyenv
 set -l pyenv_bin $PYENV_ROOT/bin
 set -l pyenv_shims $PYENV_ROOT/shims
 
+# echo $os # returns my local `os` env var
+
 for p in $pyenv_bin and $pyenv_shims
   if not contains $p $PATH && test -d $p
     set -gx PATH $p $PATH
-  end
+    end
 end
 
 set -gx PYENV_SHELL fish

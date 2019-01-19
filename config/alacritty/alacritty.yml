@@ -3,6 +3,7 @@
 # Any items in the `env` entry below will be added as
 # environment variables. Some entries may override variables
 # set by alacritty it self.
+---
 env:
   # TERM env customization.
   #
@@ -27,10 +28,12 @@ window:
     x: 2
     y: 2
 
-  # Window decorations
-  # Setting this to false will result in window without borders and title bar.
-  # decorations: true # Deprecated in v0.21
-    decorations: full
+  # Values for `decorations`:
+  # - full: Borders and title bar
+  # - none: Neither borders nor title bar
+  # - buttonless: Title bar, transparent background and title bar buttons
+  # - transparent: Title bar, transparent background, but no title bar buttons
+  decorations: buttonless
 
 # Display tabs using this many cells (changes require restart)
 tabspaces: 8
@@ -40,16 +43,14 @@ draw_bold_text_with_bright_colors: true
 
 # Font configuration (changes require restart)
 font:
-  # The normal (roman) font face to use.
-  # size: 18
-
   # Point size of the font
   size: 20
+  # size: 18
 
   normal:
-    family: "IBMPlexMono Nerd Font Mono"
+    family: "IBMPlexMonoPlusPlus"
     # Style can be specified to pick a specific face.
-    style: Normal
+    style: Regular
 
   # The bold font face
   bold:
@@ -58,10 +59,10 @@ font:
     style: Bold
 
   # The italic font face
-  italic:    
-    family: "IBMPlexMono Nerd Font Mono"
+  italic:
+    family: "IBMPlexMonoPlusPlus"
     # Style can be specified to pick a specific face.
-    style: "ExtraLight Italic"
+    style: "Italic"
 
   # Offset is the extra space around each character. offset.y can be thought of
   # as modifying the linespacing, and offset.x as modifying the letter spacing.
@@ -98,8 +99,8 @@ colors:
   # Colors the cursor will use if `custom_cursor_colors` is true
   cursor:
     text: '0x000000'
-    cursor: '0xE62CBA' # https://www.webpagefx.com/web-design/color-picker/
-
+    # https://www.webpagefx.com/web-design/color-picker/
+    cursor: '0xE62CBA'
   # Normal colors
   normal:
     black:   '0x000000'
@@ -200,7 +201,6 @@ mouse:
   # To disable this completely, set `faux_scrollback_lines` to 0.
   # DEPRECATED: faux_scrollback_lines: 1
   faux_scrolling_lines: 1
-  
   # hide pointer while typing in the terminal
   # hide_cursor_when_typing: true
   hide_when_typing: false
@@ -208,7 +208,7 @@ mouse:
   url:
     # URL launcher
     #
-    # This program is executed when clicking on a text which is recognized as a URL.
+    # use the below app to open a URL
     # This URL is always added to the command as the last parameter.
     launcher: open
 

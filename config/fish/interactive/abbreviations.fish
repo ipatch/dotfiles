@@ -87,8 +87,9 @@ abbr -ag path-rm 'path_remove'
 # alacritty abbrs
 ##
 # NOTE creating al windows on macOS with a retinal screen requires 2x the dimensions
-abbr -ag al-win-retina-irc "alacritty -d 210 60 &; disown"
-abbr -ag al-win-retina-split "alacritty -d 112 30 &; disown"
+# NOTE it appears alacritty v0.2.5 manages window dimensions differently than v0.2.{0,1}
+abbr -ag al-win-retina-irc "alacritty -d 112 30 &; disown"
+abbr -ag al-win-retina-split "alacritty -d 56 15 &; disown"
 abbr -ag al-win-4k-irc "alacritty -d 93 22 &; disown"
 abbr -ag al-win-4k-cast "alacritty -d 60 14 &; disown"
 abbr -ag al-win-ipad2-irc "alacritty -d 210 60 &; disown"
@@ -131,7 +132,14 @@ abbr -ag rrepl "rustup run nightly-2016-08-01 ~/.cargo/bin/rusti"
 # VirtualBox tooling
 ##
 if type -q virtualbox
-  abbr -ag vboxm "VirtualBoxManage"
+  abbr -ag vboxm "VBoxManage"
+end
+
+####################
+# email clients
+##
+if type -q neomutt
+  abbr -ag nmutt "neomutt"
 end
 
 switch $os

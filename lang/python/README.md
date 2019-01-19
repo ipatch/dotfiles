@@ -49,6 +49,12 @@ pyenv install -kv [MARJOR.MINOR.PATCH]
 
 To install Python 2.7.15 on Debian Stretch 9.4 using **pyenv** make certain that linuxbrew pythons **ARE NOT** in the users `$PATH` when using pyenv to install a particular version of python.
 
+To list local python versions available to pyenv
+
+```shell
+pyenv versions
+```
+
 To delete an old virtualenv setup with pyenv
 
 ```shell
