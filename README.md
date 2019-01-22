@@ -754,5 +754,4 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/install.sh | /bin/
 <div align="center">
 
 • [**GithHub**](https://github.com/ipatch) • [**Twitter**](https://twitter.com/truckmonth) • [**GitLab**](https://gitlab.com/truckmonth) •
-
 </div>
