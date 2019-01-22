@@ -16,13 +16,12 @@
 
 ## Contents
 
-> [awesome dotfiles wiki](https://github.com/ipatch/dotfiles/wiki) A collection of useful pages that complements 👏 these dotfiles.
+> [awesome dotfiles wiki](https://github.com/ipatch/dotfiles/wiki) A collection of useful pages complementing 👏 these dotfiles.
 - [Installation](#installation)
 - [File Structure](#file-structure)
 - [Useful Links ___no particular order___](#useful-links)
 - [TODOs](#todos)
   - [Neovim](#neovim)
-  - [Fish](#fish)
 - [Contact](#contact)
 
 <a id="installation"></a>
@@ -39,7 +38,7 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/install.sh | /bin/
 
 ## File Structure
 
-> Certain files and folders have been omitted for brevity and security, most notably the `pack` directory that was poluting the **File Structure** with plugin files.
+> Certain files and folders have been omitted for brevity and security, most notably the `pack` directory that was polluting the **File Structure** with plugin files.
 
 <details>
 <summary>File Structure</summary>
@@ -752,4 +751,8 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/install.sh | /bin/
 
 ## Contact [🔝](#contents)
 
+<div align="center">
+
 • [**GithHub**](https://github.com/ipatch) • [**Twitter**](https://twitter.com/truckmonth) • [**GitLab**](https://gitlab.com/truckmonth)
+
+</div>
