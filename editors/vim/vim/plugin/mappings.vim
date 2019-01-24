@@ -84,6 +84,21 @@ inoremap <M-z> <C-o>u
 ""
 nnoremap <leader>t :enew<CR>
 
+"""""""""""''"
+" Toggle last
+" ...two open buffers
+""
+nnoremap <leader><leader> <c-^>
+
+""""""""""""""
+" switch to buffer #1 through #9
+" NOTE use <leader>+<{1..9}>
+" NOTE use `<ctrl>+p` to open a window and print a list of actively open
+" buffers.
+" NOTE use `<ctrl>+g` to close the above mentioned window
+" NOTE the above bindings require fzf to be installed
+""
+
 """"""""""""""""""""""""""""""
 " Splits - vertical & horizontal
 ""
