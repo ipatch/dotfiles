@@ -113,7 +113,7 @@ endfunction
 nnoremap <silent> ` :call ToggleConcealLevel()<CR>
 
 " set default conceal level
-" set conceallevel=0 " DO NOT conceal any text
+set conceallevel=0 " DO NOT conceal any text
 
 """""""""""""""""""""""""""""
 " netrw - file explorer

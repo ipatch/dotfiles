@@ -1,4 +1,5 @@
 if has('autocmd')
+
   """""""""""""""""""""""""""""
   " autocommand - update buffer if file has changed on window focus 
   ""
@@ -8,17 +9,14 @@ if has('autocmd')
   augroup END
 
   """"""""""""""""""""""""""""""
-  " autocommand - `line_return`
-  " NOTE: return to the line number when reopening a buffer / file
-  " NOTE: buffer does not need saving to remember position 👍
-  " NOTE: the line position is written to `~/.viminfo`
+  " autocommand > `line_return`
+  " NOTE: return to the line number when reopening a buffer / file & no save required, position is saved to `~/.viminfo`
   ""
-  augroup line_return
-    autocmd BufReadPost *
-          \ if line("'\"") > 1 && line("'\"") <= line("$") |
-          \   execute "normal! g`\"" |
-          \ endif
+  augroup resCur
+    autocmd!
+    autocmd BufReadPost * call setpos(".", getpos("'\""))
   augroup END
+
 
   """"""""""""""""""""""""""""""
   " autocommand - `conceal_return`
@@ -32,4 +30,3 @@ if has('autocmd')
   " buffer
   ""
 endif
-

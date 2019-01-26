@@ -95,18 +95,20 @@ set smarttab " <tab>/<BS> indent/dedent in leading whitespace
 set scrolloff=3 " start scrolling 3 lines before edge of viewport
 
 """""""""""""""""""""""""""""
-" Settings - Visual Tabs
+" Settings > Visual Tabs
 ""
 " NOTE: tabs AREN"T buffers, always try and use buffers when possible.
 set showtabline=0 " only show if 2 or more tabs.
 
 """"""""""""""""""""""""""""""
-" settings - sessions
+" settings > sessions
 ""
-set sessionoptions=buffers,folds,winsize,blank,slash,unix,conceal
+" NOTE: `localoptions` appears to save conceal settings used with `indentLine`
+" 🚨 NOTE: `localoptions` BREAKS return cursor position
+set sessionoptions=buffers,folds,winsize,blank,slash,unix,localoptions
 
 """"""""""""""""""""""""""""""
-" settings - views - folds, etc etc
+" settings > gutter
 ""
 set foldcolumn=2 " width of gutter outlining folds
 
@@ -130,7 +132,7 @@ if v:version > 703 || v:version == 703 && has('patch541')
 endif
 
 """"""""""""""""""""""""""""""
-" backups - settings
+" settings > backups
 ""
 if exists('$SUDO_USER') " setup backup files for Vim & Neovim
   set nobackup " don't create backup files for root
@@ -143,7 +145,7 @@ else
 endif
 
 """"""""""""""""""""""""""""""
-" swap - settings
+" settings > swap files
 ""
 if exists('$SUDO_USER') " setup swap files for Vim & Neovim
   set noswapfile " don't create root owned swap files
@@ -155,7 +157,7 @@ else
 endif
 
 """"""""""""""""""""""""""""""
-" folding - settings
+" settings > folds
 ""
 if has('folding')
   if has('windows')
@@ -184,7 +186,7 @@ endif
 " set textwidth=80 " automatically hard wrap at 80 columns - NO THANKYOU!
 
 """"""""""""""""""""""""""""""
-" undo - settings
+" settings > undo files
 ""
 if has('persistent_undo')
   if exists('$SUDO_USER')
@@ -199,18 +201,18 @@ if has('persistent_undo')
 endif
 
 """"""""""""""""""""""""""""""
-" session - settings
+" settings > sessions
 ""
 
 """"""""""""""""""""""""""""""
-" view - settings
-" NOTE: `~/.vim/tmp/views` is the default directory to save folds
+" settings > views
+" NOTE: `~/.vim/tmp/views` is the default dir to save folds
 ""
 " `== 2` checks for an exact match of `mkview`
 if exists(':mkview') == 2
   " echom 'making views is a thing'
   if exists('$SUDO_USER')
-    " no view file
+    " no view file(s) for super users
     set viewdir=
   else
     set viewdir=~/.vim/tmp/views
@@ -218,7 +220,9 @@ if exists(':mkview') == 2
     au BufWinEnter *.* silent! loadview
     " Save fold settings.
     " Don't save options.
-    set viewoptions-=options
+    " set viewoptions-=options
+    " set viewoptions=options,folds
+    " set viewoptions=folds
   endif
 endif
 

@@ -745,7 +745,7 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/install.sh | /bin/
 
 ### Neovim
 
-- [ ] Vim Sesssions, ~~Folds,~~ and Conceals will be the death of me 💀
+- [x] ~~Vim Sesssions, Folds, and Conceals will be the death of me~~ 💀
 
 <a id="contact"></a>
 
