@@ -113,7 +113,7 @@ endfunction
 nnoremap <silent> ` :call ToggleConcealLevel()<CR>
 
 " set default conceal level
-set conceallevel=0 " DO NOT conceal any text
+" set conceallevel=0 " DO NOT conceal any text
 
 """""""""""""""""""""""""""""
 " netrw - file explorer
@@ -250,7 +250,7 @@ else
   " call minpac#add('tomtom/tcomment_vim') " alt commmenting plugin
   call minpac#add('junegunn/fzf') " required! the below won't work without this!
   " call minpac#add('junegunn/fzf.vim') " fuzzy finding goodness
-  call minpac#add('christoomey/vim-tmux-navigator') " vim / tmux navigation
+  call minpac#add('christoomey/vim-tmux-navigator') " vim&tmux navigation
   call minpac#add('w0rp/ale') " ALE Asynchronous Linting Engine
   call minpac#add('tpope/vim-fugitive') " useful for displaying git branch
   call minpac#add('itchyny/lightline.vim') " lightweight status line.

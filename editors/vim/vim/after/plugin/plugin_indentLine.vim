@@ -6,10 +6,12 @@ scriptencoding utf-8
 " SEE: https://github.com/Yggdroot/indentLine
 ""
 
-let g:indentLine_setColors = 1 " overwrite colorscheme, use default grey
-let g:indentLine_setConceal = 0
+let g:indentLine_setColors = 1 " default gray
+" let g:indentLine_setColors = 0 " use colorscheme
 
 let s:box_drawings_light_vertical='│'
+
+" let g:indentLine_conceallevel = 2
 
 let g:indentLine_char=s:box_drawings_light_vertical
 
