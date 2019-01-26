@@ -108,6 +108,18 @@ To update NPM to latest stable release
 npm install npm@latest -g
 ```
 
+To get a more detailed print out of the components working with **npm** ie. _uv_, _openssl_, _node_, _v8_, _etc_, _etc_
+
+```shell
+npm version
+```
+
+To print / show the latest version of a NPM package
+
+```shell
+npm show [pkg] version
+```
+
 To install a NPM package / module globally for a user on the system that should be accessible via the `$PATH`
 
 > If the NPM prefix is not set, the homebrew version of Nodejs / NPM will put global packages with in `/usr/local/bin`
