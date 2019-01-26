@@ -9,18 +9,18 @@ scriptencoding utf-8
 """""""""""""""""""""""""""""
 " ~ settings.vim ~
 ""
-set mouse=a                           " enable mouse support
-set title                             " Set the title on the terminal tab
-set number " display the absolute number on the current line
-set relativenumber                    " Show numbers relative to current line
+set mouse=a " enable mouse support
+set title " Set the title on the terminal tab
+set number " print absolute line number
+set relativenumber " print numbers realitve to absolute
 set background=dark
-set cursorline                        " Highlight current line
-set backspace=eol,start,indent        " Configure sane backspace
+set cursorline " Highlight current line
+set backspace=eol,start,indent " Configure sane backspace
 filetype plugin indent on " detect & enable filetype specific plugins
 syntax on
-set history=500                       " History for days 😛
-set showcmd                           " Show incomplete cmds in lower right 
-set noshowmode                        " let status line show mode
+set history=500 " History for days 😛
+set showcmd " Show incomplete cmds in lower right 
+set noshowmode " let status line show mode
 set laststatus=2
 set modelines=5
 set visualbell t_vb= " DON'T abbr to `vb` use `visualbell`
@@ -29,10 +29,10 @@ set visualbell t_vb= " DON'T abbr to `vb` use `visualbell`
 " hidden chars
 ""
 set listchars+=tab:‣\
-set listchars+=nbsp:⦸   " CIRCLED REVERSE SOLIDUS (U+29B8, UTF-8: E2 A6 B8)
+set listchars+=nbsp:⦸ " CIRCLED REVERSE SOLIDUS (U+29B8, UTF-8: E2 A6 B8)
 set listchars+=extends:» " RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK (U+00BB, UTF-8: C2 BB)
 set listchars+=precedes:« " LEFT-POINTING DOUBLE ANGLE QUOTATION MARK (U+00AB, UTF-8: C2 AB)
-set listchars+=trail:•    " BULLET (U+2022, UTF-8: E2 80 A2)
+set listchars+=trail:• " BULLET (U+2022, UTF-8: E2 80 A2)
 set listchars+=eol:¬
 set listchars+=space:␣ " Symbol for the space key
 set fillchars+=stl:\ ,stlnc:\
@@ -52,7 +52,7 @@ if has('syntax')
   set spellcapcheck= " don't check for capital letters at start of sentence
 endif
 
-set spelllang=en_us                   " set the language for spelling words
+set spelllang=en_us " set the language for spelling words
 language en_US
 
 """"""""""""""""""""""""""""""
@@ -64,15 +64,16 @@ set linebreak
 """"""""""""""""""""""""""""""
 " search
 ""
-set hlsearch                          " Highlight search results
-set ignorecase                        " Ignore case when sarching
-set smartcase                         " become case-sensitive if uppercase present
+set hlsearch " Highlight search results
+set ignorecase " Ignore case when sarching
+set smartcase " become case-sensitive if uppercase present
+"
 " Stop highlighting on Enter
 map <CR> :nohl<CR> 
 set incsearch
 set nojoinspaces
 set display+=lastline
-set showmatch                         " show matching braces
+set showmatch " show matching braces
 
 """""""""""""""""""""""""""""
 " Indentation / tab shit
@@ -80,14 +81,14 @@ set showmatch                         " show matching braces
 " set ts=2 sts=2 sw=2 expandtab 
 set shiftwidth=2 " Indent 2 spaces < and > commands as well.
 set softtabstop=2
-set tabstop=2        " Indicates how many `spaces` a `tab` will indent
-set expandtab                           " spaces are better than tabs 💥
+set tabstop=2 " Indicates how many `spaces` a `tab` will indent
+set expandtab " spaces are better than tabs 💥
 set nofoldenable
 set tabstop=2
 set autoindent " DON'T abbrv to `ai`, use `autointdent` set auto indent
-set smartindent
-set hidden                              " set sane buffer switching
-set smarttab     " <tab>/<BS> indent/dedent in leading whitespace
+set smartindent 
+set hidden " set sane buffer switching
+set smarttab " <tab>/<BS> indent/dedent in leading whitespace
 """"""""""""""""""""""""""""""
 " Scrolling
 ""
@@ -97,63 +98,46 @@ set scrolloff=3 " start scrolling 3 lines before edge of viewport
 " Settings - Visual Tabs
 ""
 " NOTE: tabs AREN"T buffers, always try and use buffers when possible.
-set showtabline=0                       " only show if 2 or more tabs.
+set showtabline=0 " only show if 2 or more tabs.
 
 """"""""""""""""""""""""""""""
 " settings - sessions
 ""
-set sessionoptions=buffers,folds,winsize,blank,slash,unix
+set sessionoptions=buffers,folds,winsize,blank,slash,unix,conceal
 
 """"""""""""""""""""""""""""""
 " settings - views - folds, etc etc
 ""
 set foldcolumn=2 " width of gutter outlining folds
-" set viewoptions+=folds,slash,unix
-
-
-""""""""""""""""""""""""""""""
-" Optional settings for tmp files
-""
-" set directory=~/.vim/tmp/backup                 " for the backup files
-" set directory=~/.vim/tmp/sessions               " for the session files
-" set directory=~/.vim/tmp/swap                   " for the swap files
-" set directory=~/.vim/tmp/undo                   " for the undo files
-" set directory=~/.vim/tmp/views                  " for the view files
 
 """"""""""""""""""""""""""""
 " create directories for Vim related files if they don't exist, ie. `-p`
 ""
-" DANGER: DO NOT UNCOMMENT the below lines unless you like terribly slow load
-" times 🤯
+" DANGER: DO NOT UNCOMMENT the below lines unless you like terribly slow load times 🤯
 ""
+" 
 " silent execute '!mkdir -p $HOME/.vim/tmp/backup'
 " silent execute '!mkdir -p $HOME/.vim/tmp/sessions'
 " silent execute '!mkdir -p $HOME/.vim/tmp/swap'
 " silent execute '!mkdir -p $HOME/.vim/tmp/undo'
 " silent execute '!mkdir -p $HOME/.vim/tmp/views'
 
-" silent execute '!mkdir -p $HOME/.local/.vim/tmp/backup'
-" silent execute '!mkdir -p $HOME/.local/.vim/tmp/sessions'
-" silent execute '!mkdir -p $HOME/.local/.vim/tmp/swap'
-" silent execute '!mkdir -p $HOME/.local/.vim/tmp/undo'
-" silent execute '!mkdir -p $HOME/.local/.vim/tmp/views'
-
 " Enable smart joining of commented lines.
 " TODO: figure out sane way to use `shift+j` and `shift+k` to join lines
 " SEE: `:h formatoptions` for more settings
 if v:version > 703 || v:version == 703 && has('patch541')
-  set formatoptions+=j    " remove comment leader when joining comments
+  set formatoptions+=j " remove comment leader when joining comments
 endif
 
 """"""""""""""""""""""""""""""
 " backups - settings
 ""
 if exists('$SUDO_USER') " setup backup files for Vim & Neovim
-  set nobackup            " don't create backup files for root
-  set nowritebackup       " don't create backup files for root
+  set nobackup " don't create backup files for root
+  set nowritebackup " don't create backup files for root
 else
   " backup files to `~/.vim` first if dir exists, if can't write then `~/.local`
-  set backupdir=~/.vim/tmp/backup//      " keep backup files out of the way
+  set backupdir=~/.vim/tmp/backup// " keep backup files out of the way
   set backupdir+=~/.local/.vim/tmp/backup// 
   set backupdir+=. " last resort put backup files in the current directory.
 endif
@@ -162,12 +146,12 @@ endif
 " swap - settings
 ""
 if exists('$SUDO_USER') " setup swap files for Vim & Neovim
-  set noswapfile          " don't create root owned swap files
+  set noswapfile " don't create root owned swap files
 else
-  set updatecount=80                    " update swapfile every 80 typed chars
-  set directory=~/.vim/tmp/swap//         " seperate swap files
+  set updatecount=80 " update swapfile every 80 typed chars
+  set directory=~/.vim/tmp/swap// " seperate swap files
   set directory+=~/.local/.vim/tmp/swap// " seperate swap files
-  set directory+=.                        " last resort, store swap in directory
+  set directory+=. " last resort, store swap in dir
 endif
 
 """"""""""""""""""""""""""""""
@@ -178,58 +162,45 @@ if has('folding')
     set fillchars=vert:┃ " BOX DRAWINGS HEAVY VERTICAL (U+2503, UTF-8: E2 94 83)
     set fillchars+=fold:· " MIDDLE DOT (U+00B7, UTF-8: C2 B7)
   endif
-  set foldmethod=indent                 " not as cool as syntax, but faster
-  set foldlevelstart=99                 " start unfolded
+  set foldmethod=indent " not as cool as syntax, but faster
+  set foldlevelstart=99 " start unfolded
 endif
 
-set formatoptions+=n              " smart auto-indenting inside numbered lists
-set lazyredraw                    " don't update screen during macro playback
-set shiftround                    " always indent by multiple of shiftwidth
-set shortmess+=I                  " no splash screen
-set shortmess+=A                  " ignore annoying swapfile messages.
+set formatoptions+=n " smart auto-indenting inside numbered lists
+set lazyredraw " don't update screen during macro playback
+set shiftround " always indent by multiple of shiftwidth
+set shortmess+=I " no splash screen
+set shortmess+=A " ignore annoying swapfile messages.
 set shortmess+=a " use abbr in message `[RO]` instead of `[readonly]`
 
 if has('windows')
-  set splitbelow           " open horizontal splits below current window
+  set splitbelow " open horizontal splits below current window
 endif
 
 if has('vertsplit')
-  set splitright    " open vertical splits to the right of the current window
+  set splitright " open vertical splits to the right of the current window
 endif
 
-" set textwidth=80   " automatically hard wrap at 80 columns - NO THANKYOU!
+" set textwidth=80 " automatically hard wrap at 80 columns - NO THANKYOU!
 
 """"""""""""""""""""""""""""""
 " undo - settings
 ""
 if has('persistent_undo')
   if exists('$SUDO_USER')
-    set noundofile                    " don't create root-owned files
+    set noundofile " don't create root-owned files
   else
-    set undodir=~/.vim/tmp/undo//      " keep undo files out of the way
+    set undodir=~/.vim/tmp/undo// " keep undo files out of the way
     set undodir+=~/.local/.vim/tmp/undo//
     set undodir+=.
-    set undofile                      " actually use undo files
-    set updatetime=2000               " CursorHold intervalendif
+    set undofile " actually use undo files
+    set updatetime=2000 " CursorHold intervalendif
   endif
 endif
 
 """"""""""""""""""""""""""""""
 " session - settings
 ""
-if has('mksession')
-  " if exists('$SUDO_USER')
-  "   " no session file
-	" let g:sessiondir =
-  " if isdirectory('~/.vim/tmp')
-  "   set viewdir=~/.vim/tmp/view
-  " else
-  "   set viewdir=~/.local/view " vim defaults to `~/.vim/view`
-  "   " if isdirectory('~/.vim/tmp/sessions')
-  "   "   let g:sessiondir = $HOME.'/.vim/tmp/sessions'
-  "   " endif
-  " endif
-endif
 
 """"""""""""""""""""""""""""""
 " view - settings
@@ -272,7 +243,7 @@ endif
 
 if has('nvim') " Neovim uses a `shada` file as opposed to `viminfo`
   if exists('$SUDO_USER')
-    set shada=                      " don't create root-owned files
+    set shada= " don't create root-owned files
   else
     if isdirectory('~/.local/share/nvim/shada')
       " For a detailed explanation about the `shada` file
