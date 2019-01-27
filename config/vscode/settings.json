@@ -98,5 +98,6 @@
             }
         
         ]
-    }
+    },
+    "workbench.activityBar.visible": false
 }
