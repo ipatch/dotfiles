@@ -49,6 +49,8 @@ abbr -ag mv 'mv -iv'
 abbr -ag df 'df -h'
 abbr -ag du 'du -h'
 abbr -ag today 'date +"%A, %B %-d, %Y"'
+abbr -ag ll 'ls -1'
+abbr -ag l1 'ls -1'
 
 ################
 # funny abbreviations
