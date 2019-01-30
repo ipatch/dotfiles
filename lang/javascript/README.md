@@ -33,6 +33,16 @@ Node.js v10.0.0 ships with NPM v5.6.0 if downloading the `.pkg` install.
 
 > In the past certain NPM modules / packages can create a `.v8flags.{version}.{md5-hash-of-username}.json within the users home directory.  These files can safely be deleted. see [this](https://stackoverflow.com/questions/34612415) for more information.
 
+<a id="working-with-nvm"></a>
+
+## Working with `nvm` for managing different versions of Node.js
+
+To set the default version of Node.js
+
+```shell
+nvm alias default 10.15.1
+```
+
 <a id="package-json"></a>
 
 ## package.json [🔝](#contents)
