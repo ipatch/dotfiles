@@ -61,6 +61,15 @@ To delete an old virtualenv setup with pyenv
 pyenv uninstall neovim3
 ```
 
+To set multiple python interpreters for a system / shell, edit **$HOME/.python-version** and add the versions of python you would to be accessible from a shell.
+
+<strong>Example</strong>
+
+```conf
+2.7.15
+3.7.2
+```
+
 <a id="useful-links"></a>
 
 ## Useful Links [🔝](#contents)
