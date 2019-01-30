@@ -326,7 +326,7 @@
        id="lpetool"
        mode="drag"
        style="fill:#ff0000;fill-opacity:1;fill-rule:nonzero;stroke:none;"
-       unit="mm"
+       unit="px"
        show_bbox="1" />
     <eventcontext
        id="text"
@@ -339,8 +339,8 @@
        align_mode="1"
        outer_style="0">
       <group
-         id="lineheight"
-         display_unit="9" />
+         display_unit="9"
+         id="lineheight" />
     </eventcontext>
     <eventcontext
        id="nodes"
@@ -428,12 +428,12 @@
        offset="0"
        offsetunits="pt" />
     <group
-       unit="mm"
-       fontsize="10"
-       id="measure"
-       precision="2"
+       offset="5"
        scale="100"
-       offset="5" />
+       precision="2"
+       id="measure"
+       fontsize="10"
+       unit="px" />
   </group>
   <group
      id="palette">
@@ -837,33 +837,33 @@
        on-blur="0.50"
        animate-time="100" />
     <group
-       placement="1"
-       state="3"
-       visible="1"
-       h="1"
+       id="objects"
+       panel_size="1"
+       panel_ratio="100"
+       panel_mode="1"
+       panel_wrap="0"
+       panel_border="0"
+       x="0"
+       y="0"
        w="1"
-       y="0"
-       x="0"
-       panel_border="0"
-       panel_wrap="0"
-       panel_mode="1"
-       panel_ratio="100"
-       panel_size="1"
-       id="objects" />
+       h="1"
+       visible="1"
+       state="3"
+       placement="1" />
     <group
-       placement="1"
-       state="2"
-       visible="0"
-       h="127"
-       w="216"
-       y="0"
-       x="0"
-       panel_border="0"
-       panel_wrap="0"
-       panel_mode="1"
-       panel_ratio="100"
+       id="livepatheffect"
        panel_size="1"
-       id="livepatheffect" />
+       panel_ratio="100"
+       panel_mode="1"
+       panel_wrap="0"
+       panel_border="0"
+       x="0"
+       y="0"
+       w="216"
+       h="127"
+       visible="0"
+       state="2"
+       placement="1" />
   </group>
   <group
      id="printing">
@@ -1149,8 +1149,8 @@
        colorsontop="0"
        partialdynamic="0" />
     <group
-       value="0"
-       id="spacepans" />
+       id="spacepans"
+       value="0" />
     <group
        id="rendering" />
   </group>
@@ -1161,13 +1161,13 @@
      id="desktop"
      style="line-height:125%;opacity:1;fill-opacity:1;-inkscape-font-specification:Georgia;font-family:Georgia;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-size:120px;text-anchor:middle;text-align:center;writing-mode:lr;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;stroke:none;stroke-opacity:1;fill-rule:nonzero;fill:#de0000">
     <group
-       width="1299"
-       height="611"
-       x="232"
-       y="42"
+       width="1020"
+       height="703"
+       x="180"
+       y="11"
        fullscreen="0"
        id="geometry"
-       maximized="1" />
+       maximized="0" />
     <group
        id="XYfront" />
     <group
