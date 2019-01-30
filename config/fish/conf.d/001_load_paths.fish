@@ -31,6 +31,8 @@ set -l paths \
 /usr/libexec \
 /usr/local/bin \
 /usr/local/sbin \
+# use GNU coreutils with default names on macOS
+/usr/local/opt/coreutils/libexec/gnubin \
 $HOME/.cargo/bin \
 $HOME/go/bin \
 $HOME/Library/Android/sdk/platform-tools \
