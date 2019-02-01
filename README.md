@@ -736,7 +736,7 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/install.sh | /bin/
 
 <a id="todos"></a>
 
-## TODOs [🔝](#contents)
+## TODOs
 
 - [ ] Write an install script for easy installation of dotfiles.
 
