@@ -359,7 +359,7 @@
        live_objects="1"
        show_helperpath="0"
        x="0"
-       y="0"
+       y="40.1146"
        edit_clipping_paths="1"
        edit_masks="0" />
     <eventcontext
@@ -618,7 +618,21 @@
        id="transformation"
        applyseparately="0" />
     <group
-       id="align" />
+       id="align"
+       panel_size="1"
+       panel_ratio="100"
+       panel_mode="1"
+       panel_wrap="0"
+       panel_border="0"
+       sel-as-groups="0"
+       align-to="5"
+       x="0"
+       y="0"
+       w="256"
+       h="487"
+       visible="1"
+       state="2"
+       placement="1" />
     <group
        id="xml"
        panel_size="1"
@@ -652,7 +666,7 @@
        x="0"
        y="0"
        w="563"
-       h="736"
+       h="824"
        visible="0"
        placement="1" />
     <group
@@ -700,7 +714,7 @@
        default="org.inkscape.output.svg.inkscape"
        append_extension="1"
        enable_preview="1"
-       path="/Users/capin/gfx/inkscape/shockleykustoms"
+       path="/Users/capin/gfx/inkscape/kegcop-icon"
        use_current_dir="1" />
     <group
        id="save_copy"
@@ -711,7 +725,7 @@
     <group
        id="open"
        enable_preview="1"
-       path="/Users/capin/Desktop/shockleykustoms/" />
+       path="/Users/capin/gfx/inkscape/kegcop-icon/" />
     <group
        id="import"
        enable_preview="1"
@@ -801,11 +815,11 @@
        panel_border="0"
        x="0"
        y="0"
-       w="221"
+       w="256"
        h="173"
        visible="1"
        state="2"
-       placement="1" />
+       placement="2" />
     <group
        id="extensioneditor" />
     <group
@@ -1161,10 +1175,10 @@
      id="desktop"
      style="line-height:125%;opacity:1;fill-opacity:1;-inkscape-font-specification:Georgia;font-family:Georgia;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-size:120px;text-anchor:middle;text-align:center;writing-mode:lr;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;stroke:none;stroke-opacity:1;fill-rule:nonzero;fill:#de0000">
     <group
-       width="1020"
-       height="703"
-       x="180"
-       y="11"
+       width="1275"
+       height="767"
+       x="88"
+       y="25"
        fullscreen="0"
        id="geometry"
        maximized="0" />
