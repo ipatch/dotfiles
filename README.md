@@ -12,17 +12,14 @@
 
 <h6 align="center"><em>These dotfiles have been known to stop working at a moments notice, so buyer beware.</em></h6>
 
+
+<div align="center">
+
 <a id="contents"></a>
 
-## Contents
+| [**wiki**](https://github.com/ipatch/dotfiles/wiki)•[Installation](#installation)•[File Structure](#file-structure)•[Useful Links](#useful-links)•[TODOs](#todos)•[Contact](#contact)|
 
-> [awesome dotfiles wiki](https://github.com/ipatch/dotfiles/wiki) A collection of useful pages complementing 👏 these dotfiles.
-- [Installation](#installation)
-- [File Structure](#file-structure)
-- [Useful Links ___no particular order___](#useful-links)
-- [TODOs](#todos)
-  - [Neovim](#neovim)
-- [Contact](#contact)
+</div>
 
 <a id="installation"></a>
 
