@@ -17,7 +17,7 @@
 
 <a id="contents"></a>
 
-• [**wiki**](https://github.com/ipatch/dotfiles/wiki)• [Installation](#installation)• [File Structure](#file-structure)• [Useful Links](#useful-links)• [TODOs](#todos)• [Contact](#contact) •
+• [**wiki**](https://github.com/ipatch/dotfiles/wiki) • [Installation](#installation) • [File Structure](#file-structure) • [Useful Links](#useful-links) • [TODOs](#todos) • [Contact](#contact) •
 
 </div>
 
