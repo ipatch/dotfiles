@@ -326,7 +326,7 @@
        id="lpetool"
        mode="drag"
        style="fill:#ff0000;fill-opacity:1;fill-rule:nonzero;stroke:none;"
-       unit="px"
+       unit="mm"
        show_bbox="1" />
     <eventcontext
        id="text"
@@ -359,7 +359,7 @@
        live_objects="1"
        show_helperpath="0"
        x="0"
-       y="40.1146"
+       y="0"
        edit_clipping_paths="1"
        edit_masks="0" />
     <eventcontext
@@ -433,7 +433,7 @@
        precision="2"
        id="measure"
        fontsize="10"
-       unit="px" />
+       unit="mm" />
   </group>
   <group
      id="palette">
@@ -1181,7 +1181,7 @@
        y="25"
        fullscreen="0"
        id="geometry"
-       maximized="0" />
+       maximized="1" />
     <group
        id="XYfront" />
     <group
