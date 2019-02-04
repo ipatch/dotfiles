@@ -162,6 +162,11 @@ config/asciinema/install-id
 **/*.o
 
 ##############################
+# build artifacts > jhbuild
+##
+jobs/bin/jhbuild
+
+##############################
 # tmp - ignore files
 ##
 # config/git/gitconfig
