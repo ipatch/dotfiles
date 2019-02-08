@@ -7,7 +7,7 @@
      id="window">
     <group
        id="task"
-       taskset="1" />
+       taskset="0" />
     <group
        id="menu"
        state="1" />
@@ -339,8 +339,8 @@
        align_mode="1"
        outer_style="0">
       <group
-         id="lineheight"
-         display_unit="9" />
+         display_unit="9"
+         id="lineheight" />
     </eventcontext>
     <eventcontext
        id="nodes"
@@ -428,12 +428,12 @@
        offset="0"
        offsetunits="pt" />
     <group
-       unit="mm"
-       fontsize="10"
-       id="measure"
-       precision="2"
+       offset="5"
        scale="100"
-       offset="5" />
+       precision="2"
+       id="measure"
+       fontsize="10"
+       unit="mm" />
   </group>
   <group
      id="palette">
@@ -628,8 +628,8 @@
        align-to="5"
        x="0"
        y="0"
-       w="256"
-       h="487"
+       w="237"
+       h="419"
        visible="1"
        state="2"
        placement="1" />
@@ -663,10 +663,10 @@
        panel_mode="1"
        panel_wrap="0"
        panel_border="0"
-       x="0"
-       y="0"
-       w="570"
-       h="824"
+       x="270"
+       y="58"
+       w="510"
+       h="544"
        visible="0"
        placement="1" />
     <group
@@ -815,8 +815,8 @@
        panel_border="0"
        x="0"
        y="0"
-       w="256"
-       h="173"
+       w="237"
+       h="147"
        visible="1"
        state="2"
        placement="2" />
@@ -851,33 +851,33 @@
        on-blur="0.50"
        animate-time="100" />
     <group
-       placement="1"
-       state="3"
-       visible="1"
-       h="1"
+       id="objects"
+       panel_size="1"
+       panel_ratio="100"
+       panel_mode="1"
+       panel_wrap="0"
+       panel_border="0"
+       x="0"
+       y="0"
        w="1"
-       y="0"
-       x="0"
-       panel_border="0"
-       panel_wrap="0"
-       panel_mode="1"
-       panel_ratio="100"
-       panel_size="1"
-       id="objects" />
+       h="1"
+       visible="1"
+       state="3"
+       placement="1" />
     <group
-       placement="1"
-       state="2"
-       visible="0"
-       h="127"
-       w="216"
-       y="0"
-       x="0"
-       panel_border="0"
-       panel_wrap="0"
-       panel_mode="1"
-       panel_ratio="100"
+       id="livepatheffect"
        panel_size="1"
-       id="livepatheffect" />
+       panel_ratio="100"
+       panel_mode="1"
+       panel_wrap="0"
+       panel_border="0"
+       x="0"
+       y="0"
+       w="216"
+       h="127"
+       visible="0"
+       state="2"
+       placement="1" />
   </group>
   <group
      id="printing">
@@ -1021,9 +1021,6 @@
        id="dialogsskiptaskbar"
        value="1" />
     <group
-       id="defaultwindowsize"
-       value="2" />
-    <group
        id="arenatilescachesize"
        value="8192" />
     <group
@@ -1163,8 +1160,11 @@
        colorsontop="0"
        partialdynamic="0" />
     <group
-       value="0"
-       id="spacepans" />
+       value="2"
+       id="defaultwindowsize" />
+    <group
+       id="spacepans"
+       value="0" />
     <group
        id="rendering" />
   </group>
@@ -1175,13 +1175,13 @@
      id="desktop"
      style="line-height:125%;opacity:1;fill-opacity:1;-inkscape-font-specification:Georgia;font-family:Georgia;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-size:120px;text-anchor:middle;text-align:center;writing-mode:lr;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;stroke:none;stroke-opacity:1;fill-rule:nonzero;fill:#de0000">
     <group
-       width="1275"
-       height="767"
-       x="88"
-       y="25"
+       width="1403"
+       height="821"
+       x="12"
+       y="26"
        fullscreen="0"
        id="geometry"
-       maximized="1" />
+       maximized="0" />
     <group
        id="XYfront" />
     <group
