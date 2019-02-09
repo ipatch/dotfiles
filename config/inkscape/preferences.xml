@@ -339,8 +339,8 @@
        align_mode="1"
        outer_style="0">
       <group
-         display_unit="9"
-         id="lineheight" />
+         id="lineheight"
+         display_unit="9" />
     </eventcontext>
     <eventcontext
        id="nodes"
@@ -428,12 +428,12 @@
        offset="0"
        offsetunits="pt" />
     <group
-       offset="5"
-       scale="100"
-       precision="2"
-       id="measure"
+       unit="mm"
        fontsize="10"
-       unit="mm" />
+       id="measure"
+       precision="2"
+       scale="100"
+       offset="5" />
   </group>
   <group
      id="palette">
@@ -851,33 +851,33 @@
        on-blur="0.50"
        animate-time="100" />
     <group
-       id="objects"
-       panel_size="1"
-       panel_ratio="100"
-       panel_mode="1"
-       panel_wrap="0"
-       panel_border="0"
-       x="0"
-       y="0"
-       w="1"
-       h="1"
-       visible="1"
+       placement="1"
        state="3"
-       placement="1" />
-    <group
-       id="livepatheffect"
-       panel_size="1"
-       panel_ratio="100"
-       panel_mode="1"
-       panel_wrap="0"
-       panel_border="0"
-       x="0"
+       visible="1"
+       h="1"
+       w="1"
        y="0"
-       w="216"
-       h="127"
-       visible="0"
+       x="0"
+       panel_border="0"
+       panel_wrap="0"
+       panel_mode="1"
+       panel_ratio="100"
+       panel_size="1"
+       id="objects" />
+    <group
+       placement="1"
        state="2"
-       placement="1" />
+       visible="0"
+       h="127"
+       w="216"
+       y="0"
+       x="0"
+       panel_border="0"
+       panel_wrap="0"
+       panel_mode="1"
+       panel_ratio="100"
+       panel_size="1"
+       id="livepatheffect" />
   </group>
   <group
      id="printing">
@@ -1160,11 +1160,11 @@
        colorsontop="0"
        partialdynamic="0" />
     <group
-       value="2"
-       id="defaultwindowsize" />
+       id="defaultwindowsize"
+       value="2" />
     <group
-       id="spacepans"
-       value="0" />
+       value="0"
+       id="spacepans" />
     <group
        id="rendering" />
   </group>
@@ -1175,10 +1175,10 @@
      id="desktop"
      style="line-height:125%;opacity:1;fill-opacity:1;-inkscape-font-specification:Georgia;font-family:Georgia;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-size:120px;text-anchor:middle;text-align:center;writing-mode:lr;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;stroke:none;stroke-opacity:1;fill-rule:nonzero;fill:#de0000">
     <group
-       width="1403"
-       height="821"
-       x="12"
-       y="26"
+       width="1440"
+       height="855"
+       x="0"
+       y="23"
        fullscreen="0"
        id="geometry"
        maximized="0" />
