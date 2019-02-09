@@ -126,6 +126,13 @@ if type -q docker-machine
 end
 
 #################
+# asdf tooling
+##
+if type -q asdf
+  abbr -ag cd-asdf-src "cd $HOME/.asdf"
+end
+
+#################
 # rust tooling
 ##
 abbr -ag rrepl "rustup run nightly-2016-08-01 ~/.cargo/bin/rusti"
@@ -165,9 +172,9 @@ case Darwin
   ##
   abbr -ag lc 'launchctl'
   
-  ################
-  # homebrew specifc abbreviations
-  ##
+################
+# homebrew specifc abbreviations
+##
 if type -q brew
   # working with brew src and formula
   abbr -ag cd-brew-src "cd (brew --prefix)/Homebrew/Library/Taps/homebrew/homebrew-core"

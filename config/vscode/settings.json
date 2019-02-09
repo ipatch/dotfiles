@@ -100,5 +100,6 @@
         ]
     },
     "workbench.activityBar.visible": false,
-    "workbench.statusBar.feedback.visible": false
+    "workbench.statusBar.feedback.visible": false,
+    "workbench.statusBar.visible": false
 }

@@ -11,6 +11,12 @@ Dependency:
   string: dia
   description: In order to import Dia files, Dia itself must be installed.  You can get Dia at http://live.gnome.org/Dia
 
+Extension "EPS Input" failed to load because a dependency was not met.
+Dependency:
+  type: executable
+  location: path
+  string: ps2pdf
+
 Extension "XFIG Input" failed to load because a dependency was not met.
 Dependency:
   type: executable
@@ -28,5 +34,30 @@ Extension "LaTeX" failed to load because a dependency was not met.
 Dependency:
   type: executable
   location: path
+  string: latex
+
+Extension "LaTeX" failed to load because a dependency was not met.
+Dependency:
+  type: executable
+  location: path
+  string: dvips
+
+Extension "LaTeX" failed to load because a dependency was not met.
+Dependency:
+  type: executable
+  location: path
   string: pstoedit
+
+Extension "DXF Output" failed to load because a dependency was not met.
+Dependency:
+  type: executable
+  location: path
+  string: pstoedit
+  description: pstoedit must be installed to run; see http://www.pstoedit.net/pstoedit
+
+Extension "PostScript Input" failed to load because a dependency was not met.
+Dependency:
+  type: executable
+  location: path
+  string: ps2pdf
 

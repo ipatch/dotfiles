@@ -7,7 +7,7 @@
      id="window">
     <group
        id="task"
-       taskset="1" />
+       taskset="0" />
     <group
        id="menu"
        state="1" />
@@ -628,8 +628,8 @@
        align-to="5"
        x="0"
        y="0"
-       w="256"
-       h="487"
+       w="237"
+       h="419"
        visible="1"
        state="2"
        placement="1" />
@@ -663,10 +663,10 @@
        panel_mode="1"
        panel_wrap="0"
        panel_border="0"
-       x="0"
-       y="0"
-       w="563"
-       h="824"
+       x="270"
+       y="58"
+       w="510"
+       h="544"
        visible="0"
        placement="1" />
     <group
@@ -725,7 +725,7 @@
     <group
        id="open"
        enable_preview="1"
-       path="/Users/capin/gfx/inkscape/kegcop-icon/" />
+       path="/Users/capin/Desktop/" />
     <group
        id="import"
        enable_preview="1"
@@ -815,8 +815,8 @@
        panel_border="0"
        x="0"
        y="0"
-       w="256"
-       h="173"
+       w="237"
+       h="147"
        visible="1"
        state="2"
        placement="2" />
@@ -1021,9 +1021,6 @@
        id="dialogsskiptaskbar"
        value="1" />
     <group
-       id="defaultwindowsize"
-       value="2" />
-    <group
        id="arenatilescachesize"
        value="8192" />
     <group
@@ -1163,6 +1160,9 @@
        colorsontop="0"
        partialdynamic="0" />
     <group
+       value="2"
+       id="defaultwindowsize" />
+    <group
        id="spacepans"
        value="0" />
     <group
@@ -1175,13 +1175,13 @@
      id="desktop"
      style="line-height:125%;opacity:1;fill-opacity:1;-inkscape-font-specification:Georgia;font-family:Georgia;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-size:120px;text-anchor:middle;text-align:center;writing-mode:lr;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;stroke:none;stroke-opacity:1;fill-rule:nonzero;fill:#de0000">
     <group
-       width="1275"
-       height="767"
-       x="88"
-       y="25"
+       width="1403"
+       height="821"
+       x="12"
+       y="26"
        fullscreen="0"
        id="geometry"
-       maximized="1" />
+       maximized="0" />
     <group
        id="XYfront" />
     <group
