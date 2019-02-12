@@ -133,6 +133,13 @@ if type -q asdf
 end
 
 #################
+# pyenv tooling
+##
+if type -q pyenv
+  abbr -ag cd-pyenv-src "cd (pyenv root)"
+end
+
+#################
 # rust tooling
 ##
 abbr -ag rrepl "rustup run nightly-2016-08-01 ~/.cargo/bin/rusti"
