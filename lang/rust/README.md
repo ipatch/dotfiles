@@ -12,7 +12,15 @@
 
 ## Working with rust [🔝](#contents)
 
-To see the build status of the individual tools that comprise a rust tooling environment [see](https://rust-lang-nursery.github.io/rust-toolstate)
+### Troubleshooting `rustup`
+
+To install a specific rust toolchain using **rustup**
+
+```shell
+rustup install night-2019-02-13-x86_64-apple-darwin
+```
+
+To check the build status of the individual tools that comprise a rust tooling environment [see](https://rust-lang-nursery.github.io/rust-toolstate)
 
 ```shell
 https://rust-lang-nursery.github.io/rust-toolstate/
