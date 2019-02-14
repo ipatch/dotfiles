@@ -5,12 +5,16 @@
 ## Contents
 
 - [Working with rust](#working-with-rust)
+- [Working with cargo](#working-with-cargo)
+- [Useful Links](#rust-useful-links)
 
 <a id="working-with-rust"></a>
 
 ## Working with rust [🔝](#contents)
 
 > [rust](https://www.rust-lang.org/en-US/) provides a language management tool known as [rustup](https://github.com/rust-lang-nursery/rustup.rs) that is useful for managing different version of the rust programming language, and the the toolchain itself.
+
+To update alacritty [see](https://github.com/ipatch/dotfiles/wiki/terminal-emulator-Notes#upgrading-alacritty-on-macos)
 
 To update the available versions of the rust programming language using rustup
 
