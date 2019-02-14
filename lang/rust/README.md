@@ -12,6 +12,12 @@
 
 ## Working with rust [🔝](#contents)
 
+To see the build status of the individual tools that comprise a rust tooling environment [see](https://rust-lang-nursery.github.io/rust-toolstate)
+
+```shell
+https://rust-lang-nursery.github.io/rust-toolstate/
+```
+
 > [rust](https://www.rust-lang.org/en-US/) provides a language management tool known as [rustup](https://github.com/rust-lang-nursery/rustup.rs) that is useful for managing different version of the rust programming language, and the the toolchain itself.
 
 To update alacritty [see](https://github.com/ipatch/dotfiles/wiki/terminal-emulator-Notes#upgrading-alacritty-on-macos)
