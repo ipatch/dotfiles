@@ -643,7 +643,7 @@
        panel_border="0"
        x="0"
        y="0"
-       w="341"
+       w="339"
        h="266"
        visible="1"
        state="2"
@@ -1031,6 +1031,9 @@
        id="dialogsskiptaskbar"
        value="1" />
     <group
+       id="defaultwindowsize"
+       value="2" />
+    <group
        id="arenatilescachesize"
        value="8192" />
     <group
@@ -1171,9 +1174,6 @@
        colorsontop="0"
        partialdynamic="0" />
     <group
-       value="2"
-       id="defaultwindowsize" />
-    <group
        value="0"
        id="spacepans" />
     <group
@@ -1192,13 +1192,13 @@
      id="desktop"
      style="line-height:125%;opacity:1;fill-opacity:1;-inkscape-font-specification:Georgia;font-family:Georgia;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-size:120px;text-anchor:middle;text-align:center;writing-mode:lr;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;stroke:none;stroke-opacity:1;fill-rule:nonzero;fill:#de0000">
     <group
-       width="1440"
-       height="855"
+       width="724"
+       height="449"
        x="0"
-       y="23"
+       y="0"
        fullscreen="0"
        id="geometry"
-       maximized="0" />
+       maximized="1" />
     <group
        id="XYfront" />
     <group
