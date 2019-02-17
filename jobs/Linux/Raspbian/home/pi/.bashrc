@@ -111,3 +111,7 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+if [ -f ~/.readline-bindings ]; then
+	bind -f ~/.readline-bindings
+fi
