@@ -1,13 +1,13 @@
-alacritty v0.2.7 (https://github.com/jwilm/alacritty#3be51e6a):
+alacritty v0.2.9 (https://github.com/jwilm/alacritty#b295ac9b):
     alacritty
-bat v0.9.0:
+bat v0.10.0:
     bat
 cargo-update v1.7.0:
     cargo-install-update
     cargo-install-update-config
-fd-find v7.2.0:
+fd-find v7.3.0:
     fd
-racer v2.1.16:
+racer v2.1.18:
     racer
 ripgrep v0.10.0:
     rg
