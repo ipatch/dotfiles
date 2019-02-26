@@ -5,7 +5,6 @@ tap "homebrew/cask"
 tap "homebrew/cask-drivers"
 tap "homebrew/cask-fonts"
 tap "homebrew/cask-versions"
-tap "homebrew/completions"
 tap "homebrew/core", "git@github.com:ipatch/homebrew-core.git"
 tap "homebrew/dupes"
 tap "homebrew/services"
@@ -271,7 +270,7 @@ brew "zenity"
 brew "zsh"
 brew "eddieantonio/eddieantonio/imgcat"
 brew "ipatch/us-05/openssh", args: ["HEAD", "with-ldns"]
-brew "ipatch/us-05/qemu", args: ["HEAD", "with-docs", "with-hax", "with-hvf", "with-libusb"]
+brew "ipatch/us-05/qemu", args: ["HEAD", "with-docs", "with-hvf", "with-libusb"]
 brew "lukechilds/tap/gifgen"
 brew "universal-ctags/universal-ctags/universal-ctags", args: ["HEAD"]
 cask "android-platform-tools"
