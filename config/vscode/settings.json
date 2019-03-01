@@ -99,7 +99,7 @@
         
         ]
     },
-    "workbench.activityBar.visible": false,
+    "workbench.activityBar.visible": true,
     "workbench.statusBar.feedback.visible": false,
     "workbench.statusBar.visible": false
 }
