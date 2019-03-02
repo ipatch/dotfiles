@@ -326,7 +326,7 @@
        id="lpetool"
        mode="drag"
        style="fill:#ff0000;fill-opacity:1;fill-rule:nonzero;stroke:none;"
-       unit="mm"
+       unit="px"
        show_bbox="1" />
     <eventcontext
        id="text"
@@ -334,14 +334,14 @@
        gradientdrag="1"
        font_sample="AaBbCcIiPpQq12369$€¢?.;/()"
        show_sample_in_list="1"
+       use_svg2="0"
        style="fill:black;fill-opacity:1;stroke:none;font-family:sans-serif;font-style:normal;font-weight:normal;font-size:40px;line-height:125%;letter-spacing:0px;word-spacing:0px"
        selcue="1"
-       use_svg2="0"
        align_mode="1"
        outer_style="0">
       <group
-         id="lineheight"
-         display_unit="9" />
+         display_unit="9"
+         id="lineheight" />
     </eventcontext>
     <eventcontext
        id="nodes"
@@ -394,7 +394,8 @@
        offset="100" />
     <eventcontext
        id="gradient"
-       selcue="1" />
+       selcue="1"
+       newgradient="2" />
     <eventcontext
        id="mesh"
        selcue="1"
@@ -429,12 +430,12 @@
        offset="0"
        offsetunits="pt" />
     <group
-       unit="mm"
-       fontsize="10"
-       id="measure"
-       precision="2"
+       offset="5"
        scale="100"
-       offset="5" />
+       precision="2"
+       id="measure"
+       fontsize="10"
+       unit="mm" />
   </group>
   <group
      id="palette">
@@ -626,14 +627,15 @@
        panel_wrap="0"
        panel_border="0"
        sel-as-groups="0"
-       align-to="5"
+       align-to="4"
        x="0"
        y="0"
-       w="456"
-       h="418"
+       w="380"
+       h="314"
        visible="0"
        state="2"
-       placement="2" />
+       placement="2"
+       oncanvas="0" />
     <group
        id="xml"
        panel_size="1"
@@ -643,11 +645,11 @@
        panel_border="0"
        x="0"
        y="0"
-       w="339"
-       h="266"
-       visible="1"
+       w="380"
+       h="260"
+       visible="0"
        state="2"
-       placement="1" />
+       placement="2" />
     <group
        id="find" />
     <group
@@ -725,17 +727,18 @@
        path="" />
     <group
        id="open"
-       enable_preview="1"
-       path="/Users/capin/Desktop/" />
+       enable_preview="0"
+       path="/Users/capin/gfx/inkscape/kegcop-icon/" />
     <group
        id="import"
        enable_preview="1"
        path="/Users/capin/Pictures/kegcop-kegbot/KegCop-kickstarter/"
        ask="1"
+       ask_svg="1"
        link="embed"
        scale="auto"
-       ask_svg="1"
-       forcexdpi="0" />
+       forcexdpi="0"
+       import_mode_svg="include" />
     <group
        id="debug"
        redirect="0" />
@@ -798,8 +801,8 @@
        panel_border="0"
        x="0"
        y="0"
-       w="334"
-       h="272"
+       w="282"
+       h="250"
        visible="0"
        state="2"
        placement="1" />
@@ -817,11 +820,11 @@
        panel_border="0"
        x="0"
        y="0"
-       w="456"
+       w="380"
        h="206"
-       visible="0"
+       visible="1"
        state="2"
-       placement="2" />
+       placement="1" />
     <group
        id="extensioneditor" />
     <group
@@ -842,8 +845,8 @@
        panel_border="0"
        x="0"
        y="0"
-       w="1"
-       h="1"
+       w="380"
+       h="95"
        visible="0"
        state="2"
        placement="1" />
@@ -853,40 +856,41 @@
        on-blur="0.50"
        animate-time="100" />
     <group
-       placement="2"
-       state="2"
-       visible="0"
-       h="205"
+       id="objects"
+       panel_size="1"
+       panel_ratio="100"
+       panel_mode="1"
+       panel_wrap="0"
+       panel_border="0"
+       x="0"
+       y="0"
        w="456"
-       y="0"
-       x="0"
-       panel_border="0"
-       panel_wrap="0"
-       panel_mode="1"
-       panel_ratio="100"
-       panel_size="1"
-       id="objects" />
-    <group
-       placement="1"
-       state="2"
+       h="205"
        visible="0"
-       h="127"
-       w="216"
-       y="0"
-       x="0"
-       panel_border="0"
-       panel_wrap="0"
-       panel_mode="1"
-       panel_ratio="100"
+       state="2"
+       placement="2" />
+    <group
+       id="livepatheffect"
        panel_size="1"
-       id="livepatheffect" />
+       panel_ratio="100"
+       panel_mode="1"
+       panel_wrap="0"
+       panel_border="0"
+       x="0"
+       y="0"
+       w="216"
+       h="127"
+       visible="0"
+       state="2"
+       placement="1" />
     <group
        id="XMLFlow">
       <group
-         index_2="0"
-         index_1="0"
+         id="flowbox"
          index_0="1"
-         id="flowbox" />
+         index_1="0"
+         index_2="0"
+         index_3="0" />
     </group>
   </group>
   <group
@@ -1107,6 +1111,7 @@
        masks="65535" />
     <group
        id="svgoutput"
+       disable_optimizations="0"
        usenamedcolors="0"
        numericprecision="8"
        minimumexponent="-8"
@@ -1123,8 +1128,7 @@
        check_on_reading="0"
        check_on_editing="0"
        check_on_writing="0"
-       sort_attributes="0"
-       disable_optimizations="0" />
+       sort_attributes="0" />
     <group
        id="externalresources">
       <group
@@ -1174,31 +1178,32 @@
        colorsontop="0"
        partialdynamic="0" />
     <group
-       value="0"
-       id="spacepans" />
+       id="spacepans"
+       value="0" />
     <group
        id="rendering" />
     <group
-       value="inkscape"
-       id="svgeditor" />
+       id="svgeditor"
+       value="inkscape" />
     <group
-       scale="1"
-       id="dash" />
+       id="dash"
+       scale="1" />
   </group>
   <group
      id="extensions"
      org.inkscape.input.gdkpixbuf.jpeg.dpi="from_default" />
   <group
      id="desktop"
-     style="line-height:125%;opacity:1;fill-opacity:1;-inkscape-font-specification:Georgia;font-family:Georgia;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-size:120px;text-anchor:middle;text-align:center;writing-mode:lr;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;stroke:none;stroke-opacity:1;fill-rule:nonzero;fill:#de0000">
+     style="line-height:125%;opacity:1;fill-opacity:1;-inkscape-font-specification:Georgia;font-family:Georgia;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-size:120px;text-anchor:middle;text-align:center;writing-mode:lr;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;stroke:none;stroke-opacity:1;fill-rule:nonzero;fill:#de0000"
+     xrayactive="0">
     <group
-       width="724"
-       height="449"
-       x="0"
-       y="0"
+       width="1275"
+       height="767"
+       x="88"
+       y="23"
        fullscreen="0"
        id="geometry"
-       maximized="1" />
+       maximized="0" />
     <group
        id="XYfront" />
     <group
@@ -1296,12 +1301,12 @@
      id="ui"
      language="" />
   <group
-     defaultIconTheme="Adwaita"
-     defaultTheme="Adwaita"
-     symbolicColor="0x000000ff"
-     darkTheme="0"
-     symbolicIcons="0"
-     iconTheme="Adwaita"
+     id="theme"
      gtkTheme="Adwaita"
-     id="theme" />
+     iconTheme="Adwaita"
+     symbolicIcons="0"
+     darkTheme="0"
+     symbolicColor="0x000000ff"
+     defaultIconTheme="Adwaita"
+     defaultTheme="Adwaita" />
 </inkscape>
