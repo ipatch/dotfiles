@@ -4,6 +4,7 @@
 
 ## Contents
 
+- [General Usage](#general-usage)
 - [Using asdf with rust](#using-asdf-with-rust)
 - [asdf-vm Gotchas](#gotchas)
 - [My man page journey](#my-man-page-journey)
@@ -14,6 +15,21 @@
 - [Useful Links](#useful-links)
   - [medium](#medium)
 - [TODOs](#todos)
+
+<a id="general-usage"></a>
+
+## General Usage
+
+For my particular use case I prefer to use `$PATH` as opposed to `$fish_user_path` so work around this, I created a local stash for my clone of asdf.
+
+### fish shell workflow
+
+```shell
+git stash # hide local changes
+git pull upstream master # pull upstream changes
+git push origin master # push upstream changes to local fork
+git stash pop # apply local changes after pulling upstream changes
+```
 
 <a id="using-asdf-with-rust"></a>
 

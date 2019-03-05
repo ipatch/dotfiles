@@ -46,6 +46,7 @@ $brew_prefix/opt/coreutils/libexec/bin \
 $HOME/.local/bin \
 $HOME/.config/yarn/bin \
 /Applications/microchip/xc16/v1.35/bin \
+(pwd)
 # The below PATH entries are inherited from the `/usr/bin/env` on macOS, Linux is another story
 # /usr/sbin \
 # /usr/bin \
