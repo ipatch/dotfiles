@@ -99,7 +99,7 @@ colors:
   # Colors the cursor will use if `custom_cursor_colors` is true
   cursor:
     text: '0x000000'
-    # https://www.webpagefx.com/web-design/color-picker/
+    # https://www.w3schools.com/colors/colors_picker.asp `E62CBA`
     cursor: '0xE62CBA'
   # Normal colors
   normal:
