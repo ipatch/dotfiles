@@ -1,6 +1,10 @@
 [Bookmarks]
 [Recent]
 /Users/capin/Movies/my-screencasts/blender-editing/
-/Users/capin/Movies/my-screencasts/obs-studio/vbox/
+/Users/capin/Movies/my-screencasts/obs-studio/
+/Users/capin/Movies/my-screencasts/blender-editing/rendererings/
 /Users/capin/Movies/my-screencasts/blender-editing/output/
+/Users/capin/Movies/my-screencasts/blender-editing/me-explaining-mpv/
+/Users/capin/Movies/my-screencasts/blender-edit/
+/Users/capin/Movies/my-screencasts/obs-studio/vbox/
 /Users/capin/Movies/my-screencasts/diana-ford-escape-oil-change/
