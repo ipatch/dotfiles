@@ -328,7 +328,7 @@
        id="lpetool"
        mode="drag"
        style="fill:#ff0000;fill-opacity:1;fill-rule:nonzero;stroke:none;"
-       unit="mm"
+       unit="px"
        show_bbox="1" />
     <eventcontext
        id="text"
@@ -342,8 +342,8 @@
        align_mode="1"
        outer_style="0">
       <group
-         display_unit="9"
-         id="lineheight" />
+         id="lineheight"
+         display_unit="9" />
     </eventcontext>
     <eventcontext
        id="nodes"
@@ -361,8 +361,8 @@
        live_outline="1"
        live_objects="1"
        show_helperpath="0"
-       x="0"
-       y="0"
+       x="214.262"
+       y="16.7759"
        edit_clipping_paths="1"
        edit_masks="0" />
     <eventcontext
@@ -433,12 +433,12 @@
        offset="0"
        offsetunits="pt" />
     <group
-       offset="5"
-       scale="100"
-       precision="2"
-       id="measure"
+       unit="mm"
        fontsize="10"
-       unit="mm" />
+       id="measure"
+       precision="2"
+       scale="100"
+       offset="5" />
   </group>
   <group
      id="palette">
@@ -586,11 +586,11 @@
        page="0"
        x="0"
        y="0"
-       w="380"
+       w="763"
        h="383"
-       visible="1"
+       visible="0"
        state="2"
-       placement="5" />
+       placement="3" />
     <group
        id="filtereffects"
        panel_size="1"
@@ -625,11 +625,11 @@
        rotateCounterClockwise="1"
        x="0"
        y="0"
-       w="380"
-       h="383"
-       visible="1"
+       w="543"
+       h="197"
+       visible="0"
        state="2"
-       placement="5" />
+       placement="2" />
     <group
        id="align"
        panel_size="1"
@@ -657,10 +657,10 @@
        x="0"
        y="0"
        w="380"
-       h="383"
-       visible="1"
+       h="429"
+       visible="0"
        state="2"
-       placement="5" />
+       placement="4" />
     <group
        id="find" />
     <group
@@ -677,16 +677,16 @@
        panel_mode="1"
        panel_wrap="0"
        panel_border="0"
-       x="270"
-       y="58"
-       w="510"
-       h="544"
+       x="63"
+       y="0"
+       w="200"
+       h="200"
        visible="0"
        placement="1" />
     <group
        id="preferences"
        state="1"
-       page="24"
+       page="0"
        panel_size="1"
        panel_ratio="100"
        panel_mode="1"
@@ -694,8 +694,8 @@
        panel_border="0"
        x="139"
        y="52"
-       w="1243"
-       h="793" />
+       w="1290"
+       h="841" />
     <group
        id="gradienteditor" />
     <group
@@ -831,11 +831,11 @@
        panel_border="0"
        x="0"
        y="0"
-       w="380"
-       h="383"
+       w="398"
+       h="206"
        visible="1"
        state="2"
-       placement="5" />
+       placement="2" />
     <group
        id="extensioneditor" />
     <group
@@ -867,41 +867,41 @@
        on-blur="0.50"
        animate-time="100" />
     <group
-       id="objects"
-       panel_size="1"
-       panel_ratio="100"
-       panel_mode="1"
-       panel_wrap="0"
-       panel_border="0"
-       x="0"
-       y="0"
-       w="456"
+       placement="2"
+       state="2"
+       visible="0"
        h="205"
-       visible="0"
-       state="2"
-       placement="2" />
-    <group
-       id="livepatheffect"
-       panel_size="1"
-       panel_ratio="100"
-       panel_mode="1"
-       panel_wrap="0"
-       panel_border="0"
-       x="0"
+       w="456"
        y="0"
-       w="216"
-       h="127"
-       visible="0"
+       x="0"
+       panel_border="0"
+       panel_wrap="0"
+       panel_mode="1"
+       panel_ratio="100"
+       panel_size="1"
+       id="objects" />
+    <group
+       placement="1"
        state="2"
-       placement="1" />
+       visible="0"
+       h="127"
+       w="216"
+       y="0"
+       x="0"
+       panel_border="0"
+       panel_wrap="0"
+       panel_mode="1"
+       panel_ratio="100"
+       panel_size="1"
+       id="livepatheffect" />
     <group
        id="XMLFlow">
       <group
-         id="flowbox"
-         index_0="1"
-         index_1="0"
+         index_3="0"
          index_2="0"
-         index_3="0" />
+         index_1="1"
+         index_0="0"
+         id="flowbox" />
     </group>
   </group>
   <group
@@ -1189,8 +1189,8 @@
        colorsontop="0"
        partialdynamic="0" />
     <group
-       id="spacepans"
-       value="0" />
+       value="0"
+       id="spacepans" />
     <group
        id="rendering" />
     <group
@@ -1209,13 +1209,13 @@
      org.ekips.filter.interp.__live_effect__="0" />
   <group
      id="desktop"
-     style="line-height:125%;-inkscape-font-specification:sans-serif;font-family:sans-serif;font-size:19.06666667000000004px;text-anchor:middle;text-align:center;writing-mode:lr;fill:#000000;stroke-width:0"
+     style="line-height:125%;-inkscape-font-specification:sans-serif;font-family:sans-serif;font-size:19.06666667000000004px;text-anchor:middle;text-align:center;writing-mode:lr;fill:none;stroke-width:0"
      xrayactive="0">
     <group
-       width="1250"
-       height="826"
-       x="77"
-       y="52"
+       width="1290"
+       height="841"
+       x="150"
+       y="37"
        fullscreen="0"
        id="geometry"
        maximized="0" />
