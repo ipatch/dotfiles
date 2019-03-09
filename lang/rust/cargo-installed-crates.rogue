@@ -7,7 +7,7 @@ cargo-update v1.7.0:
     cargo-install-update-config
 fd-find v7.3.0:
     fd
-racer v2.1.18:
+racer v2.1.19:
     racer
 ripgrep v0.10.0:
     rg
