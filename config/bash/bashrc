@@ -46,7 +46,8 @@ export GIT_RC="$XDG_CONFIG_HOME/git"
 ##
 alias ..='cd ..'
 alias cd..='cd ..'
-alias l='ls -lahF --color=auto'
+# alias l='ls -lahF --color=auto'
+alias l='/bin/ls -lahF'
 alias ls='ls --color=auto'
 alias cp='cp -iv'
 alias rm='rm -iv'
