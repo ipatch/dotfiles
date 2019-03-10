@@ -328,7 +328,7 @@
        id="lpetool"
        mode="drag"
        style="fill:#ff0000;fill-opacity:1;fill-rule:nonzero;stroke:none;"
-       unit="px"
+       unit="mm"
        show_bbox="1" />
     <eventcontext
        id="text"
@@ -337,13 +337,13 @@
        font_sample="AaBbCcIiPpQq12369$€¢?.;/()"
        show_sample_in_list="1"
        use_svg2="0"
-       style="font-family:sans-serif;font-size:40px;line-height:125%;letter-spacing:0px;word-spacing:0px;-inkscape-font-specification:sans-serif;"
+       style="font-family:sans-serif;font-size:40px;line-height:125%;letter-spacing:0px;word-spacing:0px;-inkscape-font-specification:sans-serif"
        selcue="1"
        align_mode="1"
        outer_style="0">
       <group
-         id="lineheight"
-         display_unit="9" />
+         display_unit="9"
+         id="lineheight" />
     </eventcontext>
     <eventcontext
        id="nodes"
@@ -361,8 +361,8 @@
        live_outline="1"
        live_objects="1"
        show_helperpath="0"
-       x="214.262"
-       y="16.7759"
+       x="220"
+       y="87.6413"
        edit_clipping_paths="1"
        edit_masks="0" />
     <eventcontext
@@ -414,7 +414,7 @@
        gradientdrag="1"
        pick="1"
        setalpha="1"
-       onetimepick="1" />
+       onetimepick="0" />
     <eventcontext
        id="select"
        selcue="1"
@@ -433,12 +433,12 @@
        offset="0"
        offsetunits="pt" />
     <group
-       unit="mm"
-       fontsize="10"
-       id="measure"
-       precision="2"
+       offset="5"
        scale="100"
-       offset="5" />
+       precision="2"
+       id="measure"
+       fontsize="10"
+       unit="mm" />
   </group>
   <group
      id="palette">
@@ -559,7 +559,7 @@
   </group>
   <group
      id="colorselector"
-     page="1" />
+     page="0" />
   <group
      id="embedded">
     <group
@@ -583,12 +583,12 @@
        panel_mode="1"
        panel_wrap="0"
        panel_border="0"
-       page="0"
+       page="1"
        x="0"
        y="0"
-       w="763"
-       h="383"
-       visible="0"
+       w="374"
+       h="509"
+       visible="1"
        state="2"
        placement="3" />
     <group
@@ -657,10 +657,10 @@
        x="0"
        y="0"
        w="380"
-       h="429"
-       visible="0"
+       h="260"
+       visible="1"
        state="2"
-       placement="4" />
+       placement="2" />
     <group
        id="find" />
     <group
@@ -677,7 +677,7 @@
        panel_mode="1"
        panel_wrap="0"
        panel_border="0"
-       x="63"
+       x="0"
        y="0"
        w="200"
        h="200"
@@ -694,8 +694,8 @@
        panel_border="0"
        x="139"
        y="52"
-       w="1290"
-       h="841" />
+       w="1262"
+       h="788" />
     <group
        id="gradienteditor" />
     <group
@@ -831,11 +831,11 @@
        panel_border="0"
        x="0"
        y="0"
-       w="398"
+       w="380"
        h="206"
        visible="1"
        state="2"
-       placement="2" />
+       placement="1" />
     <group
        id="extensioneditor" />
     <group
@@ -867,41 +867,41 @@
        on-blur="0.50"
        animate-time="100" />
     <group
-       placement="2"
-       state="2"
-       visible="0"
-       h="205"
+       id="objects"
+       panel_size="1"
+       panel_ratio="100"
+       panel_mode="1"
+       panel_wrap="0"
+       panel_border="0"
+       x="0"
+       y="0"
        w="456"
-       y="0"
-       x="0"
-       panel_border="0"
-       panel_wrap="0"
-       panel_mode="1"
-       panel_ratio="100"
-       panel_size="1"
-       id="objects" />
-    <group
-       placement="1"
-       state="2"
+       h="205"
        visible="0"
-       h="127"
-       w="216"
-       y="0"
-       x="0"
-       panel_border="0"
-       panel_wrap="0"
-       panel_mode="1"
-       panel_ratio="100"
+       state="2"
+       placement="2" />
+    <group
+       id="livepatheffect"
        panel_size="1"
-       id="livepatheffect" />
+       panel_ratio="100"
+       panel_mode="1"
+       panel_wrap="0"
+       panel_border="0"
+       x="0"
+       y="0"
+       w="216"
+       h="127"
+       visible="0"
+       state="2"
+       placement="1" />
     <group
        id="XMLFlow">
       <group
-         index_3="0"
+         id="flowbox"
+         index_0="1"
+         index_1="0"
          index_2="0"
-         index_1="1"
-         index_0="0"
-         id="flowbox" />
+         index_3="0" />
     </group>
   </group>
   <group
@@ -1189,8 +1189,8 @@
        colorsontop="0"
        partialdynamic="0" />
     <group
-       value="0"
-       id="spacepans" />
+       id="spacepans"
+       value="0" />
     <group
        id="rendering" />
     <group
@@ -1206,16 +1206,17 @@
      org.ekips.filter.interp.exponent="1"
      org.ekips.filter.interp.steps="500"
      org.ekips.filter.interp.method="1"
-     org.ekips.filter.interp.__live_effect__="0" />
+     org.ekips.filter.interp.__live_effect__="0"
+     org.inkscape.stylesheet.merge.name="red-rec-background" />
   <group
      id="desktop"
-     style="line-height:125%;-inkscape-font-specification:sans-serif;font-family:sans-serif;font-size:19.06666667000000004px;text-anchor:middle;text-align:center;writing-mode:lr;fill:none;stroke-width:0"
+     style="line-height:125%;-inkscape-font-specification:sans-serif;font-family:sans-serif;font-size:19.06666667000000004px;text-anchor:middle;text-align:center;writing-mode:lr;fill:none;stroke-width:0.18897638;opacity:0.55844156;stroke:#fcf9f9"
      xrayactive="0">
     <group
-       width="1290"
-       height="841"
-       x="150"
-       y="37"
+       width="1251"
+       height="855"
+       x="81"
+       y="23"
        fullscreen="0"
        id="geometry"
        maximized="0" />
