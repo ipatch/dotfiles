@@ -75,7 +75,7 @@ abbr -ag gco 'git checkout'
 abbr -ag gsmru 'git smrupdate'
 
 ################
-# abbreviations for for custom functions
+# abbreviations for my custom functions
 ##
 abbr -ag pretty_path 'path_pretty'
 abbr -ag pretty-path 'path_pretty'
@@ -157,6 +157,18 @@ end
 ##
 if type -q neomutt
   abbr -ag nmutt "neomutt"
+end
+
+####################
+# video processing > ffmpeg
+##
+if type -q ffprobe
+  abbr -ag ffprobe-how-many-frames \
+  "ffprobe -v error -select_streams v:0 -show_entries stream=nb_frames -of default=nokey=1:noprint_wrappers=1"
+  abbr -ag ffprobe-ls-frames \
+  "ffprobe -v error -select_streams v:0 -show_entries stream=nb_frames -of default=nokey=1:noprint_wrappers=1"
+  abbr -ag ffprobe-ls-tframes \
+  "ffprobe -v error -select_streams v:0 -show_entries stream=nb_frames -of default=nokey=1:noprint_wrappers=1"
 end
 
 switch $os
