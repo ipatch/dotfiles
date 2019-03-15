@@ -689,16 +689,18 @@
     <group
        id="preferences"
        state="1"
-       page="0"
+       page="27"
        panel_size="1"
        panel_ratio="100"
        panel_mode="1"
        panel_wrap="0"
        panel_border="0"
-       x="139"
-       y="52"
+       x="50"
+       y="78"
        w="1262"
-       h="788" />
+       h="788"
+       visible="0"
+       placement="1" />
     <group
        id="gradienteditor" />
     <group
@@ -1202,6 +1204,9 @@
     <group
        id="dash"
        scale="1" />
+    <group
+       value=""
+       id="kbshortcuts" />
   </group>
   <group
      id="extensions"
