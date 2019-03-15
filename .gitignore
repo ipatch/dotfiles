@@ -131,6 +131,12 @@ config/GIMP/2.10/themes/*
 !config/GIMP/2.10/.gitkeep
 
 ##############################
+# INKSCAPE
+##
+config/inkscape/extension-errors.log
+
+
+##############################
 # Blender
 ##
 config/Blender/2.79/config/recent-files.txt
