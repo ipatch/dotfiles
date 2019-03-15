@@ -342,8 +342,8 @@
        align_mode="1"
        outer_style="0">
       <group
-         display_unit="9"
-         id="lineheight" />
+         id="lineheight"
+         display_unit="9" />
     </eventcontext>
     <eventcontext
        id="nodes"
@@ -433,15 +433,15 @@
        offset="0"
        offsetunits="pt" />
     <group
-       offset="5"
-       scale="100"
-       precision="2"
-       id="measure"
+       unit="mm"
        fontsize="10"
-       unit="mm" />
+       id="measure"
+       precision="2"
+       scale="100"
+       offset="5" />
     <group
-       id="geometric"
-       mode="drag" />
+       mode="drag"
+       id="geometric" />
   </group>
   <group
      id="palette">
@@ -870,41 +870,41 @@
        on-blur="0.50"
        animate-time="100" />
     <group
-       id="objects"
-       panel_size="1"
-       panel_ratio="100"
-       panel_mode="1"
-       panel_wrap="0"
-       panel_border="0"
-       x="0"
-       y="0"
-       w="456"
+       placement="2"
+       state="2"
+       visible="0"
        h="205"
-       visible="0"
-       state="2"
-       placement="2" />
-    <group
-       id="livepatheffect"
-       panel_size="1"
-       panel_ratio="100"
-       panel_mode="1"
-       panel_wrap="0"
-       panel_border="0"
-       x="0"
+       w="456"
        y="0"
-       w="216"
-       h="127"
-       visible="0"
+       x="0"
+       panel_border="0"
+       panel_wrap="0"
+       panel_mode="1"
+       panel_ratio="100"
+       panel_size="1"
+       id="objects" />
+    <group
+       placement="1"
        state="2"
-       placement="1" />
+       visible="0"
+       h="127"
+       w="216"
+       y="0"
+       x="0"
+       panel_border="0"
+       panel_wrap="0"
+       panel_mode="1"
+       panel_ratio="100"
+       panel_size="1"
+       id="livepatheffect" />
     <group
        id="XMLFlow">
       <group
-         id="flowbox"
-         index_0="1"
-         index_1="0"
+         index_3="0"
          index_2="0"
-         index_3="0" />
+         index_1="0"
+         index_0="1"
+         id="flowbox" />
     </group>
   </group>
   <group
@@ -1192,8 +1192,8 @@
        colorsontop="0"
        partialdynamic="0" />
     <group
-       id="spacepans"
-       value="0" />
+       value="0"
+       id="spacepans" />
     <group
        id="rendering" />
     <group
@@ -1218,7 +1218,7 @@
     <group
        width="1251"
        height="855"
-       x="28"
+       x="0"
        y="23"
        fullscreen="0"
        id="geometry"

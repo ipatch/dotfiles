@@ -9,8 +9,11 @@
   -->
 
   <!-- Tools -->
-
+  <bind key="F1" action="ToolSelector" />
+  <bind key="S" action="ToolSelector" />
   <bind key="s" action="ToolSelector" display="true" />
+    <bind key="F8" action="ToolSelector" />
+
 
   <bind key="n" action="ToolNode" display="true" />
 
