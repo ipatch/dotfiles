@@ -137,6 +137,10 @@ config/inkscape/extension-errors.log
 # changes to frequently
 config/inkscape/preferences.xml
 
+##############################
+# GTK > gtk-mac-bundler
+##
+jobs/bin/gtk-mac-bundler
 
 ##############################
 # Blender

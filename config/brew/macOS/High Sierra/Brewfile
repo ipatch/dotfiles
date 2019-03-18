@@ -233,6 +233,7 @@ brew "pidgin"
 brew "qt"
 brew "poppler"
 brew "postgresql", restart_service: true
+brew "proctools"
 brew "pstree"
 brew "pv"
 brew "rdesktop"
