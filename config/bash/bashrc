@@ -35,8 +35,8 @@ export XDG_CONFIG_HOME="$HOME/.config"
 export code="/opt/code"
 export dots="/opt/code/dotfiles"
 export github="/opt/code/github"
-export public="/opt/code/github/PUBLIC"
-export private="/opt/code/github/PRIVATE"
+export public="/opt/code/public"
+export private="/opt/code/github/private"
 
 # Env Vars for git
 export GIT_RC="$XDG_CONFIG_HOME/git"

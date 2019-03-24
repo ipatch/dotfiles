@@ -36,10 +36,10 @@ set -gx XDG_CACHE_HOME $HOME/.cache
 set -gx XDG_CONFIG_DATA $HOME/.local/share
 set -gx code /opt/code
 set -gx github /opt/code/github
-set -gx forks /opt/code/github/PUBLIC/forks
+set -gx forks /opt/code/github/public/forks
+set -gx private /opt/code/github/private
 set -gx gitlab /opt/code/gitlab
-set -gx private /opt/code/github/PRIVATE
-set -gx public /opt/code/github/PUBLIC
+set -gx public /opt/code/public
 set -gx fish_emoji_width 2 # NOT COMPATIBLE with fish <= 2.7.1
 
 if type -q brew
