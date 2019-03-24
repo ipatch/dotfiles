@@ -30,8 +30,8 @@ end
 ##
 # set -gx TERM xterm-256color # <= DON'T explicitly set this env var!
 set -gx HOSTNAME (hostname -s)
-set -gx dotfiles /opt/Code/dotfiles
-set -gx dots /opt/Code/dotfiles
+set -gx dotfiles /opt/code/dotfiles
+set -gx dots /opt/code/dotfiles
 set -gx XDG_CACHE_HOME $HOME/.cache
 set -gx XDG_CONFIG_DATA $HOME/.local/share
 set -gx code /opt/code

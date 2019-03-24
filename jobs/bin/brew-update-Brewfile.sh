@@ -21,7 +21,7 @@ if [ -x "$path_to_brew" ]; then
       echo "HOME evn var equals $HOME"
       if [ -z ${dots+x} ]; then 
         echo "dots env var has not been set";
-        dots="/opt/Code/dotfiles";
+        dots="/opt/code/dotfiles";
         echo "set dots env var to '$dots'";
       else
         echo "dots env var has been set to '$dots'";
@@ -40,7 +40,7 @@ if [ -x "$path_to_brew" ]; then
       echo "your on Linux"
       if [ -z ${dots+x} ]; then 
         echo "dots env var has not been set";
-        dots="/opt/Code/dotfiles";
+        dots="/opt/code/dotfiles";
         echo "set dots env var to '$dots'";
       else
         echo "dots env var has been set to '$dots'";

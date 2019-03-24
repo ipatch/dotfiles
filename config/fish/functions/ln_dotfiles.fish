@@ -1,5 +1,5 @@
 ###
-# Symlink / link dotfiles from /opt/Code/dotfiles/ to $HOME directory.
+# Symlink / link dotfiles from /opt/code/dotfiles/ to $HOME directory.
 ###
 function ln_dotfiles --description 'Symlink $DOTFILES to $HOME'
   ln -sf $DOTFILES/shells/bash/bash_profile $HOME/.bash_profile
@@ -32,7 +32,7 @@ function ln_dotfiles --description 'Symlink $DOTFILES to $HOME'
   end
 
   if type -q weechat
-    ln -s /opt/Code/dotfiles/config/irc-clients/weechat $HOME/.weechat
+    ln -s /opt/code/dotfiles/config/irc-clients/weechat $HOME/.weechat
   end
 
   if type -t /Applications/iTerm.app/Contents/MacOS/iTerm2

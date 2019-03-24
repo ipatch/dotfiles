@@ -174,19 +174,19 @@ silent! packadd minpac
 function! BuildStaticVimMarkdownComposer()
   " if a:info.status != 'unchanged' || a:info.force
     if has('nvim')
-      !(cd '/opt/Code/dotfiles/editors/vim/vim/pack/minpac/start/vim-markdown-composer'; cargo +nightly build --release)
+      !(cd '/opt/code/dotfiles/editors/vim/vim/pack/minpac/start/vim-markdown-composer'; cargo +nightly build --release)
       " !cargo build --release
     elseif v:version > 8 || v:version == 8 " Check for Vim8 ...sort of
-      !(cd '/opt/Code/dotfiles/editors/vim/vim/pack/minpac/start_vim8/vim-markdown-composer';cargo build --release --no-default-features --features json-rpc)
+      !(cd '/opt/code/dotfiles/editors/vim/vim/pack/minpac/start_vim8/vim-markdown-composer';cargo build --release --no-default-features --features json-rpc)
       " Explicity set path for Vim8 build of vim-markdown-composer
-      set runtimepath+=/opt/Code/dotfiles/editors/vim/vim/pack/minpac/start_vim8/vim-markdown-composer
-      set runtimepath-=/opt/Code/dotfiles/editors/vim/vim/pack/minpac/start/vim-markdown-composer
+      set runtimepath+=/opt/code/dotfiles/editors/vim/vim/pack/minpac/start_vim8/vim-markdown-composer
+      set runtimepath-=/opt/code/dotfiles/editors/vim/vim/pack/minpac/start/vim-markdown-composer
     endif
 endfunction
 
 function! BuildCoc()
   if has('nvim')
-    !(cd '/opt/Code/dotfiles/editors/vim/vim/pack/minpac/start/coc.nvim'; yarn install)
+    !(cd '/opt/code/dotfiles/editors/vim/vim/pack/minpac/start/coc.nvim'; yarn install)
   endif
 endfunction
 

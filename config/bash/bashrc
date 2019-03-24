@@ -56,7 +56,7 @@ alias mv='mv -iv'
 alias dots='cd $dots'
 alias public='cd $public'
 alias private='cd $private'
-alias dotfiles='cd /opt/Code/dotfiles'
+alias dotfiles='cd /opt/code/dotfiles'
 
 # `git` aliases for git projects
 alias gs='git status'
