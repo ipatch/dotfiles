@@ -21,7 +21,8 @@
     <!-- <key>RunAtLoad</key> -->
     <!-- <true/> -->
 
-    <key>KeepAlive</key>
+    <!-- <key>KeepAlive</key> -->
+    <!-- <true/> -->
     <dict>
       <key>SuccessfulExit</key>
       <false/>
