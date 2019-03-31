@@ -150,6 +150,11 @@ case Darwin
     # echo "Your gunna need to do a `brew install rlwrap`"
   end
 
+  ###############################
+  # Docker tooling
+  ##
+  set -gx ETC_LOCALTIME (realpath /etc/localtime)
+
   if type -q nvim
     set -gx EDITOR nvim
     set -gx VISUAL nvim
@@ -161,11 +166,8 @@ case Darwin
     ##
     if not test -x "/usr/local/share/nvim/runtime/macros/less.sh" \
     -a -L "$HOME/.local/bin/less"
-      # ln -sf /usr/local/share/nvim/runtime/macros/less.sh $dots/jobs/bin/less
       alias less='$brew_prefix/share/nvim/runtime/macros/less.sh';
-      # alias less='/home/linuxbrew/.linuxbrew/share/nvim/runtime/macros/less.sh';
-
-      # echo "less ln made"
+      # TODO: echo "less ln made"
     end
   else if type -q vim
     set -gx EDITOR /usr/local/bin/vim
@@ -190,7 +192,6 @@ case Darwin
   # fisher | fish shell plugin manager
   ##
   set -gx fisher_path "$XDG_CONFIG_HOME/fish/fisher"
-
   set fish_function_path $fish_function_path $fisher_path/functions
   set fish_complete_path $fish_complete_path $fisher_path/completions
 
