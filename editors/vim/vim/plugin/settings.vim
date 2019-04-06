@@ -17,6 +17,7 @@ set background=dark
 set cursorline " Highlight current line
 set backspace=eol,start,indent " Configure sane backspace
 filetype plugin indent on " detect & enable filetype specific plugins
+runtime macros/matchit.vim
 syntax on
 set history=500 " History for days 😛
 set showcmd " Show incomplete cmds in lower right 
@@ -24,6 +25,9 @@ set noshowmode " let status line show mode
 set laststatus=2
 set modelines=5
 set visualbell t_vb= " DON'T abbr to `vb` use `visualbell`
+" set path+=$PWD/** " useful for quickly jmp between src files, ie. `gf`
+" TODO: make `path+=` more robust, ie. mk werk for both win and *nix
+" NOTE: `win` `set path+=.\**`
 
 """""""""""""""""""""""""""""
 " hidden chars

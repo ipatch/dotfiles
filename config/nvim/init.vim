@@ -25,19 +25,19 @@ set textwidth=0
 if os ==? 'macos' || os ==? 'linux'
 
   " set the default python PATH, to supposedly boost 🏎  performance
-  " let g:python_host_prog = '/home/capin/.pyenv/versions/neovim2/bin/python'
   let g:python_host_prog = '/home/capin/.pyenv/versions/py2neovim/bin/python'
 
   " To disable python 2 support, uncomment the below line
   " let g:loaded_python_provider = 1
 
-  " let g:python3_host_prog = '/home/capin/.pyenv/versions/neovim3/bin/python'
   let g:python3_host_prog = '/home/capin/.pyenv/versions/py3neovim/bin/python'
 
-  " TODO: Try and get `command + c` to work on remote linux servers
-
-  " let g:node_host_prog = '/home/.asdf/installs/nodejs/10.4.1/.npm/bin/neovim-node-host'
   let g:node_host_prog = system("echo -n \"$(echo $HOME)/.config/yarn/bin/neovim-node-host\"")
+
+  " ruby
+  let g:ruby_host_prog = system("echo -n \"$echo $HOME/.asdf/shims/neovim-ruby-host\"")
+
+  " TODO: Try and get `command + c` to work on remote linux servers
 endif
 
 """"""""""""""""""""""""""""""
