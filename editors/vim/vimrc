@@ -164,6 +164,7 @@ if has('wildmenu')
   set wildignore+=log/**
   set wildignore+=_build/**
   set wildignore+=*.bmp,*.gif,*.ico,*.jpg,*.png,*.pdf,*.psd,session.vim
+  set wildignore+=tags
 endif
 
 " NOTE: clone minpac first before installing plugins.

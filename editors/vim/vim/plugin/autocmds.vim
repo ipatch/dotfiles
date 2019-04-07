@@ -5,37 +5,9 @@ if has('autocmd')
   ""
   augroup rubypath
     autocmd!
-
     autocmd FileType ruby setlocal suffixesadd+=.rb
+    autocmd InsertEnter * let save_cwd = getcwd() | set autochdir
   augroup END
-
-  "-----------------------------
-  " autocmd > add dir above `tags` file to vim path, ie. `set path`
-  "--
-  " augroup UpdatePath
-  "   let s:default_path = escape(&path, '\ ') " store default value of 'path'
-
-  "   " Always add the current file's directory to the path and tags list if not
-  "   " already there. Add it to the beginning to speed up searches.
-  "   autocmd BufNewFile,BufRead,BufEnter *
-  "         \ let s:tempPath=escape(escape(expand("%:p:h"), ' '), '\ ') |
-  "         \ exec "set path-=".s:tempPath |
-  "         \ exec "set path-=".s:default_path |
-  "         \ exec "set path^=".s:tempPath |
-  "         \ exec "set path^=".s:default_path
-  "   let s:default_path = escape(&path, '\ ') " store default value of 'path'
-
-    " " Always add the current file's directory to the path and tags list if not
-    " " already there.  Add it to the beginning to speed up searches.
-    " autocmd! BufRead,BufEnter *
-    "       \ let s:tempPath=escape(escape(expand("%:p:h"), ' '), '\ ') |
-    "       \ exec "set path-=".s:tempPath |
-    "       \ exec "set path-=".s;default_path |
-    "       \ exec "set path^=".s:tempPath |
-    "       \ exec "set path^=".s:default_path
-    " " autocmd!
-    " autocmd BufNewFile,BufRead,BufEnter * let &path += fnamemodify(tagfiles()[0], ':p:h')
-  " augroup END
 
   """"""""""""""""""""""""""""""
   " autocommand - update buffer if file has changed on window focus 
