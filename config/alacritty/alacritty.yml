@@ -44,8 +44,10 @@ draw_bold_text_with_bright_colors: true
 # Font configuration (changes require restart)
 font:
   # Point size of the font
-  size: 20
+  # size: 20
   # size: 18
+  size: 16
+  # size: 14 # not hot dog
 
   normal:
     family: "IBMPlexMonoPlusPlus"
