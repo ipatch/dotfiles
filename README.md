@@ -737,6 +737,7 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/install.sh | /bin/
 
 ## TODOs
 
+- [ ] make abe graphich more personal.
 - [ ] Write an install script for easy installation of dotfiles.
 
 ### Neovim
