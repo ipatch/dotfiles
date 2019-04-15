@@ -117,6 +117,7 @@ brew "webp"
 brew "leptonica"
 brew "libbluray"
 brew "libvpx"
+brew "opus"
 brew "sdl2"
 brew "tesseract"
 brew "x264"
@@ -254,7 +255,6 @@ brew "postgresql", restart_service: true
 brew "proctools"
 brew "pstree"
 brew "pv"
-brew "qemu"
 brew "rdesktop"
 brew "reattach-to-user-namespace"
 brew "redis", restart_service: true
@@ -281,7 +281,7 @@ brew "uni2ascii"
 brew "unixodbc"
 brew "unrar"
 brew "utf8proc"
-brew "util-linux"
+brew "util-linux", link: false
 brew "vim"
 brew "w3m"
 brew "watch"
@@ -298,6 +298,7 @@ brew "zenity"
 brew "zsh"
 brew "eddieantonio/eddieantonio/imgcat"
 brew "ipatch/us-05/openssh", args: ["HEAD", "with-ldns"]
+brew "ipatch/us-05/qemu", args: ["HEAD"]
 brew "lukechilds/tap/gifgen"
 brew "universal-ctags/universal-ctags/universal-ctags", args: ["HEAD"]
 cask "android-platform-tools"
