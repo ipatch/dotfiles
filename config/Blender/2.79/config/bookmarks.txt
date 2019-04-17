@@ -1,5 +1,6 @@
 [Bookmarks]
 [Recent]
+/Users/capin/gfx/3D-projects/blender-2.79/
 /Users/capin/Movies/my-screencasts/blender-editing/
 /Users/capin/Movies/my-screencasts/obs-studio/
 /Users/capin/Movies/my-screencasts/blender-editing/rendererings/
