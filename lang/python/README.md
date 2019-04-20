@@ -1,4 +1,4 @@
-# Python Tooling
+## Python Tooling
 
 <a id="contents"></a>
 
@@ -68,6 +68,36 @@ To set multiple python interpreters for a system / shell, edit **$HOME/.python-v
 ```conf
 2.7.15
 3.7.2
+```
+
+<a id="working-with-pyenv-virtualenvs"></a>
+
+### Working with pyenv virtualenvs
+
+There is a plugin for **pyenv** that can be used to setup **virtualenvs** for python.
+
+To setup a **virtualenv** of the name _py3my-virtualenv_
+
+```shell
+pyenv virtualenv 3.7.3 py3my-virtualenv
+echo "to activate the virtualenv"
+pyenv activate py3my-virtualenv
+echo "to deactivate the virtualenv
+pyenv deactivate
+```
+
+To list all available local virtualenvs on a box
+
+```shell
+pyenv versions
+```
+
+To install a Python package inside a virtualenv
+
+```shell
+pip install neovim3
+echo "to upgrade the neovim3 package"
+pip install --upgrade neovim
 ```
 
 <a id="useful-links"></a>
