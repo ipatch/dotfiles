@@ -73,6 +73,7 @@ abbr -ag gpl 'git pull'
 abbr -ag gru 'git remote -v update'
 abbr -ag gco 'git checkout'
 abbr -ag gsmru 'git smrupdate'
+abbr -ag git-ls-aliases 'git aliases'
 
 ################
 # abbreviations for my custom functions
