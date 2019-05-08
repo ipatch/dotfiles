@@ -1,6 +1,24 @@
 if has('autocmd')
 
   "-----------------------------
+  " autocmd > save session file using `vim-obsession`
+  ""
+  augroup auto_mksession
+    autocmd!
+    " autocmd BufEnter * checktime
+
+    " " function! MakeSession()
+    "   " let b:sessiondir = system("echo -n \"$echo $HOME)/.vim/tmp/sessions\"")
+    "   " let b:filename = getcwd()
+    "   execute "normal Obsess ~/.vim/tmp/sessions/fooiebars"
+    "   " exe "mksession!"  . b:filename
+    "   " exec "edit! " . b:filename
+    "   " exe "g:^cd :d"
+    "   " exe "x"
+    " endfunction
+  augroup END
+
+  "-----------------------------
   " autocmd > easy jmp for ruby src files
   ""
   augroup rubypath

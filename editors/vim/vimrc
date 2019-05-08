@@ -261,6 +261,7 @@ else
   call minpac#add('itchyny/lightline.vim') " lightweight status line.
   call minpac#add('rust-lang/rust.vim')
   call minpac#add('euclio/vim-markdown-composer', {'type': 'opt'})
+  " call minpac#add('tpope/vim-obsession') " auto session mgmt
 
   """""""""""""""""""""""""""""
   " minpac - conditional plugins
