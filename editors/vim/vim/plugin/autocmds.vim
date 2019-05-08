@@ -1,6 +1,22 @@
 if has('autocmd')
 
   "-----------------------------
+  " autocmd > create parent dir when saving a buffer if not present
+  ""
+  function s:MkNonExDir(file, buf)
+    if empty(getbufvar(a:buf, '&buftype')) && a:file!~#'\v^\w+\:\/'
+      let dir=fnamemodify(a:file, ':h')
+      if !isdirectory(dir)
+        call mkdir(dir, 'p')
+      endif
+    endif
+  endfunction
+  augroup BWCCreateDir
+    autocmd!
+    autocmd BufWritePre * :call s:MkNonExDir(expand('<afile>'), +expand('<abuf>'))
+  augroup END
+  
+  "-----------------------------
   " autocmd > save session file using `vim-obsession`
   ""
   augroup auto_mksession
