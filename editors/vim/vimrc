@@ -78,6 +78,13 @@ function! GetRunningOS()
 endfunction
 let g:os = GetRunningOS()
 
+function! SetupCommandAlias(from, to)
+  " NOTE: useful for aliasing `PackUpdate` to `packupdate` etc...
+  exec 'cnoreabbrev <expr> '.a:from
+        \ .' ((getcmdtype() is# ":" && getcmdline() is# "'.a:from.'")'
+        \ .'? ("'.a:to.'") : ("'.a:from.'"))'
+endfunction
+
 """"""""""""""""""""""""""""""
 " colorscheme
 ""
@@ -185,14 +192,8 @@ function! BuildStaticVimMarkdownComposer()
     endif
 endfunction
 
-function! BuildCoc()
-  if has('nvim')
-    !(cd '/opt/code/dotfiles/editors/vim/vim/pack/minpac/start/coc.nvim'; yarn install)
-  endif
-endfunction
-
-
 function! CocBuildUpdate()
+  " NOTE: this function replaces the old `BuildCoc` func
   if has('nvim')
     " NOTE: setup a `list` in VimL to supply the Coc `install_extension` func
     " TODO: autogen global_extensions in a var, ie. don't hardcode
@@ -206,7 +207,6 @@ function! CocBuildUpdate()
   endif
 endfunction
     
-
 function! FixupBase16()
   !(sed -i '/Base16hi/\! s/a:\(attr\|guisp\)/l:\1/g' /opt/code/dotfiles/editors/vim/vim/pack/minpac/start/base16-vim/colors/*.vim)
 endfunction
@@ -279,21 +279,15 @@ else
   call minpac#add('euclio/vim-markdown-composer', {'type': 'opt'})
   " call minpac#add('tpope/vim-obsession') " auto session mgmt
 
-  """""""""""""""""""""""""""""
+  " -----------------------------
   " minpac - conditional plugins
-  " ===============================================================
+  " ---------------------------------------------------------------
   " neovim only plugins!!!
-  " ===============================================================
+  " ---------------------------------------------------------------
   ""
   if has('nvim')
     call minpac#add('neoclide/coc.nvim', {'do': function('CocBuildUpdate')}) " code completion
-    " call minpac#add('neoclide/jsonc.vim') " json syntax highlight w/ comments
-    " call minpac#add('Shougo/denite.nvim')
-    " call minpac#add('Shougo/deoplete.nvim', { 'type': 'opt', 'do': ':UpdateRemotePlugins' })
   elseif v:version > 8 || v:version == 8 " Check for Vim8 ...sort of
-    " call minpac#add('Shougu/deoplete.nvim', {'type': 'opt'})
-    " call minpac#add('roxma/nvim-yarp', {'type': 'opt'})
-    " call minpac#add('roxma/vim-hug-neovim-rpc', {'type': 'opt'})
     call minpac#add('autozimu/LanguageClient-neovim', {'type': 'opt',
           \'branch': 'next', 'do': {-> system('bash install.sh')}})
   endif
@@ -305,7 +299,12 @@ else
   command! PackClean  packadd minpac | source $MYVIMRC | call minpac#clean()
   command! PackList echo join(minpac#getpackages("minpac", "start"), "\n")
   command! PackStatus packadd minpac | source $MYVIMRC | call minpac#status()
+
+  call SetupCommandAlias("packupdate", "PackUpdate")
+  call SetupCommandAlias("packclean", "PackClean")
 endif
+
+
 
 """""""""""""""""""""""""""""
 " DANGER ZONE > experimental settings
