@@ -191,6 +191,22 @@ function! BuildCoc()
   endif
 endfunction
 
+
+function! CocBuildUpdate()
+  if has('nvim')
+    " NOTE: setup a `list` in VimL to supply the Coc `install_extension` func
+    " TODO: autogen global_extensions in a var, ie. don't hardcode
+    let g:coc_global_extensions = [
+          \ 'coc-css',
+          \ 'coc-html',
+          \ 'coc-json',
+          \ ]
+    call coc#util#install()
+    call coc#util#install_extension(g:coc_global_extensions)
+  endif
+endfunction
+    
+
 function! FixupBase16()
   !(sed -i '/Base16hi/\! s/a:\(attr\|guisp\)/l:\1/g' /opt/code/dotfiles/editors/vim/vim/pack/minpac/start/base16-vim/colors/*.vim)
 endfunction
@@ -241,7 +257,7 @@ else
   call minpac#add('k-takata/minpac', {'type': 'opt'})
 
   """"""""""""""""""""""""""""""
-  " Load additional plugins below.
+  " Load additional plugins
   ""
   call minpac#add('machakann/vim-highlightedyank') " name says it all
   call minpac#add('chriskempson/base16-vim') " pretty colors 🌈 and aesthetics 
@@ -270,7 +286,7 @@ else
   " ===============================================================
   ""
   if has('nvim')
-    call minpac#add('neoclide/coc.nvim') " code completion
+    call minpac#add('neoclide/coc.nvim', {'do': function('CocBuildUpdate')}) " code completion
     " call minpac#add('neoclide/jsonc.vim') " json syntax highlight w/ comments
     " call minpac#add('Shougo/denite.nvim')
     " call minpac#add('Shougo/deoplete.nvim', { 'type': 'opt', 'do': ':UpdateRemotePlugins' })
