@@ -193,6 +193,7 @@ function! BuildStaticVimMarkdownComposer()
 endfunction
 
 function! CocBuildUpdate()
+  " `~/.config/coc/extensions/package.json`
   " NOTE: this function replaces the old `BuildCoc` func
   if has('nvim')
     " NOTE: setup a `list` in VimL to supply the Coc `install_extension` func

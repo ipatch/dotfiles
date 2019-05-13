@@ -177,6 +177,12 @@ case Darwin
   ################
   # macOS specific abbreviations
   ##
+
+  ####
+  # macOS Debugging
+  ##
+  abbr -ag sip-status 'csrutil status'
+
   # setup an alias for quicklook from the terminal in macOS
   abbr -ag ql 'qlmanage -p'
   # update location DB
@@ -194,36 +200,36 @@ case Darwin
   ##
   abbr -ag lc 'launchctl'
   
-################
-# homebrew specifc abbreviations
-##
-if type -q brew
-  # working with brew src and formula
-  abbr -ag cd-brew-src "cd (brew --prefix)/Homebrew/Library/Taps/homebrew/homebrew-core"
+  ################
+  # homebrew specifc abbreviations
+  ##
+  if type -q brew
+    # working with brew src and formula
+    abbr -ag cd-brew-src "cd (brew --prefix)/Homebrew/Library/Taps/homebrew/homebrew-core"
 
-  # youtube-dl
-  abbr -ag you "youtube-dl"
-  abbr -a -g youdl 'youtube-dl --output "%(title)s.%(ext)s"'
+    # youtube-dl
+    abbr -ag you "youtube-dl"
+    abbr -a -g youdl 'youtube-dl --output "%(title)s.%(ext)s"'
 
-  ###
-  # brew postgresql
-  abbr -ag pg-start "launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist"
-  abbr -ag pg-stop "launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist"
-    
-  ###
-  # brew redis
-  abbr -ag redis-start "launchctl load ~/Library/LaunchAgents/homebrew.mxcl.redis.plist"
-  abbr -ag redis-stop "launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.redis.plist"
+    ###
+    # brew postgresql
+    abbr -ag pg-start "launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist"
+    abbr -ag pg-stop "launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist"
 
-  ###
-  # brew OpenSSH built with LibreSSL
-  abbr -ag ssh-start "sudo launchctl load /Library/LaunchDaemons/com.chrisrjones.sshd.plist"
-  abbr -ag ssh-stop "sudo launchctl unload /Library/LaunchDaemons/com.chrisrjones.sshd.plist"
+    ###
+    # brew redis
+    abbr -ag redis-start "launchctl load ~/Library/LaunchAgents/homebrew.mxcl.redis.plist"
+    abbr -ag redis-stop "launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.redis.plist"
 
-  ###
-  # brew MongoDB
-  abbr -ag mongod-start "launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mongodb.plist"
-  abbr -ag mongod-stop "launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.mongodb.plist"
+    ###
+    # brew OpenSSH built with LibreSSL
+    abbr -ag ssh-start "sudo launchctl load /Library/LaunchDaemons/com.chrisrjones.sshd.plist"
+    abbr -ag ssh-stop "sudo launchctl unload /Library/LaunchDaemons/com.chrisrjones.sshd.plist"
+
+    ###
+    # brew MongoDB
+    abbr -ag mongod-start "launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mongodb.plist"
+    abbr -ag mongod-stop "launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.mongodb.plist"
 end
 
 case Linux
