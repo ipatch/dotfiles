@@ -182,6 +182,7 @@ case Darwin
   # macOS Debugging
   ##
   abbr -ag sip-status 'csrutil status'
+  abbr -ag mac-print-sip-status 'csrutil status'
 
   # setup an alias for quicklook from the terminal in macOS
   abbr -ag ql 'qlmanage -p'
