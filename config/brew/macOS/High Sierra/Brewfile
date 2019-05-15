@@ -291,7 +291,7 @@ brew "uni2ascii"
 brew "unixodbc"
 brew "unrar"
 brew "utf8proc"
-brew "util-linux", link: false
+brew "util-linux"
 brew "vim"
 brew "w3m"
 brew "watch"
