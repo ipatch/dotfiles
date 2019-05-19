@@ -3,3 +3,5 @@ iStats
 neovim
 wayback_machine_downloader
 rails-erb-check
+rubocop
+ruby-lint
