@@ -125,6 +125,7 @@ end
 if type -q docker
   # abbr -ag dm "docker-machine"
   abbr -ag d "docker"
+  abbr -ag dc "docker-compose"
 end
 
 #################
