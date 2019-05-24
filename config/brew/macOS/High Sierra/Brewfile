@@ -266,6 +266,7 @@ brew "postgresql", restart_service: true
 brew "proctools"
 brew "pstree"
 brew "pv"
+brew "qemu", args: ["HEAD"]
 brew "rdesktop"
 brew "reattach-to-user-namespace"
 brew "redis", restart_service: true
@@ -310,7 +311,6 @@ brew "zenity"
 brew "zsh"
 brew "eddieantonio/eddieantonio/imgcat"
 brew "ipatch/us-05/openssh", args: ["HEAD", "with-ldns"]
-brew "ipatch/us-05/qemu", args: ["HEAD"]
 brew "lukechilds/tap/gifgen"
 brew "universal-ctags/universal-ctags/universal-ctags", args: ["HEAD"]
 cask "android-platform-tools"
