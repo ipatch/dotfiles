@@ -28,6 +28,7 @@ switch $os
 end
 abbr -ag cp 'cp -iv'
 abbr -ag dots 'cd $dots'
+abbr -ag dotsw 'cd $dots/.wiki'
 
 #############################
 # ruby tooling
