@@ -287,6 +287,7 @@ else
   " ---------------------------------------------------------------
   ""
   if has('nvim')
+    call minpac#add('Shougo/denite.nvim')
     call minpac#add('neoclide/coc.nvim', {'do': function('CocBuildUpdate')}) " code completion
   elseif v:version > 8 || v:version == 8 " Check for Vim8 ...sort of
     call minpac#add('autozimu/LanguageClient-neovim', {'type': 'opt',

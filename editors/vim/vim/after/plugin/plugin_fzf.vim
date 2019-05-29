@@ -1,17 +1,18 @@
 """"""""""""""""""""""""""""""
 " plugin - FZF
 ""
+" NOTE: `:Buffers`, `:Files`, `:History` no workie
 if &runtimepath =~# 'fzf'
-  nmap ; :Buffers<CR>
-  nmap <Leader>f :Files<CR>
+  " nmap ; :Buffers<CR>
+  " nmap <Leader>f :Files<CR>
   command! FZFMru call fzf#run({
         \  'source':  v:oldfiles,
         \  'sink':    'e',
         \  'options': '-m -x +s',
         \  'down':    '40%'})
   nmap <Leader>r :FZFMru<CR>
-  nnoremap <C-p> :<C-u>FZF<CR>
-  nnoremap <Leader>m :History<CR>
+  " nnoremap <C-p> :<C-u>FZF<CR>
+  " nnoremap <Leader>m :History<CR>
 
   " You can set up fzf window using a Vim command (Neovim or Vim 8 required)
   let g:fzf_layout = { 'window': 'enew' }

@@ -28,6 +28,7 @@ set visualbell t_vb= " DON'T abbr to `vb` use `visualbell`
 " set path+=$PWD/** " useful for quickly jmp between src files, ie. `gf`
 " TODO: make `path+=` more robust, ie. mk werk for both win and *nix
 " NOTE: `win` `set path+=.\**`
+set autoread " automatically re-read file if changes occur outside of vim
 
 """""""""""""""""""""""""""""
 " hidden chars
