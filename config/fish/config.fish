@@ -36,6 +36,7 @@ set -gx XDG_CACHE_HOME $HOME/.cache
 set -gx XDG_CONFIG_DATA $HOME/.local/share
 set -gx code /opt/code
 set -gx github /opt/code/github
+set -gx gh /opt/code/github
 set -gx forks /opt/code/github/public/forks
 set -gx private /opt/code/github/private
 set -gx gitlab /opt/code/gitlab
