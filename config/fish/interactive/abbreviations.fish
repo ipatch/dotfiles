@@ -134,12 +134,14 @@ end
 ##
 if type -q asdf
   abbr -ag cd-asdf-src "cd $HOME/.asdf"
+  abbr -ag cdasdfsrc "cd $HOME/.asdf"
 end
 
 #################
 # pyenv tooling
 ##
 if type -q pyenv
+  abbr -ag cd-pyenv-src "cd (pyenv root)"
   abbr -ag cd-pyenv-src "cd (pyenv root)"
 end
 
@@ -209,6 +211,7 @@ case Darwin
   if type -q brew
     # working with brew src and formula
     abbr -ag cd-brew-src "cd (brew --prefix)/Homebrew/Library/Taps/homebrew/homebrew-core"
+    abbr -ag cdbrewsrc "cd (brew --prefix)/Homebrew/Library/Taps/homebrew/homebrew-core"
 
     # youtube-dl
     abbr -ag you "youtube-dl"
