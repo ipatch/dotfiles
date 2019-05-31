@@ -98,6 +98,7 @@ brew "dpkg"
 brew "pcre2"
 brew "editorconfig"
 brew "elinks"
+brew "libevent"
 brew "libunistring"
 brew "nettle"
 brew "p11-kit"
@@ -169,7 +170,8 @@ brew "gpgme"
 brew "gnu-sed", args: ["with-default-names"]
 brew "gnu-time", args: ["with-default-names"]
 brew "libcerf"
-brew "gnuplot", args: ["with-x11"]
+brew "qt"
+brew "gnuplot"
 brew "graphene"
 brew "graphicsmagick"
 brew "grep", args: ["with-default-names"]
@@ -244,6 +246,7 @@ brew "neofetch"
 brew "talloc"
 brew "xapian"
 brew "zlib"
+brew "notmuch"
 brew "neomutt"
 brew "neovim", args: ["HEAD"]
 brew "nghttp2"
@@ -260,7 +263,6 @@ brew "pandoc"
 brew "patchutils"
 brew "picocom"
 brew "pidgin"
-brew "qt"
 brew "poppler"
 brew "postgresql", restart_service: true
 brew "proctools"
