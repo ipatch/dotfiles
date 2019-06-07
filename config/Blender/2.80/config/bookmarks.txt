@@ -1,3 +1,5 @@
 [Bookmarks]
 [Recent]
+/Users/capin/graphics/3D-projects/blender-2.80-alpha/
+/Users/capin/graphics/3D-projects/blender-2.79/
 /Users/capin/Downloads/
