@@ -1,7 +1,7 @@
-k = hs.hotkey.modal.new('alt-shift', 'n')
+k = hs.hotkey.modal.new('shift-option', 'n')
 function k:entered() hs.alert'Virtual Numpad' end
 function k:exited() hs.alert'Exit Virtual Numpad' end
-k:bind('alt-shift', 'n', function() k:exit() end)
+k:bind('shift-option', 'n', function() k:exit() end)
 
 hs.fnutils.each({
   { key='j', padkey='pad1'},
