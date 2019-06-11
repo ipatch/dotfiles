@@ -261,18 +261,12 @@ else
   " Load additional plugins
   ""
   call minpac#add('machakann/vim-highlightedyank') " name says it all
-  call minpac#add('chriskempson/base16-vim') " pretty colors 🌈 and aesthetics 
-  call minpac#add('Yggdroot/indentLine') " Add vertical indentation lines
-  call minpac#add('sheerun/vim-polyglot') " lazy load syntax highlighting
+  call minpac#add('chriskempson/base16-vim') " UX goodness
+  call minpac#add('Yggdroot/indentLine') " vert indent lines
+  " call minpac#add('MaxMEllon/vim-jsx-pretty') " syntax highlight
   call minpac#add('tpope/vim-commentary') " quickly comment lines
-  " call minpac#add('pangloss/vim-javascript') " aid in working with js files
-  " call minpac#add('mxw/vim-jsx') " depends on `vim-javascript`
-  call minpac#add('MaxMEllon/vim-jsx-pretty') " alt vim plugin for JSX syntax highlighting
-  " call minpac#add('suy/vim-context-commentstring') " allow modifying comment strings
-  " call minpac#add('tomtom/tcomment_vim') " alt commmenting plugin
-  call minpac#add('junegunn/fzf') " required! the below won't work without this!
-  " call minpac#add('junegunn/fzf.vim') " fuzzy finding goodness
-  call minpac#add('christoomey/vim-tmux-navigator') " vim&tmux navigation
+  call minpac#add('sheerun/vim-polyglot') " lazy load syntax hl
+  call minpac#add('christoomey/vim-tmux-navigator') " vim&tmux navi
   call minpac#add('w0rp/ale') " ALE Asynchronous Linting Engine
   call minpac#add('tpope/vim-fugitive') " useful for displaying git branch
   call minpac#add('itchyny/lightline.vim') " lightweight status line.

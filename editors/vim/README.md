@@ -13,6 +13,8 @@
 
 ## General Notes
 
+❗️ **June 11, 2019** Load **vim-jsx-pretty** before **vim-polyglot** to avoid [issue](https://github.com/MaxMEllon/vim-jsx-pretty/issues/69)
+
 I use the same vimrc file for both Vim 8 and Neovim on macOS and GNU+Linux distros.  That said there are a few specific settings related to Neovim contained with the `init.vim`
 
 I use a custom code fold function provided by wincent's [dotfiles](https://github.com/wincent/wincent) for customizing the display output chars for code folds throughout various source files.  The file that contains the settings related to custom code fold settings is located below
