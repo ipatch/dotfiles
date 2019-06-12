@@ -18,7 +18,7 @@ scriptencoding utf-8
 ""
 
 " set this first, the default `leader` key is `\`
-let g:mapleader = ',' " set the 'leader' key to `,` ie. comma
+let g:mapleader = "\<Space>" " bind 'leader' key to spacebar
 
 " Don't allow vi compatibility mode; don't need it 🤽
 " set nocompatible "Enable at own risk, can have undesired effects
@@ -150,13 +150,13 @@ augroup netrw_delete_hidden_augroup
   autocmd FileType netrw setl bufhidden=delete
 augroup END
 
-"""""""""""""""""""""""""""""
-" Autocommands - moved to `~/.vim/plugin/autocmds.vim`
+"----------------------------
+" Autocommands relocated to `~/.vim/plugin/autocmds.vim`
 ""
 
-"""""""""""""""""""""""""""""
+"----------------------------
 " wildmenu -  completion
-""
+"-
 if has('wildmenu')
   set wildmenu " display menu when using `tab` completeion
   set wildmode=full " Specifies how the `tab` completion works in wildmenu
@@ -192,52 +192,9 @@ function! BuildStaticVimMarkdownComposer()
     endif
 endfunction
 
-function! CocBuildUpdate()
-  " `~/.config/coc/extensions/package.json`
-  " NOTE: this function replaces the old `BuildCoc` func
-  if has('nvim')
-    " NOTE: setup a `list` in VimL to supply the Coc `install_extension` func
-    " TODO: autogen global_extensions in a var, ie. don't hardcode
-    let g:coc_global_extensions = [
-          \ 'coc-css',
-          \ 'coc-html',
-          \ 'coc-json',
-          \ ]
-    call coc#util#install()
-    call coc#util#install_extension(g:coc_global_extensions)
-  endif
-endfunction
-    
 function! FixupBase16()
   !(sed -i '/Base16hi/\! s/a:\(attr\|guisp\)/l:\1/g' /opt/code/dotfiles/editors/vim/vim/pack/minpac/start/base16-vim/colors/*.vim)
 endfunction
-
-" plugin - coc - use <tab> for trigger completion and navigate next complete item
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~ '\s'
-endfunction
-
-" plugin - coc
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-
-" plugin - coc - tab through completion choices
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-
-" plugin - coc - no new line / carriage return after selection
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>"
-
-" plugin - coc - trigger autocomplete menu
-inoremap <silent><expr> <c-space> coc#refresh()
-
-" plugin - coc - close preview window when completion is done.
-augroup coc_close_pum
-  autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
-augroup END
 
 let g:ale_completion_enabled = 1
 
@@ -257,9 +214,9 @@ else
   call minpac#init()
   call minpac#add('k-takata/minpac', {'type': 'opt'})
 
-  """"""""""""""""""""""""""""""
+  "-----------------------------
   " Load additional plugins
-  ""
+  "-
   call minpac#add('machakann/vim-highlightedyank') " name says it all
   call minpac#add('chriskempson/base16-vim') " UX goodness
   call minpac#add('Yggdroot/indentLine') " vert indent lines
@@ -268,29 +225,30 @@ else
   call minpac#add('sheerun/vim-polyglot') " lazy load syntax hl
   call minpac#add('christoomey/vim-tmux-navigator') " vim&tmux navi
   call minpac#add('w0rp/ale') " ALE Asynchronous Linting Engine
-  call minpac#add('tpope/vim-fugitive') " useful for displaying git branch
+  call minpac#add('tpope/vim-fugitive') " display git branch
   call minpac#add('itchyny/lightline.vim') " lightweight status line.
   call minpac#add('rust-lang/rust.vim')
   call minpac#add('euclio/vim-markdown-composer', {'type': 'opt'})
   " call minpac#add('tpope/vim-obsession') " auto session mgmt
 
-  " -----------------------------
+  "-----------------------------
   " minpac - conditional plugins
-  " ---------------------------------------------------------------
+  "---------------------------------------------------------------
   " neovim only plugins!!!
-  " ---------------------------------------------------------------
+  "---------------------------------------------------------------
   ""
   if has('nvim')
-    call minpac#add('Shougo/denite.nvim')
-    call minpac#add('neoclide/coc.nvim', {'do': function('CocBuildUpdate')}) " code completion
+    call minpac#add('Shougo/denite.nvim', {'rev': '29bfd4c53271c7a150def2388e059746ae4c1713'})
+    " call minpac#add('neoclide/coc.nvim', {'do': function('CocBuildUpdate')}) " code completion
+    call minpac#add('neoclide/coc.nvim')
   elseif v:version > 8 || v:version == 8 " Check for Vim8 ...sort of
     call minpac#add('autozimu/LanguageClient-neovim', {'type': 'opt',
           \'branch': 'next', 'do': {-> system('bash install.sh')}})
   endif
   
-  """""""""""""""""""""""""""""
+  "----------------------------
   " minpac - Custom commands
-  "" 
+  "-
   command! PackUpdate packadd minpac | source $MYVIMRC | call minpac#update('', {'do': 'call minpac#status()'})
   command! PackClean  packadd minpac | source $MYVIMRC | call minpac#clean()
   command! PackList echo join(minpac#getpackages("minpac", "start"), "\n")
@@ -300,19 +258,16 @@ else
   call SetupCommandAlias("packclean", "PackClean")
 endif
 
-
-
-"""""""""""""""""""""""""""""
+"----------------------------
 " DANGER ZONE > experimental settings
-""
-"
+"-
 
 " Setting for rust.vim
 let g:autofmt_autosave = 1
 
-"""""""""""""""""""""""""""""
+"----------------------------
 " For Neovim's eyes only 
-""
+"-
 if has('nvim')
   let g:loaded_sensible=0
   " Keymappings for Neovim
