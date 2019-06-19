@@ -136,6 +136,8 @@ config/GIMP/2.10/themes/*
 config/inkscape/extension-errors.log
 # changes to frequently
 config/inkscape/preferences.xml
+jobs/bin/inkscape
+jobs/bin/inkview
 
 ##############################
 # GTK > gtk-mac-bundler
