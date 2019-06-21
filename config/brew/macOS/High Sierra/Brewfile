@@ -18,8 +18,8 @@ brew "adns"
 brew "libpng"
 brew "freetype"
 brew "fontconfig"
-brew "gettext", link: true
 brew "gdbm"
+brew "gettext", link: true
 brew "openssl"
 brew "pcre"
 brew "readline", link: true
@@ -146,6 +146,7 @@ brew "libtool"
 brew "graphviz"
 brew "py2cairo"
 brew "pygobject"
+brew "gtk-mac-integration"
 brew "vala"
 brew "gtksourceview4"
 brew "libidn2"
