@@ -226,6 +226,7 @@ brew "llvm"
 brew "lsusb"
 brew "lua@5.1"
 brew "luajit"
+brew "luarocks"
 brew "lz4"
 brew "m4"
 brew "make", args: ["with-default-names"]
