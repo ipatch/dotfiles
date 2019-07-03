@@ -15,6 +15,8 @@
 
 ## Example
 
+❗️ **TODO** add **gif** or asciicast demoing commonly used Vim & Neovim features
+
 <a id="general-notes"></a>
 
 ## General Notes
