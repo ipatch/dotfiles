@@ -14,6 +14,14 @@ function! CocBuildUpdate()
   endif
 endfunction
 
+command! CocBuildUpdate :call CocBuildUpdate()
+command! CocUpdateBuild :call CocBuildUpdate()
+
+call SetupCommandAlias("cocbuildupdate", "CocBuildUpdate")
+call SetupCommandAlias("cocupdatebuild", "CocUpdateBuild")
+
+" NOTE: unfortunately (n)Vim abbr's don't tab ⇥ complete like they do in fish ...boooo
+
 " plugin > coc > use <tab> for trigger completion and navigate next complete item
 function! s:check_back_space() abort
   let col = col('.') - 1

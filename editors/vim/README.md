@@ -4,10 +4,16 @@
 
 ## Contents
 
+- [Example](#example)
 - [Neovim](#neovim)
   - [Neovim Boot Time](#neovim-boot-time)
+- [TODOs](#todos)
 
 > For an exhaustive collection of notes I have taken while actively working with these dotfiles using Vim and Neovim [click me](https://github.com/ipatch/dotfiles/wiki/vim-neovim-Notes) 👈
+
+<a id="example"></a>
+
+## Example
 
 <a id="general-notes"></a>
 
@@ -83,3 +89,9 @@ To **not** show any output, and only errors & warning if there are any present i
 ```shell
 tidy -eq [FILE.html]
 ```
+
+<a href="todos"></a>
+
+## TODOs
+
+- [ ] add a little animated gif or asciicast for showing some of the features I've setup and link to it in this README
