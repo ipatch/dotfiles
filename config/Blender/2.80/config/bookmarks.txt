@@ -1,5 +1,7 @@
 [Bookmarks]
 [Recent]
+/opt/code/3d-printing/models-stl-files/
+/Users/capin/Downloads/
+/opt/code/3d-printing/models-stl-files/thingiverse/
 /Users/capin/graphics/3D-projects/blender-2.80-alpha/
 /Users/capin/graphics/3D-projects/blender-2.79/
-/Users/capin/Downloads/
