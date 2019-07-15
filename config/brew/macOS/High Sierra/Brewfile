@@ -233,6 +233,7 @@ brew "m4"
 brew "make", args: ["with-default-names"]
 brew "maven"
 brew "ninja"
+brew "meson"
 brew "minicom"
 brew "mkvtoolnix"
 brew "mongodb", restart_service: true
