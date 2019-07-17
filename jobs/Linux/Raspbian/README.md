@@ -8,3 +8,8 @@ if [ -f $HOME/.bash_profile ]; then
   . $HOME/.bash_profile
 fi
 ```
+
+If the above configuration changes still do not resolve sourcing **bash** configuration changes two things can be checked.
+
+1. check the **shell** value for **/etc/passwd** for the **$USER**
+2. change the default shell for the **$USER** `chsh -s /path/to/shell`
