@@ -13,3 +13,9 @@ If the above configuration changes still do not resolve sourcing **bash** config
 
 1. check the **shell** value for **/etc/passwd** for the **$USER**
 2. change the default shell for the **$USER** `chsh -s /path/to/shell`
+
+To verify if **bash** is running as a _login shell_
+
+```shell
+shopt login_shell
+```
