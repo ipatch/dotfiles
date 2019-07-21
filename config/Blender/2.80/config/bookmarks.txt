@@ -1,8 +1,8 @@
 [Bookmarks]
 [Recent]
+/opt/code/3d-printing/STLs/
 /Users/capin/graphics/3D-projects/blender-2.80-alpha/
 /opt/code/public/github/blender-downloads/
-/opt/code/3d-printing/STLs/
 /opt/code/3d-printing/models-stl-files/
 /Users/capin/Downloads/
 /opt/code/3d-printing/models-stl-files/thingiverse/
