@@ -104,7 +104,8 @@
     "workbench.statusBar.visible": false,
     "rust.mode": "rls",
     "rust.rustup": {
-        "nightlyToolchain": "nightly-x86_64-apple-darwin"
+        "nightlyToolchain": "nightly-x86_64-apple-darwin",
+        "toolchain": "stable-x86_64-apple-darwin"
     },
     "rust.rls": {
         "useRustfmt": true
