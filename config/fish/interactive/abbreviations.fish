@@ -97,6 +97,7 @@ abbr -ag al-win-retina-split "alacritty -d 56 15 &; disown"
 abbr -ag al-win-4k-irc "alacritty -d 93 22 &; disown"
 abbr -ag al-win-4k-cast "alacritty -d 60 14 &; disown"
 abbr -ag al-win-ipad2-irc "alacritty -d 210 60 &; disown"
+abbr -ag al-win-u28e590d-irc "alacritty -d 192 45 &; disown" # ext samsung monitor
 
 ################
 # useful abbreviations for working with NOC lists 💣
