@@ -152,9 +152,10 @@ case Darwin
   end
 
   ###############################
-  # Docker tooling
+  # macOS > Docker tooling
   ##
   set -gx ETC_LOCALTIME (realpath /etc/localtime)
+  set -gx TZ (readlink /etc/localtime | sed 's#/var/db/timezone/zoneinfo/##');
 
   if type -q nvim
     set -gx EDITOR nvim
