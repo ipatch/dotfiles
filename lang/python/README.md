@@ -102,7 +102,7 @@ pip install --upgrade neovim
 
 <a id="useful-links"></a>
 
-## Useful Links [🔝](#contents)
+## Useful Links
 
 <a id="todos"></a>
 
