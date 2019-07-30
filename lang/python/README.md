@@ -100,6 +100,22 @@ echo "to upgrade the neovim3 package"
 pip install --upgrade neovim
 ```
 
+<a id="working-with-pip"></a>
+
+### Working with pip
+
+To list all top level packages that have been installed with **pip**
+
+```shell
+pip
+```
+
+To upgrade a package that has been installed with **pip**
+
+```shell
+pip install --upgrade [NAME_OF_PACKAGE]
+```
+
 <a id="useful-links"></a>
 
 ## Useful Links
