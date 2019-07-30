@@ -5,6 +5,7 @@
 /opt/code/python/meshroom/
 /opt/code/3d-printing/
 /opt/code/3d-printing/STLs/
+/opt/code/3d-printing/STLs/stls-blender-exports/
 [Recent]
 /Users/capin/graphics/3D-projects/blender-2.80-alpha/
 /opt/code/3d-printing/STLs/stls-blender-exports/
