@@ -88,6 +88,14 @@ if [ -x $HOME/.asdf/shims/erl ] || [ -x $HOME/.asdf/shims/iex ]
 end
 
 ##############################
+# r2 tooling
+##
+if [ -x /usr/local/bin/r2 ]
+  set -gx RHOMEDIR ~/.config/radare2
+  set -gx RCFILE ~/.config/radare2/radare2rc
+end
+
+##############################
 # git related settings
 ##
 set -gx GIT_RC $XDG_CONFIG_HOME/git

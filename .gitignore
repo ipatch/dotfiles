@@ -19,6 +19,7 @@ vim/*.swp
 **/.undo
 **/.un*
 **/.un~
+
 # Ignore bundled packages, ie. minpac Vim plugins
 !/editors/vim/vim/pack/.gitkeep
 !/editors/vim/vim/pack/minpac/.gitkeep
@@ -117,7 +118,7 @@ config/fish/fisher/functions/*
 ##############################
 # mpv
 ##
-# Ignore files within the watch_later dir for mpv
+# Ignore all files within the watch_later dir for mpv
 # **/config/mpv/watch_later/ 
 # Ignore `watch_later` directory from mpv
 config/mpv/watch_later/* 
@@ -170,6 +171,16 @@ config/Blender/2.81/scripts/presets/operator/**
 lang/python/pyenv/**
 # airpy tools for working with AirPort devices
 jobs/bin/acp
+
+
+##############################
+# r2 a.k.a radare radare2
+##
+config/radare2/history
+config/radare2/plugins/*
+!config/radare2/plugins/.gitkeep
+config/radare2/r2pm/*
+!config/radare2/r2pm/.gitkeep
 
 ##############################
 # tmux
