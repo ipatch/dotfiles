@@ -42,6 +42,7 @@ set -gx forksgh /opt/code/github/public/forks
 set -gx private /opt/code/github/private
 set -gx gitlab /opt/code/gitlab
 set -gx public /opt/code/public
+set -gx publicgh /opt/code/public/github
 set -gx fish_emoji_width 2 # NOT COMPATIBLE with fish <= 2.7.1
 
 if type -q brew
