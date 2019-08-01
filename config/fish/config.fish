@@ -1,5 +1,5 @@
 ##############################
-# User specified file for configuring fish shell.
+# User defined configuration file for the fish shell.
 # Author: Chris Jones
 # Contact: @truckmonth <- twitter
 # Contact: @ipatch <- github 
@@ -15,10 +15,10 @@
 ##
 # NOTE: if a directory has been added to the $PATH but no longer is in ./conf.d/001_load_paths.fish but is still listed in the $PATH env var then manually remove the directory from the $PATH using the `path_remove` function contained with the `functions` dir
 
-set fish_greeting "" # disable default fish greeting
+set fish_greeting "" # disable default fish greeting ⋊>
 
 if status --is-interactive
-  source $HOME/.config/fish/interactive.fish # interactive.fish sources files contained within `~/.config/fish/interactive/`
+  source $HOME/.config/fish/interactive.fish # source files within `~/.config/fish/interactive/`
 
   # Base16 Shell - a sane colorscheme for better shell colors 🌈
   set BASE16_SHELL "$HOME/.config/base16-shell"
@@ -28,7 +28,7 @@ end
 #############################
 # USER defined environment variables
 ##
-# set -gx TERM xterm-256color # <= DON'T explicitly set this env var!
+# set -gx TERM xterm-256color # <= ❗️ DON'T explicitly set this env var!
 set -gx HOSTNAME (hostname -s)
 set -gx dotfiles /opt/code/dotfiles
 set -gx dots /opt/code/dotfiles
@@ -38,6 +38,7 @@ set -gx code /opt/code
 set -gx github /opt/code/github
 set -gx gh /opt/code/github
 set -gx forks /opt/code/github/public/forks
+set -gx forksgh /opt/code/github/public/forks
 set -gx private /opt/code/github/private
 set -gx gitlab /opt/code/gitlab
 set -gx public /opt/code/public
@@ -164,7 +165,7 @@ case Darwin
     set -gx VIMDATA $HOME/.vim
 
     #########################
-    # Add check for syntax highlighting for `less`
+    # check for `less` cmd syntax highlighting
     ##
     if not test -x "/usr/local/share/nvim/runtime/macros/less.sh" \
     -a -L "$HOME/.local/bin/less"
@@ -191,7 +192,7 @@ case Darwin
   end
 
   ###############################
-  # fisher | fish shell plugin manager
+  # fisher | fish shell > plugin manager
   ##
   set -gx fisher_path "$XDG_CONFIG_HOME/fish/fisher"
   set fish_function_path $fish_function_path $fisher_path/functions
@@ -203,11 +204,11 @@ case Darwin
 
 case Linux
   ###############################
-  # Linux specific env vars
+  # GNU+Linux specific env vars
   ##
   dircolors -c $HOME/.dir_colors | source
 
-  # `$DISPLAY` should be set by SSH configs and NOT shell config files 
+  # `$DISPLAY` should be set by SSH configs and ❗️ NOT shell config files 
   if [ -d $HOME/.terminfo ]
     set -gx TERMINFO "$HOME/.terminfo"
     # set -gx TERM xterm
@@ -235,16 +236,20 @@ case Linux
 end
 
 ##############################
-# NOTE: fish suports both left & right prompts
+# NOTE: fish shell suports both left & right prompts
 # NOTE: don't enable the below functions if using an external theme from omf ie, neolambda
 ##
 
+## Example func
+#
 # function fish_prompt
-# The left prompt
+#   echo "The left prompt"
 # end
 
+## Example func
+#
 # function fish_right_prompt
-# TODO: flesh out the right prompt to display the current
-#...python, ruby, elixir, etc etc with a pretty glyph
+#   echo "TODO: flesh out the right prompt to display the current\n
+#   ...python, ruby, elixir, etc etc with a pretty glyph"
 # end
 
