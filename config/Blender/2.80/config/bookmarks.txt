@@ -7,8 +7,8 @@
 /opt/code/3d-printing/
 /opt/code/3d-printing/STLs/
 [Recent]
-/opt/code/3d-printing/STLs/stls-blender-exports/
 /Users/capin/graphics/3D-projects/blender-2.80-alpha/
+/opt/code/3d-printing/STLs/stls-blender-exports/
 /Users/capin/Desktop/
 /opt/code/python/meshroom/caster-redux03/MeshroomCache/Texturing/b842455b327e7712f1ab090b1ad4f80434e90a05/
 /opt/code/python/meshroom/caster-redux03/MeshroomCache/Meshing/595e128e3c5017f78089c7a4992aa634a3e0a961/

@@ -154,6 +154,14 @@ config/Blender/2.80/scripts/addons/**
 !config/Blender/2.80/scripts/addons/.gitkeep
 config/Blender/2.80/scripts/presets/operator/**
 !config/Blender/2.80/scripts/presets/operator/.gitkeep
+# Blender 2.81 config files
+config/Blender/2.81/config/recent-files.txt
+config/Blender/2.81/config/bookmarks.txt
+config/Blender/2.81/scripts/addons/**
+!config/Blender/2.81/scripts/addons/.gitkeep
+config/Blender/2.81/scripts/presets/operator/**
+!config/Blender/2.81/scripts/presets/operator/.gitkeep
+!config/Blender/2.81/config/.gitkeep
 
 
 ##############################
