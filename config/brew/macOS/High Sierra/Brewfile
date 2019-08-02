@@ -173,11 +173,11 @@ brew "libksba"
 brew "npth"
 brew "pinentry"
 brew "gnupg"
+brew "qt"
 brew "gpgme"
 brew "gnu-sed", args: ["with-default-names"]
 brew "gnu-time", args: ["with-default-names"]
 brew "libcerf"
-brew "qt"
 brew "gnuplot"
 brew "graphene"
 brew "graphicsmagick"
@@ -246,6 +246,7 @@ brew "minicom"
 brew "mkvtoolnix"
 brew "mongodb", restart_service: true
 brew "mujs"
+brew "zimg"
 brew "vapoursynth"
 brew "youtube-dl", link: false
 brew "mpv", link: false
