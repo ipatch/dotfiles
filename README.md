@@ -24,7 +24,7 @@
 
 ## Installation
 
-> 👷 The below install script has not been completed, so you'll have to do the good ol [StackOverflow](https://i.imgur.com/QZj4hxp.jpg) if you want to expierment with any of the settings from this repo. 🚧
+>👷 The below install script has not been completed, so you'll have to do the good ol [StackOverflow ↗️](https://i.imgur.com/QZj4hxp.jpg) if you want to expierment with any of the settings from this repo. 🚧
 
 ```sh
 curl https://raw.githubusercontent.com/ipatch/dotfiles/master/install.sh | /bin/sh
