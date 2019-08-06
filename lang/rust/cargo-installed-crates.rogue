@@ -1,18 +1,24 @@
-alacritty v0.3.2 (https://github.com/jwilm/alacritty#34c54e7e):
+alacritty v0.3.3 (https://github.com/jwilm/alacritty#707f4293):
     alacritty
 bat v0.11.0:
     bat
-cargo-generate v0.3.0:
+cargo-generate v0.3.1:
     cargo-generate
 cargo-update v1.7.0:
     cargo-install-update
     cargo-install-update-config
+exa v0.9.0:
+    exa
 fd-find v7.3.0:
     fd
+hexyl v0.5.1:
+    hexyl
 https v1.5.0:
     http
     httplz
-ripgrep v11.0.1:
+lms v0.3.4:
+    lms
+ripgrep v11.0.2:
     rg
 rusti v0.0.1 (https://github.com/murarth/rusti#2dddea34):
     rusti
