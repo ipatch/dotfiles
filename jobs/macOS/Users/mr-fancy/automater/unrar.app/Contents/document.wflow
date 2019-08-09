@@ -25,6 +25,110 @@
 					</array>
 				</dict>
 				<key>AMActionVersion</key>
+				<string>1.1.2</string>
+				<key>AMApplication</key>
+				<array>
+					<string>Finder</string>
+				</array>
+				<key>AMParameterProperties</key>
+				<dict>
+					<key>fileNames</key>
+					<dict/>
+				</dict>
+				<key>AMProvides</key>
+				<dict>
+					<key>Container</key>
+					<string>List</string>
+					<key>Types</key>
+					<array>
+						<string>com.apple.cocoa.path</string>
+					</array>
+				</dict>
+				<key>ActionBundlePath</key>
+				<string>/System/Library/Automator/Get Specified Finder Items.action</string>
+				<key>ActionName</key>
+				<string>Get Specified Finder Items</string>
+				<key>ActionParameters</key>
+				<dict>
+					<key>fileNames</key>
+					<array/>
+				</dict>
+				<key>BundleIdentifier</key>
+				<string>com.apple.Automator.SpecifiedFiles</string>
+				<key>CFBundleVersion</key>
+				<string>1.1.2</string>
+				<key>CanShowSelectedItemsWhenRun</key>
+				<false/>
+				<key>CanShowWhenRun</key>
+				<true/>
+				<key>Category</key>
+				<array>
+					<string>AMCategoryFilesAndFolders</string>
+				</array>
+				<key>Class Name</key>
+				<string>SpecifiedFilesAction</string>
+				<key>Disabled</key>
+				<true/>
+				<key>InputUUID</key>
+				<string>40069562-0180-42AB-9866-1D19AEE6FBEE</string>
+				<key>Keywords</key>
+				<array>
+					<string>File</string>
+					<string>Choose</string>
+					<string>Find</string>
+					<string>Get</string>
+				</array>
+				<key>OutputUUID</key>
+				<string>5F039E49-F723-401A-8036-191182FF4B8A</string>
+				<key>UUID</key>
+				<string>AC1FE59E-BF98-402A-BB9F-2E98015F7FD8</string>
+				<key>UnlocalizedApplications</key>
+				<array>
+					<string>Finder</string>
+				</array>
+				<key>arguments</key>
+				<dict>
+					<key>0</key>
+					<dict>
+						<key>default value</key>
+						<array/>
+						<key>name</key>
+						<string>fileNames</string>
+						<key>required</key>
+						<string>0</string>
+						<key>type</key>
+						<string>0</string>
+						<key>uuid</key>
+						<string>0</string>
+					</dict>
+				</dict>
+				<key>conversionLabel</key>
+				<integer>0</integer>
+				<key>isViewVisible</key>
+				<false/>
+				<key>location</key>
+				<string>483.750000:112.000000</string>
+				<key>nibPath</key>
+				<string>/System/Library/Automator/Get Specified Finder Items.action/Contents/Resources/Base.lproj/main.nib</string>
+			</dict>
+			<key>isViewVisible</key>
+			<false/>
+		</dict>
+		<dict>
+			<key>action</key>
+			<dict>
+				<key>AMAccepts</key>
+				<dict>
+					<key>Container</key>
+					<string>List</string>
+					<key>Optional</key>
+					<true/>
+					<key>Types</key>
+					<array>
+						<string>com.apple.cocoa.path</string>
+					</array>
+				</dict>
+				<key>AMActionVersion</key>
 				<string>2.1.1</string>
 				<key>AMApplication</key>
 				<array>
@@ -253,7 +357,7 @@ done</string>
 				<key>isViewVisible</key>
 				<true/>
 				<key>location</key>
-				<string>341.500000:319.000000</string>
+				<string>483.750000:511.000000</string>
 				<key>nibPath</key>
 				<string>/System/Library/Automator/Run Shell Script.action/Contents/Resources/English.lproj/main.nib</string>
 			</dict>
@@ -263,12 +367,19 @@ done</string>
 	</array>
 	<key>connectors</key>
 	<dict>
-		<key>DF0A023D-5D15-43AC-933A-A0C246921EF1</key>
+		<key>93F827AB-A6B9-47EF-9CE5-99F0766F05B9</key>
 		<dict>
 			<key>from</key>
 			<string>50145C64-9143-4067-A403-A4A9C7509A1B - 50145C64-9143-4067-A403-A4A9C7509A1B</string>
 			<key>to</key>
 			<string>AD809AA7-6763-4C47-8FA3-9C1683DCD65A - AD809AA7-6763-4C47-8FA3-9C1683DCD65A</string>
+		</dict>
+		<key>C1DE9B90-B62B-45C2-AE0C-72A8C93B300B</key>
+		<dict>
+			<key>from</key>
+			<string>AC1FE59E-BF98-402A-BB9F-2E98015F7FD8 - AC1FE59E-BF98-402A-BB9F-2E98015F7FD8</string>
+			<key>to</key>
+			<string>50145C64-9143-4067-A403-A4A9C7509A1B - 50145C64-9143-4067-A403-A4A9C7509A1B</string>
 		</dict>
 	</dict>
 	<key>workflowMetaData</key>
