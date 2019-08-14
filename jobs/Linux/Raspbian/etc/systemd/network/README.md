@@ -1,0 +1,1 @@
+- The **.link** files contained within this directory are used to create custom interface names for modern Debian distros that use a recent version of Systemd.
