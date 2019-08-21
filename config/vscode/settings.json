@@ -45,7 +45,7 @@
 
     // Stop from scrolling past bottom of open file
     "editor.scrollBeyondLastLine": false,
-    "editor.minimap.enabled": false,
+    "editor.minimap.enabled": true,
 
     // use global eslint installed via yarn
     "eslint.packageManager": "yarn",
@@ -99,7 +99,7 @@
         
         ]
     },
-    "workbench.activityBar.visible": false,
+    "workbench.activityBar.visible": true,
     "workbench.statusBar.feedback.visible": false,
     "workbench.statusBar.visible": false,
     "rust.mode": null,
@@ -109,5 +109,7 @@
     },
     "rust.rls": {
         "useRustfmt": true
-    }
+    },
+    "editor.cursorStyle": "block",
+    "editor.cursorBlinking": "solid"
 }
