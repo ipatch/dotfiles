@@ -102,7 +102,7 @@
     "workbench.activityBar.visible": false,
     "workbench.statusBar.feedback.visible": false,
     "workbench.statusBar.visible": false,
-    "rust.mode": "rls",
+    "rust.mode": null,
     "rust.rustup": {
         "nightlyToolchain": "nightly-x86_64-apple-darwin",
         "toolchain": "stable-x86_64-apple-darwin"

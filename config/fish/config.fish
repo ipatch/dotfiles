@@ -39,6 +39,8 @@ set -gx github /opt/code/github
 set -gx gh /opt/code/github
 set -gx forks /opt/code/github/public/forks
 set -gx forksgh /opt/code/github/public/forks
+set -gx githubforks /opt/code/github/public/forks
+set -gx ghforks /opt/code/github/public/forks
 set -gx private /opt/code/github/private
 set -gx gitlab /opt/code/gitlab
 set -gx public /opt/code/public
