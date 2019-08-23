@@ -10,6 +10,8 @@ function path_pretty_redux --description 'print a pretty listing of the $PATH'
 
   # DEBUG
   # echo "$p"
+  
+  # ❗️ requires GNU sed not BSD
 
   set -l p_colon (echo "$p" | sed s'/\ \//:\//g; s/\ ~/:~/g; s/\ .:/:.:/g')
 
