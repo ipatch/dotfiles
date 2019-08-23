@@ -31,15 +31,17 @@ switch $os
     # DO NOTHING -- see aliases.fish
     # abbr -ag l 'ls -lahF'
 end
-abbr -ag cp 'cp -iv'
-abbr -ag dots 'cd $dots'
-abbr -ag dotsw 'cd $dots/.wiki'
+
+# NOTE: if using double quotes and the abbr contains an env var, ie. `$dots` the env var will be expanded after pressing space, whereas using single quotes will expand the $dots after pressing `enter`
+abbr -ag cp "cp -iv"
+abbr -ag dots "cd $dots"
+abbr -ag dotsw "cd $dots/.wiki"
 
 #############################
 # ruby tooling
 ##
 if [ -d "$HOME/.rvm" ]
-  abbr -ag be 'bundle exec'
+  abbr -ag be "bundle exec"
 end
 
 #############################
@@ -49,26 +51,26 @@ end
 # -a = preserve file permssions
 # -h = human readable output
 #
-abbr -ag cpv 'rsync -ah --info=progress2'
-abbr -ag rm 'rm -iv'
-abbr -ag mv 'mv -iv'
-abbr -ag df 'df -h'
-abbr -ag du 'du -h'
-abbr -ag today 'date +"%A, %B %-d, %Y"'
-abbr -ag ll 'ls -1'
-abbr -ag l1 'ls -1'
+abbr -ag cpv "rsync -ah --info=progress2"
+abbr -ag rm "rm -iv"
+abbr -ag mv "mv -iv"
+abbr -ag df "df -h"
+abbr -ag du "du -h"
+abbr -ag today "date +'%A, %B %-d, %Y'"
+abbr -ag ll "ls -1"
+abbr -ag l1 "ls -1"
 
 ################
 # funny abbreviations
 ##
-abbr -ag hunh 'emoji --hunh'
-abbr -ag tf 'emoji --table-flip'
-abbr -ag woot 'emoji --yay'
+abbr -ag hunh "emoji --hunh"
+abbr -ag tf "emoji --table-flip"
+abbr -ag woot "emoji --yay"
 
 ################
 # git abbreviations
 ##
-abbr -ag gs 'git status'
+abbr -ag gs "git status"
 abbr -ag gd 'git diff --stat'
 abbr -ag ga 'git add --all'
 abbr -ag gc 'git commit -m'
@@ -195,25 +197,25 @@ case Darwin
   ####
   # macOS Debugging
   ##
-  abbr -ag sip-status 'csrutil status'
-  abbr -ag mac-print-sip-status 'csrutil status'
+  abbr -ag sip-status "csrutil status"
+  abbr -ag mac-print-sip-status "csrutil status"
 
   # setup an alias for quicklook from the terminal in macOS
-  abbr -ag ql 'qlmanage -p'
+  abbr -ag ql "qlmanage -p"
   # update location DB
   # NOTE: changed abbr to `mac-updatedb` because of homebrew installed
   #...`findutils` which provides the `updatedb` bin.
-  abbr -ag mac-updatedb 'sudo /usr/libexec/locate.updatedb'
-  abbr -ag mac-hide-files 'mac_toggle_hidden_files'
-  abbr -ag mac-show-files 'mac_toggle_hidden_files'
-  abbr -ag mac-toggle-hidden-files 'mac_toggle_hidden_files'
-  abbr -ag mac-toggle-desktop-icons 'mac_toggle_desktop_icons.sh'
-  abbr -ag mac-print-users 'mac_lsusers'
+  abbr -ag mac-updatedb "sudo /usr/libexec/locate.updatedb"
+  abbr -ag mac-hide-files "mac_toggle_hidden_files"
+  abbr -ag mac-show-files "mac_toggle_hidden_files"
+  abbr -ag mac-toggle-hidden-files "mac_toggle_hidden_files"
+  abbr -ag mac-toggle-desktop-icons "mac_toggle_desktop_icons.sh"
+  abbr -ag mac-print-users "mac_lsusers"
 
   ################
   # launchd / launchctl
   ##
-  abbr -ag lc 'launchctl'
+  abbr -ag lc "launchctl"
   
   ################
   # homebrew specifc abbreviations
