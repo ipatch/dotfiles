@@ -12,6 +12,11 @@ abbr -ag editfish 'nvim $HOME/.config/fish/config.fish'
 abbr -ag editnvim 'nvim $HOME/.config/nvim/init.vim'
 abbr -ag editvim  'nvim $HOME/.vimrc'
 abbr -ag editdots 'cd $dots; nvim;'
+#
+abbr -ag edfish "nvim $HOME/.config/fish/config.fish"
+abbr -ag ednvim "nvim $HOME/.config/nvim/init.vm"
+abbr -ag edvim "nvim $HOME/.vimrc"
+abbr -ag eddots "cd $dots; nvim;"
 
 set -gx os (uname)
 
@@ -77,12 +82,13 @@ abbr -ag gsmru 'git smrupdate'
 abbr -ag git-ls-aliases 'git aliases'
 
 ################
-# abbreviations for my custom functions
+# abbreviations for my custom fish functions
 ##
 abbr -ag pretty_path 'path_pretty'
 abbr -ag pretty-path 'path_pretty'
 abbr -ag path-pretty 'path_pretty'
 abbr -ag pp 'path_pretty'
+abbr -ag ppr "path_pretty_redux"
 abbr -ag path-add 'path_add'
 abbr -ag path-remove 'path_remove'
 abbr -ag path-rm 'path_remove'
@@ -98,6 +104,9 @@ abbr -ag al-win-4k-irc "alacritty -d 93 22 &; disown"
 abbr -ag al-win-4k-cast "alacritty -d 60 14 &; disown"
 abbr -ag al-win-ipad2-irc "alacritty -d 210 60 &; disown"
 abbr -ag al-win-u28e590d-irc "alacritty -d 192 45 &; disown" # ext samsung monitor
+abbr -ag al-win-4k-samsung "alacritty -d 192 45 &; disown"
+#
+abbr -ag alwin4ksam "alacritty -d 192 45 &; disown"
 
 ################
 # useful abbreviations for working with NOC lists 💣

@@ -11,9 +11,10 @@
 # OS check
 ##
 # NOTE: be sure to symlink `/bin/uname` to `/usr/bin/uname` on Debian
-# NOTE: macOS = `Darwin` GNU/Linux = `Linux`
+# NOTE: macOS == `Darwin` GNU/Linux == `Linux`
 set -gx os (/usr/bin/uname)  
-# echo $os <= useful for debugging
+# DEBUG
+# echo $os
 set -gx XDG_CONFIG_HOME $HOME/.config
 
 if [ "$os" = Darwin ]; and [ -n /usr/local/bin/brew ]
@@ -22,6 +23,7 @@ else if [ "$os" = Linux ]; and [ -n /home/linuxbrew/.linuxbrew/bin/brew ]
   set -gx brew_prefix /home/linuxbrew/.linuxbrew
 end
 
+# NOTE: reverse order, ie. `/bin` should be last entry within `$PATH`
 set -l paths \
 /bin \
 /sbin \
@@ -36,7 +38,8 @@ set -l paths \
 $HOME/.cargo/bin \
 $HOME/go/bin \
 $HOME/Library/Android/sdk/platform-tools \
-/opt/X11/bin \
+# NOTE: the below entry is not required on macOS because X11.app adds `40-XQuartz` file within `/etc/paths.d`
+# /opt/X11/bin \ 
 $brew_prefix/bin \
 $brew_prefix/sbin \
 $brew_prefix/opt/libressl/bin \
@@ -46,7 +49,8 @@ $brew_prefix/opt/coreutils/libexec/bin \
 $HOME/.local/bin \
 $HOME/.config/yarn/bin \
 /Applications/microchip/xc16/v1.35/bin \
-(pwd)
+# NOTE: the below entry is causing more issues than solutions
+# (pwd)
 # The below PATH entries are inherited from the `/usr/bin/env` on macOS, Linux is another story
 # /usr/sbin \
 # /usr/bin \
@@ -60,7 +64,7 @@ for p in $paths
     # set -gx PATH $PATH $p
 
     # prepend PATH entries, so that `/usr/sbin:/usr/bin:/sbin:/bin` are the last 4 entries in the PATH
-    # NOTE: the path entry order can be tested w/ `pp` abbr in fish
+    # NOTE: the path entry order can be tested w/ the fish shell abbr `ppr` contained within `abbreviations.fish`
     set -gx PATH $p $PATH
   end
 end
