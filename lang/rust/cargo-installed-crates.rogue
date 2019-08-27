@@ -13,7 +13,7 @@ fd-find v7.3.0:
     fd
 hexyl v0.5.1:
     hexyl
-https v1.5.1:
+https v1.5.2:
     http
     httplz
 lms v0.3.4:
