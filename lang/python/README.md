@@ -50,7 +50,10 @@ pyenv install -kv [MARJOR.MINOR.PATCH]
     When building Python on macOS that has multiple versions of Xcode installed ie. 10.1 10.2 and 10.3 complications can arise where certain command line tools are used or may not be installed for whatever reason. Try using the below command to build  a version of Python **2.7.x** or **3.7.x** using the tooling provided by Xcode
 
     ```shell
-    env SDKROOT=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk MACOSX_DEPLOYMENT_TARGET=10.14 pyenv install [MAJOR.MINOR.PATCH]
+    env \
+    SDKROOT=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk \
+    MACOSX_DEPLOYMENT_TARGET=10.14 \
+    pyenv install [MAJOR.MINOR.PATCH]
     ```
 
 **protip** when installing a version of python on macOS `/usr/local/{sbin/bin}` should be in the `$PATH` or pyenv will fail to build python due to SSL errors.  However the opposite is true for Debian with linuxbrew installed and setup.
