@@ -60,6 +60,18 @@ I use minpac to install and update various Vim and Neovim Plugins, and the list 
 :CheckHealth
 ```
 
+<a id="minpac"></a>
+
+### Minpac
+
+- **minpac** stores the source for Vim and Neovim plugins in the below directory
+
+```shell
+$HOME/.vim/vim/pack/minpac/start
+```
+
+> ❗️ If **.vim** is symlinked then the above directory might be different.
+
 <a id="neovim-boot-time"></a>
 
 ### Neovim Boot Time
