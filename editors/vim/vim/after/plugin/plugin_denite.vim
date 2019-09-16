@@ -62,8 +62,31 @@ if has('nvim')
     echo 'Denite not installed. It should work after running :packupdate'
   endtry
 
-  nnoremap ; :Denite buffer -split=floating -winrow=1<CR>
+  " nnoremap ; :Denite buffer -split=floating -winrow=1<CR>
+  nmap ; :Denite buffer<CR>
+
   nnoremap <leader>t :Denite file/rec -split=floating -winrow=1<CR>
   nnoremap <leader>g :<C-u>Denite grep:. -no-empty -mode=normal<CR>
   nnoremap <leader>j :<C-u>DeniteCursorWord grep:. -mode=normal<CR>
+
+  " define mappings while in dentie window
+  " <CR>        - Opens currently selected file
+  " q or <Esc>  - Quite denite window
+  " d           - delete currently selected file
+  " p           - preview currently selected file
+
+
+  autocmd FileType denite call s:denite_my_settings()
+  function! s:denite_my_settings() abort
+    nnoremap <silent><buffer><expr> <CR>
+          \ denite#do_map('do_action')
+    nnoremap <silent><buffer><expr> q
+          \ denite#do_map('quit')
+    nnoremap <silent><buffer><expr <Esc>
+          \ denite#do_map('quit')
+    nnoremap <silent><buffer><expr> i
+          \ denite#do_map('open_filter_buffer')
+    nnoremap <silent><buffer><expr> <C-o>
+          \ denite#do_map('open_filter_buffer')
+  endfunction
 endif
