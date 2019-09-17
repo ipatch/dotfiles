@@ -9,6 +9,19 @@
 - [Useful Links](#useful-links)
 - [TODOs](#todos)
 
+<a id="python-scripts"></a>
+
+## Python Scripts
+
+To convert a directory of **.blend** files to **.obj** file using the script provided within this directory
+
+```shell
+for i in *.blend;
+  /Applications/Blender.app/Contents/MacOS/Blender $i --background \
+  --python convert_blend_to_obj.py -- $i.obj
+end
+```
+
 <a id="working-with-python"></a>
 
 ## Working with Python [🔝](#contents)
