@@ -1,15 +1,15 @@
 alacritty v0.3.3 (https://github.com/jwilm/alacritty#707f4293):
     alacritty
-bat v0.12.0:
+bat v0.12.1:
     bat
 cargo-generate v0.4.0:
     cargo-generate
-cargo-update v1.7.0:
+cargo-update v1.8.2:
     cargo-install-update
     cargo-install-update-config
 exa v0.9.0:
     exa
-fd-find v7.3.0:
+fd-find v7.4.0:
     fd
 hexyl v0.5.1:
     hexyl

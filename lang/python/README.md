@@ -4,8 +4,10 @@
 
 ## Contets
 
+- [Python Scripts](#python-scripts)
 - [Working with Python](#working-with-python)
 - [Working with pyenv](#working-with-pyenv)
+- [Working with pip](#working-with-pip)
 - [Useful Links](#useful-links)
 - [TODOs](#todos)
 
@@ -131,7 +133,13 @@ pip install --upgrade neovim
 To list all top level packages that have been installed with **pip**
 
 ```shell
-pip
+pip list
+```
+
+To list outdated packages that have been install via pip
+
+```shell
+pip list --outdated
 ```
 
 To upgrade a package that has been installed with **pip**
