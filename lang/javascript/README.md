@@ -43,6 +43,18 @@ To set the default version of Node.js
 nvm alias default 10.15.1
 ```
 
+### Troubleshooting with NVM
+
+When working with a Node.js project and editing files with Neovim and having Coc.nvim installed a Neovim plugin I was running into the below error message when switching between files using denite.
+
+<strong>Error Message</strong>
+
+```shell
+[coc.nvim] failed to load ESLint...
+```
+
+A possible remedy for the above error message is to install **ESLint** globally using `npm` especially if one using **nvm** to manage different versions of Node.js
+
 <a id="package-json"></a>
 
 ## package.json [🔝](#contents)
