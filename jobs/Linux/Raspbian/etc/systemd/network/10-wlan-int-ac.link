@@ -1,0 +1,9 @@
+# NOTE: this `link` is bound to the iface in my rpi 3B+ and should not work with any other rpi
+
+[Match]
+MACAddress=42:42:42:42:42:42
+
+[Link]
+Name=wlan-int
+
+

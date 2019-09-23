@@ -8,5 +8,5 @@ function path_pretty --description 'print a pretty listing of the $PATH'
 
   # PATH entries can be removed with the below commands
   # set --erase PATH[1]
-  # set -e PATh[4]
+  # set -e PATH[4]
 end

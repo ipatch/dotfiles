@@ -4,10 +4,25 @@
 
 ## Contets
 
+- [Python Scripts](#python-scripts)
 - [Working with Python](#working-with-python)
 - [Working with pyenv](#working-with-pyenv)
+- [Working with pip](#working-with-pip)
 - [Useful Links](#useful-links)
 - [TODOs](#todos)
+
+<a id="python-scripts"></a>
+
+## Python Scripts
+
+To convert a directory of **.blend** files to **.obj** file using the script provided within this directory
+
+```shell
+for i in *.blend;
+  /Applications/Blender.app/Contents/MacOS/Blender $i --background \
+  --python convert_blend_to_obj.py -- $i.obj
+end
+```
 
 <a id="working-with-python"></a>
 
@@ -44,6 +59,17 @@ pyenv install -kv [MARJOR.MINOR.PATCH]
 ```
 
 > The source for a particular Python is downloaded in `$PYENV_ROOT/sources/[MAJOR.MINOR.PATCH]/Python-[MAJOR.MINOR.PATCH]
+
+- ❗️ **UPDATE** August 29, 2019
+
+    When building Python on macOS that has multiple versions of Xcode installed ie. 10.1 10.2 and 10.3 complications can arise where certain command line tools are used or may not be installed for whatever reason. Try using the below command to build  a version of Python **2.7.x** or **3.7.x** using the tooling provided by Xcode
+
+    ```shell
+    env \
+    SDKROOT=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk \
+    MACOSX_DEPLOYMENT_TARGET=10.14 \
+    pyenv install [MAJOR.MINOR.PATCH]
+    ```
 
 **protip** when installing a version of python on macOS `/usr/local/{sbin/bin}` should be in the `$PATH` or pyenv will fail to build python due to SSL errors.  However the opposite is true for Debian with linuxbrew installed and setup.
 
@@ -100,9 +126,31 @@ echo "to upgrade the neovim3 package"
 pip install --upgrade neovim
 ```
 
+<a id="working-with-pip"></a>
+
+### Working with pip
+
+To list all top level packages that have been installed with **pip**
+
+```shell
+pip list
+```
+
+To list outdated packages that have been install via pip
+
+```shell
+pip list --outdated
+```
+
+To upgrade a package that has been installed with **pip**
+
+```shell
+pip install --upgrade [NAME_OF_PACKAGE]
+```
+
 <a id="useful-links"></a>
 
-## Useful Links [🔝](#contents)
+## Useful Links
 
 <a id="todos"></a>
 

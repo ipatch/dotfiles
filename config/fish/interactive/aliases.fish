@@ -5,6 +5,8 @@ switch $os
   case Darwin
     #DO NOTHING
     alias l="ls -lahF --group-directories-first"
+    alias grep="echo 'You should be using `rg` instead ...just saying'"
+    alias rg="rg -S"
   case Linux
     alias ls="ls --color=auto"
     # alias l="ls -lah --color=auto"

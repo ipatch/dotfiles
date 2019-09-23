@@ -1,4 +1,4 @@
-set fileencoding=utf-8                " Set utf-8 encoding on write
+set fileencoding=utf-8 " Set utf-8 encoding on write
 scriptencoding utf-8
 
 """"""""""""""""""""""""""""""
@@ -160,8 +160,8 @@ augroup END
 if has('wildmenu')
   set wildmenu " display menu when using `tab` completeion
   set wildmode=full " Specifies how the `tab` completion works in wildmenu
-  set wildignore=*.o,*.obj,*~           "stuff to ignore when tab completing
-  set wildignore+=*/.git/*      " ignore the below directories with wild menu
+  set wildignore=*.o,*.obj,*~ "stuff to ignore when tab completing
+  set wildignore+=*/.git/* " ignore the below directories with wild menu
   set wildignore+=*logs*
   set wildignore+=*node_modules/**
   set wildignore+=package-lock.json
@@ -201,7 +201,7 @@ let g:ale_completion_enabled = 1
 if !exists('*minpac#init')
   " minpac is NOT available
   echo 'Yo!, you need minpac dawg!'
-  " Settings for plugin-less, ie no minpac 😥 environment.
+  " Settings for plugin-less, ie. no minpac 😥 environment.
   if empty(glob('~/.vim/pack/minpac/opt/minpac/plugin/minpac.vim'))
     silent !curl -fLo ~/.vim/pack/minpac/opt/minpac/plugin/minpac.vim
           \--create-dirs
@@ -224,7 +224,7 @@ else
   call minpac#add('tpope/vim-commentary') " quickly comment lines
   call minpac#add('sheerun/vim-polyglot') " lazy load syntax hl
   call minpac#add('christoomey/vim-tmux-navigator') " vim&tmux navi
-  call minpac#add('w0rp/ale') " ALE Asynchronous Linting Engine
+  call minpac#add('w0rp/ale') " Asynchronous Linting Engine
   call minpac#add('tpope/vim-fugitive') " display git branch
   call minpac#add('itchyny/lightline.vim') " lightweight status line.
   call minpac#add('rust-lang/rust.vim')
@@ -238,7 +238,8 @@ else
   "---------------------------------------------------------------
   ""
   if has('nvim')
-    call minpac#add('Shougo/denite.nvim', {'rev': '29bfd4c53271c7a150def2388e059746ae4c1713'})
+    call minpac#add('Shougo/denite.nvim')
+    " call minpac#add('Shougo/denite.nvim', {'rev': '29bfd4c53271c7a150def2388e059746ae4c1713'})
     " call minpac#add('neoclide/coc.nvim', {'do': function('CocBuildUpdate')}) " code completion
     call minpac#add('neoclide/coc.nvim')
   elseif v:version > 8 || v:version == 8 " Check for Vim8 ...sort of

@@ -4,10 +4,18 @@
 
 ## Contents
 
+- [Example](#example)
 - [Neovim](#neovim)
   - [Neovim Boot Time](#neovim-boot-time)
+- [TODOs](#todos)
 
 > For an exhaustive collection of notes I have taken while actively working with these dotfiles using Vim and Neovim [click me](https://github.com/ipatch/dotfiles/wiki/vim-neovim-Notes) 👈
+
+<a id="example"></a>
+
+## Example
+
+❗️ **TODO** add **gif** or asciicast demoing commonly used Vim & Neovim features
 
 <a id="general-notes"></a>
 
@@ -52,6 +60,18 @@ I use minpac to install and update various Vim and Neovim Plugins, and the list 
 :CheckHealth
 ```
 
+<a id="minpac"></a>
+
+### Minpac
+
+- **minpac** stores the source for Vim and Neovim plugins in the below directory
+
+```shell
+$HOME/.vim/vim/pack/minpac/start
+```
+
+> ❗️ If **.vim** is symlinked then the above directory might be different.
+
 <a id="neovim-boot-time"></a>
 
 ### Neovim Boot Time
@@ -83,3 +103,9 @@ To **not** show any output, and only errors & warning if there are any present i
 ```shell
 tidy -eq [FILE.html]
 ```
+
+<a href="todos"></a>
+
+## TODOs
+
+- [ ] add a little animated gif or asciicast for showing some of the features I've setup and link to it in this README
