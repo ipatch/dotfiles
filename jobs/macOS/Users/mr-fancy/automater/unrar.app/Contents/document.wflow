@@ -51,7 +51,9 @@
 				<key>ActionParameters</key>
 				<dict>
 					<key>fileNames</key>
-					<array/>
+					<array>
+						<string>~/Downloads/untitled folder/test.rar</string>
+					</array>
 				</dict>
 				<key>BundleIdentifier</key>
 				<string>com.apple.Automator.SpecifiedFiles</string>
@@ -102,17 +104,15 @@
 						<string>0</string>
 					</dict>
 				</dict>
-				<key>conversionLabel</key>
-				<integer>0</integer>
 				<key>isViewVisible</key>
-				<false/>
+				<true/>
 				<key>location</key>
-				<string>483.750000:112.000000</string>
+				<string>456.500000:308.000000</string>
 				<key>nibPath</key>
 				<string>/System/Library/Automator/Get Specified Finder Items.action/Contents/Resources/Base.lproj/main.nib</string>
 			</dict>
 			<key>isViewVisible</key>
-			<false/>
+			<true/>
 		</dict>
 		<dict>
 			<key>action</key>
@@ -279,7 +279,7 @@ done</string>
 				<key>OutputUUID</key>
 				<string>78738936-471F-41D8-ACBB-6AA2B8666153</string>
 				<key>ShowWhenRun</key>
-				<false/>
+				<true/>
 				<key>UUID</key>
 				<string>AD809AA7-6763-4C47-8FA3-9C1683DCD65A</string>
 				<key>UnlocalizedApplications</key>
@@ -357,7 +357,7 @@ done</string>
 				<key>isViewVisible</key>
 				<true/>
 				<key>location</key>
-				<string>483.750000:511.000000</string>
+				<string>456.500000:788.000000</string>
 				<key>nibPath</key>
 				<string>/System/Library/Automator/Run Shell Script.action/Contents/Resources/English.lproj/main.nib</string>
 			</dict>
@@ -367,19 +367,19 @@ done</string>
 	</array>
 	<key>connectors</key>
 	<dict>
-		<key>93F827AB-A6B9-47EF-9CE5-99F0766F05B9</key>
-		<dict>
-			<key>from</key>
-			<string>50145C64-9143-4067-A403-A4A9C7509A1B - 50145C64-9143-4067-A403-A4A9C7509A1B</string>
-			<key>to</key>
-			<string>AD809AA7-6763-4C47-8FA3-9C1683DCD65A - AD809AA7-6763-4C47-8FA3-9C1683DCD65A</string>
-		</dict>
-		<key>C1DE9B90-B62B-45C2-AE0C-72A8C93B300B</key>
+		<key>2D547455-03B8-4870-A6D0-72DD6560FD67</key>
 		<dict>
 			<key>from</key>
 			<string>AC1FE59E-BF98-402A-BB9F-2E98015F7FD8 - AC1FE59E-BF98-402A-BB9F-2E98015F7FD8</string>
 			<key>to</key>
 			<string>50145C64-9143-4067-A403-A4A9C7509A1B - 50145C64-9143-4067-A403-A4A9C7509A1B</string>
+		</dict>
+		<key>7A4DF881-E0AD-4306-96C7-CAF3A99FB494</key>
+		<dict>
+			<key>from</key>
+			<string>50145C64-9143-4067-A403-A4A9C7509A1B - 50145C64-9143-4067-A403-A4A9C7509A1B</string>
+			<key>to</key>
+			<string>AD809AA7-6763-4C47-8FA3-9C1683DCD65A - AD809AA7-6763-4C47-8FA3-9C1683DCD65A</string>
 		</dict>
 	</dict>
 	<key>workflowMetaData</key>
