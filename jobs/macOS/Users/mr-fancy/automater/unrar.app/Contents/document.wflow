@@ -237,8 +237,6 @@
 # set the input field separator
 IFS=$'\n'
 
-™️
-
 for f in $@
 do
 	p=$(dirname $f)
