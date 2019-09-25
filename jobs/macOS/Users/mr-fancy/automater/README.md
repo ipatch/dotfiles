@@ -2,7 +2,7 @@
 
 This directory contains a **unrar.app** which should be placed within a local or global **/Applications** dir on macOS to extract **.rar** files on macOS by double clicking the rar archive via the **Finder.app**
 
-Within the _$PWD/unrar.app/Contents_ there is a **document.workflow** file that can opened via **Automater.app** on macOS which allows modifying this Automater workflow and then can be resaved as an **.app** bundle to work via the GUI _Finder_ on macOS.
+Within the _$PWD/unrar.app_ is a file that can opened via **Automater.app** on macOS which allows modifying this Automater workflow and then can be resaved as an **.app** bundle to work via the GUI _Finder_ on macOS.
 
 ### Limitations
 

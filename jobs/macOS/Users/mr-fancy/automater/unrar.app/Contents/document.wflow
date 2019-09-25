@@ -105,14 +105,14 @@
 					</dict>
 				</dict>
 				<key>isViewVisible</key>
-				<true/>
+				<false/>
 				<key>location</key>
-				<string>456.500000:308.000000</string>
+				<string>413.000000:112.000000</string>
 				<key>nibPath</key>
 				<string>/System/Library/Automator/Get Specified Finder Items.action/Contents/Resources/Base.lproj/main.nib</string>
 			</dict>
 			<key>isViewVisible</key>
-			<true/>
+			<false/>
 		</dict>
 		<dict>
 			<key>action</key>
@@ -237,6 +237,8 @@
 # set the input field separator
 IFS=$'\n'
 
+™️
+
 for f in $@
 do
 	p=$(dirname $f)
@@ -357,7 +359,7 @@ done</string>
 				<key>isViewVisible</key>
 				<true/>
 				<key>location</key>
-				<string>456.500000:788.000000</string>
+				<string>413.000000:361.000000</string>
 				<key>nibPath</key>
 				<string>/System/Library/Automator/Run Shell Script.action/Contents/Resources/English.lproj/main.nib</string>
 			</dict>
@@ -367,14 +369,14 @@ done</string>
 	</array>
 	<key>connectors</key>
 	<dict>
-		<key>2D547455-03B8-4870-A6D0-72DD6560FD67</key>
+		<key>2EAC2C79-AA9A-42E5-BD46-F8A8ED9BAF7F</key>
 		<dict>
 			<key>from</key>
 			<string>AC1FE59E-BF98-402A-BB9F-2E98015F7FD8 - AC1FE59E-BF98-402A-BB9F-2E98015F7FD8</string>
 			<key>to</key>
 			<string>50145C64-9143-4067-A403-A4A9C7509A1B - 50145C64-9143-4067-A403-A4A9C7509A1B</string>
 		</dict>
-		<key>7A4DF881-E0AD-4306-96C7-CAF3A99FB494</key>
+		<key>5D6124D8-D2F8-49EA-82BA-231DBE5E3D44</key>
 		<dict>
 			<key>from</key>
 			<string>50145C64-9143-4067-A403-A4A9C7509A1B - 50145C64-9143-4067-A403-A4A9C7509A1B</string>
