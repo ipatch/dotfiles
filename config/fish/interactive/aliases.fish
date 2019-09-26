@@ -7,6 +7,10 @@ switch $os
     alias l="ls -lahF --group-directories-first"
     alias grep="echo 'You should be using `rg` instead ...just saying'"
     alias rg="rg -S"
+    if test -d /Applications/Arduino.app
+      alias arduino="/Applications/Arduino.app/Contents/MacOS/Arduino"
+    end
+
   case Linux
     alias ls="ls --color=auto"
     # alias l="ls -lah --color=auto"
