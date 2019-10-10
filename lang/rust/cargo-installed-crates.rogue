@@ -4,14 +4,14 @@ bat v0.12.1:
     bat
 cargo-generate v0.4.0:
     cargo-generate
-cargo-update v1.8.2:
+cargo-update v2.1.0:
     cargo-install-update
     cargo-install-update-config
 exa v0.9.0:
     exa
 fd-find v7.4.0:
     fd
-hexyl v0.5.1:
+hexyl v0.6.0:
     hexyl
 https v1.5.2:
     http
