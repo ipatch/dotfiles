@@ -51,7 +51,7 @@ end
 # -a = preserve file permssions
 # -h = human readable output
 #
-abbr -ag cpv "rsync -ah --info=progress2"
+abbr -ag cpv "rsync -ahp --info=progress2"
 abbr -ag rm "rm -iv"
 abbr -ag mv "mv -iv"
 abbr -ag df "df -h"
