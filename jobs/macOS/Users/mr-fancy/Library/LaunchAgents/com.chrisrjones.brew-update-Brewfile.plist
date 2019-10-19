@@ -21,11 +21,11 @@
     <!-- <key>RunAtLoad</key> -->
     <!-- <true/> -->
 
-    <key>KeepAlive</key>
-    <dict>
-      <key>SuccessfulExit</key>
-      <false/>
-    </dict>
+    <!-- <key>KeepAlive</key> -->
+    <!-- <dict> -->
+    <!--   <key>SuccessfulExit</key> -->
+    <!--   <false/> -->
+    <!-- </dict> -->
 
     <key>StandardErrorPath</key>
     <string>/usr/local/var/log/launchd/com.chrisrjones.brew-update-Brewfile.err</string>

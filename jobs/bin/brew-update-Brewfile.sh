@@ -31,6 +31,8 @@ if [ -x "$path_to_brew" ]; then
       echo "$PATH";
       brew bundle --force dump
 
+      echo "Brewfile updated on '$(date)'"
+
       # tear down env vars for launchd / launchctl
       /bin/launchctl unsetenv HOME
       /bin/launchctl unsetenv USER
