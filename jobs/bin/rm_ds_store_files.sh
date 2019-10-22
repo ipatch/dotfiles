@@ -22,8 +22,8 @@ if [ -x /usr/local/bin/gfind ]; then
 
   /usr/local/bin/gfind / \
     -name .DS_Store \
-    ! -path '/Volumes/' \
-    ! -path '/dev/' \
+    ! -path '/Volumes/*' \
+    ! -path '*/dev/*' \
     -exec /bin/rm -rf {} \; \
     -print 2>&1 | /usr/bin/grep -v "Permission denied"
 elif [ -x /usr/bin/find ]; then
