@@ -33,3 +33,6 @@ echo "downloaded snippet_bash.bashrc"
 
 # sudo -S tee -a "$PWD/snippet_bash.bashrc" >> /etc/bash.bashrc
 echo "$(cat $PWD/snippet_bash.bashrc)" | sudo -A sh -c 'cat >> /etc/bash.bashrc'
+
+echo "appended the contents of snippet_bash.bashrc to /etc/bash.bashrc"
+echo "it is safe to remove the local copy of snippet_bash.bashrc with $PWD"
