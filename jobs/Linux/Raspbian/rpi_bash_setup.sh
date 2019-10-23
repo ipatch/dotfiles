@@ -25,21 +25,24 @@ echo "$HOME./bash_profile created or updated."
 if [ -f /etc/bash.bashrc ]; then
   tmp_bashrc_snippet_url="https://raw.githubusercontent.com/ipatch/dotfiles/fall/dev/jobs/Linux/Raspbian/snippet_bash.bashrc"
 
-  grep -q 'load user specific BASH configuration files' /etc/bash.bashrc
+  grep -q "load user specific BASH configuration files" /etc/bash.bashrc
 
   # store exit status of grep cmd to shell var
   status=$?
+  echo "bashrc grep cmd status = $status" 
 
   if test $status -eq 0
   then
     echo "contents of $tmp_bashrc_snippet_url already added"
   else
-    tmp_curl_bashrc_snippet=$(curl -sL $tmp_curl_bashrc_snippet_url)
+    tmp_curl_bashrc_snippet=$(curl -sL "$tmp_bashrc_snippet_url")
     echo "$(tmp_curl_bashrc_snippet)" | sudo -A sh -c 'cat >> /etc/bash.bashrc'
-    echo "udpated /etc/bash.bashrc with $tmp_curl_bashrc_snippet_url"
+    echo "udpated /etc/bash.bashrc with $tmp_bashrc_snippet_url"
     # prompt/use sudo password to modify /etc/bash.bashrc
     echo "appended the contents of $tmp_bashrc_snippet_url to /etc/bash.bashrc"
   fi
+  else
+    echo "no /etc/bash.bahrc found"
 fi
 
 if [ -f "$HOME/.bash_profile" ]; then
