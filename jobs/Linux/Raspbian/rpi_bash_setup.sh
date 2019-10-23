@@ -35,12 +35,10 @@ curl -s --output "$PWD/snippet_bash.bashrc" "https://raw.githubusercontent.com/i
 echo "downloaded snippet_bash.bashrc"
 
 # prompt for sudo password to modify /etc/bash.bashrc
-# sudo -A sh -c 'cat /etc/hosts'
-
-# sudo -S tee -a "$PWD/snippet_bash.bashrc" >> /etc/bash.bashrc
 echo "$(cat $PWD/snippet_bash.bashrc)" | sudo -A sh -c 'cat >> /etc/bash.bashrc'
 
 echo "appended the contents of snippet_bash.bashrc to /etc/bash.bashrc"
 echo "it is safe to remove the local copy of snippet_bash.bashrc with $PWD"
-echo "reload shell"
-exec bash
+
+source $HOME/.bash_profile
+echo "loaded new $HOME/.bash_profile"
