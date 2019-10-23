@@ -40,5 +40,5 @@ echo "$(cat $PWD/snippet_bash.bashrc)" | sudo -A sh -c 'cat >> /etc/bash.bashrc'
 echo "appended the contents of snippet_bash.bashrc to /etc/bash.bashrc"
 echo "it is safe to remove the local copy of snippet_bash.bashrc with $PWD"
 
-source $HOME/.bash_profile
-echo "loaded new $HOME/.bash_profile"
+# TODO possible to reload env for interactive login shell?
+echo "run 'exec bash' to reload env"
