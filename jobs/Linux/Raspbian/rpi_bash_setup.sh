@@ -6,7 +6,6 @@ set -e
 
 # TODO
 # 1) check if OS is Raspbian
-# 2) check if `/etc/bashrc.bash already contains contents of snippet
 
 # ISSUES
 
@@ -24,44 +23,35 @@ echo "$HOME./bash_profile created or updated."
 
 if [ -f /etc/bash.bashrc ]; then
   tmp_bashrc_snippet_url="https://raw.githubusercontent.com/ipatch/dotfiles/fall/dev/jobs/Linux/Raspbian/snippet_bash.bashrc"
+  tmp_curl_bashrc_snippet=$(curl -sL "$tmp_bashrc_snippet_url")
+  tmp_grep_bashrc_check="load user specific BASH configuration files"
+  # tmp_grep_bashrc_check_pos="command-not-found" #DEBUG
 
-  grep -q "load user specific BASH configuration files" /etc/bash.bashrc
-
-  # store exit status of grep cmd to shell var
-  status=$?
-  echo "bashrc grep cmd status = $status" 
-
-  if test $status -eq 0
+  if grep -q "$tmp_grep_bashrc_check" /etc/bash.bashrc
   then
+    # echo "found" # DEBUG
     echo "contents of $tmp_bashrc_snippet_url already added"
   else
-    tmp_curl_bashrc_snippet=$(curl -sL "$tmp_bashrc_snippet_url")
-    echo "$(tmp_curl_bashrc_snippet)" | sudo -A sh -c 'cat >> /etc/bash.bashrc'
-    echo "udpated /etc/bash.bashrc with $tmp_bashrc_snippet_url"
+    # echo "no found" # DEBUG
+    echo "$tmp_curl_bashrc_snippet" | sudo -A sh -c 'cat >> /etc/bash.bashrc'
     # prompt/use sudo password to modify /etc/bash.bashrc
-    echo "appended the contents of $tmp_bashrc_snippet_url to /etc/bash.bashrc"
+    echo "updated /etc/bash.bashrc with $tmp_bashrc_snippet_url"
   fi
-else
-  echo "no /etc/bash.bahrc found"
 fi
 
 if [ -f "$HOME/.bash_profile" ]; then
-  tmp_bash_profile_url="https://raw.githubusercontent.com/ipatch/dotfiles/master/jobs/Linux/Raspbian/home/pi/.bash_profile"
+  tmp_bash_profile_url="https://raw.githubusercontent.com/ipatch/dotfiles/fall/dev/jobs/Linux/Raspbian/home/pi/.bash_profile"
+  # store the URL of the curl cmd into shell variable
+  tmp_bash_profile=$(curl -sL $tmp_bash_profile_url)
 
-  grep -q "ipatch checker for sh script" "$HOME/.bash_profile"
-
-  status=$?
-
-  if test $status eq 0
+  if grep -q "ipatch checker for sh script" "$HOME/.bash_profile"
   then
     echo "contents of $tmp_bash_profile_url already added"
   else
-    # store the URL of the curl cmd into shell variable
-    tmp_bash_profile=$(curl -sL $tmp_bash_profile_url)
     echo "$tmp_bash_profile" >> "$HOME/.bash_profile"
     echo "updated $HOME/.bash_profile"
   fi
 fi
 
-# TODO possible to reload env for interactive login shell?
+# # TODO possible to reload env for interactive login shell?
 echo "run 'exec bash' to reload env"
