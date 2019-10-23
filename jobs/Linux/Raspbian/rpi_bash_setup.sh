@@ -29,7 +29,7 @@ curl -s --output "$PWD/snippet_bash.bashrc" "https://raw.githubusercontent.com/i
 echo "downloaded snippet_bash.bashrc"
 
 # prompt for sudo password to modify /etc/bash.bashrc
-sudo -p
+# sudo -A sh -c 'cat /etc/hosts'
 
 # sudo -S tee -a "$PWD/snippet_bash.bashrc" >> /etc/bash.bashrc
-# echo "$(cat $PWD/snippet_bash.bashrc)" | sudo -p sh -c 'cat >> /etc/bash.bashrc'
+echo "$(cat $PWD/snippet_bash.bashrc)" | sudo -A sh -c 'cat >> /etc/bash.bashrc'
