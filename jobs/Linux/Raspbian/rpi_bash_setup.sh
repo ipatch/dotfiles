@@ -29,4 +29,4 @@ curl -s --output "$PWD/snippet_bash.bashrc" "https://raw.githubusercontent.com/i
 echo "downloaded snippet_bash.bashrc"
 
 # sudo -S tee -a "$PWD/snippet_bash.bashrc" >> /etc/bash.bashrc
-echo "$(cat $PWD/snippet_bash.bashrc)" | sudo sh -Sc 'cat >> /etc/bash.bashrc'
+echo "$(cat $PWD/snippet_bash.bashrc)" | sudo -S sh -c 'cat >> /etc/bash.bashrc'
