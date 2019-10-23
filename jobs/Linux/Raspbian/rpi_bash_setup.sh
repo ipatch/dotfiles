@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 set -e
 
 # Hopefully a simple script for a more sane bash environment
@@ -14,6 +14,7 @@ set -e
 
 # NOTES
 # it appears Raspbian does not create a `$HOME/.bash_profile` out of the box
+#❗️❗️❗️ if shebang is set to `/bin/sh` ie. `dash` it will NOT run. 
 
 # create `$HOME/.bash_profile`
 echo "downloaded 'rpi_bash_setup.sh'"
@@ -23,6 +24,8 @@ touch "$HOME/.bash_profile"
 
 echo "$HOME./bash_profile created."
 
-curl "https://raw.githubusercontent.com/ipatch/dotfiles/fall/dev/jobs/Linux/Raspbian/snippet_bash.bashrc"
+curl -s --output "$PWD/snippet_bash.bashrc" "https://raw.githubusercontent.com/ipatch/dotfiles/fall/dev/jobs/Linux/Raspbian/snippet_bash.bashrc" # hide contents of snippet, but download to local file
 
 echo "downloaded snippet_bash.bashrc"
+
+cat "$PWD/snippet_bash.bashrc" >> /etc/bash.bashrc
