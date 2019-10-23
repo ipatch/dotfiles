@@ -12,7 +12,7 @@ set -e
 
 # NOTES
 # it appears Raspbian does not create a `$HOME/.bash_profile` out of the box
-#❗️❗️❗️ if shebang is set to `/bin/sh` ie. `dash` it will NOT run. 
+#❗️❗️❗️ if this script shebang is set to `/bin/sh` ie. `dash` it will NOT run. 
 
 # create `$HOME/.bash_profile`
 echo "downloaded 'rpi_bash_setup.sh'"
@@ -20,25 +20,45 @@ echo "executing 'rpi_bash_setup.sh'"
 
 touch "$HOME/.bash_profile"
 
-echo "$HOME./bash_profile created."
+echo "$HOME./bash_profile created or updated."
 
-# store the about of curl cmd into shell variable
-TMP_BASH_PROFILE_URL="https://raw.githubusercontent.com/ipatch/dotfiles/master/jobs/Linux/Raspbian/home/pi/.bash_profile"
-TMP_BASH_PROFILE=$(curl -sL $TMP_BASH_PROFILE_URL)
+if [ -f /etc/bash.bashrc ]; then
+  tmp_bashrc_snippet_url="https://raw.githubusercontent.com/ipatch/dotfiles/fall/dev/jobs/Linux/Raspbian/snippet_bash.bashrc"
 
-echo "$TMP_BASH_PROFILE" >> "$HOME/.bash_profile"
+  grep -q 'load user specific BASH configuration files' /etc/bash.bashrc
 
-echo "updated $HOME/.bash_profile"
+  # store exit status of grep cmd to shell var
+  status=$?
 
-curl -s --output "$PWD/snippet_bash.bashrc" "https://raw.githubusercontent.com/ipatch/dotfiles/fall/dev/jobs/Linux/Raspbian/snippet_bash.bashrc" # hide contents of snippet, but download to local file
+  if test $status -eq 0
+  then
+    echo "contents of $tmp_bashrc_snippet_url already added"
+  else
+    tmp_curl_bashrc_snippet=$(curl -sL $tmp_curl_bashrc_snippet_url)
+    echo "$(tmp_curl_bashrc_snippet)" | sudo -A sh -c 'cat >> /etc/bash.bashrc'
+    echo "udpated /etc/bash.bashrc with $tmp_curl_bashrc_snippet_url"
+    # prompt/use sudo password to modify /etc/bash.bashrc
+    echo "appended the contents of $tmp_bashrc_snippet_url to /etc/bash.bashrc"
+  fi
+fi
 
-echo "downloaded snippet_bash.bashrc"
+if [ -f "$HOME/.bash_profile" ]; then
+  tmp_bash_profile_url="https://raw.githubusercontent.com/ipatch/dotfiles/master/jobs/Linux/Raspbian/home/pi/.bash_profile"
 
-# prompt for sudo password to modify /etc/bash.bashrc
-echo "$(cat $PWD/snippet_bash.bashrc)" | sudo -A sh -c 'cat >> /etc/bash.bashrc'
+  grep -q "ipatch checker for sh script" "$HOME/.bash_profile"
 
-echo "appended the contents of snippet_bash.bashrc to /etc/bash.bashrc"
-echo "it is safe to remove the local copy of snippet_bash.bashrc with $PWD"
+  status=$?
+
+  if test $status eq 0
+  then
+    echo "contents of $tmp_bash_profile_url already added"
+  else
+    # store the URL of the curl cmd into shell variable
+    tmp_bash_profile=$(curl -sL $tmp_bash_profile_url)
+    echo "$tmp_bash_profile" >> "$HOME/.bash_profile"
+    echo "updated $HOME/.bash_profile"
+  fi
+fi
 
 # TODO possible to reload env for interactive login shell?
 echo "run 'exec bash' to reload env"

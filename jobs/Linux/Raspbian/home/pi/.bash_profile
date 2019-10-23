@@ -1,3 +1,5 @@
+# ipatch checker for sh script
+
 alias l='ls -lah'
 
 PATH=$HOME/.local/bin:$PATH
