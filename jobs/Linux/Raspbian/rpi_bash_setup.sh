@@ -24,7 +24,7 @@ echo "$HOME./bash_profile created."
 
 # store the about of curl cmd into shell variable
 TMP_BASH_PROFILE_URL="https://raw.githubusercontent.com/ipatch/dotfiles/master/jobs/Linux/Raspbian/home/pi/.bash_profile"
-TMP_BASH_PROFILE=$(curl -L $TMP_BASH_PROFILE_URL)
+TMP_BASH_PROFILE=$(curl -sL $TMP_BASH_PROFILE_URL)
 
 echo "$TMP_BASH_PROFILE" >> "$HOME/.bash_profile"
 
