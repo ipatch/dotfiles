@@ -41,8 +41,8 @@ if [ -f /etc/bash.bashrc ]; then
     # prompt/use sudo password to modify /etc/bash.bashrc
     echo "appended the contents of $tmp_bashrc_snippet_url to /etc/bash.bashrc"
   fi
-  else
-    echo "no /etc/bash.bahrc found"
+else
+  echo "no /etc/bash.bahrc found"
 fi
 
 if [ -f "$HOME/.bash_profile" ]; then
