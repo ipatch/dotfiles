@@ -9,7 +9,7 @@ if [ -f $HOME/.bash_profile ]; then
 fi
 ```
 
-🚀 To quickly setup Raspbian with the above states changes
+🚀 To quickly setup Raspbian with the above stated changes
 
 ```shell
 curl -sSf https://raw.githubusercontent.com/ipatch/dotfiles/fall/dev/jobs/Linux/Raspbian/rpi_bash_setup.sh | /bin/sh
