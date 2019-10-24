@@ -12,7 +12,9 @@ fi
 🚀 To quickly setup Raspbian with the above stated changes
 
 ```shell
-curl -sSf https://raw.githubusercontent.com/ipatch/dotfiles/fall/dev/jobs/Linux/Raspbian/rpi_bash_setup.sh | /bin/sh
+curl -sSf \
+https://raw.githubusercontent.com/ipatch/dotfiles/fall/dev/jobs/Linux/Raspbian/rpi_bash_setup.sh \
+| /bin/sh
 ```
 
 If the above configuration changes still do not resolve sourcing **bash** configuration changes two things can be checked.
