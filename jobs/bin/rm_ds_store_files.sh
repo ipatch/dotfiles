@@ -34,8 +34,8 @@ elif [ -x /usr/bin/find ]; then
   # sallow, ie. don't print permission denied messages to STDOUT
   /usr/bin/find / \
     -name .DS_Store \
-    ! -path '/Volumes/' \
-    ! -path '/dev/' \
+    ! -path '*/Volumes/*' \
+    ! -path '*/dev/*' \
     -exec /bin/rm -rf {} \; \
     -print 2>&1 | /usr/bin/grep -v "Permission denied"
 fi
