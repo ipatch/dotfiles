@@ -208,6 +208,7 @@
 
 [advice]
   statusHints = false # makes status messages more terse. 👍
+  ignoredHook = false # stop freaking warning about git hooks not being set to +x 
 
 [core]
   editor = nvim
