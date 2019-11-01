@@ -2,7 +2,7 @@ alacritty v0.3.3 (https://github.com/jwilm/alacritty#707f4293):
     alacritty
 bat v0.12.1:
     bat
-cargo-generate v0.4.0:
+cargo-generate v0.5.0:
     cargo-generate
 cargo-update v2.3.0:
     cargo-install-update

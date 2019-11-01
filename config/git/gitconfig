@@ -74,7 +74,7 @@
   ##
   p = !git pull
   # TODO: add a `pull` to recursively pull submodules
-  ps = !git pull 
+  ps = !git pull
 
   ####
   # updating forks
@@ -124,7 +124,7 @@
   tags = tag --list
   # USAGE: git tag-mv [name-of-old-tag] [name-of-new-tag]
   # EXAMPLE: git tag-mv v0.1.2.2 v0.1.2.3
-  tag-mv   = "!sh -c 'set -e;git t $2 $1; git t -d $1;git push origin :refs/tags/$1;git push --tags' -"
+  tag-mv = "!sh -c 'set -e;git t $2 $1; git t -d $1;git push origin :refs/tags/$1;git push --tags' -"
 
   ####
   # 🚨 Danger zone 🚨
