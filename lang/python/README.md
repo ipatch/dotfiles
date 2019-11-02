@@ -146,6 +146,15 @@ To upgrade a package that has been installed with **pip**
 
 ```shell
 pip install --upgrade [NAME_OF_PACKAGE]
+pip install -U [NAME_OF_PACKAGE]
+```
+
+To list all versions of a package that can be installed via pip
+
+```shell
+pip install --no-deps [NAME_OF_PACKAGE]==x.x.x
+echo "below is an example"
+pip install --no-deps numpy==x.x.x
 ```
 
 <a id="useful-links"></a>
