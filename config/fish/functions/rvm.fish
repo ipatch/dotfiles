@@ -25,7 +25,7 @@ function __handle_rvmrc_stuff --on-variable PWD
         end
         break
       else
-        if test -e .rvmrc -o -e .ruby-version -o -e .ruby-gemset
+        if test -e .rvmrc -o -e .ruby-version -o -e .ruby-gemset -o -e Gemfile
           eval "rvm reload" > /dev/null
           eval "rvm rvmrc load" >/dev/null
           break
