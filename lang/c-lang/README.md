@@ -1,5 +1,6 @@
 <div align="center">
 
-For notes pertaining to the **C** programming language, [see](../cpp/README.md)
+For notes pertaining to the **C** programming language,
+[**C** _see_](../cpp/README.md)
 
 </div>
