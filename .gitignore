@@ -207,6 +207,10 @@ config/asciinema/install-id
 jobs/bin/jhbuild
 
 ##############################
+# macOS > automation > karabiner
+config/karabiner/automatic_backups/*
+
+##############################
 # tmp - ignore files
 ##
 # config/git/gitconfig
