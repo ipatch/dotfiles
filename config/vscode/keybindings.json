@@ -3,5 +3,27 @@
   {
     "key": "shift+cmd+o",
     "command": "workbench.action.addRootFolder"
+  },
+  {
+    "key": "cmd+shift+enter",
+    "command": "workbench.action.toggleEditorWidths"
+  },
+  {
+    "key": "ctrl+s z",
+    "command": "workbench.action.toggleEditorWidths"
+  }
+  { 
+    "key": "ctrl+h",
+    "command": "workbench.action.focusPreviousGroup"
+  },
+  { 
+    "key": "ctrl+l",
+    "command": "workbench.action.focusNextGroup"
+  }
+  {
+    // reload window, use tmux binding of `ctrl+s` then `ctrl+r` to reload window
+    "key": "ctrl+s ctrl+r",
+    "command": "workbench.action.reloadWindow",
+    "when": "editorTextFocus"
   }
 ]
