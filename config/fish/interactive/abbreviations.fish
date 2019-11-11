@@ -37,6 +37,10 @@ abbr -ag cp "cp -iv"
 abbr -ag dots "cd $dots"
 abbr -ag dotsw "cd $dots/.wiki"
 
+# get weather
+abbr -ag get-weather "curl wttr.in"
+abbr -ag getweather "curl wttr.in"
+
 #############################
 # ruby tooling
 ##

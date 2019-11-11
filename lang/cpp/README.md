@@ -7,6 +7,16 @@
 - [General C++ Commands & Usage](#general-c++-commands-and-usage)
 - [Useful Links](#useful-links)
 
+<a id="working-with-cmake"></a>
+
+## Working with CMake
+
+To uninstall _remove_ binaries that have been installed from a **CMake** process use the `install_mainfest.txt` generated from running `make install` along with xargs to remove the binaries that were installed.
+
+```shell
+xargx rm < install_mainfest.txt
+```
+
 <a id="general-c++-commands-and-usage"></a>
 
 ## General C++ Commands & Usage
