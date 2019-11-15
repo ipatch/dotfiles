@@ -57,6 +57,8 @@
   cm = commit -S -m
   ac = commit -am
   aac = "!git aa; "git commit -m""
+  ccount = rev-list HEAD --count
+  commitcount = rev-list HEAD --count
   ####
   # for those random quick & fun commits 👍
   ##
