@@ -18,6 +18,10 @@ abbr -ag ednvim "nvim $HOME/.config/nvim/init.vm"
 abbr -ag edvim "nvim $HOME/.vimrc"
 abbr -ag eddots "cd $dots; nvim;"
 
+##
+# shell specific abbrs
+abbr -ag cd- 'cd -'
+
 set -gx os (uname)
 
 switch $os
