@@ -1,9 +1,14 @@
 ##############################
 # A place to store abbreviations for making things a tad bit quicker.
 # NOTE: abbr's will default to universal scope, ie. conditional logic will not "work" for different systems, ie. macOS and Linux, thus use the `-g` flag with `abbr` to make global scope which will NOT be universal thus making conditional logic work.
+#
 ###
 # NOTE: when adding new `abbr`'s to this file, fish will need to reload the file, ie. `exec fish` for every fish shell instance to pick up on the newly added `abbr`'s.
-##
+#
+###
+# NOTE: if using double quotes and the abbr contains an env var, ie. `$dots` the env var will be expanded after pressing space, whereas using single quotes will expand the $dots after pressing `enter`
+#
+
 
 ##############################
 # Added the below abbreviations because I'm really tired of typing out the below commands.
@@ -17,10 +22,6 @@ abbr -ag edfish "nvim $HOME/.config/fish/config.fish"
 abbr -ag ednvim "nvim $HOME/.config/nvim/init.vm"
 abbr -ag edvim "nvim $HOME/.vimrc"
 abbr -ag eddots "cd $dots; nvim;"
-
-##
-# shell specific abbrs
-abbr -ag cd- 'cd -'
 
 set -gx os (uname)
 
@@ -36,7 +37,9 @@ switch $os
     # abbr -ag l 'ls -lahF'
 end
 
-# NOTE: if using double quotes and the abbr contains an env var, ie. `$dots` the env var will be expanded after pressing space, whereas using single quotes will expand the $dots after pressing `enter`
+###
+# shell specific abbrs
+abbr -ag cd- 'cd -'
 abbr -ag cp "cp -iv"
 abbr -ag dots "cd $dots"
 abbr -ag dotsw "cd $dots/.wiki"
@@ -67,6 +70,7 @@ abbr -ag du "du -h"
 abbr -ag today "date +'%A, %B %-d, %Y'"
 abbr -ag ll "ls -1"
 abbr -ag l1 "ls -1"
+abbr -ag ljd "ls -d ./*/"
 
 ################
 # funny abbreviations
