@@ -70,6 +70,7 @@ abbr -ag du "du -h"
 abbr -ag today "date +'%A, %B %-d, %Y'"
 abbr -ag ll "ls -1"
 abbr -ag l1 "ls -1"
+abbr -ag lr "ls -lrt" # show newest file first, ie. last line of output
 abbr -ag ljd "ls -d ./*/"
 
 ################

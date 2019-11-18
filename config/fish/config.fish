@@ -47,6 +47,7 @@ set -gx public /opt/code/public
 set -gx publicgh /opt/code/public/github
 set -gx fish_emoji_width 2 # NOT COMPATIBLE with fish <= 2.7.1
 set -gx docker /opt/docker
+set -gx ltmp $HOME/ltmp
 
 if type -q brew
 	set -gx brew_logs (brew --prefix)/var/log/
