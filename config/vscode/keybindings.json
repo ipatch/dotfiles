@@ -1,29 +1,38 @@
 // Place your key bindings in this file to overwrite the defaults
-[
+[{
+  "key": "ctrl+cmd+shift+e",
+  "command": "workbench.action.tasks.runTask",
+  "args": "Eject SD (macOS)"
+},
   {
     "key": "shift+cmd+o",
     "command": "workbench.action.addRootFolder"
   },
   {
-    "key": "cmd+shift+enter",
-    "command": "workbench.action.toggleEditorWidths"
-  },
-  {
-    "key": "ctrl+s z",
-    "command": "workbench.action.toggleEditorWidths"
-  }
-  { 
+    
     "key": "ctrl+h",
     "command": "workbench.action.focusPreviousGroup"
   },
   { 
     "key": "ctrl+l",
     "command": "workbench.action.focusNextGroup"
-  }
+  },
   {
     // reload window, use tmux binding of `ctrl+s` then `ctrl+r` to reload window
     "key": "ctrl+s ctrl+r",
     "command": "workbench.action.reloadWindow",
     "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+s m",
+    "command": "workbench.action.toggleEditorWidths"
+  },
+  {
+    "key": "ctrl+s z",
+    "command": "workbench.action.toggleMaximizedPanel"
+  },
+  {
+    "key": "ctrl+s x",
+    "command": "workbench.action.closePanel"
   }
 ]

@@ -46,8 +46,9 @@ font:
   # Point size of the font
   # size: 20
   # size: 18
-  size: 16
+  # size: 16
   # size: 14 # not hot dog
+  size: 15.5 # looks good on ext samsung monitor
 
   normal:
     family: "IBMPlexMonoPlusPlus"
