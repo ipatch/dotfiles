@@ -10,6 +10,10 @@ switch $os
     if test -d /Applications/Arduino.app
       alias arduino="/Applications/Arduino.app/Contents/MacOS/Arduino"
     end
+    # not perfect, but i don't like lynx keybindings or the bottom menu bar
+    # alias mdless (pandoc -s -f markdown -t man | $psub) (groff -T utf8 -man $psub) /usr/bin/less
+    # alias mdless "$argv | pandoc -s -f markdown -t man | groff -T utf8 -man | /usr/bin/less"
+    # moved the above alias to function for the time being.
 
   case Linux
     alias ls="ls --color=auto"
