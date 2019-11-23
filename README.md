@@ -737,6 +737,7 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/install.sh | /bin/
 
 ## TODOs
 
+- [ ] Drop the season name from the dev branch name for the next seasonal release, ie. `winter/dev` will just be `dev`, reasoning easier for preserving external links to repo.
 - [ ] make abe graphich more personal.
 - [ ] Write an install script for easy installation of dotfiles.
 
