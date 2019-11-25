@@ -83,6 +83,14 @@ bashman () {
   man bash | man bash | less -p "^       $1 "
 }
 
+# BASH history
+## no dupes
+HISTCONTROL=ignoredups:erasedups
+# append on exit
+shopt -s histappend
+# append, reread histfile after each cmd
+PROMPT_COMMAND="{PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r"
+
 # WRONG!!!
 # check to see if $HOME/.bash_profile exists then load in current shell session.
 # if [ -f ~/.bash_profile ]; then
