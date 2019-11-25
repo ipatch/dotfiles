@@ -148,6 +148,7 @@ case Darwin
   #########################
   # `ls` colorscheme for BSD and Darwin
   ##
+  # ls colors are defined within $HOME/.dir_colors, ie. ls colors database
   set -gx LSCOLORS Exfxcxdxcxegedabagacad
 
   if test -d (brew --prefix)/opt/coreutils
@@ -214,6 +215,11 @@ case Darwin
   for file in "$HOME/.config/fisher/conf.d/*.fish"
     builtin source $file 2> /dev/null
   end
+
+  ###############################
+  # personal macOS things to help solve first world problems
+  ##
+  set -gx streams "$HOME/Movies/my-recordings/streams"
 
 case Linux
   ###############################

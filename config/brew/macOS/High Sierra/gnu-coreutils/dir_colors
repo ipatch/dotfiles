@@ -152,7 +152,7 @@ EXEC 01;32
 .7z  01;31
 .rz  01;31
 
-# image formats (magenta)
+# media formats (magenta)
 .jpg 01;35
 .jpeg 01;35
 .gif 01;35
@@ -165,6 +165,7 @@ EXEC 01;32
 .xpm 01;35
 .tif 01;35
 .tiff 01;35
+.ts 01;35
 .png 01;35
 .svg 01;35
 .svgz 01;35
