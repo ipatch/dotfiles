@@ -1,13 +1,13 @@
 class FormulaName < Formula
-  desc "a brief description of what the formulat does"
-  homepage "https://tld.com/app-name/"
-  url "https://github.com/user/app/archive/version-of-app.tar.gz"
-  sha256 "6500000000000000000000000000000000000000000000000000000000000000"
-  heat "https://github.com/user/app/app-repo.git"
+  desc ''
+  homepage ''
+  url 'https://github.com/user/app/archive/version-of-app.tar.gz'
+  sha256 '6500000000000000000000000000000000000000000000000000000000000000'
+  head 'https://github.com/user/app/app-repo.git'
 
-  depends_on "" => :build
+  depends_on '' => :build
 
-  conflicts_with "formula-name"
+  conflicts_with 'formula-name'
 
   def install
     ENV.append "", "-configure-flag"
@@ -28,5 +28,7 @@ class FormulaName < Formula
 
     test do
       # prove that the formual successfully installed, and works as intended
+      system 'false'
     end
   end
+end
