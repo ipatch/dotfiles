@@ -14,6 +14,8 @@ switch $os
     # alias mdless (pandoc -s -f markdown -t man | $psub) (groff -T utf8 -man $psub) /usr/bin/less
     # alias mdless "$argv | pandoc -s -f markdown -t man | groff -T utf8 -man | /usr/bin/less"
     # moved the above alias to function for the time being.
+    alias ffprobe="ffprobe -hide_banner"
+    alias ffmpeg="ffmpeg -hide_banner"
 
   case Linux
     alias ls="ls --color=auto"
