@@ -10,5 +10,5 @@
 # 1.a) store the process num of mpv into the recording file, tmp # DEBUG
 # echo "$mpv_process_number" >> /Users/capin/Movies/my-recordings/streams/record
 
-echo "{\"command\": [\"set_property\", \"stream-record\", \"$HOME/Movies/my-recordings/streams/$(date +%F--%T)recording.ts\"] }" | socat - /tmp/mpvsocket
+echo "{\"command\": [\"set_property\", \"stream-record\", \"$HOME/Movies/my-recordings/streams/$(date +%Y-%m-%d--%H-%M)-recording.ts\"] }" | socat - /tmp/mpvsocket
 
