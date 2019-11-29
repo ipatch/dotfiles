@@ -13,6 +13,9 @@
 ##############################
 # Added the below abbreviations because I'm really tired of typing out the below commands.
 ##
+abbr -ag fishr 'exec fish'
+abbr -ag fr 'exec fish'
+#
 abbr -ag editfish 'nvim $HOME/.config/fish/config.fish'
 abbr -ag editnvim 'nvim $HOME/.config/nvim/init.vim'
 abbr -ag editvim  'nvim $HOME/.vimrc'
@@ -23,19 +26,7 @@ abbr -ag ednvim "nvim $HOME/.config/nvim/init.vm"
 abbr -ag edvim "nvim $HOME/.vimrc"
 abbr -ag eddots "cd $dots; nvim;"
 
-set -gx os (uname)
-
-switch $os
-  case Darwin
-    # NOTE: removed below abbr, and created an alias for `l`
-    # NOTE: aliases don't expand like an abbr does
-    # abbr -ag l 'ls -lahF'
-  case Linux
-    # NOTE: removed below abbr, and created an alias for `l`
-    # NOTE: aliases don't expand like an abbr does
-    # DO NOTHING -- see aliases.fish
-    # abbr -ag l 'ls -lahF'
-end
+# NOTE: OS specific fish abbreviations are defined below
 
 ###
 # shell specific abbrs
@@ -62,16 +53,16 @@ end
 # -a = preserve file permssions
 # -h = human readable output
 #
-abbr -ag cpv "rsync -ahp --info=progress2"
+abbr -ag cpv "rsync -ahp --partial --info=progress2"
 abbr -ag rm "rm -iv"
 abbr -ag mv "mv -iv"
 abbr -ag df "df -h"
 abbr -ag du "du -h"
 abbr -ag today "date +'%A, %B %-d, %Y'"
-abbr -ag ll "ls -1"
-abbr -ag l1 "ls -1"
+abbr -ag ll "ls -1" # same as below
+abbr -ag l1 "ls -1" # only filenames, nothing else, single column
 abbr -ag lr "ls -lrth" # show newest file first, ie. last line of output
-abbr -ag ljd "ls -d ./*/"
+abbr -ag ljd "ls -d ./*/" # only show directories
 
 ################
 # funny abbreviations
@@ -99,13 +90,13 @@ abbr -ag git-ls-aliases 'git aliases'
 ################
 # abbreviations for my custom fish functions
 ##
-abbr -ag pretty_path 'path_pretty'
+abbr -ag pretty_path 'path_pretty' # `path_pretty` is a fish function
 abbr -ag pretty-path 'path_pretty'
 abbr -ag path-pretty 'path_pretty'
 abbr -ag pp 'path_pretty'
 abbr -ag ppr "path_pretty_redux"
-abbr -ag path-add 'path_add'
-abbr -ag path-remove 'path_remove'
+abbr -ag path-add 'path_add' # fish func
+abbr -ag path-remove 'path_remove' # fish func
 abbr -ag path-rm 'path_remove'
 
 ################
@@ -206,6 +197,8 @@ case Darwin
   ################
   # macOS specific abbreviations
   ##
+  abbr -ag mac-ffmpeg-ls-devs "ffmpeg -f avfoundation -list_devices true -i \"\""
+  abbr -ag ffmpeglsdevs "ffmpeg -f avfoundation -list_devices true -i \"\""
 
   ####
   # macOS Debugging
@@ -284,5 +277,3 @@ case Linux
   end
 end
 
-################
-# Add special 🚌 aliases if certain binaries are found.

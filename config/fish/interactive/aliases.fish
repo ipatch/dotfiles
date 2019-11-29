@@ -16,6 +16,7 @@ switch $os
     # moved the above alias to function for the time being.
     alias ffprobe="ffprobe -hide_banner"
     alias ffmpeg="ffmpeg -hide_banner"
+    alias mpv="mpv --input-ipc-server=/tmp/mpvsocket"
 
   case Linux
     alias ls="ls --color=auto"
