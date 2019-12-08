@@ -17,6 +17,8 @@ switch $os
     alias ffprobe="ffprobe -hide_banner"
     alias ffmpeg="ffmpeg -hide_banner"
     alias mpv="mpv --input-ipc-server=/tmp/mpvsocket"
+    #
+    alias htp="/usr/local/bin/http" # apparently there is a `http` bin within `~/.cargo/bin` as well
 
   case Linux
     alias ls="ls --color=auto"
