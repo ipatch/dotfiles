@@ -181,6 +181,10 @@
   ####
   # Useful Commands 👌 -- compound commands
   ##
+
+  # get / retrieve the commit ID / HASH for when a particular file was checked in
+  # EX: `git when-added -- **foo.js`
+  when-added = "!git log --diff-filter=A"
   
   # Get a list of your defined aliases
   aliases = !git config --get-regexp 'alias.*' | colrm 1 6 | sed 's/[ ]/ = /'
