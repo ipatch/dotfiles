@@ -17,5 +17,5 @@ fi
 if [ "$os" = Darwin ]; then
   pmset -g batt
 elif [ "$os" != Darwin ]; then
-  echo "dis shit only flys on macOS ...bro"
+  echo "dis shit only flies on macOS ...bro"
 fi

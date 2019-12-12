@@ -1,1 +1,0 @@
-/opt/Code/dotfiles/terms/tmux/bin/dots.sh
