@@ -197,8 +197,15 @@ case Darwin
   ################
   # macOS specific abbreviations
   ##
+
+  ## unsorted
+  abbr -ag dll "diskutil list"
+  abbr -ag dle "diskutil eject"
+  abbr -ag dle2 "diskutil eject /dev/disk2"
+
   abbr -ag mac-ffmpeg-ls-devs "ffmpeg -f avfoundation -list_devices true -i \"\""
   abbr -ag ffmpeglsdevs "ffmpeg -f avfoundation -list_devices true -i \"\""
+
 
   ####
   # macOS Debugging

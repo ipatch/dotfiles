@@ -16,7 +16,8 @@ switch $os
     # moved the above alias to function for the time being.
     alias ffprobe="ffprobe -hide_banner"
     alias ffmpeg="ffmpeg -hide_banner"
-    alias mpv="mpv --input-ipc-server=/tmp/mpvsocket"
+    # DEPRECATION: setup mpv socket within the `mpv.conf` file instead
+    # alias mpv="mpv --input-ipc-server=/tmp/mpvsocket"
     #
     alias htp="/usr/local/bin/http" # apparently there is a `http` bin within `~/.cargo/bin` as well
 
