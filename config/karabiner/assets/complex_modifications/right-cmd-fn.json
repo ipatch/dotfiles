@@ -1,0 +1,35 @@
+{
+  "title": "Change Command_R Key to function if f1 is pressed",
+  "rules": [
+    {
+      "description": "Command_R + display_brightness_decrement to cmd+f1",
+      "type": "basic",
+      "from": {
+        "simultaneous": [
+          {
+            "key_code": "right_command"
+          },
+          {
+            "key_code": "display_brightness_decrement"
+          }
+        ],
+        "modifiers": {
+          "optional": [
+            "any"
+          ]
+        }
+      },
+      "to": {
+        "simultaneous": [
+          {
+            "key_code": "right_command"
+          },
+          {
+            "key_code": "f1"
+          }
+        ]
+      }
+    }
+  ]
+}
+

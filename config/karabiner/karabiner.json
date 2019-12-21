@@ -67,6 +67,35 @@
                                 "type": "basic"
                             }
                         ]
+                    },
+                    {
+                        "description": "Command_R + display_brightness_decrement to cmd+f1",
+                        "from": {
+                            "modifiers": {
+                                "optional": [
+                                    "any"
+                                ]
+                            },
+                            "simultaneous": [
+                                {
+                                    "key_code": "right_command"
+                                },
+                                {
+                                    "key_code": "display_brightness_decrement"
+                                }
+                            ]
+                        },
+                        "to": {
+                            "simultaneous": [
+                                {
+                                    "key_code": "right_command"
+                                },
+                                {
+                                    "key_code": "f1"
+                                }
+                            ]
+                        },
+                        "type": "basic"
                     }
                 ]
             },
