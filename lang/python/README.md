@@ -34,6 +34,10 @@ To syntax check a python script / file
 python -m py_compile [mr_fancy_python_script]
 ```
 
+## Working with virtual envs
+
+❗️ If the root / parent directory for virtualenv directories is renamed then more than likely all virtualenvs will be broken due to hardcoded paths in the **activate** python scripts, see [this](https://aarongorka.com/blog/portable-virtualenv/) for a possible solution.
+
 <a id="working-with-pyenv"></a>
 
 ## Working with `pyenv` [🔝](#contents)
