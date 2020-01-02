@@ -74,6 +74,7 @@ abbr -ag woot "emoji --yay"
 ################
 # git abbreviations
 ##
+# NOTE: i don't think it's possible to define a `gs` alias / abbr in `~/.gitconfig`
 abbr -ag gs "git status"
 abbr -ag gd 'git diff --stat'
 abbr -ag ga 'git add --all'

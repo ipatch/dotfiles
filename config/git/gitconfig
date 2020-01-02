@@ -6,7 +6,6 @@
   filesEncoding = utf-8
 
 [alias]
-
   # Print configuration settings related to git
   vars = config -l
 
