@@ -1,5 +1,21 @@
+<a id="contents"></a>
 
-## Compiling a csharp, C# program on macOS
+## Contents
+
+
+
+### Prereqs for dotnet tooling on macOS ⌘
+
+- **TL;DR** install the dotnet sdk on macOS using brew
+
+```shell
+brew cask install dotnet-sdk
+```
+
+> The above command implies homebrew is setup and working on macOS along with the casks tap for brew, and **only** install the `dotnet-sdk` cask an **no** other, and the `dotnet-sdk` provides all the tooling for dotnet on macOS, and if another dotnet cask is installed complications will arise.
+
+
+## Compiling a csharp, _C#_ program on macOS
 
 > requires a proper directory structure to be setup
 
