@@ -7,6 +7,7 @@
 ""
 
 nnoremap <space> :
+nnoremap <ESC> :
 
 " NOTE: - the below insert mappings will bind 'jk' / 'kj' to ESC
 " key functionality, so need to use <ESC> in insert mode

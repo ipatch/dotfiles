@@ -3,12 +3,12 @@
 <plist version="1.0">
   <dict>
     <key>Label</key>
-    <string>com.chrisrjones.test.launchd-notif-center</string>
+    <string>com.chrisrjones.exp-launchd-notif-center</string>
     <key>ProgramArguments</key>
     <array>
       <string>sh</string>
       <string>-c</string>
-      <string>$HOME/.local/bin/macos-notif-center-test.sh</string>
+      <string>$HOME/.local/bin/mac-notif-center-test.sh</string>
     </array>
 
     <key>RunAtLoad</key>

@@ -3,13 +3,13 @@
 <plist version="1.0">
   <dict>
     <key>Label</key>
-    <string>com.chrisrjones.rm_ds_store_files</string>
+    <string>com.chrisrjones.rm-ds-store-files</string>
 
     <key>ProgramArguments</key>
     <array>
       <string>sh</string>
       <string>-c</string>
-      <string>$HOME/.local/bin/rm_ds_store_files.sh</string>
+      <string>$HOME/.local/bin/rm-ds-store-files.sh</string>
     </array>
 
     <key>StandardErrorPath</key>
@@ -18,8 +18,8 @@
     <key>StandardOutPath</key>
     <string>/usr/local/var/log/launchd/com.chrisrjones.rm_ds_store_files.out</string>
 
-    <key>RunAtLoad</key>
-    <true/>
+    <!-- <key>RunAtLoad</key> -->
+    <!-- <true/> -->
 
     <key>StartCalendarInterval</key>
     <array>
