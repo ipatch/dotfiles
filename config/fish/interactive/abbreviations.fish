@@ -207,6 +207,14 @@ case Darwin
   abbr -ag mac-ffmpeg-ls-devs "ffmpeg -f avfoundation -list_devices true -i \"\""
   abbr -ag ffmpeglsdevs "ffmpeg -f avfoundation -list_devices true -i \"\""
 
+  ##
+  # mounting network disks, ie. time capsule on LAN
+  # NOTE: the below abbr uses parameter expansion
+  # LINK: https://fishshell.com/docs/current/index.html#expand
+  abbr -ag tcm 'mount -t smbfs //capin:"$TC_PASSWORD"@10.0.1.1/Data /mnt/tc'
+  abbr -ag mtcm 'mount -t smbfs //capin:"$TC_PASSWORD"@10.0.1.1/Data /mnt/tc'
+  abbr -ag utcm "umount /mnt/tc"
+
 
   ####
   # macOS Debugging
