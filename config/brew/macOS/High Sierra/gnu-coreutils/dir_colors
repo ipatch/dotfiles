@@ -208,6 +208,7 @@ EXEC 01;32
 .ogx 01;35
 
 # audio formats (cyan)
+.alac 01;36
 .aac 01;36
 .m4a 01;36
 .au 01;36
