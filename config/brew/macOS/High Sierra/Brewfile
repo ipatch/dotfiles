@@ -202,7 +202,7 @@ brew "glide"
 brew "qt", link: true
 brew "gpgme"
 brew "gmime"
-brew "gnu-sed", args: ["with-default-names"]
+brew "gnu-sed"
 brew "gnu-time", args: ["with-default-names"]
 brew "libcerf"
 brew "gnuplot"
@@ -369,7 +369,7 @@ brew "unrar", link: false
 brew "util-linux"
 brew "vim"
 brew "w3m"
-brew "watch", link: false
+brew "watch"
 brew "watchman"
 brew "weechat"
 brew "wemux"
