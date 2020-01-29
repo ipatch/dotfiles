@@ -51,6 +51,7 @@ set -gx ltmp $HOME/ltmp
 # set -gx vbox-shared $HOME/vm/vbox-shared # NO GO!
 set -gx vboxshared $HOME/vm/vbox-shared
 # set -gx vbox.shared $HOME/vm/vbox.shared # periods in itentifiers are a no go!
+set -gx lbin $HOME/.local/bin
 
 if type -q brew
 	set -gx brew_logs (brew --prefix)/var/log/
