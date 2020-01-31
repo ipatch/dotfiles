@@ -740,6 +740,11 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/winter-dev/terms/tmux/tmu
 
 ## TODOs
 
+- [ ] [tmux] it'd be nice to have a quick double tap of <kbd>shift</kbd>then<kbd>shift</kbd> to toggle between remote and local tmux sessions
+- [ ] hammerspoon, possibly karabiner, toggle function keys on a macbook with double tap of <kbd>fn</kbd>
+- [ ] [python] [fish] [virtualenv] setup keybinding <kbd>control</kbd>+<kbd>d</kbd> to exit virtualenv but not exit terminal / shell session, ie. make control+d local to the virtualenv
+- [ ] [python] [fish] [neolambda] update prompt to remove ~λ~ and put name of virtualenv instead
+- [ ] see if there is a fish function of _omf_ or _fisher_ plugin that supports sharing command history between bash and fish
 - [ ] make abe graphich more personal.
 - [ ] Write an install script for easy installation of dotfiles.
 

@@ -145,6 +145,7 @@ if type -q docker
   abbr -ag d "docker"
   abbr -ag dc "docker-compose"
   abbr -ag dta "docker-tags"
+  abbr -ag di "docker images"
 end
 
 #################

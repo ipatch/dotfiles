@@ -183,6 +183,8 @@
 
   # get / retrieve the commit ID / HASH for when a particular file was checked in
   # EX: `git when-added -- **foo.js`
+  # NOTE: use within the root directory of a git repository
+  # TODO: check and see if alias can cd to the root of a git repo without changing the current dir
   when-added = "!git log --diff-filter=A"
   
   # Get a list of your defined aliases
