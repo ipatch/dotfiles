@@ -292,13 +292,41 @@ key_bindings:
   - { key: C,        mods: Command, action: Copy                         }
   # - { key: Q,        mods: Command, action: Quit                         }
   # - { key: W,        mods: Command, action: Quit                         }
+  # - { key: Key0,     mods: Command, action: ResetFontSize                }
+  # - { key: Equals,   mods: Command, action: IncreaseFontSize             }
+  # - { key: Minus,    mods: Command, action: DecreaseFontSize             }
+  #   - { key: F1,       mods: Command, chars: "\x1b[1;3P"                   }
+  # - { key: F2,       mods: Command, chars: "\x1b[1;3Q"                   }
+  # - { key: F3,       mods: Command, chars: "\x1b[1;3R"                   }
+  # - { key: F4,       mods: Command, chars: "\x1b[1;3S"                   }
+  # - { key: F5,       mods: Command, chars: "\x1b[15;3~"                  }
+  # - { key: F6,       mods: Command, chars: "\x1b[17;3~"                  }
+  # - { key: F7,       mods: Command, chars: "\x1b[18;3~"                  }
+  # - { key: F8,       mods: Command, chars: "\x1b[19;3~"                  }
+  # - { key: F9,       mods: Command, chars: "\x1b[20;3~"                  }
+  # - { key: F10,      mods: Command, chars: "\x1b[21;3~"                  }
+  # - { key: F11,      mods: Command, chars: "\x1b[23;3~"                  }
+  # - { key: F12,      mods: Command, chars: "\x1b[24;3~"                  }
+
+  # SEE: https://github.com/alacritty/alacritty/issues/3188#issuecomment-579113896
+
+  - { key: Key0,      mods: Command,            action: None }
+  - { key: Equals,    mods: Command,            action: None }
+  - { key: Add,       mods: Command,            action: None }
+  - { key: Minus,     mods: Command,            action: None }
+  - { key: K,         mods: Command,            action: None }
+  # - { key: V,         mods: Command,            action: None }
+  # - { key: C,         mods: Command,            action: None }
+  - { key: H,         mods: Command,            action: None }
+  - { key: Q,         mods: Command,            action: None }
+  - { key: W,         mods: Command,            action: None }
+  - { key: F,         mods: Command,            action: None }
+  - { key: Return,    mods: Command,            action: None }
+
   - { key: Home,                    chars: "\x1bOH",   mode: AppCursor   }
   - { key: Home,                    chars: "\x1b[H",   mode: ~AppCursor  }
   - { key: End,                     chars: "\x1bOF",   mode: AppCursor   }
   - { key: End,                     chars: "\x1b[F",   mode: ~AppCursor  }
-  - { key: Key0,     mods: Command, action: ResetFontSize                }
-  - { key: Equals,   mods: Command, action: IncreaseFontSize             }
-  - { key: Minus,    mods: Command, action: DecreaseFontSize             }
   - { key: PageUp,   mods: Shift,   chars: "\x1b[5;2~"                   }
   - { key: PageUp,   mods: Control, chars: "\x1b[5;5~"                   }
   - { key: PageUp,                  chars: "\x1b[5~"                     }
@@ -378,15 +406,4 @@ key_bindings:
   - { key: F10,      mods: Alt,     chars: "\x1b[21;6~"                  }
   - { key: F11,      mods: Alt,     chars: "\x1b[23;6~"                  }
   - { key: F12,      mods: Alt,     chars: "\x1b[24;6~"                  }
-  - { key: F1,       mods: Command, chars: "\x1b[1;3P"                   }
-  - { key: F2,       mods: Command, chars: "\x1b[1;3Q"                   }
-  - { key: F3,       mods: Command, chars: "\x1b[1;3R"                   }
-  - { key: F4,       mods: Command, chars: "\x1b[1;3S"                   }
-  - { key: F5,       mods: Command, chars: "\x1b[15;3~"                  }
-  - { key: F6,       mods: Command, chars: "\x1b[17;3~"                  }
-  - { key: F7,       mods: Command, chars: "\x1b[18;3~"                  }
-  - { key: F8,       mods: Command, chars: "\x1b[19;3~"                  }
-  - { key: F9,       mods: Command, chars: "\x1b[20;3~"                  }
-  - { key: F10,      mods: Command, chars: "\x1b[21;3~"                  }
-  - { key: F11,      mods: Command, chars: "\x1b[23;3~"                  }
-  - { key: F12,      mods: Command, chars: "\x1b[24;3~"                  }
+  
