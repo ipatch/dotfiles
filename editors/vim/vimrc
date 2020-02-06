@@ -91,6 +91,8 @@ endfunction
 " NOTE: make scope explicit, ie. `let g:[mr-fancy-setting]` NOT `let
 " [mr-fancy-setting`
 let g:base16colorspace = 256 " Access colors present in 256 colorspace
+
+" TODO: add check if colorscheme is not present, and continue loading file
 colorscheme base16-default-dark
 
 """"""""""""""""""""""""""""""
