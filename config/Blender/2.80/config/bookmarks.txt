@@ -7,6 +7,7 @@
 /opt/code/3d-printing/
 /opt/code/3d-printing/STLs/
 [Recent]
+/Users/capin/graphics/3d-projects/blender-2.80-alpha/diy-drawer-slide/
 /Users/capin/graphics/3D-projects/blender-2.80-alpha/
 /opt/code/3d-printing/STLs/stls-blender-exports/
 /Users/capin/Desktop/
@@ -16,4 +17,3 @@
 /opt/code/3d-printing/STLs/
 /opt/code/public/github/blender-downloads/
 /opt/code/3d-printing/models-stl-files/
-/Users/capin/Downloads/

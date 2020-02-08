@@ -112,5 +112,6 @@
     },
     "editor.cursorStyle": "block",
     "editor.cursorBlinking": "solid",
-    "terminal.integrated.rendererType": "dom"
+    "terminal.integrated.rendererType": "dom",
+    "diffEditor.renderSideBySide": false
 }
