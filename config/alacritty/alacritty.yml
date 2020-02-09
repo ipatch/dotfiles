@@ -292,9 +292,9 @@ key_bindings:
   - { key: C,        mods: Command, action: Copy                         }
   # - { key: Q,        mods: Command, action: Quit                         }
   # - { key: W,        mods: Command, action: Quit                         }
-  # - { key: Key0,     mods: Command, action: ResetFontSize                }
-  # - { key: Equals,   mods: Command, action: IncreaseFontSize             }
-  # - { key: Minus,    mods: Command, action: DecreaseFontSize             }
+  - { key: Key0,     mods: Command, action: ResetFontSize                }
+  - { key: Equals,   mods: Command, action: IncreaseFontSize             }
+  - { key: Minus,    mods: Command, action: DecreaseFontSize             }
   #   - { key: F1,       mods: Command, chars: "\x1b[1;3P"                   }
   # - { key: F2,       mods: Command, chars: "\x1b[1;3Q"                   }
   # - { key: F3,       mods: Command, chars: "\x1b[1;3R"                   }
@@ -310,10 +310,10 @@ key_bindings:
 
   # SEE: https://github.com/alacritty/alacritty/issues/3188#issuecomment-579113896
 
-  - { key: Key0,      mods: Command,            action: None }
-  - { key: Equals,    mods: Command,            action: None }
+  # - { key: Key0,      mods: Command,            action: None }
+  # - { key: Equals,    mods: Command,            action: None }
+  # - { key: Minus,     mods: Command,            action: None }
   - { key: Add,       mods: Command,            action: None }
-  - { key: Minus,     mods: Command,            action: None }
   - { key: K,         mods: Command,            action: None }
   # - { key: V,         mods: Command,            action: None }
   # - { key: C,         mods: Command,            action: None }
