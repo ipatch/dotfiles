@@ -289,6 +289,7 @@ case Linux
   if type -q brew
     # working with brew src and formula
     abbr -ag cd-brew-src "cd (brew --prefix)/Homebrew/Library/Taps/homebrew/homebrew-core"
+    abbr -ag cdbrewsrc "cd (brew --prefix)/Homebrew/Library/Taps/homebrew/homebrew-core"
 
     # youtube-dl
     abbr -ag you "youtube-dl"
