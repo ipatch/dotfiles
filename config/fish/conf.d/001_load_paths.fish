@@ -49,6 +49,10 @@ $brew_prefix/opt/coreutils/libexec/bin \
 $HOME/.local/bin \
 $HOME/.config/yarn/bin \
 /Applications/microchip/xc16/v1.35/bin \
+
+# EXP # NOTE probably not needed, manually load rvm rubies if required
+# $HOME/.rvm/bin \
+
 # NOTE: the below entry is causing more issues than solutions
 # (pwd)
 # The below PATH entries are inherited from the `/usr/bin/env` on macOS, Linux is another story
