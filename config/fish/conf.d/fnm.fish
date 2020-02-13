@@ -1,1 +1,0 @@
-/Users/capin/.config/fish/fisher/conf.d/fnm.fish
