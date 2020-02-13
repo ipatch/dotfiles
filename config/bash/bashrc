@@ -49,6 +49,10 @@ alias cd..='cd ..'
 # alias l='ls -lahF --color=auto'
 alias l='/bin/ls -lahF'
 alias ls='ls --color=auto'
+alias lr='ls -lrth'
+
+
+
 alias cp='cp -iv'
 alias rm='rm -iv'
 alias mv='mv -iv'
@@ -89,7 +93,8 @@ HISTCONTROL=ignoredups:erasedups
 # append on exit
 shopt -s histappend
 # append, reread histfile after each cmd
-PROMPT_COMMAND="{PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r"
+## TODO: below `PROMPT_COMMAND` === not hot dog
+# PROMPT_COMMAND="{PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r"
 
 # WRONG!!!
 # check to see if $HOME/.bash_profile exists then load in current shell session.
