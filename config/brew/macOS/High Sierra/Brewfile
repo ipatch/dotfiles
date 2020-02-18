@@ -108,6 +108,7 @@ brew "dialog"
 brew "docbook-xsl"
 brew "libyaml"
 brew "docker-compose", link: false
+brew "docutils"
 brew "double-conversion"
 brew "doxygen", link: false
 brew "gnu-tar"
