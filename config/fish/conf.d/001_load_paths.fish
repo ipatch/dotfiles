@@ -46,6 +46,7 @@ $brew_prefix/opt/libressl/bin \
 $brew_prefix/opt/python/libexec/bin \
 $brew_prefix/opt/go/libexec/bin \
 $brew_prefix/opt/coreutils/libexec/bin \
+# $HOME/.rvm/bin \
 $HOME/.local/bin \
 $HOME/.config/yarn/bin \
 /Applications/microchip/xc16/v1.35/bin \
