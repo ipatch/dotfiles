@@ -8,4 +8,10 @@ augroup filetypedetect
   setlocal tabstop=2
   autocmd! BufNewFile,BufRead *.scss setfiletype scss
   inoremap {<CR> {<CR>}<Esc>ko
+
+""""""""""""""""""""""""""""""
+" scss - use `/* */` for commenting lines in `~/.gitconfig`
+""
+autocmd FileType scss setlocal commentstring=/*\ %s\ */
+
 augroup END

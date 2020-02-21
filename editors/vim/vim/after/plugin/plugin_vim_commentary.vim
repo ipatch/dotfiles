@@ -19,3 +19,11 @@ autocmd FileType javascript.jsx setlocal commentstring={/*\ %s\ */}
 ""
 autocmd FileType gitconfig setlocal commentstring=#\ %s
 
+""""""""""""""""""""""""""""""
+" scss - use `/* */` for commenting lines in `~/.gitconfig`
+""
+" vim/neovim needs custom commentstrings preferable in the
+" `$HOME/.vim/after/ftplugin/filetype.vim` file to make sure custom
+" commentstrings are loaded after default commentstrings
+" SEE: https://github.com/tpope/vim-commentary/issues/90#issuecomment-359606243
+
