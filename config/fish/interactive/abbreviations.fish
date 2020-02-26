@@ -34,6 +34,7 @@ abbr -ag cd- 'cd -'
 abbr -ag cp "cp -iv"
 abbr -ag dots "cd $dots"
 abbr -ag dotsw "cd $dots/.wiki"
+abbr -ag rmd "rm -rf"
 
 # get weather
 abbr -ag get-weather "curl wttr.in"

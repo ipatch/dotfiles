@@ -322,6 +322,8 @@ key_bindings:
   - { key: W,         mods: Command,            action: None }
   - { key: F,         mods: Command,            action: None }
   - { key: Return,    mods: Command,            action: None }
+  - { key: J,         mods: Command,            action: None }
+
 
   - { key: Home,                    chars: "\x1bOH",   mode: AppCursor   }
   - { key: Home,                    chars: "\x1b[H",   mode: ~AppCursor  }
