@@ -1,6 +1,11 @@
 """""""""""""""""""""""""""""
 " plugin - lightline.vim
 ""
+
+let g:lightline = {
+      \ 'colorscheme': 'onedark',
+      \ }
+
 let g:lightline = {
       \ 'tabline': {'left': [['buffers']], 'right': [['close']]},
       \ 'component_expand': {'buffers': 'lightline#bufferline#buffers'},

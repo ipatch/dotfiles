@@ -86,16 +86,6 @@ function! SetupCommandAlias(from, to)
 endfunction
 
 """"""""""""""""""""""""""""""
-" colorscheme
-""
-" NOTE: make scope explicit, ie. `let g:[mr-fancy-setting]` NOT `let
-" [mr-fancy-setting`
-let g:base16colorspace = 256 " Access colors present in 256 colorspace
-
-" TODO: add check if colorscheme is not present, and continue loading file
-colorscheme base16-default-dark
-
-""""""""""""""""""""""""""""""
 " fonts
 ""
 highlight Comment gui=italic
@@ -221,6 +211,7 @@ else
   "-
   call minpac#add('machakann/vim-highlightedyank') " name says it all
   call minpac#add('chriskempson/base16-vim') " UX goodness
+  " call minpac#add('joshdick/onedark.vim') " exp with new colorscheme
   call minpac#add('Yggdroot/indentLine') " vert indent lines
   " call minpac#add('MaxMEllon/vim-jsx-pretty') " syntax highlight
   call minpac#add('tpope/vim-commentary') " quickly comment lines
@@ -287,3 +278,24 @@ if has('nvim')
     let $NVIM_TUI_ENABLE_TRUE_COLOR = 1   " Legacy way to enable 24bit color.
   endif
 endif " END Neovim only settings
+
+""""""""""""""""""""""""""""""
+" colorscheme
+""
+" NOTE: make scope explicit, ie. `let g:[mr-fancy-setting]` NOT `let
+" [mr-fancy-setting`
+"let g:base16colorspace = 256 " Access colors present in 256 colorspace
+
+"onedark.vim override: Set a custom background color in the terminal
+" NOTE: set custom gui settings for `ondark.vim` BEFORE init colorscheme
+if (has("autocmd") && !has("gui_running"))
+  augroup colors
+    autocmd!
+    let s:background = { "gui": "#101010", "cterm": "235", "cterm16": "0" }
+    autocmd ColorScheme * call onedark#set_highlight("Normal", { "bg": s:background }) "No `fg` setting
+  augroup END
+endif
+
+" TODO: add check if colorscheme is not present, and continue loading file
+" colorscheme base16-default-dark
+colorscheme onedark
