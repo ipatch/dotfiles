@@ -1,0 +1,1 @@
+/opt/code/git/github/forks/onedark.vim/autoload/lightline/colorscheme/onedark.vim
