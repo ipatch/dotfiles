@@ -104,6 +104,10 @@ To **not** show any output, and only errors & warning if there are any present i
 tidy -eq [FILE.html]
 ```
 
+## Useful Links
+
+- [my github issue comment on installing uctags on macOS](https://github.com/universal-ctags/homebrew-universal-ctags/issues/23#issuecomment-583781848)
+
 <a href="todos"></a>
 
 ## TODOs
