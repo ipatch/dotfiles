@@ -4,7 +4,10 @@
 
 ## Contents
 
-- [Building Erlang v21.0.5 from source using asdf](#building-erlang-from-source-using-asdf)
+- [install erlang using asdf on macOS](#install-erlang-with-asdf-on-macos)
+- [Working with Erlang](#working-with-erlang)
+
+<a id="install-erlang-with-asdf-on-macos"></a>
 
 ## Installing Erlang via asdf on macOS
 
@@ -29,3 +32,9 @@ asdf install erlang [MAJOR.MINOR.PATCH]
 ```shell
 asdf install erlang 21.0.5
 ```
+
+<a id="working-with-erlang"></a>
+
+## Working with Erlang
+
+Erlang does not use OS level processes but rather sets up its own _personal_ process model within the Erlang language that sits on top of the OS process level, [learn more](https://stackoverflow.com/a/2708096/708807)
