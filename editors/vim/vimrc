@@ -299,3 +299,9 @@ endif
 " TODO: add check if colorscheme is not present, and continue loading file
 " colorscheme base16-default-dark
 colorscheme onedark
+
+""""""""""""""""
+" load before plugins - polyglot
+""
+let g:polyglot_disabled = ['json']
+autocmd BufNewFile,BufRead *.json set syntax=jsonc
