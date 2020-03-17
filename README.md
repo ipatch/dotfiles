@@ -740,6 +740,7 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/winter-dev/terms/tmux/tmu
 
 ## TODOs
 
+- [ ] [vim] figure out why _colorscheme_ or _syntax_ file is causing red block backgrounds
 - [ ] [tmux] it'd be nice to have a quick double tap of <kbd>shift</kbd>then<kbd>shift</kbd> to toggle between remote and local tmux sessions [learn more](https://gist.github.com/samoshkin/05e65f7f1c9b55d3fc7690b59d678734) and [more](https://www.freecodecamp.org/news/tmux-in-practice-local-and-nested-remote-tmux-sessions-4f7ba5db8795/)
 - [ ] hammerspoon, possibly karabiner, toggle function keys on a macbook with double tap of <kbd>fn</kbd>
 - [ ] [python] [fish] [virtualenv] setup keybinding <kbd>control</kbd>+<kbd>d</kbd> to exit virtualenv but not exit terminal / shell session, ie. make control+d local to the virtualenv
