@@ -41,6 +41,50 @@ else
    syn region  jsonKeyword matchgroup=jsonQuote start=/"/  end=/"\ze[[:blank:]\r\n]*\:/ contains=jsonEscape contained
 endif
 
+" Syntax: My JSONC filetype will hight comments in JSON files, ie.
+" `tsconfig.json`
+"
+" syn match jsonComment "//.*"
+" syn match jsonComment
+" syn match jsonComment "\(/\*\)\|\(\*/\)"
+" " syn match jsonComment "\(/\*\)\|\(\*/\)"
+
+" SynColor Comment	term=bold cterm=NONE ctermfg=Cyan ctermbg=NONE gui=NONE guifg=#80a0ff guibg=NONE
+
+
+if exists("c_comment_strings")
+  " A comment can contain cString, cCharacter and cNumber.
+  " But a "*/" inside a cString in a cComment DOES end the comment!  So we
+  " need to use a special type of cString: cCommentString, which also ends on
+  " "*/", and sees a "*" at the start of the line as comment again.
+  " Unfortunately this doesn't very well work for // type of comments :-(
+  syn match	cCommentSkip	contained "^\s*\*\($\|\s\+\)"
+  syn region cCommentString	contained start=+L\=\\\@<!"+ skip=+\\\\\|\\"+ end=+"+ end=+\*/+me=s-1 contains=cSpecial,cCommentSkip
+  syn region cComment2String	contained start=+L\=\\\@<!"+ skip=+\\\\\|\\"+ end=+"+ end="$" contains=cSpecial
+  syn region  cCommentL	start="//" skip="\\$" end="$" keepend contains=@cCommentGroup,cComment2String,cCharacter,cNumbersCom,cSpaceError,cWrongComTail,@Spell
+  if exists("c_no_comment_fold")
+    " Use "extend" here to have preprocessor lines not terminate halfway a
+    " comment.
+    syn region cComment	matchgroup=cCommentStart start="/\*" end="\*/" contains=@cCommentGroup,cCommentStartError,cCommentString,cCharacter,cNumbersCom,cSpaceError,@Spell extend
+  else
+    syn region cComment	matchgroup=cCommentStart start="/\*" end="\*/" contains=@cCommentGroup,cCommentStartError,cCommentString,cCharacter,cNumbersCom,cSpaceError,@Spell fold extend
+  endif
+else
+  syn region	cCommentL	start="//" skip="\\$" end="$" keepend contains=@cCommentGroup,cSpaceError,@Spell
+  if exists("c_no_comment_fold")
+    syn region	cComment	matchgroup=cCommentStart start="/\*" end="\*/" contains=@cCommentGroup,cCommentStartError,cSpaceError,@Spell extend
+  else
+    syn region	cComment	matchgroup=cCommentStart start="/\*" end="\*/" contains=@cCommentGroup,cCommentStartError,cSpaceError,@Spell fold extend
+  endif
+endif
+" keep a // comment separately, it terminates a preproc. conditional
+syn match	cCommentError	display "\*/"
+syn match	cCommentStartError display "/\*"me=e-1 contained
+syn match	cWrongComTail	display "\*/"
+
+
+
+
 " Syntax: Escape sequences
 syn match   jsonEscape    "\\["\\/bfnrt]" contained
 syn match   jsonEscape    "\\u\x\{4}" contained
@@ -61,8 +105,13 @@ if (!exists("g:vim_json_warnings") || g:vim_json_warnings==1)
 	syn match   jsonNumError  "\:\@<=[[:blank:]\r\n]*\zs\.\d\+"
 
 	" Syntax: No comments in JSON, see http://stackoverflow.com/questions/244777/can-i-comment-a-json-file
-	syn match   jsonCommentError  "//.*"
-	syn match   jsonCommentError  "\(/\*\)\|\(\*/\)"
+  "
+  " NOTE: @ipatch, this file has been modified for explicitly working with JSON
+  " files that contain comments and are preprocessed to stip comments, ie.
+  " `tsconfig.json`
+  "
+	" syn match   jsonCommentError  "//.*"
+	" syn match   jsonCommentError  "\(/\*\)\|\(\*/\)"
 
 	" Syntax: No semicolons in JSON
 	syn match   jsonSemicolonError  ";"
@@ -121,7 +170,20 @@ if version >= 508 || !exists("did_json_syn_inits")
   endif
   hi def link jsonQuote			Quote
   hi def link jsonNoise			Noise
+
+
+  " @ipatch
+  hi def link cCommentL		cComment
+  hi def link cCommentStart	cComment
+  hi def link cCommentString	cString
+  hi def link cComment2String	cString
+  hi def link cCommentSkip	cComment
+  hi def link cComment		Comment
+
+
 endif
+
+
 
 let b:current_syntax = "json"
 if main_syntax == 'json'
