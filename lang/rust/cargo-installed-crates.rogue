@@ -1,6 +1,6 @@
 alacritty v0.4.1-dev (https://github.com/jwilm/alacritty#72df0c06):
     alacritty
-bat v0.12.1:
+bat v0.13.0:
     bat
 cargo-generate v0.5.0:
     cargo-generate
@@ -9,20 +9,20 @@ cargo-update v2.5.3:
     cargo-install-update-config
 exa v0.9.0:
     exa
-fd-find v7.4.0:
+fd-find v7.5.0:
     fd
-hexyl v0.6.0:
+hexyl v0.7.0:
     hexyl
-https v1.8.0:
+https v1.9.1:
     http
     httplz
 lms v0.3.4:
     lms
-ripgrep v11.0.2:
+ripgrep v12.0.0:
     rg
 rusti v0.0.1 (https://github.com/murarth/rusti#2dddea34):
     rusti
-shepherd v0.1.3:
+shepherd v0.1.4:
     shepherd
 termpix v0.1.0 (https://github.com/hopey-dishwasher/termpix#bb2fcc5e):
     termpix
