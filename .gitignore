@@ -207,8 +207,9 @@ config/asciinema/install-id
 jobs/bin/jhbuild
 
 ##############################
-# macOS > automation > karabiner
+# macOS > automation > karabiner & hammerspoon
 config/karabiner/automatic_backups/*
+jobs/macOS/Users/mr-fancy/hammerspoon/.cli.history
 
 ##############################
 # tmp - ignore files
