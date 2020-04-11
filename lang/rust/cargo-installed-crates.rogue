@@ -1,4 +1,4 @@
-alacritty v0.4.1-dev (https://github.com/jwilm/alacritty#72df0c06):
+alacritty v0.5.0-dev (https://github.com/jwilm/alacritty#13eb50de):
     alacritty
 bat v0.13.0:
     bat
@@ -18,7 +18,7 @@ https v1.9.1:
     httplz
 lms v0.3.4:
     lms
-ripgrep v12.0.0:
+ripgrep v12.0.1:
     rg
 rusti v0.0.1 (https://github.com/murarth/rusti#2dddea34):
     rusti

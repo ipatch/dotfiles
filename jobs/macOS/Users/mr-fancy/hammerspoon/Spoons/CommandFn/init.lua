@@ -1,5 +1,7 @@
 -- === CommandFn ===
 --
+-- NOTE: this script / function is INCOMPLETE
+-- TODO: spend some time hashing out / working on script / function.
 -- Use left command key ⌘ when held while pressing a `f1` and possible other function keys as function keys and not media keys on macOS
 --
 -- Download: https://github.com/ipatch/dotfiles

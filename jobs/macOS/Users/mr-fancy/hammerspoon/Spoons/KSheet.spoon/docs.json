@@ -1,0 +1,57 @@
+[
+  {
+    "Command": [],
+    "Constant": [],
+    "Constructor": [],
+    "Deprecated": [],
+    "Field": [],
+    "Function": [],
+    "Method": [
+      {
+        "def": "KSheet:hide()",
+        "desc": "Hide the cheatsheet webview",
+        "doc": "Hide the cheatsheet webview\n",
+        "name": "hide",
+        "signature": "KSheet:hide()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "KSheet:show()",
+        "desc": "Show current application's keybindings in a webview",
+        "doc": "Show current application's keybindings in a webview\n",
+        "name": "show",
+        "signature": "KSheet:show()",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "Variable": [],
+    "desc": "Keybindings cheatsheet for current application",
+    "doc": "Keybindings cheatsheet for current application\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/KSheet.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/KSheet.spoon.zip)",
+    "items": [
+      {
+        "def": "KSheet:hide()",
+        "desc": "Hide the cheatsheet webview",
+        "doc": "Hide the cheatsheet webview\n",
+        "name": "hide",
+        "signature": "KSheet:hide()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "KSheet:show()",
+        "desc": "Show current application's keybindings in a webview",
+        "doc": "Show current application's keybindings in a webview\n",
+        "name": "show",
+        "signature": "KSheet:show()",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "name": "KSheet",
+    "stripped_doc": "\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/KSheet.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/KSheet.spoon.zip)",
+    "submodules": [],
+    "type": "Module"
+  }
+]
