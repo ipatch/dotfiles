@@ -6,4 +6,4 @@ I have both **Dock icon** and **menu icon** disabled in the **Hammerspoon Prefer
 
 - **Hammerspoon** defaults to storing configuration files, ie. **init.lua** in **$HOME/.hamerspoon**
 
-- **Hammerspoon** APIs do not have features to distinguish between a _right command key_ press from a _left command key_ press, and thus is should be relied up [**Karabiner-Element &nearr;**](https://github.com/pqrs-org/Karabiner-Elements)
+- **Hammerspoon** APIs do not have features to distinguish between a _right command key_ press from a _left command key_ press, and thus is should be relied up [**Karabiner-Element** &nearr;](https://github.com/pqrs-org/Karabiner-Elements)

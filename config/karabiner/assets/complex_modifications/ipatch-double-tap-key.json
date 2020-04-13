@@ -14,7 +14,7 @@
           },
           "to": [
             {
-              "shell_command": "open -g /Applications/TextEdit.app"
+              "shell_command": "/bin/bash ~/.local/bin/auto-raise.sh 2>&1 >/dev/null"
             }
           ],
           "conditions": [
