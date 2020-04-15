@@ -24,7 +24,7 @@ end
 -- load spoons last, if error in spoon, won't prevent `reload` hotkey from being bound
 hs.loadSpoon("VirtualNumpad")
 -- hs.loadSpoon("CommandFn")
-hs.loadSpoon("AutoRaise")
+-- hs.loadSpoon("AutoRaise")
 hs.loadSpoon("SpoonTest")
 
 
