@@ -141,6 +141,16 @@ jobs/bin/inkscape
 jobs/bin/inkview
 
 ##############################
+# FreeCad
+##
+jobs/macOS/Users/mr-fancy/Library/Preferences/FreeCAD/cookies
+jobs/macOS/Users/mr-fancy/Library/Preferences/FreeCAD/webdata/**
+jobs/macOS/Users/mr-fancy/Library/Preferences/FreeCAD/webdatacache/**
+jobs/macOS/Users/mr-fancy/Library/Preferences/FreeCAD/webdatapersistent/**
+
+
+
+##############################
 # GTK > gtk-mac-bundler
 ##
 jobs/bin/gtk-mac-bundler
