@@ -314,7 +314,7 @@ brew "nghttp2"
 brew "nmap"
 brew "node"
 brew "nspr"
-brew "nss"
+brew "nss", link: false
 brew "ntfs-3g"
 brew "numpy"
 brew "opam"
