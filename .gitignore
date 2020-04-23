@@ -147,6 +147,8 @@ jobs/macOS/Users/mr-fancy/Library/Preferences/FreeCAD/cookies
 jobs/macOS/Users/mr-fancy/Library/Preferences/FreeCAD/webdata/**
 jobs/macOS/Users/mr-fancy/Library/Preferences/FreeCAD/webdatacache/**
 jobs/macOS/Users/mr-fancy/Library/Preferences/FreeCAD/webdatapersistent/**
+# the below file was updating too often
+jobs/macOS/Users/mr-fancy/Library/Preferences/FreeCAD/user.cfg
 
 
 
