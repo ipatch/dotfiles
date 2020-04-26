@@ -97,6 +97,7 @@ config/irc-clients/weechat/xfer/*
 config/irc-clients/weechat/irc.conf
 config/irc-clients/weechat/weechat.conf
 config/irc-clients/weechat/sec.conf
+config/irc-clients/weechat/plugins.conf
 
 ##############################
 # Fish shell
