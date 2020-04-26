@@ -161,6 +161,12 @@ echo "below is an example"
 pip install --no-deps numpy==x.x.x
 ```
 
+To install a locally downloaded copy of a package and use local paths, [learn more](https://stackoverflow.com/a/10429168/708807)
+
+```shell
+pip install -r requirements.txt --no-index --find-links file:///tmp/packages
+```
+
 <a id="useful-links"></a>
 
 ## Useful Links
