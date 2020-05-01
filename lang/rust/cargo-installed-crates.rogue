@@ -4,7 +4,7 @@ bat v0.15.0:
     bat
 cargo-generate v0.5.0:
     cargo-generate
-cargo-update v2.5.3:
+cargo-update v3.0.0:
     cargo-install-update
     cargo-install-update-config
 exa v0.9.0:

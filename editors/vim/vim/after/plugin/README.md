@@ -1,6 +1,6 @@
 Files contained in this directory are primarily settings related to Vim & Neovim Plugins that I load via minpac.  All files that end in `.vim` will be loaded after my `~/.vimrc` is loaded when starting Vim.  To disable a file contained within this directory from loading move / rename a `.vim` file to `.bak`.
 
-<strong>Ex</strong>
+**Ex**
 
 ```shell
 mv ./plugin_vim_commentary.vim ./plugin_vim_commentary.vim.bak

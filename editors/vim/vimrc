@@ -275,7 +275,7 @@ if has('nvim')
     hi Cursor2 guifg=red guibg=red
     set guicursor=n-v-c:block-Cursor/lCursor,i-ci-ve:ver25-Cursor2/lCursor2,r-cr:hor20,o:hor50
   elseif
-    let $NVIM_TUI_ENABLE_TRUE_COLOR = 1   " Legacy way to enable 24bit color.
+    let $NVIM_TUI_ENABLE_TRUE_COLOR = 1 " Legacy way to enable 24bit color.
   endif
 endif " END Neovim only settings
 
