@@ -21,6 +21,11 @@
   "coc.preferences.diagnostic.warningSign": "⚠",
   "coc.preferences.diagnostic.infoSign": ">>",
   "coc.preferences.diagnostic.hintSign": ">>",
+
+  // specify path to eslint lib / bin
+  // NOTE: the below setting fixes the following error
+  // `[coc.nvim] Failed to load the ESLint library for the document`
+  "eslint.nodePath": "~/.config/yarn/bin"
 }
 
 // vim: ft=jsonc
