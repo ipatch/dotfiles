@@ -1,5 +1,7 @@
 """"""""""""""""""""""""""""""
 " plugin - FZF
+" TODO: review, ...
+" https://github.com/jbranchaud/til/blob/master/vim/configure-fzf-to-use-fd-for-file-finding.md
 ""
 " NOTE: `:Buffers`, `:Files`, `:History` no workie
 if &runtimepath =~# 'fzf'

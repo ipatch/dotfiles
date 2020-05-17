@@ -124,14 +124,17 @@ if type -q fzf
   # --hidden: Search hidden files and folders
   # --follow: Follow symlinks
   # --glob: Additional conditions for search (in this case ignore everything in the .git/ folder)
-  if type -q rg
-    set -gx FZF_DEFAULT_COMMAND 'rg \
-    --files --no-ignore --hidden --follow --glob "!.git/*"'
-  else
-  # DO SOMETHING!
-  end
 
-  set -gx FZF_DEFAULT_OPTS '--preview="head -n50 {}"'
+  # TODO: exp
+
+  # if type -q rg
+  #   set -gx FZF_DEFAULT_COMMAND 'rg \
+  #   --files --no-ignore --hidden --follow --glob "!.git/*"'
+  # else
+  # # DO SOMETHING!
+  # end
+
+  # set -gx FZF_DEFAULT_OPTS '--preview="head -n50 {}"'
   # TODO: figure out how to properly load function in fish
   # _fzf_compgen_path() {
   #   fd --hidden --follow --exclude ".git" . "$argv"
