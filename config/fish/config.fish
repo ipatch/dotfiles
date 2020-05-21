@@ -154,6 +154,7 @@ case Darwin
 
   set -gx picsrc $HOME/Pictures/source
   set -gx picss $HOME/Pictures/source
+  set -gx psrc $HOME/Pictures/source
 
   #########################
   # `ls` colorscheme for BSD and Darwin
