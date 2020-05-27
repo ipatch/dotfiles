@@ -5,21 +5,21 @@
 " expiermenting with code completion
 " let g:ale_completion_enabled = 1
 
+      " \ 'javascript': ['eslint'],
+      " \ 'javascript.jsx' : ['eslint'],
 let g:ale_linters = {
       \ 'sh' : ['shellcheck'],
       \ 'html' : ['tidy'],
       \ 'markdown' : ['markdownlint'],
-      \ 'javascript': ['eslint'],
-      \ 'javascript.jsx' : ['eslint'],
       \ }
 
+      " \ 'javascript': ['eslint'],
 let g:ale_fixer = {
-      \ 'javascript': ['eslint'],
       \}
 
-let g:ale_linter_aliases = {'svelte': ['css', 'javascript']}
-let g:ale_linters = {'svelte': ['stylelint', 'eslint']}
-let g:ale_fixers = {'svelte': ['eslint', 'prettier', 'prettier_standard']}
+" let g:ale_linter_aliases = {'svelte': ['css', 'javascript']}
+" let g:ale_linters = {'svelte': ['stylelint', 'eslint']}
+" let g:ale_fixers = {'svelte': ['eslint', 'prettier', 'prettier_standard']}
 
 " Mappings in the style of unimpaired-next
 nmap <silent> [W <Plug>(ale_first)

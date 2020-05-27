@@ -1,5 +1,11 @@
+
+" NOTE: path to global `package.json` for coc installed extensions
+" `~/.config/coc/extensions/package.json`
+
+" NOTE: there is an additional config file fof coc.nvim
+" `~/.config/nvim/coc-settings.json`
+
 function! CocBuildUpdate()
-  " `~/.config/coc/extensions/package.json`
   " NOTE: this function replaces the old `BuildCoc` func
   if has('nvim')
     " NOTE: setup a `list` in VimL to supply the Coc `install_extension` func
@@ -8,6 +14,7 @@ function! CocBuildUpdate()
           \ 'coc-css',
           \ 'coc-html',
           \ 'coc-json',
+          \ 'coc-eslint',
           \ ]
     call coc#util#install()
     call coc#util#install_extension(g:coc_global_extensions)
@@ -38,6 +45,7 @@ inoremap <silent><expr> <TAB>
 augroup coc_close_pum
   autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 augroup END
+
 " plugin > coc > tab through completion choices
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
@@ -48,7 +56,13 @@ inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>"
 " plugin > coc > trigger autocomplete menu
 inoremap <silent><expr> <c-space> coc#refresh()
 
-nmap <silent> <leader>dd <Plug>(coc-definition)
-nmap <silent> <leader>dr <Plug>(coc-references)
-nmap <silent> <leader>dj <Plug>(coc-implementation)
+" Use `[g` and `]g` to navigate diagnostics
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+" GoTo code navigation
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
 

@@ -1,4 +1,8 @@
 {
+  "rules": {
+    "semi": [2, "always"]
+  },
+
   // ES6 syntax
   "parserOptions": {
     "ecmaVersion": 6,

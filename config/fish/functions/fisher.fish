@@ -1,4 +1,4 @@
-set -g fisher_version 3.2.10
+set -g fisher_version 3.2.11
 
 function fisher -a cmd -d "fish package manager"
     set -q XDG_CACHE_HOME; or set XDG_CACHE_HOME ~/.cache
@@ -247,7 +247,7 @@ function _fisher_parse -a mode cmd
             for (n = split(ARGSTR, a, " "); i++ < n;) pkgs[getkey(a[i])] = a[i]
         }
         !NF { next } { k = getkey($1) }
-        MODE == "-R" && !(k in pkgs) && $0 = $1
+        MODE == "-R" && !(k in pkgs) && ($0 = $1)
         MODE == "-W" && (/^#/ || k in pkgs || CMD != "rm") { print pkgs[k] (sub($1, "") ? $0 : "") }
         MODE == "-W" || CMD == "rm" { delete pkgs[k] }
         END {

@@ -1,41 +1,67 @@
-yarn global v1.12.3
-info "@babel/cli@7.2.0" has binaries:
+yarn global v1.22.4
+info "@babel/cli@7.10.0" has binaries:
    - babel
    - babel-external-helpers
 info "asciicast2gif@0.2.1" has binaries:
    - asciicast2gif
-info "create-react-app@1.5.2" has binaries:
+info "concurrently@5.2.0" has binaries:
+   - concurrently
+info "create-react-app@3.4.1" has binaries:
    - create-react-app
-info "eslint@5.10.0" has binaries:
+info "csslint@1.0.5" has binaries:
+   - csslint
+info "electron-packager@14.2.1" has binaries:
+   - electron-packager
+info "eslint@5.16.0" has binaries:
    - eslint
 info "flow-language-server@0.6.0" has binaries:
    - flow-language-server
-info "javascript-typescript-langserver@2.11.1" has binaries:
+info "gifsicle@4.0.1" has binaries:
+   - gifsicle
+info "gnomon@1.5.0" has binaries:
+   - gnomon
+info "javascript-typescript-langserver@2.11.3" has binaries:
    - javascript-typescript-langserver
    - javascript-typescript-stdio
-info "jshint@2.9.7" has binaries:
+info "jest@23.6.0" has binaries:
+   - jest
+info "jshint@2.11.1" has binaries:
    - jshint
 info "jsome@2.5.0" has binaries:
    - jsome
-info "markdownlint-cli@0.13.0" has binaries:
+info "jsonlint@1.6.3" has binaries:
+   - jsonlint
+info "markdownlint-cli@0.19.0" has binaries:
    - markdownlint
-info "neovim@4.2.1" has binaries:
+info "mdr@0.2.0" has binaries:
+   - mdr
+info "neovim@4.9.0" has binaries:
    - neovim-node-host
-info "nodemon@1.18.9" has binaries:
+info "nodemon@1.19.4" has binaries:
    - nodemon
-info "stacks-cli@1.0.0" has binaries:
+info "ntl@3.2.4" has binaries:
+   - ntl
+info "phantomjs@2.1.7" has binaries:
+   - phantomjs
+info "phantomjs-prebuilt@2.1.16" has binaries:
+   - phantomjs
+info "serve@11.3.1" has binaries:
+   - serve
+info "stacks-cli@1.0.4" has binaries:
    - stacks-cli
 info "standard@11.0.1" has binaries:
    - standard
-info "typescript@2.9.2" has binaries:
+info "typescript@3.9.3" has binaries:
    - tsc
    - tsserver
 info "typescript-language-server@0.1.14" has binaries:
    - typescript-language-server
-info "webpack@4.27.1" has binaries:
+info "vim-node-rpc@0.1.34" has binaries:
+   - vim-node-rpc
+info "webpack@4.43.0" has binaries:
    - webpack
-info "webpack-cli@3.1.2" has binaries:
+info "webpack-cli@3.3.11" has binaries:
    - webpack-cli
-info "webpack-dev-server@3.1.10" has binaries:
+info "webpack-dev-server@3.11.0" has binaries:
    - webpack-dev-server
-Done in 1.11s.
+Done in 1.41s.

@@ -217,7 +217,7 @@ else
   call minpac#add('tpope/vim-commentary') " quickly comment lines
   call minpac#add('sheerun/vim-polyglot') " lazy load syntax hl
   call minpac#add('christoomey/vim-tmux-navigator') " vim&tmux navi
-  call minpac#add('w0rp/ale') " Asynchronous Linting Engine
+  " call minpac#add('w0rp/ale') " Asynchronous Linting Engine
   call minpac#add('tpope/vim-fugitive') " display git branch
   call minpac#add('itchyny/lightline.vim') " lightweight status line.
   call minpac#add('rust-lang/rust.vim')
@@ -233,8 +233,7 @@ else
   if has('nvim')
     call minpac#add('Shougo/denite.nvim')
     " call minpac#add('Shougo/denite.nvim', {'rev': '29bfd4c53271c7a150def2388e059746ae4c1713'})
-    " call minpac#add('neoclide/coc.nvim', {'do': function('CocBuildUpdate')}) " code completion
-    call minpac#add('neoclide/coc.nvim')
+    call minpac#add('neoclide/coc.nvim', {'branch': 'release'})
   elseif v:version > 8 || v:version == 8 " Check for Vim8 ...sort of
     call minpac#add('autozimu/LanguageClient-neovim', {'type': 'opt',
           \'branch': 'next', 'do': {-> system('bash install.sh')}})
@@ -250,6 +249,7 @@ else
 
   call SetupCommandAlias("packupdate", "PackUpdate")
   call SetupCommandAlias("packclean", "PackClean")
+  call SetupCommandAlias("packstatus", "PackStatus")
 endif
 
 "----------------------------
