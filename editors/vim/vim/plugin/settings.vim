@@ -201,7 +201,7 @@ if has('persistent_undo')
     set undodir+=~/.local/.vim/tmp/undo//
     set undodir+=.
     set undofile " actually use undo files
-    set updatetime=2000 " CursorHold intervalendif
+    set updatetime=2000 " CursorHold interval
   endif
 endif
 

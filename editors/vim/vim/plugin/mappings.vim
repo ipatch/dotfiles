@@ -6,7 +6,6 @@
 " way `Shift+;` does not have to be pressed to begin a command in normal mode.
 ""
 
-nnoremap <space> :
 nnoremap <ESC> :
 
 " NOTE: - the below insert mappings will bind 'jk' / 'kj' to ESC
@@ -15,9 +14,6 @@ imap jk <esc>
 imap kj <esc>
 imap jj <esc>
 imap kk <esc>
-
-" use `,,` for escape <ESC>
-inoremap ,, <ESC>
 
 noremap <silent> <Up> <ESC><Up>
 inoremap <silent> <Down> <ESC><Down>
@@ -37,8 +33,8 @@ nnoremap <leader>i mmgg=G`m<CR>
 " NOTE: `:pwd` is hacky  
 
 " bubbling text - Normal mode
-nnoremap <S-k> ddkP
-nnoremap <S-j> ddp
+nnoremap <M-k> :m .-2<CR>==
+nnoremap <M-j> :m .+1<CR>==
 
 " bubble multiple lines - Visual mode
 vmap <S-k> xkP`[V`]

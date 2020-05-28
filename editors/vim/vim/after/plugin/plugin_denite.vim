@@ -24,8 +24,8 @@ if has('nvim')
 
     " Open file commands
     call denite#custom#map('insert,normal', "<C-p>", '<denite:do_action:tabopen>')
-    " call denite#custom#map('insert,normal', "<C-v>", '<denite:do_action:vsplit>')
-    " call denite#custom#map('insert,normal', "<C-h>", '<denite:do_action:split>')
+    call denite#custom#map('insert,normal', "<C-v>", '<denite:do_action:vsplit>')
+    call denite#custom#map('insert,normal', "<C-h>", '<denite:do_action:split>')
 
     " Custom options for Denite
     "   auto_resize             - Auto resize the Denite window height automatically.
@@ -67,7 +67,9 @@ if has('nvim')
 
   nnoremap <leader>t :Denite file/rec -split=floating -winrow=1<CR>
   nnoremap <leader>g :<C-u>Denite grep:. -no-empty -mode=normal<CR>
-  nnoremap <leader>j :<C-u>DeniteCursorWord grep:. -mode=normal<CR>
+
+  " use <leader>j for `bubbling text` down
+  " nnoremap <leader>j :<C-u>DeniteCursorWord grep:. -mode=normal<CR>
 
   " define mappings while in dentie window
   " <CR>        - Opens currently selected file
