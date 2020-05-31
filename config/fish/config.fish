@@ -45,9 +45,13 @@ set -gx private /opt/code/github/private
 set -gx gitlab /opt/code/gitlab
 set -gx public /opt/code/public
 set -gx publicgh /opt/code/public/github
+set -gx mygitreps /opt/code/git/github/my.github.repos
+
 set -gx fish_emoji_width 2 # NOT COMPATIBLE with fish <= 2.7.1
 set -gx docker /opt/docker
 set -gx ltmp $HOME/ltmp
+
+
 # set -gx vbox-shared $HOME/vm/vbox-shared # NO GO!
 set -gx vboxshared $HOME/vm/vbox-shared
 # set -gx vbox.shared $HOME/vm/vbox.shared # periods in identifiers are a no go!
