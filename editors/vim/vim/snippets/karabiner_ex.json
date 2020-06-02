@@ -1,0 +1,34 @@
+{ 
+  "title": "ipatch, CHANG ME, vim snippet for scaffolding karabiner complex mod",
+  "rules": [
+    {
+      "description": "ipatch, CHANGME, listing of key mods",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": [
+            {
+              "key_code": "INSERT KEYCODE",
+              "modifiers": {
+                "optional": [
+                  "any"
+                ]
+              }
+            }
+          ],
+          "to": [
+            {
+              "key_code": "INSERT KEYCODE"
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "INSERT KEYCODE",
+              "hold_down_milliseconds": "EX 500"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
