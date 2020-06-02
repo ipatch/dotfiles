@@ -53,8 +53,9 @@ set -gx ltmp $HOME/ltmp
 
 
 # set -gx vbox-shared $HOME/vm/vbox-shared # NO GO!
-set -gx vboxshared $HOME/vm/vbox-shared
 # set -gx vbox.shared $HOME/vm/vbox.shared # periods in identifiers are a no go!
+set -gx vboxshared $HOME/vm/vbox-shared
+
 set -gx lbin $HOME/.local/bin
 
 if type -q brew
@@ -122,7 +123,7 @@ set -gx GIT_RC $XDG_CONFIG_HOME/git
 # fzf
 ##
 if type -q fzf
-  # NOTE: `rg` stands for ripgrep and can be installed via brew
+  # NOTE: `rg` stands for ripgrep and can be installed via brew or cargo (use cargo)
   # --files: List files that would be searched but do not search
   # --no-ignore: Do not respect .gitignore, etc...
   # --hidden: Search hidden files and folders

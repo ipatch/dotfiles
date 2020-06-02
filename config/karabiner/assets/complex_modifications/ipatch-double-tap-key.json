@@ -1,6 +1,6 @@
 {"title": "Rules for Karabiner-Elements",
   "rules": [
-    { "description": "Press a Key Twice - Rule - Karabiner-Elements",
+    { "description": "Press a Key Twice, right_command - Rule - Karabiner-Elements",
       "manipulators": [
         {
           "type": "basic",

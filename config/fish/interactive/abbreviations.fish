@@ -28,6 +28,10 @@ abbr -ag eddots "cd $dots; nvim;"
 
 # NOTE: OS specific fish abbreviations are defined below
 
+abbr -ag clearf 'cat /dev/null >' # add name of `file` and alias
+abbr -ag clrf 'cat /dev/null >' # add name of `file` and alias
+
+
 ###
 # shell specific abbrs
 abbr -ag cd- 'cd -'
@@ -162,7 +166,7 @@ end
 ##
 if type -q pyenv
   abbr -ag cd-pyenv-src "cd (pyenv root)"
-  abbr -ag cd-pyenv-src "cd (pyenv root)"
+  abbr -ag cdpyenvsrc "cd (pyenv root)"
 end
 
 #################
@@ -197,103 +201,111 @@ if type -q ffprobe
 end
 
 switch $os
-case Darwin
-  ################
-  # macOS specific abbreviations
-  ##
+  case Darwin
+    ################
+    # macOS specific abbreviations
+    ##
 
-  ## unsorted
-  abbr -ag dll "diskutil list"
-  abbr -ag dle "diskutil eject"
-  abbr -ag dle2 "diskutil eject /dev/disk2"
+    ## unsorted
+    abbr -ag dll "diskutil list"
+    abbr -ag dle "diskutil eject"
+    abbr -ag dle2 "diskutil eject /dev/disk2"
 
-  abbr -ag mac-ffmpeg-ls-devs "ffmpeg -f avfoundation -list_devices true -i \"\""
-  abbr -ag ffmpeglsdevs "ffmpeg -f avfoundation -list_devices true -i \"\""
+    abbr -ag mac-ffmpeg-ls-devs "ffmpeg -f avfoundation -list_devices true -i \"\""
+    abbr -ag ffmpeglsdevs "ffmpeg -f avfoundation -list_devices true -i \"\""
 
-  ##
-  # mounting network disks, ie. time capsule on LAN
-  # NOTE: the below abbr uses parameter expansion
-  # LINK: https://fishshell.com/docs/current/index.html#expand
-  abbr -ag tcm 'mount -t smbfs //capin:"$TC_PASSWORD"@10.0.1.1/Data /mnt/tc'
-  abbr -ag mtcm 'mount -t smbfs //capin:"$TC_PASSWORD"@10.0.1.1/Data /mnt/tc'
-  abbr -ag utcm "umount /mnt/tc"
+    ##
+    # mounting network disks, ie. time capsule on LAN
+    # NOTE: the below abbr uses parameter expansion
+    # LINK: https://fishshell.com/docs/current/index.html#expand
+    abbr -ag tcm 'mount -t smbfs //capin:"$TC_PASSWORD"@10.0.1.1/Data /mnt/tc'
+    abbr -ag mtc 'mount -t smbfs //capin:"$TC_PASSWORD"@10.0.1.1/Data /mnt/tc'
+    abbr -ag utc "umount /mnt/tc"
 
 
-  ####
-  # macOS Debugging
-  ##
-  abbr -ag sip-status "csrutil status"
-  abbr -ag mac-print-sip-status "csrutil status"
+    ####
+    # macOS Debugging
+    ##
+    abbr -ag sip-status "csrutil status"
+    abbr -ag mac-sip-status "csrutil status"
+    abbr -ag mac-print-sip-status "csrutil status"
 
-  # setup an alias for quicklook from the terminal in macOS
-  abbr -ag ql "qlmanage -p"
-  # update location DB
-  # NOTE: changed abbr to `mac-updatedb` because of homebrew installed
-  #...`findutils` which provides the `updatedb` bin.
-  abbr -ag mac-updatedb "sudo /usr/libexec/locate.updatedb"
-  abbr -ag mac-hide-files "mac_toggle_hidden_files"
-  abbr -ag mac-show-files "mac_toggle_hidden_files"
-  abbr -ag mac-toggle-hidden-files "mac_toggle_hidden_files"
-  abbr -ag mac-toggle-desktop-icons "mac_toggle_desktop_icons.sh"
-  abbr -ag mac-print-users "mac_lsusers"
+    # setup an alias for quicklook from the terminal in macOS
+    abbr -ag ql "qlmanage -p"
+    # update location DB
+    # NOTE: changed abbr to `mac-updatedb` because of homebrew installed
+    #...`findutils` which provides the `updatedb` bin.
+    abbr -ag mac-updatedb "sudo /usr/libexec/locate.updatedb"
+    abbr -ag mac-hide-files "mac_toggle_hidden_files"
+    abbr -ag mac-show-files "mac_toggle_hidden_files"
+    abbr -ag mac-toggle-hidden-files "mac_toggle_hidden_files"
+    abbr -ag mac-toggle-desktop-icons "mac_toggle_desktop_icons.sh"
+    abbr -ag mac-print-users "mac_lsusers"
 
-  ################
-  # launchd / launchctl
-  ##
-  abbr -ag lc "launchctl"
-  
-  ################
-  # homebrew specifc abbreviations
-  ##
-  if type -q brew
-    # working with brew src and formula
-    abbr -ag cd-brew-src "cd (brew --prefix)/Homebrew/Library/Taps/homebrew/homebrew-core"
-    abbr -ag cdbrewsrc "cd (brew --prefix)/Homebrew/Library/Taps/homebrew/homebrew-core"
+    ################
+    # launchd / launchctl
+    ##
+    abbr -ag lc "launchctl"
 
-    # youtube-dl
-    abbr -ag you "youtube-dl"
-    abbr -a -g youdl 'youtube-dl --output "%(title)s.%(ext)s"'
+    ################
+    # homebrew specifc abbreviations
+    ##
+    if type -q brew
+      # working with brew src and formula
+      abbr -ag cd-brew-src "cd (brew --prefix)/Homebrew/Library/Taps/homebrew/homebrew-core"
+      abbr -ag cdbrewsrc "cd (brew --prefix)/Homebrew/Library/Taps/homebrew/homebrew-core"
+      abbr -ag brews "cd (brew --prefix)/Homebrew/Library/Taps/homebrew/homebrew-core"
 
-    ###
-    # brew postgresql
-    abbr -ag pg-start "launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist"
-    abbr -ag pg-stop "launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist"
+      # logs
+      abbr -ag cdbrewlogs "cd (brew --prefix)/var/log"
 
-    ###
-    # brew redis
-    abbr -ag redis-start "launchctl load ~/Library/LaunchAgents/homebrew.mxcl.redis.plist"
-    abbr -ag redis-stop "launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.redis.plist"
+      # youtube-dl
+      abbr -ag you "youtube-dl"
+      abbr -a -g youdl 'youtube-dl --output "%(title)s.%(ext)s"'
 
-    ###
-    # brew OpenSSH built with LibreSSL
-    abbr -ag ssh-start "sudo launchctl load /Library/LaunchDaemons/com.chrisrjones.sshd.plist"
-    abbr -ag ssh-stop "sudo launchctl unload /Library/LaunchDaemons/com.chrisrjones.sshd.plist"
+      ###
+      # brew postgresql
+      abbr -ag brew-pg-start "launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist"
+      abbr -ag brew-pg-stop "launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist"
 
-    ###
-    # brew MongoDB
-    abbr -ag mongod-start "launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mongodb.plist"
-    abbr -ag mongod-stop "launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.mongodb.plist"
-end
+      ###
+      # brew redis
+      abbr -ag brew-redis-start "launchctl load ~/Library/LaunchAgents/homebrew.mxcl.redis.plist"
+      abbr -ag brew-redis-stop "launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.redis.plist"
 
-case Linux
-  ###############################
-  # sytemd BS 🙄
-  abbr -ag sc systemctl
+      ###
+      # brew OpenSSH built with LibreSSL
+      abbr -ag brew-ssh-start "sudo launchctl load /Library/LaunchDaemons/com.chrisrjones.sshd.plist"
+      abbr -ag brew-ssh-stop "sudo launchctl unload /Library/LaunchDaemons/com.chrisrjones.sshd.plist"
+      abbr -ag ssh-start "sudo launchctl load /Library/LaunchDaemons/com.chrisrjones.sshd.plist"
+      abbr -ag ssh-stop "sudo launchctl unload /Library/LaunchDaemons/com.chrisrjones.sshd.plist"
 
-  ###############################
-  # make copy / paste a little bit easier for pengiuns 🐧
-  abbr -ag pbcopy "xclip -selection clipboard"
-  abbr -ag pbpaste "xclip -selection clipboard -o"
+      ###
+      # brew MongoDB
+      abbr -ag brew-mongod-start "launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mongodb.plist"
+      abbr -ag brew-mongod-stop "launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.mongodb.plist"
+    end
 
-  ###############################
-  # Linuxbrew
-  if type -q brew
-    # working with brew src and formula
-    abbr -ag cd-brew-src "cd (brew --prefix)/Homebrew/Library/Taps/homebrew/homebrew-core"
-    abbr -ag cdbrewsrc "cd (brew --prefix)/Homebrew/Library/Taps/homebrew/homebrew-core"
+  case Linux
+    ###############################
+    # sytemd BS 🙄
+    abbr -ag sc systemctl
 
-    # youtube-dl
-    abbr -ag you "youtube-dl"
+    ###############################
+    # make copy / paste a little bit easier for pengiuns 🐧
+    abbr -ag pbcopy "xclip -selection clipboard"
+    abbr -ag pbpaste "xclip -selection clipboard -o"
+
+    ###############################
+    # Linuxbrew
+    if type -q brew
+      # working with brew src and formula
+      abbr -ag cd-brew-src "cd (brew --prefix)/Homebrew/Library/Taps/homebrew/homebrew-core"
+      abbr -ag cdbrewsrc "cd (brew --prefix)/Homebrew/Library/Taps/homebrew/homebrew-core"
+      abbr -ag rews "cd (brew --prefix)/Homebrew/Library/Taps/homebrew/homebrew-core"
+
+      # youtube-dl
+      abbr -ag you "youtube-dl"
+    end
   end
-end
 
