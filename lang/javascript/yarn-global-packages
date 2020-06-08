@@ -1,5 +1,5 @@
 yarn global v1.22.4
-info "@babel/cli@7.10.0" has binaries:
+info "@babel/cli@7.10.1" has binaries:
    - babel
    - babel-external-helpers
 info "asciicast2gif@0.2.1" has binaries:
@@ -12,7 +12,7 @@ info "csslint@1.0.5" has binaries:
    - csslint
 info "electron-packager@14.2.1" has binaries:
    - electron-packager
-info "eslint@5.16.0" has binaries:
+info "eslint@6.8.0" has binaries:
    - eslint
 info "flow-language-server@0.6.0" has binaries:
    - flow-language-server
@@ -45,13 +45,13 @@ info "phantomjs@2.1.7" has binaries:
    - phantomjs
 info "phantomjs-prebuilt@2.1.16" has binaries:
    - phantomjs
-info "serve@11.3.1" has binaries:
+info "serve@11.3.2" has binaries:
    - serve
 info "stacks-cli@1.0.4" has binaries:
    - stacks-cli
 info "standard@11.0.1" has binaries:
    - standard
-info "typescript@3.9.3" has binaries:
+info "typescript@3.9.5" has binaries:
    - tsc
    - tsserver
 info "typescript-language-server@0.1.14" has binaries:
@@ -64,4 +64,4 @@ info "webpack-cli@3.3.11" has binaries:
    - webpack-cli
 info "webpack-dev-server@3.11.0" has binaries:
    - webpack-dev-server
-Done in 1.41s.
+Done in 1.28s.

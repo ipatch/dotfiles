@@ -44,6 +44,11 @@ abbr -ag rmd "rm -rf"
 abbr -ag get-weather "curl wttr.in"
 abbr -ag getweather "curl wttr.in"
 
+# music
+abbr -ag kntusong "open https://www.kntu.com/last-7-days-of-music-on-kntu/"
+abbr -ag kuntsong "open https://www.kntu.com/last-7-days-of-music-on-kntu/"
+abbr -ag ksong "open https://www.kntu.com/last-7-days-of-music-on-kntu/"
+
 #############################
 # ruby tooling
 ##
