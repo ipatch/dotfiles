@@ -1,52 +1,95 @@
 {
-  "title": "ipatch, change hyphen to underscore when capslock is enabled",
+  "title": "ipatch, CAPS on/off (capskey_mode) change keys when CAPS enabled",
   "rules": [
     {
-      "description": "hypen toggled to underscore when capslock enabled",
+      "description": "CAPS key: toggle capskey_mode on/off",
       "manipulators": [
         {
           "from": {
             "key_code": "caps_lock",
             "modifiers": {
+              "mandatory": [
+
+              ],
               "optional": [
                 "any"
               ]
             }
           },
-          "to": [
-            {
-              "set_variable": {
-                "name": "underscore_mode",
-                "value": 1
-              }
-            }
-          ],
-          "type": "basic"
-        },
-        {
-          "conditions": [
-            {
-              "name": "underscore_mode",
-              "type": "variable_if",
+          "type": "basic",
+          "to": {
+            "set_variable": {
+              "name": "capskey_mode",
               "value": 1
             }
-          ],
+          },
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "capskey_mode",
+              "value": 0
+            }
+          ]
+        },
+        {
+          "from": {
+            "key_code": "caps_lock",
+            "modifiers": {
+              "mandatory": [
+
+              ],
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "type": "basic",
+          "to": {
+            "set_variable": {
+              "name": "capskey_mode",
+              "value": 0
+            }
+          },
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "capskey_mode",
+              "value": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "CAPS: capskey_mode: if ON hypehn to j",
+      "manipulators": [
+        {
+          "type": "basic",
           "from": {
             "key_code": "hyphen",
             "modifiers": {
+              "mandatory": [
+
+              ],
               "optional": [
-                "any"
+
               ]
             }
           },
-          "to": [
+          "to": {
+            "key_code": "j"
+          },
+          "conditions": [
             {
-              "key_code": "equal_sign"
+            "type": "variable_if",
+            "name": "capskey_mode",
+            "value": 1
             }
-          ],
-          "type": "basic"
-        }
+          ]
+        } 
       ]
     }
+    
   ]
 }
+

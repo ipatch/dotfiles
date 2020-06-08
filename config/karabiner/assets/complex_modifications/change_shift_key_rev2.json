@@ -1,0 +1,62 @@
+{
+  "title": "Super CAPS with shift keys (rev 3)",
+  "maintainer": [
+    "ipatch"
+  ],
+  "rules": [
+    {
+      "description": "Toggle caps_lock by pressing left_shift + right_shift at the same time",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "left_shift",
+            "modifiers": {
+              "mandatory": [
+                "right_shift"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "caps_lock"
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "left_shift"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "right_shift",
+            "modifiers": {
+              "mandatory": [
+                "left_shift"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "caps_lock"
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "right_shift"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+
