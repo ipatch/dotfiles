@@ -24,13 +24,13 @@
 
 ## Installation
 
->👷 The below install script has not been completed, so you'll have to do the good ol [StackOverflow](https://i.imgur.com/QZj4hxp.jpg) if you want to expierment with any of the settings from this repo. 🚧
+>👷 The install script is not completed, do the good ol [StackOverflow](https://i.imgur.com/QZj4hxp.jpg) to expierment with settings from this repo. 🚧
 
 ```sh
 curl https://raw.githubusercontent.com/ipatch/dotfiles/master/install.sh | /bin/sh
 
 echo "quickly add tmux configuration file, in a pinch"
-curl https://raw.githubusercontent.com/ipatch/dotfiles/winter-dev/terms/tmux/tmux.conf > ~/.tmux.conf
+curl https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.conf > ~/.tmux.conf
 ```
 
 <a id="file-structure"></a>
