@@ -740,6 +740,8 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.co
 
 ## TODOs
 
+- [ ] [fish] come up with sane way to check for misspelling of `brew cask outdated --greddy`
+- [ ] [vim] navigating documents with line wraps makes jumping through buffer by line number inaccurate, wraped lines are displayed as one line, but the jump cmd treats them as multiple
 - [ ] [tmux] search and see if it supports key chord style shortcuts, tired of using <kbd>shift</kbd>+<kbd>arrow keys</kbd> to navigate between windows, prefer <kbd>ctrl</kbd>+<kbd>l</kbd> then <kbd>l</kbd>
 - [x] ~~pack up `spring-dev` branch into a release and begin `summer-dev` branch~~
 - [x] ~~[vim] figure out why _colorscheme_ or _syntax_ file is causing red block backgrounds~~

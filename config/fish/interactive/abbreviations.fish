@@ -1,13 +1,15 @@
 ##############################
 # A place to store abbreviations for making things a tad bit quicker.
-# NOTE: abbr's will default to universal scope, ie. conditional logic will not "work" for different systems, ie. macOS and Linux, thus use the `-g` flag with `abbr` to make global scope which will NOT be universal thus making conditional logic work.
+# NOTE: abbr's will default to universal scope, ie. conditional logic will not "work" for different systems, ie. macOS and Linux, thus use the `-g` flag with `abbr` to make global scope which is NOT universal thus making conditional logic work.
 #
 ###
-# NOTE: when adding new `abbr`'s to this file, fish will need to reload the file, ie. `exec fish` for every fish shell instance to pick up on the newly added `abbr`'s.
+# NOTE: when adding a new `abbr` to this file, fish will need to reload the file, ie. `exec fish` for every fish shell instance to pick up on the newly added `abbr`.
 #
 ###
 # NOTE: if using double quotes and the abbr contains an env var, ie. `$dots` the env var will be expanded after pressing space, whereas using single quotes will expand the $dots after pressing `enter`
 #
+###
+# NOTE: not entirely sure, but I don't think abbr's support spaces, so can not be used for common misspellings of frequent commands, ie. `brew cask outdated --greddy`
 
 
 ##############################
@@ -261,6 +263,9 @@ switch $os
       abbr -ag cd-brew-src "cd (brew --prefix)/Homebrew/Library/Taps/homebrew/homebrew-core"
       abbr -ag cdbrewsrc "cd (brew --prefix)/Homebrew/Library/Taps/homebrew/homebrew-core"
       abbr -ag brews "cd (brew --prefix)/Homebrew/Library/Taps/homebrew/homebrew-core"
+
+      # NOPE! NOT ALLOWED, ie. does not support spaces
+      # abbr -ag "brew cask outdated --greddy" "brew cask outdated --greedy"
 
       # logs
       abbr -ag cdbrewlogs "cd (brew --prefix)/var/log"

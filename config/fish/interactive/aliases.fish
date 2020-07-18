@@ -21,6 +21,10 @@ switch $os
     #
     alias htp="/usr/local/bin/http" # apparently there is a `http` bin within `~/.cargo/bin` as well
 
+    # NO GO!!!
+    # misspellings
+    # alias brew cask outdated --greddy="brew cask outdated --greddy"
+
 
   case Linux
     alias ls="ls --color=auto"

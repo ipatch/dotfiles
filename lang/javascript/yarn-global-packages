@@ -1,5 +1,5 @@
 yarn global v1.22.4
-info "@babel/cli@7.10.3" has binaries:
+info "@babel/cli@7.10.4" has binaries:
    - babel
    - babel-external-helpers
 info "asciicast2gif@0.2.1" has binaries:
@@ -51,7 +51,7 @@ info "stacks-cli@1.0.4" has binaries:
    - stacks-cli
 info "standard@11.0.1" has binaries:
    - standard
-info "typescript@3.9.5" has binaries:
+info "typescript@3.9.6" has binaries:
    - tsc
    - tsserver
 info "typescript-language-server@0.1.14" has binaries:
@@ -64,4 +64,4 @@ info "webpack-cli@3.3.12" has binaries:
    - webpack-cli
 info "webpack-dev-server@3.11.0" has binaries:
    - webpack-dev-server
-Done in 1.30s.
+Done in 1.31s.

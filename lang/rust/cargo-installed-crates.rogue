@@ -16,7 +16,7 @@ hexyl v0.8.0:
 https v1.9.3:
     http
     httplz
-lms v0.3.4:
+lms v0.4.0:
     lms
 ripgrep v12.1.1:
     rg
