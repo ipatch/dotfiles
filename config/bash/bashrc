@@ -82,10 +82,23 @@ if [ -d ~/.config/bash/functions ]; then
 	done
 fi
 
+
+# BASHRC FUNCTIONS
+
 # read man specific entries for shell builtins
 bashman () {
   man bash | man bash | less -p "^       $1 "
 }
+
+brew() {
+  if [[ $@ == "cask outdated --greddy" ]]; then
+    command brew cask outdated --greedy
+  else
+    command brew "$@"
+  fi
+}
+
+# BASHRC FUNCTIONS end
 
 # BASH history
 ## no dupes
