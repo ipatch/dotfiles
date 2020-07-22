@@ -288,3 +288,4 @@ end
 #   ...python, ruby, elixir, etc etc with a pretty glyph"
 # end
 
+set -g fish_user_paths "/usr/local/opt/postgresql@10/bin" $fish_user_paths

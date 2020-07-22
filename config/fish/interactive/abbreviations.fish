@@ -276,6 +276,7 @@ switch $os
 
       ###
       # brew postgresql
+      # NOTE: i modified the below .plist file to point to postgres@10 directory
       abbr -ag brew-pg-start "launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist"
       abbr -ag brew-pg-stop "launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist"
 
