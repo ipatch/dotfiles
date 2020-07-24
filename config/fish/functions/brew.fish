@@ -6,7 +6,10 @@ function brew --description "catch common misspelling"
     # NOVA / NO GO, command "brew cask outdated --greedy"
     # NOVA / NO GO, set correct_cmd (/usr/local/bin/brew cask outdated --greedy)
     # NOVA / NO GO,command "$correct_cmd"
-    echo "greddy NOT greddy";
+    #
+    # TODO: make equals, `=` yellow, `greedy` green, `greedy` red
+    #
+    echo "greedy NOT greddy";
     echo "================================="
     command brew cask outdated --greedy
 
