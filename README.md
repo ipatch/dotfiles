@@ -746,7 +746,11 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.co
 - [ ] [tmux] search and see if it supports key chord style shortcuts, tired of using <kbd>shift</kbd>+<kbd>arrow keys</kbd> to navigate between windows, prefer <kbd>ctrl</kbd>+<kbd>l</kbd> then <kbd>l</kbd>
 - [x] ~~pack up `spring-dev` branch into a release and begin `summer-dev` branch~~
 - [x] ~~[vim] figure out why _colorscheme_ or _syntax_ file is causing red block backgrounds~~
-- [ ] [tmux] it'd be nice to have a quick double tap of either <kbd>shift</kbd>key then<kbd>shift</kbd> to toggle between remote and local tmux sessions [learn more](https://gist.github.com/samoshkin/05e65f7f1c9b55d3fc7690b59d678734) and [more](https://www.freecodecamp.org/news/tmux-in-practice-local-and-nested-remote-tmux-sessions-4f7ba5db8795/)
+- [ ] [tmux] it'd be nice to have a quick double tap of either <kbd>shift</kbd>key then<kbd>shift</kbd> to toggle between remote and local tmux sessions 
+  - [learn more](https://gist.github.com/samoshkin/05e65f7f1c9b55d3fc7690b59d678734)
+  - [and more](https://www.freecodecamp.org/news/tmux-in-practice-local-and-nested-remote-tmux-sessions-4f7ba5db8795/)
+  - [even more](https://superuser.com/questions/238702/maximizing-a-pane-in-tmux)
+  - i think using karabiner-elements with hammerspoon via a shell script will allow a pseudo double tap like key binding for certain features of tmux, ie. double tap shift to zoom in and out.
 - [ ] hammerspoon, possibly karabiner, toggle function keys on a macbook with double tap of <kbd>fn</kbd>
 - [ ] [python] [fish] [virtualenv] setup keybinding <kbd>control</kbd>+<kbd>d</kbd> to exit virtualenv but not exit terminal / shell session, ie. make control+d local to the virtualenv
 - [ ] [python] [fish] [neolambda] update prompt to remove ~λ~ and put name of virtualenv instead
