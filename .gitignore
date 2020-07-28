@@ -152,6 +152,15 @@ jobs/macOS/Users/mr-fancy/Library/Preferences/FreeCAD/webdatapersistent/**
 jobs/macOS/Users/mr-fancy/Library/Preferences/FreeCAD/user.cfg
 
 
+##############################
+# PrusaSlicer / Prusa Slicer
+##
+
+**/PrusaSlicer/cache/**
+**/PrusaSlicer/snapshots/**
+**/PrusaSlicer/vendor/**
+**/PrusaSlicer/sla_material/**
+**/PrusaSlicer/sla_print/**
 
 ##############################
 # GTK > gtk-mac-bundler
