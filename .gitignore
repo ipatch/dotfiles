@@ -144,12 +144,15 @@ jobs/bin/inkview
 ##############################
 # FreeCad
 ##
-jobs/macOS/Users/mr-fancy/Library/Preferences/FreeCAD/cookies
-jobs/macOS/Users/mr-fancy/Library/Preferences/FreeCAD/webdata/**
-jobs/macOS/Users/mr-fancy/Library/Preferences/FreeCAD/webdatacache/**
-jobs/macOS/Users/mr-fancy/Library/Preferences/FreeCAD/webdatapersistent/**
+**/FreeCAD/cookies
+**/FreeCAD/webdata/**
+**/FreeCAD/webdatacache/**
+**/FreeCAD/webdatapersistent/**
 # the below file was updating too often
-jobs/macOS/Users/mr-fancy/Library/Preferences/FreeCAD/user.cfg
+**/FreeCAD/user.cfg
+##
+**/FreeCAD/AddonManager/**
+**/FreeCAD/Mod/**
 
 
 ##############################

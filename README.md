@@ -740,6 +740,8 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.co
 
 ## TODOs
 
+- [ ] **vivaldi** / **voilentmonkey**
+  - youtube script to switch view mode on viewer window hover with mouse.
 - [ ] [fish] exp with using colors for `brew.fish` function to distingush misspelling of word
 - [x] ~~[fish] come up with sane way to check for misspelling of `brew cask outdated --greddy`~~
 - [ ] [vim] navigating documents with line wraps makes jumping through buffer by line number inaccurate, wraped lines are displayed as one line, but the jump cmd treats them as multiple
