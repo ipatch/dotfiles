@@ -740,6 +740,7 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.co
 
 ## TODOs
 
+- [ ] [tmux] put short synopsis of current weather in tmux status bar, _right side_
 - [ ] **vivaldi** / **voilentmonkey**
   - youtube script to switch view mode on viewer window hover with mouse.
 - [ ] [fish] exp with using colors for `brew.fish` function to distingush misspelling of word
