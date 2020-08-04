@@ -29,13 +29,12 @@ abbr -ag edvim "nvim $HOME/.vimrc"
 abbr -ag eddots "cd $dots; nvim;"
 
 # NOTE: OS specific fish abbreviations are defined below
-
 abbr -ag clearf 'cat /dev/null >' # add name of `file` and alias
 abbr -ag clrf 'cat /dev/null >' # add name of `file` and alias
 
-
-###
-# shell specific abbrs
+#############################
+# shell specific 
+##
 abbr -ag cd- 'cd -'
 abbr -ag cp "cp -iv"
 abbr -ag dots "cd $dots"
@@ -52,6 +51,12 @@ abbr -ag kuntsong "open https://www.kntu.com/last-7-days-of-music-on-kntu/"
 abbr -ag ksong "open https://www.kntu.com/last-7-days-of-music-on-kntu/"
 
 #############################
+# networking related, ie. wget, curl, etc etc
+##
+abbr -ag curll 'curl -O -L -C -'
+abbr -ag crl 'curl -O -L -C -'
+
+#############################
 # ruby tooling
 ##
 if [ -d "$HOME/.rvm" ]
@@ -64,7 +69,7 @@ end
 # rysnc -ah --progress [source] [destination]
 # -a = preserve file permssions
 # -h = human readable output
-#
+##
 abbr -ag cpv "rsync -ahp --partial --info=progress2"
 abbr -ag rm "rm -iv"
 abbr -ag mv "mv -iv"
@@ -102,7 +107,7 @@ abbr -ag git-ls-aliases 'git aliases'
 abbr -ag gf 'git fresh'
 
 ################
-# abbreviations for my custom fish functions
+# personal fish functions
 ##
 abbr -ag pretty_path 'path_pretty' # `path_pretty` is a fish function
 abbr -ag pretty-path 'path_pretty'
@@ -129,7 +134,7 @@ abbr -ag al-win-4k-samsung "alacritty -d 192 45 &; disown"
 abbr -ag alwin4ksam "alacritty -d 192 45 &; disown"
 
 ################
-# useful abbreviations for working with NOC lists 💣
+# SSL encryption: useful abbreviations for working with NOC lists 💣
 # `openssl aes-256-cbc -d -a -in secrets.txt.enc -out secrets.txt.new`
 ##
 if type -q openssl
