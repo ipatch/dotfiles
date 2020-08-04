@@ -740,6 +740,7 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.co
 
 ## TODOs
 
+- [ ] [vim] change commenting for `.gitignore` files from `/* wrong */` to `# right`
 - [ ] [tmux] put short synopsis of current weather in tmux status bar, _right side_
 - [ ] **vivaldi** / **voilentmonkey**
   - youtube script to switch view mode on viewer window hover with mouse.
