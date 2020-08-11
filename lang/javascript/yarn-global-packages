@@ -4,7 +4,7 @@ info "@babel/cli@7.10.5" has binaries:
    - babel-external-helpers
 info "asciicast2gif@0.2.1" has binaries:
    - asciicast2gif
-info "concurrently@5.2.0" has binaries:
+info "concurrently@5.3.0" has binaries:
    - concurrently
 info "create-react-app@3.4.1" has binaries:
    - create-react-app
@@ -25,7 +25,7 @@ info "javascript-typescript-langserver@2.11.3" has binaries:
    - javascript-typescript-stdio
 info "jest@23.6.0" has binaries:
    - jest
-info "jshint@2.11.1" has binaries:
+info "jshint@2.12.0" has binaries:
    - jshint
 info "jsome@2.5.0" has binaries:
    - jsome
@@ -58,10 +58,10 @@ info "typescript-language-server@0.1.14" has binaries:
    - typescript-language-server
 info "vim-node-rpc@0.1.34" has binaries:
    - vim-node-rpc
-info "webpack@4.43.0" has binaries:
+info "webpack@4.44.1" has binaries:
    - webpack
 info "webpack-cli@3.3.12" has binaries:
    - webpack-cli
 info "webpack-dev-server@3.11.0" has binaries:
    - webpack-dev-server
-Done in 1.48s.
+Done in 1.37s.
