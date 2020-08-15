@@ -21,9 +21,10 @@ for ((i = 0; i < ${#FANS[@]}; i++)) ; do
   if [ "$FAN_SPEED" != "" ] ; then
     if [ ! -z "${FAN_LABEL+x}" ]; then
        # Add labels if FAN_LABEL is declared
-       FAN_SPEEDS="$FAN_SPEEDS${FAN_LABEL[$i]}: "
+       # FAN_SPEEDS="$FAN_SPEEDS${FAN_LABEL[$i]}: "
+       FAN_SPEEDS="$FAN_SPEEDS${FAN_LABEL[$i]}"
     fi
-    FAN_SPEEDS="$FAN_SPEEDS$FAN_SPEED RPM "
+    FAN_SPEEDS="$FAN_SPEEDS$FAN_SPEED "
   fi
 done
 echo "$FAN_SPEEDS| size=12"
