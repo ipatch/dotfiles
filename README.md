@@ -740,9 +740,9 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.co
 
 ## TODOs
 
-- [ ] [vim] keybinding: use `ctrl+w, z` to maximize / minimize split
+- [x] ~~[vim] keybinding: use `ctrl+w, z` to maximize / minimize split~~
 - [ ] [macos] look into creating a _lazy mouse hover_ function where the window with the mouse is hovering over after a certain period time becomes the active application.
-- [ ] [vim] remamp split command key bindings to use similar keys as tmux pane splitting, ie. <kbd>|</kbd> and <kbd>-</kbd>
+- [x] ~~[vim] remamp split command key bindings to use similar keys as tmux pane splitting, ie. <kbd>|</kbd> and <kbd>-</kbd>~~
 - [x] [vim] update colorscheme to see if it solves the neovim gutter white colored pipes for code folds.
     - **did not** update the gutter symbol colors related to code folds. booo
 - [ ] [vim] change commenting for `.gitignore` files from `/* wrong */` to `# right`
