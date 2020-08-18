@@ -56,7 +56,7 @@ nnoremap <silent> <leader>mkd :!mkdir -p %:p:h<CR>
 nnoremap <silent> <leader>s :set spell!<CR>
 
 " Open a new buffer in current session
-nnoremap ,e :e <C-R>=expand("%:p:h") . "/" <CR>
+nnoremap <leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 
 " When opening a readonly file, ie. /etc/hosts `w!!` 🚑
 " cmap w!! w !sudo tee % >/dev/null %
