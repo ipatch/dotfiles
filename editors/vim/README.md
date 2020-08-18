@@ -1,4 +1,4 @@
-# Vim & Neovim Setup & Tooling
+# Vim & Neovim / Setup & Tooling
 
 <a id="contents"></a>
 
