@@ -3,10 +3,6 @@
 ""
 
 let g:lightline = {
-      \ 'colorscheme': 'onedark',
-      \ }
-
-let g:lightline = {
       \ 'tabline': {'left': [['buffers']], 'right': [['close']]},
       \ 'component_expand': {'buffers': 'lightline#bufferline#buffers'},
       \ 'component_type': {'buffers': 'tabsel'},
@@ -16,8 +12,9 @@ let g:lightline = {
       \ },
       \ 'component_function': {
       \ 'gitbranch': 'fugitive#head',
-      \ 'filename': 'LightlineFilename'
+      \ 'filename': 'LightlineFilename',
       \ },
+      \ 'colorscheme': 'onedark'
       \ }
 
 let g:lightline#bufferline#show_number = 1
