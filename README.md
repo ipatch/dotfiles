@@ -740,6 +740,7 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.co
 
 ## TODOs
 
+- [ ] [vim] update colorscheme to see if it solves the neovim gutter white colored pipes for code folds.
 - [ ] [vim] change commenting for `.gitignore` files from `/* wrong */` to `# right`
 - [ ] [tmux] put short synopsis of current weather in tmux status bar, _right side_
 - [ ] **vivaldi** / **voilentmonkey**
