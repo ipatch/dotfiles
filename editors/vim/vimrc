@@ -223,6 +223,7 @@ else
   call minpac#add('rust-lang/rust.vim')
   call minpac#add('euclio/vim-markdown-composer', {'type': 'opt'})
   " call minpac#add('tpope/vim-obsession') " auto session mgmt
+  call minpac#add('majutsushi/tagbar')
 
   "-----------------------------
   " minpac - conditional plugins
