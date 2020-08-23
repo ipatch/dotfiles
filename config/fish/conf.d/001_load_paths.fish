@@ -6,6 +6,10 @@
 # Global PATH
 ##
 # SEE: `jobs/macOS/etc/profile` within this repo for a list of default paths for macOS, ie. paths defined for every user on the system.
+##
+# NOTE: to update order, or remove old crusty path entries from the $PATH env var
+# `set -e PATH`, then reload shell
+##
 
 #############################
 # OS check
@@ -34,22 +38,23 @@ set -l paths \
 /usr/local/bin \
 /usr/local/sbin \
 # use GNU coreutils with default names on macOS
-/usr/local/opt/coreutils/libexec/gnubin \
-$HOME/.cargo/bin \
-$HOME/go/bin \
-$HOME/Library/Android/sdk/platform-tools \
+# /usr/local/opt/coreutils/libexec/gnubin \
 # NOTE: the below entry is not required on macOS because X11.app adds `40-XQuartz` file within `/etc/paths.d`
 # /opt/X11/bin \ 
 $brew_prefix/bin \
 $brew_prefix/sbin \
-$brew_prefix/opt/libressl/bin \
 $brew_prefix/opt/python/libexec/bin \
+$brew_prefix/opt/libressl/bin \
 $brew_prefix/opt/go/libexec/bin \
 $brew_prefix/opt/coreutils/libexec/bin \
+$brew_prefix/opt/postgresql@10/bin \
+$HOME/go/bin \
+$HOME/.cargo/bin \
+$HOME/Library/Android/sdk/platform-tools \
 # $HOME/.rvm/bin \
-$HOME/.local/bin \
-$HOME/.config/yarn/bin \
 /Applications/microchip/xc16/v1.35/bin \
+$HOME/.config/yarn/bin \
+$HOME/.local/bin \
 
 # EXP # NOTE probably not needed, manually load rvm rubies if required
 # $HOME/.rvm/bin \

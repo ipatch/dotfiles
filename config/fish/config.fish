@@ -168,7 +168,8 @@ case Darwin
   set -gx LSCOLORS Exfxcxdxcxegedabagacad
 
   if test -d (brew --prefix)/opt/coreutils
-    dircolors -c $HOME/.dir_colors | source
+    # TODO: device a check for either {g,d}ircolors
+    gdircolors -c $HOME/.dir_colors | source
     alias ls="/usr/local/opt/coreutils/libexec/gnubin/ls --color=auto"
   end
 
@@ -288,4 +289,4 @@ end
 #   ...python, ruby, elixir, etc etc with a pretty glyph"
 # end
 
-set -g fish_user_paths "/usr/local/opt/postgresql@10/bin" $fish_user_paths
+# set -g fish_user_paths "/usr/local/opt/postgresql@10/bin" $fish_user_paths
