@@ -741,18 +741,19 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.co
 ## TODOs
 
 - [x] ~~[vim] keybinding: use `ctrl+w, z` to maximize / minimize split~~
-- [ ] [macos] look into creating a _lazy mouse hover_ function where the window with the mouse is hovering over after a certain period time becomes the active application.
+- [ ] [macos] look into creating a _lazy mouse hover_ function, if the mouse is hovering a application specific window for a certain period of time (threshold) bring that application to focus, ie. a pseudo auto hover.
 - [x] ~~[vim] remamp split command key bindings to use similar keys as tmux pane splitting, ie. <kbd>|</kbd> and <kbd>-</kbd>~~
 - [x] [vim] update colorscheme to see if it solves the neovim gutter white colored pipes for code folds. [**neovim folding doc**](https://neovim.io/doc/user/usr_28.html)
     - **did not** update the gutter symbol colors related to code folds. booo
 - [ ] [vim] change commenting for `.gitignore` files from `/* wrong */` to `# right`
 - [ ] [tmux] put short synopsis of current weather in tmux status bar, _right side_
 - [ ] **vivaldi** / **voilentmonkey**
-  - youtube script to switch view mode on viewer window hover with mouse.
+  - youtube script, to switch view mode on viewer window hover with mouse.
 - [ ] [fish] exp with using colors for `brew.fish` function to distingush misspelling of word
 - [x] ~~[fish] come up with sane way to check for misspelling of `brew cask outdated --greddy`~~
 - [ ] [vim] navigating documents with line wraps makes jumping through buffer by line number inaccurate, wraped lines are displayed as one line, but the jump cmd treats them as multiple
-- [ ] [tmux] search and see if it supports key chord style shortcuts, tired of using <kbd>shift</kbd>+<kbd>arrow keys</kbd> to navigate between windows, prefer <kbd>ctrl</kbd>+<kbd>l</kbd> then <kbd>l</kbd>
+- [x] [tmux] ~~search and see if it supports key chord style shortcuts, tired of using <kbd>shift</kbd>+<kbd>arrow keys</kbd> to navigate between windows, prefer <kbd>ctrl</kbd>+<kbd>l</kbd> then <kbd>l</kbd>~~
+  - [ ] [tmux] **nope**, call a shell script using a double tap of <kbd>shift</kbd> that interacts with the current window of tmux, a karabiner, hammerspoon, shell script, worm hole 🐛🕳
 - [x] ~~pack up `spring-dev` branch into a release and begin `summer-dev` branch~~
 - [x] ~~[vim] figure out why _colorscheme_ or _syntax_ file is causing red block backgrounds~~
 - [ ] [tmux] it'd be nice to have a quick double tap of either <kbd>shift</kbd>key then<kbd>shift</kbd> to toggle between remote and local tmux sessions 
