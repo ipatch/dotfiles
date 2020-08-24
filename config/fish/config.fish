@@ -290,3 +290,9 @@ end
 # end
 
 # set -g fish_user_paths "/usr/local/opt/postgresql@10/bin" $fish_user_paths
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+eval /Users/capin/miniconda3/bin/conda "shell.fish" "hook" $argv | source
+# <<< conda initialize <<<
+

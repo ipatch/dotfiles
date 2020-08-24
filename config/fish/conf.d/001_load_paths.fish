@@ -48,6 +48,7 @@ $brew_prefix/opt/libressl/bin \
 $brew_prefix/opt/go/libexec/bin \
 $brew_prefix/opt/coreutils/libexec/bin \
 $brew_prefix/opt/postgresql@10/bin \
+$HOME/miniconda3/bin \
 $HOME/go/bin \
 $HOME/.cargo/bin \
 $HOME/Library/Android/sdk/platform-tools \
