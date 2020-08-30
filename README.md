@@ -767,11 +767,7 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.co
 
 
 <details>
-<summary>
-
-### TODOs completed
-
-</summary>
+<summary>TODOs completed</summary>
 
 - [x] ~~[vim] keybinding: use `ctrl+w, z` to maximize / minimize split~~
 - [x] ~~[vim] remamp split command key bindings to use similar keys as tmux pane splitting, ie. <kbd>|</kbd> and <kbd>-</kbd>~~
