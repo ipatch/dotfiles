@@ -37,7 +37,7 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.co
 
 ## File Structure
 
-> Certain files and folders have been omitted for brevity and security, most notably the `pack` directory that was polluting the **File Structure** with plugin files.
+> Certain files and folders are omitted for brevity & security, most notably the `pack` directory polluting the **File Structure** with vim plugin files.
 
 <details>
 <summary>File Structure</summary>
@@ -740,10 +740,10 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.co
 
 ## TODOs
 
+- [ ] [tmux] instead <kbd>prefix</kbd> then <kbd>control+l</kbd> to clear the screen, try using <kbd>control+l followed by l</kbd>, no good, try using <kbd>super + l</kbd>
+- [ ] [tmux] possible binding for toggling max/min windows size <kbd>control+shift</kbd>
 - [ ] [macos, wm, spectacle] <kbd>cmd,option,+</kbd> have to mash <kbd>+</kbd> multiple times to increase window size, would like _hold the key down to increase size_, looking at your karabiner-elements / hammerspoon
-- [x] ~~[vim] keybinding: use `ctrl+w, z` to maximize / minimize split~~
 - [ ] [macos] look into creating a _lazy mouse hover_ function, if the mouse is hovering a application specific window for a certain period of time (threshold) bring that application to focus, ie. a pseudo auto hover.
-- [x] ~~[vim] remamp split command key bindings to use similar keys as tmux pane splitting, ie. <kbd>|</kbd> and <kbd>-</kbd>~~
 - [x] [vim] update colorscheme to see if it solves the neovim gutter white colored pipes for code folds. [**neovim folding doc**](https://neovim.io/doc/user/usr_28.html)
     - **did not** update the gutter symbol colors related to code folds. booo
 - [ ] [vim] change commenting for `.gitignore` files from `/* wrong */` to `# right`
@@ -751,12 +751,8 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.co
 - [ ] **vivaldi** / **voilentmonkey**
   - youtube script, to switch view mode on viewer window hover with mouse.
 - [ ] [fish] exp with using colors for `brew.fish` function to distingush misspelling of word
-- [x] ~~[fish] come up with sane way to check for misspelling of `brew cask outdated --greddy`~~
 - [ ] [vim] navigating documents with line wraps makes jumping through buffer by line number inaccurate, wraped lines are displayed as one line, but the jump cmd treats them as multiple
-- [x] [tmux] ~~search and see if it supports key chord style shortcuts, tired of using <kbd>shift</kbd>+<kbd>arrow keys</kbd> to navigate between windows, prefer <kbd>ctrl</kbd>+<kbd>l</kbd> then <kbd>l</kbd>~~
   - [ ] [tmux] **nope**, call a shell script using a double tap of <kbd>shift</kbd> that interacts with the current window of tmux, a karabiner, hammerspoon, shell script, worm hole 🐛🕳
-- [x] ~~pack up `spring-dev` branch into a release and begin `summer-dev` branch~~
-- [x] ~~[vim] figure out why _colorscheme_ or _syntax_ file is causing red block backgrounds~~
 - [ ] [tmux] it'd be nice to have a quick double tap of either <kbd>shift</kbd>key then<kbd>shift</kbd> to toggle between remote and local tmux sessions 
   - [learn more](https://gist.github.com/samoshkin/05e65f7f1c9b55d3fc7690b59d678734)
   - [and more](https://www.freecodecamp.org/news/tmux-in-practice-local-and-nested-remote-tmux-sessions-4f7ba5db8795/)
@@ -769,9 +765,24 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.co
 - [ ] make abe graphich more personal.
 - [ ] spend an hour or two working on install script for aiding the process of setting up my dotfiles on fresh box 📦.
 
-### Neovim
 
+<details>
+<summary>
+
+### TODOs completed
+
+</summary>
+
+- [x] ~~[vim] keybinding: use `ctrl+w, z` to maximize / minimize split~~
+- [x] ~~[vim] remamp split command key bindings to use similar keys as tmux pane splitting, ie. <kbd>|</kbd> and <kbd>-</kbd>~~
+- [x] ~~pack up `spring-dev` branch into a release and begin `summer-dev` branch~~
+- [x] ~~[vim] figure out why _colorscheme_ or _syntax_ file is causing red block backgrounds~~
+- [x] [tmux] ~~search and see if it supports key chord style shortcuts, tired of using <kbd>shift</kbd>+<kbd>arrow keys</kbd> to navigate between windows, prefer <kbd>ctrl</kbd>+<kbd>l</kbd> then <kbd>l</kbd>~~
+- [x] ~~[fish] come up with sane way to check for misspelling of `brew cask outdated --greddy`~~
 - [x] ~~Vim Sesssions, Folds, and Conceals will be the death of me~~ 💀
+
+</details>
+
 
 <a id="contact"></a>
 
