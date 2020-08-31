@@ -172,6 +172,7 @@ jobs/bin/gtk-mac-bundler
 
 ##############################
 # Blender
+# TODO: device a more elegant way to ignore files within the `2.8x` directories
 ##
 config/Blender/2.79/config/recent-files.txt
 config/Blender/2.80/config/recent-files.txt
@@ -188,7 +189,14 @@ config/Blender/2.81/scripts/addons/**
 config/Blender/2.81/scripts/presets/operator/**
 !config/Blender/2.81/scripts/presets/operator/.gitkeep
 !config/Blender/2.81/config/.gitkeep
-
+# Blender 2.83 config files
+config/Blender/2.83/config/recent-files.txt
+config/Blender/2.83/config/bookmarks.txt
+config/Blender/2.83/scripts/addons/**
+!config/Blender/2.83/scripts/addons/.gitkeep
+config/Blender/2.83/scripts/presets/operator/**
+!config/Blender/2.83/scripts/presets/operator/.gitkeep
+!config/Blender/2.83/config/.gitkeep
 
 ##############################
 # Python - pyenv
