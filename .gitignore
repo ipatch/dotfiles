@@ -166,6 +166,8 @@ jobs/bin/inkview
 **/PrusaSlicer/sla_print/**
 **/PrusaSlicer/PrusaSlicer.ini
 **/PrusaSlicer/print/cr10pro.prusa.mod.full.3top3btm.ini
+# below file is being updated too often for my liking
+**/PrusaSlicer/PrusaSlicer.ini
 
 ##############################
 # GTK > gtk-mac-bundler

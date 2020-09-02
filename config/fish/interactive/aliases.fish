@@ -21,9 +21,9 @@ switch $os
     #
     alias htp="/usr/local/bin/http" # apparently there is a `http` bin within `~/.cargo/bin` as well
 
-    # NO GO!!!
-    # misspellings
+    # NO GO!!!, created simple brew fish function to handle misspelling
     # alias brew cask outdated --greddy="brew cask outdated --greddy"
+    alias rsync="/usr/local/bin/rsync --exclude-from=$HOME/.config/rsync/rsync-excludes"
 
 
   case Linux
