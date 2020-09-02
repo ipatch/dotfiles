@@ -735,7 +735,7 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.co
 - [**Github** wincent/wincent](https://github.com/wincent/wincent)
 - [**Github** mathiasbynenes/dotfiles](https://github.com/mathiasbynens/dotfiles)
 - [**Github** Awesome-dotfiles](https://github.com/webpro/awesome-dotfiles)
-- [cool looking **badges** for github readme_s_](https://github.com/ryanoasis/nerd-fonts)
+- [cool looking **badges** for github readme's](https://github.com/ryanoasis/nerd-fonts)
 
 ## TODOs
 
