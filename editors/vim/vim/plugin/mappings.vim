@@ -103,20 +103,21 @@ nnoremap <leader><leader> <c-^>
 """"""""""""""""""""""""""""""
 " buffers <tab>
 ""
-" NOTE cycle through list of open buffers using <tabv
+" NOTE cycle through list of open buffers
 nnoremap <leader>b :buffers<cr>:b<space>
 
 """"""""""""""""""""""""""""""
 " Splits - vertical & horizontal
 ""
-" Split current buffer vertically and add an empty buffer to the right
+" Split current buffer vertically with empty buffer to the right
 nnoremap <C-w>\ :vsplit 0<CR>
-" Split curren buffer horizontally, and add an empty buffer below
+" Split curren buffer horizontally with empty buffer below
 nnoremap  <C-w>- :split 0<CR>
 
 "" pseudo maximize toggle
 " open split in new tab, ie. fill window
 nnoremap <C-w>z :tab sp<CR>
 
+" NOTE: `vim unmaximize, toggle, shrink, restore buffer size
 " use `<C-w>c` to close maximized window and restore to previous layout
 

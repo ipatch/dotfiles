@@ -735,11 +735,22 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.co
 - [**Github** wincent/wincent](https://github.com/wincent/wincent)
 - [**Github** mathiasbynenes/dotfiles](https://github.com/mathiasbynens/dotfiles)
 - [**Github** Awesome-dotfiles](https://github.com/webpro/awesome-dotfiles)
-
-<a id="todos"></a>
+- [cool looking **badges** for github readme_s_](https://github.com/ryanoasis/nerd-fonts)
 
 ## TODOs
 
+<a id="todos"></a>
+
+<details>
+<summary><strong>TODOs</strong></summary>
+
+- [ ] [nvim] **references** text when working with JS files, toggle with _leader+h_ as other hidden chars are toggled
+- [ ] [vim] jump to open curly brace then jump back to close curly brace
+- [ ] [vim, json] adjust default conceal settings for json files
+- [ ] [vim, javascript] **Q** how to make certain javascript lang _keywords_ appear in italics using color / font scheme
+    - **className, const, return, this.state, onClick, import**
+- [ ] [vim, markdown] have basic code folding for certain HTML tags when editing markdown documents
+- [ ] [macos] what is the procedure macos uses to mount a file system when a usb drive is plugged into a macos system
 - [ ] [tmux] instead <kbd>prefix</kbd> then <kbd>control+l</kbd> to clear the screen, try using <kbd>control+l followed by l</kbd>, no good, try using <kbd>super + l</kbd>
 - [ ] [tmux] possible binding for toggling max/min windows size <kbd>control+shift</kbd>
 - [ ] [macos, wm, spectacle] <kbd>cmd,option,+</kbd> have to mash <kbd>+</kbd> multiple times to increase window size, would like _hold the key down to increase size_, looking at your karabiner-elements / hammerspoon
@@ -765,6 +776,10 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.co
 - [ ] make abe graphich more personal.
 - [ ] spend an hour or two working on install script for aiding the process of setting up my dotfiles on fresh box 📦.
 
+</details> <!-- end of uncompleted todo items -->
+
+
+### TODOs completed
 
 <details>
 <summary><strong>TODOs completed</strong></summary>

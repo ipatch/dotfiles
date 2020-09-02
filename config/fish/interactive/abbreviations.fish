@@ -13,7 +13,7 @@
 
 
 ##############################
-# Added the below abbreviations because I'm really tired of typing out the below commands.
+# Added the below abbreviations because I'm really tired of typing the below commands.
 ##
 abbr -ag fishr 'exec fish'
 abbr -ag fr 'exec fish'
@@ -55,6 +55,8 @@ abbr -ag ksong "open https://www.kntu.com/last-7-days-of-music-on-kntu/"
 ##
 abbr -ag curll 'curl -O -L -C -'
 abbr -ag crl 'curl -O -L -C -'
+abbr -ag curlget 'curl -O -L -C -'
+abbr -ag cget 'curl -O -L -C -'
 
 #############################
 # ruby tooling
@@ -148,6 +150,7 @@ end
 #################
 # node.js repl with reverse search
 ##
+abbr -ag nrd "npm run dev"
 if type -q node; and type -q rlwrap;
   abbr -ag inode "rlwrap node"
 else
