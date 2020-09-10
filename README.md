@@ -744,6 +744,9 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.co
 <details>
 <summary><strong>TODOs</strong></summary>
 
+- [ ] [tmux] add space at the end of window names to prevent moving of text in status bar
+- [ ] [fish] detach fish shell instance from command history
+  - **Q** can tmux separate all panes within a window from the global command history _fish shell_
 - [ ] [nvim] **references** text when working with JS files, toggle with _leader+h_ as other hidden chars are toggled
 - [ ] [vim] jump to open curly brace then jump back to close curly brace
 - [ ] [vim, json] adjust default conceal settings for json files
