@@ -744,6 +744,7 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.co
 <details>
 <summary><strong>TODOs</strong></summary>
 
+- [ ] [vim, tmux, or macos] some form of icon / notification of **caps lock** being enabled
 - [ ] [tmux] add space at the end of window names to prevent moving of text in status bar
 - [ ] [fish] detach fish shell instance from command history
   - **Q** can tmux separate all panes within a window from the global command history _fish shell_
