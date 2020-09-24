@@ -208,6 +208,10 @@ end
 # video processing > ffmpeg
 ##
 if type -q ffprobe
+  abbr -ag ffmpeg.rotate \
+  "echo 'ffmpeg -i input.mp4 -c copy -metadata:s:v:0 rotaate=0 output=0 output.mp4'"
+  abbr -ag ffprobe.howManyFrames \
+  "ffprobe -v error -select_streams v:0 -show_entries stream=nb_frames -of default=nokey=1:noprint_wrappers=1"
   abbr -ag ffprobe-how-many-frames \
   "ffprobe -v error -select_streams v:0 -show_entries stream=nb_frames -of default=nokey=1:noprint_wrappers=1"
   abbr -ag ffprobe-ls-frames \
