@@ -1,5 +1,5 @@
-yarn global v1.22.4
-info "@babel/cli@7.10.5" has binaries:
+yarn global v1.22.5
+info "@babel/cli@7.11.6" has binaries:
    - babel
    - babel-external-helpers
 info "asciicast2gif@0.2.1" has binaries:
@@ -64,4 +64,4 @@ info "webpack-cli@3.3.12" has binaries:
    - webpack-cli
 info "webpack-dev-server@3.11.0" has binaries:
    - webpack-dev-server
-Done in 1.37s.
+Done in 1.34s.
