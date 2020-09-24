@@ -114,5 +114,7 @@
     "editor.cursorBlinking": "solid",
     "terminal.integrated.rendererType": "dom",
     "diffEditor.renderSideBySide": false,
-    "workbench.colorTheme": "Atom One Dark"
+    "workbench.colorTheme": "Atom One Dark",
+    "debug.onTaskErrors": "showErrors",
+    "python.showStartPage": false
 }
