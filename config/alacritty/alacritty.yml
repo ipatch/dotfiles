@@ -47,9 +47,12 @@ font:
   # Point size of the font
   # size: 20
   # size: 18
-  # size: 16
+  size: 16 # looks good on ext samsung monitor
   # size: 14 # not hot dog
-  size: 15.5 # looks good on ext samsung monitor
+  # size: 15.5 # looks good on ext samsung monitor
+  ##
+  # to print the current font size, within the active terminal
+  # https://github.com/ipatch/dotfiles/wiki/terminal-emulator-Notes#working-with-alacritty
 
   normal:
     family: "IBMPlexMonoPlusPlus"
@@ -162,7 +165,8 @@ colors:
 #
 # To completely disable the visual bell, set its duration to 0.
 #
-visual_bell:
+# visual_bell: DEPRECATED ≥ v0.5.0
+bell:
   animation: EaseOutExpo
   duration: 0
 
@@ -220,7 +224,8 @@ mouse:
 selection:
   semantic_escape_chars: ",│`|:\"' ()[]{}<>"
 
-dynamic_title: true
+# dynamic_title: true # DEPRECATED ≥ v0.5.0
+  window.dynamic_title: true
 
 # Style of the cursor
 #
