@@ -17,7 +17,7 @@ fi
 
 ```shell
 curl -sSf \
-https://raw.githubusercontent.com/ipatch/dotfiles/tree/release/jobs/Linux/Raspbian/rpi_bash_setup.sh \
+https://raw.githubusercontent.com/ipatch/dotfiles/release/jobs/Linux/Raspbian/rpi_bash_setup.sh \
 | /bin/sh
 ```
 
