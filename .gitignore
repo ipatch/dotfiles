@@ -144,14 +144,30 @@ jobs/bin/inkview
 ##############################
 # FreeCad
 ##
-jobs/macOS/Users/mr-fancy/Library/Preferences/FreeCAD/cookies
-jobs/macOS/Users/mr-fancy/Library/Preferences/FreeCAD/webdata/**
-jobs/macOS/Users/mr-fancy/Library/Preferences/FreeCAD/webdatacache/**
-jobs/macOS/Users/mr-fancy/Library/Preferences/FreeCAD/webdatapersistent/**
+**/FreeCAD/cookies
+**/FreeCAD/webdata/**
+**/FreeCAD/webdatacache/**
+**/FreeCAD/webdatapersistent/**
 # the below file was updating too often
-jobs/macOS/Users/mr-fancy/Library/Preferences/FreeCAD/user.cfg
+**/FreeCAD/user.cfg
+##
+**/FreeCAD/AddonManager/**
+**/FreeCAD/Mod/**
 
 
+##############################
+# PrusaSlicer / Prusa Slicer
+##
+
+**/PrusaSlicer/cache/**
+**/PrusaSlicer/snapshots/**
+**/PrusaSlicer/vendor/**
+**/PrusaSlicer/sla_material/**
+**/PrusaSlicer/sla_print/**
+**/PrusaSlicer/PrusaSlicer.ini
+**/PrusaSlicer/print/cr10pro.prusa.mod.full.3top3btm.ini
+# below file is being updated too often for my liking
+**/PrusaSlicer/PrusaSlicer.ini
 
 ##############################
 # GTK > gtk-mac-bundler
@@ -160,6 +176,7 @@ jobs/bin/gtk-mac-bundler
 
 ##############################
 # Blender
+# TODO: device a more elegant way to ignore files within the `2.8x` directories
 ##
 config/Blender/2.79/config/recent-files.txt
 config/Blender/2.80/config/recent-files.txt
@@ -176,7 +193,14 @@ config/Blender/2.81/scripts/addons/**
 config/Blender/2.81/scripts/presets/operator/**
 !config/Blender/2.81/scripts/presets/operator/.gitkeep
 !config/Blender/2.81/config/.gitkeep
-
+# Blender 2.83 config files
+config/Blender/2.83/config/recent-files.txt
+config/Blender/2.83/config/bookmarks.txt
+config/Blender/2.83/scripts/addons/**
+!config/Blender/2.83/scripts/addons/.gitkeep
+config/Blender/2.83/scripts/presets/operator/**
+!config/Blender/2.83/scripts/presets/operator/.gitkeep
+!config/Blender/2.83/config/.gitkeep
 
 ##############################
 # Python - pyenv
