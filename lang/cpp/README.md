@@ -34,6 +34,12 @@ g++ /path/to/mr-fancy-42.cpp -o /path/to/mr-fancy-42
 
 ## Working with Objective-C
 
+On macos to list available SDKs available to Xcode
+
+```shell
+xcodebuild -showsdks
+```
+
 
 <a id="useful-links"></a>
 
