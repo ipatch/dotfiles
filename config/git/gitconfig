@@ -30,8 +30,18 @@
 
   # rlog = !"git --no-pager log --all --graph --decorate --oneline --color=always | tac | awk -f ~/.config/git/switchslashes.awk | less -X +G -r"
 
+  ###
+  # logging / EXP
+  # CREDIT: https://stackoverflow.com/a/34467298/708807
+  ##
+  lg = lg1
+  lg1 = lg1-specific --all
+
+  lg1-specific = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(auto)%d%C(reset)'
+
+
   ####
-  # TODO figure out how to get mouse / trackpad scroll support and color when viewing git log
+  # TODO: solve mouse / trackpad scroll support & color when viewing git log
   ##
   l = log --graph --pretty=format:'%C(yellow)%h%C(bold white red)%d%Creset %s %C(bold green)%cr %Creset%C(white)%an' --abbrev-commit --date=relative
 
@@ -181,7 +191,7 @@
   # Useful Commands 👌 -- compound commands
   ##
 
-  # get / retrieve the commit ID / HASH for when a particular file was checked in
+  # get / retrieve the commit ID / HASH when a particular file was checked in
   # EX: `git when-added -- **foo.js`
   # NOTE: use within the root directory of a git repository
   # TODO: check and see if alias can cd to the root of a git repo without changing the current dir
@@ -366,3 +376,7 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+[pull]
+	ff = only
+[credential]
+	helper = osxkeychain
