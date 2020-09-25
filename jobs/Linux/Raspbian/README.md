@@ -1,4 +1,8 @@
-## Sanity Checks
+## Initial Setup
+
+## Contents
+
+## / bash / source `~/.bash_profile` for all users
 
 The default system setup does not source **bash** configuration files in the **pi** user's **$HOME** directory, that said, append the below to the following **/etc/bash.bashrc** which will conditionally source **$HOME/.bash_profile** if the file exists.
 
@@ -13,7 +17,7 @@ fi
 
 ```shell
 curl -sSf \
-https://raw.githubusercontent.com/ipatch/dotfiles/fall/dev/jobs/Linux/Raspbian/rpi_bash_setup.sh \
+https://raw.githubusercontent.com/ipatch/dotfiles/tree/release/jobs/Linux/Raspbian/rpi_bash_setup.sh \
 | /bin/sh
 ```
 
