@@ -19,7 +19,7 @@ echo "your OS appears to be $os";
 
 if [[ "$os" == "Darwin" ]]; then
   echo "this script is intended for GNU+Linux distros";
-  # exit; # DEBUG
+  exit; # DEBUG
 fi
 
 # store value of current user
