@@ -20,4 +20,4 @@ echo $script_user # DEBUG
 # script_user_default_shell=$(awk -F: $script_user { print $7}' /etc/passwd)
 
 $script_user_default_shell=$(grep "$script_user" </etc/passwd | cut -f 7 -d ":"
-echo $script_user_default_shell
+echo $script_user_default_shell)
