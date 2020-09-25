@@ -21,7 +21,7 @@ touch "$HOME/.bash_profile"
 echo "$HOME./bash_profile created or updated."
 
 if [ -f /etc/bash.bashrc ]; then
-  tmp_bashrc_snippet_url="https://raw.githubusercontent.com/ipatch/dotfiles/tree/release/jobs/Linux/Raspbian/snippet_bash.bashrc"
+  tmp_bashrc_snippet_url="https://raw.githubusercontent.com/ipatch/dotfiles/release/jobs/Linux/Raspbian/snippet_bash.bashrc"
   tmp_curl_bashrc_snippet=$(curl -sL "$tmp_bashrc_snippet_url")
   tmp_grep_bashrc_check="load user specific BASH configuration files"
   # tmp_grep_bashrc_check_pos="command-not-found" #DEBUG
@@ -39,7 +39,7 @@ if [ -f /etc/bash.bashrc ]; then
 fi
 
 if [ -f "$HOME/.bash_profile" ]; then
-  tmp_bash_profile_url="https://raw.githubusercontent.com/ipatch/dotfiles/tree/release/jobs/Linux/Raspbian/home/pi/.bash_profile"
+  tmp_bash_profile_url="https://raw.githubusercontent.com/ipatch/dotfiles/release/jobs/Linux/Raspbian/home/pi/.bash_profile"
   # store the URL of the curl cmd into shell variable
   tmp_bash_profile=$(curl -sL $tmp_bash_profile_url)
 
