@@ -2,7 +2,7 @@
 
 ## Contents
 
-## bash / source `~/.bash_profile` for all users
+## / bash / source `~/.bash_profile` for all users
 
 The default system setup does not source **bash** configuration files in the **pi** user's **$HOME** directory, that said, append the below to the following **/etc/bash.bashrc** which will conditionally source **$HOME/.bash_profile** if the file exists.
 
