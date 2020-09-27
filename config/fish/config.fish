@@ -194,6 +194,11 @@ case Darwin
     set -gx VISUAL nvim
     set -gx MYVIMRC $HOME/.vimrc
     set -gx VIMDATA $HOME/.vim
+    set -gx vimsnips $HOME/.vim/snips
+    set -gx vsnips $HOME/.vim/snips
+    set -gx vimsesh $HOME/.vim/tmp/sessions
+    set -gx vimses $HOME/.vim/tmp/sessions
+    set -gx vses $HOME/.vim/tmp/sessions
 
     #########################
     # check for `less` cmd syntax highlighting
