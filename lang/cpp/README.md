@@ -5,6 +5,7 @@
 ## Contents
 
 - [General C++ Commands & Usage](#general-c++-commands-and-usage)
+- [Working with Objective-C](#working-with-objective-c)
 - [Useful Links](#useful-links)
 
 <a id="working-with-cmake"></a>
@@ -28,6 +29,17 @@ To compile a C++ ie. C plus plus program from a command line interface, ie. CLI
 ```shell
 g++ /path/to/mr-fancy-42.cpp -o /path/to/mr-fancy-42
 ```
+
+<a id="working-with-objective-c"></a>
+
+## Working with Objective-C
+
+On macos to list available SDKs available to Xcode
+
+```shell
+xcodebuild -showsdks
+```
+
 
 <a id="useful-links"></a>
 

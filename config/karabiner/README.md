@@ -26,3 +26,12 @@ if there is an issue with adding the rule
 5. check for errors, if errors still persist **remove**, **restart** **readd**
 
 [**learn more**](https://github.com/pqrs-org/Karabiner-Elements/issues/1225#issuecomment-401517364)
+
+## TODOs
+
+- [ ] implement toggle function to toggle between media keys
+- [ ] implement toggle function when <kbd>caps lock</kbd> is on/off, ie. switch <kbd>-</kbd> to <kbd>_</kbd> when <kbd>caps lock</kbd> is **on**
+    - [possible useful toggle func **github**](https://gist.github.com/icanswiftabit/f91413052a95ad3f0ecf43ad9cfc0d53)
+    - [**github** comment, double tap](https://gist.github.com/icanswiftabit/f91413052a95ad3f0ecf43ad9cfc0d53)
+    - [**github** caps lock + e to pageDown](https://github.com/pqrs-org/Karabiner-Elements/issues/2301#issuecomment-640966466)
+

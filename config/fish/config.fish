@@ -168,7 +168,8 @@ case Darwin
   set -gx LSCOLORS Exfxcxdxcxegedabagacad
 
   if test -d (brew --prefix)/opt/coreutils
-    dircolors -c $HOME/.dir_colors | source
+    # TODO: device a check for either {g,d}ircolors
+    gdircolors -c $HOME/.dir_colors | source
     alias ls="/usr/local/opt/coreutils/libexec/gnubin/ls --color=auto"
   end
 
@@ -193,6 +194,11 @@ case Darwin
     set -gx VISUAL nvim
     set -gx MYVIMRC $HOME/.vimrc
     set -gx VIMDATA $HOME/.vim
+    set -gx vimsnips $HOME/.vim/snips
+    set -gx vsnips $HOME/.vim/snips
+    set -gx vimsesh $HOME/.vim/tmp/sessions
+    set -gx vimses $HOME/.vim/tmp/sessions
+    set -gx vses $HOME/.vim/tmp/sessions
 
     #########################
     # check for `less` cmd syntax highlighting
@@ -287,4 +293,11 @@ end
 #   echo "TODO: flesh out the right prompt to display the current\n
 #   ...python, ruby, elixir, etc etc with a pretty glyph"
 # end
+
+# set -g fish_user_paths "/usr/local/opt/postgresql@10/bin" $fish_user_paths
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+eval /Users/capin/miniconda3/bin/conda "shell.fish" "hook" $argv | source
+# <<< conda initialize <<<
 

@@ -18,21 +18,24 @@ imap kk <esc>
 noremap <silent> <Up> <ESC><Up>
 inoremap <silent> <Down> <ESC><Down>
 
-" Fast saving
+" save changes to current buffer/file
 noremap <leader>w :w<CR>
+" close buffer/file
+noremap <leader>x :bw<CR>
 
 " Command mode shortcuts
+""
+" go into command mode and print the working dir
+" TODO: figure out a way to print the `cwd` or `pwd` quckily from `NORMAL` mode
+" NOTE: `:pwd` is hacky  
 cmap cwd lcd %:p:h
 cmap cd. lcd %:p:h
 
 " the below key mapping will indent the entire file 😯
 nnoremap <leader>i mmgg=G`m<CR>
 
-" go into command mode and print the working dir
-" TODO: figure out a way to print the `cwd` or `pwd` quckily from `NORMAL` mode
-" NOTE: `:pwd` is hacky  
-
-" bubbling text - Normal mode
+" bubbling text - Normal mode, <M-???> the `M` refers to the meta key which is
+" `alt` on macOS
 nnoremap <M-k> :m .-2<CR>==
 nnoremap <M-j> :m .+1<CR>==
 
@@ -51,12 +54,13 @@ inoremap <Up> <C-o>gk
 
 " create a directory if it doesn't exist
 nnoremap <silent> <leader>mkd :!mkdir -p %:p:h<CR>
+" cmap mkd !mkdir -p %:p:h " NO GO!!!
 
 " Toggle spell checking
 nnoremap <silent> <leader>s :set spell!<CR>
 
 " Open a new buffer in current session
-nnoremap ,e :e <C-R>=expand("%:p:h") . "/" <CR>
+nnoremap <leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 
 " When opening a readonly file, ie. /etc/hosts `w!!` 🚑
 " cmap w!! w !sudo tee % >/dev/null %
@@ -99,17 +103,21 @@ nnoremap <leader><leader> <c-^>
 """"""""""""""""""""""""""""""
 " buffers <tab>
 ""
-" NOTE cycle through list of open buffers using <tabv
+" NOTE cycle through list of open buffers
 nnoremap <leader>b :buffers<cr>:b<space>
 
 """"""""""""""""""""""""""""""
 " Splits - vertical & horizontal
 ""
-" nnoremap <C-w>- :split<CR>
+" Split current buffer vertically with empty buffer to the right
+nnoremap <C-w>\ :vsplit 0<CR>
+" Split curren buffer horizontally with empty buffer below
+nnoremap  <C-w>- :split 0<CR>
 
-" Split current buffer vertically and add an empty buffer to the right
-nnoremap <silent> <leader>v :vsplit 0<CR>
+"" pseudo maximize toggle
+" open split in new tab, ie. fill window
+nnoremap <C-w>z :tab sp<CR>
 
-" Split current buffer horizontally, and add an empty buffer below
-nnoremap <silent> sh :split 0<CR>
+" NOTE: `vim unmaximize, toggle, shrink, restore buffer size
+" use `<C-w>c` to close maximized window and restore to previous layout
 
