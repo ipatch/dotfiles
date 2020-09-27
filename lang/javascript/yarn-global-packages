@@ -58,10 +58,10 @@ info "typescript-language-server@0.1.14" has binaries:
    - typescript-language-server
 info "vim-node-rpc@0.1.34" has binaries:
    - vim-node-rpc
-info "webpack@4.44.1" has binaries:
+info "webpack@4.44.2" has binaries:
    - webpack
 info "webpack-cli@3.3.12" has binaries:
    - webpack-cli
 info "webpack-dev-server@3.11.0" has binaries:
    - webpack-dev-server
-Done in 1.34s.
+Done in 1.44s.

@@ -2,9 +2,7 @@
 set -e
 
 # TODO
-# 0. check if fish shell is installed
-# 1. if default shell is already fish do nothing
-# 2. 
+# 1. implement routine for installing fish if not found
 
 # ISSUES
 
@@ -12,6 +10,8 @@ set -e
 # 1. check the current OS
 # 2. get and store the current $USER executing script
 # 3. get the current $USER default shell
+# 4. check if fish is installed
+# 5. change default shell to fish
 
 # get current OS
 os=$(uname);
@@ -44,5 +44,14 @@ if [[ $installed_shells == *"fish"* ]]; then
   echo "fish shell seems to be installed"
   chsh -s /usr/bin/fish
   echo "default shell set to /usr/bin/fish"
+  echo "close/logoff to initialize new settings"
+else 
+  echo "it appears the fish shell is not installed"
+  echo "run 'sudo apt update; sudo apt install fish'"
+  echo "then rerun this script."
 fi
+
+# TODO: prompt / ask if custom term should be setup
+
+# TODO: call / setup a script or function for setting up custom term
 

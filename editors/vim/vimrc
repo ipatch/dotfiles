@@ -190,7 +190,10 @@ endfunction
 
 let g:ale_completion_enabled = 1
 
-if !exists('*minpac#init')
+" below `if` block/statement stopped working on september 26, 2020
+" if !exists('*minpac#init')
+" SEE: advanced sample on github readme of minpac
+  if !exists('g:loaded_minpac')
   " minpac is NOT available
   echo 'Yo!, you need minpac dawg!'
   " Settings for plugin-less, ie. no minpac 😥 environment.
@@ -203,6 +206,7 @@ if !exists('*minpac#init')
    call minpac#add('k-takata/minpac', {'type': 'opt'})
   endif
 else
+  " minpac found
   call minpac#init()
   call minpac#add('k-takata/minpac', {'type': 'opt'})
 
