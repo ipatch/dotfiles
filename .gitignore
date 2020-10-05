@@ -203,6 +203,15 @@ config/Blender/2.83/scripts/addons/**
 config/Blender/2.83/scripts/presets/operator/**
 !config/Blender/2.83/scripts/presets/operator/.gitkeep
 !config/Blender/2.83/config/.gitkeep
+# Blender 2.9x config files
+config/Blender/2.90/config/recent-files.txt
+config/Blender/2.90/config/bookmarks.txt
+config/Blender/2.90/scripts/addons/**
+!config/Blender/2.90/scripts/addons/.gitkeep
+config/Blender/2.90/scripts/presets/operator/**
+!config/Blender/2.90/scripts/presets/operator/.gitkeep
+!config/Blender/2.90/config/.gitkeep
+
 
 ##############################
 # Python - pyenv
