@@ -19,6 +19,9 @@ fi
 if [ "$os" = "Darwin" ]; then
   # echo "yup your probably using macOS"
 
+  # TODO: NOTE: script errors if finder prefs trashed and `...write CreateDesktop` cmd is not run first
+  # NOTE: error, `The domain/default pair of (com.apple.finder, CreateDesktop) does not exist`
+
   desktop_icon_status=$(defaults read com.apple.finder CreateDesktop)
 
   # echo "$desktop_icon_status"

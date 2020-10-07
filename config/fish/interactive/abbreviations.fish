@@ -256,10 +256,10 @@ switch $os
     # NOTE: changed abbr to `mac-updatedb` because of homebrew installed
     #...`findutils` which provides the `updatedb` bin.
     abbr -ag mac-updatedb "sudo /usr/libexec/locate.updatedb"
-    abbr -ag mac-hide-files "mac_toggle_hidden_files"
-    abbr -ag mac-show-files "mac_toggle_hidden_files"
-    abbr -ag mac-toggle-hidden-files "mac_toggle_hidden_files"
-    abbr -ag mac-toggle-desktop-icons "mac_toggle_desktop_icons.sh"
+    abbr -ag mac-hide-files "mac-toggle-hidden-files"
+    abbr -ag mac-show-files "mac-toggle-hidden-files"
+    abbr -ag mac-toggle-hidden-files "mac-toggle-hidden-files"
+    abbr -ag mac-toggle-desktop-icons "mac-toggle-desktop-icons.sh"
     abbr -ag mac-print-users "mac_lsusers"
 
     ################
