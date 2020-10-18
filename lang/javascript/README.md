@@ -390,6 +390,7 @@ npm upgrade [pkgname]
 
 ## TODOs [🔝](#contents)
 
+- [ ] device a a shell script to generate a file that can be piped into yarn to install all global packages listed within the file, similar to how brew installs packages listed in a file
 - [ ] Review all links recently added.
 - [x] ~~flesh out TOC~~
 - [x] organize contents of the doc a little better _time permitting_
