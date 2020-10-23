@@ -238,8 +238,10 @@ switch $os
     # mounting network disks, ie. time capsule on LAN
     # NOTE: the below abbr uses parameter expansion
     # LINK: https://fishshell.com/docs/current/index.html#expand
-    abbr -ag tcm 'mount -t smbfs //capin:"$TC_PASSWORD"@10.0.1.1/Data /mnt/tc'
-    abbr -ag mtc 'mount -t smbfs //capin:"$TC_PASSWORD"@10.0.1.1/Data /mnt/tc'
+    #
+    # NOTE: added `-o -d=755,-f=644` per the man page set unix octal bits for files
+    abbr -ag tcm 'mount -t smbfs -o -d=755,-f=644 //capin:"$TC_PASSWORD"@10.0.1.1/Data /mnt/tc'
+    abbr -ag mtc 'mount -t smbfs -o -d=755,-f=644 //capin:"$TC_PASSWORD"@10.0.1.1/Data /mnt/tc'
     abbr -ag utc "umount /mnt/tc"
 
 
