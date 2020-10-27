@@ -25,7 +25,6 @@ switch $os
     # alias brew cask outdated --greddy="brew cask outdated --greddy"
     alias rsync="/usr/local/bin/rsync --exclude-from=$HOME/.config/rsync/rsync-excludes"
 
-
   case Linux
     alias ls="ls --color=auto"
     # alias l="ls -lah --color=auto"

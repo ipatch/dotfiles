@@ -211,6 +211,7 @@ config/Blender/2.90/scripts/addons/**
 config/Blender/2.90/scripts/presets/operator/**
 !config/Blender/2.90/scripts/presets/operator/.gitkeep
 !config/Blender/2.90/config/.gitkeep
+config/Blender/2.90/config/userpref.blend
 
 
 ##############################

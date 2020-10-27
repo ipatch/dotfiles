@@ -244,6 +244,7 @@ switch $os
     abbr -ag mtc 'mount -t smbfs -o -d=755,-f=644 //capin:"$TC_PASSWORD"@10.0.1.1/Data /mnt/tc'
     abbr -ag utc "umount /mnt/tc"
 
+    abbr -ag df "gdf -h"
 
     ####
     # macOS Debugging
@@ -251,6 +252,9 @@ switch $os
     abbr -ag sip-status "csrutil status"
     abbr -ag mac-sip-status "csrutil status"
     abbr -ag mac-print-sip-status "csrutil status"
+
+    # TODO: migrate all `mac, mac-` related abbrs, alias, shell scripts to use `apl` prefix
+    abbr -ag apl.sip.status "csrutil status"
 
     # setup an alias for quicklook from the terminal in macOS
     abbr -ag ql "qlmanage -p"
