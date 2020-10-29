@@ -744,6 +744,7 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.co
 <details>
 <summary><strong>TODOs</strong></summary>
 
+- [ ] [fish] add a keyboard shortcut to toggle the right prompt **on** / **off**
 - [ ] [fish, dots]     # TODO: migrate all `mac, mac-` related abbrs, alias, shell scripts to use `apl` prefix
 - [ ] [vim, tmux, or macos] some form of icon / notification of **caps lock** being enabled
 - [ ] [tmux] add space at the end of window names to prevent moving of text in status bar
