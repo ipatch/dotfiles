@@ -5,6 +5,8 @@
 ## Contents
 
 - [Example](#example)
+- [General Notes](#general-notes)
+    [Troublehsooting](#troubleshooting)
 - [Neovim](#neovim)
   - [Neovim Boot Time](#neovim-boot-time)
 - [Useful Links](#useful-links)
@@ -41,6 +43,23 @@ I use minpac to install and update various Vim and Neovim Plugins, which are lis
 [`settings.vim`](https://github.com/ipatch/dotfiles/blob/master/editors/vim/vim/plugin/settings.vim) found in `./vim/plugin` contains settings related to configuring Vim and Neovim, ie. enabling mouse support, incremental searching through files, setting up directories for _swap, undo, session, and view_ files. 
 
 [`./vim/after/plugin`]( https://github.com/ipatch/dotfiles/tree/master/editors/vim/vim/after/plugin) contains all the `.vim` files for configuring plugins for Vim and Neovim, ie. deoplete, lightline, indentLine, and what not.
+
+<a id="troubleshooting"></a>
+
+## General Notes / Troubleshooting
+
+When problems arise, _(and they will)_ with configuration settings a good place to start to launch Vim or Neovim without a configuration, and then gradually test such problematic setting or vim file
+
+```shell
+nvim -u NONE
+```
+
+The above command will launch Neovim with no RC file defined and all settings will be their defaults, and any user defined settings within a `~/.vimrc` etc will be ignored for the session unless they are loaded manually.
+
+For my recent case of troubleshooting `FoldColumn` highlighting / colors for my current configuration, I launched Neovim with above command and then changed certain `highlight` settings.
+
+FWR, the version of Neovim I'm using respects the `guifg` and `guibg` so use those instead of ~~ctermfg~~ and ~~ctermbg~~.
+
 
 <a id="neovim"></a>
 
