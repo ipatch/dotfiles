@@ -761,12 +761,10 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.co
 - [ ] [tmux] possible binding for toggling max/min windows size <kbd>control+shift</kbd>
 - [ ] [macos, wm, spectacle] <kbd>cmd,option,+</kbd> have to mash <kbd>+</kbd> multiple times to increase window size, would like _hold the key down to increase size_, looking at your karabiner-elements / hammerspoon
 - [ ] [macos] look into creating a _lazy mouse hover_ function, if the mouse is hovering a application specific window for a certain period of time (threshold) bring that application to focus, ie. a pseudo auto hover.
-- [x] [vim] update colorscheme to see if it solves the neovim gutter white colored pipes for code folds. [**neovim folding doc**](https://neovim.io/doc/user/usr_28.html)
-    - **did not** update the gutter symbol colors related to code folds. booo
 - [ ] [vim] change commenting for `.gitignore` files from `/* wrong */` to `# right`
 - [ ] [tmux] put short synopsis of current weather in tmux status bar, _right side_
 - [ ] **vivaldi** / **voilentmonkey**
-  - youtube script, to switch view mode on viewer window hover with mouse.
+  - youtube script, to switch view mode on viewer window hover with mouse or mash a key to bring focus to viewer window so playback shortcuts become active.
 - [ ] [fish] exp with using colors for `brew.fish` function to distingush misspelling of word
 - [ ] [vim] navigating documents with line wraps makes jumping through buffer by line number inaccurate, wraped lines are displayed as one line, but the jump cmd treats them as multiple
   - [ ] [tmux] **nope**, call a shell script using a double tap of <kbd>shift</kbd> that interacts with the current window of tmux, a karabiner, hammerspoon, shell script, worm hole 🐛🕳
@@ -790,6 +788,8 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.co
 <details>
 <summary><strong>TODOs completed</strong></summary>
 
+- [x] ~~[vim] update colorscheme to see if it solves the neovim gutter white colored pipes for code folds. [**neovim folding doc**](https://neovim.io/doc/user/usr_28.html)
+    - **did not** update the gutter symbol colors related to code folds. booo~~
 - [x] ~~[vim] keybinding: use `ctrl+w, z` to maximize / minimize split~~
 - [x] ~~[vim] remamp split command key bindings to use similar keys as tmux pane splitting, ie. <kbd>|</kbd> and <kbd>-</kbd>~~
 - [x] ~~pack up `spring-dev` branch into a release and begin `summer-dev` branch~~
