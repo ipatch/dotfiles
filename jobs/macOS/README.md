@@ -1,4 +1,4 @@
-Think of this path within the dotfiles repo as the root `/` path on a macOS based computer.
+Think of this path within this dotfiles repo as the root `/` path on a macOS based computer.
 
 ```shell
 /
