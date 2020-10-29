@@ -301,6 +301,20 @@ if (has("autocmd") && !has("gui_running"))
   augroup END
 endif
 
+if (has("autocmd"))
+  augroup colorextend
+    autocmd!
+    " Make `Function`s bold in GUI mode
+    " autocmd ColorScheme * call onedark#extend_highlight("Function", { "gui": "bold" })
+    " Override the `Statement` foreground color in 256-color mode
+    " autocmd ColorScheme * call onedark#extend_highlight("Statement", { "fg": { "cterm": 128 } })
+    " Override the `Identifier` background color in GUI mode
+    " autocmd ColorScheme * call onedark#extend_highlight("Identifier", { "bg": { "gui": "#333333" } })
+    autocmd ColorScheme * call onedark#extend_highlight("FoldColumn", { "fg": { "gui": "#4b5263" } })
+  augroup END
+endif
+
+
 " TODO: add check if colorscheme is not present, and continue loading file
 " colorscheme base16-default-dark
 colorscheme onedark
