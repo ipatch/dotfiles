@@ -24,7 +24,7 @@
 
 ## Installation
 
->👷 install script is incomplete, do the good ol [StackOverflow](https://i.imgur.com/QZj4hxp.jpg) to expierment with repo files. 🚧
+>👷 install script is incomplete, do the good ol [StackOverflow](https://i.imgur.com/QZj4hxp.jpg) to experiment with repo files. 🚧
 
 ```sh
 curl https://raw.githubusercontent.com/ipatch/dotfiles/master/install.sh | /bin/sh
@@ -744,6 +744,13 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.co
 <details>
 <summary><strong>TODOs</strong></summary>
 
+- [ ] [neovim] review the below highlight settings, obviously time permitting of course
+  - Folded
+  - GitGutterAdd
+  - GitGutterChange
+  - GitGutterDelete
+  - LineNr
+  - Number
 - [ ] [fish] add a keyboard shortcut to toggle the right prompt **on** / **off**
 - [ ] [fish, dots]     # TODO: migrate all `mac, mac-` related abbrs, alias, shell scripts to use `apl` prefix
 - [ ] [vim, tmux, or macos] some form of icon / notification of **caps lock** being enabled
@@ -765,8 +772,8 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.co
 - [ ] [tmux] put short synopsis of current weather in tmux status bar, _right side_
 - [ ] **vivaldi** / **voilentmonkey**
   - youtube script, to switch view mode on viewer window hover with mouse or mash a key to bring focus to viewer window so playback shortcuts become active.
-- [ ] [fish] exp with using colors for `brew.fish` function to distingush misspelling of word
-- [ ] [vim] navigating documents with line wraps makes jumping through buffer by line number inaccurate, wraped lines are displayed as one line, but the jump cmd treats them as multiple
+- [ ] [fish] exp with using colors for `brew.fish` function to distinguish misspelling of word
+- [ ] [vim] navigating documents with line wraps makes jumping through buffer by line number inaccurate, wrapped lines are displayed as one line, but the jump cmd treats them as multiple
   - [ ] [tmux] **nope**, call a shell script using a double tap of <kbd>shift</kbd> that interacts with the current window of tmux, a karabiner, hammerspoon, shell script, worm hole 🐛🕳
 - [ ] [tmux] it'd be nice to have a quick double tap of either <kbd>shift</kbd>key then<kbd>shift</kbd> to toggle between remote and local tmux sessions 
   - [learn more](https://gist.github.com/samoshkin/05e65f7f1c9b55d3fc7690b59d678734)
@@ -777,7 +784,7 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.co
 - [ ] [python] [fish] [virtualenv] setup keybinding <kbd>control</kbd>+<kbd>d</kbd> to exit virtualenv but not exit terminal / shell session, ie. make control+d local to the virtualenv
 - [ ] [python] [fish] [neolambda] update prompt to remove ~λ~ and put name of virtualenv instead
 - [ ] see if there is a fish function of _omf_ or _fisher_ plugin that supports sharing command history between bash and fish
-- [ ] make abe graphich more personal.
+- [ ] make abe graphic more personal.
 - [ ] spend an hour or two working on install script for aiding the process of setting up my dotfiles on fresh box 📦.
 
 </details> <!-- end of uncompleted todo items -->
