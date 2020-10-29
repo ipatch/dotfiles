@@ -157,6 +157,8 @@ jobs/bin/inkview
 
 ##############################
 # PrusaSlicer / Prusa Slicer
+# NOTE: app setting files on macos are located within...
+# $HOME/Library/Application Support/PrusaSlicer/
 ##
 
 **/PrusaSlicer/cache/**
