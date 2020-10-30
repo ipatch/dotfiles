@@ -6,8 +6,8 @@
 
 - [Example](#example)
 - [General Notes](#general-notes)
-  - [/General Notes / Troublehsooting](#troubleshooting)
-    - [/General Notes / Troubleshooting / vim-commentary](#tshoot-vim-commentary)
+  - [../ Troublehsooting](#troubleshooting)
+    - [../../ vim-commentary](#tshoot-vim-commentary)
 - [Neovim](#neovim)
   - [Neovim Boot Time](#neovim-boot-time)
 - [Useful Links](#useful-links)
@@ -71,7 +71,13 @@ FWR, the version of Neovim I'm using respects the `guifg` and `guibg` so use tho
 
 I use a vim plugin known as **vim-commentary** to set / toggle comment strings for various filetypes, ie. markdown files and what not.  The default Neovim syntax file uses `>` as the commentstring for markdown documents which github flavored markdown does not use. ie. github flavored markdown uses HTML commentstring, ie. `<!-- comment -->`
 
-I set a custom `commentstring` for markdown files to use the HTML commentstring, however changing the `commentstring` can be problematic because if a view vim file is set, the commentstring will be read from the view file even though if a vim sytnax file is updated, for that reason delete the view file, then set the commentstring then close vim reopen vim and see if comment string is set appropriately.
+I set a custom `commentstring` for markdown files to use the HTML commentstring, however changing the `commentstring` can be problematic because if a _view_ vim file is set, the commentstring will be read from the _view_ file even though if a vim sytnax file is updated, for that reason delete the _view_ file generally located within the `./vim/tmp` directory, then set the commentstring. Finally, close & reopen vim to see if commentstring is set appropriately.  I set the `commenstring` for markdown files located within the [`plugin_vim-commentary.vim`](https://github.com/ipatch/dotfiles/commit/596936)
+
+To see where the commentstring is being set for a particular file [learn more](https://github.com/tpope/vim-commentary/issues/90)
+
+```vim
+:verbose set commentstring?
+```
 
 ## Neovim
 
