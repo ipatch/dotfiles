@@ -737,12 +737,12 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.co
 - [**Github** Awesome-dotfiles](https://github.com/webpro/awesome-dotfiles)
 - [cool looking **badges** for github readme's](https://github.com/ryanoasis/nerd-fonts)
 
-<h3>TODOs</h3>
+<!-- <h3>TODOs</h3> -->
 
 <a id="todos"></a>
 
 <details>
-<summary><strong>TODOs</strong></summary>
+<summary><strong><h3>TODOs</h3></strong></summary>
 
 - [ ] [neovim] review the below highlight settings, obviously time permitting of course
   - Folded
@@ -793,7 +793,7 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.co
 <h3>TODOs completed</h3>
 
 <details>
-<summary><strong>TODOs completed</strong></summary>
+<summary><strong><h3>TODOs completed</h3></strong></summary>
 
 - [x] ~~[vim] update colorscheme to see if it solves the neovim gutter white colored pipes for code folds. [**neovim folding doc**](https://neovim.io/doc/user/usr_28.html)
     - **did not** update the gutter symbol colors related to code folds. booo~~
