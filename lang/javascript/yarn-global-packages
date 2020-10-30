@@ -51,6 +51,8 @@ info "stacks-cli@1.0.4" has binaries:
    - stacks-cli
 info "standard@11.0.1" has binaries:
    - standard
+info "svg-term-cli@2.1.1" has binaries:
+   - svg-term
 info "typescript@3.9.7" has binaries:
    - tsc
    - tsserver
@@ -64,4 +66,4 @@ info "webpack-cli@3.3.12" has binaries:
    - webpack-cli
 info "webpack-dev-server@3.11.0" has binaries:
    - webpack-dev-server
-Done in 1.50s.
+Done in 1.43s.

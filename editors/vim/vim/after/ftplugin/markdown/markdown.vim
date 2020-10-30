@@ -1,26 +1,26 @@
+"-------------------------------
 " Vim & Neovim syntax file
-" filetype: markdown, ie. `.md`
+" NOTE: `conceallevel=0` equals text shown normally, ie. no concealing 
+" filetype: markdown, ie. `.md` syntax support
 " https://git.io/vprKe
 " Syntax shit for working with markdown documents, ie. `.md` files
+"--
 
-""""""""""""""""""""""""""""""
-" markdown `.md` syntax support
-" NOTE: `conceallevel=0` equals text shown normally, ie. no concealing 
-""
 augroup markdown_filetype
   autocmd BufNewFile,BufReadPost *.{md,markdown,mkd,mkdn} set filetype=markdown 
-  autocmd! Filetype markdown nnoremap <buffer> gf :call MarkDownGF()<CR>
+  " autocmd! Filetype markdown nnoremap <buffer> gf :call MarkDownGF()<CR>
 augroup END
+
 
 " for fenced language support in markdown documents
 let g:markdown_fenced_languages = ['html', 'python', 'bash=sh', 'js=javascript', 'json=javascript', 'ruby']
-
 
 " set the default conceal level for markdown `.md` documents
 " NOTE: `cole=0` DO NOT hide / conceal any text, display everything.
 set cole=0
 
 " EXP with navigating through sections of markdown documents
+" NOTE: the below func is incomplete ucomment above binding to use func
 " REF: https://vi.stackexchange.com/a/9345/10550
 function! MarkDownGF()
   " Get the filename under the cursor
@@ -41,4 +41,3 @@ function! MarkDownGF()
     " let arg = substitute(raw_filename, '\([^#]*\)\(#\{1,6\}\)\([^#]*\)', '+\/\2\\\\s\3 \1', 'g')
     " execute "edit" arg
 endfunction
-
