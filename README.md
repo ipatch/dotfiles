@@ -793,7 +793,7 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.co
 <h3>TODOs completed</h3>
 
 <details>
-<summary><strong><h3>TODOs completed</h3></strong></summary>
+<summary><strong>TODOs completed</strong></summary>
 
 - [x] ~~[vim] update colorscheme to see if it solves the neovim gutter white colored pipes for code folds. [**neovim folding doc**](https://neovim.io/doc/user/usr_28.html)
     - **did not** update the gutter symbol colors related to code folds. booo~~
