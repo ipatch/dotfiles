@@ -27,7 +27,33 @@
 <!-- github flavored markdown presently doesnot support `target="_blank"` -->
 
 <blockquote>
-👷 install script is incomplete, do the good ol <a href="https://i.imgur.com/QZj4hxp.jpg" target="_blank" "rel="noopener noreferrer">StackOverflow</a>&#8599; to experiment with repo files. 🚧
+👷 install script is incomplete, do the good ol <a href="https://i.imgur.com/QZj4hxp.jpg" target="_blank" "rel="noopener noreferrer">StackOverflow
+
+<svg id="svg2" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.w3.org/2000/svg" height="16" width="16" version="1.1" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/">
+ <metadata id="metadata7">
+  <rdf:RDF>
+   <cc:Work rdf:about="">
+    <dc:format>image/svg+xml</dc:format>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:title/>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Andreas Neudecker &lt;zapyon@gmx.net&gt;</dc:title>
+     </cc:Agent>
+    </dc:creator>
+    <dc:source/>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <g id="layer1" transform="translate(0 -1036.4)" fill="#6a737d">
+  <path id="rect2985" d="m1.9688 1040.4c-1.0939 0-1.9688 0.8-1.9688 1.9v8.0625c0 1.0938 0.87489 1.9687 1.9688 1.9687h8.0625c1.0939 0 1.9688-0.8749 1.9688-1.9687v-6.0313h-1v6c0 0.554-0.446 1-1 1h-8c-0.554 0-1-0.446-1-1v-8c0-0.554 0.446-1 1-1h6v-1h-6.0312z"/>
+  <path id="rect3763" d="m9 1036.4v1h5.3125l-8.5 8.5 0.6875 0.6875 8.5-8.5v5.3125h1v-6-1h-7z"/>
+ </g>
+</svg>
+
+</a>
+
+to experiment with repo files. 🚧
 </blockquote>
 
 ```sh
