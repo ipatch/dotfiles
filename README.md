@@ -27,7 +27,7 @@
 <!-- github flavored markdown presently doesnot support `target="_blank"` -->
 
 <blockquote>
-👷 install script is incomplete, do the good ol <a href="https://i.imgur.com/QZj4hxp.jpg" target="_blank" "rel="noopener noreferrer">StackOverflow
+👷 install script is incomplete, do the good ol <a href="https://i.imgur.com/QZj4hxp.jpg" target="_blank" "rel="noopener noreferrer">StackOverflow</a>
 
 <svg id="svg2" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.w3.org/2000/svg" height="16" width="16" version="1.1" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/">
  <metadata id="metadata7">
@@ -51,7 +51,6 @@
  </g>
 </svg>
 
-</a>
 
 to experiment with repo files. 🚧
 </blockquote>
