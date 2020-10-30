@@ -737,7 +737,7 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.co
 - [**Github** Awesome-dotfiles](https://github.com/webpro/awesome-dotfiles)
 - [cool looking **badges** for github readme's](https://github.com/ryanoasis/nerd-fonts)
 
-## TODOs
+<h3>TODOs</h3>
 
 <a id="todos"></a>
 
@@ -790,7 +790,7 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.co
 </details> <!-- end of uncompleted todo items -->
 
 
-### TODOs completed
+<h3>TODOs completed</h3>
 
 <details>
 <summary><strong>TODOs completed</strong></summary>
