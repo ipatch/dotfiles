@@ -24,7 +24,9 @@
 
 ## Installation
 
->👷 install script is incomplete, do the good ol [StackOverflow](https://i.imgur.com/QZj4hxp.jpg) to experiment with repo files. 🚧
+<blockquote>
+👷 install script is incomplete, do the good ol <a href="https://i.imgur.com/QZj4hxp.jpg" target="_blank">StackOverflow</a> to experiment with repo files. 🚧
+</blockquote>
 
 ```sh
 curl https://raw.githubusercontent.com/ipatch/dotfiles/master/install.sh | /bin/sh
