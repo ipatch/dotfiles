@@ -743,11 +743,7 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.co
 
 
 <details>
-
-<h3>
 <summary><strong>TODOs</strong></summary>
-</h3>
-
 
 - [ ] [neovim] review the below highlight settings, obviously time permitting of course
   - Folded
