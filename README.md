@@ -795,8 +795,8 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.co
 <details>
 <summary><strong>TODOs completed</strong></summary>
 
-- [x] ~~[vim] update colorscheme to see if it solves the neovim gutter white colored pipes for code folds. [**neovim folding doc**](https://neovim.io/doc/user/usr_28.html)
-    - **did not** update the gutter symbol colors related to code folds. booo~~
+- [x] ~~[vim] update colorscheme to see if it solves the neovim gutter white colored pipes for code folds.~~ [**neovim folding doc**](https://neovim.io/doc/user/usr_28.html)
+    - **did not** update the gutter symbol colors related to code folds. booo
 - [x] ~~[vim] keybinding: use `ctrl+w, z` to maximize / minimize split~~
 - [x] ~~[vim] remamp split command key bindings to use similar keys as tmux pane splitting, ie. <kbd>|</kbd> and <kbd>-</kbd>~~
 - [x] ~~pack up `spring-dev` branch into a release and begin `summer-dev` branch~~
