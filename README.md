@@ -24,8 +24,10 @@
 
 ## Installation
 
+<!-- github flavored markdown presently doesnot support `target="_blank"` -->
+
 <blockquote>
-👷 install script is incomplete, do the good ol <a href="https://i.imgur.com/QZj4hxp.jpg" target="_blank">StackOverflow</a> to experiment with repo files. 🚧
+👷 install script is incomplete, do the good ol <a href="https://i.imgur.com/QZj4hxp.jpg" target="_blank" "rel="noopener noreferrer">StackOverflow</a>&#8599; to experiment with repo files. 🚧
 </blockquote>
 
 ```sh
