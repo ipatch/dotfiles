@@ -790,7 +790,7 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.co
 </details> <!-- end of uncompleted todo items -->
 
 
-<h3>TODOs completed</h3>
+<!-- <h3>TODOs completed</h3> -->
 
 <details>
 <summary><strong>TODOs completed</strong></summary>
