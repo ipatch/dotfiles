@@ -741,8 +741,13 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.co
 
 <a id="todos"></a>
 
+
 <details>
-<summary><strong><h3>TODOs</h3></strong></summary>
+
+<h3>
+<summary><strong>TODOs</strong></summary>
+</h3>
+
 
 - [ ] [neovim] review the below highlight settings, obviously time permitting of course
   - Folded
@@ -788,7 +793,6 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.co
 - [ ] spend an hour or two working on install script for aiding the process of setting up my dotfiles on fresh box 📦.
 
 </details> <!-- end of uncompleted todo items -->
-
 
 <!-- <h3>TODOs completed</h3> -->
 
