@@ -20,9 +20,10 @@
 
 </div>
 
-<a id="installation"></a>
 
 ## Installation
+
+<a id="installation"></a>
 
 <!-- github flavored markdown presently doesnot support `target="_blank"` -->
 
@@ -37,9 +38,10 @@ echo "quickly add tmux configuration file, in a pinch"
 curl https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.conf > ~/.tmux.conf
 ```
 
-<a id="file-structure"></a>
 
 ## File Structure
+
+<a id="file-structure"></a>
 
 > Certain files and folders are omitted for brevity & security, most notably the `pack` directory polluting the **File Structure** with vim plugin files.
 
@@ -732,9 +734,10 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.co
 </pre>
 </details>
 
-<a id="useful-links"></a>
 
 ## Useful Links ___no particular order___
+
+<a id="useful-links"></a>
 
 - [**Github** wincent/wincent](https://github.com/wincent/wincent)
 - [**Github** mathiasbynenes/dotfiles](https://github.com/mathiasbynens/dotfiles)
@@ -773,7 +776,6 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.co
 - [ ] [tmux] possible binding for toggling max/min windows size <kbd>control+shift</kbd>
 - [ ] [macos, wm, spectacle] <kbd>cmd,option,+</kbd> have to mash <kbd>+</kbd> multiple times to increase window size, would like _hold the key down to increase size_, looking at your karabiner-elements / hammerspoon
 - [ ] [macos] look into creating a _lazy mouse hover_ function, if the mouse is hovering a application specific window for a certain period of time (threshold) bring that application to focus, ie. a pseudo auto hover.
-- [ ] [vim] change commenting for `.gitignore` files from `/* wrong */` to `# right`
 - [ ] [tmux] put short synopsis of current weather in tmux status bar, _right side_
 - [ ] **vivaldi** / **voilentmonkey**
   - youtube script, to switch view mode on viewer window hover with mouse or mash a key to bring focus to viewer window so playback shortcuts become active.
@@ -799,6 +801,7 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.co
 <details>
 <summary><strong>TODOs completed</strong></summary>
 
+- [x] ~~[vim] change commenting for `.gitignore` files from `/* wrong */` to `# right`~~
 - [x] ~~[vim] update colorscheme to see if it solves the neovim gutter white colored pipes for code folds.~~ [**neovim folding doc**](https://neovim.io/doc/user/usr_28.html)
     - **did not** update the gutter symbol colors related to code folds. booo
 - [x] ~~[vim] keybinding: use `ctrl+w, z` to maximize / minimize split~~
@@ -812,13 +815,11 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.co
 </details>
 
 
-<a id="contact"></a>
-
 <div align="center">
 
 ## Contact [🔝](#contents)
 
-<!-- <div align="center"> -->
+<a id="contact"></a>
 
 • [**GithHub**](https://github.com/ipatch) • [**Twitter**](https://twitter.com/truckmonth) • [**GitLab**](https://gitlab.com/truckmonth) •
 
