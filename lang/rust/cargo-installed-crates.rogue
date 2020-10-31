@@ -9,8 +9,6 @@ cargo-update v4.1.2:
     cargo-install-update-config
 exa v0.9.0:
     exa
-fd-find v8.1.1:
-    fd
 hexyl v0.8.0:
     hexyl
 https v1.10.0:
@@ -18,8 +16,6 @@ https v1.10.0:
     httplz
 lms v0.4.0:
     lms
-ripgrep v12.1.1:
-    rg
 rusti v0.0.1 (https://github.com/murarth/rusti#2dddea34):
     rusti
 shepherd v0.1.4:
