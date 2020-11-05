@@ -153,7 +153,9 @@ jobs/bin/inkview
 ##
 **/FreeCAD/AddonManager/**
 **/FreeCAD/Mod/**
-**/FreeCAD/Gui/Stylesheets/**
+!**/FreeCAD/Gui/Stylesheets/README.md
+**/FreeCAD/Gui/Stylesheets/*.qss
+**/FreeCAD/Gui/Stylesheets/*.orig
 
 
 ##############################
