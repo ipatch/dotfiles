@@ -746,12 +746,17 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.co
 
 <!-- <h3>TODOs</h3> -->
 
+## 
+
 <a id="todos"></a>
 
 
 <details>
 <summary><strong>TODOs</strong></summary>
 
+- [ ] [vim] device func / stript to decrypt / encrypt GPG files
+- [ ] [phys] reapply liquid metal to local cpu and gpu, run geekbench test before after, and exp with copper shims for gpu + cpu
+- [ ] [macos] [homebrew] howto search for homebrew taps
 - [ ] [neovim] review the below highlight settings, obviously time permitting of course
   - Folded
   - GitGutterAdd
@@ -797,6 +802,8 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.co
 </details> <!-- end of uncompleted todo items -->
 
 <!-- <h3>TODOs completed</h3> -->
+
+##
 
 <details>
 <summary><strong>TODOs completed</strong></summary>
