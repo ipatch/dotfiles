@@ -1,1 +1,1 @@
-The following directories contain notes related to the specific language listed within this directory, and the notes are mostly related to compiling programs from a CLI written in that specific language.
+The listed directories contain notes specific to the language, and the notes are mostly related to compiling programs from a CLI written with the specific language.
