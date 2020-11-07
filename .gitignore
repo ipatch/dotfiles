@@ -175,6 +175,7 @@ jobs/bin/inkview
 **/PrusaSlicer/PrusaSlicer.ini
 **/PrusaSlicer/filament/**
 **/PrusaSlicer/print/**
+**/PrusaSlicer/printer/**
 
 ##############################
 # GTK > gtk-mac-bundler

@@ -20,6 +20,7 @@ set -gx os (/usr/bin/uname)
 # DEBUG
 # echo $os
 set -gx XDG_CONFIG_HOME $HOME/.config
+set -gx XDG_DATA_HOME $HOME/.local/share
 
 if [ "$os" = Darwin ]; and [ -n /usr/local/bin/brew ]
     set -gx brew_prefix /usr/local
