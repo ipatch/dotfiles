@@ -120,6 +120,11 @@
   sl = shortlog --summary --numbered
 
   ####
+  # TODO: label
+  ##
+  # NOTE: see fish / abbreviations.fish for querying shallow status
+
+  ####
   # remote
   ##
   remotes = remote --verbose

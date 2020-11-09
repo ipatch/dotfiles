@@ -3,7 +3,7 @@
 # NOTE: abbr's will default to universal scope, ie. conditional logic will not "work" for different systems, ie. macOS and Linux, thus use the `-g` flag with `abbr` to make global scope which is NOT universal thus making conditional logic work.
 #
 ###
-# NOTE: when adding a new `abbr` to this file, fish will need to reload the file, ie. `exec fish` for every fish shell instance to pick up on the newly added `abbr`.
+# NOTE: when adding a new `abbr` fish requires a reload, ie. `exec fish` for every fish shell instance to pick up on the newly added `abbr`.
 #
 ###
 # NOTE: if using double quotes and the abbr contains an env var, ie. `$dots` the env var will be expanded after pressing space, whereas using single quotes will expand the $dots after pressing `enter`
@@ -107,6 +107,8 @@ abbr -ag gco 'git checkout'
 abbr -ag gsmru 'git smrupdate'
 abbr -ag git-ls-aliases 'git aliases'
 abbr -ag gf 'git fresh'
+abbr -ag git.is.shallow 'git rev-parse --is-shallow-repository'
+abbr -ag git.shallow\? 'git rev-parse --is-shallow-repository'
 
 ################
 # personal fish functions
