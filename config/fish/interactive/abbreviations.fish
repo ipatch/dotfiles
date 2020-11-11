@@ -65,6 +65,14 @@ if [ -d "$HOME/.rvm" ]
   abbr -ag be "bundle exec"
 end
 
+
+#############################
+# python tooling
+##
+# NO SPACES in abbr's
+# abbr -ag 'pip outdated' 'pip list --outdated'
+
+
 #############################
 # rsync
 #
