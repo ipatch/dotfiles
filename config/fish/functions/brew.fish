@@ -1,19 +1,28 @@
-function brew --description "catch common misspelling"
+function brew --description "catch common misspelling & add some goodies"
+  # REF: https://stackoverflow.com/a/60607145/708807
+  # thank you @faho
+  switch "$argv[1]"
+    case tap.ls
+      echo "list formula of a tap";
+      echo "================================="
+      # echo "$argv[2]" # DEBUG
+      if type -q jq
+        command brew tap-info "$argv[2]" --json | jq -r '.[]|(.formula_names[],.cask_tokens[])'
+      else
+        echo "`jq` is required, install it with `brew install jq`"
+        return
+      end
+      return;
+  end
+
   switch "$argv[3]"
 
-  case cask outdated --greddy
-    # NOVA / NO GO, if contains -- "cask outdated --greddy" $argv
-    # NOVA / NO GO, command "brew cask outdated --greedy"
-    # NOVA / NO GO, set correct_cmd (/usr/local/bin/brew cask outdated --greedy)
-    # NOVA / NO GO,command "$correct_cmd"
-    #
-    # TODO: make equals, `=` yellow, `greedy` green, `greedy` red
-    #
-    echo "greedy NOT greddy";
-    echo "================================="
-    command brew cask outdated --greedy
+    case cask outdated --greddy
+      echo "greedy NOT greddy";
+      echo "================================="
+      command brew cask outdated --greedy
+    case "*"
+      command brew $argv
+  end #switch
 
-  case "*"
-    command brew $argv
-  end
-end
+end #function
