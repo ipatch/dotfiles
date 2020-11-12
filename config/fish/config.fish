@@ -51,6 +51,9 @@ set -gx fish_emoji_width 2 # NOT COMPATIBLE with fish <= 2.7.1
 set -gx docker /opt/docker
 set -gx ltmp $HOME/ltmp
 
+# TODO: exp neovim + python 3.8 issue
+set -gx LANG "en_US.UTF-8"
+
 
 # set -gx vbox-shared $HOME/vm/vbox-shared # NO GO!
 # set -gx vbox.shared $HOME/vm/vbox.shared # periods in identifiers are a no go!
