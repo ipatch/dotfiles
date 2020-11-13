@@ -754,6 +754,7 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.co
 <details>
 <summary><strong>TODOs</strong></summary>
 
+- [ ] [fish] followup on my reddit question about suggestions / completions when writing fish scripts
 - [ ] [vim] device func / stript to decrypt / encrypt GPG files
 - [ ] [phys] reapply liquid metal to local cpu and gpu, run geekbench test before after, and exp with copper shims for gpu + cpu
 - [ ] [macos] [homebrew] howto search for homebrew taps
