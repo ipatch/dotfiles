@@ -260,7 +260,7 @@
   # To set a `core.excludesfile` on a per $HOME dir basis, see `config.fish or `.bashrc`
 
   ###############################
-  # TODO: [ ] give me some mouse 🐭 support please
+  # TODO: [x] give me some mouse 🐭 support please ✅
   ##
   # pager = less # NOTE `-r` flag may break things from time to time
 
