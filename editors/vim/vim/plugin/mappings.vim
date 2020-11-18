@@ -6,7 +6,14 @@
 " way `Shift+;` does not have to be pressed to begin a command in normal mode.
 ""
 
-nnoremap <ESC> :
+" BUG: vim ≥ 8.2 the below mapping will TOTALLY break any mouse actions
+" which becomes a total PITA when trying to use `vimdiff`
+if has('nvim')
+  nnoremap <esc> :
+elseif v:version > 8 || v:version == 8 " Check for Vim8 ...sort of
+  nnoremap <space> :
+endif
+
 
 " NOTE: - the below insert mappings will bind 'jk' / 'kj' to ESC
 " key functionality, so need to use <ESC> in insert mode
@@ -75,7 +82,7 @@ nnoremap <Tab> za
 " NOTE: iterm2 make sure to set proper escape sequences.
 vnoremap <M-c> "+y
 nnoremap <M-v> "+p
-inoremap <M-v> <esc>"+p
+" inoremap <M-v> <esc>"+p
 " Generic undo using `⌘ + z` for normal and insert modes
 nnoremap <M-z> u
 inoremap <M-z> <C-o>u
@@ -104,19 +111,19 @@ nnoremap <leader><leader> <c-^>
 " buffers <tab>
 ""
 " NOTE cycle through list of open buffers
-nnoremap <leader>b :buffers<cr>:b<space>
+" nnoremap <leader>b :buffers<cr>:b<space>
 
 """"""""""""""""""""""""""""""
 " Splits - vertical & horizontal
 ""
 " Split current buffer vertically with empty buffer to the right
-nnoremap <C-w>\ :vsplit 0<CR>
+" nnoremap <C-w>\ :vsplit 0<CR>
 " Split curren buffer horizontally with empty buffer below
-nnoremap  <C-w>- :split 0<CR>
+" nnoremap  <C-w>- :split 0<CR>
 
 "" pseudo maximize toggle
 " open split in new tab, ie. fill window
-nnoremap <C-w>z :tab sp<CR>
+" nnoremap <C-w>z :tab sp<CR>
 
 " NOTE: `vim unmaximize, toggle, shrink, restore buffer size
 " use `<C-w>c` to close maximized window and restore to previous layout

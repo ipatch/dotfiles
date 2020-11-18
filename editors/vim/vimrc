@@ -21,6 +21,7 @@ scriptencoding utf-8
 let g:mapleader = "\<Space>" " bind 'leader' key to spacebar
 
 " Don't allow vi compatibility mode; don't need it 🤽
+" NOTE: as of nov 2020, `nocompatible` is default for Vim ≥ 8.2 and Neovim
 " set nocompatible "Enable at own risk, can have undesired effects
 " SEE: `:help nocompatible` for more info.
 ""
@@ -240,8 +241,8 @@ else
     " call minpac#add('Shougo/denite.nvim', {'rev': '29bfd4c53271c7a150def2388e059746ae4c1713'})
      call minpac#add('neoclide/coc.nvim', {'branch': 'release'})
   elseif v:version > 8 || v:version == 8 " Check for Vim8 ...sort of
-    call minpac#add('autozimu/LanguageClient-neovim', {'type': 'opt',
-          \'branch': 'next', 'do': {-> system('bash install.sh')}})
+    " call minpac#add('autozimu/LanguageClient-neovim', {'type': 'opt',
+    "       \'branch': 'next', 'do': {-> system('bash install.sh')}})
   endif
   
   "----------------------------
@@ -291,33 +292,35 @@ endif " END Neovim only settings
 " [mr-fancy-setting`
 "let g:base16colorspace = 256 " Access colors present in 256 colorspace
 
-"onedark.vim override: Set a custom background color in the terminal
-" NOTE: set custom gui settings for `ondark.vim` BEFORE init colorscheme
-if (has("autocmd") && !has("gui_running"))
-  augroup colors
-    autocmd!
-    let s:background = { "gui": "#101010", "cterm": "235", "cterm16": "0" }
-    autocmd ColorScheme * call onedark#set_highlight("Normal", { "bg": s:background }) "No `fg` setting
-  augroup END
-endif
-
-if (has("autocmd"))
-  augroup colorextend
-    autocmd!
-    " Make `Function`s bold in GUI mode
-    " autocmd ColorScheme * call onedark#extend_highlight("Function", { "gui": "bold" })
-    " Override the `Statement` foreground color in 256-color mode
-    " autocmd ColorScheme * call onedark#extend_highlight("Statement", { "fg": { "cterm": 128 } })
-    " Override the `Identifier` background color in GUI mode
-    " autocmd ColorScheme * call onedark#extend_highlight("Identifier", { "bg": { "gui": "#333333" } })
-    autocmd ColorScheme * call onedark#extend_highlight("FoldColumn", { "fg": { "gui": "#4b5263" } })
-  augroup END
-endif
 
 
-" TODO: add check if colorscheme is not present, and continue loading file
-" colorscheme base16-default-dark
-colorscheme onedark
+" if has('nvim')
+  "onedark.vim override: Set a custom background color in the terminal
+  " NOTE: set custom gui settings for `ondark.vim` BEFORE init colorscheme
+  if (has("autocmd") && !has("gui_running"))
+    augroup colors
+      autocmd!
+      let s:background = { "gui": "#101010", "cterm": "235", "cterm16": "0" }
+      autocmd ColorScheme * call onedark#set_highlight("Normal", { "bg": s:background }) "No `fg` setting
+    augroup END
+  endif
+
+  if (has("autocmd"))
+    augroup colorextend
+      autocmd!
+      " Make `Function`s bold in GUI mode
+      " autocmd ColorScheme * call onedark#extend_highlight("Function", { "gui": "bold" })
+      " Override the `Statement` foreground color in 256-color mode
+      " autocmd ColorScheme * call onedark#extend_highlight("Statement", { "fg": { "cterm": 128 } })
+      " Override the `Identifier` background color in GUI mode
+      " autocmd ColorScheme * call onedark#extend_highlight("Identifier", { "bg": { "gui": "#333333" } })
+      autocmd ColorScheme * call onedark#extend_highlight("FoldColumn", { "fg": { "gui": "#4b5263" } })
+    augroup END
+  endif
+  " TODO: add check if colorscheme is not present, and continue loading file
+  " colorscheme base16-default-dark
+  colorscheme onedark
+" endif
 
 """"""""""""""""
 " load before plugins - polyglot
