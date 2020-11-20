@@ -66,6 +66,7 @@ set -gx lbin $HOME/.local/bin
 
 if type -q brew
 	set -gx brew_logs (brew --prefix)/var/log/
+  set -gx brewcache $HOME/Library/Caches/Homebrew
 end
 	
 if type -q python

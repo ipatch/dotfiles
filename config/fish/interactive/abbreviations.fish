@@ -105,7 +105,7 @@ abbr -ag woot "emoji --yay"
 abbr -ag gs "git status"
 abbr -ag gd 'git diff --stat'
 abbr -ag ga 'git add --all'
-abbr -ag gc 'git commit -m'
+abbr -ag gitc 'git commit -m'
 abbr -ag gac 'git commit -am'
 abbr -ag gqc 'git random'
 abbr -ag gp 'git push --quiet'
@@ -291,6 +291,8 @@ switch $os
       abbr -ag cd-brew-src "cd (brew --prefix)/Homebrew/Library/Taps/homebrew/homebrew-core"
       abbr -ag cdbrewsrc "cd (brew --prefix)/Homebrew/Library/Taps/homebrew/homebrew-core"
       abbr -ag brews "cd (brew --prefix)/Homebrew/Library/Taps/homebrew/homebrew-core"
+      abbr -ag cdbrewcache "cd $HOME/Library/Caches/Homebrew"
+      abbr -ag cdmytap "cd $code/git/github/public/homebrew-us-05"
 
       # NOPE! NOT ALLOWED, ie. does not support spaces
       # abbr -ag "brew cask outdated --greddy" "brew cask outdated --greedy"
