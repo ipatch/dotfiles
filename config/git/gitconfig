@@ -302,7 +302,7 @@
   prompt = false
 
 [push]
-  default = simple # git >= 1.8+ required
+  default = simple # git ≥ 1.8+ required
 
 # `git config --global diff.submodule log` will add the below 2 lines
 [diff]
