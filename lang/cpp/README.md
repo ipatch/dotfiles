@@ -13,11 +13,14 @@
 
 <a id="working-with-cmake"></a>
 
-To uninstall _remove_ binaries that have been installed from a **CMake** process use the `install_mainfest.txt` generated from running `make install` along with xargs to remove the binaries that were installed.
+To uninstall _remove_ binaries that have been installed from a **CMake** process use the `install_mainfest.txt` generated from running `make install` along with xargs to remove the binaries that were installed. [learn more][so1]
 
 ```shell
-xargs rm < install_mainfest.txt
+cat install_manifest.txt | xargs rm
+cat install_manifest.txt | xargs -L1 dirname | xargs rmdir -p
 ```
+
+[so1]: <https://stackoverflow.com/a/48914285/708807>
 
 ## General C++ Commands & Usage
 
