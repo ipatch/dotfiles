@@ -51,3 +51,11 @@ xcodebuild -showsdks
 
 - [_blog_ paul smith, getting started with llvm backend, C api](https://www.pauladamsmith.com/blog/2015/01/how-to-get-started-with-llvm-c-api.html)
 - [**cyberciti.biz** How To Compile And Run a C/C++ Code In Linux](https://www.cyberciti.biz/faq/howto-compile-and-run-c-cplusplus-code-in-linux/)
+
+## TODOs
+
+<a id="todos"></a>
+
+- [ ] review [**hackaday article**][1] about valgrind
+
+[1]: <https://hackaday.com/2020/04/29/using-valgrind-to-track-down-known-and-unknown-bugs-in-your-code/>
