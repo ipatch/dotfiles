@@ -20,6 +20,7 @@
 
 </div>
 
+<!-- first day of winter 2020 is dec 21 -->
 
 ## Installation
 
