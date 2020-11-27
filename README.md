@@ -755,6 +755,8 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.co
 <details>
 <summary><strong>TODOs</strong></summary>
 
+- [ ] [tmux] [hammerspoon] [ke] left double tap shift, toggle max/min pane within window
+- [ ] [macos] [afloat] [ke] [hammerspoon] double tap right shift, toggle keep window atop
 - [ ] [fish] followup on my reddit question about suggestions / completions when writing fish scripts
 - [ ] [vim] device func / stript to decrypt / encrypt GPG files
 - [ ] [phys] reapply liquid metal to local cpu and gpu, run geekbench test before after, and exp with copper shims for gpu + cpu
