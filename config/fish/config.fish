@@ -237,14 +237,16 @@ case Darwin
 
   ###############################
   # fisher | fish shell > plugin manager
+  # NOTE: BUG: DEPRECATED: setting `fisher_path` is a NO GO!!!
+  # ref: https://github.com/jorgebucaran/fisher/issues/628#issuecomment-732179991
   ##
-  set -gx fisher_path "$XDG_CONFIG_HOME/fish/fisher"
-  set fish_function_path $fish_function_path $fisher_path/functions
-  set fish_complete_path $fish_complete_path $fisher_path/completions
+  # set -gx fisher_path "$XDG_CONFIG_HOME/fish/fisher"
+  # set fish_function_path $fish_function_path[1] $fisher_path/functions $fish_function_path[2..-1]
+  # set fish_complete_path $fish_complete_path[1] $fisher_path/completions $fish_complete_path[2..-1]
 
-  for file in "$HOME/.config/fisher/conf.d/*.fish"
-    builtin source $file 2> /dev/null
-  end
+  # for file in "$fisher_path/conf.d/*.fish"
+  #   source $file 2> /dev/null
+  # end
 
   ###############################
   # personal macOS things to help solve first world problems

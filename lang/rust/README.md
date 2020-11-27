@@ -112,6 +112,14 @@ To update a single package or crate
 cargo install-update [PACKAGE-NAME]
 ```
 
+> the above sub command is a package package/crate itself `install-update` which will install the global rust binary contained with the `~/.cargo/bin`
+
+To remove / uninstall a crate / package
+
+```shell
+cargo uninstall [PACKAGE-NAME]
+```
+
 ## rust Useful Links [🔝](#contents)
 
 <a id="rust-useful-links"></a>
