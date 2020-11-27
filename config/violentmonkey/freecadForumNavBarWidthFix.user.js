@@ -12,18 +12,14 @@
 // @homepageURL
 // ==/UserScript==
 
-
-
 console.log('hello from violent monkey');
-  
   
 var styleSheet = "" +
   "@media (min-width: 768px) and (max-width: 991px) {" +
     ".container {" +
+      // uncomment the below css property to visually see when script is used
       // "background-color: blue;" +
       "width: 100%;" +
-      // "justify-content: center;" +
-      // "display: flex" +
     "}" +
   "}" +
 "";  
