@@ -7,9 +7,9 @@
 // @version     1.0
 // @author      github.com/ipatch
 // @description fix navbar overflow
-// @downloadURL 
-// @supportURL
-// @homepageURL
+// @downloadURL  
+// @supportURL  https://github.com/ipatch/dotfiles/issues
+// @homepageURL https://github.com/ipatch/dotfiles
 // ==/UserScript==
 
 console.log('hello from violent monkey');
