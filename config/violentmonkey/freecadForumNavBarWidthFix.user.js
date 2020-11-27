@@ -7,7 +7,7 @@
 // @version     1.0
 // @author      github.com/ipatch
 // @description fix navbar overflow
-// @downloadURL  
+// @downloadURL https://raw.githubusercontent.com/ipatch/dotfiles/release/config/violentmonkey/freecadForumNavBarWidthFix.user.js 
 // @supportURL  https://github.com/ipatch/dotfiles/issues
 // @homepageURL https://github.com/ipatch/dotfiles
 // ==/UserScript==
@@ -22,7 +22,7 @@ var styleSheet = "" +
       "width: 100%;" +
     "}" +
   "}" +
-"";  
+"";
 
 (function () {
   var s = document.createElement('style');
