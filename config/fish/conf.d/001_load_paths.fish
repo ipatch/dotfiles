@@ -36,6 +36,7 @@ set -l paths \
 /usr/sbin \
 /usr/games \
 /usr/libexec \
+/opt/beta/bin \
 /usr/local/bin \
 /usr/local/sbin \
 # use GNU coreutils with default names on macOS
