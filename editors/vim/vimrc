@@ -216,19 +216,20 @@ else
   "-
   call minpac#add('machakann/vim-highlightedyank') " name says it all
   call minpac#add('chriskempson/base16-vim') " UX goodness
-  " call minpac#add('joshdick/onedark.vim') " exp with new colorscheme
   call minpac#add('Yggdroot/indentLine') " vert indent lines
-  " call minpac#add('MaxMEllon/vim-jsx-pretty') " syntax highlight
   call minpac#add('tpope/vim-commentary') " quickly comment lines
   call minpac#add('sheerun/vim-polyglot') " lazy load syntax hl
   call minpac#add('christoomey/vim-tmux-navigator') " vim&tmux navi
-  " call minpac#add('w0rp/ale') " Asynchronous Linting Engine
   call minpac#add('tpope/vim-fugitive') " display git branch
   call minpac#add('itchyny/lightline.vim') " lightweight status line.
   call minpac#add('rust-lang/rust.vim')
   call minpac#add('euclio/vim-markdown-composer', {'type': 'opt'})
-  " call minpac#add('tpope/vim-obsession') " auto session mgmt
   call minpac#add('majutsushi/tagbar')
+  "
+  " call minpac#add('joshdick/onedark.vim') " exp with new colorscheme
+  " call minpac#add('w0rp/ale') " Asynchronous Linting Engine
+  " call minpac#add('tpope/vim-obsession') " auto session mgmt
+  " call minpac#add('MaxMEllon/vim-jsx-pretty') " syntax highlight
 
   "-----------------------------
   " minpac - conditional plugins
