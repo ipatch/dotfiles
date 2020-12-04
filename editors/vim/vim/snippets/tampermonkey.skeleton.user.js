@@ -9,6 +9,8 @@
 // @description skeleton violentmonkey userscript for editing CSS
 // @downloadURL [url], ie. [http://localhost/~$USER/tampermonkey.skeleton.user.js
 // @updateURL   [url], ie. [http://localhost/~$USER/tampermonkey.skeleton.user.js
+// @supportURL  https://github.com/ipatch/dotfiles/issues
+// @homepageURL https://github.com/ipatch/dotfiles
 // ==/UserScript==
 
 console.log('violentmonkey script loaded');

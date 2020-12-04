@@ -12,7 +12,7 @@
 // @homepageURL https://github.com/ipatch/dotfiles
 // ==/UserScript==
 
-console.log('hello from violent monkey');
+console.log('violentmoneky, navbar width');
   
 var styleSheet = "" +
   "@media (min-width: 768px) and (max-width: 991px) {" +
