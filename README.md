@@ -755,6 +755,8 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.co
 <details>
 <summary><strong>TODOs</strong></summary>
 
+- [ ] [alacritty] [fish] [tmux] [karabiner] [hammerspoon] _double tap esc_, ie. esc², to run the keyboard shortcut of clearing the scree, ie. prefix (tmux), then control+l
+- [ ] [vim] [nvim] [coc] [eslint] gutter warn glyph appeares to be `>>` in the color red, would much prefer to keep warning color consistent with the color of the warning text, and same with error text, keep that the color red.
 - [ ] [tmux] [hammerspoon] [ke] left double tap shift, toggle max/min pane within window
 - [ ] [macos] [afloat] [ke] [hammerspoon] double tap right shift, toggle keep window atop
 - [ ] [fish] followup on my reddit question about suggestions / completions when writing fish scripts
