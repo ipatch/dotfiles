@@ -1,0 +1,25 @@
+{
+  "rules": {
+    "semi": [2, "always"],
+    "no-unused-vars": "off"
+  },
+
+  // ES6 syntax
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  // supported environments
+  "env": {
+    "browser": true,
+    "node": true,
+    "es6": true
+  },
+
+  "extends": "eslint:recommended"
+}
+
+// vim: ft=jsonc
