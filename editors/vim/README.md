@@ -79,6 +79,12 @@ To see where the commentstring is being set for a particular file [learn more](h
 :verbose set commentstring?
 ```
 
+#### troubleshooting / linting / coc-eslint
+
+see the [following section][link1] related to troubleshooting eslint with coc
+
+[link1]: #linting-coc-eslint
+
 ## Neovim
 
 <a id="neovim"></a>
@@ -121,12 +127,24 @@ $HOME/.vim/vim/pack/minpac/start
 
 <a id="linting-source-files"></a>
 
-> I use ALE, in conjunction with various language linters
+> I have stopped using ALE for linting and have been experimenting using CoC along various CoC plugins, ie. coc-eslint to lint javascript & related files, in conjunction with various language linters.
+
+🚨 I have not setup tidy, shellcheck, or markdownlint yet with coc, as I believe that would require loading the appropriate coc related language linter in order to lint those specific source files.
+
 - **HTML** tidy
 - **shell** shellcheck
 - **markdown** markdownlint
 - **javascript** eslint
 
+### linting source files / javacript with coc-eslint
+
+<a id="linting-coc-eslint"></a>
+
+when updating a eslint configuration file, _say_ disabling the _no unused vars_ while drafting the file, and one wants to reload the current buffer after making changes to a eslint configuration file, just reload the buffer and making the changes. ie. `e` coc-eslint should pickup on the latest eslintrc configuration changes. if that fails for whatever reason, then restart the coc server.
+
+```vim
+CocRestart
+```
 
 ### Working with HTML tidy
 
