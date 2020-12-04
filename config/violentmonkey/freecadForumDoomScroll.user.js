@@ -4,7 +4,7 @@
 // @match       https://forum.freecadweb.org/*
 // @grant       none
 // @run-at      document-start
-// @version     1.0.8
+// @version     1.0.9
 // @author      github.com/ipatch
 // @description to infiniti and beyond
 // @downloadURL http://localhost/~capin/freecadForumDoomScroll.user.js
@@ -17,6 +17,14 @@
 console.log('violentmonkey, doom scroll hello!');
 
 console.log('w00t');
+
+const actionBar = document.querySelector('action-bar bottom');
+
+// my mod
+console.log(actionBar);
+
+const observer = new IntersectionObserver(callback, options);
+
 
 // var styleSheet = "" +
 //   "@media (min-width: 768px) and (max-width: 991px) {" +
