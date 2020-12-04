@@ -1,13 +1,13 @@
 ## installation
 
-1. navigate to the file location within browser that has *****monkey browser extension installed on it.
+1. navigate to the file location within browser that has **\***monkey browser extension installed on it.
 2. click on the file URL `*.user.js` to load the userscript in the browser based editor
 
 > for my particular local dev setup, i'm using apache2 on macos 10.14, and am serving the script file from my `~/Sites` directory within my `/Users/$USER` directory.
 
 ### troubleshooting
 
-💡 there is a bit of a delay from when the userscript file is written and when the browser picks up on the change, so if the initial refresh does not load changes give 5 secs and try again, and if still nothing inspect **\*\**monkey settings.
+💡 there is a bit of a delay from when the userscript file is written and when the browser picks up on the change, so if the initial refresh does not load changes give 5 secs and try again, and if still nothing inspect **\***monkey settings.
 
 the scripts can be a little finicky to get loaded, make sure the `downloadURL` and the `updateURL` are set to the proper path on the filesystem or else script changes will not be pushed when developing a script locally for testing.  _violentmonkey_ should display an error if it fails to _fetch_ the updated script 
 
