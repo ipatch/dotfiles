@@ -1,6 +1,6 @@
 ## installation
 
-1. navigate to the file location within browser that has **\*\**monkey browser extension installed on it.
+1. navigate to the file location within browser that has *****monkey browser extension installed on it.
 2. click on the file URL `*.user.js` to load the userscript in the browser based editor
 
 > for my particular local dev setup, i'm using apache2 on macos 10.14, and am serving the script file from my `~/Sites` directory within my `/Users/$USER` directory.
