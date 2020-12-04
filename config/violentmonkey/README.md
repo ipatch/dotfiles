@@ -24,4 +24,4 @@ the scripts can be a little finicky to get loaded, make sure the `downloadURL` a
 - [x] ~~see if a symlink will work with specifying the path to the script file as opposed to putting the raw script file within the `~/Sites` directory~~
   > it appears symlinking $HOME/Sites/lnk to $dots/config/violentmonkey/script.user.js does not have any issues on macos using vivaldi browser
 - [ ] flesh out readme explaining how the defeault macos apache2 can be used to serve userscript files in order to edit userscripts in local editor such as vim, neovim, or dare i say emacs 😬 instead of using the builtin browser based script editor.
-- [ ] in an alt life get hot loading working userscripts so i don't have to refresh the page everytime i make a change to a userscript
+- [ ] in an alt life get hot loading userscripts so i don't have to refresh the page everytime i make a change to a userscript
