@@ -1,0 +1,1 @@
+/opt/code/dotfiles/editors/vim/vim/snippets/tampermonkey.skeleton.user.js
