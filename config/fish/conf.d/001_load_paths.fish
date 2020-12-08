@@ -12,13 +12,23 @@
 ##
 
 #############################
+# NOTE: 🚨 path ordering issues
+# quickest way to regen path entries,
+# `set -gx PATH "/usr/bin:/bin"
+# `exec /usr/local/bin/fish
+##
+# NOTE: tmux will inherit entries related to bashrc startup scripts so be sure to set
+# ...the default startup cmd in tmux
+# REF: https://unix.stackexchange.com/a/548516/33002
+# NOTE: when overhauling path entries the tmux server needs killing, start everything fresh
+
+#############################
 # OS check
 ##
 # NOTE: be sure to symlink `/bin/uname` to `/usr/bin/uname` on Debian
 # NOTE: macOS == `Darwin` GNU/Linux == `Linux`
 set -gx os (/usr/bin/uname)  
-# DEBUG
-# echo $os
+# echo $os # DEBUG
 set -gx XDG_CONFIG_HOME $HOME/.config
 set -gx XDG_DATA_HOME $HOME/.local/share
 
@@ -28,29 +38,29 @@ else if [ "$os" = Linux ]; and [ -n /home/linuxbrew/.linuxbrew/bin/brew ]
   set -gx brew_prefix /home/linuxbrew/.linuxbrew
 end
 
-# NOTE: reverse order, ie. `/bin` should be last entry within `$PATH`
+# NOTE: reverse order, ie. `/bin` should be last entry within `echo $PATH`
 set -l paths \
 /bin \
 /sbin \
 /usr/bin \
 /usr/sbin \
 /usr/games \
-/usr/libexec \
-/opt/beta/bin \
-/usr/local/bin \
-/usr/local/sbin \
-# use GNU coreutils with default names on macOS
-# /usr/local/opt/coreutils/libexec/gnubin \
-# NOTE: the below entry is not required on macOS because X11.app adds `40-XQuartz` file within `/etc/paths.d`
-# /opt/X11/bin \ 
+# /usr/local/sbin \
 $brew_prefix/bin \
 $brew_prefix/sbin \
-$brew_prefix/opt/python/libexec/bin \
-$brew_prefix/opt/libressl/bin \
-$brew_prefix/opt/go/libexec/bin \
-$brew_prefix/opt/coreutils/libexec/bin \
+/usr/libexec \
+/opt/beta/bin \
+# /usr/local/bin \
+#
+# NOTE: the below entry is not required on macOS because X11.app adds `40-XQuartz` file within `/etc/paths.d`
+# /opt/X11/bin \ 
+#
+# $brew_prefix/opt/python/libexec/bin \
+# $brew_prefix/opt/libressl/bin \
+# $brew_prefix/opt/go/libexec/bin \
+# $brew_prefix/opt/coreutils/libexec/bin \
 $brew_prefix/opt/postgresql@10/bin \
-$HOME/miniconda3/bin \
+# $HOME/miniconda3/bin \
 $HOME/go/bin \
 $HOME/.cargo/bin \
 $HOME/Library/Android/sdk/platform-tools \
@@ -77,7 +87,7 @@ for p in $paths
     # set -gx PATH $PATH $p
 
     # prepend PATH entries, so that `/usr/sbin:/usr/bin:/sbin:/bin` are the last 4 entries in the PATH
-    # NOTE: the path entry order can be tested w/ the fish shell abbr `ppr` contained within `abbreviations.fish`
+    # NOTE: the path entry order can be tested w/ the fish shell abbr `pp` contained within `abbreviations.fish`
     set -gx PATH $p $PATH
   end
 end

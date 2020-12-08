@@ -129,6 +129,8 @@ abbr -ag ppr "path_pretty_redux"
 abbr -ag path-add 'path_add' # fish func
 abbr -ag path-remove 'path_remove' # fish func
 abbr -ag path-rm 'path_remove'
+abbr -ag pthrm 'path_remove'
+abbr -ag prm 'path_remove'
 
 ################
 # alacritty abbrs
