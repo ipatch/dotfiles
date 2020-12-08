@@ -66,7 +66,7 @@ $HOME/.cargo/bin \
 $HOME/Library/Android/sdk/platform-tools \
 # $HOME/.rvm/bin \
 /Applications/microchip/xc16/v1.35/bin \
-$HOME/.config/yarn/bin \
+$HOME/.yarn/bin \
 $HOME/.local/bin \
 
 # EXP # NOTE probably not needed, manually load rvm rubies if required
