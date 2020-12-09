@@ -146,6 +146,22 @@ when updating a eslint configuration file, _say_ disabling the _no unused vars_ 
 CocRestart
 ```
 
+#### troubleshooting coc with eslint
+
+- error msg,
+
+```
+[coc.nvim] Failed to load the ESLint library for the document /opt/code/typescript/index.ts
+```
+
+to fix the above error msg, for my particular use case _dec 9, 2020_ all that was required was running,
+
+```vim
+CocUpdate
+```
+
+> i did resolve some path issues related to global yarn pkgs bin the other day so that may be related to addressing the above issue as well.
+
 ### Working with HTML tidy
 
 <a id="working-with-html-tidy"></a>
