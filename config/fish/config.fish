@@ -135,7 +135,7 @@ if type -q fzf && type -q rg
   # NOTE: useful `rg` flags
     # --files: List files that would be searched but do not search
     # --no-ignore: Do not respect .gitignore, etc...
-    # --hidden: Search hidden files and folders
+    #--hidden: Search hidden files and folders
     # --follow: Follow symlinks
     # --glob: Additional conditions for search, ignore the listed dirs
   set -gx FZF_DEFAULT_COMMAND 'rg \

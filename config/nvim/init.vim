@@ -43,7 +43,7 @@ if os ==? 'macos' || os ==? 'linux'
 " let g:python3_host_prog = '/Users/capin/.pyenv/versions/3.8.6/bin/python3'
   " let g:python3_host_prog = expand('~/.pyenv/shims/python')
 
-  let g:node_host_prog = system("echo -n \"$(echo $HOME)/.config/yarn/bin/neovim-node-host\"")
+  let g:node_host_prog = system("echo -n \"$(echo $HOME)/.yarn/bin/neovim-node-host\"")
 
   " ruby
   let g:ruby_host_prog = system("echo -n \"$echo $HOME/.asdf/shims/neovim-ruby-host\"")
