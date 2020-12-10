@@ -1,0 +1,9 @@
+# global configuration file for ripgrep
+# ref: https://github.com/BurntSushi/ripgrep/blob/master/GUIDE.md#configuration-file
+# requires `RIPGREP_CONFIG_PATH` to be set
+
+# using glob patterns to include/exclude files or folders
+--glob=!vim/tmp/*
+--glob=!node_modules/*
+--glob=!.git/*
+--glob=!FreeCAD-addons/*

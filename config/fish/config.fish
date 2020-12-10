@@ -132,22 +132,19 @@ set -gx GIT_RC $XDG_CONFIG_HOME/git
 ##
 if type -q fzf && type -q rg
   # NOTE: fzf will default to system `find` cmd
+  #
+  # NOTE: had helluvah time setting glob patterns for ripgrep, settled on a `.ripgreprc` file for matching certain globs to aid fzf in ignoring certain dirs, far from perfect
+  # REF: https://github.com/BurntSushi/ripgrep/blob/master/GUIDE.md#configuration-file
+  #
   # NOTE: useful `rg` flags
     # --files: List files that would be searched but do not search
     # --no-ignore: Do not respect .gitignore, etc...
     #--hidden: Search hidden files and folders
     # --follow: Follow symlinks
-    # --glob: Additional conditions for search, ignore the listed dirs
-  set -gx FZF_DEFAULT_COMMAND 'rg \
-  --files --no-ignore --hidden --follow --glob "!{node_modules,.git,vim/tmp,.vim/tmp}"'
-
+    # --glob, -g,: Additional conditions for search, ignore the listed dirs
+  set -gx RIPGREP_CONFIG_PATH $XDG_CONFIG_HOME/ripgrep
+  set -gx FZF_DEFAULT_COMMAND 'rg --files --hidden --follow'
   # NOTE: the stock `FZF_DEFAULT_OPTS` seem functional enough for the moment
-  #  
-  # set -gx FZF_DEFAULT_OPTS '--preview="head -n50 {}"'
-  # TODO: figure out how to properly load function in fish
-  # _fzf_compgen_path() {
-  #   fd --hidden --follow --exclude ".git" . "$argv"
-  # }
 end
 
 switch $os 

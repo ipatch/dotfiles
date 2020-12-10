@@ -219,14 +219,11 @@ config/Blender/2.90/scripts/presets/operator/**
 !config/Blender/2.90/config/.gitkeep
 config/Blender/2.90/config/userpref.blend
 
-
-##############################
 # Python - pyenv
 ##
 lang/python/pyenv/**
 # airpy tools for working with AirPort devices
 jobs/bin/acp
-
 
 ##############################
 # r2 a.k.a radare radare2
@@ -275,3 +272,4 @@ jobs/macOS/Users/mr-fancy/hammerspoon/.cli.history
 config/fish/interactive/private-env-vars.fish
 jobs/macOS/Users/mr-fancy/Library/Preferences/FreeCAD/user.cfg
 add
+.git/**
