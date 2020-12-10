@@ -130,23 +130,19 @@ set -gx GIT_RC $XDG_CONFIG_HOME/git
 ##############################
 # fzf
 ##
-if type -q fzf
-  # NOTE: `rg` stands for ripgrep and can be installed via brew or cargo (use cargo)
-  # --files: List files that would be searched but do not search
-  # --no-ignore: Do not respect .gitignore, etc...
-  # --hidden: Search hidden files and folders
-  # --follow: Follow symlinks
-  # --glob: Additional conditions for search (in this case ignore everything in the .git/ folder)
+if type -q fzf && type -q rg
+  # NOTE: fzf will default to system `find` cmd
+  # NOTE: useful `rg` flags
+    # --files: List files that would be searched but do not search
+    # --no-ignore: Do not respect .gitignore, etc...
+    # --hidden: Search hidden files and folders
+    # --follow: Follow symlinks
+    # --glob: Additional conditions for search, ignore the listed dirs
+  set -gx FZF_DEFAULT_COMMAND 'rg \
+  --files --no-ignore --hidden --follow --glob "!{node_modules,.git,vim/tmp,.vim/tmp}"'
 
-  # TODO: exp
-
-  # if type -q rg
-  #   set -gx FZF_DEFAULT_COMMAND 'rg \
-  #   --files --no-ignore --hidden --follow --glob "!.git/*"'
-  # else
-  # # DO SOMETHING!
-  # end
-
+  # NOTE: the stock `FZF_DEFAULT_OPTS` seem functional enough for the moment
+  #  
   # set -gx FZF_DEFAULT_OPTS '--preview="head -n50 {}"'
   # TODO: figure out how to properly load function in fish
   # _fzf_compgen_path() {

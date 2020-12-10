@@ -13,7 +13,11 @@
 // @homepageURL https://github.com/ipatch/dotfiles
 // ==/UserScript==
 
-// NOTE: version number may need to bumped on intial load for script to read updates
+// NOTE: version number may require bumping on intial load to read updates
+//
+// REF: https://www.youtube.com/watch?v=Al-ZSuVHHM8 <- debounce explanation
+// REF: https://www.youtube.com/watch?v=T8EYosX4NOo <- intersect observer
+
 console.log('violentmonkey, doom scroll hello!');
 
 console.log('w00t');
