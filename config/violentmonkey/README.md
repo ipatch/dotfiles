@@ -7,6 +7,12 @@
 
 ### troubleshooting
 
+### update dec 11, 2020
+
+to prevent having to bump the build number to load each local change while developing a userscript keep the installation window/tab open, and just click the **confirm installation** button. then all that is required is to refresh the browser tab that the user script is interacting with.
+
+---
+
 💡 there is a bit of a delay from when the userscript file is written and when the browser picks up on the change, so if the initial refresh does not load changes give 5 secs and try again, and if still nothing inspect <strong>*</strong>monkey settings.
 
 the scripts can be a little finicky to get loaded, make sure the `downloadURL` and the `updateURL` are set to the proper path on the filesystem or else script changes will not be pushed when developing a script locally for testing.  _violentmonkey_ should display an error if it fails to _fetch_ the updated script 
