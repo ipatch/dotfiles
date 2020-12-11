@@ -2,9 +2,11 @@
 // @name        freecadweb.org doom scroll 
 // @namespace   Violentmonkey Scripts
 // @match       https://forum.freecadweb.org/*
-// @grant       none
-// @run-at      document-start
-// @version     1.0.9
+// @grant       GM.*
+// @grant       GM_*
+// @grant       unsafeWindow
+// @run-at      document-end
+// @version     1.0.31
 // @author      github.com/ipatch
 // @description to infiniti and beyond
 // @downloadURL http://localhost/~capin/freecadForumDoomScroll.user.js
@@ -13,37 +15,60 @@
 // @homepageURL https://github.com/ipatch/dotfiles
 // ==/UserScript==
 
-// NOTE: version number may require bumping on intial load to read updates
-//
-// REF: https://www.youtube.com/watch?v=Al-ZSuVHHM8 <- debounce explanation
-// REF: https://www.youtube.com/watch?v=T8EYosX4NOo <- intersect observer
+(function () {
+'use strict';
 
-console.log('violentmonkey, doom scroll hello!');
+  // NOTE: version number may require bumping on intial load to read updates
+  //
+  // REF: https://www.youtube.com/watch?v=Al-ZSuVHHM8 <- debounce explanation
+  // REF: https://www.youtube.com/watch?v=T8EYosX4NOo <- intersect observer
+  //
+  // TOOD: setup some auto incrementing function to auto bump ver nums
 
-console.log('w00t');
+  // EXAMPLES, tests /*{{{*/
+  //------------------------------------
+  // console.log('w00t'); // (un)comment after bumping ver # and test script update load
+  console.log('violentmonkey, doom scroll hello!');
+  // exp
+  var mlife = 43;
+  unsafeWindow.iVar1 = mlife;
 
-const actionBar = document.querySelector('action-bar bottom');
+  //---------------------------------------
+  //
+  // NOTE; able to access function via browser console for testing
+  var multiplyES5 = function(x, y) {
+    return x * y;
+  };
+  unsafeWindow.iVar2 = multiplyES5;
 
-// my mod
-console.log(actionBar);
+  //--------------------------------------------------
+  //
+  // NOTE: arrow func works with latest ver of Vivaldi
+  // es6, fat arrow function, (arrow function)
+  const multiplyES6 = (x, y) => {
+    return x * y;
+  };
+  unsafeWindow.iVar3 = multiplyES6;
+  //*}}}*/
 
-const observer = new IntersectionObserver(callback, options);
+  //---------------------------------------------------
+  // BEGIN SCRIPT
+  // my mod
+  // const actionBar = document.querySelector('action-bar');
+  const x = document.getElementById("page-body").querySelectorAll(".action-bar");
+  unsafeWindow.iVar42 = x;
 
+  // const options = {};
 
-// var styleSheet = "" +
-//   "@media (min-width: 768px) and (max-width: 991px) {" +
-//     ".container {" +
-//       // uncomment the below css property to visually see when script is used
-//       // "background-color: blue;" +
-//       "width: 100%;" +
-//     "}" +
-//   "}" +
-// "";
+  // const observer = new IntersectionObserver(function(entries,
+  // observer) {
+  //   entries.forEach(entry => {
+  //     console.log(entry);
+  //   });
+  // }, options);
 
-// (function () {
-//   var s = document.createElement('style');
-//   s.type = "text/css";
-//   s.innerHTML = styleSheet;
-//   (document.head || document.documentElement).appendChild(s);
-// })();
+  // observer.observe(actionBar);
 
+})();
+
+// vim: foldmethod=marker
