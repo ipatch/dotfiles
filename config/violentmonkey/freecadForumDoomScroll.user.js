@@ -4,13 +4,12 @@
 // @match       https://forum.freecadweb.org/*
 // @grant       GM.*
 // @grant       GM_*
-// @grant       unsafeWindow
 // @run-at      document-end
-// @version     1.0.31
+// @version     1.0.32
 // @author      github.com/ipatch
 // @description to infiniti and beyond
-// @downloadURL http://localhost/~capin/freecadForumDoomScroll.user.js
-// @updateURL   http://localhost/~capin/freecadForumDoomScroll.user.js
+// @downloadURL http://localhost/~/capin/freecadForumDoomScroll.user.js
+// @updateURL   http://localhost/~/capin/freecadForumDoomScroll.user.js
 // @supportURL  https://github.com/ipatch/dotfiles/issues
 // @homepageURL https://github.com/ipatch/dotfiles
 // ==/UserScript==
@@ -24,10 +23,10 @@
   // REF: https://www.youtube.com/watch?v=T8EYosX4NOo <- intersect observer
   //
   // TOOD: setup some auto incrementing function to auto bump ver nums
+  // console.log('w00t'); // (un)comment after bumping ver # and test script update load
 
   // EXAMPLES, tests /*{{{*/
   //------------------------------------
-  // console.log('w00t'); // (un)comment after bumping ver # and test script update load
   console.log('violentmonkey, doom scroll hello!');
   // exp
   var mlife = 43;
@@ -55,20 +54,31 @@
   // BEGIN SCRIPT
   // my mod
   // const actionBar = document.querySelector('action-bar');
-  const x = document.getElementById("page-body").querySelectorAll(".action-bar");
-  unsafeWindow.iVar42 = x;
+  // const actionBar = document.getElementById("page-body").querySelectorAll(".action-bar");
+  let pageFooter = document.getElementById('page-footer');
+  unsafeWindow.iVar42 = pageFooter;
 
-  // const options = {};
+  let options = {
+    root: document.querySelector("#page-body"),
+    rootMargin: "0px",
+    threshold: 1.0
+  };
 
-  // const observer = new IntersectionObserver(function(entries,
-  // observer) {
-  //   entries.forEach(entry => {
-  //     console.log(entry);
-  //   });
-  // }, options);
+  // let target = document.querySelectorAll(".action-bar");
+  let target = pageFooter;
 
-  // observer.observe(actionBar);
+  function handleIntersection(entries) {
+    entries.map((entry) => {
+      if (entry.isIntersecting) {
+        console.log('target sighted');
+      }
+    });
+  }
 
-})();
+  let observer = new IntersectionObserver(handleIntersection);
+
+  observer.observe(target);
+
+})(); // iffe, END
 
 // vim: foldmethod=marker
