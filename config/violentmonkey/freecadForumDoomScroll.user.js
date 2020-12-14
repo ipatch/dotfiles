@@ -25,6 +25,7 @@
   // REF: https://www.w3schools.com/xml/xml_http.asp
   // REF: https://code-boxx.com/infinite-page-scroll/
   // REF: https://medium.com/better-programming/everything-about-xmlhttprequest-in-javascript-8adacc98a209
+  // REF: https://www.youtube.com/watch?v=4K33w-0-p2c
   //
   // TOOD: setup some auto incrementing function to auto bump ver nums
   // console.log('w00t'); // (un)comment after bumping ver # and test script update load
@@ -61,17 +62,29 @@
     // 2. define request object
     // 3. open request, ie. use GET or POST
     // 4. use `onload` function log results
-    // 5. set `responseType` ie. document
+    // 5. set `responseType` ie. document (HTML), JSON 
+      // https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/response
     // 6. send request
   // EXAMPLE,
     // let myURL = "https://forum.freecadweb.org/viewtopic.php?f=10&t=13710&start=10";
+
     // let myRequest = new XMLHttpRequest();
+
     // myRequest.open("GET", myURL);
+ 
     // myRequest.onload = function(){
     //   console.log(myRequest.response);
     // }
+  
     // myRequest.responseType = "document";
+
     // myRequest.send();
+  // }}}
+
+// regular expression to match only div id cotaining post(s) & reply(s) {{{
+  //
+  // `/^[pP]{1}\d+[0-9]$/` everything contained within the backticks
+  //
   // }}}
 
 
