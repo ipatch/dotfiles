@@ -2,7 +2,7 @@ alacritty v0.5.0-dev (https://github.com/jwilm/alacritty#13eb50de):
     alacritty
 cargo-generate v0.5.1:
     cargo-generate
-cargo-update v4.1.2:
+cargo-update v5.0.0:
     cargo-install-update
     cargo-install-update-config
 exa v0.9.0:
