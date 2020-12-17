@@ -110,6 +110,7 @@
   // var myActionBarTop = document.getElementsByClassName('action-bar top');
   //
 
+  // encapsulate topic in html section with classname `ds-thread-wrapper` {{{
   var dsSibling = document.querySelector('.action-bar.top');
   var children = document.querySelectorAll('.post');
   var dsThreadWrapper = document.createElement('section');
@@ -121,6 +122,13 @@
   });
 
   dsSibling.after(dsThreadWrapper);
+  //----- }}}
+  
+  //Setting up URL dom structures {{{
+  
+
+
+  //--------}}}
 
   // css
   const css = `
