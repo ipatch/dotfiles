@@ -83,17 +83,44 @@
 
 // regular expression to match only div id cotaining post(s) & reply(s) {{{
   //
+  // REF: https://scriptular.com
+  //
   // `/^[pP]{1}\d+[0-9]$/` everything contained within the backticks
   //
   // }}}
 
+  // wrap a nodelist within a div {{{
+  // REF: https://stackoverflow.com/a/59581407/708807
+  // 
+  // let parent = document.querySelector('div');
+  // let children = parent.querySelectorAll('.posts')
+  // let wrapper = document.createElement('section');
+  //
+  // wrapper.className = "thread-wrapper"
+  //
+  // children.forEach((child) => {
+  //  wrapper.appendChild(child);
+  //  });
+  //
+  //  parent.appendChild(wrapper);
+  // }}}
 
   //---------------------------------------------------
   // BEGIN SCRIPT
-  // my mod
-  // const actionBar = document.querySelector('action-bar');
-  // const actionBar = document.getElementById("page-body").querySelectorAll(".action-bar");
+  // var myActionBarTop = document.getElementsByClassName('action-bar top');
+  //
 
+  var dsSibling = document.querySelector('.action-bar.top');
+  var children = document.querySelectorAll('.post');
+  var dsThreadWrapper = document.createElement('section');
+
+  dsThreadWrapper.className = 'ds-thread-wrapper';
+
+  children.forEach((child) => {
+    dsThreadWrapper.appendChild(child);
+  });
+
+  dsSibling.after(dsThreadWrapper);
 
   // css
   const css = `
@@ -101,7 +128,6 @@
     position: relative;
   }
   `;
-
 
   let pageFooter = document.getElementById('page-footer');
   unsafeWindow.iVar42 = pageFooter;
