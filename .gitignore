@@ -156,6 +156,8 @@ jobs/bin/inkview
 !**/FreeCAD/Gui/Stylesheets/README.md
 **/FreeCAD/Gui/Stylesheets/*.qss
 **/FreeCAD/Gui/Stylesheets/*.orig
+**/FreeCAD/Macro/**
+!**/FreeCAD/Macro/.gitkeep
 
 
 ##############################

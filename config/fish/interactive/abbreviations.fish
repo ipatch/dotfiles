@@ -207,6 +207,7 @@ abbr -ag rrepl "rustup run nightly-2016-08-01 ~/.cargo/bin/rusti"
 ##
 if type -q virtualbox
   abbr -ag vboxm "VBoxManage"
+  abbr -ag vbm "VBoxManage"
 end
 
 ####################

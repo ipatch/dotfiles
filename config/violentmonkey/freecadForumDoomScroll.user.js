@@ -6,7 +6,8 @@
 // @homepageURL https://github.com/ipatch/dotfiles
 // @supportURL  https://github.com/ipatch/dotfiles/issues
 // @icon
-// @match       https://forum.freecadweb.org/*
+// @match       https://forum.freecadweb.org/viewtopic.php*
+// @exclude-match https://forum.freecadweb.org/posting.php*
 // @grant       GM.*
 // @grant       GM_*
 // @run-at      document-end
@@ -27,10 +28,9 @@
   // REF: https://medium.com/better-programming/everything-about-xmlhttprequest-in-javascript-8adacc98a209
   // REF: https://www.youtube.com/watch?v=4K33w-0-p2c
   //
-  // TOOD: setup some auto incrementing function to auto bump ver nums
-  // console.log('w00t'); // (un)comment after bumping ver # and test script update load
+  // console.log('w00t'); // DEBUG
   //
-  // NOTE: i believe first topic of thread is indexed at `0` and page 2, ie. post 10 == 11 if index were to start at `1`
+  // NOTE: i believe first topic of thread is indexed at `1` and page 2, ie. post 10 refers to the 11th post in a thread, but the 10th reply
 
   // EXAMPLES, tests /*{{{*/
   //------------------------------------
@@ -67,9 +67,7 @@
     // 6. send request
   // EXAMPLE,
     // let myURL = "https://forum.freecadweb.org/viewtopic.php?f=10&t=13710&start=10";
-
     // let myRequest = new XMLHttpRequest();
-
     // myRequest.open("GET", myURL);
  
     // myRequest.onload = function(){
@@ -77,7 +75,6 @@
     // }
   
     // myRequest.responseType = "document";
-
     // myRequest.send();
   // }}}
 
@@ -91,25 +88,10 @@
 
   // wrap a nodelist within a div {{{
   // REF: https://stackoverflow.com/a/59581407/708807
-  // 
-  // let parent = document.querySelector('div');
-  // let children = parent.querySelectorAll('.posts')
-  // let wrapper = document.createElement('section');
-  //
-  // wrapper.className = "thread-wrapper"
-  //
-  // children.forEach((child) => {
-  //  wrapper.appendChild(child);
-  //  });
-  //
-  //  parent.appendChild(wrapper);
-  // }}}
 
   //---------------------------------------------------
   // BEGIN SCRIPT
-  // var myActionBarTop = document.getElementsByClassName('action-bar top');
   //
-
   // encapsulate topic in html section with classname `ds-thread-wrapper` {{{
   var dsSibling = document.querySelector('.action-bar.top');
   var children = document.querySelectorAll('.post');
@@ -124,8 +106,40 @@
   dsSibling.after(dsThreadWrapper);
   //----- }}}
   
-  //Setting up URL dom structures {{{
+  // Setting up URL dom structures {{{
   
+  // store current URL in js var
+  var dsNextPageBtnUrl = document.querySelector('.arrow.next').firstElementChild.getAttribute('href');
+
+  unsafeWindow.iVarNextPageURL = dsNextPageBtnUrl;
+  console.log(iVarNextPageURL);
+
+  // Setup XMLHttpRequest - {{{
+  var dsRequest = new XMLHttpRequest();
+  dsRequest.open('GET', dsNextPageBtnUrl);
+
+  dsRequest.onload = function() {
+    // console.log(dsRequest.response); // DEBUG
+    //
+    var dsNextPagePosts = dsRequest.response; 
+
+    var replies = dsNextPagePosts.querySelectorAll('.post');
+
+    replies.forEach((reply) => {
+      dsThreadWrapper.appendChild(reply);
+    });
+  };
+
+  dsRequest.responseType = 'document';
+  dsRequest.send();
+  // use above URL as GET for xmlhttpreques  // - }}}
+
+  // Q: howto store/get contents of retreieved doc ?
+
+
+  // 1. grab just posts from response doc, store in js var
+  // 2. append js posts var to bottom of ds-thread-wrapper-class
+
 
 
   //--------}}}
