@@ -19,6 +19,11 @@
 (function () {
 'use strict';
 
+  // TODO: the URL and page number need to be updated after a page is loaded, ie.
+  // as this presently works the contents of page 2 will load into the dom but page 1
+  // will still appear to be the active page (button) and the URL in the address
+  // bar nees to be updated accordingly
+
   // NOTE: version number may require bumping on intial load to read updates
   //
   // REF: https://www.youtube.com/watch?v=Al-ZSuVHHM8 <- debounce explanation
@@ -30,7 +35,9 @@
   //
   // console.log('w00t'); // DEBUG
   //
-  // NOTE: i believe first topic of thread is indexed at `1` and page 2, ie. post 10 refers to the 11th post in a thread, but the 10th reply
+  // NOTE: i believe first topic of thread is indexed at `1` and page 2, ie. post 10 refers to the 11th post of a thread, but is the 10th reply
+  // NOTE: pg2 button puts `&start=10` at the end of the `viewtopic.php` URL
+    // NOTE: pg2 contains replies 10 through 19, ie. each page has 10 posts
 
   // EXAMPLES, tests /*{{{*/
   //------------------------------------
