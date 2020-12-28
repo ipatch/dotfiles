@@ -3,7 +3,7 @@
 # NOTE: abbr's will default to universal scope, ie. conditional logic will not "work" for different systems, ie. macOS and Linux, thus use the `-g` flag with `abbr` to make global scope which is NOT universal thus making conditional logic work.
 #
 ###
-# NOTE: when adding a new `abbr` to this file, fish will need to reload the file, ie. `exec fish` for every fish shell instance to pick up on the newly added `abbr`.
+# NOTE: when adding a new `abbr` fish requires a reload, ie. `exec fish` for every fish shell instance to pick up on the newly added `abbr`.
 #
 ###
 # NOTE: if using double quotes and the abbr contains an env var, ie. `$dots` the env var will be expanded after pressing space, whereas using single quotes will expand the $dots after pressing `enter`
@@ -65,6 +65,14 @@ if [ -d "$HOME/.rvm" ]
   abbr -ag be "bundle exec"
 end
 
+
+#############################
+# python tooling
+##
+# NO SPACES in abbr's
+# abbr -ag 'pip outdated' 'pip list --outdated'
+
+
 #############################
 # rsync
 #
@@ -97,16 +105,18 @@ abbr -ag woot "emoji --yay"
 abbr -ag gs "git status"
 abbr -ag gd 'git diff --stat'
 abbr -ag ga 'git add --all'
-abbr -ag gc 'git commit -m'
+abbr -ag gitc 'git commit -m'
 abbr -ag gac 'git commit -am'
 abbr -ag gqc 'git random'
-abbr -ag gp 'git push'
+abbr -ag gp 'git push --quiet'
 abbr -ag gpl 'git pull'
 abbr -ag gru 'git remote -v update'
 abbr -ag gco 'git checkout'
 abbr -ag gsmru 'git smrupdate'
 abbr -ag git-ls-aliases 'git aliases'
 abbr -ag gf 'git fresh'
+abbr -ag git.is.shallow 'git rev-parse --is-shallow-repository'
+abbr -ag git.shallow\? 'git rev-parse --is-shallow-repository'
 
 ################
 # personal fish functions
@@ -119,6 +129,8 @@ abbr -ag ppr "path_pretty_redux"
 abbr -ag path-add 'path_add' # fish func
 abbr -ag path-remove 'path_remove' # fish func
 abbr -ag path-rm 'path_remove'
+abbr -ag pthrm 'path_remove'
+abbr -ag prm 'path_remove'
 
 ################
 # alacritty abbrs
@@ -195,6 +207,7 @@ abbr -ag rrepl "rustup run nightly-2016-08-01 ~/.cargo/bin/rusti"
 ##
 if type -q virtualbox
   abbr -ag vboxm "VBoxManage"
+  abbr -ag vbm "VBoxManage"
 end
 
 ####################
@@ -238,10 +251,16 @@ switch $os
     # mounting network disks, ie. time capsule on LAN
     # NOTE: the below abbr uses parameter expansion
     # LINK: https://fishshell.com/docs/current/index.html#expand
-    abbr -ag tcm 'mount -t smbfs //capin:"$TC_PASSWORD"@10.0.1.1/Data /mnt/tc'
-    abbr -ag mtc 'mount -t smbfs //capin:"$TC_PASSWORD"@10.0.1.1/Data /mnt/tc'
+    #
+    # NOTE: added `-o -d=755,-f=644` per the man page set unix octal bits for files
+    abbr -ag tcm 'mount -t smbfs -o -d=755,-f=644 //capin:"$TC_PASSWORD"@10.0.1.1/Data /mnt/tc'
+    abbr -ag mtc 'mount -t smbfs -o -d=755,-f=644 //capin:"$TC_PASSWORD"@10.0.1.1/Data /mnt/tc'
     abbr -ag utc "umount /mnt/tc"
 
+    abbr -ag df "gdf -h"
+
+    abbr -ag tcmafp 'mount -t afp afp://capin:"$TC_PASSWORD"@10.0.1.1/Data /mnt/tc'
+    abbr -ag afptcm 'mount -t afp afp://capin:"$TC_PASSWORD"@10.0.1.1/Data /mnt/tc'
 
     ####
     # macOS Debugging
@@ -250,16 +269,19 @@ switch $os
     abbr -ag mac-sip-status "csrutil status"
     abbr -ag mac-print-sip-status "csrutil status"
 
+    # TODO: migrate all `mac, mac-` related abbrs, alias, shell scripts to use `apl` prefix
+    abbr -ag apl.sip.status "csrutil status"
+
     # setup an alias for quicklook from the terminal in macOS
     abbr -ag ql "qlmanage -p"
     # update location DB
     # NOTE: changed abbr to `mac-updatedb` because of homebrew installed
     #...`findutils` which provides the `updatedb` bin.
     abbr -ag mac-updatedb "sudo /usr/libexec/locate.updatedb"
-    abbr -ag mac-hide-files "mac_toggle_hidden_files"
-    abbr -ag mac-show-files "mac_toggle_hidden_files"
-    abbr -ag mac-toggle-hidden-files "mac_toggle_hidden_files"
-    abbr -ag mac-toggle-desktop-icons "mac_toggle_desktop_icons.sh"
+    abbr -ag mac-hide-files "mac-toggle-hidden-files"
+    abbr -ag mac-show-files "mac-toggle-hidden-files"
+    abbr -ag mac-toggle-hidden-files "mac-toggle-hidden-files"
+    abbr -ag mac-toggle-desktop-icons "mac-toggle-desktop-icons.sh"
     abbr -ag mac-print-users "mac_lsusers"
 
     ################
@@ -275,6 +297,11 @@ switch $os
       abbr -ag cd-brew-src "cd (brew --prefix)/Homebrew/Library/Taps/homebrew/homebrew-core"
       abbr -ag cdbrewsrc "cd (brew --prefix)/Homebrew/Library/Taps/homebrew/homebrew-core"
       abbr -ag brews "cd (brew --prefix)/Homebrew/Library/Taps/homebrew/homebrew-core"
+      abbr -ag cdbrewcache "cd $HOME/Library/Caches/Homebrew"
+      abbr -ag cdmytap "cd $code/git/github/public/homebrew-us-05"
+      # brew python shit
+      abbr -ag cdbrewpysitep "cd (brew --prefix)/opt/python/Frameworks/Python.framework/Versions/Current/lib/python3.9/site-packages"
+      abbr -ag cdbrewpysp "cd (brew --prefix)/opt/python/Frameworks/Python.framework/Versions/Current/lib/python3.9/site-packages"
 
       # NOPE! NOT ALLOWED, ie. does not support spaces
       # abbr -ag "brew cask outdated --greddy" "brew cask outdated --greedy"

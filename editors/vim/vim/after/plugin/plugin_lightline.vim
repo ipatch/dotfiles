@@ -1,5 +1,8 @@
 """""""""""""""""""""""""""""
 " plugin - lightline.vim
+"
+" NOTE: adding custom messages/output to status line/lightline
+" NOTE: https://github.com/itchyny/lightline.vim/issues/510#issuecomment-706496608
 ""
 
 let g:lightline = {
@@ -8,17 +11,26 @@ let g:lightline = {
       \ 'component_type': {'buffers': 'tabsel'},
       \ 'active': {
       \ 'left': [ [ 'mode', 'paste' ],
-      \           [ 'gitbranch', 'readonly', 'filename' ] ],
+      \           [ 'gitbranch', 'readonly', 'filename', 'modtime' ] ],
       \ },
       \ 'component_function': {
       \ 'gitbranch': 'fugitive#head',
       \ 'filename': 'LightlineFilename',
+      \ 'modtime': 'LightlineModificationTime',
       \ },
       \ 'colorscheme': 'onedark'
       \ }
 
 let g:lightline#bufferline#show_number = 1
 let g:lightline#bufferline#unnamed = '[No Name]'
+
+function! LightlineModificationTime()
+  " NOTE: https://stackoverflow.com/a/8426948/708807
+  " NOTE: https://github.com/itchyny/lightline.vim/issues/510#issuecomment-706496608
+  let l:modtime = strftime('%c',getftime(expand('%')))
+  " return %{strftime('%c',getftime(expand('%')))}
+  return l:modtime
+endfunction
 
 function! LightlineFilename()
   let l:filename = expand('%:t') !=# '' ? expand('%:t') : '[No Name]'

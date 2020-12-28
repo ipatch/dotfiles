@@ -1,16 +1,18 @@
 # Rust Tooling
 
-<a id="contents"></a>
-
 ## Contents
+
+<a id="contents"></a>
 
 - [Working with rust](#working-with-rust)
 - [Working with cargo](#working-with-cargo)
 - [Useful Links](#rust-useful-links)
 
+## Working with rust 
+
 <a id="working-with-rust"></a>
 
-## Working with rust [🔝](#contents)
+Recently _October 30, 2020_ I migrated my local installations of ripgrep and fd-find from cargo to brew on macOS because the brew tooling / infrasture provides man pages, and shell completions whereas the cargo install only provides the binary.
 
 ### Troubleshooting `rustup`
 
@@ -56,9 +58,10 @@ rustup override set stable
 
 For more information about working with **rustup.rs** [see](https://github.com/rust-lang-nursery/rustup.rs/)
 
-<a id="working-with-cargo"></a>
 
 ## Working with Cargo CLI, and crates [🔝](#contents)
+
+<a id="working-with-cargo"></a>
 
 To generate a top level list of installed crates via cargo
 
@@ -72,9 +75,10 @@ The file, **cargo-installed-crates.rogue** in this directory is generated using 
 cargo install --list > $dots/lang/rust/cargo-installed-crates.rogue
 ```
 
-<a id="updating-crates-with-cargo"></a>
 
 ### Updating crates via cargo
+
+<a id="updating-crates-with-cargo"></a>
 
 Cargo does not provide a native means for updating crates, ie. packages that have been installed with cargo, however there is a crate / package that can be installed via cargo and update global crates.
 
@@ -108,9 +112,17 @@ To update a single package or crate
 cargo install-update [PACKAGE-NAME]
 ```
 
-<a id="rust-useful-links"></a>
+> the above sub command is a package package/crate itself `install-update` which will install the global rust binary contained with the `~/.cargo/bin`
+
+To remove / uninstall a crate / package
+
+```shell
+cargo uninstall [PACKAGE-NAME]
+```
 
 ## rust Useful Links [🔝](#contents)
+
+<a id="rust-useful-links"></a>
 
 - [**GitHub** rustup](https://github.com/rust-lang-nursery/rustup.rs)
 - [rustup.rs](https://rustup.rs/)

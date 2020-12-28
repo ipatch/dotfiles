@@ -6,7 +6,14 @@
 " way `Shift+;` does not have to be pressed to begin a command in normal mode.
 ""
 
-nnoremap <ESC> :
+" BUG: vim ≥ 8.2 will TOTALLY break with the below mapping thus mouse actions
+" becomes a total PITA using scrolling in `vimdiff`
+if has('nvim')
+  nnoremap <esc> :
+elseif v:version > 8 || v:version == 8 " Check for Vim8 ...sort of
+  nnoremap <space> :
+endif
+
 
 " NOTE: - the below insert mappings will bind 'jk' / 'kj' to ESC
 " key functionality, so need to use <ESC> in insert mode
@@ -26,24 +33,24 @@ noremap <leader>x :bw<CR>
 " Command mode shortcuts
 ""
 " go into command mode and print the working dir
-" TODO: figure out a way to print the `cwd` or `pwd` quckily from `NORMAL` mode
-" NOTE: `:pwd` is hacky  
+" TODO: figure out a way to print the `cwd` or `pwd` quickly from `NORMAL` mode
+" NOTE: `:pwd` is hacky, 
+" UPDATE: ...obviously set a normal mode mapping for below commands  
 cmap cwd lcd %:p:h
 cmap cd. lcd %:p:h
 
-" the below key mapping will indent the entire file 😯
+" the below key mapping will indent the entire file 😯, do you believe in magic
 nnoremap <leader>i mmgg=G`m<CR>
 
-" bubbling text - Normal mode, <M-???> the `M` refers to the meta key which is
-" `alt` on macOS
+" bubble text, Normal mode, <M-???>, `M` is meta key, `alt` on macOS
 nnoremap <M-k> :m .-2<CR>==
 nnoremap <M-j> :m .+1<CR>==
 
 " bubble multiple lines - Visual mode
-vmap <S-k> xkP`[V`]
-vmap <S-j> xp`[V`]
+" FIXME: the below mappings are BORKED!!!
+vmap <S-k> xkP`[V`] vmap <S-j> xp`[V`]
 
-" navigate lines that have been virtually wrapped within a document as single.
+" navigate virtually wrapped lines document lines as single line.
 nnoremap j gj
 nnoremap k gk
 
@@ -69,13 +76,13 @@ cmap w!! %!sudo tee > /dev/null %
 " Normal mode mappings
 " CREDIT: @wincent
 
-" Toggle fold of current postion.
+" Toggle fold of current position.
 nnoremap <Tab> za
 
 " NOTE: iterm2 make sure to set proper escape sequences.
 vnoremap <M-c> "+y
 nnoremap <M-v> "+p
-inoremap <M-v> <esc>"+p
+" inoremap <M-v> <esc>"+p
 " Generic undo using `⌘ + z` for normal and insert modes
 nnoremap <M-z> u
 inoremap <M-z> <C-o>u
@@ -95,28 +102,33 @@ nnoremap <leader><leader> <c-^>
 " switch to buffer #1 through #9
 ""
 " NOTE use <leader>+<{1..9}>
-" NOTE use `<ctrl>+p` to fuzzy search for files
 " NOTE use `<ctrl>+g` to close the above mentioned window
 " NOTE the above bindings require fzf to be installed
 ""
 
-""""""""""""""""""""""""""""""
-" buffers <tab>
+
+""""""""""""""
+" NOTE: plugin related mappings, ie. FZF
 ""
-" NOTE cycle through list of open buffers
-nnoremap <leader>b :buffers<cr>:b<space>
+" normal mode `<ctrl>+p` to fuzzy search for files
+nnoremap <C-p> :FZF<cr>
+
+" NOTE: close fzf terminal buffer with Escape key
+" REF: https://github.com/junegunn/fzf.vim/issues/544#issuecomment-457456166
+tnoremap <expr> <Esc> (&filetype == "fzf") ? "<Esc>" : "<c-\><c-n>"
 
 """"""""""""""""""""""""""""""
 " Splits - vertical & horizontal
+" FIXME: this shit fucked
 ""
 " Split current buffer vertically with empty buffer to the right
-nnoremap <C-w>\ :vsplit 0<CR>
+" nnoremap <C-w>\ :vsplit 0<CR>
 " Split curren buffer horizontally with empty buffer below
-nnoremap  <C-w>- :split 0<CR>
+" nnoremap  <C-w>- :split 0<CR>
 
 "" pseudo maximize toggle
 " open split in new tab, ie. fill window
-nnoremap <C-w>z :tab sp<CR>
+" nnoremap <C-w>z :tab sp<CR>
 
 " NOTE: `vim unmaximize, toggle, shrink, restore buffer size
 " use `<C-w>c` to close maximized window and restore to previous layout

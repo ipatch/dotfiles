@@ -21,6 +21,7 @@ scriptencoding utf-8
 let g:mapleader = "\<Space>" " bind 'leader' key to spacebar
 
 " Don't allow vi compatibility mode; don't need it 🤽
+" NOTE: as of nov 2020, `nocompatible` is default for Vim ≥ 8.2 and Neovim
 " set nocompatible "Enable at own risk, can have undesired effects
 " SEE: `:help nocompatible` for more info.
 ""
@@ -215,19 +216,20 @@ else
   "-
   call minpac#add('machakann/vim-highlightedyank') " name says it all
   call minpac#add('chriskempson/base16-vim') " UX goodness
-  " call minpac#add('joshdick/onedark.vim') " exp with new colorscheme
   call minpac#add('Yggdroot/indentLine') " vert indent lines
-  " call minpac#add('MaxMEllon/vim-jsx-pretty') " syntax highlight
   call minpac#add('tpope/vim-commentary') " quickly comment lines
   call minpac#add('sheerun/vim-polyglot') " lazy load syntax hl
   call minpac#add('christoomey/vim-tmux-navigator') " vim&tmux navi
-  " call minpac#add('w0rp/ale') " Asynchronous Linting Engine
   call minpac#add('tpope/vim-fugitive') " display git branch
   call minpac#add('itchyny/lightline.vim') " lightweight status line.
   call minpac#add('rust-lang/rust.vim')
   call minpac#add('euclio/vim-markdown-composer', {'type': 'opt'})
-  " call minpac#add('tpope/vim-obsession') " auto session mgmt
   call minpac#add('majutsushi/tagbar')
+  "
+  " call minpac#add('joshdick/onedark.vim') " exp with new colorscheme
+  " call minpac#add('w0rp/ale') " Asynchronous Linting Engine
+  " call minpac#add('tpope/vim-obsession') " auto session mgmt
+  " call minpac#add('MaxMEllon/vim-jsx-pretty') " syntax highlight
 
   "-----------------------------
   " minpac - conditional plugins
@@ -236,9 +238,9 @@ else
   "---------------------------------------------------------------
   ""
   if has('nvim')
-    call minpac#add('Shougo/denite.nvim')
+     call minpac#add('Shougo/denite.nvim')
     " call minpac#add('Shougo/denite.nvim', {'rev': '29bfd4c53271c7a150def2388e059746ae4c1713'})
-    call minpac#add('neoclide/coc.nvim', {'branch': 'release'})
+     call minpac#add('neoclide/coc.nvim', {'branch': 'release'})
   elseif v:version > 8 || v:version == 8 " Check for Vim8 ...sort of
     call minpac#add('autozimu/LanguageClient-neovim', {'type': 'opt',
           \'branch': 'next', 'do': {-> system('bash install.sh')}})
@@ -260,6 +262,40 @@ endif
 "----------------------------
 " DANGER ZONE > experimental settings
 "-
+
+
+" exp with floating window for fuzzy searching for files using fzf
+
+" " floating fzf
+" if has('nvim')
+"   let $FZF_DEFAULT_OPTS .= '--layout=reverse'
+
+"   function! FloatingFZF()
+"     let height = &lines
+"     let width = float2nr(&columns - (&columns * 2 / 10))
+"     let col = float2nr((&columns - width) / 2)
+"     let col_offset = &columns / 10
+"     let opts = {
+"     \ 'relative': 'editor',
+"     \ 'row': 1,
+"     \ 'col': col + col_offset,
+"     \ 'width': width * 2/ 1,
+"     \ 'height': height / 2,
+"     \ 'style': 'minimal'
+"     \ }
+"     let buf = nvim_create_buf(v:false, v:true)
+"     let win = nvim_open_win(buf, v:true,opts)
+"     call setwinvar(win, '&winhl', 'NormalFloat:TabLine')
+"   endfunction
+
+"   let g:fzf_layout = { 'window': 'call FloatingFZF()' }
+" endif
+
+
+"----------------------------
+" END < DANGER ZONE
+"-
+
 
 " Setting for rust.vim
 let g:autofmt_autosave = 1
@@ -291,19 +327,35 @@ endif " END Neovim only settings
 " [mr-fancy-setting`
 "let g:base16colorspace = 256 " Access colors present in 256 colorspace
 
-"onedark.vim override: Set a custom background color in the terminal
-" NOTE: set custom gui settings for `ondark.vim` BEFORE init colorscheme
-if (has("autocmd") && !has("gui_running"))
-  augroup colors
-    autocmd!
-    let s:background = { "gui": "#101010", "cterm": "235", "cterm16": "0" }
-    autocmd ColorScheme * call onedark#set_highlight("Normal", { "bg": s:background }) "No `fg` setting
-  augroup END
-endif
 
-" TODO: add check if colorscheme is not present, and continue loading file
-" colorscheme base16-default-dark
-colorscheme onedark
+
+" if has('nvim')
+  "onedark.vim override: Set a custom background color in the terminal
+  " NOTE: set custom gui settings for `ondark.vim` BEFORE init colorscheme
+  if (has("autocmd") && !has("gui_running"))
+    augroup colors
+      autocmd!
+      let s:background = { "gui": "#101010", "cterm": "235", "cterm16": "0" }
+      autocmd ColorScheme * call onedark#set_highlight("Normal", { "bg": s:background }) "No `fg` setting
+    augroup END
+  endif
+
+  if (has("autocmd"))
+    augroup colorextend
+      autocmd!
+      " Make `Function`s bold in GUI mode
+      " autocmd ColorScheme * call onedark#extend_highlight("Function", { "gui": "bold" })
+      " Override the `Statement` foreground color in 256-color mode
+      " autocmd ColorScheme * call onedark#extend_highlight("Statement", { "fg": { "cterm": 128 } })
+      " Override the `Identifier` background color in GUI mode
+      " autocmd ColorScheme * call onedark#extend_highlight("Identifier", { "bg": { "gui": "#333333" } })
+      autocmd ColorScheme * call onedark#extend_highlight("FoldColumn", { "fg": { "gui": "#4b5263" } })
+    augroup END
+  endif
+  " TODO: add check if colorscheme is not present, and continue loading file
+  " colorscheme base16-default-dark
+  colorscheme onedark
+" endif
 
 """"""""""""""""
 " load before plugins - polyglot

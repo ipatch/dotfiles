@@ -34,5 +34,9 @@
   {
     "key": "ctrl+s x",
     "command": "workbench.action.closePanel"
+  },
+  {
+    "key": "shift+cmd+d shift+cmd+d",
+    "command": "extension.decryptSelection"
   }
 ]

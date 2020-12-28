@@ -24,15 +24,26 @@ set textwidth=0
 " CREDIT: 💳 https://vi.stackexchange.com/a/2574/10550
 if os ==? 'macos' || os ==? 'linux'
 
+  " NOTE: TODO: coc health check will fail if python2 provider is not enabled
+
+
   " set the default python PATH, to supposedly boost 🏎  performance
   let g:python_host_prog = '/home/capin/.pyenv/versions/py2neovim/bin/python'
 
   " To disable python 2 support, uncomment the below line
   " let g:loaded_python_provider = 1
 
-  let g:python3_host_prog = '/home/capin/.pyenv/versions/py3neovim/bin/python'
+  " WARNING: !!!! python ≥ 3.8 will fail health check, seems to be macos related
+  " ...boooo
 
-  let g:node_host_prog = system("echo -n \"$(echo $HOME)/.config/yarn/bin/neovim-node-host\"")
+  let g:python3_host_prog = expand('~/.pyenv/versions/py379neovim/bin/python')
+"
+" let g:python3_host_prog = '/usr/local/bin/python3'
+ " let g:python3_host_prog = expand('~/.pyenv/versions/py380neovim/bin/python')
+" let g:python3_host_prog = '/Users/capin/.pyenv/versions/3.8.6/bin/python3'
+  " let g:python3_host_prog = expand('~/.pyenv/shims/python')
+
+  let g:node_host_prog = system("echo -n \"$(echo $HOME)/.yarn/bin/neovim-node-host\"")
 
   " ruby
   let g:ruby_host_prog = system("echo -n \"$echo $HOME/.asdf/shims/neovim-ruby-host\"")

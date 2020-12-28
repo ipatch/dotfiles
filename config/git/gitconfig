@@ -8,6 +8,8 @@
 [alias]
   # Print configuration settings related to git
   vars = config -l
+  # print a list of defined aliases
+  aliases = !git config --get-regexp 'alias.*' | colrm 1 6 | sed 's/[ ]/ = /'
 
   # Clone a repository including all submodules
   c = clone --recursive
@@ -15,6 +17,14 @@
 
   # branching
   b = branch
+
+  ####
+  # searching
+  ##
+  find = log --pretty=\"format:%Cgreen%H %Cblue%s\n%b%Creset\" --name-status --grep
+
+  ## NOTE: too compressed for my taste
+  # ffind = log --oneline --name-status -i --grep
   
   ####
   # logging
@@ -120,6 +130,11 @@
   sl = shortlog --summary --numbered
 
   ####
+  # TODO: label
+  ##
+  # NOTE: see fish / abbreviations.fish for querying shallow status
+
+  ####
   # remote
   ##
   remotes = remote --verbose
@@ -142,13 +157,13 @@
   ##
   
   ####
-  # to undo the last added / staged files
+  # undo the last added / staged files
   ##
   undoadd = "!git reset HEAD -- ."
   undostage = reset HEAD
 
   ####
-  # to undo the last commit
+  # undo the last commit
   ##
   undocommit = "!git-reset HEAD~"
 
@@ -197,9 +212,7 @@
   # TODO: check and see if alias can cd to the root of a git repo without changing the current dir
   when-added = "!git log --diff-filter=A"
   
-  # Get a list of your defined aliases
-  aliases = !git config --get-regexp 'alias.*' | colrm 1 6 | sed 's/[ ]/ = /'
-
+  
   # Remove branches that have already been merged with master, a.k.a. ‘delete merged’
   clean-branches = "!git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
 
@@ -247,10 +260,12 @@
   # To set a `core.excludesfile` on a per $HOME dir basis, see `config.fish or `.bashrc`
 
   ###############################
-  # give me some mouse 🐭 support please
+  # TODO: [x] give me some mouse 🐭 support please ✅
   ##
   # pager = less # NOTE `-r` flag may break things from time to time
-  pager = /usr/bin/less
+
+  # NOTE: no syntax highlighting
+	pager = /usr/local/bin/less -F -X --mouse
 
 [color]
   ui = auto
@@ -287,7 +302,7 @@
   prompt = false
 
 [push]
-  default = simple # git >= 1.8+ required
+  default = simple # git ≥ 1.8+ required
 
 # `git config --global diff.submodule log` will add the below 2 lines
 [diff]

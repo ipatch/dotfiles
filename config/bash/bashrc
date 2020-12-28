@@ -51,6 +51,10 @@ alias l='/bin/ls -lahF'
 alias ls='ls --color=auto'
 alias lr='ls -lrth'
 
+##
+alias pp='echo $PATH'
+alias br='exec bash'
+
 
 
 alias cp='cp -iv'

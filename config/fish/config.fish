@@ -46,10 +46,16 @@ set -gx gitlab /opt/code/gitlab
 set -gx public /opt/code/public
 set -gx publicgh /opt/code/public/github
 set -gx mygitreps /opt/code/git/github/my.github.repos
+set -gx mybtap /opt/code/git/github/public/homebrew-us-05
+set -gx mytap /opt/code/git/github/public/homebrew-us-05
+
 
 set -gx fish_emoji_width 2 # NOT COMPATIBLE with fish <= 2.7.1
 set -gx docker /opt/docker
 set -gx ltmp $HOME/ltmp
+
+# TODO: exp neovim + python 3.8 issue
+set -gx LANG "en_US.UTF-8"
 
 
 # set -gx vbox-shared $HOME/vm/vbox-shared # NO GO!
@@ -60,6 +66,8 @@ set -gx lbin $HOME/.local/bin
 
 if type -q brew
 	set -gx brew_logs (brew --prefix)/var/log/
+  set -gx brewcache $HOME/Library/Caches/Homebrew
+  set -gx HOMEBREW_NO_AUTO_UPDATE 1
 end
 	
 if type -q python
@@ -122,28 +130,21 @@ set -gx GIT_RC $XDG_CONFIG_HOME/git
 ##############################
 # fzf
 ##
-if type -q fzf
-  # NOTE: `rg` stands for ripgrep and can be installed via brew or cargo (use cargo)
-  # --files: List files that would be searched but do not search
-  # --no-ignore: Do not respect .gitignore, etc...
-  # --hidden: Search hidden files and folders
-  # --follow: Follow symlinks
-  # --glob: Additional conditions for search (in this case ignore everything in the .git/ folder)
-
-  # TODO: exp
-
-  # if type -q rg
-  #   set -gx FZF_DEFAULT_COMMAND 'rg \
-  #   --files --no-ignore --hidden --follow --glob "!.git/*"'
-  # else
-  # # DO SOMETHING!
-  # end
-
-  # set -gx FZF_DEFAULT_OPTS '--preview="head -n50 {}"'
-  # TODO: figure out how to properly load function in fish
-  # _fzf_compgen_path() {
-  #   fd --hidden --follow --exclude ".git" . "$argv"
-  # }
+if type -q fzf && type -q rg
+  # NOTE: fzf will default to system `find` cmd
+  #
+  # NOTE: had helluvah time setting glob patterns for ripgrep, settled on a `.ripgreprc` file for matching certain globs to aid fzf in ignoring certain dirs, far from perfect
+  # REF: https://github.com/BurntSushi/ripgrep/blob/master/GUIDE.md#configuration-file
+  #
+  # NOTE: useful `rg` flags
+    # --files: List files that would be searched but do not search
+    # --no-ignore: Do not respect .gitignore, etc...
+    #--hidden: Search hidden files and folders
+    # --follow: Follow symlinks
+    # --glob, -g,: Additional conditions for search, ignore the listed dirs
+  set -gx RIPGREP_CONFIG_PATH $XDG_CONFIG_HOME/ripgrep
+  set -gx FZF_DEFAULT_COMMAND 'rg --files --hidden --follow'
+  # NOTE: the stock `FZF_DEFAULT_OPTS` seem functional enough for the moment
 end
 
 switch $os 
@@ -229,14 +230,16 @@ case Darwin
 
   ###############################
   # fisher | fish shell > plugin manager
+  # NOTE: BUG: DEPRECATED: setting `fisher_path` is a NO GO!!!
+  # ref: https://github.com/jorgebucaran/fisher/issues/628#issuecomment-732179991
   ##
-  set -gx fisher_path "$XDG_CONFIG_HOME/fish/fisher"
-  set fish_function_path $fish_function_path $fisher_path/functions
-  set fish_complete_path $fish_complete_path $fisher_path/completions
+  # set -gx fisher_path "$XDG_CONFIG_HOME/fish/fisher"
+  # set fish_function_path $fish_function_path[1] $fisher_path/functions $fish_function_path[2..-1]
+  # set fish_complete_path $fish_complete_path[1] $fisher_path/completions $fish_complete_path[2..-1]
 
-  for file in "$HOME/.config/fisher/conf.d/*.fish"
-    builtin source $file 2> /dev/null
-  end
+  # for file in "$fisher_path/conf.d/*.fish"
+  #   source $file 2> /dev/null
+  # end
 
   ###############################
   # personal macOS things to help solve first world problems

@@ -153,10 +153,17 @@ jobs/bin/inkview
 ##
 **/FreeCAD/AddonManager/**
 **/FreeCAD/Mod/**
+!**/FreeCAD/Gui/Stylesheets/README.md
+**/FreeCAD/Gui/Stylesheets/*.qss
+**/FreeCAD/Gui/Stylesheets/*.orig
+**/FreeCAD/Macro/**
+!**/FreeCAD/Macro/.gitkeep
 
 
 ##############################
 # PrusaSlicer / Prusa Slicer
+# NOTE: app setting files on macos are located within...
+# $HOME/Library/Application Support/PrusaSlicer/
 ##
 
 **/PrusaSlicer/cache/**
@@ -170,6 +177,7 @@ jobs/bin/inkview
 **/PrusaSlicer/PrusaSlicer.ini
 **/PrusaSlicer/filament/**
 **/PrusaSlicer/print/**
+**/PrusaSlicer/printer/**
 
 ##############################
 # GTK > gtk-mac-bundler
@@ -203,14 +211,21 @@ config/Blender/2.83/scripts/addons/**
 config/Blender/2.83/scripts/presets/operator/**
 !config/Blender/2.83/scripts/presets/operator/.gitkeep
 !config/Blender/2.83/config/.gitkeep
+# Blender 2.9x config files
+config/Blender/2.90/config/recent-files.txt
+config/Blender/2.90/config/bookmarks.txt
+config/Blender/2.90/scripts/addons/**
+!config/Blender/2.90/scripts/addons/.gitkeep
+config/Blender/2.90/scripts/presets/operator/**
+!config/Blender/2.90/scripts/presets/operator/.gitkeep
+!config/Blender/2.90/config/.gitkeep
+config/Blender/2.90/config/userpref.blend
 
-##############################
 # Python - pyenv
 ##
 lang/python/pyenv/**
 # airpy tools for working with AirPort devices
 jobs/bin/acp
-
 
 ##############################
 # r2 a.k.a radare radare2
@@ -257,3 +272,6 @@ jobs/macOS/Users/mr-fancy/hammerspoon/.cli.history
 .gitsecret/keys/random_seed
 !*.secret
 config/fish/interactive/private-env-vars.fish
+jobs/macOS/Users/mr-fancy/Library/Preferences/FreeCAD/user.cfg
+add
+.git/**

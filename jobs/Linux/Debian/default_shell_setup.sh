@@ -3,6 +3,8 @@ set -e
 
 # TODO
 # 1. implement routine for installing fish if not found
+# 2. setup routine for setting up default shell on macos
+  # a. REF: https://www.howtogeek.com/444596/
 
 # ISSUES
 
