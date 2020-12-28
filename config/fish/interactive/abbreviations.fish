@@ -259,6 +259,9 @@ switch $os
 
     abbr -ag df "gdf -h"
 
+    abbr -ag tcmafp 'mount -t afp afp://capin:"$TC_PASSWORD"@10.0.1.1/Data /mnt/tc'
+    abbr -ag afptcm 'mount -t afp afp://capin:"$TC_PASSWORD"@10.0.1.1/Data /mnt/tc'
+
     ####
     # macOS Debugging
     ##
@@ -296,6 +299,9 @@ switch $os
       abbr -ag brews "cd (brew --prefix)/Homebrew/Library/Taps/homebrew/homebrew-core"
       abbr -ag cdbrewcache "cd $HOME/Library/Caches/Homebrew"
       abbr -ag cdmytap "cd $code/git/github/public/homebrew-us-05"
+      # brew python shit
+      abbr -ag cdbrewpysitep "cd (brew --prefix)/opt/python/Frameworks/Python.framework/Versions/Current/lib/python3.9/site-packages"
+      abbr -ag cdbrewpysp "cd (brew --prefix)/opt/python/Frameworks/Python.framework/Versions/Current/lib/python3.9/site-packages"
 
       # NOPE! NOT ALLOWED, ie. does not support spaces
       # abbr -ag "brew cask outdated --greddy" "brew cask outdated --greedy"
