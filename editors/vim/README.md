@@ -178,6 +178,16 @@ To **not** show any output, and only errors & warning if there are any present i
 tidy -eq [FILE.html]
 ```
 
+## Working with markdown `.md` documents
+
+> **search query** hot reload/hotreload markdown/md documents in browser
+
+There is a chrome extension **markdown-viewer** that allows rendering of markdown documents using the `file` URL to access local markdown documents, and provides hot reloading of the documents on save along with other assorted features [**learn more**][lnk1]
+
+[lnk1]: <https://github.com/simov/markdown-viewer>
+
+The above method comes across as the easiest way to render markdown documents locally while still editing the markdown file in vim, and yes there are JS and vim solutions to spin a web server and serve the document, but the above mentioned chrome extension is quite painless and gets the job done.
+
 
 ## Useful Links
 

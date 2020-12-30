@@ -42,4 +42,4 @@ info "typescript@4.1.3" has binaries:
    - tsserver
 info "typescript-language-server@0.4.0" has binaries:
    - typescript-language-server
-Done in 1.03s.
+Done in 1.12s.

@@ -185,6 +185,8 @@ function! BuildStaticVimMarkdownComposer()
     endif
 endfunction
 
+let g:markdown_composer_autostart = 1
+
 function! FixupBase16()
   !(sed -i '/Base16hi/\! s/a:\(attr\|guisp\)/l:\1/g' /opt/code/dotfiles/editors/vim/vim/pack/minpac/start/base16-vim/colors/*.vim)
 endfunction
@@ -194,7 +196,7 @@ let g:ale_completion_enabled = 1
 " below `if` block/statement stopped working on september 26, 2020
 " if !exists('*minpac#init')
 " SEE: advanced sample on github readme of minpac
-  if !exists('g:loaded_minpac')
+if !exists('g:loaded_minpac')
   " minpac is NOT available
   echo 'Yo!, you need minpac dawg!'
   " Settings for plugin-less, ie. no minpac 😥 environment.
@@ -202,9 +204,9 @@ let g:ale_completion_enabled = 1
     silent !curl -fLo ~/.vim/pack/minpac/opt/minpac/plugin/minpac.vim
           \--create-dirs
           \https://raw.githubusercontent.com/k-takata/minpac/master/plugin/minpac.vim 
-   autocmd VimEnter * packadd minpac
-   call minpac#init()
-   call minpac#add('k-takata/minpac', {'type': 'opt'})
+    autocmd VimEnter * packadd minpac
+    call minpac#init()
+    call minpac#add('k-takata/minpac', {'type': 'opt'})
   endif
 else
   " minpac found
@@ -223,7 +225,8 @@ else
   call minpac#add('tpope/vim-fugitive') " display git branch
   call minpac#add('itchyny/lightline.vim') " lightweight status line.
   call minpac#add('rust-lang/rust.vim')
-  call minpac#add('euclio/vim-markdown-composer', {'type': 'opt'})
+  " call minpac#add('euclio/vim-markdown-composer')
+  " call minpac#add('euclio/vim-markdown-composer', {'type': 'opt'})
   call minpac#add('majutsushi/tagbar')
   "
   " call minpac#add('joshdick/onedark.vim') " exp with new colorscheme
