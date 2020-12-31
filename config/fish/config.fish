@@ -49,6 +49,10 @@ set -gx mygitreps /opt/code/git/github/my.github.repos
 set -gx mybtap /opt/code/git/github/public/homebrew-us-05
 set -gx mytap /opt/code/git/github/public/homebrew-us-05
 
+## ccache
+set -gx CCACHE_CONFIGPATH $HOME/.config/ccache/ccache.conf
+set -gx CCACHE_DIR $HOME/.ccache
+
 
 set -gx fish_emoji_width 2 # NOT COMPATIBLE with fish <= 2.7.1
 set -gx docker /opt/docker

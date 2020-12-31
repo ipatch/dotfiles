@@ -117,6 +117,8 @@ abbr -ag git-ls-aliases 'git aliases'
 abbr -ag gf 'git fresh'
 abbr -ag git.is.shallow 'git rev-parse --is-shallow-repository'
 abbr -ag git.shallow\? 'git rev-parse --is-shallow-repository'
+abbr -ag git.ls.commits 'git rev-list --count HEAD'
+abbr -ag git.count.commits 'git rev-list --count HEAD'
 
 ################
 # personal fish functions
