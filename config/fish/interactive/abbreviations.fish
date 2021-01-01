@@ -304,6 +304,7 @@ switch $os
       # brew python shit
       abbr -ag cdbrewpysitep "cd (brew --prefix)/opt/python/Frameworks/Python.framework/Versions/Current/lib/python3.9/site-packages"
       abbr -ag cdbrewpysp "cd (brew --prefix)/opt/python/Frameworks/Python.framework/Versions/Current/lib/python3.9/site-packages"
+      abbr -ag cdbrewtaps "/usr/local/Homebrew/Library/Taps"
 
       # NOPE! NOT ALLOWED, ie. does not support spaces
       # abbr -ag "brew cask outdated --greddy" "brew cask outdated --greedy"
