@@ -755,6 +755,7 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.co
 <details>
 <summary><strong>TODOs</strong></summary>
 
+- [ ] [vim] [nvim], set default filetype for JSON files to `jsonc`
 - [ ] [tmux] use vivaldi keybinding for switching between windows as opposed to using shift+arrow keys
 - [ ] [vim] [neovim] keep the `lcd` / `pwd` to the directory nvim was launched from **especially** if nvim was launched with no args
 - [ ] [alacritty] [fish] [tmux] [karabiner] [hammerspoon] _double tap esc_, ie. esc², to run the keyboard shortcut of clearing the scree, ie. prefix (tmux), then control+l
