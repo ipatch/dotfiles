@@ -80,7 +80,8 @@ end
 # -a = preserve file permssions
 # -h = human readable output
 ##
-abbr -ag cpv "rsync -ahp --partial --info=progress2"
+abbr -ag cpv "rsync -a --no-o --no-g -h --info=progress2 -P" # useful for network mnts
+abbr -ag cpvr "rsync -a --no-o --no-g -h --info=progress2 --append" # resume transfer
 abbr -ag rm "rm -iv"
 abbr -ag mv "mv -iv"
 abbr -ag df "df -h"
