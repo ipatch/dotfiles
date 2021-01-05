@@ -25,6 +25,10 @@ switch $os
     # alias brew cask outdated --greddy="brew cask outdated --greddy"
     alias rsync="/usr/local/bin/rsync --exclude-from=$HOME/.config/rsync/rsync-excludes"
 
+    # machomebrew python
+    alias bpy="/usr/local/opt/python/bin/python3"
+    alias bpip="/usr/local/opt/python/bin/pip3"
+
   case Linux
     alias ls="ls --color=auto"
     # alias l="ls -lah --color=auto"

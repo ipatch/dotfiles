@@ -226,6 +226,9 @@ config/Blender/2.90/config/userpref.blend
 lang/python/pyenv/**
 # airpy tools for working with AirPort devices
 jobs/bin/acp
+jobs/bin/f2py
+jobs/bin/f2py3
+jobs/bin/f2py3.8
 
 ##############################
 # r2 a.k.a radare radare2

@@ -307,11 +307,20 @@ switch $os
       abbr -ag cdbrewpysp "cd (brew --prefix)/opt/python/Frameworks/Python.framework/Versions/Current/lib/python3.9/site-packages"
       abbr -ag cdbrewtaps "/usr/local/Homebrew/Library/Taps"
 
-      # NOPE! NOT ALLOWED, ie. does not support spaces
+      # NOPE! NOT ALLOWED, ie. fish abbreviations do not support spaces
       # abbr -ag "brew cask outdated --greddy" "brew cask outdated --greedy"
 
       # logs
       abbr -ag cdbrewlogs "cd (brew --prefix)/var/log"
+
+      # python
+      abbr -ag pythonb "$brew_prefix/opt/python/bin/python3"
+      abbr -ag bpython  "$brew_prefix/opt/python/bin/python3"
+      abbr -ag pipb "$brew_prefix/opt/python/bin/pip3"
+
+      # TODO: why is `bpip` sometimes a func
+      #
+      # `bpip` sometimes a fish shell function, see. `funced bpip`
 
       # youtube-dl
       abbr -ag you "youtube-dl"
