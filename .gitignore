@@ -229,6 +229,8 @@ jobs/bin/acp
 jobs/bin/f2py
 jobs/bin/f2py3
 jobs/bin/f2py3.8
+# python compile cache
+**__pycache__
 
 ##############################
 # r2 a.k.a radare radare2
