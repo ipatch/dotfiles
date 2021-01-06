@@ -5,6 +5,8 @@
 # fish "set -gx PYTHONSTARTUP ~/.pystartup"
 # bash "export PYTHONSTARTUP=~/.pystartup"
 
+# NOTE: machomebrew, ~/Library/Python/3.9/lib/python/site-packages/
+
 import atexit
 import os
 import readline
@@ -25,3 +27,6 @@ if os.path.exists(historyPath):
 atexit.register(save_history)
 del os, atexit, readline, rlcompleter, save_history, historyPath
 # {% endhight %}
+
+def hello():
+    print('hello world')
