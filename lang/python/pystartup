@@ -10,9 +10,14 @@
 import atexit
 import os
 import readline
-import rlcompleter
+import rlcompleter # completion function provided by GNU readline
+import fancycompleter # module that extends rlcompleter
+import pprint
 
 historyPath = os.path.expanduser("~/.py_repl_history")
+
+# `freecad -c` specific
+fancycompleter.interact(persist_history=True)
 
 # Tab completion
 # readline.parse_and_bind('tab: complete')
