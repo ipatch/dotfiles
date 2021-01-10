@@ -65,13 +65,11 @@ if [ -d "$HOME/.rvm" ]
   abbr -ag be "bundle exec"
 end
 
-
 #############################
 # python tooling
 ##
 # NO SPACES in abbr's
 # abbr -ag 'pip outdated' 'pip list --outdated'
-
 
 #############################
 # rsync
@@ -91,6 +89,8 @@ abbr -ag ll "ls -1" # same as below
 abbr -ag l1 "ls -1" # only filenames, nothing else, single column
 abbr -ag lr "ls -lrth" # show newest file first, ie. last line of output
 abbr -ag ljd "ls -d ./*/" # only show directories
+abbr -ag ls.count.files "ls -p | /usr/bin/grep -v / | wc -l" # ignores hidden files
+abbr -ag ls.count.dirs "ls -p | /usr/bin/grep / | wc -l" # ignores hidden dirs
 
 ################
 # funny abbreviations
