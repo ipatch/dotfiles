@@ -307,6 +307,8 @@
 # `git config --global diff.submodule log` will add the below 2 lines
 [diff]
   submodule = log
+[difftool "meld"]
+  cmd = /usr/local/bin/meld
 
 [status]
   submodulesummary = 1
