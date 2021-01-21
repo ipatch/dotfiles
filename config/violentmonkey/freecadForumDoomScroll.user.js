@@ -32,6 +32,8 @@
   // REF: https://code-boxx.com/infinite-page-scroll/
   // REF: https://medium.com/better-programming/everything-about-xmlhttprequest-in-javascript-8adacc98a209
   // REF: https://www.youtube.com/watch?v=4K33w-0-p2c
+  // REF: https://openuserjs.org/scripts/tumpio/Endless_Google
+  // REF: https://wiki.greasespot.net/Tutorials
   //
   // console.log('w00t'); // DEBUG
   //
