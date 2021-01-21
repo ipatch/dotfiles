@@ -1,0 +1,33 @@
+{ 
+  "title": "ipatch, CHANG ME, vim snippet for scaffolding karabiner complex mod",
+  "rules": [
+    {
+      "description": "ipatch, exp with holding a key down",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+              "key_code": "right_alt",
+              "modifiers": {
+                "optional": ["any"]
+              }
+          },
+          "parameters": {
+            "basic.to_if_alone_timeout_milliseconds": 250,
+            "basic.to_if_held_down_threshold_milliseconds": 250
+          },
+          "to_if_alone": [
+            {
+              "key_code": "right_alt"
+            }
+          ],
+          "to_if_held_down": [
+            {
+              "shell_command": "open -a '/Users/capin/Library/Scripts/Applications/playground/rectangle_make_larger.app'"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
