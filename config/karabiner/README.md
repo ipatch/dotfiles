@@ -19,7 +19,9 @@ make sure there is a **title** and **description** key within the complex modifi
 if there is an issue with adding the rule
 
 1. first unload / **remove** the problematic rule
+
  > this is required because karabiner elements copies separate rules into a global config file from my understanding, so editing the local file will not update the global file until the local rule is removed, and readded with the updated changes and karabiner elements is restarted in the process.
+
 2. restart karabiner, view log, check for no errors.
 3. edit the rule
 4. readd rule
