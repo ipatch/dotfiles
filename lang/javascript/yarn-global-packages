@@ -4,6 +4,8 @@ info "@babel/cli@7.12.10" has binaries:
    - babel-external-helpers
 info "asciicast2gif@0.2.1" has binaries:
    - asciicast2gif
+info "browser-sync@2.26.13" has binaries:
+   - browser-sync
 info "concurrently@5.3.0" has binaries:
    - concurrently
 info "create-react-app@4.0.1" has binaries:
@@ -12,7 +14,7 @@ info "csslint@1.0.5" has binaries:
    - csslint
 info "electron-packager@15.2.0" has binaries:
    - electron-packager
-info "eslint@7.15.0" has binaries:
+info "eslint@7.18.0" has binaries:
    - eslint
 info "flow-language-server@0.6.0" has binaries:
    - flow-language-server
@@ -31,7 +33,7 @@ info "mdr@0.2.0" has binaries:
    - mdr
 info "neovim@4.9.0" has binaries:
    - neovim-node-host
-info "nodemon@2.0.6" has binaries:
+info "nodemon@2.0.7" has binaries:
    - nodemon
 info "stacks-cli@1.0.4" has binaries:
    - stacks-cli
@@ -42,4 +44,10 @@ info "typescript@4.1.3" has binaries:
    - tsserver
 info "typescript-language-server@0.4.0" has binaries:
    - typescript-language-server
-Done in 1.12s.
+info "webpack@5.15.0" has binaries:
+   - webpack
+info "webpack-cli@4.3.1" has binaries:
+   - webpack-cli
+info "webpack-dev-server@3.11.2" has binaries:
+   - webpack-dev-server
+Done in 1.32s.
