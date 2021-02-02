@@ -205,9 +205,12 @@ config/Blender/2.9[0-9]*/scripts/presets/operator/**
 !config/Blender/2.9[0-9]*/config/.gitkeep
 config/Blender/2.9[0-9]*/config/userpref.blend 
 config/Blender/2.9[0-9]*/config/platform_support.txt
+
+##################################
 # Python - pyenv
 ##
 lang/python/pyenv/**
+
 # airpy tools for working with AirPort devices
 jobs/bin/acp
 jobs/bin/f2py
@@ -262,5 +265,4 @@ jobs/macOS/Users/mr-fancy/hammerspoon/.cli.history
 !*.secret
 config/fish/interactive/private-env-vars.fish
 jobs/macOS/Users/mr-fancy/Library/Preferences/FreeCAD/user.cfg
-add
 .git/**
