@@ -247,8 +247,10 @@ switch $os
     abbr -ag dle "diskutil eject"
     abbr -ag dle2 "diskutil eject /dev/disk2"
 
+    # ffmpeg
     abbr -ag mac-ffmpeg-ls-devs "ffmpeg -f avfoundation -list_devices true -i \"\""
     abbr -ag ffmpeglsdevs "ffmpeg -f avfoundation -list_devices true -i \"\""
+    abbr -ag ffmpeg.convert.mk4 "echo 'ffmpeg -i [INPUT.MKV] -map 0 -c copy -c:a aac [OUTPUT.MP4]'"
 
     ##
     # mounting network disks, ie. time capsule on LAN
