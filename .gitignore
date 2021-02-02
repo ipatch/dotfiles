@@ -186,41 +186,25 @@ jobs/bin/gtk-mac-bundler
 
 ##############################
 # Blender
-# TODO: device a more elegant way to ignore files within the `2.8x` directories
 ##
 config/Blender/2.79/config/recent-files.txt
-config/Blender/2.80/config/recent-files.txt
-config/Blender/2.80/config/bookmarks.txt
-config/Blender/2.80/scripts/addons/**
-!config/Blender/2.80/scripts/addons/.gitkeep
-config/Blender/2.80/scripts/presets/operator/**
-!config/Blender/2.80/scripts/presets/operator/.gitkeep
-# Blender 2.81 config files
-config/Blender/2.81/config/recent-files.txt
-config/Blender/2.81/config/bookmarks.txt
-config/Blender/2.81/scripts/addons/**
-!config/Blender/2.81/scripts/addons/.gitkeep
-config/Blender/2.81/scripts/presets/operator/**
-!config/Blender/2.81/scripts/presets/operator/.gitkeep
-!config/Blender/2.81/config/.gitkeep
-# Blender 2.83 config files
-config/Blender/2.83/config/recent-files.txt
-config/Blender/2.83/config/bookmarks.txt
-config/Blender/2.83/scripts/addons/**
-!config/Blender/2.83/scripts/addons/.gitkeep
-config/Blender/2.83/scripts/presets/operator/**
-!config/Blender/2.83/scripts/presets/operator/.gitkeep
-!config/Blender/2.83/config/.gitkeep
+config/Blender/2.8[0-9]*/config/recent-files.txt
+config/Blender/2.8[0-9]*/config/bookmarks.txt
+config/Blender/2.8[0-9]*/scripts/addons/**
+!config/Blender/2.8[0-9]*/scripts/addons/.gitkeep
+config/Blender/2.8[0-9]*/scripts/presets/operator/**
+!config/Blender/2.8[0-9]*/scripts/presets/operator/.gitkeep
+!config/Blender/2.8[0-9]*/config/.gitkeep
 # Blender 2.9x config files
-config/Blender/2.90/config/recent-files.txt
-config/Blender/2.90/config/bookmarks.txt
-config/Blender/2.90/scripts/addons/**
-!config/Blender/2.90/scripts/addons/.gitkeep
-config/Blender/2.90/scripts/presets/operator/**
-!config/Blender/2.90/scripts/presets/operator/.gitkeep
-!config/Blender/2.90/config/.gitkeep
-config/Blender/2.90/config/userpref.blend
-
+config/Blender/2.9[0-9]*/config/recent-files.txt
+config/Blender/2.9[0-9]*/config/bookmarks.txt
+config/Blender/2.9[0-9]*/scripts/addons/**
+!config/Blender/2.9[0-9]*/scripts/addons/.gitkeep
+config/Blender/2.9[0-9]*/scripts/presets/operator/**
+!config/Blender/2.9[0-9]*/scripts/presets/operator/.gitkeep
+!config/Blender/2.9[0-9]*/config/.gitkeep
+config/Blender/2.9[0-9]*/config/userpref.blend 
+config/Blender/2.9[0-9]*/config/platform_support.txt
 # Python - pyenv
 ##
 lang/python/pyenv/**
