@@ -232,6 +232,10 @@
   graphviz = "!f() { echo 'digraph git {' ; git log --pretty='format:  %h -> { %p }' \"$@\" | sed 's/[0-9a-f][0-9a-f]*/\"&\"/g' ; echo '}'; }; f"
 	identity = "! git config user.name $(git config user.$1.name); git config user.email $git config user.$1.eail); :"
 
+
+  # ref: https://stackoverflow.com/a/45991969/708807
+	hist = log --graph --date-order --date=short --pretty=format:'%C(auto)%h%d %C(reset)%s %C(bold blue)%ce %C(reset)%C(green)%cr (%cd)'
+
 # Use `origin` as the default remote on the `master` branch in all cases
 [branch "master"]
   remote = origin
@@ -333,13 +337,14 @@
 
 [init]
   templatedir = ~/.config/git/git-templates
+	defaultBranch = main
 
 ##############################
 # Identity bull shit
 # NOTE: GitHub and git associate commits with email addresses
 ##
 [user]
-	name = Chris Jones
+	name = chris
   email = chris.r.jones.1983@gmail.com
 	useConfigOnly = true
 	signingkey = CDE31AD7ED85062F02F01B40F115EA48338F11B7
