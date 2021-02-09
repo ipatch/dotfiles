@@ -1,11 +1,3 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <keys
-   name="My custom shortcuts">
-  <bind
-     key="s"
-     action="ToolSelector"
-     display="true" />
-  <bind
-     key="S"
-     action="ToolSelector" />
-</keys>
+   name="User Shortcuts" />
