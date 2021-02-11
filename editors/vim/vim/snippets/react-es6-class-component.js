@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 class Snippet extends React.Component {
   render() {
@@ -6,8 +6,8 @@ class Snippet extends React.Component {
       <div>
         Snippet &gt; ES6 React class based component
       </div>
-    )
+    );
   }
 }
 
-export default Snippet
+export default Snippet;

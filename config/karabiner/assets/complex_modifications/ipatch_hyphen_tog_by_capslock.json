@@ -1,5 +1,10 @@
 {
-  "title": "ipatch, CAPS on/off (capskey_mode) change keys when CAPS enabled",
+  "title": "ipatch, ke, local complex modifications",
+    "maintainer": [
+    "ipatch"
+  ],
+
+
   "rules": [
     {
       "description": "CAPS key: toggle capskey_mode on/off",

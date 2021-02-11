@@ -95,7 +95,7 @@
                         ]
                     },
                     {
-                        "description": "Press a Key Twice, right_command - Rule - Karabiner-Elements",
+                        "description": "Press right_command twice, toggle AutoRaise  🛸",
                         "manipulators": [
                             {
                                 "conditions": [

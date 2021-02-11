@@ -1,5 +1,8 @@
 { 
-  "title": "ipatch, CHANG ME, vim snippet for scaffolding karabiner complex mod",
+  "title": "ipatch, ke, local complex modifications",
+
+  "NOTE": "incomplete, scaffold out to test running apl script while holding key, limitation become Rectangle.app ; see: https://github.com/rxhanson/Rectangle/discussions/346",
+
   "rules": [
     {
       "description": "ipatch, exp with holding a key down",

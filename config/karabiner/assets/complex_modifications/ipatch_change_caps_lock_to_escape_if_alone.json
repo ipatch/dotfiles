@@ -1,5 +1,10 @@
 {
-  "title": "ipatch, change caps_lock to escape if pressed alone",
+  "title": "ipatch, ke, local complex modifications",
+    "maintainer": [
+    "ipatch"
+  ],
+
+
   "rules": [ 
     {
       "description": "Change caps_lock to control if pressed with other keys, to escape if pressed alone.",

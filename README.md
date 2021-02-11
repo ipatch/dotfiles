@@ -840,3 +840,20 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.co
 • [**GithHub**](https://github.com/ipatch) • [**Twitter**](https://twitter.com/truckmonth) • [**GitLab**](https://gitlab.com/truckmonth) •
 
 </div>
+
+
+## 
+
+<details>
+
+
+<summary>scratchpad</summary>
+
+
+- ke + hammerspoon, check if app is alacritty, then check if inside tmux, then look for
+left shift followed by left shift, send command to tmux, to toggle maximize/restore = minimize
+
+
+
+</details>
+

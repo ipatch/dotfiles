@@ -1,6 +1,12 @@
-{"title": "Rules for Karabiner-Elements",
+{
+
+  "title": "ipatch, ke, local complex modifications",
+    "maintainer": [
+    "ipatch"
+  ],
+
   "rules": [
-    { "description": "Press a Key Twice, right_command - Rule - Karabiner-Elements",
+    { "description": "Press right_command twice, toggle AutoRaise  🛸",
       "manipulators": [
         {
           "type": "basic",
