@@ -849,6 +849,8 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.co
 
 <summary>scratchpad</summary>
 
+- [ ] always set ft=jsonc for JSON files
+
 
 - ke + hammerspoon, check if app is alacritty, then check if inside tmux, then look for
 left shift followed by left shift, send command to tmux, to toggle maximize/restore = minimize
