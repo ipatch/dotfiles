@@ -1,5 +1,8 @@
 { 
   "title": "ipatch, ke, local complex modifications",
+  "maintainer": [
+    "ipatch"
+  ],
 
   "NOTE": "incomplete, scaffold out to test running apl script while holding key, limitation become Rectangle.app ; see: https://github.com/rxhanson/Rectangle/discussions/346",
 

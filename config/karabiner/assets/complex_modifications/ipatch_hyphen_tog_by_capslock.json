@@ -1,5 +1,8 @@
 {
   "title": "ipatch, ke, local complex modifications",
+
+  "TODO": "incomplete complex mod, idea is, change `-` to underbar when caps mode is on",
+
     "maintainer": [
     "ipatch"
   ],
