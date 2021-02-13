@@ -6,7 +6,8 @@
       "manipulators": [
         {
           "type": "basic",
-          "from": [
+          "TODO": "from key must be a JSON object NOT arrary",
+          "from": 
             {
               "key_code": "INSERT KEYCODE",
               "modifiers": {
@@ -15,7 +16,7 @@
                 ]
               }
             }
-          ],
+          ,
           "to": [
             {
               "key_code": "INSERT KEYCODE"

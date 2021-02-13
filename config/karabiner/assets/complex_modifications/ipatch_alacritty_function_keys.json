@@ -1,0 +1,43 @@
+{ 
+  "title": "ipatch, ke, local complex modifications",
+  "maintainer": [
+    "ipatch"
+  ],
+
+  "rules": [
+    {
+      "TODO": "FINISH RULE FOR f2",
+      "description": "ipatch, change f1 and f2 to std function keys when Alacritty.app is frontmost app, ie. bundled identifer 📺",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from":
+            {
+              "key_code": "f1",
+              "modifiers": {
+                "optional": [
+                  "any"
+                ]
+              }
+            },
+          "to": [
+            {
+              "key_code": "f1"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "file_paths": [
+                "/Applications/Alacritty.app/Contents/MacOS/alacritty"
+              ],
+              "bundle_identifiers": [
+                "io.alacritty"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

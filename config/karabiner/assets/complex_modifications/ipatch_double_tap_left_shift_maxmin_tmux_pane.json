@@ -5,7 +5,7 @@
   ],
 
   "rules": [
-    { "description": "Press left_shift twice, tmux toggle max/min/restore 🔎",
+    { "description": "tap left_shift to send shift+option+control+f1",
       "manipulators": [
         {
           "type": "basic",
@@ -17,59 +17,23 @@
               ]
             }
           },
-          "to": [
+          "to_if_alone": [
             {
-              "shell_command": ""
-            }
-          ],
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "key pressed",
-              "value": 1
-            }
-          ]
-        },
-
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "left_shift",
-            "modifiers": {
-              "optional": [
-                "any"
+              "key_code": "f1",
+              "modifiers": [
+                "left_shift",
+                "left_control",
+                "left_option"
               ]
             }
-          },
-          "to": [
-            {
-              "set_variable": {
-                "name": "key pressed",
-                "value": 1
-              }
-            },
+          ],
+          "to_if_held_down": [
             {
               "key_code": "left_shift"
             }
           ],
-          "description": "to_delayed_action is set to 400ms in karabiner.json",
-          "to_delayed_action": {
-            "to_if_invoked": [
-              {
-                "set_variable": {
-                  "name": "key pressed",
-                  "value": 0
-                }
-              }
-            ],
-            "to_if_canceled": [
-              {
-                "set_variable": {
-                  "name": "key pressed",
-                  "value": 0
-                }
-              }
-            ]
+          "parameters": {
+            "basic.to_if_held_down_threshold_milliseconds": 200
           }
         }
       ]

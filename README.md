@@ -856,6 +856,12 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.co
 left shift followed by left shift, send command to tmux, to toggle maximize/restore = minimize
 
 
+- search, hammerspoon tmux
+
+https://unix.stackexchange.com/questions/329156/how-to-bind-double-tapping-the-shift-key-in-tmux
+
+it looks like might not need hammerspoon after all and just have karabiner elements emit a complex key code based on the linked SE, stackexchange link
+
 
 </details>
 

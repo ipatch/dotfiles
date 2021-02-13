@@ -162,6 +162,73 @@
                                 "type": "basic"
                             }
                         ]
+                    },
+                    {
+                        "TODO": "FINISH RULE FOR f2",
+                        "description": "ipatch, change f1 and f2 to std function keys when Alacritty.app is frontmost app, ie. bundled identifer 📺",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "io.alacritty"
+                                        ],
+                                        "file_paths": [
+                                            "/Applications/Alacritty.app/Contents/MacOS/alacritty"
+                                        ],
+                                        "type": "frontmost_application_if"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "f1",
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "f1"
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "tap left_shift to send shift+option+control+f1",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "left_shift",
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "parameters": {
+                                    "basic.to_if_held_down_threshold_milliseconds": 200
+                                },
+                                "to_if_alone": [
+                                    {
+                                        "key_code": "f1",
+                                        "modifiers": [
+                                            "left_shift",
+                                            "left_control",
+                                            "left_option"
+                                        ]
+                                    }
+                                ],
+                                "to_if_held_down": [
+                                    {
+                                        "key_code": "left_shift"
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
                     }
                 ]
             },

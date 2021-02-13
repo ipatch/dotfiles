@@ -85,6 +85,9 @@ debug.render_timer: false
 # and cursor.background colors, otherwise invert the colors of the cursor.
 custom_cursor_colors: true
 
+# TODO: exp with One Dark color theme 
+# https://github.com/alacritty/alacritty/wiki/Color-schemes#one
+
 # Colors (Tomorrow Night Bright)
 colors:
   # Default colors
