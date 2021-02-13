@@ -751,7 +751,6 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.co
 
 <a id="todos"></a>
 
-
 <details>
 <summary><strong>TODOs</strong></summary>
 
@@ -760,7 +759,6 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.co
 - [ ] [vim] [neovim] keep the `lcd` / `pwd` to the directory nvim was launched from **especially** if nvim was launched with no args
 - [ ] [alacritty] [fish] [tmux] [karabiner] [hammerspoon] _double tap esc_, ie. esc², to run the keyboard shortcut of clearing the scree, ie. prefix (tmux), then control+l
 - [ ] [vim] [nvim] [coc] [eslint] gutter warn glyph appeares to be `>>` in the color red, would much prefer to keep warning color consistent with the color of the warning text, and same with error text, keep that the color red.
-- [ ] [tmux] [hammerspoon] [ke] left double tap shift, toggle max/min pane within window
 - [ ] [macos] [afloat] [ke] [hammerspoon] double tap right shift, toggle keep window atop
 - [ ] [fish] followup on my reddit question about suggestions / completions when writing fish scripts
 - [ ] [vim] device func / stript to decrypt / encrypt GPG files
@@ -788,20 +786,20 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.co
 - [ ] [macos] what is the procedure macos uses to mount a file system when a usb drive is plugged into a macos system
 - [ ] [tmux] instead <kbd>prefix</kbd> then <kbd>control+l</kbd> to clear the screen, try using <kbd>control+l followed by l</kbd>, no good, try using <kbd>super + l</kbd>
 - [ ] [tmux] possible binding for toggling max/min windows size <kbd>control+shift</kbd>
-- [ ] [macos, wm, spectacle] <kbd>cmd,option,+</kbd> have to mash <kbd>+</kbd> multiple times to increase window size, would like _hold the key down to increase size_, looking at your karabiner-elements / hammerspoon
 - [ ] [macos] look into creating a _lazy mouse hover_ function, if the mouse is hovering a application specific window for a certain period of time (threshold) bring that application to focus, ie. a pseudo auto hover.
 - [ ] [tmux] put short synopsis of current weather in tmux status bar, _right side_
 - [ ] **vivaldi** / **voilentmonkey**
   - youtube script, to switch view mode on viewer window hover with mouse or mash a key to bring focus to viewer window so playback shortcuts become active.
 - [ ] [fish] exp with using colors for `brew.fish` function to distinguish misspelling of word
 - [ ] [vim] navigating documents with line wraps makes jumping through buffer by line number inaccurate, wrapped lines are displayed as one line, but the jump cmd treats them as multiple
-  - [ ] [tmux] **nope**, call a shell script using a double tap of <kbd>shift</kbd> that interacts with the current window of tmux, a karabiner, hammerspoon, shell script, worm hole 🐛🕳
-- [ ] [tmux] it'd be nice to have a quick double tap of either <kbd>shift</kbd>key then<kbd>shift</kbd> to toggle between remote and local tmux sessions 
-  - [learn more](https://gist.github.com/samoshkin/05e65f7f1c9b55d3fc7690b59d678734)
-  - [and more](https://www.freecodecamp.org/news/tmux-in-practice-local-and-nested-remote-tmux-sessions-4f7ba5db8795/)
-  - [even more](https://superuser.com/questions/238702/maximizing-a-pane-in-tmux)
-  - i think using karabiner-elements with hammerspoon via a shell script will allow a pseudo double tap like key binding for certain features of tmux, ie. double tap shift to zoom in and out.
-- [ ] hammerspoon, possibly karabiner, toggle function keys on a macbook with double tap of <kbd>fn</kbd>
+- [ ] [tmux] **getting closer** it'd be nice to have a quick double tap of either <kbd>shift</kbd>key then<kbd>shift</kbd> to toggle between remote and local tmux sessions 
+  - [learn more][lm1]
+  - [and more][lm2] 
+
+  [lm1]: <https://gist.github.com/samoshkin/05e65f7f1c9b55d3fc7690b59d678734>
+  [lm2]: <https://www.freecodecamp.org/news/tmux-in-practice-local-and-nested-remote-tmux-sessions-4f7ba5db8795/>
+
+- [ ] [karabiner], toggle function keys on a macbook with double tap of <kbd>fn</kbd>
 - [ ] [python] [fish] [virtualenv] setup keybinding <kbd>control</kbd>+<kbd>d</kbd> to exit virtualenv but not exit terminal / shell session, ie. make control+d local to the virtualenv
 - [ ] [python] [fish] [neolambda] update prompt to remove ~λ~ and put name of virtualenv instead
 - [ ] see if there is a fish function of _omf_ or _fisher_ plugin that supports sharing command history between bash and fish
@@ -817,6 +815,11 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.co
 <details>
 <summary><strong>TODOs completed</strong></summary>
 
+- [x] [macos, wm, spectacle] ~~<kbd>cmd,option,+</kbd> have to mash <kbd>+</kbd> multiple times to increase window size, would like _hold the key down to increase size_, looking at your karabiner-elements / hammerspoon~~ [out of my control][lm3]
+
+[lm3:] <https://github.com/rxhanson/Rectangle/discussions/346>
+
+- [x] [tmux] [ke] ~~left double tap shift, toggle max/min pane within window~~
 - [x] ~~[vim] change commenting for `.gitignore` files from `/* wrong */` to `# right`~~
 - [x] ~~[vim] update colorscheme to see if it solves the neovim gutter white colored pipes for code folds.~~ [**neovim folding doc**](https://neovim.io/doc/user/usr_28.html)
     - **did not** update the gutter symbol colors related to code folds. booo
@@ -846,22 +849,7 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.co
 
 <details>
 
-
 <summary>scratchpad</summary>
-
-- [ ] always set ft=jsonc for JSON files
-
-
-- ke + hammerspoon, check if app is alacritty, then check if inside tmux, then look for
-left shift followed by left shift, send command to tmux, to toggle maximize/restore = minimize
-
-
-- search, hammerspoon tmux
-
-https://unix.stackexchange.com/questions/329156/how-to-bind-double-tapping-the-shift-key-in-tmux
-
-it looks like might not need hammerspoon after all and just have karabiner elements emit a complex key code based on the linked SE, stackexchange link
-
 
 </details>
 
