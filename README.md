@@ -20,7 +20,7 @@
 
 </div>
 
-<!-- first day of winter 2020 is dec 21 -->
+<!-- first day of spring, march 20, 2021 -->
 
 ## Installation
 

@@ -209,7 +209,7 @@
                                     }
                                 },
                                 "parameters": {
-                                    "basic.to_if_held_down_threshold_milliseconds": 200
+                                    "basic.to_if_held_down_threshold_milliseconds": 50
                                 },
                                 "to_if_alone": [
                                     {
