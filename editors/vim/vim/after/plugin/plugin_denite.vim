@@ -66,17 +66,15 @@ if has('nvim')
   nmap ; :Denite buffer<CR>
 
   nnoremap <leader>t :Denite file/rec -split=floating -winrow=1<CR>
-  nnoremap <leader>g :<C-u>Denite grep:. -no-empty -mode=normal<CR>
 
-  " use <leader>j for `bubbling text` down
-  " nnoremap <leader>j :<C-u>DeniteCursorWord grep:. -mode=normal<CR>
+  " TODO: FIXME: below binding borked!
+  nnoremap <leader>g :<C-u>Denite grep:. -no-empty -mode=normal<CR>
 
   " define mappings while in dentie window
   " <CR>        - Opens currently selected file
   " q or <Esc>  - Quite denite window
-  " d           - delete currently selected file
+  " d           - close currently selected file/buffer
   " p           - preview currently selected file
-
 
   autocmd FileType denite call s:denite_my_settings()
   function! s:denite_my_settings() abort

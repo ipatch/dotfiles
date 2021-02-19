@@ -2,18 +2,15 @@
 " Key mappings / bindings
 " NOTE: `meta` ie. `⌘.` within iTerm2 require escape sequences to be mapped
 " NOTE: apparently `:map` and `:map!` will map to all modes in (n)vim
-" NOTE: the below configuration line will map the `spacebar` to ':' so that
-" way `Shift+;` does not have to be pressed to begin a command in normal mode.
 ""
 
 " BUG: vim ≥ 8.2 will TOTALLY break with the below mapping thus mouse actions
-" becomes a total PITA using scrolling in `vimdiff`
+" becomes a total PITA scrolling with `vimdiff`
 if has('nvim')
   nnoremap <esc> :
 elseif v:version > 8 || v:version == 8 " Check for Vim8 ...sort of
   nnoremap <space> :
 endif
-
 
 " NOTE: - the below insert mappings will bind 'jk' / 'kj' to ESC
 " key functionality, so need to use <ESC> in insert mode
@@ -39,7 +36,7 @@ noremap <leader>x :bw<CR>
 cmap cwd lcd %:p:h
 cmap cd. lcd %:p:h
 
-" the below key mapping will indent the entire file 😯, do you believe in magic
+" indent the entire file 😯, do you believe in magic
 nnoremap <leader>i mmgg=G`m<CR>
 
 " bubble text, Normal mode, <M-???>, `M` is meta key, `alt` on macOS
@@ -47,7 +44,7 @@ nnoremap <M-k> :m .-2<CR>==
 nnoremap <M-j> :m .+1<CR>==
 
 " bubble multiple lines - Visual mode
-" FIXME: the below mappings are BORKED!!!
+" FIXME: the below mapping is BORKED!!!
 vmap <S-k> xkP`[V`] vmap <S-j> xp`[V`]
 
 " navigate virtually wrapped lines document lines as single line.
@@ -87,25 +84,11 @@ nnoremap <M-v> "+p
 nnoremap <M-z> u
 inoremap <M-z> <C-o>u
 
-""""""""""""""""""""""""""""""
-" Binding - Buffer Handling
-""
-" nnoremap <leader>t :enew<CR>
-
 """""""""""''"
 " Toggle last
 " ...two open buffers
 ""
 nnoremap <leader><leader> <c-^>
-
-""""""""""""""
-" switch to buffer #1 through #9
-""
-" NOTE use <leader>+<{1..9}>
-" NOTE use `<ctrl>+g` to close the above mentioned window
-" NOTE the above bindings require fzf to be installed
-""
-
 
 """"""""""""""
 " NOTE: plugin related mappings, ie. FZF
@@ -119,7 +102,7 @@ tnoremap <expr> <Esc> (&filetype == "fzf") ? "<Esc>" : "<c-\><c-n>"
 
 """"""""""""""""""""""""""""""
 " Splits - vertical & horizontal
-" FIXME: this shit fucked
+" FIXME: TODO: this shit fucked
 ""
 " Split current buffer vertically with empty buffer to the right
 " nnoremap <C-w>\ :vsplit 0<CR>

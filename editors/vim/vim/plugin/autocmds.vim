@@ -1,7 +1,7 @@
 if has('autocmd')
 
   "-----------------------------
-  " autocmd > create parent dir when saving a buffer if not present
+  " autocmd / create parent dir when saving a buffer if not present
   ""
   function s:MkNonExDir(file, buf)
     if empty(getbufvar(a:buf, '&buftype')) && a:file!~#'\v^\w+\:\/'
@@ -17,7 +17,7 @@ if has('autocmd')
   augroup END
   
   "-----------------------------
-  " autocmd > save session file using `vim-obsession`
+  " autocmd / save session file using `vim-obsession`
   ""
   augroup auto_mksession
     autocmd!
@@ -35,16 +35,16 @@ if has('autocmd')
   augroup END
 
   "-----------------------------
-  " autocmd > easy jmp for ruby src files
+  " autocmd / easy jmp for ruby src files
   ""
-  augroup rubypath
-    autocmd!
-    autocmd FileType ruby setlocal suffixesadd+=.rb
-    autocmd InsertEnter * let save_cwd = getcwd() | set autochdir
-  augroup END
+  " augroup rubypath
+  "   autocmd!
+  "   autocmd FileType ruby setlocal suffixesadd+=.rb
+  "   autocmd InsertEnter * let save_cwd = getcwd() | set autochdir
+  " augroup END
 
   """"""""""""""""""""""""""""""
-  " autocommand - update buffer if file has changed on window focus 
+  " autocommand / update buffer if file has changed on window focus 
   ""
   augroup buffer_refresh
     autocmd!
@@ -52,7 +52,7 @@ if has('autocmd')
   augroup END
 
   """"""""""""""""""""""""""""""
-  " autocommand > `line_return`
+  " autocommand / `line_return`
   " NOTE: return to the line number when reopening a buffer / file & no save required, position is saved to `~/.viminfo`
   ""
   augroup resCur
@@ -60,15 +60,14 @@ if has('autocmd')
     autocmd BufReadPost * call setpos(".", getpos("'\""))
   augroup END
 
-
   """"""""""""""""""""""""""""""
-  " autocommand - `conceal_return`
+  " autocommand / `conceal_return`
   " NOTE: a simple command / function to resume conceal settings when reopening a
   " bufffer
   ""
 
   """"""""""""""""""""""""""""""
-  " autocommand - `fold_return`
+  " autocommand / `fold_return`
   " NOTE: a simple command / function to resume fold settings when reopening a
   " buffer
   ""

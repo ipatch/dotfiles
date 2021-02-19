@@ -1,4 +1,3 @@
-
 " NOTE: path to global `package.json` for coc installed extensions
 " `~/.config/coc/extensions/package.json`
 
@@ -35,25 +34,25 @@ function! s:check_back_space() abort
   return !col || getline('.')[col - 1]  =~ '\s'
 endfunction
 
-" plugin > coc
+" plugin / coc / completion
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<TAB>" :
       \ coc#refresh()
 
-" plugin > coc > close preview window when completion is done.
+" plugin / coc / close preview window when completion is done.
 augroup coc_close_pum
   autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 augroup END
 
-" plugin > coc > tab through completion choices
+" plugin / coc / tab through completion choices
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
-" plugin > coc > no new line / carriage return after selection
+" plugin / coc / no new line / carriage return after selection
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>"
 
-" plugin > coc > trigger autocomplete menu
+" plugin / coc / trigger autocomplete menu
 inoremap <silent><expr> <c-space> coc#refresh()
 
 " Use `[g` and `]g` to navigate diagnostics
