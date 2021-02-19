@@ -817,7 +817,7 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.co
 
 - [x] [macos, wm, spectacle] ~~<kbd>cmd,option,+</kbd> have to mash <kbd>+</kbd> multiple times to increase window size, would like _hold the key down to increase size_, looking at your karabiner-elements / hammerspoon~~ [out of my control][lm3]
 
-[lm3:] <https://github.com/rxhanson/Rectangle/discussions/346>
+[lm3]: <https://github.com/rxhanson/Rectangle/discussions/346>
 
 - [x] [tmux] [ke] ~~left double tap shift, toggle max/min pane within window~~
 - [x] ~~[vim] change commenting for `.gitignore` files from `/* wrong */` to `# right`~~
