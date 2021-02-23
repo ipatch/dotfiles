@@ -3,4 +3,3 @@ package battery
 package foreign-env
 package https://github.com/FabioAntunes/fish-nvm
 theme default
-theme neolambda
