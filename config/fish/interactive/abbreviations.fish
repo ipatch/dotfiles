@@ -166,6 +166,8 @@ end
 # node.js repl with reverse search
 ##
 abbr -ag nrd "npm run dev"
+abbr -ag nr "npm run"
+
 if type -q node; and type -q rlwrap;
   abbr -ag inode "rlwrap node"
 else

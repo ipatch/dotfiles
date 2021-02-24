@@ -63,6 +63,8 @@ if has('nvim')
   endtry
 
   " nnoremap ; :Denite buffer -split=floating -winrow=1<CR>
+  " TODO: FIXME: make this mapping open denite filter buffer instead of just
+  " buffers
   nmap ; :Denite buffer<CR>
 
   nnoremap <leader>t :Denite file/rec -split=floating -winrow=1<CR>
@@ -72,7 +74,7 @@ if has('nvim')
 
   " define mappings while in dentie window
   " <CR>        - Opens currently selected file
-  " q or <Esc>  - Quite denite window
+  " q or <Esc>  - Quit/clos denite window
   " d           - close currently selected file/buffer
   " p           - preview currently selected file
 
@@ -87,8 +89,6 @@ if has('nvim')
     nnoremap <silent><buffer><expr> d
           \ denite#do_map('do_action', 'delete')
     nnoremap <silent><buffer><expr> i
-          \ denite#do_map('open_filter_buffer')
-    nnoremap <silent><buffer><expr> <C-o>
           \ denite#do_map('open_filter_buffer')
   endfunction
 endif
