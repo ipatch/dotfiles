@@ -142,6 +142,12 @@ To print / show the latest version of a NPM package
 npm show [pkg] version
 ```
 
+to list available versions of a npm package, ie. react
+
+```shell
+npm info react versions
+```
+
 To install a NPM package / module globally for a user on the system that should be accessible via the `$PATH`
 
 > If the NPM prefix is not set, the homebrew version of Nodejs / NPM will put global packages with in `/usr/local/bin`
