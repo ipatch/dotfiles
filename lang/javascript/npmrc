@@ -1,1 +1,4 @@
-prefix=~/.npm-packages
+init.author.name=Chris Jones
+init.author.email=me@chrisrjones.com
+init.author.url=http://chrisrjones.com
+init.license=MIT
