@@ -308,3 +308,6 @@ end
 eval /Users/capin/miniconda3/bin/conda "shell.fish" "hook" $argv | source
 # <<< conda initialize <<<
 
+# starship theme
+starship init fish | source
+

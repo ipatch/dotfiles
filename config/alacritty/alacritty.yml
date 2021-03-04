@@ -320,7 +320,7 @@ key_bindings:
   # - { key: Key0,      mods: Command,            action: None }
   # - { key: Equals,    mods: Command,            action: None }
   # - { key: Minus,     mods: Command,            action: None }
-  - { key: Add,       mods: Command,            action: None }
+  # - { key: Add,       mods: Command,            action: None }
   - { key: K,         mods: Command,            action: None }
   # - { key: V,         mods: Command,            action: None }
   # - { key: C,         mods: Command,            action: None }
