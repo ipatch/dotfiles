@@ -1,5 +1,5 @@
 yarn global v1.22.10
-info "@babel/cli@7.12.16" has binaries:
+info "@babel/cli@7.13.10" has binaries:
    - babel
    - babel-external-helpers
 info "asciicast2gif@0.2.1" has binaries:
@@ -8,17 +8,17 @@ info "browser-sync@2.26.14" has binaries:
    - browser-sync
 info "concurrently@5.3.0" has binaries:
    - concurrently
-info "create-react-app@4.0.2" has binaries:
+info "create-react-app@4.0.3" has binaries:
    - create-react-app
 info "csslint@1.0.5" has binaries:
    - csslint
 info "electron-packager@15.2.0" has binaries:
    - electron-packager
-info "eslint@7.20.0" has binaries:
+info "eslint@7.21.0" has binaries:
    - eslint
 info "flow-language-server@0.6.0" has binaries:
    - flow-language-server
-info "gifsicle@5.1.0" has binaries:
+info "gifsicle@5.2.0" has binaries:
    - gifsicle
 info "javascript-typescript-langserver@2.11.3" has binaries:
    - javascript-typescript-langserver
@@ -39,7 +39,7 @@ info "stacks-cli@1.0.4" has binaries:
    - stacks-cli
 info "svg-term-cli@2.1.1" has binaries:
    - svg-term
-info "typescript@4.1.5" has binaries:
+info "typescript@4.2.3" has binaries:
    - tsc
    - tsserver
 info "typescript-language-server@0.4.0" has binaries:
@@ -48,6 +48,4 @@ info "webpack@5.15.0" has binaries:
    - webpack
 info "webpack-cli@4.3.1" has binaries:
    - webpack-cli
-info "webpack-dev-server@3.11.2" has binaries:
-   - webpack-dev-server
-Done in 1.22s.
+Done in 1.15s.
