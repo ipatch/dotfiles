@@ -333,7 +333,7 @@
 
 [gpg]
   # Make certain `gpg` is in the $USER $PATH
-	program = gpg
+	program = /usr/local/bin/gpg
 
 [init]
   templatedir = ~/.config/git/git-templates
