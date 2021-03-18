@@ -20,7 +20,11 @@ function brew --description "catch common misspelling & add some goodies"
     case cask outdated --greddy
       echo "greedy NOT greddy";
       echo "================================="
-      command brew cask outdated --greedy
+      set_color -d red; echo "`brew cask outdated --greedy obsolete`"; set_color normal
+      printf "use "; set_color -o green; echo "brew outdated --greedy"; set_color normal
+      command brew outdated --greedy
+      
+      set_color -d; printf '\n%s' 'use '; set_color -o green; echo "brew outdated --greedy"; set_color normal
     case "*"
       command brew $argv
   end #switch
