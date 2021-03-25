@@ -1,4 +1,5 @@
 function brew --description "catch common misspelling & add some goodies"
+	if test -f /usr/local/bin/brew
   # REF: https://stackoverflow.com/a/60607145/708807
   # thank you @faho
   switch "$argv[1]"
@@ -28,5 +29,8 @@ function brew --description "catch common misspelling & add some goodies"
     case "*"
       command brew $argv
   end #switch
+  else
+  echo "brew not found"
+  end
 
 end #function
