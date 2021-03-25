@@ -41,6 +41,11 @@ abbr -ag dots "cd $dots"
 abbr -ag dotsw "cd $dots/.wiki"
 abbr -ag rmd "rm -rf"
 abbr -ag rm.all.but "echo 'ls --hide=\*{.EXT,.EXT2,.EXT3} | xargs rm'"
+#############################
+# /os/archlinux
+##
+abbr -ag dotsarch "cd $dots/jobs/Linux/arch"
+abbr -ag dots.arch "cd $dots/jobs/Linux/arch"
 
 # get weather
 abbr -ag get-weather "curl wttr.in"
