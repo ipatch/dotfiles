@@ -30,8 +30,9 @@ end
 ##
 # set -gx TERM xterm-256color # <= ❗️ DON'T explicitly set this env var!
 if type -q hostname
-  set -gx HOSTNAME (hostname -s)
+	set -gx HOSTNAME (hostname -s)
 end
+
 set -gx dotfiles /opt/code/dotfiles
 set -gx dots /opt/code/dotfiles
 set -gx XDG_CACHE_HOME $HOME/.cache

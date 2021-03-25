@@ -1,0 +1,3 @@
+# xrandr --output DP1 --mode 3840x2160
+xrandr --output DP1 --mode 1920x1080
+

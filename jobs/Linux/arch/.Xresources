@@ -1,0 +1,6 @@
+Xft.dpi: 192
+
+! these might also be useful depending on your monitor and personal preferences:
+
+! dynamically adjust font size
+URxvt.perl-ext-common: resize-font
