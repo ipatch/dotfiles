@@ -29,7 +29,9 @@ end
 # USER defined environment variables
 ##
 # set -gx TERM xterm-256color # <= ❗️ DON'T explicitly set this env var!
-set -gx HOSTNAME (hostname -s)
+if type -q hostname
+  set -gx HOSTNAME (hostname -s)
+end
 set -gx dotfiles /opt/code/dotfiles
 set -gx dots /opt/code/dotfiles
 set -gx XDG_CACHE_HOME $HOME/.cache
@@ -303,10 +305,12 @@ end
 
 # set -g fish_user_paths "/usr/local/opt/postgresql@10/bin" $fish_user_paths
 
+if test -d $HOME/miniconda3
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 eval /Users/capin/miniconda3/bin/conda "shell.fish" "hook" $argv | source
 # <<< conda initialize <<<
+end
 
 # starship theme
 # starship init fish | source
