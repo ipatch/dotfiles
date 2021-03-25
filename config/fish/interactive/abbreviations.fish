@@ -370,6 +370,14 @@ switch $os
     abbr -ag pbcopy "xclip -selection clipboard"
     abbr -ag pbpaste "xclip -selection clipboard -o"
 
+    ##############################
+    # os/linux/arch
+    ##
+    if type -q pacman
+	abbr -ag pm "sudo pacman"
+
+    end
+
     ###############################
     # Linuxbrew
     if type -q brew
