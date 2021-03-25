@@ -401,4 +401,4 @@
 [pull]
 	ff = only
 [credential]
-	helper = osxkeychain
+	helper = cache
