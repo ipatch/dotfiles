@@ -1,3 +1,14 @@
 # xrandr --output DP1 --mode 3840x2160
 xrandr --output DP1 --mode 1920x1080
 
+# ipatch, set capslock tap to esc, and capslock hold to control
+# NOTE: requires `xcape` be installed
+# REF: see gist.github.com/tanyuan/
+#
+# make capslock behave like ctrl
+setxkbmap -option ctrl:nocaps
+
+# make short-pressed ctrl behave like escape
+xcape -e 'Control_L=Escape'
+
+
