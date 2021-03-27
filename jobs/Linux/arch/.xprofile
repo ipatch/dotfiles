@@ -16,5 +16,5 @@ xset s off
 xset -dpms
 xset s noblank
 
-# faster key repeat
-xset r rate 210 40
+# faster key repeat NOTE: ipatch, too fast for me.
+# xset r rate 210 40
