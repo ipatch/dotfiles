@@ -2,13 +2,13 @@
 
 <a name="troubleshooting"></a>
 
-### troubleshooting / fail to boot [insert sad face]
+### troubleshooting / fail to boot 😭
 
 <a name="tshoot-fail-to-boot"></a>
 
-**my rant** boot failures always suck and happen at the worst time [insert shrug],
+**my rant** boot failures always suck and happen at the worst time 🤦
 
-**TL;DR** ❗️ make sure `/boot` partition is writable when upgrading `linux` and `linux-headers`, my particular case my HFS `/boot` partition was mounted as _read-only_. Install `yay -S hfsutils` to support RW of hfs partitions.
+**TL;DR** ❗️ make sure `/boot` partition is writable when upgrading `linux` and `linux-headers`, for me my HFS `/boot` partition was mounted as _read-only_. Install `yay -S hfsutils` to support RW of hfs partitions.
 
 my most recent boot failure happened after upgrading all system packages on my arch linux install using `yay -Syu`. to make matters worse i'm running arch on a macbook without an internal display, and FWR the std <kbd>option</kbd> is not [diplaying][ul1] any bootable disks or even displaying the boot menu
 
