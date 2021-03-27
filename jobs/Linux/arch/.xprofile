@@ -11,4 +11,10 @@ setxkbmap -option ctrl:nocaps
 # make short-pressed ctrl behave like escape
 xcape -e 'Control_L=Escape'
 
+# stop screen from going blank
+xset s off
+xset -dpms
+xset s noblank
 
+# faster key repeat
+xset r rate 210 40
