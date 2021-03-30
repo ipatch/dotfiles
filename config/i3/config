@@ -107,7 +107,7 @@ bindsym $mod+Shift+space floating toggle
 # change focus between tiling / floating windows
 # bindsym $mod+space focus mode_toggle
 # NOTE: ipatch
-bindsym $mod+space exec --no-startup-id rofi-menu
+bindsym $mod+control+e exec rofi -show run
 
 # focus the parent container
 bindsym $mod+a focus parent
