@@ -1,5 +1,5 @@
 # xrandr --output DP1 --mode 3840x2160
-xrandr --output DP1 --mode 1920x1080
+# xrandr --output DP1 --mode 1920x1080
 
 # ipatch, set capslock tap to esc, and capslock hold to control
 # NOTE: requires `xcape` be installed
