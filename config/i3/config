@@ -26,7 +26,7 @@ font pango:monospace 8
 # screen before suspend. Use loginctl lock-session to lock your screen.
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
-# NOTE: ipatch
+# NOTE: ipatch, define monitor resolution/refresh in $HOME/.xprofile
 # #nowork #nova TODO: #todo
 # exec --no-startup-id xrandr --output DP1 3840x2160
 
