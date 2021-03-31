@@ -1,0 +1,5 @@
+
+# NOTE: ipatch, install community/espeak-ng and speech-dispatcher
+
+AddModule "espeak-ng" "sd_espeak-ng" "espeak-ng.conf"
+

@@ -1,1 +1,1 @@
-/Users/capin/.local/share/omf/themes/neolambda/fish_prompt.fish
+/home/capin/.local/share/omf/themes/neolambda/fish_prompt.fish
