@@ -401,4 +401,4 @@
 [pull]
 	ff = only
 [credential]
-	helper = cache
+	helper = cache --timeout=28800
