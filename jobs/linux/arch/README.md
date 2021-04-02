@@ -1,3 +1,13 @@
+
+## pacman
+
+- to generate a list of installed packages
+
+```shell
+pacman -Qqen > pkglist.txt
+pacman -Qqem > pkglist_aur.txt
+```
+
 ## troubleshooting
 
 <a name="troubleshooting"></a>

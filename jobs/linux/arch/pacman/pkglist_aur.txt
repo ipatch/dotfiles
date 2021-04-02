@@ -1,0 +1,15 @@
+autotiling
+croco-boot-repair-git
+emote
+hfsprogs
+hfsutils
+inetutils-hostname
+lead-git
+macfanctld
+mbpfan-git
+sayit
+simple-mtpfs
+ttf-inconsolata-lgc-for-powerline
+ttf-ms-fonts
+urxvt-resize-font-git
+yay
