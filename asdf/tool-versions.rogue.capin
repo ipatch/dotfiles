@@ -1,4 +1,4 @@
-ruby 2.6.6
+ruby 2.7.2
 ocaml 4.04.2
-elixir 1.11.2-otp-23
+elixir 1.11.4-otp-23
 erlang 23.2
