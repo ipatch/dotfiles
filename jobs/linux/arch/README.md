@@ -1,6 +1,8 @@
 
 ## pacman
 
+<a name="pacman"></a>
+
 - to generate a list of installed packages
 
 ```shell
@@ -72,3 +74,12 @@ A good [reference/explanation][ul3] of the above procedure
 [ul1]: <https://support.apple.com/guide/mac-help/change-your-mac-startup-disk-mchlp1034/mac>
 [ul2]: <https://support.apple.com/en-us/HT204063>
 [ul3]: <https://www.ubuntubuzz.com/2016/03/booting-gnulinux-manually-with-grub-prompt.html>
+
+## useful links
+
+- [**medium article** arch linux running on a macbook][ul4]
+- [**github** arch linux macbook dual boot][ul5]
+
+
+[ul4]: <https://medium.com/@philpl/arch-linux-running-on-my-macbook-2ea525ebefe3>
+[ul5]: <https://github.com/s0344/ArchLinux_MacOS_Dualboot#22>
