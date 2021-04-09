@@ -214,13 +214,15 @@ mouse:
   faux_scrolling_lines: 1
   # hide pointer while typing in the terminal
   # hide_cursor_when_typing: true
-  hide_when_typing: false
+  hide_when_typing: true
 
   url:
     # URL launcher
     #
     # use the below app to open a URL
     # This URL is always added to the command as the last parameter.
+    #
+    # NOTE: ipatch, `open` is specific to macos
     launcher: open
 
 selection:
