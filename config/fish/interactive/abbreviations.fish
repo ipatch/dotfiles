@@ -1,16 +1,12 @@
 ##############################
-# A place to store abbreviations for making things a tad bit quicker.
+# make things a tad bit quicker.
 # NOTE: abbr's will default to universal scope, ie. conditional logic will not "work" for different systems, ie. macOS and Linux, thus use the `-g` flag with `abbr` to make global scope which is NOT universal thus making conditional logic work.
 #
 ###
-# NOTE: when adding a new `abbr` fish requires a reload, ie. `exec fish` for every fish shell instance to pick up on the newly added `abbr`.
-#
+# NOTE: ❗️ abbr's DO NOT support spaces
+# NOTE: adding a new `abbr` requires a reload, ie. `exec fish` for every running fish shell instance.
+# NOTE: double quotes ie. `"$dots"` will be expand env var after pressing `space`, whereas single quotes expands after pressing `enter`
 ###
-# NOTE: if using double quotes and the abbr contains an env var, ie. `$dots` the env var will be expanded after pressing space, whereas using single quotes will expand the $dots after pressing `enter`
-#
-###
-# NOTE: not entirely sure, but I don't think abbr's support spaces, so can not be used for common misspellings of frequent commands, ie. `brew cask outdated --greddy`
-
 
 ##############################
 # Added the below abbreviations because I'm really tired of typing the below commands.
@@ -18,15 +14,6 @@
 abbr -ag fishr 'exec fish'
 abbr -ag fr 'exec fish'
 #
-abbr -ag editfish 'nvim $HOME/.config/fish/config.fish'
-abbr -ag editnvim 'nvim $HOME/.config/nvim/init.vim'
-abbr -ag editvim  'nvim $HOME/.vimrc'
-abbr -ag editdots 'cd $dots; nvim;'
-#
-abbr -ag edfish "nvim $HOME/.config/fish/config.fish"
-abbr -ag ednvim "nvim $HOME/.config/nvim/init.vm"
-abbr -ag edvim "nvim $HOME/.vimrc"
-abbr -ag eddots "cd $dots; nvim;"
 
 # NOTE: OS specific fish abbreviations are defined below
 abbr -ag clearf 'cat /dev/null >' # add name of `file` and alias
@@ -37,7 +24,15 @@ abbr -ag clrf 'cat /dev/null >' # add name of `file` and alias
 ##
 abbr -ag cd- 'cd -'
 abbr -ag cp "cp -iv"
+
+
+# double quote example
 abbr -ag dots "cd $dots"
+
+# single quote example
+abbr -ag dotss 'cd $dots'
+
+
 abbr -ag dotsw "cd $dots/.wiki"
 abbr -ag rmd "rm -rf"
 abbr -ag rm.all.but "echo 'ls --hide=\*{.EXT,.EXT2,.EXT3} | xargs rm'"
@@ -59,7 +54,7 @@ abbr -ag ksong "open https://www.kntu.com/last-7-days-of-music-on-kntu/"
 #############################
 # networking related, ie. wget, curl, etc etc
 ##
-abbr -ag curll 'curl -O -L -C -'
+abbr -ag curll 'curl -O -L -C -' # the equivalent of the std wget cmd
 abbr -ag crl 'curl -O -L -C -'
 abbr -ag curlget 'curl -O -L -C -'
 abbr -ag cget 'curl -O -L -C -'
@@ -94,7 +89,11 @@ abbr -ag today "date +'%A, %B %-d, %Y'"
 abbr -ag ll "ls -1" # same as below
 abbr -ag l1 "ls -1" # only filenames, nothing else, single column
 abbr -ag lr "ls -lrth" # show newest file first, ie. last line of output
+#
 abbr -ag ljd "ls -d ./*/" # only show directories
+abbr -ag l.just.dirs "ls -d ./*/" # only show dirs
+abbr -ag ls.just.dirs "ls -d ./*/" # only show dirs
+#
 abbr -ag ls.count.files "ls -p | /usr/bin/grep -v / | wc -l" # ignores hidden files
 abbr -ag ls.count.dirs "ls -p | /usr/bin/grep / | wc -l" # ignores hidden dirs
 
@@ -114,13 +113,14 @@ abbr -ag gd 'git diff --stat'
 abbr -ag ga 'git add --all'
 abbr -ag gitc 'git commit -m'
 abbr -ag gac 'git commit -am'
-abbr -ag gqc 'git random'
+abbr -ag gqc 'git random' # SEE: `gitconfg`
 abbr -ag gp 'git push --quiet'
 abbr -ag gpl 'git pull'
 abbr -ag gru 'git remote -v update'
 abbr -ag gco 'git checkout'
 abbr -ag gsmru 'git smrupdate'
 abbr -ag git-ls-aliases 'git aliases'
+abbr -ag git.aliases 'git aliases'
 abbr -ag gf 'git fresh'
 abbr -ag git.is.shallow 'git rev-parse --is-shallow-repository'
 abbr -ag git.shallow\? 'git rev-parse --is-shallow-repository'
@@ -130,10 +130,7 @@ abbr -ag git.count.commits 'git rev-list --count HEAD'
 ################
 # personal fish functions
 ##
-abbr -ag pretty_path 'path_pretty' # `path_pretty` is a fish function
-abbr -ag pretty-path 'path_pretty'
-abbr -ag path-pretty 'path_pretty'
-abbr -ag pp 'path_pretty'
+abbr -ag pp 'path_pretty' # `path_pretty` fish function
 abbr -ag ppr "path_pretty_redux"
 abbr -ag path-add 'path_add' # fish func
 abbr -ag path-remove 'path_remove' # fish func
@@ -142,19 +139,21 @@ abbr -ag pthrm 'path_remove'
 abbr -ag prm 'path_remove'
 
 ################
-# alacritty abbrs
+# alacritty
 ##
-# NOTE creating al windows on macOS with a retinal screen requires 2x the dimensions
+# NOTE creating al windows on macOS with a retina screen requires 2x the dimensions
 # NOTE it appears alacritty v0.2.5 manages window dimensions differently than v0.2.{0,1}
-abbr -ag al-win-retina-irc "alacritty -d 138 39 &; disown"
-abbr -ag al-win-retina-split "alacritty -d 56 15 &; disown"
-abbr -ag al-win-4k-irc "alacritty -d 93 22 &; disown"
-abbr -ag al-win-4k-cast "alacritty -d 60 14 &; disown"
-abbr -ag al-win-ipad2-irc "alacritty -d 210 60 &; disown"
-abbr -ag al-win-u28e590d-irc "alacritty -d 192 45 &; disown" # ext samsung monitor
-abbr -ag al-win-4k-samsung "alacritty -d 192 45 &; disown"
 #
-abbr -ag alwin4ksam "alacritty -d 192 45 &; disown"
+# # NO WORK, al ≥ v0.7x no longer uses the `-d [NUM] [NUM]` flag
+# abbr -ag al-win-retina-irc "alacritty -d 138 39 &; disown"
+# abbr -ag al-win-retina-split "alacritty -d 56 15 &; disown"
+# abbr -ag al-win-4k-irc "alacritty -d 93 22 &; disown"
+# abbr -ag al-win-4k-cast "alacritty -d 60 14 &; disown"
+# abbr -ag al-win-ipad2-irc "alacritty -d 210 60 &; disown"
+# abbr -ag al-win-u28e590d-irc "alacritty -d 192 45 &; disown" # ext samsung monitor
+# abbr -ag al-win-4k-samsung "alacritty -d 192 45 &; disown" # NO WORK, al ≥ v0.7x
+#
+# abbr -ag alwin4ksam "alacritty -d 192 45 &; disown"
 
 ################
 # SSL encryption: useful abbreviations for working with NOC lists 💣
@@ -169,15 +168,16 @@ if type -q openssl
 end
 
 #################
-# node.js repl with reverse search
+# node.js
 ##
 abbr -ag nrd "npm run dev"
 abbr -ag nr "npm run"
 
+# node.js / using the cli repl
 if type -q node; and type -q rlwrap;
   abbr -ag inode "rlwrap node"
 else
-  # DO SOMETHING
+  # TODO:
   # echo "Your gunna need to do a `brew install rlwrap`"
 end
 
@@ -196,7 +196,6 @@ end
 # asdf tooling
 ##
 if type -q asdf
-  abbr -ag cd-asdf-src "cd $HOME/.asdf"
   abbr -ag cdasdfsrc "cd $HOME/.asdf"
 end
 
@@ -244,7 +243,7 @@ if type -q ffprobe
   "ffprobe -v error -select_streams v:0 -show_entries stream=nb_frames -of default=nokey=1:noprint_wrappers=1"
 end
 
-switch $os
+switch $os # personally defined env var
   case Darwin
     ################
     # macOS specific abbreviations
@@ -278,9 +277,6 @@ switch $os
     ####
     # macOS Debugging
     ##
-    abbr -ag sip-status "csrutil status"
-    abbr -ag mac-sip-status "csrutil status"
-    abbr -ag mac-print-sip-status "csrutil status"
 
     # TODO: migrate all `mac, mac-` related abbrs, alias, shell scripts to use `apl` prefix
     abbr -ag apl.sip.status "csrutil status"
@@ -290,12 +286,12 @@ switch $os
     # update location DB
     # NOTE: changed abbr to `mac-updatedb` because of homebrew installed
     #...`findutils` which provides the `updatedb` bin.
-    abbr -ag mac-updatedb "sudo /usr/libexec/locate.updatedb"
-    abbr -ag mac-hide-files "mac-toggle-hidden-files"
-    abbr -ag mac-show-files "mac-toggle-hidden-files"
-    abbr -ag mac-toggle-hidden-files "mac-toggle-hidden-files"
-    abbr -ag mac-toggle-desktop-icons "mac-toggle-desktop-icons.sh"
-    abbr -ag mac-print-users "mac_lsusers"
+    abbr -ag apl.updatedb "sudo /usr/libexec/locate.updatedb"
+    abbr -ag apl.finder.tog.hidden.files "mac-toggle-hidden-files"
+    abbr -ag apl.finder.hide.files "mac-toggle-hidden-files"
+    abbr -ag apl.finder.show.files "mac-toggle-hidden-files"
+    abbr -ag apl.tog.desktop.icons "mac-toggle-desktop-icons.sh"
+    abbr -ag apl.ls.users "mac_lsusers"
 
     ################
     # launchd / launchctl
@@ -307,18 +303,13 @@ switch $os
     ##
     if type -q brew
       # working with brew src and formula
-      abbr -ag cd-brew-src "cd (brew --prefix)/Homebrew/Library/Taps/homebrew/homebrew-core"
       abbr -ag cdbrewsrc "cd (brew --prefix)/Homebrew/Library/Taps/homebrew/homebrew-core"
-      abbr -ag brews "cd (brew --prefix)/Homebrew/Library/Taps/homebrew/homebrew-core"
       abbr -ag cdbrewcache "cd $HOME/Library/Caches/Homebrew"
       abbr -ag cdmytap "cd $code/git/github/public/homebrew-us-05"
       # brew python shit
       abbr -ag cdbrewpysitep "cd (brew --prefix)/opt/python/Frameworks/Python.framework/Versions/Current/lib/python3.9/site-packages"
       abbr -ag cdbrewpysp "cd (brew --prefix)/opt/python/Frameworks/Python.framework/Versions/Current/lib/python3.9/site-packages"
       abbr -ag cdbrewtaps "/usr/local/Homebrew/Library/Taps"
-
-      # NOPE! NOT ALLOWED, ie. fish abbreviations do not support spaces
-      # abbr -ag "brew cask outdated --greddy" "brew cask outdated --greedy"
 
       # logs
       abbr -ag cdbrewlogs "cd (brew --prefix)/var/log"
@@ -366,16 +357,16 @@ switch $os
     abbr -ag sc systemctl
 
     ###############################
-    # make copy / paste a little bit easier for pengiuns 🐧
+    # make copy / help pengiuns 🐧 digest apples 🍎
     abbr -ag pbcopy "xclip -selection clipboard"
     abbr -ag pbpaste "xclip -selection clipboard -o"
+    abbr -ag say "spd-say"
 
     ###############################
     # os/linux/arch
     ##
     if type -q pacman
-	abbr -ag pm "sudo pacman"
-
+      abbr -ag pm "sudo pacman"
     end
 
     ###############################
