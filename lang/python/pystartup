@@ -7,30 +7,32 @@
 
 # NOTE: machomebrew, ~/Library/Python/3.9/lib/python/site-packages/
 
-import atexit
-import os
-import readline
-import rlcompleter # completion function provided by GNU readline
-import fancycompleter # module that extends rlcompleter
-import pprint
+# TODO: somethin is wrong, stalling the launch of the python REPL
 
-historyPath = os.path.expanduser("~/.py_repl_history")
+# import atexit
+# import os
+# import readline
+# import rlcompleter # completion function provided by GNU readline
+# import fancycompleter # module that extends rlcompleter
+# import pprint
 
-# `freecad -c` specific
-fancycompleter.interact(persist_history=True)
+# historyPath = os.path.expanduser("~/.py_repl_history")
 
-# Tab completion
-# readline.parse_and_bind('tab: complete')
+# # `freecad -c` specific
+# fancycompleter.interact(persist_history=True)
 
-def save_history(historyPath=historyPath):
-    import readline
-    readline.write_history_file(historyPath)
+# # Tab completion
+# # readline.parse_and_bind('tab: complete')
 
-if os.path.exists(historyPath):
-    readline.read_history_file(historyPath)
+# def save_history(historyPath=historyPath):
+#     import readline
+#     readline.write_history_file(historyPath)
 
-atexit.register(save_history)
-del os, atexit, readline, rlcompleter, save_history, historyPath
+# if os.path.exists(historyPath):
+#     readline.read_history_file(historyPath)
+
+# atexit.register(save_history)
+# del os, atexit, readline, rlcompleter, save_history, historyPath
 # {% endhight %}
 
 def hello():
