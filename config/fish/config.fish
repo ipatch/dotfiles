@@ -40,8 +40,6 @@ set -gx XDG_CONFIG_DATA $HOME/.local/share
 set -gx code /opt/code
 set -gx github /opt/code/github
 set -gx gh /opt/code/github
-set -gx forks /opt/code/github/public/forks
-set -gx forksgh /opt/code/github/public/forks
 set -gx githubforks /opt/code/github/public/forks
 set -gx ghforks /opt/code/github/public/forks
 set -gx private /opt/code/github/private
@@ -51,6 +49,7 @@ set -gx publicgh /opt/code/public/github
 set -gx mygitreps /opt/code/git/github/my.github.repos
 set -gx mybtap /opt/code/git/github/public/homebrew-us-05
 set -gx mytap /opt/code/git/github/public/homebrew-us-05
+set -gx taps "$brew_prefix/Homebrew/Library/Taps"
 
 ## ccache
 set -gx CCACHE_CONFIGPATH $HOME/.config/ccache/ccache.conf
