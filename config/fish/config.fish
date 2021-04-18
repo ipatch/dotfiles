@@ -191,7 +191,7 @@ case Darwin
   end
 
   ###############################
-  # macOS > Docker tooling
+  # /macOS/Docker tooling
   ##
   set -gx ETC_LOCALTIME (realpath /etc/localtime)
   set -gx TZ (readlink /etc/localtime | sed 's#/var/db/timezone/zoneinfo/##');
@@ -265,6 +265,12 @@ case Linux
   else
     # DO NOTHING!
   end
+
+  ################################
+  # /GNU+Linux/docker/env_vars
+  ##
+  set -gx ETC_LOCALTIME (realpath /etc/localtime)
+  set -gx TZ (readlink /etc/localtime | sed 's#/usr/share/zoneinfo/##');
 
   if type -q vim
     set -gx EDITOR vim
