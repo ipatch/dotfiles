@@ -10,6 +10,12 @@ pacman -Qqen > pkglist.txt
 pacman -Qqem > pkglist_aur.txt
 ```
 
+## arch/macbook _11.x_ specific
+
+<a name="arch-on-macbook">
+
+i checked the `$PWD/etc/default/grub` file to help me remember adding `acpi_mask_gpe=0x06` to the `GRUB_CMDLINE_LINUX_DEFAULT` argument. after adding this arg to above such line the computer went from idling at ~ 70C 🔥 to idling around ~ 40C ~= 100F 🥶
+
 ## troubleshooting
 
 <a name="troubleshooting"></a>
@@ -18,9 +24,9 @@ pacman -Qqem > pkglist_aur.txt
 
 <a name="tshoot-fail-to-boot"></a>
 
-**my rant** boot failures always suck and happen at the worst time 🤦
+**my rant**, boot failures always suck and happen at the worst time 🤦
 
-**TL;DR** ❗️ make sure `/boot` partition is writable when upgrading `linux` and `linux-headers`, for me my HFS `/boot` partition was mounted as _read-only_. Install `yay -S hfsutils` to support RW of hfs partitions.
+**TL;DR** ❗️ make sure `/boot` partition is writable when upgrading `linux` and `linux-headers`, for me my HFS `/boot` partition was mounted as _read-only_. Install `yay -S hfsutils` to support RW of hfs partitions. if the parition is mounted **ro** more than likely the system was shutdown abruptly and running a file system check `fschk` on the HFS partition will allow mounting the partition with RW after the check is completed.
 
 my most recent boot failure happened after upgrading all system packages on my arch linux install using `yay -Syu`. to make matters worse i'm running arch on a macbook without an internal display, and FWR the std <kbd>option</kbd> is not [diplaying][ul1] any bootable disks or even displaying the boot menu
 
