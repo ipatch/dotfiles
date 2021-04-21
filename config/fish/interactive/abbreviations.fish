@@ -354,10 +354,10 @@ switch $os # personally defined env var
   case Linux
     ###############################
     # sytemd BS 🙄
-    abbr -ag sc systemctl
+    abbr -ag sc "sudo systemctl"
 
     ###############################
-    # make copy / help pengiuns 🐧 digest apples 🍎
+    # help pengiuns 🐧 digest apples 🍎
     abbr -ag pbcopy "xclip -selection clipboard"
     abbr -ag pbpaste "xclip -selection clipboard -o"
     abbr -ag say "spd-say"
@@ -367,6 +367,13 @@ switch $os # personally defined env var
     ##
     if type -q pacman
       abbr -ag pm "sudo pacman"
+    end
+
+    if type -q yay
+    	abbr -ag yays "yay -S"
+	abbr -ag ys "yay -S"
+	abbr -ag yss "yay -Ss"
+
     end
 
     ###############################
