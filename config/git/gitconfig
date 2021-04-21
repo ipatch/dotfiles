@@ -247,16 +247,19 @@
 [core]
   editor = nvim
 	excludesfile = /home/capin/.config/git/gitexcludes
-	attributes = /home/capin/.config/git/attributes
+	attributesfile = /home/capin/.config/git/gitattributes
+[filter "zippey"]
+  smudge = /home/capin/.local/bin/zippey.py d
+  clean = /home/capin/.local/bin/zippey.py e
   ##############################
-  # Make macOS, Linux, and Windows all play nice
+  # macOS, Linux, Windows, y'all play nice
   ##
   ###############
   # Windows
   ##
   # autocrlf = true
   ###############
-  # macOS / Linux specific
+  # macOS & Linux
   ##
 	autocrlf = input
 	precomposeUnicode = true
@@ -309,6 +312,12 @@
   default = simple # git ≥ 1.8+ required
 
 # `git config --global diff.submodule log` will add the below 2 lines
+# NOTE: exp with (un)zipping zip files in a git repo
+[diff "zip"]
+textconv = unzip -c -a
+
+
+
 [diff]
   submodule = log
 [difftool "meld"]
