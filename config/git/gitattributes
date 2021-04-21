@@ -4,3 +4,9 @@
 # `-diff` don't diff `.pbxproj` files
 # `-merge` don't merge the file
 *.pbxproj -crlf -diff -merge
+
+# working with freecad project files
+*.FCStd filter=zippey
+*.FCStd diff=zip
+*.FCStd1 filter=zippey
+*.FCStd1 diff=zip
