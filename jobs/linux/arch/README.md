@@ -85,7 +85,9 @@ A good [reference/explanation][ul3] of the above procedure
 
 - [**medium article** arch linux running on a macbook][ul4]
 - [**github** arch linux macbook dual boot][ul5]
+- [blog post, running arch on 2014 macbook pro with dm-crypt][ul6]
 
 
 [ul4]: <https://medium.com/@philpl/arch-linux-running-on-my-macbook-2ea525ebefe3>
 [ul5]: <https://github.com/s0344/ArchLinux_MacOS_Dualboot#22>
+[ul6]: <https://loicpefferkorn.net/2015/01/arch-linux-on-macbook-pro-retina-2014-with-dm-crypt-lvm-and-suspend-to-disk/>
