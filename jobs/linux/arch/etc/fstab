@@ -4,11 +4,12 @@
 # <file system> <dir> <type> <options> <dump> <pass>
 
 # TODO: ipatch, 6th field <pass> controls whether the fs should be checked, val=1 check fs, val=2 check fs in parallel to root fs
+# NOTE: ipatch, remove `discard` from SSD partitions, use periodic TRIM instead of realtime
 
-/swapfile none swap defaults,discard 0 0
+/swapfile none swap defaults	0 0
 
 # /dev/nvme0n1p3
-UUID=5f9999eb-0812-4a84-be72-6135a8fe3627	/         	ext4      	rw,relatime,data=ordered,discard	0 1
+UUID=5f9999eb-0812-4a84-be72-6135a8fe3627	/         	ext4      	rw,relatime,data=ordered	0 1
 
 # /dev/nvme0n1p2 LABEL=Arch\134x20Linux
 UUID=1f633ac8-825f-3ca4-a190-20a0b6d37297	/boot         	hfsplus   	force,rw,relatime,umask=22,uid=0,gid=0,nls=utf8	0 2
