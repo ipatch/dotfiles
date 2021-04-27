@@ -292,6 +292,7 @@ switch $os # personally defined env var
     abbr -ag apl.finder.show.files "mac-toggle-hidden-files"
     abbr -ag apl.tog.desktop.icons "mac-toggle-desktop-icons.sh"
     abbr -ag apl.ls.users "mac_lsusers"
+    abbr -ag apl.dmesg 'sudo dmesg >> "$TMPDIR/dmesg.log"; tail -f "$TMPDIR/dmesg.log"'
 
     ################
     # launchd / launchctl

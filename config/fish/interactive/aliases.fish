@@ -5,7 +5,8 @@ switch $os
   case Darwin
     #DO NOTHING
     alias l="ls -lahF --group-directories-first"
-    alias grep="echo 'You should be using `rg` instead ...just saying'"
+    # sorry i ever doubted you grep
+    # alias grep="echo 'You should be using `rg` instead ...just saying'"
     alias rg="rg -S"
     if test -d /Applications/Arduino.app
       alias arduino="/Applications/Arduino.app/Contents/MacOS/Arduino"

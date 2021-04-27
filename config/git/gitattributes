@@ -6,7 +6,7 @@
 *.pbxproj -crlf -diff -merge
 
 # working with freecad project files
-*.FCStd filter=zippey
-*.FCStd diff=zip
-*.FCStd1 filter=zippey
-*.FCStd1 diff=zip
+# *.FCStd filter=zippey
+# *.FCStd diff=zip
+# *.FCStd1 filter=zippey
+# *.FCStd1 diff=zip
