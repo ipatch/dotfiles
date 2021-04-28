@@ -1,4 +1,5 @@
 acpi
+afpfs-ng
 alacritty
 alsa-utils
 arandr
@@ -14,6 +15,7 @@ broadcom-wl-dkms
 cbatticon
 certbot
 chromium
+cifs-utils
 code
 cpupower
 cups
@@ -22,6 +24,7 @@ dhcpcd
 dialog
 dmenu
 dmg2img
+docker
 dosfstools
 edk2-ovmf
 efibootmgr
@@ -32,6 +35,7 @@ firefox
 fish
 flameshot
 flex
+freerdp
 git
 gparted
 groff
@@ -65,6 +69,8 @@ neofetch
 neovim
 network-manager-applet
 networkmanager
+nfs-utils
+nmap
 notification-daemon
 noto-fonts-emoji
 nss-mdns
@@ -72,6 +78,7 @@ ntfs-3g
 openssh
 os-prober
 p7zip
+packer
 pcmanfm
 pkgconf
 powerline-fonts
@@ -81,14 +88,17 @@ pulseaudio-bluetooth
 python-pip
 qemu
 ranger
+rdesktop
 redshift
 reflector
 rofi
 rsync
 rxvt-unicode
+samba
 screenkey
 scrot
 speech-dispatcher
+sshfs
 strace
 sudo
 thermald
@@ -107,6 +117,7 @@ volumeicon
 wget
 which
 wpa_supplicant
+x11vnc
 xbindkeys
 xcape
 xdg-user-dirs
@@ -137,6 +148,7 @@ xorg-xcursorgen
 xorg-xdpyinfo
 xorg-xdriinfo
 xorg-xev
+xorg-xeyes
 xorg-xgamma
 xorg-xhost
 xorg-xinit
