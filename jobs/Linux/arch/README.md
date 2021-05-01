@@ -95,3 +95,56 @@ A good [reference/explanation][ul3] of the above procedure
 [ul6]: <https://loicpefferkorn.net/2015/01/arch-linux-on-macbook-pro-retina-2014-with-dm-crypt-lvm-and-suspend-to-disk/>
 [ul7]: <https://stackoverflow.org/wiki/Mount_an_AFP_share_from_Linux>
 [ul8]: <https://dpi.lv/>
+[ul9]: <https://github.com/foxlet/macOS-Simple-KVM/blob/master/docs/guide-networking.md>
+[ul10]: <https://www.linuxquestions.org/questions/linux-virtualization-and-cloud-90/virsh-failed-to-start-network-default-4175672429/>
+[ul11]: <https://bbs.archlinux.org/viewtopic.php?id=247377>
+
+<details>
+
+<summary>scratchpad</summary>
+
+- with my current arch linux install there is no `/etc/network/interfaces` file.
+
+- archlinux does not use the above mentioned file, as that is a _debianism_, network manager can used used to setup a bridge with tun/tap [learn more][ul9]
+
+- while experimenting with libvirtd to manage vms, when using `systemctl` to status libvirtd, the following error msg appeared
+  `libvirtd cannot check dnsmasq binary /usr/bin/dnsmasq: no such file or directory`
+  install dnsmasq
+
+- next error, `cannot find 'dmidecode' in path: no such file or directory`
+- setup **pollkit**, install **dmidecode**, no fiddlig with a pollkit agent so far.
+
+- next error, upon launching `virt-manager`
+
+  ```
+  virt-manager unable to connect to libvrit qemu:///system authentication unavailable
+  ```
+
+  **answer**, add $USER launching `virt-manager` to the `libvirt` user group
+
+- next error, 
+
+  ```
+  virt-manager error starting domain: requested operation is not valid: network 'default' is not active
+  ```
+
+  **answer**, the **default** network has to be defined using an XML file [learn more][ul10]
+
+  ```shell
+  sudo virsh net-define /etc/libvirt/qemu/networks/default.xml
+  sudo virsh net-autostart default
+  sudo virsh net-start default
+  sudo virsh net-list --all
+  ```
+
+- next error, [useful link **bbs.archlinuxr.og**][ul11]
+
+  ```
+  error starting domain: cannot access storage file as uid gid permission denied
+  ```
+
+  **answer**, edit `/etc/libvirt/qemu.conf`
+
+
+
+</details>
