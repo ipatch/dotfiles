@@ -253,6 +253,7 @@ switch $os # personally defined env var
     abbr -ag dll "diskutil list"
     abbr -ag dle "diskutil eject"
     abbr -ag dle2 "diskutil eject /dev/disk2"
+    abbr -ag apl.poweroff "sudo shutdown -h now"
 
     # ffmpeg
     abbr -ag mac-ffmpeg-ls-devs "ffmpeg -f avfoundation -list_devices true -i \"\""
