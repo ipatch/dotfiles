@@ -792,7 +792,6 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.co
 - [ ] [tmux] put short synopsis of current weather in tmux status bar, _right side_
 - [ ] **vivaldi** / **voilentmonkey**
   - youtube script, to switch view mode on viewer window hover with mouse or mash a key to bring focus to viewer window so playback shortcuts become active.
-- [ ] [fish] exp with using colors for `brew.fish` function to distinguish misspelling of word
 - [ ] [vim] navigating documents with line wraps makes jumping through buffer by line number inaccurate, wrapped lines are displayed as one line, but the jump cmd treats them as multiple
 - [ ] [tmux] **getting closer** it'd be nice to have a quick double tap of either <kbd>shift</kbd>key then<kbd>shift</kbd> to toggle between remote and local tmux sessions 
   - [learn more][lm1]
@@ -818,6 +817,7 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.co
 <summary><strong>TODOs completed</strong></summary>
 
 
+- [x] ~~[fish] exp with using colors for `brew.fish` function to distinguish misspelling of word~~
 - [x] ~~[vim] [neovim] keep the `lcd` / `pwd` to the directory nvim was launched from **especially** if nvim was launched with no args~~
     - disabled `autochdir`, check with `:verbose set autochdir?`
 - [x] [macos, wm, spectacle] ~~<kbd>cmd,option,+</kbd> have to mash <kbd>+</kbd> multiple times to increase window size, would like _hold the key down to increase size_, looking at your karabiner-elements / hammerspoon~~ [out of my control][lm3]
