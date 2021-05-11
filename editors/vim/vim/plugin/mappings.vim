@@ -4,8 +4,8 @@
 " NOTE: apparently `:map` and `:map!` will map to all modes in (n)vim
 ""
 
-" BUG: vim ≥ 8.2 will TOTALLY break with the below mapping thus mouse actions
-" becomes a total PITA scrolling with `vimdiff`
+" BUG: 🐛 vim ≥ 8.2, the below mapping TOTALLY breaks mouse actions ie.
+" ...no scrolling with `vimdiff`
 if has('nvim')
   nnoremap <esc> :
 elseif v:version > 8 || v:version == 8 " Check for Vim8 ...sort of

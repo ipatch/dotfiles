@@ -1,5 +1,3 @@
-scriptencoding utf-8
-
 """"""""""""""""""""""""""""""
 " ~ settings.vim ~ for Vim >= 8 && Neovim
 " Author: Chris Jones
@@ -58,7 +56,9 @@ if has('syntax')
 endif
 
 set spelllang=en_us " set the language for spelling words
-language en_US
+
+" BUG: 🐛 enabling the below line breaks copy/paste of emojis in neovim
+" language en_US
 
 """"""""""""""""""""""""""""""
 " wrapping
@@ -83,14 +83,14 @@ set showmatch " show matching braces
 """""""""""""""""""""""""""""
 " Indentation / tab shit
 ""
-" set ts=2 sts=2 sw=2 expandtab 
+set ts=2 sts=2 sw=2 expandtab 
 set shiftwidth=2 " Indent 2 spaces < and > commands as well.
 set softtabstop=2
 set tabstop=2 " Indicates how many `spaces` a `tab` will indent
 set expandtab " spaces are better than tabs 💥
 set nofoldenable
 set tabstop=2
-set autoindent " DON'T abbrv to `ai`, use `autointdent` set auto indent
+set autoindent " DON'T abbrv to `ai`, use `autointdent`
 set smartindent 
 set hidden " set sane buffer switching
 set smarttab " <tab>/<BS> indent/dedent in leading whitespace

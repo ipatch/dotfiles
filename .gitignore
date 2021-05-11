@@ -18,7 +18,7 @@ vim/*.swp
 **/.tmp.a
 **/.undo
 **/.un*
-**/.un~
+**/*.un~
 
 # Ignore bundled packages, ie. minpac Vim plugins
 !/editors/vim/vim/pack/.gitkeep
