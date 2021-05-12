@@ -364,6 +364,3 @@ endif " END Neovim only settings
 " load before plugins - polyglot
 ""
 let g:polyglot_disabled = ['json']
-autocmd BufNewFile,BufRead *.json set syntax=jsonc
-autocmd FileType jsonc let g:indentLine_enabled=0
-" autocmd FileType jsonc set conceallevel=0
