@@ -27,7 +27,7 @@ if has('conceal')
 	if (g:vim_json_syntax_conceal == 1)
 		"level 2 means concealed text gets completely hidden unless a
 		"replacement is defined (none is defined by us)
-		setlocal conceallevel=2
+		setlocal conceallevel=0
 		let &l:concealcursor = g:vim_json_syntax_concealcursor
 	else
 		"level 0 means text is shown normally = no concealing
@@ -40,3 +40,7 @@ endif
 " autocmd FileType jsonc setlocal commentstring=// %s:
 setlocal commentstring=//%s
 setlocal commentstring+=/*%s*/
+
+" tsconfig.json	
+autocmd BufNewFile,BufRead tsconfig.json setlocal filetype=jsonc
+autocmd FileType jsonc set conceallevel=0
