@@ -787,7 +787,6 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.co
 - [ ] [vim, markdown] have basic code folding for certain HTML tags when editing markdown documents
 - [ ] [macos] what is the procedure macos uses to mount a file system when a usb drive is plugged into a macos system
 - [ ] [tmux] instead <kbd>prefix</kbd> then <kbd>control+l</kbd> to clear the screen, try using <kbd>control+l followed by l</kbd>, no good, try using <kbd>super + l</kbd>
-- [ ] [tmux] possible binding for toggling max/min windows size <kbd>control+shift</kbd>
 - [ ] [macos] look into creating a _lazy mouse hover_ function, if the mouse is hovering a application specific window for a certain period of time (threshold) bring that application to focus, ie. a pseudo auto hover.
 - [ ] [tmux] put short synopsis of current weather in tmux status bar, _right side_
 - [ ] **vivaldi** / **voilentmonkey**
@@ -815,7 +814,6 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.co
 
 <details>
 <summary><strong>TODOs completed</strong></summary>
-
 
 - [x] ~~[fish] exp with using colors for `brew.fish` function to distinguish misspelling of word~~
 - [x] ~~[vim] [neovim] keep the `lcd` / `pwd` to the directory nvim was launched from **especially** if nvim was launched with no args~~
@@ -855,6 +853,8 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.co
 <details>
 
 <summary>scratchpad</summary>
+
+- the first day of summer for 2021 is june 20th
 
 </details>
 
