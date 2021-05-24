@@ -21,10 +21,10 @@
   // enable diagnostic
   "diagnostic.enable": true,
   "diagnostic.signOffset": 1000,
-  "diagnostic.errorSign": ">>",
+  "diagnostic.errorSign": "☠︎",
   "diagnostic.warningSign": "⚠",
-  "diagnostic.infoSign": ">>",
-  "diagnostic.hintSign": ">>",
+  "diagnostic.infoSign": "☀︎",
+  "diagnostic.hintSign": "☞",
 
   // NOTE: `coc-eslint`
   //

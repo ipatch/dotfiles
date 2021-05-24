@@ -22,7 +22,7 @@ plugin_[VIM_PLUGIN_NAME].vim
 plugin_indentLine.vim
 ```
 
-The Vim Plugin [IndentLine](https://github.com/Yggdroot/indentLine) uses camelCase to naming convention for the plugin name where as [lightline](https://github.com/itchyny/lightline.vim) does not use camelCase naming convention.
+The Vim Plugin [IndentLine](https://github.com/Yggdroot/indentLine) uses _camelCase_ naming convention for the plugin name where as [lightline](https://github.com/itchyny/lightline.vim) does not use _camelCase_ naming convention.
 
 <strong>Ex</strong>
 

@@ -1,5 +1,5 @@
 yarn global v1.22.10
-info "@babel/cli@7.13.14" has binaries:
+info "@babel/cli@7.14.3" has binaries:
    - babel
    - babel-external-helpers
 info "asciicast2gif@0.2.1" has binaries:
@@ -14,7 +14,7 @@ info "csslint@1.0.5" has binaries:
    - csslint
 info "electron-packager@15.2.0" has binaries:
    - electron-packager
-info "eslint@7.24.0" has binaries:
+info "eslint@7.26.0" has binaries:
    - eslint
 info "flow-language-server@0.6.0" has binaries:
    - flow-language-server
@@ -48,4 +48,4 @@ info "webpack@5.32.0" has binaries:
    - webpack
 info "webpack-cli@4.6.0" has binaries:
    - webpack-cli
-Done in 1.13s.
+Done in 1.14s.

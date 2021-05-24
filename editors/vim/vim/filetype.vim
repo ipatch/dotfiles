@@ -7,9 +7,6 @@ augroup filetypedetect
   au BufRead,BufNewFile *.json set filetype=jsonc
   au BufRead,BufNewFile *.json set syntax=jsonc
   au FileType jsonc let g:indentLine_enabled=0
-
-  " exp, `vim-commentary`
-  " autocmd FileType markdown setlocal commentstring=#\ %s
 augroup END
 
 
