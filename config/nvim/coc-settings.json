@@ -1,13 +1,12 @@
 {
   // could be 'always' 'trigger' => for specified trigger characters only 'none'
-  "coc.preferences.autoTrigger": "always",
+  "suggest.autoTrigger": "always",
   // only used when autoTrigger is always
-  "coc.preferences.triggerAfterInsertEnter": false,
+  "suggest.triggerAfterInsertEnter": false,
   // timeout for completion
-  "coc.preferences.timeout": 500,
+  "suggest.timeout": 500,
   // not make vim select first item on completion start
-  "coc.preferences.noselect": true,
-
+  "suggest.noselect": true,
 
   // code lens, works with the virtual text feature of neovim, ie. inline evaluation
   "codeLens.enable": true,
@@ -20,15 +19,13 @@
   // "coc.preferences.watchmanPath": "",
   // enable diagnostic
   "diagnostic.enable": true,
-  "diagnostic.signOffset": 1000,
+  "list.signOffset": 1000,
   "diagnostic.errorSign": "☠︎",
   "diagnostic.warningSign": "⚠",
   "diagnostic.infoSign": "☀︎",
   "diagnostic.hintSign": "☞",
 
   // NOTE: `coc-eslint`
-  //
-
   "eslint.enable": true,
 
   // NOTE: the below setting fixes the following error
@@ -39,7 +36,61 @@
   "eslint.filetypes": ["javascript", "typescript", "typescriptreact", "javascriptreact"],
   "eslint.run": "onType",
   "eslint.options": {"configfie": "~/.eslintrc.json"},
-  "suggest.floatEnable": true
+  "suggest.floatEnable": true,
+
+
+  // cmake projects, github.com/regen100/cmake-language-server
+  // "languageserver": {
+    // "cmake": {
+    //   "command": "/Users/capin/.pyenv/shims/cmake-language-server",
+    //   "filetypes": ["cmake"],
+    //   "rootPatterns": [
+    //     "build/"
+    //   ],
+    //   "initializationOptions": {
+    //     "buildDirectory": "build"
+    //   }
+    // }
+  // // }
+  /**
+     * @dependences:
+     *   cmake                 : sudo apt install cmake
+     *   cmake-format          : pip3 install cmakelang
+     *   cmake-language-server : pip3 install cmake-language-server
+     */
+    // "cmake.cmakePath": "cmake",
+    // "cmake.formatter": "cmake-format",
+    // // Notice that the lsp and extensions builtin can't co-exist
+    // "cmake.lsp.enable": true,
+    // "cmake.lsp.serverPath": "cmake-language-server",
+    // "cmake.lsp.buildDirectory": "build",
+
+    "languageserver": {
+      "ccls": {
+        "command": "ccls",
+        "filetypes": ["c", "cc", "cpp", "c++", "objc", "objcpp"],
+        "rootPatterns": [".ccls", "compile_commands.json", ".git/", ".hg/"],
+        "initializationOptions": {
+          "cache": {
+            "directory": "/tmp/ccls"
+          },
+          // see https://github.com/MaskRay/ccls/issues/191
+          "clang": {
+            // from clang -v -fsyntax-only -x c++ /dev/null
+            "extraArgs": [
+              "-isystem/usr/local/include",
+              "-isystem/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1",
+              "-isystem/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/11.0.0/include",
+              "-isystem/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include",
+              "-isystem/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include",
+              "-isystem/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks"
+            ],
+            //From clang -print-resource-dir
+            "resourceDir": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/11.0.0"
+          }
+        }
+      }
+    }
 }
 
 // vim: ft=jsonc
