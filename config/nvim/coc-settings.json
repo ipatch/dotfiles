@@ -90,7 +90,10 @@
           }
         }
       }
-    }
+    },
+
+    // coc-git
+    "git.command": "/usr/local/bin/git"
 }
 
 // vim: ft=jsonc
