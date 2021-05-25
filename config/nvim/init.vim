@@ -26,7 +26,6 @@ if os ==? 'macos' || os ==? 'linux'
 
   " NOTE: TODO: coc health check will fail if python2 provider is not enabled
 
-
   " set the default python PATH, to supposedly boost 🏎  performance
   let g:python_host_prog = '/home/capin/.pyenv/versions/py2neovim/bin/python'
 
