@@ -20,6 +20,7 @@ let g:indentLine_bufNameExclude=['']
 " NOTE: the ONLY THING THAT SEEMS TO PREVENT THIS PLUGING FROM SETTING THE CONCEAL FOR JSON FILES!
 au FileType json let g:indentLine_setConceal= 0
 
+" NOTE: i think the below condition may fail due to the `&&` operator
 if has('nvim') && !has('nvim-0.2.2')
  " Older versions of Neovim set the runtime path incorrectly, causing problems
  " with JSON.
