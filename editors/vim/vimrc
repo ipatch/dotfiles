@@ -114,6 +114,7 @@ nnoremap <silent> ` :call ToggleConcealLevel()<CR>
 
 " set default conceal level
 set conceallevel=0 " DO NOT conceal any text
+let g:indentLine_fileTypeExclude = ['json']
 
 """""""""""""""""""""""""""""
 " netrw - file explorer
@@ -185,13 +186,13 @@ function! BuildStaticVimMarkdownComposer()
     endif
 endfunction
 
-let g:markdown_composer_autostart = 1
+" plugin specfic settings
+" let g:markdown_composer_autostart = 1
+" let g:ale_completion_enabled = 1
 
 function! FixupBase16()
   !(sed -i '/Base16hi/\! s/a:\(attr\|guisp\)/l:\1/g' /opt/code/dotfiles/editors/vim/vim/pack/minpac/start/base16-vim/colors/*.vim)
 endfunction
-
-let g:ale_completion_enabled = 1
 
 " below `if` block/statement stopped working on september 26, 2020
 " if !exists('*minpac#init')
@@ -299,8 +300,8 @@ endif
 " END < DANGER ZONE
 "-
 
-
 " Setting for rust.vim
+" TODO: move to language specific setting file, ie. `rust.vim`
 let g:autofmt_autosave = 1
 
 "----------------------------
@@ -330,9 +331,6 @@ endif " END Neovim only settings
 " [mr-fancy-setting`
 "let g:base16colorspace = 256 " Access colors present in 256 colorspace
 
-
-
-" if has('nvim')
   "onedark.vim override: Set a custom background color in the terminal
   " NOTE: set custom gui settings for `ondark.vim` BEFORE init colorscheme
   if (has("autocmd") && !has("gui_running"))
@@ -358,9 +356,8 @@ endif " END Neovim only settings
   " TODO: add check if colorscheme is not present, and continue loading file
   " colorscheme base16-default-dark
   colorscheme onedark
-" endif
 
 """"""""""""""""
 " load before plugins - polyglot
 ""
-let g:polyglot_disabled = ['json']
+" let g:polyglot_disabled = ['json']
