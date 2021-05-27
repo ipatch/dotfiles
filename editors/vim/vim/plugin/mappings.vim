@@ -90,15 +90,21 @@ inoremap <M-z> <C-o>u
 ""
 nnoremap <leader><leader> <c-^>
 
-""""""""""""""
+"---------------------------
 " NOTE: plugin related mappings, ie. FZF
-""
+"--
 " normal mode `<ctrl>+p` to fuzzy search for files
 nnoremap <C-p> :FZF<cr>
 
-" NOTE: close fzf terminal buffer with Escape key
+" NOTE: plugin/fzf close terminal buffer with Escape key
 " REF: https://github.com/junegunn/fzf.vim/issues/544#issuecomment-457456166
 tnoremap <expr> <Esc> (&filetype == "fzf") ? "<Esc>" : "<c-\><c-n>"
+
+"-----------------------------
+" plugin/coc
+"--
+nmap <leader>1 :call coc#config('codeLens.enable', 'true')<CR>
+nmap <leader>2 :call coc#config('codeLens.enable.', 'false')<CR>
 
 """"""""""""""""""""""""""""""
 " Splits - vertical & horizontal

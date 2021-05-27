@@ -9,7 +9,7 @@
   "suggest.noselect": true,
 
   // code lens, works with the virtual text feature of neovim, ie. inline evaluation
-  "codeLens.enable": true,
+  "codeLens.enable": false,
 
   // javascript settings
   "javascript.suggestionActions.enabled": false,
@@ -24,9 +24,11 @@
   "diagnostic.warningSign": "⚠",
   "diagnostic.infoSign": "☀︎",
   "diagnostic.hintSign": "☞",
+  "diagnostic.virtualText": false,
+  "diagnostic.checkCurrentLine": true,
 
   // NOTE: `coc-eslint`
-  "eslint.enable": true,
+  // "eslint.enable": true,
 
   // NOTE: the below setting fixes the following error
   // `[coc.nvim] Failed to load the ESLint library for the document`
