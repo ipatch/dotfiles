@@ -18,7 +18,7 @@ jobs/bin/openvpn/** filter=git-crypt diff=git-crypt
 
 # asciicenma install ID, ie. API token
 # config/asciinema/install-id filter=git-crypt diff=git-crypt
-config/asciinema/install-id.shu filter=git-crypt diff=git-crypt
+# config/asciinema/install-id.shu filter=git-crypt diff=git-crypt
 
 # Don't encrypt the `.gitattributes file itself
 .gitattributes !filter !diff
