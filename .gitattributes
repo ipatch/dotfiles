@@ -13,8 +13,5 @@
 **/irc.conf.shu filter=git-crypt diff=git-crypt
 jobs/bin/openvpn/** filter=git-crypt diff=git-crypt
 
-# mpv history
-**/mpv_history.log filter=git-crypt diff=git-crypt
-
 # Don't encrypt the `.gitattributes file itself
 .gitattributes !filter !diff
