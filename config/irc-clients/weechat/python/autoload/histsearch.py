@@ -1,1 +1,0 @@
-../histsearch.py
