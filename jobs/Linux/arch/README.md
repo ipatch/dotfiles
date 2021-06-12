@@ -88,6 +88,12 @@ A good [reference/explanation][ul3] of the above procedure
 [ul2]: <https://support.apple.com/en-us/HT204063>
 [ul3]: <https://www.ubuntubuzz.com/2016/03/booting-gnulinux-manually-with-grub-prompt.html>
 
+## todos
+
+<a name="todos"></a>
+
+- [ ] add a link / reference for installing an older version of a package ie. _nss-mdns_
+
 ## useful links
 
 <a name="useful-links"></a>
@@ -111,6 +117,8 @@ A good [reference/explanation][ul3] of the above procedure
 <details>
 
 <summary>scratchpad</summary>
+
+## experimenting with libvirt/libvirtd
 
 - with my current arch linux install there is no `/etc/network/interfaces` file.
 
