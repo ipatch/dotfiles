@@ -116,5 +116,6 @@
     "diffEditor.renderSideBySide": false,
     "workbench.colorTheme": "Atom One Dark",
     "debug.onTaskErrors": "showErrors",
-    "python.showStartPage": false
+    "python.showStartPage": false,
+    "workbench.editor.untitled.hint": "hidden"
 }
