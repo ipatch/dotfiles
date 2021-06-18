@@ -49,7 +49,8 @@ font:
   # Point size of the font
   # size: 20
   # size: 18
-  size: 15 # looks good on ext samsung monitor
+  #  size: 15 # looks good on ext samsung monitor, but big for vnc window on macbook
+  size: 12
   # size: 14 # not hot dog
   # size: 15.5 # looks good on ext samsung monitor
   ##
@@ -216,7 +217,9 @@ mouse:
   # hide_cursor_when_typing: true
   hide_when_typing: true
 
-  url:
+  hints:
+  # `url:` DEPRECATED
+  #url:
     # URL launcher
     #
     # use the below app to open a URL
