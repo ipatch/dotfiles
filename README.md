@@ -754,6 +754,7 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.co
 <details>
 <summary><strong>TODOs</strong></summary>
 
+- [ ] [arch], device a more elegant way to fix the `can't read temp` in the i3 status bar after reboots
 - [ ] [arch], set lshift+rshift to toggle caps-lock on/off
 - [ ] [arch], set timeout for git credential cache so i don't have to keep inputting github username/password
 - [ ] [fish], possible to detach current pane in a tmux window from shell history, or write commands run from certain directory to specific history file to keep commands ran in a specific directory quickly accessible, ie. useful when working with a node or ruby based project.
