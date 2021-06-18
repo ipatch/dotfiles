@@ -1,0 +1,45 @@
+{ 
+  "title": "ipatch, ke, local complex modification",
+  "maintainer": [
+    "ipatch"
+  ],
+  "rules": [
+    {
+      "description": "ipatch, messages.app, cmd+j cmd+k, prev next conversation",
+      "manipulators": [
+        {
+          "type": "basic",
+          "TODO": "from key must be a JSON object NOT arrary",
+          "TODO2": "insert cmd to get bundle identifier, SEE README",
+         "from": 
+            {
+              "key_code": "j",
+              "modifiers": [ 
+                "left_command"
+              ]
+            }
+          ,
+          "to": [
+            {
+              "key_code": "right_arrow",
+              "modifiers": [
+                "left_control"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "file_paths": [
+                "/Applications/Messages.app/Contents/MacOS/Messages"
+              ],
+              "bundle_identifiers": [
+
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,8 +1,8 @@
 { 
-  "title": "ipatch, CHANG ME, vim snippet for scaffolding karabiner complex mod",
+  "title": "ipatch, CHANGEME, vim snippet for scaffolding karabiner complex mod",
   "rules": [
     {
-      "description": "ipatch, CHANGME, listing of key mods",
+      "description": "ipatch, CHANGEME, listing of key mods",
       "manipulators": [
         {
           "type": "basic",

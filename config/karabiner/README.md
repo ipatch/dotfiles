@@ -16,6 +16,14 @@ make sure there are a `title` and `description` keys within the complex modifica
 
 #### troubleshooting 🧐
 
+to obtain a **bundle identifier** for a specific application
+
+```shell
+osascript -e 'id of app "App Name"'
+echo "example"
+osascript -e 'id of app "/Applications/Messages.app"'
+```
+
 if there is an issue with adding the rule
 
 > _from my understanding_, karabiner elements copies separate rules into a global config file `karabiner.json`, so editing the local file will not update the global file until the local rule is removed, and readded with the updated changes and karabiner elements is restarted in the process.
