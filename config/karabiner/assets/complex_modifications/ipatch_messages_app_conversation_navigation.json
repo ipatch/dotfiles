@@ -5,23 +5,24 @@
   ],
   "rules": [
     {
-      "description": "ipatch, messages.app, cmd+j cmd+k, prev next conversation",
+      "NOTE": "from key must be a JSON object NOT arrary",
+      "NOTE2": "see README to obtain bundle identifer",
+      "description": "ipatch, messages.app, cmd+j cmd+k, for next and prev conversation",
       "manipulators": [
         {
           "type": "basic",
-          "TODO": "from key must be a JSON object NOT arrary",
-          "TODO2": "insert cmd to get bundle identifier, SEE README",
-         "from": 
-            {
-              "key_code": "j",
-              "modifiers": [ 
+          "from": 
+          {
+            "key_code": "j",
+            "modifiers": {
+              "mandatory": [ 
                 "left_command"
               ]
             }
-          ,
+          }, 
           "to": [
             {
-              "key_code": "right_arrow",
+              "key_code": "tab",
               "modifiers": [
                 "left_control"
               ]
@@ -34,11 +35,44 @@
                 "/Applications/Messages.app/Contents/MacOS/Messages"
               ],
               "bundle_identifiers": [
-
+                "com.apple.iChat"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": 
+          {
+            "key_code": "k",
+            "modifiers": {
+              "mandatory": [ 
+                "left_command"
+              ]
+            }
+          }, 
+          "to": [
+            {
+              "key_code": "tab",
+              "modifiers": [
+                "left_control",
+                "shift"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "file_paths": [
+                "/Applications/Messages.app/Contents/MacOS/Messages"
+              ],
+              "bundle_identifiers": [
+                "com.apple.iChat"
               ]
             }
           ]
         }
+
       ]
     }
   ]
