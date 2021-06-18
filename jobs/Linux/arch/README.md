@@ -3,6 +3,11 @@
 
 <a name="contents"></a>
 
+- [pacman](#pacman)
+- [arch/mbp 11.x](#arch-on-macbook)
+- [tshooting](#troubleshooting)
+  - [tshooting/fail to boot](#tshoot-fail-to-boot)
+- [todos](#todos)
 - [useful links](#useful-links)
 
 
