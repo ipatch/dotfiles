@@ -848,7 +848,6 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.co
 
 </div>
 
-
 ## 
 
 <details>
