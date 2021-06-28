@@ -19,6 +19,13 @@ abbr -ag fr 'exec fish'
 abbr -ag clearf 'cat /dev/null >' # add name of `file` and alias
 abbr -ag clrf 'cat /dev/null >' # add name of `file` and alias
 
+
+
+#############################
+# reminders
+##
+abbr -ag ex.ls.top.10.big.files 'echo "du -h . | sort -n -r | head -n 10" | pbcopy'
+
 #############################
 # shell specific 
 ##
