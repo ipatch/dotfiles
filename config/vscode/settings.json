@@ -117,5 +117,11 @@
     "workbench.colorTheme": "Atom One Dark",
     "debug.onTaskErrors": "showErrors",
     "python.showStartPage": false,
-    "workbench.editor.untitled.hint": "hidden"
+    "workbench.editor.untitled.hint": "hidden",
+    "cmake.configureOnOpen": true,
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter.notebook.ipynb"
+    },
+    "security.workspace.trust.untrustedFiles": "open",
+    "python.pythonPath": "/Users/capin/.pyenv/versions/2.7.15/bin/python"
 }
