@@ -26,6 +26,9 @@ abbr -ag clrf 'cat /dev/null >' # add name of `file` and alias
 ##
 abbr -ag ex.ls.top.10.big.files 'echo "du -h . | sort -n -r | head -n 10" | pbcopy'
 
+# TODO: format this cmd more elegantly, spread cmd and link across multiple lines
+abbr -ag ex.ffmpeg.enc.specific.size 'echo -e "https://askubuntu.com/a/1028051/134740\n" | pbcopy; echo -e "([FINAL_SIZE] MiB * 8192 [converts MiB to kBit]) / [TOTAL_SECONDS] = ~XXX kBit/s total bitrate"\n;  echo -e "XXX - 128 kBit/s (desired audio bitrate) = YYY kBit/s video bitrate"\n;'
+
 #############################
 # shell specific 
 ##
