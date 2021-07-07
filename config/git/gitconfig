@@ -89,6 +89,7 @@
   pom = push origin master
   pshom = !git push origin master
   pshsmom = !git push --recurse-submodules=on-demand origin master
+  psh = push --quiet
 
   ####
   # pulling
