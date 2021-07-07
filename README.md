@@ -754,6 +754,9 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.co
 <details>
 <summary><strong>TODOs</strong></summary>
 
+- [ ] [neovim], 0.5.0, updating neovim to latest release
+    - breaks my custom cursor color
+    - my <kbd>esc</kbd> binding when fzf terminal window is open does not work, boo 👻
 - [ ] [arch], device a more elegant way to fix the `can't read temp` in the i3 status bar after reboots
 - [ ] [arch], set lshift+rshift to toggle caps-lock on/off
 - [ ] [arch], set timeout for git credential cache so i don't have to keep inputting github username/password
