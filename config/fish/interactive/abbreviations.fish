@@ -265,6 +265,7 @@ switch $os # personally defined env var
     abbr -ag dle2 "diskutil eject /dev/disk2"
     abbr -ag apl.poweroff "sudo shutdown -h now"
     abbr -ag apl.batt.time "mac-batt-time.sh"
+    abbr -ag apl.get.serial "ioreg -l | grep IOPlatformSerialNumber"
 
     # ffmpeg
     abbr -ag mac-ffmpeg-ls-devs "ffmpeg -f avfoundation -list_devices true -i \"\""
