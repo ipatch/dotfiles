@@ -25,7 +25,8 @@ elif [ "$1" == "fuse" ] ; then
     else
         sudo kextunload -b org.virtualbox.kext.VBoxUSB -b org.virtualbox.kext.VBoxNetFlt -b org.virtualbox.kext.VBoxNetAdp
         sudo kextunload -b org.virtualbox.kext.VBoxDrv
-        sudo kextutil /Library/Filesystems/osxfuse.fs/Contents/Extensions/10.12/osxfuse.kext
+        # sudo kextutil /Library/Filesystems/osxfuse.fs/Contents/Extensions/10.12/osxfuse.kext
+        sudo kextutil /Library/Filesystems/macfuse.fs/Contents/Extensions/10.14/macfuse.kext
     fi
 elif [ "$1" == "status" ] ; then
     echo "vbox = $vbox"

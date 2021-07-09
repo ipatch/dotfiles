@@ -28,6 +28,7 @@ abbr -ag ex.ls.top.10.big.files 'echo "du -h . | sort -n -r | head -n 10" | pbco
 
 # TODO: format this cmd more elegantly, spread cmd and link across multiple lines
 abbr -ag ex.ffmpeg.enc.specific.size 'echo -e "https://askubuntu.com/a/1028051/134740\n" | pbcopy; echo -e "([FINAL_SIZE] MiB * 8192 [converts MiB to kBit]) / [TOTAL_SECONDS] = ~XXX kBit/s total bitrate"\n;  echo -e "XXX - 128 kBit/s (desired audio bitrate) = YYY kBit/s video bitrate"\n;'
+abbr -ag ex.find.mv.files.pwd 'echo find . -type f \\( -name "*.mkv" -o -name "*.srt" -o -name "*.txt" -o -name "*.mp4" \\) -exec mv {} . \\;'
 
 #############################
 # shell specific 
