@@ -214,7 +214,9 @@ mouse:
   # hide_cursor_when_typing: true
   hide_when_typing: false
 
-  url:
+  hints:
+  # OBSOLETE, al ≥ v0.8.0
+  # url:
     # URL launcher
     #
     # use the below app to open a URL
