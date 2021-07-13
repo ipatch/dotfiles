@@ -1,0 +1,13 @@
+Description="my static bridge"
+Interface=br0
+Connection=bridge
+BindsToInterfaces=(ens9 tap0)
+## Use the MAC address of eth1 (may also be set to a literal MAC address)
+MACAddress=ens9
+IP=static
+Address=('10.0.1.111/24')
+Gateway='10.0.1.1'
+DNS=('10.0.1.1')
+## Ignore (R)STP and immediately activate the bridge
+SkipForwardingDelay=yes
+SkipNoCarrier=yes
