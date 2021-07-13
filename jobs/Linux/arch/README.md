@@ -5,6 +5,7 @@
 
 - [pacman](#pacman)
 - [arch/mbp 11.x](#arch-on-macbook)
+  - [networking](#networking)
 - [tshooting](#troubleshooting)
   - [tshooting/fail to boot](#tshoot-fail-to-boot)
 - [todos](#todos)
@@ -24,9 +25,25 @@ pacman -Qqem > pkglist_aur.txt
 
 ## arch/macbook _11.x_ specific
 
-<a name="arch-on-macbook">
+<a name="arch-on-macbook"></a>
 
 i checked in the `$PWD/etc/default/grub` to source control for helping me remember adding `acpi_mask_gpe=0x06` to the `GRUB_CMDLINE_LINUX_DEFAULT` argument. after adding this arg to above such line the computer went from idling at ~ 70C 🔥 to idling around ~ 40C ~= 100F 🥶
+
+### networking
+
+<a name="networking"></a>
+
+for my particular use case, i want to setup a bridge interface with my wired ethernet via my thunderbolt adapter, and give the interface a static ip address of **10.0.1.111**
+
+there are multiple ways and utilities for assigning static ip addresses within archlinux, for my needs i'm using a combination of **NetworkManager** along with **netctl** to create a static ip address, a bridge interface **br0** along with a **tap0** interface.
+
+#### networking / useful links
+
+- https://github.com/foxlet/macOS-Simple-KVM/blob/master/docs/guide-networking.md
+- https://wiki.archlinux.org/title/Network_configuration
+- https://wiki.archlinux.org/title/Network_bridge
+- https://wiki.archlinux.org/title/Netctl
+- https://wiki.archlinux.org/title/Bridge_with_netctl
 
 ## troubleshooting
 
