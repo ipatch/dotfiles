@@ -754,9 +754,10 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.co
 <details>
 <summary><strong>TODOs</strong></summary>
 
+- [ ] [tmux] [fish] possible to restore scroll back history after closing tmux server and terminal _alacritty_
 - [ ] [neovim], 0.5.0, updating neovim to latest release
     - breaks my custom cursor color
-    - my <kbd>esc</kbd> binding when fzf terminal window is open does not work, boo 👻
+    - ~~my <kbd>esc</kbd> binding when fzf terminal window is open does not work, boo 👻~~ appears to be working as intended now 🤔
 - [ ] [arch], device a more elegant way to fix the `can't read temp` in the i3 status bar after reboots
 - [ ] [arch], set lshift+rshift to toggle caps-lock on/off
 - [ ] [arch], set timeout for git credential cache so i don't have to keep inputting github username/password
