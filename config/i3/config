@@ -155,7 +155,7 @@ bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 
-# NOTE: ipatch,
+# NOTE: ipatch, emoji picker
 # launch emote using the same keyboard shortcut as macos
 bindsym $mod+control+space exec /usr/sbin/emote
 
@@ -195,8 +195,11 @@ bindsym $mod+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
+# NOTE: status_command i3status -c /home/capin/.config/i3status/i3status.conf
+
 bar {
-        status_command i3status -c /home/capin/.config/i3status/i3status.conf
+	status_command ~/.local/bin/my_i3status.sh
+        #status_command i3status -c /home/capin/.config/i3status/i3status.conf
 	position top
 	font pango:DejaVu Sans Mono 10
 }
