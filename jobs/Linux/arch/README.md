@@ -45,6 +45,14 @@ there are multiple ways and utilities for assigning static ip addresses within a
 - https://wiki.archlinux.org/title/Netctl
 - https://wiki.archlinux.org/title/Bridge_with_netctl
 
+## i3
+
+i wanted to display RPM speed of both the left and right fans inside my i3status bar.
+
+- https://manpages.ubuntu.com/manpages/trusty/man1/i3status.1.html
+
+i3status doesn't directly support calling/running shell scripts from what i understand, so i implemented a script that calls i3status and prints the fan speeds while running i3status at the same time.
+
 ## troubleshooting
 
 <a name="troubleshooting"></a>
