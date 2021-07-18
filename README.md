@@ -860,5 +860,7 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.co
 
 - the first day of summer for 2021 is june 20th
 
+- ohhh github actions whyyyyyy!
+
 </details>
 
