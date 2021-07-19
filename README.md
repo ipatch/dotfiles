@@ -747,9 +747,7 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.co
 
 <!-- <h3>TODOs</h3> -->
 
-## 
-
-<a id="todos"></a>
+##  <a id="todos"></a> TODOs
 
 <details>
 <summary><strong>TODOs</strong></summary>
@@ -858,10 +856,6 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.co
 <details>
 
 <summary>scratchpad</summary>
-
-- the first day of summer for 2021 is june 20th
-
-- ohhh github actions whyyyyyy!
 
 </details>
 
