@@ -751,6 +751,8 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.co
 
 <details>
 
+## <summary><strong><a id="TODOs</a></strong></summary>
+
 - [ ] [vim] [nvim] when toggling the tagbar <kbd>leader+\</kbd> move the cursor/focus to the tagbar buffer automatically.
 - [ ] [tmux] [fish] possible to restore scroll back history after closing tmux server and terminal _alacritty_
 - [ ] [neovim], 0.5.0, updating neovim to latest release
