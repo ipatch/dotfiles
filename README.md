@@ -753,7 +753,6 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.co
 
 <summary>Uncompleted</summary>
 
-- [ ] [hardware] [keytron] [k6], remamp <kbd>esc</kbd> to <kbd>`</kbd> as my caps lock key is already mapped to esc on tap
 - [ ] [vim] [nvim] when toggling the tagbar <kbd>leader+\\</kbd> move the cursor/focus to the tagbar buffer automatically.
 - [ ] [tmux] [fish] possible to restore scroll back history after closing tmux server and terminal _alacritty_
 - [ ] [neovim], 0.5.0, updating neovim to latest release
@@ -821,6 +820,7 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.co
 <details>
 <summary><strong>TODOs completed</strong></summary>
 
+- [x] ~~[hardware] [keytron] [k6], remamp <kbd>esc</kbd> to <kbd>`</kbd> as my caps lock key is already mapped to esc on tap~~
 - [x] ~~[fish] exp with using colors for `brew.fish` function to distinguish misspelling of word~~
 - [x] ~~[vim] [neovim] keep the `lcd` / `pwd` to the directory nvim was launched from **especially** if nvim was launched with no args~~
     - disabled `autochdir`, check with `:verbose set autochdir?`
