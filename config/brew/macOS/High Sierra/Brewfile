@@ -280,7 +280,7 @@ brew "libusbmuxd"
 brew "libimobiledevice"
 brew "libzip"
 brew "ideviceinstaller"
-brew "ilmbase", link: true
+brew "ilmbase"
 brew "libde265"
 brew "shared-mime-info"
 brew "libheif"
@@ -326,6 +326,7 @@ brew "lua@5.1", link: false
 brew "luajit"
 brew "luajit-openresty"
 brew "luarocks"
+brew "luv"
 brew "lynx"
 brew "make"
 brew "maven"
@@ -341,6 +342,7 @@ brew "mtools"
 brew "mujs"
 brew "mutt"
 brew "mysql-client"
+brew "mysql@5.7"
 brew "nasm"
 brew "neofetch"
 brew "talloc"
@@ -451,12 +453,13 @@ brew "youtube-dl"
 brew "zenity"
 brew "zsh"
 brew "eddieantonio/eddieantonio/imgcat"
-brew "freecad/freecad/icu4c@67.1"
+brew "freecad/freecad/icu4c@67.1", link: false
 brew "freecad/freecad/boost@1.75.0"
 brew "freecad/freecad/python3.9", link: true
 brew "freecad/freecad/boost-python3@1.75.0", link: true
 brew "freecad/freecad/coin@4.0.0", link: true
 brew "freecad/freecad/cython@0.29.21", link: true
+brew "freecad/freecad/elmer", args: ["HEAD"]
 brew "freecad/freecad/numpy@1.19.4", link: false
 brew "freecad/freecad/matplotlib"
 brew "freecad/freecad/med-file", link: false
@@ -474,7 +477,6 @@ brew "freecad/freecad/pyside2-tools"
 brew "freecad/freecad/qwtelmer"
 brew "freecad/freecad/swig@4.0.2"
 brew "freecad/freecad/vtk@8.2.0", link: true
-brew "gromgit/fuse/sshfs-mac"
 brew "heroku/brew/heroku-node"
 brew "heroku/brew/heroku"
 brew "lukechilds/tap/gifgen"
@@ -547,7 +549,6 @@ cask "kodi"
 cask "launchcontrol"
 cask "libreoffice"
 cask "lulu"
-cask "macfuse"
 cask "mactex"
 cask "mactex-no-ghostscript"
 cask "meld"

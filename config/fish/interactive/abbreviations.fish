@@ -325,6 +325,7 @@ switch $os # personally defined env var
       abbr -ag cdbrewpysitep "cd (brew --prefix)/opt/python/Frameworks/Python.framework/Versions/Current/lib/python3.9/site-packages"
       abbr -ag cdbrewpysp "cd (brew --prefix)/opt/python/Frameworks/Python.framework/Versions/Current/lib/python3.9/site-packages"
       abbr -ag cdbrewtaps "/usr/local/Homebrew/Library/Taps"
+      abbr -ag bog "brew outdated --greedy"
 
       # logs
       abbr -ag cdbrewlogs "cd (brew --prefix)/var/log"
