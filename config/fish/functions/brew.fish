@@ -4,20 +4,19 @@ function brew --description "catch common misspelling & add some goodies"
   # thank you @faho
   switch "$argv[1]"
     case tap.ls
-      echo "list formula of a tap";
+      echo "the $argv[2] tap provides the following formula";
       echo "================================="
       # echo "$argv[2]" # DEBUG
       if type -q jq
         command brew tap-info "$argv[2]" --json | jq -r '.[]|(.formula_names[],.cask_tokens[])'
       else
-        echo "`jq` is required, install it with `brew install jq`"
+        echo "`jq` is required to output the list of formula provided the tap, install it with `brew install jq`"
         return
       end
       return;
   end
 
   switch "$argv[3]"
-
     case cask outdated --greddy
       echo "greedy NOT greddy";
       echo "================================="
