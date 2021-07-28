@@ -128,6 +128,10 @@ A good [reference/explanation][ul3] of the above procedure
 
 <a name="useful-links"></a>
 
+## useful links / todos / followup
+
+- https://saveman71.com/2019/automatic-pause-music-screen-lock-linux-mpris/
+
 - [calculating DPI **https://dpi.lv/** ❤][ul8]
 - [**medium article** arch linux running on a macbook][ul4]
 - [**github** arch linux macbook dual boot][ul5]
