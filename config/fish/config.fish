@@ -94,6 +94,10 @@ end
 #########################
 # Go language tooling
 ##
+# NOTE: $brew_prefix is a local env var set by me
+# NOTE: make sure `brew --prefix` doesn't print 2 paths
+# NOTE: had some issues with my `brew.fish` func
+# doubling printing the brew prefix.
 if test -x (brew --prefix)/bin/go
   set -gx GOPATH $HOME/go
   # DO NOT set `GOROOT` permanently
@@ -135,6 +139,8 @@ set -gx GIT_RC $XDG_CONFIG_HOME/git
 
 ##############################
 # fzf
+# NOTE: for reasons above my paygrade /\  using my local `$brew_prefix` breaks my,
+# $FZF_DEFAULT_COMMAND and fzf will always default search `/usr/local` BOOOOO!
 ##
 if type -q fzf && type -q rg
   # NOTE: fzf will default to system `find` cmd
