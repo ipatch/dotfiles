@@ -102,6 +102,8 @@ tnoremap <expr> <Esc> (&filetype == "fzf") ? "<Esc>" : "<c-\><c-n>"
 
 "-----------------------------
 " plugin/coc
+" NOTE: add a more useful exp, codelens is the inline evaluation text using
+" the ▸
 "--
 nmap <leader>1 :call coc#config('codeLens.enable', 'true')<CR>
 nmap <leader>2 :call coc#config('codeLens.enable.', 'false')<CR>
