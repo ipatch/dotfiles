@@ -1,10 +1,10 @@
 yarn global v1.22.10
-info "@babel/cli@7.14.3" has binaries:
+info "@babel/cli@7.14.8" has binaries:
    - babel
    - babel-external-helpers
 info "asciicast2gif@0.2.1" has binaries:
    - asciicast2gif
-info "browser-sync@2.26.14" has binaries:
+info "browser-sync@2.27.5" has binaries:
    - browser-sync
 info "concurrently@5.3.0" has binaries:
    - concurrently
@@ -12,9 +12,9 @@ info "create-react-app@4.0.3" has binaries:
    - create-react-app
 info "csslint@1.0.5" has binaries:
    - csslint
-info "electron-packager@15.2.0" has binaries:
+info "electron-packager@15.3.0" has binaries:
    - electron-packager
-info "eslint@7.26.0" has binaries:
+info "eslint@7.31.0" has binaries:
    - eslint
 info "flow-language-server@0.6.0" has binaries:
    - flow-language-server
@@ -25,7 +25,7 @@ info "javascript-typescript-langserver@2.11.3" has binaries:
    - javascript-typescript-stdio
 info "jest@26.6.3" has binaries:
    - jest
-info "jshint@2.12.0" has binaries:
+info "jshint@2.13.0" has binaries:
    - jshint
 info "markdown-cli@1.6.0" has binaries:
    - markdown-cli
@@ -33,13 +33,13 @@ info "mdr@0.2.0" has binaries:
    - mdr
 info "neovim@4.10.0" has binaries:
    - neovim-node-host
-info "nodemon@2.0.7" has binaries:
+info "nodemon@2.0.12" has binaries:
    - nodemon
 info "stacks-cli@1.0.4" has binaries:
    - stacks-cli
 info "svg-term-cli@2.1.1" has binaries:
    - svg-term
-info "typescript@4.2.4" has binaries:
+info "typescript@4.3.5" has binaries:
    - tsc
    - tsserver
 info "typescript-language-server@0.4.0" has binaries:
@@ -48,4 +48,4 @@ info "webpack@5.32.0" has binaries:
    - webpack
 info "webpack-cli@4.6.0" has binaries:
    - webpack-cli
-Done in 1.14s.
+Done in 1.51s.

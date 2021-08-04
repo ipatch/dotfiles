@@ -820,6 +820,7 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.co
 <details>
 <summary><strong>TODOs completed</strong></summary>
 
+- [ ] [vim] #vim, using my <kbd>cmd</kbd>+</kbd>v</kbd> in vim/neovim always adds an extra line 👿
 - [x] ~~[hardware] [keytron] [k6], remamp <kbd>esc</kbd> to <kbd>`</kbd> as my caps lock key is already mapped to esc on tap~~
 - [x] ~~[fish] exp with using colors for `brew.fish` function to distinguish misspelling of word~~
 - [x] ~~[vim] [neovim] keep the `lcd` / `pwd` to the directory nvim was launched from **especially** if nvim was launched with no args~~

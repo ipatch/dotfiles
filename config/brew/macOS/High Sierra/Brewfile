@@ -409,7 +409,6 @@ brew "sip"
 brew "sl"
 brew "socat"
 brew "sphinx"
-brew "sphinx-doc"
 brew "splint"
 brew "sshpass"
 brew "starship"
@@ -443,7 +442,7 @@ brew "wemux"
 brew "wget"
 brew "woff2"
 brew "wtf"
-brew "wxmac"
+brew "wxwidgets"
 brew "xerces-c"
 brew "xhyve"
 brew "xorriso"
@@ -453,23 +452,22 @@ brew "youtube-dl"
 brew "zenity"
 brew "zsh"
 brew "eddieantonio/eddieantonio/imgcat"
-brew "freecad/freecad/icu4c@67.1", link: false
+brew "freecad/freecad/icu4c@67.1"
 brew "freecad/freecad/boost@1.75.0"
 brew "freecad/freecad/python3.9", link: true
 brew "freecad/freecad/boost-python3@1.75.0", link: true
 brew "freecad/freecad/coin@4.0.0", link: true
 brew "freecad/freecad/cython@0.29.21", link: true
 brew "freecad/freecad/elmer", args: ["HEAD"]
-brew "freecad/freecad/numpy@1.19.4", link: false
+brew "freecad/freecad/numpy@1.19.4"
 brew "freecad/freecad/matplotlib"
-brew "freecad/freecad/med-file", link: false
+brew "freecad/freecad/med-file"
 brew "freecad/freecad/tbb@2020_u3"
 brew "freecad/freecad/opencascade@7.5.0"
 brew "freecad/freecad/nglib"
-brew "freecad/freecad/opencamlib"
 brew "freecad/freecad/pivy"
 brew "freecad/freecad/qt5152", link: true
-brew "freecad/freecad/sip@4.19.24"
+brew "freecad/freecad/sip@4.19.24", link: true
 brew "freecad/freecad/pyqt@5.15.2", link: true
 brew "freecad/freecad/shiboken2"
 brew "freecad/freecad/pyside2"
