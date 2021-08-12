@@ -860,5 +860,7 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.co
 
 <summary>scratchpad</summary>
 
+<!-- In 2021, the first day of fall is on Wednesday, September 22.  -->
+
 </details>
 
