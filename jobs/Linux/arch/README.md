@@ -57,6 +57,12 @@ i3status doesn't directly support calling/running shell scripts from what i unde
 
 <a name="troubleshooting"></a>
 
+### troubleshooting / zfs
+
+i've run into several instances where i attempt to mount my ext USB drive using `zfs import` and am i presented with something similar to _zfs module not loaded etc. etc._
+
+***hypothesis*** i've run a system update _yay_ and have updated all packages on the system, but have yet to reboot the system. for whatever reason i think this is preventing the zfs module from loading. ...will attempt to restart computer after all pkg installations have been completed.
+
 ### troubleshooting / fail to boot 😭
 
 <a name="tshoot-fail-to-boot"></a>
