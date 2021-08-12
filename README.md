@@ -820,7 +820,7 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.co
 <details>
 <summary><strong>TODOs completed</strong></summary>
 
-- [ ] [vim] #vim, using my <kbd>cmd</kbd>+</kbd>v</kbd> in vim/neovim always adds an extra line 👿
+- [x] ~~[keyboard] [keytron] remap <kbd>control_l</kbd> <kbd>fn1</kbd> because i already have mapped <kbd>caps lock</kbd> to <kbd>control_l</kbd> no need to two left controls. [insert emoji of person wearing eyepatch, ...ohhh wait there isn't one]~~
 - [x] ~~[hardware] [keytron] [k6], remamp <kbd>esc</kbd> to <kbd>`</kbd> as my caps lock key is already mapped to esc on tap~~
 - [x] ~~[fish] exp with using colors for `brew.fish` function to distinguish misspelling of word~~
 - [x] ~~[vim] [neovim] keep the `lcd` / `pwd` to the directory nvim was launched from **especially** if nvim was launched with no args~~
@@ -829,7 +829,8 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.co
 
 [lm3]: <https://github.com/rxhanson/Rectangle/discussions/346>
 
-- [x] [tmux] [ke] ~~left double tap shift, toggle max/min pane within window~~
+- [ ] [vim] #vim, using my <kbd>cmd</kbd>+</kbd>v</kbd> in vim/neovim always adds an extra line 👿
+- [ ] [tmux] [ke] left double tap shift, toggle max/min pane within window [shit broke with tmux update at some point]
 - [x] ~~[vim] change commenting for `.gitignore` files from `/* wrong */` to `# right`~~
 - [x] ~~[vim] update colorscheme to see if it solves the neovim gutter white colored pipes for code folds.~~ [**neovim folding doc**](https://neovim.io/doc/user/usr_28.html)
     - **did not** update the gutter symbol colors related to code folds. booo
