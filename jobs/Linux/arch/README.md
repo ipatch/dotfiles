@@ -63,6 +63,8 @@ i've run into several instances where i attempt to mount my ext USB drive using 
 
 ***hypothesis*** i've run a system update _yay_ and have updated all packages on the system, but have yet to reboot the system. for whatever reason i think this is preventing the zfs module from loading. ...will attempt to restart computer after all pkg installations have been completed.
 
+**correct** ✅ rebooting my archlinux box, followd by running, `sudo -E /sbin/modprobe zfs` loaded the zfs modules for my running kernel.
+
 ### troubleshooting / fail to boot 😭
 
 <a name="tshoot-fail-to-boot"></a>
