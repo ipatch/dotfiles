@@ -35,7 +35,9 @@ i checked in the `$PWD/etc/default/grub` to source control for helping me rememb
 
 for my particular use case, i want to setup a bridge interface with my wired ethernet via my thunderbolt adapter, and give the interface a static ip address of **10.0.1.111**
 
-there are multiple ways and utilities for assigning static ip addresses within archlinux, for my needs i'm using a combination of **NetworkManager** along with **netctl** to create a static ip address, a bridge interface **br0** along with a **tap0** interface.
+see **troubleshooting** section for my notes related to networking
+
+there are multiple ways and utilities for assigning static ip addresses within archlinux, ~~for my needs i'm using a combination of **NetworkManager** along with **netctl** to create a static ip address, a bridge interface **br0** along with a **tap0** interface.~~
 
 #### networking / useful links
 
@@ -56,6 +58,33 @@ i3status doesn't directly support calling/running shell scripts from what i unde
 ## troubleshooting
 
 <a name="troubleshooting"></a>
+
+### troubleshooting / networking
+
+<a name="troubleshooting-networking"></a>
+
+in short, i have all latest three major versions of macos working with qemu and kvm on my arch mbp box. (yay me). now my current limitation is being able to use a bridge/tap interface with all 3 virtual machines running at the same time. previously i had been using _netctl_ to manage a static ip address for the arch box, ie. `10.0.1.111`. did a little digging this afternoon, and think i'll give `nmcli` a try for managing the network interfaces on this archbox mbp. `nmcli` is a confusing little cli utility for creating network devices and connections and get more confusing the more you use it (ugggggh).
+
+the _foxlet/macos-simple-kvm_ repo provides a [decent guide][1] for setting up bridge networking for a macos vm running under KVM. however, when one wants to start tweaking the settings with little knowledge of _network manager_ & _nmcli_ things can get confusing.
+
+nmcli can be used to create a static ip address for an interface, for my use case, i created a bridge interface similar to the one in the foxlet guide, but tweaked some nmcli settings to give it a static ip of `10.0.1.111`. thus allowing to not have to fiddle with dhcp and all the third party apps running on the box, and also makes the box a tad bit easier to reach from misc devices.
+
+the two basic nmcli commands one should know are,
+
+```
+nmcli con show
+nmcli dev st
+```
+
+> think of the _DEVICE_ as the old networking names ie. `en0` and what not. whereas the _NAME_ refers to the _connection name_ an arbitrary string assigned my nmcli.
+
+also another thing to remember that nmcli allows editing/modifying the current settings for a network connection, so before you go deleting everything it may behoove you to edit some settings before blowing everything up. after editing settings using nmcli, use the _apply_ sub command, and possible bring down then up the interface that is actively being edited.
+
+---
+
+and while mucking with all my network related settings i managed to break my vnc viewer, so manually connecting the archbox is presently required.
+
+[1]: <https://github.com/foxlet/macOS-Simple-KVM/blob/527588d5a25c232fa82bfa079cdb6771568f3d95/docs/guide-networking.md#using-networkmanager>
 
 ### troubleshooting / zfs
 
