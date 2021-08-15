@@ -822,6 +822,8 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.co
 <details>
 <summary><strong>TODOs completed</strong></summary>
 
+- [x] ~~[vim] [neovim] [vnc] how to paste from local to remote host when using _vnc viewer.app_ on macos~~
+    - okay, my vim chops are rusty, when using terminal vim/neovim make sure `mouse=` and view the registers with `:reg` and locate the text that you'd like to paste, ie. `"*p"` is a common register that holds copied text
 - [x] ~~[keyboard] [keytron] remap <kbd>control_l</kbd> <kbd>fn1</kbd> because i already have mapped <kbd>caps lock</kbd> to <kbd>control_l</kbd> no need to two left controls. [insert emoji of person wearing eyepatch, ...ohhh wait there isn't one]~~
 - [x] ~~[hardware] [keytron] [k6], remamp <kbd>esc</kbd> to <kbd>`</kbd> as my caps lock key is already mapped to esc on tap~~
 - [x] ~~[fish] exp with using colors for `brew.fish` function to distinguish misspelling of word~~
