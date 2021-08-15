@@ -29,6 +29,7 @@ switch $os
     # machomebrew python
     alias bpy="/usr/local/opt/python/bin/python3"
     alias bpip="/usr/local/opt/python/bin/pip3"
+    alias brwe="brew"
 
   case Linux
     alias ls="ls --color=auto"
