@@ -23,6 +23,15 @@ pacman -Qqen > pkglist.txt
 pacman -Qqem > pkglist_aur.txt
 ```
 
+in troubleshooting _x11vnc_ i'm running `x11vnc -findauth`, but the switch/option could not complete due to my system missing `netstat`.
+
+**Q** how would i know which package provided by _pacman_ or _aur_ would install `netstat`
+
+```
+pacman -F netstat
+yay -F netstat
+```
+
 ## arch/macbook _11.x_ specific
 
 <a name="arch-on-macbook"></a>
