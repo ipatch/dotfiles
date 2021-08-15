@@ -179,6 +179,8 @@ if type -q openssl
   abbr -ag decrypt "openssl enc -aes-256-cbc -d -in"
 end
 
+abbr -ag sh2 "sha256sum"
+
 #################
 # node.js
 ##
