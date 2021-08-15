@@ -63,7 +63,7 @@ i3status doesn't directly support calling/running shell scripts from what i unde
 
 <a name="troubleshooting-networking"></a>
 
-in short, i have all latest three major versions of macos working with qemu and kvm on my arch mbp box. (yay me). now my current limitation is being able to use a bridge/tap interface with all 3 virtual machines running at the same time. previously i had been using _netctl_ to manage a static ip address for the arch box, ie. `10.0.1.111`. did a little digging this afternoon, and think i'll give `nmcli` a try for managing the network interfaces on this archbox mbp. `nmcli` is a confusing little cli utility for creating network devices and connections and get more confusing the more you use it (ugggggh).
+in short, i have the 3 three most recent major versions of macos working with qemu and kvm on my arch mbp box. (yay me). now my current limitation is being able to use a bridge/tap interface with all 3 virtual machines running at the same time. previously i had been using _netctl_ to manage a static ip address for the arch box, ie. `10.0.1.111`. did a little digging this afternoon, and think i'll give `nmcli` a try for managing the network interfaces on this archbox mbp. `nmcli` is a confusing little cli utility for creating network devices and connections and becomes more confusing the more you use it (ugggggh).
 
 the _foxlet/macos-simple-kvm_ repo provides a [decent guide][1] for setting up bridge networking for a macos vm running under KVM. however, when one wants to start tweaking the settings with little knowledge of _network manager_ & _nmcli_ things can get confusing.
 
@@ -76,15 +76,21 @@ nmcli con show
 nmcli dev st
 ```
 
-> think of the _DEVICE_ as the old networking names ie. `en0` and what not. whereas the _NAME_ refers to the _connection name_ an arbitrary string assigned my nmcli.
+> think of the _DEVICE_ as the old networking names ie. `en0` and what not. whereas the _NAME_ refers to the _connection name_ an arbitrary string assigned by nmcli.
 
-also another thing to remember that nmcli allows editing/modifying the current settings for a network connection, so before you go deleting everything it may behoove you to edit some settings before blowing everything up. after editing settings using nmcli, use the _apply_ sub command, and possible bring down then up the interface that is actively being edited.
+also another thing to remember that nmcli allows editing/modifying the current settings for a network connection, so before you go deleting everything it may behoove you to edit some settings before blowing everything up. after editing settings using nmcli, use the _apply_ sub command, and possibly bring down then up the interface that is actively being edited.
 
 ---
 
 and while mucking with all my network related settings i managed to break my vnc viewer, so manually connecting the archbox is presently required.
 
 [1]: <https://github.com/foxlet/macOS-Simple-KVM/blob/527588d5a25c232fa82bfa079cdb6771568f3d95/docs/guide-networking.md#using-networkmanager>
+
+### troubleshooting / networking / vnc
+
+i'm using _x11vnc_ to allow me to connect to my archbox via _vnc viewer.app_ on macos to view my std X11 desktop. however after mucking around with my networking settings, vnc viewer is not wanting to connect.
+
+**Q** howto troubleshoot not being able to connect to `/usr/bin/Xvnc`
 
 ### troubleshooting / zfs
 
