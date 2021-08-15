@@ -50,6 +50,7 @@ set -gx mygitreps /opt/code/git/github/my.github.repos
 set -gx mybtap /opt/code/git/github/public/homebrew-us-05
 set -gx mytap /opt/code/git/github/public/homebrew-us-05
 set -gx taps "$brew_prefix/Homebrew/Library/Taps"
+set -gx hbfc "$ghforks/homebrew-freecad"
 
 ## ccache
 set -gx CCACHE_CONFIGPATH $HOME/.config/ccache/ccache.conf
@@ -184,6 +185,7 @@ case Darwin
     # TODO: device a check for either {g,d}ircolors
     gdircolors -c $HOME/.dir_colors | source
     alias ls="/usr/local/opt/coreutils/libexec/gnubin/ls --color=auto"
+    # NOTE: added #fish `abbr` for sha256sum, that thing is a PITA to type out
   end
 
   ###############################
