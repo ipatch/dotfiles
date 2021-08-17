@@ -1,3 +1,9 @@
-remove Lock = Caps_Lock
-keysym Caps_Lock = Control_L
+! https://man.archlinux.org/man/xmodmap.1
+!
+! NOTE: ipatch, for whatever reason, the line `remove Lock = Caps_Lock` is no good
+! remove Lock = Caps_Lock !! NOTE: deprecated/obsolete binding
+!
+clear Lock
+! 66 is the keycode of Caps_Lock
+keysym 66 = Control_L
 add Control = Control_L
