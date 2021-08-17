@@ -218,9 +218,9 @@ i also want to protect the vm's as they are self-hosted runners, as github only 
 
 using mac homebrew in a mulit user env is somewhat convoluted, and becomes even more annoying when interfacing it with github actions.
 
-there have been several solutions posted in [this stackoverflow **q/a**][1] i'd say **pokidyshev**'s answer is probably the best suited for using a multi user install with github actions, ie. my use case.
+there have been several solutions posted in [this stackoverflow **q/a**][so1] i'd say **pokidyshev**'s answer is probably the best suited for using a multi user install with github actions, ie. my use case.
 
-[1]: <https://stackoverflow.com/a/68209534/708807>
+[so1]: <https://stackoverflow.com/a/68209534/708807>
 
 ## experimenting with libvirt/libvirtd
 
