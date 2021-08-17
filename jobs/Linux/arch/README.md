@@ -204,6 +204,24 @@ A good [reference/explanation][ul3] of the above procedure
 
 <summary>scratchpad</summary>
 
+## setting up macos virtual machines on arch linux for github actions / notes
+
+- i setup three _3_ virtual machines in hopes for building bottles related to freecad
+
+    - mojave
+    - catalina
+    - big sur
+
+i'm trying my best to use the actions provided my macos homebrew to build and publish bottles
+
+i also want to protect the vm's as they are self-hosted runners, as github only provides a macos environment for catalina.
+
+using mac homebrew in a mulit user env is somewhat convoluted, and becomes even more annoying when interfacing it with github actions.
+
+there have been several solutions posted in [this stackoverflow **q/a**][1] i'd say **pokidyshev**'s answer is probably the best suited for using a multi user install with github actions, ie. my use case.
+
+[1]: <https://stackoverflow.com/a/68209534/708807>
+
 ## experimenting with libvirt/libvirtd
 
 - with my current arch linux install there is no `/etc/network/interfaces` file.
