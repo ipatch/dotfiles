@@ -220,7 +220,11 @@ using mac homebrew in a mulit user env is somewhat convoluted, and becomes even 
 
 there have been several solutions posted in [this stackoverflow **q/a**][so1] i'd say **pokidyshev**'s answer is probably the best suited for using a multi user install with github actions, ie. my use case.
 
+if macos homebrew install is all jacked up, (and it will) [go here][gh1] for instructions on how to remove a homebrew installation on macos.
+
+
 [so1]: <https://stackoverflow.com/a/68209534/708807>
+[gh1]: <https://github.com/homebrew/install#uninstall-homebrew>
 
 ## experimenting with libvirt/libvirtd
 
