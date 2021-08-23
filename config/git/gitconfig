@@ -79,7 +79,7 @@
   ccount = rev-list HEAD --count
   commitcount = rev-list HEAD --count
   ####
-  # for those random quick & fun commits 👍
+  # for those random, quick, & fun commits 👍
   ##
   random = "!git smf "git add --all"; git add .; git commit -m \"`fortune`\""
 
@@ -213,7 +213,6 @@
   # TODO: check and see if alias can cd to the root of a git repo without changing the current dir
   when-added = "!git log --diff-filter=A"
   
-  
   # Remove branches that have already been merged with master, a.k.a. ‘delete merged’
   clean-branches = "!git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
 
@@ -236,6 +235,7 @@
 
   # ref: https://stackoverflow.com/a/45991969/708807
 	hist = log --graph --date-order --date=short --pretty=format:'%C(auto)%h%d %C(reset)%s %C(bold blue)%ce %C(reset)%C(green)%cr (%cd)'
+	ctags = !.git/hooks/ctags
 
 # Use `origin` as the default remote on the `master` branch in all cases
 [branch "master"]
@@ -243,7 +243,7 @@
 
 [advice]
   statusHints = false # makes status messages more terse. 👍
-  ignoredHook = false # stop freaking warning about git hooks not being set to +x 
+  ignoredHook = false # stop freaking warning about git hooks not set to +x 
 
 [core]
   editor = nvim
@@ -317,10 +317,9 @@
 [diff "zip"]
 textconv = unzip -c -a
 
-
-
 [diff]
   submodule = log
+
 [difftool "meld"]
   cmd = /usr/local/bin/meld
 
@@ -346,7 +345,7 @@ textconv = unzip -c -a
 	program = /usr/local/bin/gpg
 
 [init]
-  templatedir = ~/.config/git/git-templates
+	templatedir = ~/.config/git/git-templates
 	defaultBranch = main
 
 ##############################

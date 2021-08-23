@@ -1,0 +1,14 @@
+--_echo='Using user configuration file markdown.ctags.'
+
+#--langdef=markdown
+--langmap=markdown:.md
+#--regex-markdown=/^(.+)[[:cntrl:]]{1,3}^(===+)/\1/h,Heading_L1/{_multiline=1}
+#--regex-markdown=/^(.+)[[:cntrl:]]{1,3}^(---+)/\1/i,Heading_L2/{_multiline=1}
+#--regex-markdown=/^###[ \t]+(.*)/\1/k,Heading_L3/
+#--excmd=number
+
+#--regex-markdown=/^#+\s*([^#]*)\s*#+$/\1/h,heading,headings/
+
+--regex-markdown=/^#[ \t](.*$)/\1/h,heading,headings/
+
+

@@ -1,0 +1,40 @@
+# Global `ctags` file that is smylinked to `$HOME/.ctags`
+## NOTE:
+### https://github.com/universal-ctags/ctags/blob/master/docs/optlib.rst
+
+--_echo='Using user configuration file defaults.ctags.'
+
+# Basic options
+--recurse=yes
+--tag-relative=yes
+
+
+# tag you're not it
+--exclude=*.7z
+--exclude=*.rar
+--exclude=*.tar
+--exclude=*.tar.bz
+--exclude=*.tar.gz
+--exclude=*.zip
+
+--exclude=.git
+--exclude=.gitignore
+--exclude=.svn
+
+--exclude=tags
+--exclude=*.js
+
+# things to exclude within my dotfiles repo
+--exclude=weechat.conf
+
+--exclude=node_modules
+--exclude=yarn.lock
+--exclude=package-lock.json
+
+# --exclude=vendor
+# --exclude=db/*
+# --exclude=log/*
+# --exclude='editors/vim/vim/pack/minpac/start/coc.nvim/*'
+# --exclude=*.js
+
+
