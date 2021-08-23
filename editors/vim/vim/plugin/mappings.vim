@@ -84,7 +84,7 @@ nnoremap <M-v> "+p
 nnoremap <M-z> u
 inoremap <M-z> <C-o>u
 
-"""""""""""''"
+""""""""""""""
 " Toggle last
 " ...two open buffers
 ""
