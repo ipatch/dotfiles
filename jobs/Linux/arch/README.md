@@ -222,6 +222,10 @@ there have been several solutions posted in [this stackoverflow **q/a**][so1] i'
 
 if macos homebrew install is all jacked up, (and it will) [go here][gh1] for instructions on how to remove a homebrew installation on macos.
 
+### macos kvm / networking / static ip's
+
+i am unable to assign a static ip to a tun device using `nmcli` in my host OS _archlinux_ however, macos does provide a utility to use DHCP with a manual address, and qemu does allow controlling the ID of the MAC adddress. so i set a specific MAC address for each macos VM based on the major version of the OS, ie. mojave is 10.14, and thus giving mojave a `10.0.1.114` ip address. and it appears that the VM will grab that IP address in future reboots (if it isn't taken by another device on the network).
+
 
 [so1]: <https://stackoverflow.com/a/68209534/708807>
 [gh1]: <https://github.com/homebrew/install#uninstall-homebrew>

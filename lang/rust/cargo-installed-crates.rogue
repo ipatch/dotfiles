@@ -1,19 +1,21 @@
-alacritty v0.5.0-dev (https://github.com/jwilm/alacritty#13eb50de):
+alacritty v0.8.0-dev (https://github.com/jwilm/alacritty#a954e076):
     alacritty
-cargo-generate v0.5.1:
+cargo-generate v0.9.0:
     cargo-generate
-cargo-update v5.0.0:
+cargo-update v7.0.1:
     cargo-install-update
     cargo-install-update-config
-exa v0.9.0:
+exa v0.10.1:
     exa
-hexyl v0.8.0:
+hexyl v0.9.0:
     hexyl
-https v1.10.0:
+https v1.12.1:
     http
     httplz
 lms v0.4.0:
     lms
+qcow2-fuse v0.1.1:
+    qcow2-fuse
 rusti v0.0.1 (https://github.com/murarth/rusti#2dddea34):
     rusti
 shepherd v0.1.4:
@@ -22,5 +24,5 @@ termpix v0.1.0 (https://github.com/hopey-dishwasher/termpix#bb2fcc5e):
     termpix
 wasm-gc v0.1.6:
     wasm-gc
-wasm-pack v0.9.1:
+wasm-pack v0.10.0:
     wasm-pack
