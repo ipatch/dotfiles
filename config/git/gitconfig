@@ -249,6 +249,14 @@
   editor = nvim
 	excludesfile = /home/capin/.config/git/gitexcludes
 	attributesfile = /home/capin/.config/git/gitattributes
+    ###############################
+  # TODO: [x] give me some mouse 🐭 support please ✅
+  ##
+  # pager = less # NOTE `-r` flag may break things from time to time
+
+  # NOTE: no syntax highlighting
+	pager = /usr/local/bin/less -F -X --mouse
+
 [filter "zippey"]
   smudge = /home/capin/.local/bin/zippey.py d
   clean = /home/capin/.local/bin/zippey.py e
@@ -266,14 +274,6 @@
 	precomposeUnicode = true
   ###############################
   # To set a `core.excludesfile` on a per $HOME dir basis, see `config.fish or `.bashrc`
-
-  ###############################
-  # TODO: [x] give me some mouse 🐭 support please ✅
-  ##
-  # pager = less # NOTE `-r` flag may break things from time to time
-
-  # NOTE: no syntax highlighting
-	pager = /usr/local/bin/less -F -X --mouse
 
 [color]
   ui = auto
