@@ -6,8 +6,7 @@
 ##
 
 #############################
-# Ignore files for Vim & Neovim
-##
+# Vim & Neovim / ignore files for ##
 [._]*.s[a-v][a-z]
 [._]*.sw[a-p]
 [._]s[a-v][a-z]
@@ -20,7 +19,7 @@ vim/*.swp
 **/.un*
 **/*.un~
 
-# Ignore bundled packages, ie. minpac Vim plugins
+# vim & neovim / minpac / Ignore bundled packages, ie. minpac Vim plugins
 !/editors/vim/vim/pack/.gitkeep
 !/editors/vim/vim/pack/minpac/.gitkeep
 editors/vim/vim/pack/minpac/opt/*
@@ -186,7 +185,7 @@ jobs/bin/inkview
 **/PrusaSlicer/printer/**
 
 ##############################
-# GTK > gtk-mac-bundler
+# GTK / gtk-mac-bundler
 ##
 jobs/bin/gtk-mac-bundler
 
@@ -247,6 +246,7 @@ terms/tmux/tmux/resurrect/*
 terms/tmux/tmux/resurrect/last
 terms/tmux/tmux/plugins/*
 !terms/tmux/tmux/plugins/.gitkeep
+terms/tmux/tmux.conf.d/nested-tmux
 
 ##############################
 # crypto
