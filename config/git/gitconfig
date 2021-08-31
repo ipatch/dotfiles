@@ -54,6 +54,7 @@
   # TODO: solve mouse / trackpad scroll support & color when viewing git log
   ##
   l = log --graph --pretty=format:'%C(yellow)%h%C(bold white red)%d%Creset %s %C(bold green)%cr %Creset%C(white)%an' --abbrev-commit --date=relative
+  logtb = log --oneline --decorate --graph --all -30
 
   ####
   # checking out
