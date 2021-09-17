@@ -753,6 +753,9 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.co
 
 <summary>Uncompleted</summary>
 
+- [ ] [tmux] nesting tmux sessions, finish exploring (if possilbe) get a working tmux setup that allows nesting sessions.
+    - https://github.com/aleclearmind/nested-tmux
+    - https://forum.upcase.com/t/managing-local-and-remote-nested-tmux-sessions/7601
 - [ ] [vnc viewer] using _vnc viewer.app_ on macos sucks when using an external mouse to scroll through the terminal history.
     - is ther some setting where the sensitivity can be set, so scroll begins with one click of the mouse wheel.
 - [ ] [vim] [nvim] when toggling the tagbar <kbd>leader+\\</kbd> move the cursor/focus to the tagbar buffer automatically.
