@@ -754,6 +754,7 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.co
 <summary>Uncompleted</summary>
 
 - [ ] [mpv] #mpv, add global shortcuts for pausing and muting mpv regardless of the front most application, use karabiner elements for macos
+    - use <kbd>fn+option+f8</kbd> for pause and <kbd>fn+option+f10</kbd> for mute
 - [ ] [tmux] nesting tmux sessions, finish exploring (if possilbe) get a working tmux setup that allows nesting sessions.
     - https://github.com/aleclearmind/nested-tmux
     - https://forum.upcase.com/t/managing-local-and-remote-nested-tmux-sessions/7601
