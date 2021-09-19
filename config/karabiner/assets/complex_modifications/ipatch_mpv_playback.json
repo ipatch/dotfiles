@@ -1,0 +1,33 @@
+{
+  "title": "🏴‍☠️ ipatch, globally ⏯ play/pause mpv regardless of frontmost application",
+  "maintainer": [
+    "ipatch"
+  ],
+
+  "rules": [
+    {
+      "description": "🏴‍☠️ ipatch, hold left_shift then press fn to globally play or pause ⏯ mpv",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "mandatory": [
+                "left_shift"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            },
+            "key_code": "fn"
+          },
+          "to": [
+            {
+              "shell_command": "/bin/bash ~/.local/bin/mpv_control_playback.sh > ~/logs/mpv_pb.log 2>&1" 
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
