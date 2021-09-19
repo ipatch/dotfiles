@@ -6,20 +6,20 @@
 
   "rules": [
     {
-      "description": "🏴‍☠️ ipatch, hold left_shift then press fn to globally play or pause ⏯ mpv",
+      "description": "🏴‍☠️ ipatch, hold left_control then press enter/return to globally play or pause ⏯ mpv",
       "manipulators": [
         {
           "type": "basic",
           "from": {
             "modifiers": {
               "mandatory": [
-                "left_shift"
+                "left_control"
               ],
               "optional": [
                 "caps_lock"
               ]
             },
-            "key_code": "fn"
+            "key_code": "return_or_enter"
           },
           "to": [
             {
