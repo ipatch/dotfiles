@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/local/bin/bash
 set -e
 
 # NOTE: for whatever reason the syntax in this file is not the exact same syntax when running these functions from an 
@@ -11,30 +11,30 @@ set -e
 # NOTE: when exp with running the above cmd, when rerunning the cmd from a CLI the file will be overwritten if the 
 # filename is the same from the previous cmd
 
-# NOTE: this script has made some improvements with recording live internet streams, a single key press if `input.conf` is 
-# setup with mpv is all that is needed to `start` / `stop` a recording from the mpv interface.
-
-# NOTE: there were some issues where a new recording would be started after stopping a recording, that issue should be resolved now.
-
-# NOTE: this `record.sh` script presently can not go back in the playback history and record the playback from the seeked position.
-# SEE: https://github.com/mpv-player/mpv/issues/7275
+# NOTE: `PATH` to commands must be absolute for time being
+# TODO: set path for commands to variables possibly, to avoid having to type out full path 
+# to commands ie. `socat`
 
 getPlaybackStatus() {
+    # /usr/local/bin/hs -c "alert('inside getplaybackstatus func')"
+
   plackbackStatus=$(echo '{ "command": ["get_property", "pause"] }' | \
-    socat - /tmp/mpvsocket | \
-    jq -r '.data')
+    /usr/local/bin/socat - /tmp/mpvsocket | \
+    /usr/local/bin/jq -r '.data')
 }
 
 startPause() {
+  /usr/local/bin/hs -c "alert('mpv paused')"
   echo "starting pause of playback"
-  echo '{ "command": [ "set_property", "pause", true] }' | socat - /tmp/mpvsocket
- echo "playback paused"
+  echo '{ "command": [ "set_property", "pause", true] }' | /usr/local/bin/socat - /tmp/mpvsocket
+  echo "playback paused"
 }
 
 stopPause() {
+  /usr/local/bin/hs -c "alert('mpv playback resumed')"
   echo "resuming playback"
   echo '{ "command": ["set_property", "pause", false] }' | \
-    socat - /tmp/mpvsocket
+    /usr/local/bin/socat - /tmp/mpvsocket
   echo "playback resumed"
 }
 
@@ -49,9 +49,5 @@ togglePlayback() {
     stopPause
   fi
 }
-
-# expEcho() {
-#   echo "just this"
-# }
 
 togglePlayback
