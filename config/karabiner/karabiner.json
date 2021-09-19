@@ -477,7 +477,7 @@
                         ]
                     },
                     {
-                        "description": "ipatch, map fn+left_shift to globally play or pause mpv",
+                        "description": "🏴‍☠️ ipatch, hold left_shift then press fn to globally play or pause ⏯ mpv",
                         "manipulators": [
                             {
                                 "from": {
