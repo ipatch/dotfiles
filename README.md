@@ -754,8 +754,6 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.co
 <summary>Uncompleted</summary>
 
 - [ ] #karabiner-elements #karabinerelements, swap <kbd>-</kbd> with <kbd>_</kbd> when **caps lock** is activated
-- [ ] [mpv] #mpv, add global shortcuts for pausing and muting mpv regardless of the front most application, use karabiner elements for macos
-    - use <kbd>fn+option+f8</kbd> for pause and <kbd>fn+option+f10</kbd> for mute
 - [ ] [tmux] nesting tmux sessions, finish exploring (if possilbe) get a working tmux setup that allows nesting sessions.
     - https://github.com/aleclearmind/nested-tmux
     - https://forum.upcase.com/t/managing-local-and-remote-nested-tmux-sessions/7601
@@ -828,6 +826,8 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.co
 <details>
 <summary><strong>TODOs completed</strong></summary>
 
+- [x] [mpv] #mpv, add global shortcuts for pausing and muting mpv regardless of the front most application, use karabiner elements for macos
+    - use <kbd>fn+option+f8</kbd> for pause and <kbd>fn+option+f10</kbd> for mute
 - [x] ~~[vim] [neovim] [vnc] how to paste from local to remote host when using _vnc viewer.app_ on macos~~
     - okay, my vim chops are rusty, when using terminal vim/neovim make sure `mouse=` and view the registers with `:reg` and locate the text that you'd like to paste, ie. `"*p"` is a common register that holds copied text
 - [x] ~~[keyboard] [keytron] remap <kbd>control_l</kbd> <kbd>fn1</kbd> because i already have mapped <kbd>caps lock</kbd> to <kbd>control_l</kbd> no need to two left controls. [insert emoji of person wearing eyepatch, ...ohhh wait there isn't one]~~
