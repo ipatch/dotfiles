@@ -57,7 +57,7 @@ endif
 
 set spelllang=en_us " set the language for spelling words
 
-" BUG: 🐛 enabling the below line breaks copy/paste of emojis in neovim
+" BUG: 🐛 enabling the below line prevents copy/paste of emojis in neovim
 " language en_US
 lan en_US.UTF-8
 
