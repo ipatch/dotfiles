@@ -11,14 +11,15 @@
 # default value.
 
 Port 4321
-AddressFamily any # options = `any` - both ipv6 & ipv4, `inet` - ipv4, `inet6`
+# options = `any` - both ipv6 & ipv4, `inet` - ipv4, `inet6`
+AddressFamily any 
 ListenAddress 0.0.0.0
 ListenAddress ::
-Protocol 2
+# Protocol 2 # NOTE: deprecated
 
 # Users & Groups
 # DEPRECATED
-# UsePrivilegeSeparation no # don't use `setuid` or `setgid` calls
+# UsePrivilegeSeparation no # NOTE: don't use `setuid` or `setgid` calls
 
 HostKey /usr/local/etc/ssh/ssh_host_rsa_key
 HostKey /usr/local/etc/ssh/ssh_host_dsa_key
@@ -36,12 +37,15 @@ LogLevel INFO
 
 #LoginGraceTime 2m
 PermitRootLogin no
-StrictModes yes # verifies perms of `$HOME/.ssh` dir
+
+# verifies perms of `$HOME/.ssh` dir
+StrictModes yes 
+
 #MaxAuthTries 6
 #MaxSessions 10
 
 # RSAAuthentication yes       # DEPRECATED
-# PubkeyAuthentication ye     # DEPRECATED
+# PubkeyAuthentication yes    # DEPRECATED
 
 # The default is to check both .ssh/authorized_keys and .ssh/authorized_keys2
 # but this is overridden so installations will only check .ssh/authorized_keys
@@ -91,7 +95,7 @@ ChallengeResponseAuthentication no
 # and ChallengeResponseAuthentication to 'no'.
 #UsePAM no
 
-# NOTE: enabling this setting is SUPER crucial to getting OpenSSH working properly on macOS.
+# NOTE: enabling pam is SUPER crucial to get OpenSSH working properly on macOS.
 UsePAM yes
 
 #GatewayPorts no
@@ -120,7 +124,9 @@ PidFile /usr/local/var/run/ssh/sshd.pid
 #Banner none
 
 # override default of no subsystems
-Subsystem	sftp	/usr/local/Cellar/openssh/7.7p1/libexec/sftp-server
+# Subsystem	sftp	/usr/local/Cellar/openssh/7.7p1/libexec/sftp-server
+Subsystem	sftp	/usr/local/Cellar/openssh/8.8p1/libexec/sftp-server
+
 
 # Example of overriding settings on a per-user basis
 #Match User anoncvs
