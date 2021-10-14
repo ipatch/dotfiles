@@ -1,4 +1,4 @@
-"""""""""""""""""""""""""""""
+"----------------------------
 " Key mappings / bindings
 " NOTE: `meta` ie. `⌘.` within iTerm2 require escape sequences to be mapped
 " NOTE: apparently `:map` and `:map!` will map to all modes in (n)vim
