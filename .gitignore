@@ -1,11 +1,11 @@
-#############################
+#----------------------------
 # ~ .gitignore ~ for Chris Jones dotfiles
 # url: https://github.com/ipatch/dotfiles
 # github: @ipatch
 # twitter: @truckmonth
-##
+#-
 
-#############################
+#----------------------------
 # Vim & Neovim / ignore files for ##
 [._]*.s[a-v][a-z]
 [._]*.sw[a-p]
@@ -165,11 +165,11 @@ jobs/bin/inkview
 !**/FreeCAD/Macro/.gitkeep
 
 
-##############################
+#-----------------------------
 # PrusaSlicer / Prusa Slicer
 # NOTE: app setting files on macos are located within...
 # $HOME/Library/Application Support/PrusaSlicer/
-##
+#-
 
 **/PrusaSlicer/cache/**
 **/PrusaSlicer/snapshots/**
@@ -184,14 +184,14 @@ jobs/bin/inkview
 **/PrusaSlicer/print/**
 **/PrusaSlicer/printer/**
 
-##############################
+#-----------------------------
 # GTK / gtk-mac-bundler
-##
+#-
 jobs/bin/gtk-mac-bundler
 
-##############################
+#-----------------------------
 # Blender
-##
+#-
 config/Blender/2.79/config/recent-files.txt
 config/Blender/2.8[0-9]*/config/recent-files.txt
 config/Blender/2.8[0-9]*/config/bookmarks.txt
@@ -211,9 +211,9 @@ config/Blender/2.9[0-9]*/scripts/presets/operator/**
 config/Blender/2.9[0-9]*/config/userpref.blend 
 config/Blender/2.9[0-9]*/config/platform_support.txt
 
-##################################
+#---------------------------------
 # Python - pyenv
-##
+#-
 lang/python/pyenv/**
 
 # airpy tools for working with AirPort devices
@@ -223,13 +223,18 @@ jobs/bin/f2py3
 jobs/bin/f2py3.8
 # python compile cache
 **__pycache__
-# TODO: why are python bins being installed in my `$HOME/jobs/bin` dir [i'd insert a emoji here, but alacritty is PITA sometimes]
+# TODO: why are python bins being installed in my `$HOME/jobs/bin` dir [i'd insert an emoji here, but alacritty is PITA sometimes]
 jobs/bin/cygdb
 jobs/bin/cython
 jobs/bin/cythonize
 jobs/bin/ttygif
 
-##############################
+#-----------------------------
+# alacritty
+##
+config/alacritty/alacritty.macos.yml
+
+#-----------------------------
 # r2 a.k.a radare radare2
 ##
 config/radare2/history

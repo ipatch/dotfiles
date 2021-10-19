@@ -49,8 +49,15 @@ xcodebuild -showsdks
 
 <a id="useful-links"></a>
 
+- [**github** gist / **effective modern cmake**][lnk1]
+- [**github** / cmake examples][lnk2]
+- [**cgold** / the hitchhicker's guide to cmake][lnk3]
 - [_blog_ paul smith, getting started with llvm backend, C api](https://www.pauladamsmith.com/blog/2015/01/how-to-get-started-with-llvm-c-api.html)
 - [**cyberciti.biz** How To Compile And Run a C/C++ Code In Linux](https://www.cyberciti.biz/faq/howto-compile-and-run-c-cplusplus-code-in-linux/)
+
+[lnk1]: <https://gist.github.com/mbinna/c61dbb39bca0e4fb7d1f73b0d66a4fd1>
+[lnk2]: <https://github.com/ttroy50/cmake-examples>
+[lnk3]: <https://cgold.readthedocs.io/en/latest/>
 
 ## TODOs
 

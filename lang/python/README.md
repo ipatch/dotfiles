@@ -171,6 +171,13 @@ pip install -r requirements.txt --no-index --find-links file:///tmp/packages
 
 ## Useful Links
 
+<a name="useful-links"></a>
+
+- [**debugging python scripts/files using vscode][lnk1]
+
+
+[lnk1]: <https://code.visualstudio.com/docs/python/debugging>
+
 <a id="todos"></a>
 
 ## TODOs [🔝](#contents)
