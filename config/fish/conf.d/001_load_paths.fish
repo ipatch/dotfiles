@@ -34,6 +34,7 @@ set -gx XDG_DATA_HOME $HOME/.local/share
 
 if [ "$os" = Darwin ]; and [ -n /usr/local/bin/brew ]
     set -gx brew_prefix /usr/local
+    set -gx bp /usr/local
 else if [ "$os" = Linux ]; and [ -n /home/linuxbrew/.linuxbrew/bin/brew ]
   set -gx brew_prefix /home/linuxbrew/.linuxbrew
 end
