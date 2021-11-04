@@ -24,8 +24,14 @@ https://github.com/foxlet/macOS-Simple-KVM/issues/212#issuecomment-830783812
 - to convert/migrate a virtualbox vdi disk file to RAW to make compatible with qemu
 https://www.agix.com.au/migrate-a-virtualbox-disk-image-vdi-to-a-qemu-image-img/
 
-- the OG guide for setting up a macos kvm vm
-- 
-
 - a great writeup / blog post about setting up a macos kvm vm (bigsur)
 https://www.nicksherlock.com/2020/06/installing-macos-big-sur-on-proxmox/
+
+### Notes / gpu passthrough / intel hd 530 / and general macos virtual machining 
+
+https://github.com/foxlet/macOS-Simple-KVM/issues/130
+https://github.com/yoonsikp/macOS-KVM-PCI-Passthrough#pci-passthrough-for-graphics-card
+https://github.com/kholia/OSX-KVM/blob/master/OVMF-notes.txt
+https://github.com/thenickdude/KVM-Opencore
+https://github.com/foxlet/macOS-Simple-KVM/issues/357
+https://github.com/foxlet/macOS-Simple-KVM/blob/master/docs/guide-networking.md

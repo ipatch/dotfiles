@@ -22,6 +22,11 @@ cat install_manifest.txt | xargs -L1 dirname | xargs rmdir -p
 
 [so1]: <https://stackoverflow.com/a/48914285/708807>
 
+### working with cmake / useful links
+
+https://discourse.cmake.org/t/how-to-determine-which-architectures-are-available-apple-m1/2401/12
+https://developer.apple.com/documentation/apple-silicon/building-a-universal-macos-binary (apple univeral binaries, amd64 aarch64)
+
 ## General C++ Commands & Usage
 
 <a id="general-c++-commands-and-usage"></a>
