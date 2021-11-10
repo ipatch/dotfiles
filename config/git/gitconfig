@@ -17,6 +17,8 @@
 
   # branching
   b = branch
+  # bdates = !git branch --sort=creatordate --sort=committername --format "%(align:20) %(creatordate:relative) %(end) %(align:25) %(committername) %(end) %(refname:lstrip=-1)"
+
 
   ####
   # searching

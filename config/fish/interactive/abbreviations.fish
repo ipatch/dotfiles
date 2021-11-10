@@ -139,6 +139,7 @@ abbr -ag git.is.shallow 'git rev-parse --is-shallow-repository'
 abbr -ag git.shallow\? 'git rev-parse --is-shallow-repository'
 abbr -ag git.ls.commits 'git rev-list --count HEAD'
 abbr -ag git.count.commits 'git rev-list --count HEAD'
+abbr -ag git.b.dates 'git branch --sort=creatordate --sort=committername --format "%(align:20) %(creatordate:relative) %(end) %(align:25) %(committername) %(end) %(refname:lstrip=-1)"'
 
 ################
 # personal fish functions
