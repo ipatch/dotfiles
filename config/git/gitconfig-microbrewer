@@ -1,0 +1,9 @@
+[gpg]
+	program = "$HOME/homebrew/bin/gpg"
+  # Make certain `gpg` is in the $USER $PATH
+  # NOTE: will only work if the $bp env var is set
+	# program = /usr/local/bin/gpg
+	# program = $bp/bin/gpg
+	# pager = $bp/bin/less -F -X --mouse
+
+
