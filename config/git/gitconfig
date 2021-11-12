@@ -348,7 +348,10 @@ textconv = unzip -c -a
 
 [gpg]
   # Make certain `gpg` is in the $USER $PATH
-	program = /usr/local/bin/gpg
+  # NOTE: will only work if the $bp env var is set
+  program = /usr/local/bin/gpg
+	# program = $bp/bin/gpg
+	# pager = $bp/bin/less -F -X --mouse
 
 [init]
 	templatedir = ~/.config/git/git-templates
