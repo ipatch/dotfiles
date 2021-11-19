@@ -16,8 +16,12 @@ ie. mojave, catalina, and bigsur. where at the same time setup a list of default
   1. create a new img/drive using `qemu-img`
   2. boot from the recovery partition (requires adding OC.iso virtual disk)
   3. copy old drive to new drive using disk utility
-  
+	4. (optional) copying of the opencore efi image is required if wanting to boot without the opencore ISO mounted
+	- [learn more][lm1] about copying the efi partition for the opencore to the internal vdisk
+
 https://github.com/foxlet/macOS-Simple-KVM/issues/212#issuecomment-830783812
+
+[lm1]: <https://www.nicksherlock.com/2021/10/installing-macos-12-monterey-on-proxmox-7/#more-1167>
 
 ---
 
