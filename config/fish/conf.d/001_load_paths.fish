@@ -37,6 +37,7 @@ if [ "$os" = Darwin ]; and [ -n /usr/local/bin/brew ]
     set -gx bp /usr/local
 else if [ "$os" = Linux ]; and [ -n /home/linuxbrew/.linuxbrew/bin/brew ]
   set -gx brew_prefix /home/linuxbrew/.linuxbrew
+  set -gx bp /home/linuxbrew/.linuxbrew
 end
 
 # NOTE: reverse order, ie. `/bin` should be last entry within `echo $PATH`
@@ -61,6 +62,7 @@ $brew_prefix/sbin \
 # $brew_prefix/opt/go/libexec/bin \
 # $brew_prefix/opt/coreutils/libexec/bin \
 $brew_prefix/opt/postgresql@10/bin \
+$bp/zfs/bin \
 # $HOME/miniconda3/bin \
 $HOME/go/bin \
 $HOME/.cargo/bin \
