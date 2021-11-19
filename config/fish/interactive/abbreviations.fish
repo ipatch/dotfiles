@@ -339,13 +339,10 @@ switch $os # personally defined env var
       abbr -ag cdbrewlogs "cd (brew --prefix)/var/log"
 
       # python
-      abbr -ag pythonb "$brew_prefix/opt/python/bin/python3"
-      abbr -ag bpython  "$brew_prefix/opt/python/bin/python3"
-      abbr -ag pipb "$brew_prefix/opt/python/bin/pip3"
-      abbr -ag hb.p3 "$bp/bin/pip3"
-      abbr -ag hbp3 "$bp/bin/pip3"
       abbr -ag hbb "$bp/bin"
+      abbr -ag hbp3 "$bp/bin/pip3"
       abbr -ag hbp3s "$bp/bin/pip_search"
+      abbr -ag hbpy3 "$bp/bin/python3"
 
       # TODO: why is `bpip` sometimes a func
       #

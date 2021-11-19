@@ -18,6 +18,7 @@ ie. mojave, catalina, and bigsur. where at the same time setup a list of default
   3. copy old drive to new drive using disk utility
 	4. (optional) copying of the opencore efi image is required if wanting to boot without the opencore ISO mounted
 	- [learn more][lm1] about copying the efi partition for the opencore to the internal vdisk
+	- after opencore is copied the vdisk the boot options will need to be updated to set the _timeout_ or the system will stall the boot selection menu (not useful if booting the system with `-nographic`
 
 https://github.com/foxlet/macOS-Simple-KVM/issues/212#issuecomment-830783812
 
