@@ -753,6 +753,7 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.co
 
 <summary>Uncompleted</summary>
 
+- [ ] `init.lua` remember _code fold_ settings when closing then reopening a buffer
 - [ ] #vim #neovim #nvim, specific, add or implement so sort of function when editing homebrew formula files to have a go to definition when cursor is on a `depends_on` block
 - [ ] display some sort message, alert, or menubar icon when caps lock is activated "for all that is sane" 👩🏻‍⚕️
 - [ ] #karabiner-elements #karabinerelements, swap <kbd>-</kbd> with <kbd>_</kbd> when **caps lock** is activated
