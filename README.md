@@ -753,6 +753,8 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.co
 
 <summary>Uncompleted</summary>
 
+- [x] **Q** does changing path to open buffers within a saved session file find new buffers with **old** neovim configuration files
+    - short answer, **no** there's some automagic inside the `init.lua` either setting or plugin
 - [ ] `init.lua` remember _code fold_ settings when closing then reopening a buffer
 - [ ] #vim #neovim #nvim, specific, add or implement so sort of function when editing homebrew formula files to have a go to definition when cursor is on a `depends_on` block
 - [ ] display some sort message, alert, or menubar icon when caps lock is activated "for all that is sane" 👩🏻‍⚕️
