@@ -16,6 +16,7 @@ ie. mojave, catalina, and bigsur. where at the same time setup a list of default
   1. create a new img/drive using `qemu-img`
   2. boot from the recovery partition (requires adding OC.iso virtual disk)
   3. copy old drive to new drive using disk utility
+		> the newly created disk within the host OS needs to be formatted using APFS or HFS+ first before macos begin the restore process
 	4. (optional) copying of the opencore efi image is required if wanting to boot without the opencore ISO mounted
 	- [learn more][lm1] about copying the efi partition for the opencore to the internal vdisk
 	- after opencore is copied the vdisk the boot options will need to be updated to set the _timeout_ or the system will stall the boot selection menu (not useful if booting the system with `-nographic`
