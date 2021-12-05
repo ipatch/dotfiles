@@ -167,6 +167,12 @@ To install a locally downloaded copy of a package and use local paths, [learn mo
 pip install -r requirements.txt --no-index --find-links file:///tmp/packages
 ```
 
+To upgrade **all** outdated pip packages _copy pasta_
+
+```shell
+pip list --format freeze --outdated | sed 's/=.*//g' | xargs -n1 pip install -U
+```
+
 <a id="useful-links"></a>
 
 ## Useful Links
