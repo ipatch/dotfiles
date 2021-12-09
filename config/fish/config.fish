@@ -76,6 +76,7 @@ if type -q brew
   set -gx brewcache $HOME/Library/Caches/Homebrew
   set -gx HOMEBREW_NO_AUTO_UPDATE 1
   set -gx HOMEBREW_NO_INSTALL_CLEANUP 1
+  set -gx HOMEBREW_CORE_GIT_REMOTE "https://github.com/ipatch/homebrew-core"
   # NOTE: the (brew --repository) calls were taking significantly to long when launching new shell instances in tmux BOOOOO!
   # set -gx hbcoref (brew --repository homebrew/core)/Formula
   # set -gx hbcf (brew --repository homebrew/core)/Formula
