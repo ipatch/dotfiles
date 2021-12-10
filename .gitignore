@@ -210,6 +210,10 @@ config/Blender/2.9[0-9]*/scripts/presets/operator/**
 !config/Blender/2.9[0-9]*/config/.gitkeep
 config/Blender/2.9[0-9]*/config/userpref.blend 
 config/Blender/2.9[0-9]*/config/platform_support.txt
+config/Blender/3.0[0-9]*/**
+
+# ignore all blender 3.0 related settings
+config/Blender/3.0/**
 
 #---------------------------------
 # Python - pyenv
