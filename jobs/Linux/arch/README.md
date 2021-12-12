@@ -68,6 +68,20 @@ i3status doesn't directly support calling/running shell scripts from what i unde
 
 <a name="troubleshooting"></a>
 
+### troubleshooting / pacman or yay
+
+if the below error arrises when trying to upgrade an arch based GNU+Linux system
+
+```
+error: runc: signature from "Frederik Schwan <frederik.schwan@linux.com>" is unknown trust
+```
+
+the below command should clear issues related key ring issues
+
+```
+sudo pacman -Sy archlinux-keyring
+```
+
 ### troubleshooting / networking
 
 <a name="troubleshooting-networking"></a>
