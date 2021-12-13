@@ -2,7 +2,8 @@
 -- LINK: https://www.hammerspoon.org/docs/hs.ipc.html
 require("hs.ipc")
 
-hs.ipc.cliInstall()
+-- hs.ipc.cliUninstall(true)
+hs.ipc.cliInstall("/usr/local/bin")
 hs.ipc.cliSaveHistory(true)
 
 -- NOTE: quickly reload hs configuration file, and spoons for quick testing / debugging

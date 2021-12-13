@@ -5,7 +5,7 @@
   ],
 
   "rules": [
-    { "description": "Press right_command twice, toggle AutoRaise  🛸",
+    { "description": "🏴‍☠️ ipatch, Press right_command twice, toggle AutoRaise  🛸",
       "manipulators": [
         {
           "type": "basic",
