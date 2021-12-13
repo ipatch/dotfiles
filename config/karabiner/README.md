@@ -21,8 +21,7 @@ to obtain a **bundle identifier** for a specific application
 ```shell
 osascript -e 'id of app "App Name"'
 echo "example"
-- osascript -e 'id of app "/Applications/Messages.app"'
-+ osascript -e 'id of app "Messages.app"'
+osascript -e 'id of app "Messages.app"'
 ```
 
 if there is an issue with adding the rule
