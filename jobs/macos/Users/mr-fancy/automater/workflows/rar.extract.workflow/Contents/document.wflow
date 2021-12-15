@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>AMApplicationBuild</key>
-	<string>444.7</string>
+	<string>492</string>
 	<key>AMApplicationVersion</key>
-	<string>2.8</string>
+	<string>2.10</string>
 	<key>AMDocumentVersion</key>
 	<string>2</string>
 	<key>actions</key>
@@ -107,7 +107,7 @@
 				<key>isViewVisible</key>
 				<false/>
 				<key>location</key>
-				<string>413.000000:112.000000</string>
+				<string>603.500000:43.000000</string>
 				<key>nibPath</key>
 				<string>/System/Library/Automator/Get Specified Finder Items.action/Contents/Resources/Base.lproj/main.nib</string>
 			</dict>
@@ -241,7 +241,7 @@ for f in $@
 do
 	p=$(dirname $f)
 	cd $p
-	unrar x -y $f
+	7z x -y $f
 done</string>
 					<key>CheckedForUserDefaultShell</key>
 					<true/>
@@ -304,9 +304,9 @@ done</string>
 					<key>1</key>
 					<dict>
 						<key>default value</key>
-						<string></string>
+						<false/>
 						<key>name</key>
-						<string>source</string>
+						<string>CheckedForUserDefaultShell</string>
 						<key>required</key>
 						<string>0</string>
 						<key>type</key>
@@ -317,9 +317,9 @@ done</string>
 					<key>2</key>
 					<dict>
 						<key>default value</key>
-						<false/>
+						<string></string>
 						<key>name</key>
-						<string>CheckedForUserDefaultShell</string>
+						<string>source</string>
 						<key>required</key>
 						<string>0</string>
 						<key>type</key>
@@ -357,9 +357,9 @@ done</string>
 				<key>isViewVisible</key>
 				<true/>
 				<key>location</key>
-				<string>413.000000:361.000000</string>
+				<string>603.500000:461.000000</string>
 				<key>nibPath</key>
-				<string>/System/Library/Automator/Run Shell Script.action/Contents/Resources/English.lproj/main.nib</string>
+				<string>/System/Library/Automator/Run Shell Script.action/Contents/Resources/Base.lproj/main.nib</string>
 			</dict>
 			<key>isViewVisible</key>
 			<true/>
@@ -367,25 +367,25 @@ done</string>
 	</array>
 	<key>connectors</key>
 	<dict>
-		<key>2EAC2C79-AA9A-42E5-BD46-F8A8ED9BAF7F</key>
-		<dict>
-			<key>from</key>
-			<string>AC1FE59E-BF98-402A-BB9F-2E98015F7FD8 - AC1FE59E-BF98-402A-BB9F-2E98015F7FD8</string>
-			<key>to</key>
-			<string>50145C64-9143-4067-A403-A4A9C7509A1B - 50145C64-9143-4067-A403-A4A9C7509A1B</string>
-		</dict>
-		<key>5D6124D8-D2F8-49EA-82BA-231DBE5E3D44</key>
+		<key>5C415979-86BB-44E6-B3D3-0605284361A9</key>
 		<dict>
 			<key>from</key>
 			<string>50145C64-9143-4067-A403-A4A9C7509A1B - 50145C64-9143-4067-A403-A4A9C7509A1B</string>
 			<key>to</key>
 			<string>AD809AA7-6763-4C47-8FA3-9C1683DCD65A - AD809AA7-6763-4C47-8FA3-9C1683DCD65A</string>
 		</dict>
+		<key>E8BF2087-65BC-4558-A4A6-2E4397A81EE7</key>
+		<dict>
+			<key>from</key>
+			<string>AC1FE59E-BF98-402A-BB9F-2E98015F7FD8 - AC1FE59E-BF98-402A-BB9F-2E98015F7FD8</string>
+			<key>to</key>
+			<string>50145C64-9143-4067-A403-A4A9C7509A1B - 50145C64-9143-4067-A403-A4A9C7509A1B</string>
+		</dict>
 	</dict>
 	<key>workflowMetaData</key>
 	<dict>
 		<key>workflowTypeIdentifier</key>
-		<string>com.apple.Automator.application</string>
+		<string>com.apple.Automator.workflow</string>
 	</dict>
 </dict>
 </plist>
