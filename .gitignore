@@ -216,6 +216,12 @@ config/Blender/3.0[0-9]*/**
 config/Blender/3.0/**
 
 #---------------------------------
+# macos / automator, workflows / apps
+#--
+jobs/macOS/Users/mr-fancy/automater/*.app/**
+jobs/macOS/Users/mr-fancy/automater/*.app
+
+#---------------------------------
 # Python - pyenv
 #-
 lang/python/pyenv/**
@@ -247,7 +253,7 @@ config/radare2/plugins/*
 config/radare2/r2pm/*
 !config/radare2/r2pm/.gitkeep
 
-##############################
+#-----------------------------
 # tmux
 ##
 terms/tmux/tmux/resurrect/*
@@ -257,27 +263,27 @@ terms/tmux/tmux/plugins/*
 !terms/tmux/tmux/plugins/.gitkeep
 terms/tmux/tmux.conf.d/nested-tmux
 
-##############################
+#-----------------------------
 # crypto
 ##
 config/asciinema/install-id
 
-##############################
+#-----------------------------
 # build artifacts
 ##
 **/*.o
 
-##############################
+#-----------------------------
 # build artifacts > jhbuild
 ##
 jobs/bin/jhbuild
 
-##############################
+#-----------------------------
 # macOS > automation > karabiner & hammerspoon
 config/karabiner/automatic_backups/*
 jobs/macOS/Users/mr-fancy/hammerspoon/.cli.history
 
-##############################
+#-----------------------------
 # tmp - ignore files
 ##
 # config/git/gitconfig

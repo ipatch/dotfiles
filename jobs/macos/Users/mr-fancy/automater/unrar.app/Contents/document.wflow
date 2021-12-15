@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>AMApplicationBuild</key>
-	<string>444.7</string>
+	<string>492</string>
 	<key>AMApplicationVersion</key>
-	<string>2.8</string>
+	<string>2.10</string>
 	<key>AMDocumentVersion</key>
 	<string>2</string>
 	<key>actions</key>
@@ -107,7 +107,7 @@
 				<key>isViewVisible</key>
 				<false/>
 				<key>location</key>
-				<string>413.000000:112.000000</string>
+				<string>603.500000:111.000000</string>
 				<key>nibPath</key>
 				<string>/System/Library/Automator/Get Specified Finder Items.action/Contents/Resources/Base.lproj/main.nib</string>
 			</dict>
@@ -241,7 +241,8 @@ for f in $@
 do
 	p=$(dirname $f)
 	cd $p
-	unrar x -y $f
+	# ditch rar and go with 7-zip 7z easier to maintain
+	7z x -y $f
 done</string>
 					<key>CheckedForUserDefaultShell</key>
 					<true/>
@@ -304,9 +305,9 @@ done</string>
 					<key>1</key>
 					<dict>
 						<key>default value</key>
-						<string></string>
+						<false/>
 						<key>name</key>
-						<string>source</string>
+						<string>CheckedForUserDefaultShell</string>
 						<key>required</key>
 						<string>0</string>
 						<key>type</key>
@@ -317,9 +318,9 @@ done</string>
 					<key>2</key>
 					<dict>
 						<key>default value</key>
-						<false/>
+						<string></string>
 						<key>name</key>
-						<string>CheckedForUserDefaultShell</string>
+						<string>source</string>
 						<key>required</key>
 						<string>0</string>
 						<key>type</key>
@@ -357,9 +358,9 @@ done</string>
 				<key>isViewVisible</key>
 				<true/>
 				<key>location</key>
-				<string>413.000000:361.000000</string>
+				<string>603.500000:468.000000</string>
 				<key>nibPath</key>
-				<string>/System/Library/Automator/Run Shell Script.action/Contents/Resources/English.lproj/main.nib</string>
+				<string>/System/Library/Automator/Run Shell Script.action/Contents/Resources/Base.lproj/main.nib</string>
 			</dict>
 			<key>isViewVisible</key>
 			<true/>
@@ -367,14 +368,14 @@ done</string>
 	</array>
 	<key>connectors</key>
 	<dict>
-		<key>2EAC2C79-AA9A-42E5-BD46-F8A8ED9BAF7F</key>
+		<key>2EEF7A46-B559-4018-B174-34EA10F1C29B</key>
 		<dict>
 			<key>from</key>
 			<string>AC1FE59E-BF98-402A-BB9F-2E98015F7FD8 - AC1FE59E-BF98-402A-BB9F-2E98015F7FD8</string>
 			<key>to</key>
 			<string>50145C64-9143-4067-A403-A4A9C7509A1B - 50145C64-9143-4067-A403-A4A9C7509A1B</string>
 		</dict>
-		<key>5D6124D8-D2F8-49EA-82BA-231DBE5E3D44</key>
+		<key>34D879A2-AFB9-429F-B9FD-62F3469FB852</key>
 		<dict>
 			<key>from</key>
 			<string>50145C64-9143-4067-A403-A4A9C7509A1B - 50145C64-9143-4067-A403-A4A9C7509A1B</string>
