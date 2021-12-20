@@ -755,6 +755,7 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.co
 
 - [ ] go through the following procedures to see if the intel crystalwell igpu is properly being used on my archbox
     - https://wiki.archlinux.org/title/Hardware_video_acceleration#Verification 
+    - https://linux-hardware.org/?id=pci:8086-0d22-106b-0122
 - [x] **Q** does changing path to open buffers within a saved session file find new buffers with **old** neovim configuration files
     - short answer, **no** there's some automagic inside the `init.lua` either setting or plugin
 - [ ] `init.lua` remember _code fold_ settings when closing then reopening a buffer
