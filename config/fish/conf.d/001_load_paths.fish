@@ -24,9 +24,11 @@
 
 #############################
 # OS check
-##
+#
 # NOTE: be sure to symlink `/bin/uname` to `/usr/bin/uname` on Debian
-# NOTE: macOS == `Darwin` GNU/Linux == `Linux`
+# NOTE: macOS == `Darwin` GNU+Linux == `Linux`
+# NOTE: arch linux symlinks /usr/bin to /bin ...w00t
+##
 set -gx os (/usr/bin/uname)  
 # echo $os # DEBUG
 set -gx XDG_CONFIG_HOME $HOME/.config
@@ -47,27 +49,26 @@ set -l paths \
 /usr/bin \
 /usr/sbin \
 /usr/games \
-# /usr/local/sbin \
 $brew_prefix/bin \
 $brew_prefix/sbin \
 /usr/libexec \
 /opt/beta/bin \
-# /usr/local/bin \
 #
 # NOTE: the below entry is not required on macOS because X11.app adds `40-XQuartz` file within `/etc/paths.d`
-# /opt/X11/bin \ 
+# ... /opt/X11/bin \ 
+# ... to update the shell with entries from `/etc/paths.d` use the following cmd...
+# ... `eval `/usr/libexec/path_helper -s``
 #
 # $brew_prefix/opt/python/libexec/bin \
 # $brew_prefix/opt/libressl/bin \
 # $brew_prefix/opt/go/libexec/bin \
 # $brew_prefix/opt/coreutils/libexec/bin \
 $brew_prefix/opt/postgresql@10/bin \
-$bp/zfs/bin \
+# $bp/zfs/bin \ # macos homebrew provides `/etc/paths.d/zfs`
 # $HOME/miniconda3/bin \
 $HOME/go/bin \
 $HOME/.cargo/bin \
 $HOME/Library/Android/sdk/platform-tools \
-# $HOME/.rvm/bin \
 /Applications/microchip/xc16/v1.35/bin \
 $HOME/.yarn/bin \
 $HOME/.local/bin \
