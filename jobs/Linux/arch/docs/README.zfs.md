@@ -26,6 +26,23 @@ sudo usermod -aG mounters $USER
 sudo usermod -aG staff $USER
 ```
 
+## arch linux / zfs / automatic kernel module loading
+
+with the below configuration the system (arch linux) should load the **zfs** kernel modules once the system has finished booting
+
+[learn more][lm3]
+
+create a `/etc/modules-load.d/zfs.conf`
+
+contents of `zfs.conf`
+
+```
+# load the zfs-dkms (if using the dkms version of zfs) at boot
+zfs
+```
+
+[lm3]: <https://wiki.archlinux.org/title/Kernel_module#Automatic_module_loading_with_systemd>
+
 ## arch linux / zfs / troubleshooting
 
 ### fix / upgrading zfs using yay
