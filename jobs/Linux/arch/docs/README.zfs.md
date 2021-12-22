@@ -89,3 +89,10 @@ error: failed to prepare transaction (could not satisfy dependencies)
 ---
 
 doing some internet searches it seems this upgrade error could be related to **yay** because these packages need to be installed at the same time (haven't fully tested this hypothesis).
+
+## todos
+
+<a id="todos"></a>
+
+- [ ] review the below link and experiement with install zfs & friends using the provided aur repo
+  - https://github.com/archzfs/archzfs/wiki/Building-archzfs
