@@ -754,12 +754,10 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.co
 <summary>Uncompleted</summary>
 
 - [ ] #alacritty #macos for the love g0d, can we please support the emoji context menu ..."we can have nice things™️"
-- [ ] #arch #linux #archlinux, `git push` always prompts for username / password, boooooo 👻
-  - NOTE: might have this resolved after installing `github-cli` via arch linux using `yay -S github-cli`
+- [x] #arch #linux #archlinux, `git push` always prompts for username / password, boooooo 👻
   - TODO: will credentials be persisted through reboots and into ∞ and beyond
-  - NOTE: it appears using the `gh auth` did not persist my gh credentials through a reboot
-  - think i might have this gpg / remembering credentials figured out (insert crosses fingers emoji)
-  - will this work
+  - will this work ...yay it worked (w00t) no more having to input PAT
+  - update notes related to gpg and how i'm now storing credentials on my archbox
 - [ ] go through the following procedures to see if the intel crystalwell igpu is properly being used on my archbox
     - https://wiki.archlinux.org/title/Hardware_video_acceleration#Verification 
     - https://linux-hardware.org/?id=pci:8086-0d22-106b-0122
