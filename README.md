@@ -754,10 +754,6 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.co
 <summary>Uncompleted</summary>
 
 - [ ] #alacritty #macos for the love g0d, can we please support the emoji context menu ..."we can have nice things™️"
-- [x] #arch #linux #archlinux, `git push` always prompts for username / password, boooooo 👻
-  - TODO: will credentials be persisted through reboots and into ∞ and beyond
-  - will this work ...yay it worked (w00t) no more having to input PAT
-  - update notes related to gpg and how i'm now storing credentials on my archbox
 - [ ] go through the following procedures to see if the intel crystalwell igpu is properly being used on my archbox
     - https://wiki.archlinux.org/title/Hardware_video_acceleration#Verification 
     - https://linux-hardware.org/?id=pci:8086-0d22-106b-0122
@@ -840,6 +836,12 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.co
 <details>
 <summary><strong>TODOs completed</strong></summary>
 
+- [x] #arch #linux #archlinux, `git push` always prompts for username / password, boooooo 👻
+  - TODO: will credentials be persisted through reboots and into ∞ and beyond
+  - will this work ...yay it worked (w00t) no more having to input PAT
+  - update notes related to gpg and how i'm now storing credentials on my archbox
+  - see: https://github.com/GitCredentialManager/git-credential-manager/blob/main/docs/credstores.md#gpgpass-compatible-files
+  - i ended up using the tool `gitcredentialmanager` installed via `yay` then installed `pass` to persist my key through reboots 
 - [x] [mpv] #mpv, add global shortcuts for pausing and muting mpv regardless of the front most application, use karabiner elements for macos
     - use <kbd>fn+option+f8</kbd> for pause and <kbd>fn+option+f10</kbd> for mute
 - [x] ~~[vim] [neovim] [vnc] how to paste from local to remote host when using _vnc viewer.app_ on macos~~
