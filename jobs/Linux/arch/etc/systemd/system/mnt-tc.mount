@@ -1,0 +1,22 @@
+# NOTES: ipatch
+# see: https://wiki.archlinux.org/title/Samba#As_systemd_unit
+# see: https://flexion.org/posts/2014-07-nfs-and-cifs-mounts-with-systemd/
+# NOTE: this systemd mount unit requires a credentials file, ie. /etc/samba/time-capsule-data-share
+## ...see 2nd link for formatting of credentials file
+
+[Unit]
+Description=Mount Apple time capsule cifs/smb share on boot
+Requires=network-online.target
+After=network-online.service
+
+[Mount]
+What=//10.0.1.1/Data
+Where=/mnt/tc
+# TODO: QUESTION: possible to spread options across multiple lines???
+Options=credentials=/etc/samba/credentials/time-capsule-data-share,_netdev,iocharset=utf8,rw,sec=ntlm,vers=1.0,username=capin,uid=1000,gid=985,mapposix,file_mode=0644,dir_mode=0777
+Type=cifs
+TimeoutSec=30
+ForceUnmount=true
+
+[Install]
+WantedBy=multi-user.target
