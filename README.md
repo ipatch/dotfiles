@@ -758,6 +758,7 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.co
   - NOTE: might have this resolved after installing `github-cli` via arch linux using `yay -S github-cli`
   - TODO: will credentials be persisted through reboots and into ∞ and beyond
   - NOTE: it appears using the `gh auth` did not persist my gh credentials through a reboot
+  - think i might have this gpg / remembering credentials figured out (insert crosses fingers emoji)
 - [ ] go through the following procedures to see if the intel crystalwell igpu is properly being used on my archbox
     - https://wiki.archlinux.org/title/Hardware_video_acceleration#Verification 
     - https://linux-hardware.org/?id=pci:8086-0d22-106b-0122
