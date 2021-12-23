@@ -106,7 +106,10 @@ end
 # NOTE: make sure `brew --prefix` doesn't print 2 paths
 # NOTE: had some issues with my `brew.fish` func
 # doubling printing the brew prefix.
-if test -x (brew --prefix)/bin/go
+#
+# TODO: the below "if check" # NOTE: ipatch, will fail for reasons i don't know
+# if test -x (brew --prefix)/bin/go
+if test -x "$bp/bin/go"
   set -gx GOPATH $HOME/go
   # DO NOT set `GOROOT` permanently
   # set -gx GOROOT (brew --prefix)/opt/go
@@ -189,7 +192,10 @@ case Darwin
   # ls colors are defined within $HOME/.dir_colors, ie. ls colors database
   set -gx LSCOLORS Exfxcxdxcxegedabagacad
 
-  if test -d (brew --prefix)/opt/coreutils
+  # NOTE: TODO: ipatch, below `if check` will fail with custom `brew.fish` function
+  # if test -d (brew --prefix)/opt/coreutils
+  #
+  if test -d "$bp/opt/coreutils"
     # TODO: device a check for either {g,d}ircolors
     gdircolors -c $HOME/.dir_colors | source
     alias ls="/usr/local/opt/coreutils/libexec/gnubin/ls --color=auto"

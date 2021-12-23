@@ -1,5 +1,6 @@
 function brew --description "catch common misspelling & add some goodies"
-  if test -f /usr/local/bin/brew
+  # NOTE: ipatch, `$bp` is an env var defined when setting up `$PATH`
+  if test -f "$bp/bin/brew"
     # REF: https://stackoverflow.com/a/60607145/708807
     # thank you @faho
     switch "$argv[1]"
@@ -41,6 +42,11 @@ function brew --description "catch common misspelling & add some goodies"
       case "*"
         command brew $argv
     end #switch
+
+    switch "$argv"
+      case "*"
+        command brew $argv
+    end
    
   else
     echo "brew not found"
