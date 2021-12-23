@@ -432,6 +432,7 @@
   # helper = cache --timeout=28800
   # helper = 
   helper = /usr/bin/git-credential-manager-core
+	credentialStore = gpg
 
 [credential "https://dev.azure.com"]
   useHttpPath = true

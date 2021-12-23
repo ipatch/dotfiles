@@ -30,7 +30,12 @@ end
 ##
 # set -gx TERM xterm-256color # <= ❗️ DON'T explicitly set this env var!
 if type -q hostname
-	set -gx HOSTNAME (hostname -s)
+  set -gx HOSTNAME (hostname -s)
+end
+
+# check the value of the $HOSTNAME and if equals archmbp set GCM_CREDENTIAL_STORE
+if string match -q -- 'archmbp' $HOSTNAME
+  set -gx GCM_CREDENTIAL_STORE "gpg"
 end
 
 set -gx dotfiles /opt/code/dotfiles
