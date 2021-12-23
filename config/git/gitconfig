@@ -326,7 +326,7 @@
 # `git config --global diff.submodule log` will add the below 2 lines
 # NOTE: exp with (un)zipping zip files in a git repo
 [diff "zip"]
-textconv = unzip -c -a
+  textconv = unzip -c -a
 
 [diff]
   submodule = log
@@ -400,7 +400,7 @@ textconv = unzip -c -a
 # URL shorthands
 [url "git@gitlab.com"]
   insteadOf = "gl:"
-  pustInsteadOf = "gitlab:"
+  pushInsteadOf = "gitlab:"
 
 [url "git@github.com"]
   insteadOf = "gh:"
@@ -421,11 +421,11 @@ textconv = unzip -c -a
 [url "git://bitbucket.org:"]
   insteadOf = "bb:"
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true
 [pull]
-	ff = only
+  ff = only
 [credential]
-	helper = cache --timeout=28800
+  helper = cache --timeout=28800
