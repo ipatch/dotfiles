@@ -27,7 +27,7 @@ if [ -x "$path_to_brew" ]; then
         echo "dots env var has been set to '$dots'";
       fi
 
-      cd $dots/config/brew/macOS/10.13/
+      cd $dots/config/brew/macOS/catalina/
       echo "$PATH";
       brew bundle --force dump
 
