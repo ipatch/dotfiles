@@ -43,10 +43,11 @@ function brew --description "catch common misspelling & add some goodies"
         command brew $argv
     end #switch
 
-    switch "$argv"
-      case "*"
-        command brew $argv
-    end
+    # NOTE: the below catch all case was running `brew $argv` twice ... NOVA
+    # switch "$argv"
+    #   case "*"
+    #     command brew $argv
+    # end
    
   else
     echo "brew not found"
