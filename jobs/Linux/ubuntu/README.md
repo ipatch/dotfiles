@@ -11,4 +11,3 @@ sudo apt install mpv
 sudo apt install intel-gpu-tools
 ```
 
-

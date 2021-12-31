@@ -471,7 +471,7 @@ brew "freecad/freecad/matplotlib@3.4.3"
 brew "freecad/freecad/med-file@4.1.0"
 brew "freecad/freecad/shiboken2@5.15.2", link: true
 brew "freecad/freecad/pyside2@5.15.2", link: true
-brew "freecad/freecad/freecad"
+brew "freecad/freecad/freecad", link: false
 brew "freecad/freecad/qwtelmer"
 brew "freecad/freecad/tbb@2020_u3"
 brew "gromgit/fuse/sshfs-mac"
@@ -497,6 +497,7 @@ cask "background-music"
 cask "balenaetcher"
 cask "bitbar"
 cask "blender"
+cask "blobsaver"
 cask "brave-browser"
 cask "calibre"
 cask "checkra1n"
