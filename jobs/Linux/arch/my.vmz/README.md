@@ -49,3 +49,4 @@ https://www.nicksherlock.com/2020/06/installing-macos-big-sur-on-proxmox/
 - https://github.com/thenickdude/KVM-Opencore
 - https://github.com/foxlet/macOS-Simple-KVM/issues/357
 - https://github.com/foxlet/macOS-Simple-KVM/blob/master/docs/guide-networking.md
+- https://github.com/mvgijssel/setup/wiki/Qemu-tap-bridge-networking-on-macos-osx (also has info related to zfs)
