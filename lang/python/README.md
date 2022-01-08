@@ -180,7 +180,8 @@ pip list --format freeze --outdated | sed 's/=.*//g' | xargs -n1 pip install -U
 <a name="useful-links"></a>
 
 - [**debugging python scripts/files using vscode][lnk1]
-
+- https://pythondev.readthedocs.io/debug_tools.html (a good resource for debugging / tshooting c c++ projects that interopt with python)
+- https://www.pythonguis.com/tutorials/pyside-creating-your-first-window/ (dencent tutorials for working with pyside)
 
 [lnk1]: <https://code.visualstudio.com/docs/python/debugging>
 
