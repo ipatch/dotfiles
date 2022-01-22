@@ -188,6 +188,7 @@ A good [reference/explanation][ul3] of the above procedure
 
 <a name="todos"></a>
 
+- [ ] spend a little ⏳ sifting through the systemd logs to figure out why my archbox is taking so long to reboot/boot
 - [ ] add a link / reference for installing an older version of a package ie. _nss-mdns_
 
 ## useful links
