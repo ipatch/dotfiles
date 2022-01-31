@@ -18,3 +18,13 @@
 }
 
 /* #personal-bookmarks .bookmark-item > .toolbarbutton-icon {display:none!important} */
+
+/* remove menu items */
+#helpMenu {
+  display: none !important;
+}
+
+/* hide the help menu */
+menu[label="Help"] {
+  display: none !important;
+}
