@@ -753,6 +753,7 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.co
 
 <summary>Uncompleted</summary>
 
+- [ ] #mpv #hammerspoon, setup a env var for `mpvsocket` to make interacting the mpv socket a little less brittle 🧊
 - [ ] #alacritty #macos for the love g0d, can we please support the emoji context menu ..."we can have nice things™️"
 - [ ] go through the following procedures to see if the intel crystalwell igpu is properly being used on my archbox
     - https://wiki.archlinux.org/title/Hardware_video_acceleration#Verification 
