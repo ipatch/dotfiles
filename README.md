@@ -20,13 +20,11 @@
 
 </div>
 
-<!-- first day of spring, march 20, 2021 -->
-
 ## Installation
 
 <a id="installation"></a>
 
-<!-- github flavored markdown presently doesnot support `target="_blank"` -->
+<!-- NOTE: ipatch, github flavored markdown presently doesnot support `target="_blank"` -->
 
 <blockquote>
 👷 install script is incomplete, do the good ol <a href="https://i.imgur.com/QZj4hxp.jpg" target="_blank" "rel="noopener noreferrer">StackOverflow <img src="https://raw.githubusercontent.com/wiki/ipatch/dotfiles/lib/nearr.svg"></a> to experiment with repo files. 🚧
@@ -35,10 +33,9 @@
 ```sh
 curl https://raw.githubusercontent.com/ipatch/dotfiles/master/install.sh | /bin/sh
 
-echo "quickly add tmux configuration file, in a pinch"
+echo "quickly add tmux configuration file, in a pinch 🤏"
 curl https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.conf > ~/.tmux.conf
 ```
-
 
 ## File Structure
 
@@ -890,7 +887,10 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.co
 
 <summary>scratchpad</summary>
 
-<!-- In 2021, the first day of fall/autumn is on Wednesday, September 22.  -->
+<!-- might behoove me to add a note about adding secret private files into my dotfiles repo -->
+
+<!-- move to an evergreen release model -->
+
 
 </details>
 
