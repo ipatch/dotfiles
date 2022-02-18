@@ -1,7 +1,9 @@
 yarn global v1.22.17
-info "@babel/cli@7.16.0" has binaries:
+info "@babel/cli@7.17.3" has binaries:
    - babel
    - babel-external-helpers
+info "apply-pr@1.0.3" has binaries:
+   - apply-pr
 info "asciicast2gif@0.2.1" has binaries:
    - asciicast2gif
 info "browser-sync@2.27.7" has binaries:
@@ -25,13 +27,13 @@ info "javascript-typescript-langserver@2.11.3" has binaries:
    - javascript-typescript-stdio
 info "jest@26.6.3" has binaries:
    - jest
-info "jshint@2.13.1" has binaries:
+info "jshint@2.13.4" has binaries:
    - jshint
 info "markdown-cli@1.6.0" has binaries:
    - markdown-cli
 info "mdr@0.2.0" has binaries:
    - mdr
-info "neovim@4.10.0" has binaries:
+info "neovim@4.10.1" has binaries:
    - neovim-node-host
 info "nodemon@2.0.15" has binaries:
    - nodemon
@@ -39,7 +41,7 @@ info "stacks-cli@1.0.4" has binaries:
    - stacks-cli
 info "svg-term-cli@2.1.1" has binaries:
    - svg-term
-info "typescript@4.5.3" has binaries:
+info "typescript@4.5.5" has binaries:
    - tsc
    - tsserver
 info "typescript-language-server@0.4.0" has binaries:
@@ -48,4 +50,4 @@ info "webpack@5.32.0" has binaries:
    - webpack
 info "webpack-cli@4.6.0" has binaries:
    - webpack-cli
-Done in 1.12s.
+Done in 1.13s.
