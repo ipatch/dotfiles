@@ -753,8 +753,6 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.co
 - [ ] #freecad create asciinema of configuring and building freecad from source on macos
     - [ ] #freecad make an additional cast of runing through the test suite after building/installing freecad
 - [ ] #mpv #hammerspoon, setup a env var for `mpvsocket` to make interacting the mpv socket a little less brittle 🧊
-- [x] #alacritty #macos for the love g0d, can we please support the emoji context menu ..."we can have nice things™️"
-    - ended up forking alacritty myself and pulling a PR that allow emoji context menu 🎉
 - [ ] go through the following procedures to see if the intel crystalwell igpu is properly being used on my archbox
     - https://wiki.archlinux.org/title/Hardware_video_acceleration#Verification 
     - https://linux-hardware.org/?id=pci:8086-0d22-106b-0122
@@ -762,7 +760,7 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.co
 - [x] **Q** does changing path to open buffers within a saved session file find new buffers with **old** neovim configuration files
     - short answer, **no** there's some automagic inside the `init.lua` either setting or plugin
 - [ ] `init.lua` remember _code fold_ settings when closing then reopening a buffer
-- [ ] #vim #neovim #nvim, specific, add or implement so sort of function when editing homebrew formula files to have a go to definition when cursor is on a `depends_on` block
+- [ ] #vim #neovim #nvim, specific, add or implement _goto definition_ function when editing homebrew formula files to have a go to definition when cursor is on a `depends_on` block, ie. open that respected formula file
 - [ ] display some sort message, alert, or menubar icon when caps lock is activated "for all that is sane" 👩🏻‍⚕️
 - [ ] #karabiner-elements #karabinerelements, swap <kbd>-</kbd> with <kbd>_</kbd> when **caps lock** is activated
 - [ ] [tmux] nesting tmux sessions, finish exploring (if possilbe) get a working tmux setup that allows nesting sessions.
@@ -775,9 +773,8 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.co
 - [ ] [neovim], 0.5.0, updating neovim to latest release
     - breaks my custom cursor color
     - ~~my <kbd>esc</kbd> binding when fzf terminal window is open does not work, boo 👻~~ appears to be working as intended now 🤔
-- [ ] [arch], device a more elegant way to fix the `can't read temp` in the i3 status bar after reboots
+- [ ] [arch], implement a more elegant way to fix the `can't read temp` in the i3 status bar after reboots
 - [ ] [arch], set lshift+rshift to toggle caps-lock on/off
-- [ ] [arch], set timeout for git credential cache so i don't have to keep inputting github username/password
 - [ ] [fish], possible to detach current pane in a tmux window from shell history, or write commands run from certain directory to specific history file to keep commands ran in a specific directory quickly accessible, ie. useful when working with a node or ruby based project.
 - [ ] [vim] [nvim], set default filetype for JSON files to `jsonc`
 - [ ] [tmux] use vivaldi keybinding for switching between windows as opposed to using shift+arrow keys
@@ -785,7 +782,7 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.co
 - [ ] [vim] [nvim] [coc] [eslint] gutter warn glyph appeares to be `>>` in the color red, would much prefer to keep warning color consistent with the color of the warning text, and same with error text, keep that the color red.
 - [ ] [macos] [afloat] [ke] [hammerspoon] double tap right shift, toggle keep window atop
 - [ ] [fish] followup on my reddit question about suggestions / completions when writing fish scripts
-- [ ] [vim] device func / stript to decrypt / encrypt GPG files
+- [ ] [vim] implement func to decrypt / encrypt GPG files
 - [ ] [phys] reapply liquid metal to local cpu and gpu, run geekbench test before after, and exp with copper shims for gpu + cpu
 - [ ] [macos] [homebrew] howto search for homebrew taps
 - [ ] [neovim] review the below highlight settings, obviously time permitting of course
@@ -837,6 +834,9 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.co
 <details>
 <summary><strong>TODOs completed</strong></summary>
 
+- [x] [arch], set timeout for git credential cache so i don't have to keep inputting github username/password
+- [x] #alacritty #macos for the love g0d, can we please support the emoji context menu ..."we can have nice things™️"
+    - ended up forking alacritty myself and pulling a PR that allow emoji context menu 🎉
 - [x] #arch #linux #archlinux, `git push` always prompts for username / password, boooooo 👻
   - TODO: will credentials be persisted through reboots and into ∞ and beyond
   - will this work ...yay it worked (w00t) no more having to input PAT
