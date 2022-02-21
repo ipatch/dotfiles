@@ -753,7 +753,8 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.co
 - [ ] #freecad create asciinema of configuring and building freecad from source on macos
     - [ ] #freecad make an additional cast of runing through the test suite after building/installing freecad
 - [ ] #mpv #hammerspoon, setup a env var for `mpvsocket` to make interacting the mpv socket a little less brittle 🧊
-- [ ] #alacritty #macos for the love g0d, can we please support the emoji context menu ..."we can have nice things™️"
+- [x] #alacritty #macos for the love g0d, can we please support the emoji context menu ..."we can have nice things™️"
+    - ended up forking alacritty myself and pulling a PR that allow emoji context menu 🎉
 - [ ] go through the following procedures to see if the intel crystalwell igpu is properly being used on my archbox
     - https://wiki.archlinux.org/title/Hardware_video_acceleration#Verification 
     - https://linux-hardware.org/?id=pci:8086-0d22-106b-0122
