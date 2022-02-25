@@ -1,5 +1,6 @@
 ## TODOs
 
+- [ ] add instructions for creating a new tap device, ie. steps required for adding a new VM that requires networking
 - [ ] make a more universal/robust sh script to accept args for different macos disks,
 ie. mojave, catalina, and bigsur. where at the same time setup a list of default args.
 
