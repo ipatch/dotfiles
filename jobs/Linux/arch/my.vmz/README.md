@@ -16,7 +16,8 @@ ie. mojave, catalina, and bigsur. where at the same time setup a list of default
 
 ran into a pretty gnarly issue where docker was preventing my kvm bridge networking from properly working when launching new VMs. long story short see the below link,
 
-- https://askubuntu.com/a/1134655/134740 for the solution to fix the **iptables** rule for allowing the guest VM to connect to the internet
+- https://askubuntu.com/a/1134655/134740 
+  👆 for the solution to fix the **iptables** rule for allowing the guest VM to connect to the internet
 
 ## Notes
 
@@ -35,11 +36,11 @@ https://github.com/foxlet/macOS-Simple-KVM/issues/212#issuecomment-830783812
 
 ---
 
-- to convert/migrate a virtualbox vdi disk file to RAW to make compatible with qemu
-https://www.agix.com.au/migrate-a-virtualbox-disk-image-vdi-to-a-qemu-image-img/
+- to convert/migrate a virtualbox vdi disk file to RAW to make compatible with qemu<br/>
+  https://www.agix.com.au/migrate-a-virtualbox-disk-image-vdi-to-a-qemu-image-img/
 
-- a great writeup / blog post about setting up a macos kvm vm (bigsur)
-https://www.nicksherlock.com/2020/06/installing-macos-big-sur-on-proxmox/
+- a great writeup / blog post about setting up a macos kvm vm (bigsur)<br/>
+  https://www.nicksherlock.com/2020/06/installing-macos-big-sur-on-proxmox/
 
 ### Notes / gpu passthrough / intel hd 530 / and general macos virtual machining 
 
