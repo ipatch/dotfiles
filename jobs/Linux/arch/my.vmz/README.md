@@ -1,6 +1,6 @@
 ## TODOs
 
-- [ ] add instructions for creating a new tap device, ie. steps required for adding a new VM that requires networking
+- [x] add instructions for creating a new tap device, ie. steps required for adding a new VM that requires networking
 - [ ] make a more universal/robust sh script to accept args for different macos disks,
 ie. mojave, catalina, and bigsur. where at the same time setup a list of default args.
 
@@ -34,6 +34,19 @@ ran into a pretty gnarly issue where docker was preventing my kvm bridge network
 https://github.com/foxlet/macOS-Simple-KVM/issues/212#issuecomment-830783812
 
 [lm1]: <https://www.nicksherlock.com/2021/10/installing-macos-12-monterey-on-proxmox-7/#more-1167>
+
+## notes / adding an addtional virtual machine
+
+after setting up an additional disk and startup script, an addtional `tun/tap` device will need to be setup, and the device needs to be attached to the bridge `br1` [learn more][lm4]
+
+```
+nmcli con show
+```
+
+👆 that is a useful command for listing/statusing network devices
+
+
+[lm4]: <https://github.com/foxlet/macOS-Simple-KVM/blob/master/docs/guide-networking.md#make-the-tuntap>
 
 ---
 
