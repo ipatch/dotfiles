@@ -16,7 +16,7 @@ ie. mojave, catalina, and bigsur. where at the same time setup a list of default
 
 ran into a pretty gnarly issue where docker was preventing my kvm bridge networking from properly working when launching new VMs. long story short see the below link,
 
-- https://askubuntu.com/a/1134655/134740 
+- https://askubuntu.com/a/1134655/134740 <br/> 
   👆 for the solution to fix the **iptables** rule for allowing the guest VM to connect to the internet
 
 ## Notes
