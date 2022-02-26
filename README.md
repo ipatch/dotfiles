@@ -753,10 +753,19 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.co
 - [ ] #freecad create asciinema of configuring and building freecad from source on macos
     - [ ] #freecad make an additional cast of runing through the test suite after building/installing freecad
 - [ ] #mpv #hammerspoon, setup a env var for `mpvsocket` to make interacting the mpv socket a little less brittle 🧊
-- [ ] go through the following procedures to see if the intel crystalwell igpu is properly being used on my archbox
+
+- [ ] #arch #archlinux #linux go through the following procedures to see if the intel crystalwell igpu is properly being used on my archbox
     - https://wiki.archlinux.org/title/Hardware_video_acceleration#Verification 
     - https://linux-hardware.org/?id=pci:8086-0d22-106b-0122
     - https://wiki.gentoo.org/wiki/Intel#Feature_support
+    - https://wiki.gentoo.org/wiki/Intel#Feature_support
+    - https://wiki.gentoo.org/wiki/Intel#Modesetting_DDX
+    - https://www.reddit.com/r/Tdarr/comments/hy7slr/use_i965_hw_encodingdecoding_driver_instead_of_ihd/
+    - https://www.reddit.com/r/PleX/comments/n913ui/hw_transcoding_vaapi_intel_not_working/
+    - https://01.org/linuxmedia/vaapi
+    - https://01.org/linuxgraphics/downloads/2018q1-intel-graphics-stack-recipe
+    - https://bbs.archlinux.org/viewtopic.php?id=186501
+
 - [x] **Q** does changing path to open buffers within a saved session file find new buffers with **old** neovim configuration files
     - short answer, **no** there's some automagic inside the `init.lua` either setting or plugin
 - [ ] `init.lua` remember _code fold_ settings when closing then reopening a buffer
