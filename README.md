@@ -750,6 +750,8 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.co
 
 <summary>Uncompleted</summary>
 
+- [ ] #NOTE #homebrew certain mac homebrew casks do not autoload when a macos box is rebooted
+    - 🤔 i could use one of my macos vm's to troubleshoot why certain casks do not autostart ie. lulu and rectangle.app
 - [ ] #freecad create asciinema of configuring and building freecad from source on macos
     - [ ] #freecad make an additional cast of runing through the test suite after building/installing freecad
 - [ ] #mpv #hammerspoon, setup a env var for `mpvsocket` to make interacting the mpv socket a little less brittle 🧊
