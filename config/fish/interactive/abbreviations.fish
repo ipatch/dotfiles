@@ -285,14 +285,15 @@ switch $os # personally defined env var
     #
     # NOTE: added `-o -d=755,-f=644` per the man page set unix octal bits for files
     # NOTE: macos 10.15 ie. catalina changes paths for root file system ie. no more /mnt/path
-    abbr -ag tcm 'mount -t smbfs -o -d=755,-f=644 //capin:"$TC_PASSWORD"@10.0.1.1/Data /System/Volumes/Data/mnt/tc'
-    abbr -ag mtc 'mount -t smbfs -o -d=755,-f=644 //capin:"$TC_PASSWORD"@10.0.1.1/Data /System/Volumes/Data/mnt/tc'
-    abbr -ag utc "umount /System/Volumes/Data/mnt/tc"
 
     abbr -ag df "gdf -h"
 
     abbr -ag tcmafp 'mount -t afp afp://capin:"$TC_PASSWORD"@10.0.1.1/Data /System/Volumes/Data/mnt/tc'
     abbr -ag afptcm 'mount -t afp afp://capin:"$TC_PASSWORD"@10.0.1.1/Data /System/Volumes/Data/mnt/tc'
+
+    abbr -ag mount.tc.afp 'mount -t afp afp://capin:"$TC_PASSWORD"@10.0.1.1/Data /System/Volumes/Data/mnt/afp/tc'
+    abbr -ag mount.tc.smb 'mount -t smbfs -o -d=755,-f=644 //capin:"$TC_PASSWORD"@10.0.1.1/Data /System/Volumes/Data/mnt/smb/tc'
+
     #
     set -gx tc '/System/Volumes/Data/mnt/tc'
 
