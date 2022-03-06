@@ -1,6 +1,9 @@
 # GRUB boot loader configuration
 
-GRUB_DEFAULT=0
+GRUB_DISABLE_SUBMENU=y
+GRUB_DEFAULT=saved
+GRUB_SAVEDEFAULT=true
+
 GRUB_TIMEOUT=5
 GRUB_DISTRIBUTOR="Arch"
 GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet splash acpi_osi=Darwin acpi_mask_gpe=0x06"
