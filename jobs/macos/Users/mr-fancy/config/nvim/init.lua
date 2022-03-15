@@ -88,13 +88,13 @@ opt.termguicolors = true        -- true color support
 opt.wrap = false
 
 -- settings / hidden chars
-opt.listchars+=tab:‣\
-opt.listchars+=nbsp:⦸ -- CIRCLED REVERSE SOLIDUS (U+29B8, UTF-8: E2 A6 B8)
-opt.listchars+=extends:» -- RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK (U+00BB, UTF-8: C2 BB)
-opt.listchars+=precedes:« -- LEFT-POINTING DOUBLE ANGLE QUOTATION MARK (U+00AB, UTF-8: C2 AB)
-opt.listchars+=trail:• -- BULLET (U+2022, UTF-8: E2 80 A2)
-opt.listchars+=eol:¬
-opt.listchars+=space:␣ -- Symbol for the space key
+opt.listchars:append("tab:‣")
+opt.listchars:append("nbsp:⦸") -- CIRCLED REVERSE SOLIDUS (U+29B8, UTF-8: E2 A6 B8)
+opt.listchars:append("extends:»") -- RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK (U+00BB, UTF-8: C2 BB)
+opt.listchars:append("precedes:«") -- LEFT-POINTING DOUBLE ANGLE QUOTATION MARK (U+00AB, UTF-8: C2 AB)
+opt.listchars:append("trail:•") -- BULLET (U+2022, UTF-8: E2 80 A2)
+opt.listchars:append("eol:¬")
+opt.listchars:append("space:␣") -- Symbol for the space key
 
 
 
