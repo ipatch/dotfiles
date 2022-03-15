@@ -241,12 +241,12 @@
 
   # graph
   graphviz = "!f() { echo 'digraph git {' ; git log --pretty='format:  %h -> { %p }' \"$@\" | sed 's/[0-9a-f][0-9a-f]*/\"&\"/g' ; echo '}'; }; f"
-	identity = "! git config user.name $(git config user.$1.name); git config user.email $git config user.$1.eail); :"
+  identity = "! git config user.name $(git config user.$1.name); git config user.email $git config user.$1.eail); :"
 
 
   # ref: https://stackoverflow.com/a/45991969/708807
-	hist = log --graph --date-order --date=short --pretty=format:'%C(auto)%h%d %C(reset)%s %C(bold blue)%ce %C(reset)%C(green)%cr (%cd)'
-	ctags = !.git/hooks/ctags
+  hist = log --graph --date-order --date=short --pretty=format:'%C(auto)%h%d %C(reset)%s %C(bold blue)%ce %C(reset)%C(green)%cr (%cd)'
+  ctags = !.git/hooks/ctags
 
 # Use `origin` as the default remote on the `master` branch in all cases
 [branch "master"]
@@ -258,15 +258,15 @@
 
 [core]
   editor = nvim
-	excludesfile = /home/capin/.config/git/gitexcludes
-	attributesfile = /home/capin/.config/git/gitattributes
+  excludesfile = /home/capin/.config/git/gitexcludes
+  attributesfile = /home/capin/.config/git/gitattributes
     ###############################
   # TODO: [x] give me some mouse 🐭 support please ✅
   ##
   # pager = less # NOTE `-r` flag may break things from time to time
 
   # NOTE: no syntax highlighting
-	pager = $bp/bin/less -F -X --mouse
+  pager = $bp/bin/less -F -X --mouse
 
 [filter "zippey"]
   smudge = /home/capin/.local/bin/zippey.py d
@@ -281,8 +281,8 @@
   ###############
   # macOS & Linux
   ##
-	autocrlf = input
-	precomposeUnicode = true
+  autocrlf = input
+  precomposeUnicode = true
   ###############################
   # To set a `core.excludesfile` on a per $HOME dir basis, see `config.fish or `.bashrc`
 
@@ -339,11 +339,11 @@
 
 [commit]
   verbose = true
-	gpgsign = true
+  gpgsign = true
 
 [tag]
   verbose = true
-	gpgsign = true
+  gpgsign = true
 
 [fetch]
   prune = true
@@ -352,37 +352,37 @@
   stat = true
 
 [gpg]
-	program = "/usr/local/bin/gpg"
+  program = "/usr/local/bin/gpg"
   # Make certain `gpg` is in the $USER $PATH
   # NOTE: will only work if the $bp env var is set
-	# program = /usr/local/bin/gpg
-	# program = $bp/bin/gpg
-	# pager = $bp/bin/less -F -X --mouse
+  # program = /usr/local/bin/gpg
+  # program = $bp/bin/gpg
+  # pager = $bp/bin/less -F -X --mouse
 
 [includeIf "gitdir:/Users/microbrewer/homebrew"]
   path = ~/.config/git/gitconfig-microbrewer
 
 [init]
-	templatedir = ~/.config/git/git-templates
-	defaultBranch = main
+  templatedir = ~/.config/git/git-templates
+  defaultBranch = main
 
 ##############################
 # Identity bull shit
 # NOTE: GitHub and git associate commits with email addresses
 ##
 [user]
-	name = chris
+  name = chris
   email = chris.r.jones.1983@gmail.com
-	useConfigOnly = true
-	signingkey = CDE31AD7ED85062F02F01B40F115EA48338F11B7
+  useConfigOnly = true
+  signingkey = CDE31AD7ED85062F02F01B40F115EA48338F11B7
 
 [github]
   name = Chris Jones
   email = chris.r.jones.1983@gmail.com
-	signingkey = CDE31AD7ED85062F02F01B40F115EA48338F11B7
+  signingkey = CDE31AD7ED85062F02F01B40F115EA48338F11B7
 
 [gitlab]
-	name = truckmonth
+  name = truckmonth
   email = me@chrisrjones.com
 
 [bitbucket]
