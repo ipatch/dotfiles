@@ -211,7 +211,7 @@ endif
 ""
 
 """"""""""""""""""""""""""""""
-" settings > views
+" settings / views
 " NOTE: `~/.vim/tmp/views` is the default dir to save folds
 ""
 " `== 2` checks for an exact match of `mkview`

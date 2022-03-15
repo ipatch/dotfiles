@@ -103,6 +103,24 @@ opt.listchars:append("trail:•") -- BULLET (U+2022, UTF-8: E2 80 A2)
 opt.listchars:append("eol:¬")
 opt.listchars:append("space:␣") -- Symbol for the space key
 
+------------------------------
+-- settings / views
+-- below should remember cursor position in file
+-- TODO: this really should be lua 🤷<200d>♂️
+-- TODO: `:h 'viewdir`
+vim.api.nvim_exec([[
+augroup remember_folds
+autocmd!
+  if exists('$SUDO_USER')
+      set viewdir=
+  else
+    au BufWinLeave *.* mkview
+    au BufWinEnter *.* silent! loadview
+  endif
+augroup END
+ ]], true)
+
+
 --
 g.netrw_banner = false
 g.netrw_liststyle = 3
