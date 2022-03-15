@@ -55,7 +55,7 @@ require('packer').startup(function(use)
 end)
 
 -- key mappings
-g.mapleader = " " -- map leader key to spaceboar 
+g.mapleader = " " -- map leader key to spacebar 
 map('n', '<leader>bd', ':bd<cr>', {noremap = true}) -- close buffer
 map('n', '<leader>x', ':bd<cr>', {noremap = true}) -- close buffer
 map('n', '<cr>', ':', {noremap = true})
@@ -86,6 +86,19 @@ opt.tabstop = 2                 -- number of spaces tabs count for
 opt.termguicolors = true        -- true color support
 --opt.wildmode = {'list', 'longest'} -- command mode completion
 opt.wrap = false
+
+-- settings / hidden chars
+opt.listchars+=tab:‣\
+opt.listchars+=nbsp:⦸ -- CIRCLED REVERSE SOLIDUS (U+29B8, UTF-8: E2 A6 B8)
+opt.listchars+=extends:» -- RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK (U+00BB, UTF-8: C2 BB)
+opt.listchars+=precedes:« -- LEFT-POINTING DOUBLE ANGLE QUOTATION MARK (U+00AB, UTF-8: C2 AB)
+opt.listchars+=trail:• -- BULLET (U+2022, UTF-8: E2 80 A2)
+opt.listchars+=eol:¬
+opt.listchars+=space:␣ -- Symbol for the space key
+
+
+
+
 --
 g.netrw_banner = false
 g.netrw_liststyle = 3
