@@ -67,7 +67,7 @@ map('n', '<leader>e', ':e ', {noremap = true}) -- open/edit new file from cmd
 -- toggle hidden chars & Settings for hidden chars
 --
 -- nmap <leader>h :set list!<CR>
-map('n', '<leader>h', ':set list!<cr>' {noremap = true}) -- toggle hidden chars
+map('n', '<leader>h', ':set list!<cr>', {noremap = true}) -- toggle hidden chars
 
 
 -- settings
