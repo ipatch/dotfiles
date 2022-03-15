@@ -63,6 +63,13 @@ map('n', '<leader>w', ':w<cr>', {noremap = true})
 map('n', '<leader><leader>', '<c-^>', {noremap = true}) -- toggle between last 2 buffers
 map('n', '<leader>e', ':e ', {noremap = true}) -- open/edit new file from cmd
 
+---------------
+-- toggle hidden chars & Settings for hidden chars
+--
+-- nmap <leader>h :set list!<CR>
+map('n', '<leader>h', ':set list!<cr>' {noremap = true}) -- toggle hidden chars
+
+
 -- settings
 opt.completeopt = {'menu', 'menuone', 'noselect'}
 opt.mouse = 'a'
