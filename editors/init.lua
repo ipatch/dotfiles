@@ -1,0 +1,1 @@
+/opt/code/dotfiles/jobs/macOS/Users/mr-fancy/config/nvim/init.lua
