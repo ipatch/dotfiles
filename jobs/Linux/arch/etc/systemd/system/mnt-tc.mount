@@ -12,7 +12,14 @@ After=network-online.service
 [Mount]
 What=//10.0.1.1/Data
 Where=/mnt/tc
+
+# NOTE: smb v1 protocol can support *nix style symlinks 👍 use the `mfsymlinks`
+# REF: https://superuser.com/q/1337257/148584
+
 # TODO: QUESTION: possible to spread options across multiple lines???
+#
+# TODO: need to setup the samba authentication file, current imp is incomplete
+#
 Options=credentials=/etc/samba/credentials/time-capsule-data-share,_netdev,iocharset=utf8,rw,sec=ntlm,vers=1.0,username=capin,uid=1000,gid=985,mapposix,file_mode=0644,dir_mode=0777
 Type=cifs
 TimeoutSec=30
