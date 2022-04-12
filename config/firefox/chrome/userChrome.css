@@ -19,6 +19,8 @@
 
 /* #personal-bookmarks .bookmark-item > .toolbarbutton-icon {display:none!important} */
 
+/* NOTE: ipatch neither of the CSS selectors removed the help menu item from the menubar on macos */
+
 /* remove menu items */
 #helpMenu {
   display: none !important;
@@ -28,3 +30,14 @@
 menu[label="Help"] {
   display: none !important;
 }
+
+/* NOTE: ipatch, attempt to remove firefox suggests from urlbar */
+/* REF: https://old.reddit.com/r/FirefoxCSS/comments/p2l279/how_to_remove_firefox_suggest_from_the_adress_bar/h8ku0hu/ */
+/* NOTE: ipatch, below 2 CSS selectors do not work ❌ */
+/* .urlbarView-row[label="Firefox Suggest"]::before{ display: none !important; } */
+/* .urlbarView-row[label="Firefox Suggest"]{ margin-top: 0 !important; } */
+
+/* NOTE: ipatch, */
+/* REF: https://www.youtube.com/watch?v=aa0e9vZImq4 */
+/* NOTE: ipatch, DOES NOT WORK with recent versions of firefox */
+/* #PopupAutoCompleteRichResult richlistitem[type="searchengine"]{ visibility: collapse } */
