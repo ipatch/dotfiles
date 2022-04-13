@@ -266,9 +266,8 @@
   # pager = less # NOTE `-r` flag may break things from time to time
 
   # NOTE: no syntax highlighting
-  # NOTE: TODO: does the `$bp` env var actually work?
-  # NOTE: it appears the `pager` can use the `$bp` env var for gpg is a NOGO
-  pager = $bp/bin/less -F -X --mouse
+  # NOTE: the `$bp` env var NOVA ❌
+  pager = less -F -X --mouse
 
 [filter "zippey"]
   smudge = /home/capin/.local/bin/zippey.py d
