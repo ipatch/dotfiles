@@ -354,13 +354,8 @@
   stat = true
 
 [gpg]
-  # NOTE: ipatch, requires the `$bp` env var been set to the output of `$(brew --prefix)`
-  program = gpg
   # Make certain `gpg` is in the $USER $PATH
-  # NOTE: will only work if the $bp env var is set
-
-[includeIf "gitdir:/Users/microbrewer/homebrew"]
-  path = ~/.config/git/gitconfig-microbrewer
+  program = gpg
 
 [init]
   templatedir = ~/.config/git/git-templates
