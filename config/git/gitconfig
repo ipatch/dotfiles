@@ -355,6 +355,7 @@
 
 [gpg]
   # Make certain `gpg` is in the $USER $PATH
+  # NOTE: ipatch, ✅ the easiest way i've found to use `gpg` in various system paths, ie. `~/homebrew/bin` or `/usr/local/bin` is to make certain the $PATH can find the `gpg` cmd and DO NOT specify an absolute value
   program = gpg
 
 [init]
