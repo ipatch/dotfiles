@@ -6,6 +6,7 @@
 # NOTE: ❗️ abbr's DO NOT support spaces
 # NOTE: adding a new `abbr` requires a reload, ie. `exec fish` for every running fish shell instance.
 # NOTE: double quotes ie. `"$dots"` will be expand env var after pressing `space`, whereas single quotes expands after pressing `enter`
+# NOTE: if the abbr was added in the universal scope it will require manual deletion
 ###
 
 ##############################
@@ -287,9 +288,6 @@ switch $os # personally defined env var
     # NOTE: macos 10.15 ie. catalina changes paths for root file system ie. no more /mnt/path
 
     abbr -ag df "gdf -h"
-
-    abbr -ag tcmafp 'mount -t afp afp://capin:"$TC_PASSWORD"@10.0.1.1/Data /System/Volumes/Data/mnt/tc'
-    abbr -ag afptcm 'mount -t afp afp://capin:"$TC_PASSWORD"@10.0.1.1/Data /System/Volumes/Data/mnt/tc'
 
     abbr -ag mount.tc.afp 'mount -t afp afp://capin:"$TC_PASSWORD"@10.0.1.1/Data /System/Volumes/Data/mnt/afp/tc'
     abbr -ag mount.tc.smb 'mount -t smbfs -o -d=755,-f=644 //capin:"$TC_PASSWORD"@10.0.1.1/Data /System/Volumes/Data/mnt/smb/tc'
