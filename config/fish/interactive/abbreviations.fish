@@ -133,8 +133,6 @@ abbr -ag gpl 'git pull'
 abbr -ag gru 'git remote -v update'
 abbr -ag gco 'git checkout'
 abbr -ag gsmru 'git smrupdate'
-abbr -ag git-ls-aliases 'git aliases'
-abbr -ag git.aliases 'git aliases'
 abbr -ag gf 'git fresh'
 abbr -ag git.is.shallow 'git rev-parse --is-shallow-repository'
 abbr -ag git.shallow\? 'git rev-parse --is-shallow-repository'
@@ -147,11 +145,8 @@ abbr -ag git.b.dates 'git branch --sort=creatordate --sort=committername --forma
 ##
 abbr -ag pp 'path_pretty' # `path_pretty` fish function
 abbr -ag ppr "path_pretty_redux"
-abbr -ag path-add 'path_add' # fish func
-abbr -ag path-remove 'path_remove' # fish func
-abbr -ag path-rm 'path_remove'
+abbr -ag pthadd 'path_add' # fish func
 abbr -ag pthrm 'path_remove'
-abbr -ag prm 'path_remove'
 
 ################
 # alacritty
@@ -269,7 +264,6 @@ switch $os # personally defined env var
     ## unsorted
     abbr -ag dll "diskutil list"
     abbr -ag dle "diskutil eject"
-    abbr -ag dle2 "diskutil eject /dev/disk2"
     abbr -ag apl.poweroff "sudo shutdown -h now"
     abbr -ag apl.batt.time "mac-batt-time.sh"
     abbr -ag apl.get.serial "ioreg -l | grep IOPlatformSerialNumber"
@@ -328,15 +322,15 @@ switch $os # personally defined env var
       abbr -ag cdbrewsrc "cd (brew --prefix)/Homebrew/Library/Taps/homebrew/homebrew-core"
       abbr -ag cdbrewcache "cd $HOME/Library/Caches/Homebrew"
       abbr -ag cdmytap "cd $code/git/github/public/homebrew-us-05"
-      # brew python shit
-      abbr -ag cdbrewpysitep "cd (brew --prefix)/opt/python/Frameworks/Python.framework/Versions/Current/lib/python3.9/site-packages"
-      abbr -ag cdbrewpysp "cd (brew --prefix)/opt/python/Frameworks/Python.framework/Versions/Current/lib/python3.9/site-packages"
       abbr -ag cdbrewtaps "/usr/local/Homebrew/Library/Taps"
       abbr -ag bog "brew outdated --greedy"
 
       # logs
       abbr -ag cdbrewlogs "cd (brew --prefix)/var/log"
 
+      # brew python shit
+      abbr -ag cdbrewpysp "cd (brew --prefix)/opt/python/Frameworks/Python.framework/Versions/Current/lib/python3.9/site-packages"
+      abbr -ag cdbrewpysitep "cd (brew --prefix)/opt/python/Frameworks/Python.framework/Versions/Current/lib/python3.9/site-packages"
       # python
       abbr -ag hbb "$bp/bin"
       abbr -ag hbp3 "$bp/bin/pip3"
@@ -348,8 +342,8 @@ switch $os # personally defined env var
       # `bpip` sometimes a fish shell function, see. `funced bpip`
 
       # youtube-dl
-      abbr -ag you "youtube-dl"
-      abbr -a -g youdl 'youtube-dl --output "%(title)s.%(ext)s"'
+      abbr -ag you "yt-dlp"
+      abbr -a -g youdl 'yt-dlp --output "%(title)s.%(ext)s"'
 
       ###
       # brew postgresql
