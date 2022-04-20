@@ -388,10 +388,9 @@ switch $os # personally defined env var
     end
 
     if type -q yay
-    	abbr -ag yays "yay -S"
-	abbr -ag ys "yay -S"
-	abbr -ag yss "yay -Ss"
-
+      abbr -ag yays "yay -S"
+      abbr -ag ys "yay -S"
+      abbr -ag yss "yay -Ss"
     end
 
     ###############################
