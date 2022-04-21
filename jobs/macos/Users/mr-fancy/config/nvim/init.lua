@@ -160,6 +160,8 @@ nnoremap <silent> <leader>l :TmuxNavigateRight<cr>
 
 -- plugin / tree-sitter
 local ts = require 'nvim-treesitter.configs'
+-- NOTE: ipatch, migrate from `maintained` to `all` per ts deprecation notice
+-- NOTE: ipatch, `all` blows up 💥 on m1 mac due to `phpdoc` use maintained for time being
 ts.setup {ensure_installed = 'maintained', highlight = {enable = true}}
 
 -- plugin / tree-sitter / colorscheme
