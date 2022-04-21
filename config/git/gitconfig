@@ -333,7 +333,7 @@
   submodule = log
 
 [difftool "meld"]
-  cmd = /usr/local/bin/meld
+  cmd = meld
 
 [status]
   submodulesummary = 1
@@ -424,9 +424,10 @@
   ff = only
 
 [credential]
-  # helper = cache --timeout=28800
+  helper = cache --timeout=28800
   # helper = 
-  # helper = /usr/bin/git-credential-manager-core
+  ; helper = git-credential-manager
+	credentialStore = gpg
 
 [credential "https://dev.azure.com"]
   useHttpPath = true
