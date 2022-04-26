@@ -7,7 +7,7 @@
     {
       "NOTE": "from key must be a JSON object NOT arrary",
       "NOTE2": "see README to obtain bundle identifer",
-      "description": "ipatch, messages.app, cmd+j cmd+k, for next and prev conversation",
+      "description": "🏴‍☠️ ipatch, messages.app, cmd+j cmd+k, for next and prev conversation",
       "manipulators": [
         {
           "type": "basic",

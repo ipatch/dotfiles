@@ -2,6 +2,7 @@
   "title": "ipatch, ke, local complex modifications",
 
   "TODO": "incomplete complex mod, idea is, change `-` to underbar when caps mode is on",
+  "NOTE": "when working with cmake files having to hold shift key for underbar ie. TPITA",
 
     "maintainer": [
     "ipatch"

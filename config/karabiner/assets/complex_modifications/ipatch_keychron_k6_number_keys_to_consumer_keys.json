@@ -2,7 +2,8 @@
   "title": "ipatch, Map fn + number keys to media keys (rev 3) useful for external keychron keyboard ⌨️",
   "rules": [
     {
-      "description": "ipatch, Map fn + number keys to their corresponding consumer keys ie. vol up / vol down",
+      "description": "🏴‍☠️ ipatch, Map fn + number keys to their corresponding consumer keys ie. vol up / vol down",
+      "NOTE": "think of consumer keys as the combo media keys and function keys on a mbp keyboard",
       "manipulators": [
         {
           "type": "basic",

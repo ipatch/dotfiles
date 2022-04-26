@@ -6,11 +6,12 @@ when adding a custom rule for karabiner elements located within
 $HOME/.config/karabiner/assets/complex_modifications
 ```
 
-make sure there are a `title` and `description` keys within the complex modification `.json` or else there could be difficulty viewing the file, ie. not being able load the rule after a restart.
+make sure there are `title` and `description` keys within the complex modification `.json` file or else there could be difficulty viewing the file (using the GUI **Karabiner-Elements.app**), ie. not being able load a complex rule after a restart.
 
 ### adding a new rule ie. _(complex modification)_ to karabiner elements, _ke_
 
-1. add new complex rule in above mentioned directory and along with above mentioned _keys_
+1. add the new complex rule in above mentioned directory and along with above mentioned _keys_
+> the **description** JSON key is viewable in the **KE.app** ➡ preferences ➡️ Complex Modifications ➡️ Rules 
 2. restart karbiner elements from the **Misc** tab
 3. view the **Log** tab to see if there are any issues with the newly added rule
 
