@@ -750,6 +750,7 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.co
 
 <summary>Uncompleted</summary>
 
+- [ ] #gitsecret reencodes secret files on every commit, **boo** 👻
 - [ ] #alacritty does **not** properly highlight, select URLs when wrapped
 - [ ] #NOTE #homebrew certain mac homebrew casks do not autoload when a macos box is rebooted
     - 🤔 i could use one of my macos vm's to troubleshoot why certain casks do not autostart ie. lulu and rectangle.app
