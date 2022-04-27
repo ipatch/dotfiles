@@ -746,6 +746,8 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.co
 
 ##  <a id="todos"></a> TODOs
 
+<!-- foo -->
+
 <details>
 
 <summary>Uncompleted</summary>
