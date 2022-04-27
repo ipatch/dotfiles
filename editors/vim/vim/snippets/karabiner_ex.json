@@ -1,5 +1,8 @@
 { 
   "title": "ipatch, CHANGEME, vim snippet for scaffolding karabiner complex mod",
+  "maintainer": [
+    "github.com/ipatch"
+  ],
   "rules": [
     {
       "description": "ipatch, CHANGEME, listing of key mods",
@@ -8,14 +11,14 @@
           "type": "basic",
           "TODO": "from key must be a JSON object NOT arrary",
           "from": 
-            {
-              "key_code": "INSERT KEYCODE",
-              "modifiers": {
-                "optional": [
-                  "any"
+          {
+            "key_code": "INSERT KEYCODE",
+            "modifiers": {
+              "optional": [
+                "any"
                 ]
-              }
             }
+          }
           ,
           "to": [
             {
