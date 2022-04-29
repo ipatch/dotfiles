@@ -58,6 +58,8 @@ nmcli con show
 
 ### Notes / gpu passthrough / intel hd 530 / and general macos virtual machining 
 
+> ⚠ my mbp's are 2013 late models based of haswell intel arch ie. 4th gen i core cpu/gpu thus gpu virtualization is not available, GPU virtualization requires broadwell 5th gen i core intel cpu or newer.
+
 - https://github.com/foxlet/macOS-Simple-KVM/issues/130
 - https://github.com/yoonsikp/macOS-KVM-PCI-Passthrough#pci-passthrough-for-graphics-card
 - https://github.com/kholia/OSX-KVM/blob/master/OVMF-notes.txt
