@@ -89,6 +89,7 @@
   aac = "!git aa; "git commit -m""
   ccount = rev-list HEAD --count
   commitcount = rev-list HEAD --count
+  cc = rev-list --count HEAD
   ####
   # for those random, quick, & fun commits 👍
   ##
