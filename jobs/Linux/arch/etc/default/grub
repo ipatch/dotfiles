@@ -1,4 +1,6 @@
 # GRUB boot loader configuration
+#
+# NOTE: ipatch, https://wiki.archlinux.org/title/Intel_GVT-g
 
 GRUB_DISABLE_SUBMENU=y
 GRUB_DEFAULT=saved
@@ -6,7 +8,7 @@ GRUB_SAVEDEFAULT=true
 
 GRUB_TIMEOUT=5
 GRUB_DISTRIBUTOR="Arch"
-GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet splash acpi_osi=Darwin acpi_mask_gpe=0x06"
+GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet splash acpi_osi=Darwin acpi_mask_gpe=0x06 intel_iommu=on"
 GRUB_CMDLINE_LINUX=""
 
 # Preload both GPT and MBR modules so that they are not missed
@@ -50,7 +52,7 @@ GRUB_DISABLE_RECOVERY=true
 #GRUB_THEME="/path/to/gfxtheme"
 
 # Uncomment to get a beep at GRUB start
-#GRUB_INIT_TUNE="480 440 1"
+GRUB_INIT_TUNE="480 440 1"
 
 # Uncomment to make GRUB remember the last selection. This requires
 # setting 'GRUB_DEFAULT=saved' above.
