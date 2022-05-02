@@ -1,0 +1,3 @@
+#!/bin/bash
+
+iptables -I FORWARD -i br0 -o br0 -j ACCEPT
