@@ -393,7 +393,7 @@ brew "patchutils"
 brew "pugixml"
 brew "vtk"
 brew "pcl"
-brew "qt"
+brew "qt", link: false
 brew "poppler"
 brew "pdfgrep"
 brew "picocom"
@@ -478,8 +478,10 @@ brew "freecad/freecad/med-file@4.1.0"
 brew "freecad/freecad/shiboken2@5.15.2"
 brew "freecad/freecad/pyside2@5.15.2", link: true
 brew "freecad/freecad/freecad", link: false
+brew "freecad/freecad/shiboken2@5.15.3"
+brew "freecad/freecad/pyside2@5.15.3"
 brew "freecad/freecad/qwtelmer"
-brew "freecad/freecad/shiboken2-python3_10@5.15.2", link: true
+brew "freecad/freecad/shiboken2-python3_10@5.15.2"
 brew "freecad/freecad/swig@4.0.2"
 brew "freecad/freecad/tbb@2020_u3"
 brew "gromgit/fuse/sshfs-mac"
