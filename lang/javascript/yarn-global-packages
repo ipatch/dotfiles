@@ -1,4 +1,4 @@
-yarn global v1.22.17
+yarn global v1.22.18
 info "@babel/cli@7.17.3" has binaries:
    - babel
    - babel-external-helpers
@@ -50,4 +50,4 @@ info "webpack@5.32.0" has binaries:
    - webpack
 info "webpack-cli@4.6.0" has binaries:
    - webpack-cli
-Done in 1.13s.
+Done in 1.21s.
