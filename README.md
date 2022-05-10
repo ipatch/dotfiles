@@ -750,6 +750,7 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.co
 
 <summary>Uncompleted</summary>
 
+- [ ] #fish it'd be cool to remove all entries from my fish history that were invalid commands thus when searching through history i don't repeat the same mistake
 - [ ] #gitsecret reencodes secret files on every commit, **boo** 👻 WHY
 - [ ] #alacritty does **not** properly highlight, select URLs when wrapped
 - [ ] #NOTE #homebrew certain mac homebrew casks do not autoload when a macos box is rebooted
