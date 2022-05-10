@@ -41,7 +41,7 @@
     "files.insertFinalNewline": true,
 
     // Enable tab completion of text
-    "editor.tabCompletion": true,
+    "editor.tabCompletion": "onlySnippets",
 
     // Stop from scrolling past bottom of open file
     "editor.scrollBeyondLastLine": false,
