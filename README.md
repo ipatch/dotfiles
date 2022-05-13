@@ -750,6 +750,7 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.co
 
 <summary>Uncompleted</summary>
 
+- [ ] #fish device a cmd to remove all python path entries from `$PATH` so I can just work with homebrew python in peace.
 - [ ] #fish it'd be cool to remove all entries from my fish history that were invalid commands thus when searching through history i don't repeat the same mistake
 - [ ] #gitsecret reencodes secret files on every commit, **boo** 👻 WHY
 - [ ] #alacritty does **not** properly highlight, select URLs when wrapped
