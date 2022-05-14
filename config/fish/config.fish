@@ -348,3 +348,4 @@ end
 # starship theme
 # starship init fish | source
 
+export HOMEBREW_CORE_GIT_REMOTE="https://github.com/ipatch/homebrew-core"
