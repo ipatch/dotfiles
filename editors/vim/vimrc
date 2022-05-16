@@ -313,15 +313,11 @@ if has('nvim')
   " Neovim defaults to `<C-\><C-n>` to exit a virtual terminal
   tnoremap <Esc> <C-\><C-n>
   tnoremap <A-[> <Esc>
-
-  if has('nvim-0.1.5')
-    set termguicolors " use guifg/guibg instead of ctermfg/ctermbg in terminal
-    hi Cursor guifg=green guibg=green
-    hi Cursor2 guifg=red guibg=red
-    set guicursor=n-v-c:block-Cursor/lCursor,i-ci-ve:ver25-Cursor2/lCursor2,r-cr:hor20,o:hor50
-  elseif
-    let $NVIM_TUI_ENABLE_TRUE_COLOR = 1 " Legacy way to enable 24bit color.
-  endif
+  set termguicolors " use guifg/guibg instead of ctermfg/ctermbg in terminal
+  hi Cursor guifg=green guibg=green
+  hi Cursor2 guifg=red guibg=red
+  set guicursor=n-v-c:block-Cursor/lCursor,i-ci-ve:ver25-Cursor2/lCursor2,r-cr:hor20,o:hor50
+  " let $NVIM_TUI_ENABLE_TRUE_COLOR = 1 " Legacy way to enable 24bit color.
 endif " END Neovim only settings
 
 """"""""""""""""""""""""""""""
