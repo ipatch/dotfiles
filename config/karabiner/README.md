@@ -43,7 +43,9 @@ if there is an issue with adding the rule
 ## TODOs
 
 - [ ] implement toggle function to toggle between media keys
-- [ ] implement toggle function when <kbd>caps lock</kbd> is on/off, ie. switch <kbd>-</kbd> to <kbd>_</kbd> when <kbd>caps lock</kbd> is **on**
+- [x] ~~implement toggle function when <kbd>caps lock</kbd> is on/off, ie. switch <kbd>-</kbd> to <kbd>_</kbd> when <kbd>caps lock</kbd> is **on**~~
+    > sort of, when caps lock is enabled hyphen becomes underbar, but (right now) hyphen only accessible when caps_lock turned off 
+
     - [possible useful toggle func **github**][td1]
     - [**github** comment, double tap][td2]
     - [**github** caps lock + e to pageDown][td3]

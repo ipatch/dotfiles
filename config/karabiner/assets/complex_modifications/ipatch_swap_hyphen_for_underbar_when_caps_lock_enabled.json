@@ -1,0 +1,50 @@
+{
+  "title": "🏴‍☠️ ipatch, Exchange hyphen and underscore",
+  "TODO": "from key must be a JSON object NOT arrary",
+  "TODO.2": "restore hyphen key when caps lock on 🟢", 
+  "maintainer": [
+    "github.com/ipatch"
+  ],
+  "rules": [
+    {
+      "description": "🏴‍☠️ ipatch, Exchange hyphen and underscore when CAPS LOCK on 🟢",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "hyphen",
+            "modifiers": {
+              "mandatory": ["caps_lock"],
+              "optional": [
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "hyphen",
+              "modifiers": [
+                "left_shift"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "hyphen",
+            "modifiers": {
+              "mandatory": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "hyphen"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
