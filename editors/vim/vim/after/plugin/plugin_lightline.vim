@@ -14,7 +14,7 @@ let g:lightline = {
       \           [ 'gitbranch', 'readonly', 'filename', 'modtime' ] ],
       \ },
       \ 'component_function': {
-      \ 'gitbranch': 'fugitive#head',
+      \ 'gitbranch': 'FugitiveHead',
       \ 'filename': 'LightlineFilename',
       \ 'modtime': 'LightlineModificationTime',
       \ },
