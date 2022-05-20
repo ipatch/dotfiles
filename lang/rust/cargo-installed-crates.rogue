@@ -1,15 +1,13 @@
-alacritty v0.8.0-dev (https://github.com/jwilm/alacritty#a954e076):
-    alacritty
-cargo-generate v0.9.0:
+cargo-generate v0.13.1:
     cargo-generate
-cargo-update v7.0.1:
+cargo-update v8.1.3:
     cargo-install-update
     cargo-install-update-config
 exa v0.10.1:
     exa
 hexyl v0.9.0:
     hexyl
-https v1.12.1:
+https v1.12.4:
     http
     httplz
 lms v0.4.0:
@@ -24,5 +22,5 @@ termpix v0.1.0 (https://github.com/hopey-dishwasher/termpix#bb2fcc5e):
     termpix
 wasm-gc v0.1.6:
     wasm-gc
-wasm-pack v0.10.0:
+wasm-pack v0.10.2:
     wasm-pack

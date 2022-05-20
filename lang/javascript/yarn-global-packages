@@ -1,20 +1,20 @@
-yarn global v1.22.18
-info "@babel/cli@7.17.3" has binaries:
+yarn global v1.22.19
+info "@babel/cli@7.17.10" has binaries:
    - babel
    - babel-external-helpers
 info "apply-pr@1.0.3" has binaries:
    - apply-pr
 info "asciicast2gif@0.2.1" has binaries:
    - asciicast2gif
-info "browser-sync@2.27.7" has binaries:
+info "browser-sync@2.27.10" has binaries:
    - browser-sync
-info "concurrently@5.3.0" has binaries:
+info "concurrently@7.2.0" has binaries:
    - concurrently
 info "create-react-app@4.0.3" has binaries:
    - create-react-app
 info "csslint@1.0.5" has binaries:
    - csslint
-info "electron-packager@15.4.0" has binaries:
+info "electron-packager@15.5.1" has binaries:
    - electron-packager
 info "eslint@7.32.0" has binaries:
    - eslint
@@ -35,19 +35,22 @@ info "mdr@0.2.0" has binaries:
    - mdr
 info "neovim@4.10.1" has binaries:
    - neovim-node-host
-info "nodemon@2.0.15" has binaries:
+info "nodemon@2.0.16" has binaries:
    - nodemon
+info "npm-check-updates@13.0.1" has binaries:
+   - npm-check-updates
+   - ncu
 info "stacks-cli@1.0.4" has binaries:
    - stacks-cli
 info "svg-term-cli@2.1.1" has binaries:
    - svg-term
-info "typescript@4.5.5" has binaries:
+info "typescript@4.6.4" has binaries:
    - tsc
    - tsserver
 info "typescript-language-server@0.4.0" has binaries:
    - typescript-language-server
-info "webpack@5.32.0" has binaries:
+info "webpack@5.72.1" has binaries:
    - webpack
-info "webpack-cli@4.6.0" has binaries:
+info "webpack-cli@4.9.2" has binaries:
    - webpack-cli
-Done in 1.21s.
+Done in 1.26s.
