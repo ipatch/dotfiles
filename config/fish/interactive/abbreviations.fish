@@ -186,6 +186,7 @@ abbr -ag sh2 "sha256sum"
 ##
 abbr -ag nrd "npm run dev"
 abbr -ag nr "npm run"
+abbr -ag npmid "npm i -D"
 
 # node.js / using the cli repl
 if type -q node; and type -q rlwrap;
