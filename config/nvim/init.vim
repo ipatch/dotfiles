@@ -45,9 +45,12 @@ if os ==? 'macos' || os ==? 'linux'
   let g:node_host_prog = system("echo -n \"$(echo $HOME)/.yarn/bin/neovim-node-host\"")
 
   " ruby
-  let g:ruby_host_prog = system("echo -n \"$echo $HOME/.asdf/shims/neovim-ruby-host\"")
+  let g:ruby_host_prog = system("echo -n \"$(echo $HOME)/.asdf/shims/neovim-ruby-host\"")
 
   " TODO: Try and get `command + c` to work on remote linux servers
+
+  " perl, no thank you
+  let g:loaded_perl_provider = 0
 endif
 
 """"""""""""""""""""""""""""""
