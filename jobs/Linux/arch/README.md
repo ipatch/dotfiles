@@ -117,11 +117,21 @@ i'm using _x11vnc_ to allow me to connect to my archbox via _vnc viewer.app_ on 
 
 ### troubleshooting / zfs
 
+from time to time i've run into issues upgrading zfs dkms kernel modules using `yay` [learn more][lm.zfs1]
+
+the quick fix,
+
+```
+yay -Sa --nodeps zfs-dkms zfs-utils
+```
+
 i've run into several instances where i attempt to mount my ext USB drive using `zfs import` and am i presented with something similar to _zfs module not loaded etc. etc._
 
 ***hypothesis*** i've run a system update _yay_ and have updated all packages on the system, but have yet to reboot the system. for whatever reason i think this is preventing the zfs module from loading. ...will attempt to restart computer after all pkg installations have been completed.
 
 **correct** ✅ rebooting my archlinux box, followd by running, `sudo -E /sbin/modprobe zfs` loaded the zfs modules for my running kernel.
+
+[lm.zfs1]: <https://www.reddit.com/r/archlinux/comments/tzysyg/installing_zfs_breaks_dependency/>
 
 ### troubleshooting / fail to boot 😭
 
