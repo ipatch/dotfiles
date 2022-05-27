@@ -1,0 +1,19 @@
+[Unit]
+Description=iptables rule after docker
+After=docker.service
+BindsTo=docker.service
+ReloadPropagatedFrom=docker.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/iptables-after-docker
+ExecReload=/usr/local/bin/iptables-after-docker
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
+
+
+# NOTE: ipatch, run below commands after creating the 2 files
+# sudo systemctl daemon-reload
+# sudo systemctl enable iptables-after-docker.service
