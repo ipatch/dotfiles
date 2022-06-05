@@ -33,11 +33,11 @@
   // NOTE: the below setting fixes the following error
   // `[coc.nvim] Failed to load the ESLint library for the document`
   // specify path to eslint lib / bin, use global `node_modules` dir NOT global bin
-  "eslint.nodePath": "~/.config/yarn/global/node_modules",
+  "eslint.nodePath": "~/.local/share/yarn/global/node_modules",
   "eslint.packageManager": "yarn",
-  "eslint.filetypes": ["javascript", "typescript", "typescriptreact", "javascriptreact"],
+  "eslint.validate": ["javascript", "typescript", "typescriptreact", "javascriptreact"],
   "eslint.run": "onType",
-  "eslint.options": {"configfie": "~/.eslintrc.json"},
+  "eslint.options": {"overrideConfigFile": "/Users/capin/.eslintrc.json"},
   "suggest.floatEnable": true,
 
 

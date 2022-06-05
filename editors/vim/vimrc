@@ -264,7 +264,7 @@ else
 endif
 
 "----------------------------
-" DANGER ZONE > experimental settings
+" DANGER ZONE / experimental settings
 "-
 
 
@@ -297,7 +297,7 @@ endif
 
 
 "----------------------------
-" END < DANGER ZONE
+" END / DANGER ZONE
 "-
 
 " Setting for rust.vim
