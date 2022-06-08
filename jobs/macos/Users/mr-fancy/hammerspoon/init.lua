@@ -31,10 +31,19 @@ hs.loadSpoon("SpoonTest")
 -- NOT my spoons, but downloaded
 -- https://github.com/Hammerspoon/Spoons
 hs.loadSpoon("Caffeine")
+-- hs.loadSpoon("MouseFollowsFocus")
+-- spoon.MouseFollowsFocus:start()
+
+mouse_follows_focus = hs.loadSpoon("MouseFollowsFocus")
+mouse_follows_focus:configure({})
+mouse_follows_focus:start()
+
+-- caffeine func to work with downloaded spoon
 
 caffeine = hs.menubar.new()
 function setCaffeineDisplay(state)
     if state then
+      -- the caffeine spoon file provides PDF images if preferred
         caffeine:setTitle("☕️")
     else
         caffeine:setTitle("💤")
@@ -49,4 +58,5 @@ if caffeine then
     caffeine:setClickCallback(caffeineClicked)
     setCaffeineDisplay(hs.caffeinate.get("displayIdle"))
 end
+
 
