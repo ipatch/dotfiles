@@ -234,6 +234,7 @@ else
   " call minpac#add('w0rp/ale') " Asynchronous Linting Engine
   " call minpac#add('tpope/vim-obsession') " auto session mgmt
   " call minpac#add('MaxMEllon/vim-jsx-pretty') " syntax highlight
+  call minpac#add('tpope/vim-eunuch')
 
   "-----------------------------
   " minpac - conditional plugins
