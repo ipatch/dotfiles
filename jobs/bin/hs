@@ -1,0 +1,1 @@
+/Applications/Hammerspoon.app/Contents/Frameworks/hs/hs
