@@ -123,5 +123,12 @@
         "*.ipynb": "jupyter.notebook.ipynb"
     },
     "security.workspace.trust.untrustedFiles": "open",
-    "python.pythonPath": "/Users/capin/.pyenv/versions/2.7.15/bin/python"
+    "python.pythonPath": "/Users/capin/.pyenv/versions/2.7.15/bin/python",
+    "editor.inlineSuggest.enabled": true,
+    "github.copilot.enable": {
+        "*": true,
+        "yaml": false,
+        "plaintext": true,
+        "markdown": false
+    }
 }
