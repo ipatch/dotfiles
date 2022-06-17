@@ -750,6 +750,7 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.co
 
 <summary>Uncompleted</summary>
 
+- [ ] #macos #homebrew apparently my `Brewfile` does not contain an updated list of installed casks
 - [ ] #ssh #tmux copy/paste it seems using my fish abbr on a remote box (arch) `pbpaste` is unable to paste the contents of my local clipboard it'd be much cooler™️ if clipboard worked seemlessly across ssh (one can dream 🦄)
 - [ ] #tmux how to map the apple cmd key <kbd>⌘</kbd>
     - as far as i can tell tmux does not support a third modifier key 👎, so closest i can do is swith command and alt keys using karabiner
