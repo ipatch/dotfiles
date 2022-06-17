@@ -243,9 +243,11 @@ else
   "---------------------------------------------------------------
   ""
   if has('nvim')
-     call minpac#add('Shougo/denite.nvim')
+    call minpac#add('Shougo/denite.nvim')
     " call minpac#add('Shougo/denite.nvim', {'rev': '29bfd4c53271c7a150def2388e059746ae4c1713'})
-     call minpac#add('neoclide/coc.nvim', {'branch': 'release'})
+    call minpac#add('neoclide/coc.nvim', {'branch': 'release'})
+    " github copilot
+    call minpac#add('github/copilot.vim')
   elseif v:version > 8 || v:version == 8 " Check for Vim8 ...sort of
     call minpac#add('autozimu/LanguageClient-neovim', {'type': 'opt',
           \'branch': 'next', 'do': {-> system('bash install.sh')}})
