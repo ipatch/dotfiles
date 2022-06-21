@@ -18,6 +18,7 @@ vim/*.swp
 **/.undo
 **/.un*
 **/*.un~
+vim.session.vim
 
 # vim & neovim / minpac / Ignore bundled packages, ie. minpac Vim plugins
 !/editors/vim/vim/pack/.gitkeep
