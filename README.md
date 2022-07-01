@@ -911,7 +911,9 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.co
 
 <summary>scratchpad</summary>
 
-> **Warning**:
+> **Warning**
+
+> **arrow**:
 
 <!-- might behoove me to add a note about adding secret private files into my dotfiles repo -->
 
