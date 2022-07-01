@@ -28,7 +28,7 @@
 
 <blockquote>
 
-**Warning**: 🚧 👷 install script is incomplete, do the good ol [StackOverflow][lnk.funny1] <img src="https://raw.githubusercontent.com/wiki/ipatch/dotfiles/lib/nearr.svg"> to experiment with repo files. 
+**Warning** 🚧 👷 install script is incomplete, do the good ol [StackOverflow][lnk.funny1] <img src="https://raw.githubusercontent.com/wiki/ipatch/dotfiles/lib/nearr.svg"> to experiment with repo files. 
 
 </blockquote>
 
