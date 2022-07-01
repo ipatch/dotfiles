@@ -28,9 +28,11 @@
 
 <blockquote>
 
-**Warning**: 🚧 👷install script is incomplete, do the good ol <a href="https://i.imgur.com/QZj4hxp.jpg" target="_blank" "rel="noopener noreferrer">StackOverflow <img src="https://raw.githubusercontent.com/wiki/ipatch/dotfiles/lib/nearr.svg"></a> to experiment with repo files. 
+**Warning**: 🚧 👷 install script is incomplete, do the good ol [StackOverflow][lnk.funny1] <img src="https://raw.githubusercontent.com/wiki/ipatch/dotfiles/lib/nearr.svg"> to experiment with repo files. 
 
 </blockquote>
+
+[lnk.funny1]: <https://i.imgur.com/QZj4hxp.jpg>
 
 ```sh
 curl https://raw.githubusercontent.com/ipatch/dotfiles/master/install.sh | /bin/sh
