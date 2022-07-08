@@ -166,6 +166,16 @@
   tag-mv = "!sh -c 'set -e;git t $2 $1; git t -d $1;git push origin :refs/tags/$1;git push --tags' -"
 
   ####
+  # NOTE: ipatch, working with PRs
+  # NOTE: https://gist.github.com/gnarf/5406589
+  # NOTE: https://gist.github.com/gnarf/5406589#usage
+  ##
+  pr  = "!f() { git fetch -fu ${2:-$(git remote |grep ^upstream || echo origin)} refs/pull/$1/head:pr/$1 && git checkout pr/$1; }; f"
+  pr-clean = "!git for-each-ref refs/heads/pr/* --format='%(refname)' | while read ref ; do branch=${ref#refs/heads/} ; git branch -D $branch ; done"
+  # for bitbucket/stash remotes
+  spr  = "!f() { git fetch -fu ${2:-$(git remote |grep ^upstream || echo origin)} refs/pull-requests/$1/from:pr/$1 && git checkout pr/$1; }; f"
+
+  ####
   # 🚨 Danger zone 🚨
   ##
   
