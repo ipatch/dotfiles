@@ -441,6 +441,9 @@
   ; NOTE: ipatch, when setting up gpg to sign git commits on remote boxes ie. ssh, make certain to set the below env var
   ; `GPG_TTY`
   ; ref: https://github.com/keybase/keybase-issues/issues/2798
+  ;
+  ; NOTE: ipatch, when using gpg as cred store and inputting gpg passphrase use pinentry-curses for input via cli over ssh
+  ; edit $USER/.gnupg/gpg-agent.conf
 	credentialStore = gpg
 
 [credential "https://dev.azure.com"]
