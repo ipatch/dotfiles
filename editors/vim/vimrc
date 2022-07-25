@@ -56,7 +56,7 @@ function! GetRunningOS()
       " vmap <C-x> :!pbcopy<CR>
       " vmap <C-c> :w !pbcopy<CR><CR>
     endif
-    set shell=bash
+    " set shell=bash
     set runtimepath+=/usr/local/opt/fzf
     return 'macos'
   elseif has ('unix')
