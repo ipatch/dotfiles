@@ -6,3 +6,4 @@ rails-erb-check
 rubocop
 ruby-lint
 cocoapods
+pry
