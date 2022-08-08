@@ -20,6 +20,12 @@ ran into a pretty gnarly issue where docker was preventing my kvm bridge network
 - https://askubuntu.com/a/1134655/134740 <br/> 
   👆 for the solution to fix the **iptables** rule for allowing the guest VM to connect to the internet
 
+> copypasta, for my particular use case my archbox is using `br1`
+
+```shell
+sudo iptables -I FORWARD -i br1 -o br1 -j ACCEPT
+```
+
 ## Notes
 
 - to increase the size of a virtual disk
