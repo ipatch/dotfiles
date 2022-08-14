@@ -1,0 +1,426 @@
+# This is Git's per-user configuration file.
+# NOTE: `git` alias(es) are processed using a POSIX shell, NOT fish-shell
+# NOTE: to rm values from CLI `git config --global --unset user.{name,email}
+
+[i18n]
+  filesEncoding = utf-8
+
+[alias]
+  # Print configuration settings related to git
+  vars = config -l
+  # print a list of defined aliases
+  aliases = !git config --get-regexp 'alias.*' | colrm 1 6 | sed 's/[ ]/ = /'
+
+  # Clone a repository including all submodules
+  c = clone --recursive
+  clone = clone --recursive
+
+  # branching
+  b = branch
+  # bdates = !git branch --sort=creatordate --sort=committername --format "%(align:20) %(creatordate:relative) %(end) %(align:25) %(committername) %(end) %(refname:lstrip=-1)"
+  # REF: https://stackoverflow.com/a/5188364/708807
+  recentb = "!r() { refbranch=$1 count=$2; git for-each-ref --sort=-committerdate refs/heads --format='%(refname:short)|%(HEAD)%(color:yellow)%(refname:short)|%(color:bold green)%(committerdate:relative)|%(color:blue)%(subject)|%(color:magenta)%(authorname)%(color:reset)' --color=always --count=${count:-20} | while read line; do branch=$(echo \"$line\" | awk 'BEGIN { FS = \"|\" }; { print $1 }' | tr -d '*'); ahead=$(git rev-list --count \"${refbranch:-origin/master}..${branch}\"); behind=$(git rev-list --count \"${branch}..${refbranch:-origin/master}\"); colorline=$(echo \"$line\" | sed 's/^[^|]*|//'); echo \"$ahead|$behind|$colorline\" | awk -F'|' -vOFS='|' '{$5=substr($5,1,70)}1' ; done | ( echo \"ahead|behind||branch|lastcommit|message|author\\n\" && cat) | column -ts'|';}; r"
+
+
+
+  ####
+  # searching
+  ##
+  find = log --pretty=\"format:%Cgreen%H %Cblue%s\n%b%Creset\" --name-status --grep
+
+  ## NOTE: too compressed for my taste
+  # ffind = log --oneline --name-status -i --grep
+  
+  ####
+  # logging
+  ##
+  # l = "!sh -c 'git log --graph --pretty=format:%C(yellow)%h%C(bold white red)%d%Creset %s %C(bold green)%cr %Creset%C(white)%an --abbrev-commit --date=relative --color=always; | /opt/local/bin/less'"
+  # l = !git log --color=always --graph --abbrev-commit --date=relative | /opt/local/bin/less -r
+  # no mouse for you
+
+  # l = "!sh -c 'git log --graph | /opt/local/bin/less -R'"
+  # l = !git --no-pager log
+  # lg = log --pretty="%cn committed %h on %cd"
+  # l = "!sh -c 'git log --pretty="%cn committed %h on %cd"'"
+
+  # rlog = !"git --no-pager log --all --graph --decorate --oneline --color=always | tac | awk -f ~/.config/git/switchslashes.awk | /opt/local/bin/less -X +G -r"
+
+  ###
+  # logging / EXP
+  # CREDIT: https://stackoverflow.com/a/34467298/708807
+  ##
+  lg = lg1
+  lg1 = lg1-specific --all
+
+  lg1-specific = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(auto)%d%C(reset)'
+
+
+  ####
+  # TODO: solve mouse / trackpad scroll support & color when viewing git log
+  ##
+  l = log --graph --pretty=format:'%C(yellow)%h%C(bold white red)%d%Creset %s %C(bold green)%cr %Creset%C(white)%an' --abbrev-commit --date=relative
+  logtb = log --oneline --decorate --graph --all -30
+
+  ####
+  # checking out
+  ##
+  co = checkout
+  cb = checkout -b
+  master = checkout master
+
+  ####
+  # adding / staging files
+  ##
+  aa = add --all
+
+  ####
+  # commiting
+  ##
+  ci = commit
+  ca = commit --amend
+  # `-S` will sign commits
+  cm = commit -S -m
+  ac = commit -am
+  aac = "!git aa; "git commit -m""
+  ccount = rev-list HEAD --count
+  commitcount = rev-list HEAD --count
+  ####
+  # for those random, quick, & fun commits 👍
+  ##
+  random = "!git smf "git add --all"; git add .; git commit -m \"`fortune`\""
+
+  ####
+  # pushing
+  ##
+  pom = push origin master
+  pshom = !git push origin master
+  pshsmom = !git push --recurse-submodules=on-demand origin master
+  psh = push --quiet
+
+  ####
+  # pulling
+  ##
+  p = !git pull
+  # TODO: add a `pull` to recursively pull submodules
+  ps = !git pull
+
+  ####
+  # updating forks
+  ##
+  pulum = !git pull upstream master
+  pulom = !git pull origin master
+  pshom = !git push origin master
+  fresh = "!sh -c 'git pull upstream master; git push origin master'"
+
+  ####
+  # diff
+  ##
+  d = diff
+  dc = diff --cached
+
+  ####
+  # fetch
+  ##
+  fo = fetch origin
+
+  ####
+  # merge
+  ##
+  m = merge
+
+  ####
+  # status
+  ##
+  st = status
+  s = status --short --branch
+  # list contributors with number of commits
+  sl = shortlog --summary --numbered
+
+  ####
+  # TODO: label
+  ##
+  # NOTE: see fish / abbreviations.fish for querying shallow status
+
+  ####
+  # remote
+  ##
+  remotes = remote --verbose
+  r = remote --verbose
+
+  ####
+  # tag
+  # NOTE: `tag` cannot be set as an alias, because it is a subcommand
+  ##
+  # tag = tag -s <- Will not work!
+  t = tag -s
+  # show verbose output about tags
+  tags = tag --list
+  # USAGE: git tag-mv [name-of-old-tag] [name-of-new-tag]
+  # EXAMPLE: git tag-mv v0.1.2.2 v0.1.2.3
+  tag-mv = "!sh -c 'set -e;git t $2 $1; git t -d $1;git push origin :refs/tags/$1;git push --tags' -"
+
+  ####
+  # 🚨 Danger zone 🚨
+  ##
+  
+  ####
+  # undo the last added / staged files
+  ##
+  undoadd = "!git reset HEAD -- ."
+  undostage = reset HEAD
+
+  ####
+  # undo the last commit
+  ##
+  undocommit = "!git-reset HEAD~"
+
+  # Undo a `git push`
+  undopush = push -f origin HEAD^:master
+  ####
+  # `restore` try and "undelete" a file
+  ##
+  restore = "!git checkout $(git rev-list -n 1 HEAD -- "$1")^ -- "$1""
+  
+  ####
+  # git extras
+  ##
+
+  ####
+  # randos
+  ##
+  last = show --show-signature
+  
+  ####
+  # submodules -- ie. add, commit, push
+  ##
+  sm = submodule
+  smu = submodule update
+  smi = submodule init
+  smf = submodule foreach --recursive
+  smrupdate = submodule update --recursive --remote
+  update = '!git pull; git submodule update --init --recursive'
+  sma = "!git smf "git add --all";"
+  ###
+  # TODO: figure out how to submit a commit message from CLI
+  ##
+  smac = "!git smf "git commit -a"; git commit -a;"
+  ###
+  # push all files including submodule files
+  ###
+  smp = "!git push --recurse-submodules=on-demand"
+  
+  ####
+  # Useful Commands 👌 -- compound commands
+  ##
+
+  # get / retrieve the commit ID / HASH when a particular file was checked in
+  # EX: `git when-added -- **foo.js`
+  # NOTE: use within the root directory of a git repository
+  # TODO: check and see if alias can cd to the root of a git repo without changing the current dir
+  when-added = "!git log --diff-filter=A"
+  
+  # Remove branches that have already been merged with master, a.k.a. ‘delete merged’
+  clean-branches = "!git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
+
+  # Pull in remote changes for the current repository and all its submodules
+  pull-all = !"git pull && git submodule foreach git pull origin master"
+
+  # Prune all your stale remote branches
+  prune-all = !git remote | xargs -n 1 git remote prune
+
+  # If upstream applied a slightly modified patch, and you want to see the
+  # modifications, you should use the program interdiff of the patchutils
+  # package. This accept two commits, typically the first coming from upstream
+  # (e.g. origin/master) and the second coming from your own topic branch.
+  intercommit = !sh -c 'interdiff <(git show $1) <(git show $2) | /opt/local/bin/less -FRS' -
+
+  # graph
+  graphviz = "!f() { echo 'digraph git {' ; git log --pretty='format:  %h -> { %p }' \"$@\" | sed 's/[0-9a-f][0-9a-f]*/\"&\"/g' ; echo '}'; }; f"
+	identity = "! git config user.name $(git config user.$1.name); git config user.email $git config user.$1.eail); :"
+
+
+  # ref: https://stackoverflow.com/a/45991969/708807
+	hist = log --graph --date-order --date=short --pretty=format:'%C(auto)%h%d %C(reset)%s %C(bold blue)%ce %C(reset)%C(green)%cr (%cd)'
+	ctags = !.git/hooks/ctags
+
+# Use `origin` as the default remote on the `master` branch in all cases
+[branch "master"]
+  remote = origin
+
+[advice]
+  statusHints = false # makes status messages more terse. 👍
+  ignoredHook = false # stop freaking warning about git hooks not set to +x 
+
+[core]
+  editor = nvim
+	excludesfile = /home/capin/.config/git/gitexcludes
+	attributesfile = /home/capin/.config/git/gitattributes
+    ###############################
+  # TODO: [x] give me some mouse 🐭 support please ✅
+  ##
+  # pager = /opt/local/bin/less # NOTE `-r` flag may break things from time to time
+
+  # NOTE: no syntax highlighting
+	pager = /opt/local/bin/less -F -X --mouse
+
+[filter "zippey"]
+  smudge = /home/capin/.local/bin/zippey.py d
+  clean = /home/capin/.local/bin/zippey.py e
+  ##############################
+  # macOS, Linux, Windows, y'all play nice
+  ##
+  ###############
+  # Windows
+  ##
+  # autocrlf = true
+  ###############
+  # macOS & Linux
+  ##
+	autocrlf = input
+	precomposeUnicode = true
+  ###############################
+  # To set a `core.excludesfile` on a per $HOME dir basis, see `config.fish or `.bashrc`
+
+[color]
+  ui = auto
+  branch = auto
+  diff = auto
+  status = auto
+  grep = auto
+  interactive = auto
+  pager = true
+
+[color "branch"]
+  current = yellow reverse
+  local = yellow
+  remote = green
+
+[color "diff"]
+  meta = yellow bold
+  frag = magenta bold
+  old = red bold
+  new = green bold
+
+[color "status"]
+  added = yellow
+  changed = green
+  untracked = cyan
+
+[merge]
+  # Include summaries of merged commits in newly created merge commit messages
+  log = true
+  tool = vimdiff
+  conflictstyle = diff3
+
+[mergetool]
+  prompt = false
+
+[push]
+  default = simple # git ≥ 1.8+ required
+
+# `git config --global diff.submodule log` will add the below 2 lines
+# NOTE: exp with (un)zipping zip files in a git repo
+[diff "zip"]
+textconv = unzip -c -a
+
+[diff]
+  submodule = log
+
+[difftool "meld"]
+  cmd = /usr/local/bin/meld
+
+[status]
+  submodulesummary = 1
+
+[commit]
+  verbose = true
+	gpgsign = true
+
+[tag]
+  verbose = true
+	gpgsign = true
+
+[fetch]
+  prune = true
+
+[rebase]
+  stat = true
+
+[gpg]
+	program = "/usr/local/bin/gpg"
+  # Make certain `gpg` is in the $USER $PATH
+  # NOTE: will only work if the $bp env var is set
+	# program = /usr/local/bin/gpg
+	# program = $bp/bin/gpg
+	# pager = /opt/local/bin/less -F -X --mouse
+
+[includeIf "gitdir:/Users/microbrewer/homebrew"]
+  path = ~/.config/git/gitconfig-microbrewer
+
+[init]
+	templatedir = ~/.config/git/git-templates
+	defaultBranch = main
+
+##############################
+# Identity bull shit
+# NOTE: GitHub and git associate commits with email addresses
+##
+[user]
+	name = chris
+  email = chris.r.jones.1983@gmail.com
+	useConfigOnly = true
+	signingkey = CDE31AD7ED85062F02F01B40F115EA48338F11B7
+
+[github]
+  name = Chris Jones
+  email = chris.r.jones.1983@gmail.com
+	signingkey = CDE31AD7ED85062F02F01B40F115EA48338F11B7
+
+[gitlab]
+	name = truckmonth
+  email = me@chrisrjones.com
+
+[bitbucket]
+  name = ipatch
+  email = chris.r.jones.1983@gmail.com
+
+# NOTE: the below settings require at least git v2.13
+# [includeIf ="gitdir:/opt/code/dotfiles/"
+#  path = /opt/code/dotfiles/.gitconfig
+
+####
+# TODO: figure out what all this URL shorthand shit means
+##
+
+# URL shorthands
+[url "git@gitlab.com"]
+  insteadOf = "gl:"
+  pustInsteadOf = "gitlab:"
+
+[url "git@github.com"]
+  insteadOf = "gh:"
+  pushInsteadOf = "github:"
+  pushInsteadOf = "git://github.com/"
+
+[url "git://github.com/"]
+  insteadOf = "github:"
+
+[url "git@gist.github.com:"]
+  insteadOf = "gst:"
+  pushInsteadOf = "gist:"
+  pushInsteadOf = "git://gist.github.com/"
+
+[url "git://gist.github.com/"]
+  insteadOf = "gist:"
+
+[url "git://bitbucket.org:"]
+  insteadOf = "bb:"
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[pull]
+	ff = only
+[credential]
+	helper = cache --timeout=28800
