@@ -252,7 +252,7 @@
   ignoredHook = false # stop freaking warning about git hooks not set to +x 
 
 [core]
-  editor = nvim
+  editor = /opt/local/bin/nvim
 	excludesfile = /home/capin/.config/git/gitexcludes
 	attributesfile = /home/capin/.config/git/gitattributes
     ###############################
@@ -347,7 +347,7 @@ textconv = unzip -c -a
   stat = true
 
 [gpg]
-	program = "/usr/local/bin/gpg"
+	program = "/opt/local/bin/gpg"
   # Make certain `gpg` is in the $USER $PATH
   # NOTE: will only work if the $bp env var is set
 	# program = /usr/local/bin/gpg
@@ -355,10 +355,10 @@ textconv = unzip -c -a
 	# pager = /opt/local/bin/less -F -X --mouse
 
 [includeIf "gitdir:/Users/microbrewer/homebrew"]
-  path = ~/.config/git/gitconfig-microbrewer
+  # path = ~/.config/git/gitconfig-microbrewer
 
 [init]
-	templatedir = ~/.config/git/git-templates
+  # templatedir = ~/.config/git/git-templates
 	defaultBranch = main
 
 ##############################
