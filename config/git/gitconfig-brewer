@@ -352,7 +352,6 @@ textconv = unzip -c -a
   # NOTE: will only work if the $bp env var is set
 	# program = /usr/local/bin/gpg
 	# program = $bp/bin/gpg
-	# pager = /opt/local/bin/less -F -X --mouse
 
 [includeIf "gitdir:/Users/microbrewer/homebrew"]
   # path = ~/.config/git/gitconfig-microbrewer
