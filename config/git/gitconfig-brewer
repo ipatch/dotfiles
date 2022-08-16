@@ -422,4 +422,4 @@ textconv = unzip -c -a
 [pull]
 	ff = only
 [credential]
-	helper = cache --timeout=28800
+	helper = cache --timeout=288000
