@@ -422,4 +422,4 @@ textconv = unzip -c -a
 [pull]
 	ff = only
 [credential]
-	helper = cache --timeout=288000
+	helper = cache --timeout=86400 # store cred for 24 hours
