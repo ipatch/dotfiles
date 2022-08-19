@@ -1,0 +1,28 @@
+# Commands to run in interactive sessions can go here
+if status is-interactive
+  set -gx bp "$HOME/homebrew"
+  set -gx code "/opt/code"
+  set -gx ltmp "/opt/code/ltmp"
+  export HOMEBREW_CORE_GIT_REMOTE=https://github.com/ipatch/homebrew-core-mojave 
+  set -gx HOMEBREW_NO_AUTO_UPDATE 1
+  set -gx HOMEBREW_NO_INSTALL_CLEANUP 1
+  set -gx GPG_TTY (tty)
+  set -gx PATH "$bp/sbin:$bp/bin:$PATH"
+
+  alias l='ls -lah'
+  alias taps='cd (brew --repository)/Library/Taps'
+
+  abbr -ga rmd "rm -rf"
+  abbr -a -g -- lr 'ls -lrth'
+  abbr -g -a psearch pip_search
+  abbr -g -a gs 'git status'
+  abbr -g -a git.count.commits 'git rev-list --count HEAD'
+  abbr -g -a cd.taps 'cd (brew --repository)/Library/Taps'
+  abbr -g -a fr 'exec fish'
+  abbr -g -a bog 'brew outdated --greedy'
+  abbr -g -a mpb "/opt/local/bin"
+
+  umask g+w
+end
+
+#set -gx PATH "$bp/sbin $bp/bin $PATH"
