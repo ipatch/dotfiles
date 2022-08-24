@@ -436,6 +436,7 @@
 
 [credential]
   helper = cache --timeout=28800
+  # booooo
   # helper = 
   ; helper = git-credential-manager
   ; NOTE: ipatch, when setting up gpg to sign git commits on remote boxes ie. ssh, make certain to set the below env var
