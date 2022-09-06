@@ -28,32 +28,57 @@ call SetupCommandAlias("cocupdatebuild", "CocUpdateBuild")
 
 " NOTE: unfortunately (n)Vim abbr's don't tab ⇥ complete like fish shell ...boooo
 
-" plugin > coc > use <tab> for trigger completion and navigate next complete item
+" plugin / coc / use <tab> for trigger completion and navigate next complete item
 function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~ '\s'
 endfunction
 
 " plugin / coc / completion
+" pre coc v0.0.82
+" inoremap <silent><expr> <TAB>
+"       \ pumvisible() ? "\<C-n>" :
+"       \ <SID>check_back_space() ? "\<TAB>" :
+"       \ coc#refresh()
+" inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+" inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+" plugin / coc ≥ 0.0.82
 inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#pum#visible() ? coc#pum#next(1) :
+      \ CheckBackspace() ? "\<Tab>" :
       \ coc#refresh()
+" plugin / coc / tab through completion choices
+inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+
+" Make <CR> to accept selected completion item or notify coc.nvim to format
+" <C-g>u breaks current undo, please make your own choice.
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 " plugin / coc / close preview window when completion is done.
-augroup coc_close_pum
-  autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
-augroup END
+" augroup coc_close_pum
+"   autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
+" augroup END
 
-" plugin / coc / tab through completion choices
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 " plugin / coc / no new line / carriage return after selection
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>"
+" inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>"
 
 " plugin / coc / trigger autocomplete menu
-inoremap <silent><expr> <c-space> coc#refresh()
+" inoremap <silent><expr> <c-space> coc#refresh()
+
+function! CheckBackspace() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" Use <c-space> to trigger completion.
+if has('nvim')
+  inoremap <silent><expr> <c-space> coc#refresh()
+else
+  inoremap <silent><expr> <c-@> coc#refresh()
+endif
 
 " Use `[g` and `]g` to navigate diagnostics
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
@@ -68,11 +93,23 @@ nmap <silent> gr <Plug>(coc-references)
 " Use K to show documentation in preview window.
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
-function! s:show_documentation()
-  if (index(['vim', 'help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
+" function! s:show_documentation()
+"   if (index(['vim', 'help'], &filetype) >= 0)
+"     execute 'h '.expand('<cword>')
+"   else
+"     call CocAction('doHover')
+"   endif
+" endfunction
+function! ShowDocumentation()
+  if CocAction('hasProvider', 'hover')
+    call CocActionAsync('doHover')
   else
-    call CocAction('doHover')
+    call feedkeys('K', 'in')
   endif
 endfunction
 
+" Highlight the symbol and its references when holding the cursor.
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" Run the Code Lens action on the current line.
+nmap <leader>cl  <Plug>(coc-codelens-action)
