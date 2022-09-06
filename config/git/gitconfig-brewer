@@ -15,18 +15,13 @@
   c = clone --recursive
   clone = clone --recursive
 
-  ##################################
   # branching
-  #####
   b = branch
   # bdates = !git branch --sort=creatordate --sort=committername --format "%(align:20) %(creatordate:relative) %(end) %(align:25) %(committername) %(end) %(refname:lstrip=-1)"
   # REF: https://stackoverflow.com/a/5188364/708807
   recentb = "!r() { refbranch=$1 count=$2; git for-each-ref --sort=-committerdate refs/heads --format='%(refname:short)|%(HEAD)%(color:yellow)%(refname:short)|%(color:bold green)%(committerdate:relative)|%(color:blue)%(subject)|%(color:magenta)%(authorname)%(color:reset)' --color=always --count=${count:-20} | while read line; do branch=$(echo \"$line\" | awk 'BEGIN { FS = \"|\" }; { print $1 }' | tr -d '*'); ahead=$(git rev-list --count \"${refbranch:-origin/master}..${branch}\"); behind=$(git rev-list --count \"${branch}..${refbranch:-origin/master}\"); colorline=$(echo \"$line\" | sed 's/^[^|]*|//'); echo \"$ahead|$behind|$colorline\" | awk -F'|' -vOFS='|' '{$5=substr($5,1,70)}1' ; done | ( echo \"ahead|behind||branch|lastcommit|message|author\\n\" && cat) | column -ts'|';}; r"
 
-  ##################################
-  # branching / branch, branching / delete local & remote branch
-  #####
-  kill = "!f(){ git branch -D \"$1\";  git push origin --delete \"$1\"; };f"
+
 
   ####
   # searching
@@ -39,16 +34,16 @@
   ####
   # logging
   ##
-  # l = "!sh -c 'git log --graph --pretty=format:%C(yellow)%h%C(bold white red)%d%Creset %s %C(bold green)%cr %Creset%C(white)%an --abbrev-commit --date=relative --color=always; | less'"
-  # l = !git log --color=always --graph --abbrev-commit --date=relative | less -r
+  # l = "!sh -c 'git log --graph --pretty=format:%C(yellow)%h%C(bold white red)%d%Creset %s %C(bold green)%cr %Creset%C(white)%an --abbrev-commit --date=relative --color=always; | /opt/local/bin/less'"
+  # l = !git log --color=always --graph --abbrev-commit --date=relative | /opt/local/bin/less -r
   # no mouse for you
 
-  # l = "!sh -c 'git log --graph | less -R'"
+  # l = "!sh -c 'git log --graph | /opt/local/bin/less -R'"
   # l = !git --no-pager log
   # lg = log --pretty="%cn committed %h on %cd"
   # l = "!sh -c 'git log --pretty="%cn committed %h on %cd"'"
 
-  # rlog = !"git --no-pager log --all --graph --decorate --oneline --color=always | tac | awk -f ~/.config/git/switchslashes.awk | less -X +G -r"
+  # rlog = !"git --no-pager log --all --graph --decorate --oneline --color=always | tac | awk -f ~/.config/git/switchslashes.awk | /opt/local/bin/less -X +G -r"
 
   ###
   # logging / EXP
@@ -89,7 +84,6 @@
   aac = "!git aa; "git commit -m""
   ccount = rev-list HEAD --count
   commitcount = rev-list HEAD --count
-  cc = rev-list --count HEAD
   ####
   # for those random, quick, & fun commits 👍
   ##
@@ -166,16 +160,6 @@
   tag-mv = "!sh -c 'set -e;git t $2 $1; git t -d $1;git push origin :refs/tags/$1;git push --tags' -"
 
   ####
-  # NOTE: ipatch, working with PRs
-  # NOTE: https://gist.github.com/gnarf/5406589
-  # NOTE: https://gist.github.com/gnarf/5406589#usage
-  ##
-  pr  = "!f() { git fetch -fu ${2:-$(git remote |grep ^upstream || echo origin)} refs/pull/$1/head:pr/$1 && git checkout pr/$1; }; f"
-  pr-clean = "!git for-each-ref refs/heads/pr/* --format='%(refname)' | while read ref ; do branch=${ref#refs/heads/} ; git branch -D $branch ; done"
-  # for bitbucket/stash remotes
-  spr  = "!f() { git fetch -fu ${2:-$(git remote |grep ^upstream || echo origin)} refs/pull-requests/$1/from:pr/$1 && git checkout pr/$1; }; f"
-
-  ####
   # 🚨 Danger zone 🚨
   ##
   
@@ -248,16 +232,16 @@
   # modifications, you should use the program interdiff of the patchutils
   # package. This accept two commits, typically the first coming from upstream
   # (e.g. origin/master) and the second coming from your own topic branch.
-  intercommit = !sh -c 'interdiff <(git show $1) <(git show $2) | less -FRS' -
+  intercommit = !sh -c 'interdiff <(git show $1) <(git show $2) | /opt/local/bin/less -FRS' -
 
   # graph
   graphviz = "!f() { echo 'digraph git {' ; git log --pretty='format:  %h -> { %p }' \"$@\" | sed 's/[0-9a-f][0-9a-f]*/\"&\"/g' ; echo '}'; }; f"
-  identity = "! git config user.name $(git config user.$1.name); git config user.email $git config user.$1.eail); :"
+	identity = "! git config user.name $(git config user.$1.name); git config user.email $git config user.$1.eail); :"
 
 
   # ref: https://stackoverflow.com/a/45991969/708807
-  hist = log --graph --date-order --date=short --pretty=format:'%C(auto)%h%d %C(reset)%s %C(bold blue)%ce %C(reset)%C(green)%cr (%cd)'
-  ctags = !.git/hooks/ctags
+	hist = log --graph --date-order --date=short --pretty=format:'%C(auto)%h%d %C(reset)%s %C(bold blue)%ce %C(reset)%C(green)%cr (%cd)'
+	ctags = !.git/hooks/ctags
 
 # Use `origin` as the default remote on the `master` branch in all cases
 [branch "master"]
@@ -268,17 +252,16 @@
   ignoredHook = false # stop freaking warning about git hooks not set to +x 
 
 [core]
-  editor = nvim
-  excludesfile = /home/capin/.config/git/gitexcludes
-  attributesfile = /home/capin/.config/git/gitattributes
+  editor = /opt/local/bin/nvim
+	excludesfile = /home/capin/.config/git/gitexcludes
+	attributesfile = /home/capin/.config/git/gitattributes
     ###############################
   # TODO: [x] give me some mouse 🐭 support please ✅
   ##
-  # pager = less # NOTE `-r` flag may break things from time to time
+  # pager = /opt/local/bin/less # NOTE `-r` flag may break things from time to time
 
   # NOTE: no syntax highlighting
-  # NOTE: the `$bp` env var NOVA ❌
-  pager = less -F -X --mouse
+	pager = /opt/local/bin/less -F -X --mouse
 
 [filter "zippey"]
   smudge = /home/capin/.local/bin/zippey.py d
@@ -293,8 +276,8 @@
   ###############
   # macOS & Linux
   ##
-  autocrlf = input
-  precomposeUnicode = true
+	autocrlf = input
+	precomposeUnicode = true
   ###############################
   # To set a `core.excludesfile` on a per $HOME dir basis, see `config.fish or `.bashrc`
 
@@ -338,24 +321,24 @@
 # `git config --global diff.submodule log` will add the below 2 lines
 # NOTE: exp with (un)zipping zip files in a git repo
 [diff "zip"]
-  textconv = unzip -c -a
+textconv = unzip -c -a
 
 [diff]
   submodule = log
 
 [difftool "meld"]
-  cmd = meld
+  cmd = /usr/local/bin/meld
 
 [status]
   submodulesummary = 1
 
 [commit]
   verbose = true
-  gpgsign = true
+	gpgsign = true
 
 [tag]
   verbose = true
-  gpgsign = true
+	gpgsign = true
 
 [fetch]
   prune = true
@@ -364,31 +347,36 @@
   stat = true
 
 [gpg]
+	program = "/opt/local/bin/gpg"
   # Make certain `gpg` is in the $USER $PATH
-  # NOTE: ipatch, ✅ the easiest way i've found to use `gpg` in various system paths, ie. `~/homebrew/bin` or `/usr/local/bin` is to make certain the $PATH can find the `gpg` cmd and DO NOT specify an absolute value
-  program = gpg
+  # NOTE: will only work if the $bp env var is set
+	# program = /usr/local/bin/gpg
+	# program = $bp/bin/gpg
+
+[includeIf "gitdir:/Users/microbrewer/homebrew"]
+  # path = ~/.config/git/gitconfig-microbrewer
 
 [init]
-  templatedir = ~/.config/git/git-templates
-  defaultBranch = main
+  # templatedir = ~/.config/git/git-templates
+	defaultBranch = main
 
 ##############################
 # Identity bull shit
 # NOTE: GitHub and git associate commits with email addresses
 ##
 [user]
-  name = chris
+	name = chris
   email = chris.r.jones.1983@gmail.com
-  useConfigOnly = true
-  signingkey = CDE31AD7ED85062F02F01B40F115EA48338F11B7
+	useConfigOnly = true
+	signingkey = CDE31AD7ED85062F02F01B40F115EA48338F11B7
 
 [github]
   name = Chris Jones
   email = chris.r.jones.1983@gmail.com
-  signingkey = CDE31AD7ED85062F02F01B40F115EA48338F11B7
+	signingkey = CDE31AD7ED85062F02F01B40F115EA48338F11B7
 
 [gitlab]
-  name = truckmonth
+	name = truckmonth
   email = me@chrisrjones.com
 
 [bitbucket]
@@ -406,7 +394,7 @@
 # URL shorthands
 [url "git@gitlab.com"]
   insteadOf = "gl:"
-  pushInsteadOf = "gitlab:"
+  pustInsteadOf = "gitlab:"
 
 [url "git@github.com"]
   insteadOf = "gh:"
@@ -427,25 +415,11 @@
 [url "git://bitbucket.org:"]
   insteadOf = "bb:"
 [filter "lfs"]
-  clean = git-lfs clean -- %f
-  smudge = git-lfs smudge -- %f
-  process = git-lfs filter-process
-  required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
 [pull]
-  ff = only
-
+	ff = only
 [credential]
-  helper = cache --timeout=28800
-  # booooo
-  # helper = 
-  ; helper = git-credential-manager
-  ; NOTE: ipatch, when setting up gpg to sign git commits on remote boxes ie. ssh, make certain to set the below env var
-  ; `GPG_TTY`
-  ; ref: https://github.com/keybase/keybase-issues/issues/2798
-  ;
-  ; NOTE: ipatch, when using gpg as cred store and inputting gpg passphrase use pinentry-curses for input via cli over ssh
-  ; edit $USER/.gnupg/gpg-agent.conf
-	credentialStore = gpg
-
-[credential "https://dev.azure.com"]
-  useHttpPath = true
+	helper = cache --timeout=86400 # store cred for 24 hours
