@@ -3,7 +3,10 @@
 ! NOTE: ipatch, for whatever reason, the line `remove Lock = Caps_Lock` is no good
 ! remove Lock = Caps_Lock !! NOTE: deprecated/obsolete binding
 !
-clear Lock
-! 66 is the keycode of Caps_Lock
-keysym 66 = Control_L
-add Control = Control_L
+
+
+! NOTE: ipatch, set `caps locks` to left control
+clear lock
+clear control
+keycode 66 = Control_L
+add control = Control_L Control_R
