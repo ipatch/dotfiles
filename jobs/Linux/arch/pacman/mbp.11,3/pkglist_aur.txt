@@ -1,0 +1,15 @@
+fontviewer
+gpu-switch
+grub2-theme-preview
+hfsprogs
+linux-apfs-rw-dkms-git
+mbpfan-git
+nerd-fonts-ibm-plex-mono
+optimus-manager
+polkit-dumb-agent-git
+pulseaudio-nextsink
+ttf-mac-fonts
+update-grub
+xf86-input-mtrack-git
+yay-bin
+zfs-dkms
