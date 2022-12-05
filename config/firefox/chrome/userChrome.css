@@ -13,23 +13,41 @@
 /*   display: none !important; */
 /* } */
 
+#personal-bookmarks .bookmark-item .toolbarbutton-icon {display:none!important;} 
+
+/* Hide tab bar icons for folders, add a trailing '/' */
+/* toolbarbutton.bookmark-item[type="menu"]::after {
+        content: "/";
+        position: absolute;
+        transform: translateY(-50%);
+        padding-left: 2px;
+}
+
+toolbarbutton.bookmark-item[type="menu"] > .toolbarbutton-icon {
+        display: none !important;
+}
+
+toolbarbutton.bookmark-item[type="menu"] {
+        padding-right: 9px !important;
+}
+
 #personal-bookmarks .bookmark-item > .toolbarbutton-icon {
   display: none !important;
-}
+} */
 
 /* #personal-bookmarks .bookmark-item > .toolbarbutton-icon {display:none!important} */
 
 /* NOTE: ipatch neither of the CSS selectors removed the help menu item from the menubar on macos */
 
 /* remove menu items */
-#helpMenu {
+/* #helpMenu {
   display: none !important;
 }
 
 /* hide the help menu */
-menu[label="Help"] {
+/* menu[label="Help"] {
   display: none !important;
-}
+/* } */ 
 
 /* NOTE: ipatch, attempt to remove firefox suggests from urlbar */
 /* REF: https://old.reddit.com/r/FirefoxCSS/comments/p2l279/how_to_remove_firefox_suggest_from_the_adress_bar/h8ku0hu/ */
