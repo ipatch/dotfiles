@@ -6,7 +6,7 @@
 #-
 
 #----------------------------
-# Vim & Neovim / ignore files for ##
+# Vim & Neovim ignore tmp files
 [._]*.s[a-v][a-z]
 [._]*.sw[a-p]
 [._]s[a-v][a-z]
@@ -18,7 +18,9 @@ vim/*.swp
 **/.undo
 **/.un*
 **/*.un~
-vim.session.vim
+# NOTE: ipatch, possible work around, name session files with a `.svim`
+# ...so they don't get caught up in a `.vim` catch all trap
+**/*.svim
 
 # vim & neovim / minpac / Ignore bundled packages, ie. minpac Vim plugins
 !/editors/vim/vim/pack/.gitkeep
@@ -86,9 +88,10 @@ tags
 # track all files with a name of `.gitkeep`
 !*.gitkeep
 
-##############################
+#-----------------------------
 # weechat
-##
+#-
+#
 # Ignore all files with extension `weechatlog` recurisvely in all directories
 **/.weechatlog
 config/irc-clients/weechat/weechat.log
@@ -105,9 +108,9 @@ config/irc-clients/weechat/weechat.conf
 config/irc-clients/weechat/sec.conf
 config/irc-clients/weechat/plugins.conf
 
-##############################
+#-----------------------------
 # Fish shell
-##
+#-
 # Ignore fishd.<hash-files>
 config/fish/fishd.*
 # `fish_variables` > fish shell's new `fishd.*` uni vars file
@@ -122,9 +125,9 @@ config/fish/fisher/conf.d/*
 config/fish/fisher/functions/*
 !config/fish/fisher/functions/.gitkeep
 
-##############################
+#-----------------------------
 # mpv
-##
+#-
 # Ignore all files within the watch_later dir for mpv
 # **/config/mpv/watch_later/ 
 # Ignore `watch_later` directory from mpv
@@ -132,24 +135,24 @@ config/mpv/watch_later/*
 !config/mpv/watch_later/.gitkeep
 config/mpv/mpv_history.log
 
-##############################
+#-----------------------------
 # GIMP
-##
+#-
 config/GIMP/2.10/themes/*
 !config/GIMP/2.10/.gitkeep
 
-##############################
+#-----------------------------
 # INKSCAPE
-##
+#-
 config/inkscape/extension-errors.log
 # changes to frequently
 config/inkscape/preferences.xml
 jobs/bin/inkscape
 jobs/bin/inkview
 
-##############################
+#-----------------------------
 # FreeCad
-##
+#-
 **/FreeCAD/cookies
 **/FreeCAD/webdata/**
 **/FreeCAD/webdatacache/**
@@ -234,7 +237,7 @@ jobs/bin/f2py3
 jobs/bin/f2py3.8
 # python compile cache
 **__pycache__
-# TODO: why are python bins being installed in my `$HOME/jobs/bin` dir [i'd insert an emoji here, but alacritty is PITA sometimes]
+# TODO: why are python bins being installed in my `$HOME/jobs/bin` dir, 🤷
 jobs/bin/cygdb
 jobs/bin/cython
 jobs/bin/cythonize
@@ -275,12 +278,12 @@ config/asciinema/install-id
 **/*.o
 
 #-----------------------------
-# build artifacts > jhbuild
+# build artifacts / jhbuild
 ##
 jobs/bin/jhbuild
 
 #-----------------------------
-# macOS > automation > karabiner & hammerspoon
+# macOS / automation / karabiner & hammerspoon
 config/karabiner/automatic_backups/*
 jobs/macOS/Users/mr-fancy/hammerspoon/.cli.history
 
@@ -293,10 +296,15 @@ config/ssh/macos/config
 
 #-----------------------------
 # tmp - ignore files
-##
+#-
 # config/git/gitconfig
 .gitsecret/keys/random_seed
 !*.secret
 config/fish/interactive/private-env-vars.fish
 jobs/macOS/Users/mr-fancy/Library/Preferences/FreeCAD/user.cfg
 .git/**
+
+#----------------------------
+# gnu+linux / printer / cups
+#-
+jobs/Linux/arch/etc/cups/
