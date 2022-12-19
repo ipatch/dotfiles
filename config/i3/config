@@ -73,12 +73,6 @@ hide_edge_borders  smart
 
 # start dmenu (a program launcher)
 # bindsym $mod+d exec --no-startup-id dmenu_run
-# bindsym $mod+d exec --no-startup-id dmenu_run -fn 'Source Code Pro'
-# A more modern dmenu replacement is rofi:
-# bindcode $mod+40 exec "rofi -modi drun,run -show drun"
-# There also is i3-dmenu-desktop which only displays applications shipping a
-# .desktop file. It is a wrapper around dmenu, so you need that installed.
-# bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
 
 # A more modern dmenu replacement is rofi:
 # NOTE: ipatch, bind command+spacebar ala spotlight launch on macos
@@ -86,6 +80,14 @@ bindcode $mod+65 exec "rofi -modi drun,run -show drun"
 
 # NOTE: ipatch, toggle between last two active workspaces
 workspace_auto_back_and_forth yes
+
+# start dmenu (a program launcher)
+bindsym $mod+d exec --no-startup-id dmenu_run -fn 'Source Code Pro'
+# A more modern dmenu replacement is rofi:
+# bindcode $mod+40 exec "rofi -modi drun,run -show drun"
+# There also is i3-dmenu-desktop which only displays applications shipping a
+# .desktop file. It is a wrapper around dmenu, so you need that installed.
+# bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
 
 # change focus
 bindsym $mod+h focus left
@@ -210,27 +212,27 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
+# These bindings trigger as soon as you enter the resize mode
 
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
-        bindsym j resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
-        bindsym semicolon resize grow width 10 px or 10 ppt
+# Pressing left will shrink the window’s width.
+# Pressing right will grow the window’s width.
+# Pressing up will shrink the window’s height.
+# Pressing down will grow the window’s height.
+  bindsym j resize shrink width 10 px or 10 ppt
+    bindsym k resize grow height 10 px or 10 ppt
+    bindsym l resize shrink height 10 px or 10 ppt
+    bindsym semicolon resize grow width 10 px or 10 ppt
 
-        # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
+# same bindings, but for the arrow keys
+    bindsym Left resize shrink width 10 px or 10 ppt
+    bindsym Down resize grow height 10 px or 10 ppt
+    bindsym Up resize shrink height 10 px or 10 ppt
+    bindsym Right resize grow width 10 px or 10 ppt
 
-        # back to normal: Enter or Escape or $mod+r
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-        bindsym $mod+r mode "default"
+# back to normal: Enter or Escape or $mod+r
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym $mod+r mode "default"
 }
 
 bindsym $mod+r mode "resize"
@@ -240,10 +242,8 @@ bindsym $mod+r mode "resize"
 # NOTE: status_command i3status -c /home/capin/.config/i3status/i3status.conf
 
 bar {
-# NOTE: ipatch, don't add quotation marks around file path for vars
-  set $dots /opt/code/dotfiles
-	status_command "$dots/jobs/bin/my_i3status.sh"
-        #status_command i3status -c /home/capin/.config/i3status/i3status.conf
-	position top
-	font pango:DejaVu Sans Mono 10
+  status_command ~/.local/bin/my_i3status.sh
+#status_command i3status -c /home/capin/.config/i3status/i3status.conf
+    position top
+    font pango:DejaVu Sans Mono 10
 }
