@@ -204,6 +204,8 @@ exec --no-startup-id "/usr/bin/alacritty"
 exec --no-startup-id "/usr/bin/firefox"
 
 # NOTE: ipatch, attempt to style specific applications
+# ...reloading the config is NOT enough, making style changes ie. making certain apps floating
+# ...requires restarting i3, ie. cmd+shift+r
 #
 # TODO: for reasons i don't understand neither of the two settings are hidding the title bar
 #
@@ -211,6 +213,9 @@ exec --no-startup-id "/usr/bin/firefox"
 default_border pixel 1
 default_floating_border pixel 1
 for_window [class="^.*"] border pixel 1
+
+# NOTE: ipatch, attemp to make galculator a floating window by default
+for_window [class="Galculator"] floating enable
 
 # NOTE: ipatch, attempt to make floating windows float
 for_window [window_role="pop-up"] floating enable
