@@ -86,7 +86,11 @@ sudo pacman -Sy archlinux-keyring
 
 <a name="troubleshooting-networking"></a>
 
-in short, i have the 3 three most recent major versions of macos working with qemu and kvm on my arch mbp box. (yay me). now my current limitation is being able to use a bridge/tap interface with all 3 virtual machines running at the same time. previously i had been using _netctl_ to manage a static ip address for the arch box, ie. `10.0.1.111`. did a little digging this afternoon, and think i'll give `nmcli` a try for managing the network interfaces on this archbox mbp. `nmcli` is a confusing little cli utility for creating network devices and connections and becomes more confusing the more you use it (ugggggh).
+i am using network manager via the `nmcli` tool to configure the ethernet adapter for the macbook, and am **NOT** using netctl. so when a new router is introduced to the network and the ip ranges change from 10.0.1.x to 192.168.0.x use the interactive nmcli tool to update the setting for the bridge interface.
+
+in short, i have the 3 three ~~most recent~~ major versions of macos working with qemu and kvm on my arch mbp box. (yay me). now my current limitation is being able to use a bridge/tap interface with all 3 virtual machines running at the same time. previously i had been using _netctl_ to manage a static ip address for the arch box, ie. `10.0.1.111`. 
+
+did a little digging this afternoon, and think i'll give `nmcli` a try for managing the network interfaces on this archbox mbp. `nmcli` is a confusing little cli utility for creating network devices and connections and becomes more confusing the more you use it (ugggggh).
 
 the _foxlet/macos-simple-kvm_ repo provides a [decent guide][1] for setting up bridge networking for a macos vm running under KVM. however, when one wants to start tweaking the settings with little knowledge of _network manager_ & _nmcli_ things can get confusing.
 
