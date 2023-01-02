@@ -216,6 +216,8 @@ for_window [class="^.*"] border pixel 1
 
 # NOTE: ipatch, attemp to make galculator a floating window by default
 for_window [class="Galculator"] floating enable
+# NOTE: ipatch, i created a symlink of galculator to /usr/bin/calculator ie. WM_CLASS(STRING) = "calculator", "Calculator"
+for_window [class="Calculator"] floating enable
 
 # NOTE: ipatch, attempt to make floating windows float
 for_window [window_role="pop-up"] floating enable
