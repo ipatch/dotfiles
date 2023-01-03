@@ -1,6 +1,6 @@
-##############################
+#-----------------------------
 # fish shell - interactive.fish
-##
+#-
 
 # NOTE: abbr(s) & aliases require fish reinit or will not persist, `exec fish`
 if test -d $HOME/.config/fish/interactive
