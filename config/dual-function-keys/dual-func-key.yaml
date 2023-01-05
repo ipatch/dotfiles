@@ -1,0 +1,24 @@
+TIMING:
+  TAP_MILLISEC: 200
+  DOUBLE_TAP_MILLISEC: 150
+
+MAPPINGS:
+  - KEY: KEY_CAPSLOCK
+    TAP: KEY_ESC
+    HOLD: KEY_LEFTCTRL
+
+# NOTE: ipatch, todos
+# for my ext usb keyboard map the std esc key to (back tick), `
+# ...and when shift key is held down map std esc key to (tilde), ~
+#---
+# https://gitlab.com/interception/linux/plugins/dual-function-keys#changing-the-behavior-of-hold-keys
+#---
+# /usr/include/linux/input-event-codes.h
+#---
+
+  - KEY: KEY_ESC
+    TAP: KEY_GRAVE
+    # HOLD: KEY_GRAVE # 55
+    HOLD: KEY_GRAVE
+    HOLD_START: BEFORE_CONSUME # this is required or tapping the key will input 2 chars
+
