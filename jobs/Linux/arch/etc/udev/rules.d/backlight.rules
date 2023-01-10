@@ -1,0 +1,3 @@
+# NOTE: ipatch, reload udev rules after adding this rule or others
+
+ACTION=="add", SUBSYSTEM=="backlight", RUN+="/bin/chgrp video $sys$devpath/brightness", RUN+="/bin/chmod g+w $sys$devpath/brightness"
