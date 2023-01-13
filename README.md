@@ -756,6 +756,7 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.co
 
 <summary>Uncompleted</summary>
 
+- [ ] #arch #tmux add key binding to toggle window display numbers
 - [ ] #arch when generating a list of installed packages from aur, only put packages that were specifically specified, ie. dont put deps of top level packages, ie. just but _cheat_ and not all the haskell deps
 - [ ] #hammerspoon #karabiner #cmake it'd be nice to swap the `[]` with the `{}` when capslock is activated similiar to how i swapped underbar `_` with hyphen `-`
 - [ ] #macos #homebrew apparently my `Brewfile` does not contain an updated list of installed casks
