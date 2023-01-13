@@ -199,7 +199,14 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 assign [class="firefox"] workspace $web
 
 # NOTE: ipatch, spotify no worky 👎
-assign [class="Spotify"] workspace $ws4
+# assign [class="Spotify"] workspace $ws4
+
+for_window [class="Spotify"] move to workspace $ws4
+for_window [class="code-oss"] move to workspace $ws3
+for_window [class="discord"] move to workspace $ws5
+
+# NOTE: ipatch, gotta use long name, ie. `qemu` didn't work
+for_window [class="Qemu-system-x86_64"] move to workspace $ws6
 
 # NOTE: ipatch, no work nova
 # for_window [class="firefox"] move container to workspace $web
@@ -208,8 +215,8 @@ assign [class="Spotify"] workspace $ws4
 # for_window [class="Spotify"] move container to workspace $ws4
 
 assign [class="Alacritty"] $terms
-exec --no-startup-id "/usr/bin/alacritty"
-exec --no-startup-id "/usr/bin/firefox"
+exec --no-startup-id i3-msg 'workspace $terms; exec /usr/bin/alacritty'
+exec --no-startup-id i3-msg 'workspace $web; exec /usr/bin/firefox'
 
 # NOTE: ipatch, attempt to style specific applications
 # ...reloading the config is NOT enough, making style changes ie. making certain apps floating
