@@ -79,7 +79,11 @@ hide_edge_borders  smart
 
 # A more modern dmenu replacement is rofi:
 # NOTE: ipatch, bind command+spacebar ala spotlight launch on macos
-bindcode $mod+65 exec "rofi -modi drun,run -show drun" 
+# bindcode $mod+65 exec fish -c "rofi -modi drun,run -show drun"
+bindcode $mod+65 exec fish -c "rofi -show run"
+
+# TODO: ipatch, how to add `~/.local/bin` to search path
+# NOTE: ipatch, https://github.com/davatorium/rofi/issues/100#issuecomment-68730860
 
 # NOTE: ipatch, toggle between last two active workspaces
 workspace_auto_back_and_forth yes
@@ -207,6 +211,8 @@ for_window [class="discord"] move to workspace $ws5
 
 # NOTE: ipatch, gotta use long name, ie. `qemu` didn't work
 for_window [class="Qemu-system-x86_64"] move to workspace $ws6
+
+for_window [class="Bluebubbles"] move to workspace $ws8
 
 # NOTE: ipatch, no work nova
 # for_window [class="firefox"] move container to workspace $web
