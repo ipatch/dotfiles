@@ -214,6 +214,8 @@ for_window [class="Qemu-system-x86_64"] move to workspace $ws6
 
 for_window [class="Bluebubbles"] move to workspace $ws8
 
+# TODO: ipatch, always open mpv videos as floating
+
 # NOTE: ipatch, no work nova
 # for_window [class="firefox"] move container to workspace $web
 # for_window [class="firefox" title="File Upload"] move to workspace $web
