@@ -16,7 +16,7 @@
 
 <a id="contents"></a>
 
-• [**wiki**](https://github.com/ipatch/dotfiles/wiki) • [Installation](#installation) • [File Structure](#file-structure) • [Useful Links](#useful-links) • [arch][ul1] • [TODOs](#todos) • [Contact](#contact) •
+• [**wiki**](https://github.com/ipatch/dotfiles/wiki) • [Installation](#installation) • [app](#apps) •  [File Structure](#file-structure) • [Useful Links](#useful-links) • [arch][ul1] • [TODOs](#todos) • [Contact](#contact) •
 
 [ul1]: <https://github.com/ipatch/dotfiles/tree/dev.evergreen/jobs/Linux/arch/>
 
@@ -42,6 +42,14 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/install.sh | /bin/
 echo "quickly add tmux configuration file, in a pinch 🤏"
 curl https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.conf > ~/.tmux.conf
 ```
+
+## apps
+
+<a id="apps"></a>
+
+> apps i use on various operating systems
+
+<!-- TODO: insert a markdown table with macos, linux, windows heading -->
 
 ## File Structure
 
