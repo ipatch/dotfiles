@@ -116,6 +116,9 @@ opt.listchars:append("trail:•") -- BULLET (U+2022, UTF-8: E2 80 A2)
 opt.listchars:append("eol:¬")
 opt.listchars:append("space:␣") -- Symbol for the space key
 
+-- setting / filetype / markdown
+markdown_folding = 1
+
 ------------------------------
 -- settings / views
 -- below should remember cursor position in file
