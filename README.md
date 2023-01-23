@@ -16,7 +16,7 @@
 
 <a id="contents"></a>
 
-• [**wiki**](https://github.com/ipatch/dotfiles/wiki) • [Installation](#installation) • [app](#apps) •  [File Structure](#file-structure) • [Useful Links](#useful-links) • [arch][ul1] • [TODOs](#todos) • [Contact](#contact) •
+• [**wiki**](https://github.com/ipatch/dotfiles/wiki) • [Installation](#installation) • [apps](#apps) •  [File Structure](#file-structure) • [Useful Links](#useful-links) • [arch][ul1] • [TODOs](#todos) • [Contact](#contact) •
 
 [ul1]: <https://github.com/ipatch/dotfiles/tree/dev.evergreen/jobs/Linux/arch/>
 
@@ -50,6 +50,11 @@ curl https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.co
 > apps i use on various operating systems
 
 <!-- TODO: insert a markdown table with macos, linux, windows heading -->
+
+| macos | gnu+linux | windows |
+|-------|-----------|---------|
+| spectacle | i3    | default |
+| builtin   | flameshot | default |
 
 ## File Structure
 
