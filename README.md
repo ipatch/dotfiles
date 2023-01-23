@@ -40,7 +40,8 @@
 curl https://raw.githubusercontent.com/ipatch/dotfiles/master/install.sh | /bin/sh
 
 echo "quickly add tmux configuration file, in a pinch 🤏"
-curl https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.conf > ~/.tmux.conf
+curl \
+https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.conf > ~/.tmux.conf
 ```
 
 ## apps
