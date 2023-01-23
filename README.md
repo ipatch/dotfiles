@@ -37,9 +37,11 @@
 [lnk.funny1]: <https://i.imgur.com/QZj4hxp.jpg>
 
 ```sh
-curl https://raw.githubusercontent.com/ipatch/dotfiles/master/install.sh | /bin/sh
+curl \
+https://raw.githubusercontent.com/ipatch/dotfiles/master/install.sh \
+| /bin/sh;
 
-echo "quickly add tmux configuration file, in a pinch 🤏"
+echo "quickly add tmux configuration file, in a pinch 🤏";
 curl \
 https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.conf > ~/.tmux.conf
 ```
