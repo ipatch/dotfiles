@@ -1,0 +1,42 @@
+if status is-interactive
+  # Commands to run in interactive sessions can go here
+  alias gs='git status'
+  alias l='ls -lah'
+  alias ffprobe='ffprobe -hide_banner'
+  alias ffmpeg='ffmpeg -hide_banner'
+
+  # builtin env vars
+  set -gx fish_greeting ""
+  set -gx fish_emoji_width 2 # NOT COMPATIBLE with fish <= 2.7.1
+  set -gx XDG_CONFIG_HOME $HOME/.config
+  # GPG key signing
+  export GPG_TTY=(tty)
+
+  # $USER env vars
+  set -gx code "/opt/code"
+  set -gx dots "/opt/code/dotfiles"
+  set -gx archdots "$dots/jobs/Linux/arch"
+
+  # fish shell specific abbreviations
+  abbr -a -g -- fr 'exec fish'
+  abbr -a -g -- lr 'ls -lrth'
+  abbr -a -g -- dots 'cd $dots'
+  abbr -a -g -- gitc 'git commit -m'
+  abbr -a -g -- cpv 'rsync -a --no-o --no-g -h --info=progress2 -P'
+  abbr -a -g -- clear.journal 'sudo journalctl --rotate; sudo journalctl --vacuum-time=1s'
+  abbr -a -g -- mkdir 'mkdir -p'
+  abbr -a -g -- d 'docker'
+  abbr -a -g -- rmd 'rm -rf'
+  abbr -a -g -- sc 'sudo systemctl'
+  abbr -a -g -- youdl 'yt-dlp'
+  abbr -a -g -- yay.up.zfs 'yay -Sa --nodeps zfs-dkms zfs-utils'
+
+  # set created & updated files & directories to 664 & 775
+  umask 002
+
+  # check if file exists, if so, then load it
+  if test -f $dots/config/fish/private-env-vars.fish
+    source $dots/config/fish/private-env-vars.fish
+  end
+
+end
