@@ -83,7 +83,7 @@ map('n', '<leader>e', ':e ', {noremap = true}) -- open/edit new file from cmd
 map('n', '<leader>h', ':set list!<cr>', {noremap = true}) -- toggle hidden chars
 
 
--- settings
+-- settings / options / use vim settings within nvim via lua
 opt.completeopt = {'menu', 'menuone', 'noselect'}
 opt.mouse = 'a'
 opt.splitright = true
@@ -106,6 +106,8 @@ opt.tabstop = 2                 -- number of spaces tabs count for
 opt.termguicolors = true        -- true color support
 --opt.wildmode = {'list', 'longest'} -- command mode completion
 opt.wrap = true
+-- settings / code folds and others
+opt.viewoptions = "folds,cursor"
 
 -- settings / hidden chars
 opt.listchars:append("tab:‣ ") -- NOTE:ipatch, requires a trailing `space` after char
