@@ -24,7 +24,7 @@
 
 ## Installation
 
-<a id="installation"></a>
+<a name="installation"></a>
 
 <!-- NOTE: ipatch, github flavored markdown presently doesnot support `target="_blank"` -->
 
@@ -59,10 +59,13 @@ https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.conf \
 |-------|-----------|---------|
 | spectacle | i3    | default |
 | builtin   | flameshot | default |
+| background music | ??? | ??? |
+| Finder.app | thunar | explorer |
+
 
 ## File Structure
 
-<a id="file-structure"></a>
+<a name="file-structure"></a>
 
 > Certain files and folders are omitted for brevity & security, most notably the `pack` directory polluting the **File Structure** with vim plugin files.
 
@@ -767,7 +770,7 @@ https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.conf \
 
 <!-- <h3>TODOs</h3> -->
 
-##  <a id="todos"></a> TODOs
+## <a id="todos"></a> TODOs
 
 <details>
 
@@ -923,7 +926,7 @@ https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.conf \
 
 ## Contact [🔝](#contents)
 
-<a id="contact"></a>
+<a name="contact"></a>
 
 • [**GithHub**](https://github.com/ipatch) • [**Twitter**](https://twitter.com/truckmonth) • [**GitLab**](https://gitlab.com/truckmonth) •
 
