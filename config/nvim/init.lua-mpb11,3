@@ -119,7 +119,7 @@ opt.listchars:append("eol:¬")
 opt.listchars:append("space:␣") -- Symbol for the space key
 
 -- setting / filetype / markdown
-vim.g.markdown_folding = 1
+markdown_folding = 1
 
 ------------------------------
 -- settings / views
