@@ -214,7 +214,10 @@ for_window [class="Qemu-system-x86_64"] move to workspace $ws6
 
 for_window [class="Bluebubbles"] move to workspace $ws8
 
-# TODO: ipatch, always open mpv videos as floating
+for_window [class="mpv"] floating enable
+
+# TODO: ipatch, launch thunar file explorer window with a specific size
+for_window [class="Thunar"] floating enable
 
 # NOTE: ipatch, no work nova
 # for_window [class="firefox"] move container to workspace $web
