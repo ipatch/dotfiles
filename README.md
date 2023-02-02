@@ -14,7 +14,7 @@
 
 <div align="center">
 
-<a id="contents"></a>
+<a name="contents"></a>
 
 • [**wiki**](https://github.com/ipatch/dotfiles/wiki) • [Installation](#installation) • [apps](#apps) •  [File Structure](#file-structure) • [Useful Links](#useful-links) • [arch][ul1] • [TODOs](#todos) • [Contact](#contact) •
 
@@ -24,7 +24,7 @@
 
 ## Installation
 
-<a name="installation"></a>
+<a id="installation"></a>
 
 <!-- NOTE: ipatch, github flavored markdown presently doesnot support `target="_blank"` -->
 
@@ -61,11 +61,12 @@ https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.conf \
 | builtin   | flameshot | default |
 | background music | ??? | ??? |
 | Finder.app | thunar | explorer |
+| iMessage | bluebubbles | ??? |
 
 
 ## File Structure
 
-<a name="file-structure"></a>
+<a id="file-structure"></a>
 
 > Certain files and folders are omitted for brevity & security, most notably the `pack` directory polluting the **File Structure** with vim plugin files.
 
