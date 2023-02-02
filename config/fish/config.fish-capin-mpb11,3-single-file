@@ -17,6 +17,9 @@ if status is-interactive
   set -gx dots "/opt/code/dotfiles"
   set -gx archdots "$dots/jobs/Linux/arch"
 
+  # app env vars
+  # export HOMEBREW_NO_INSTALL_CLEANUP=1
+
   # fish shell specific abbreviations
   abbr -a -g -- fr 'exec fish'
   abbr -a -g -- lr 'ls -lrth'
@@ -30,6 +33,21 @@ if status is-interactive
   abbr -a -g -- sc 'sudo systemctl'
   abbr -a -g -- youdl 'yt-dlp'
   abbr -a -g -- yay.up.zfs 'yay -Sa --nodeps zfs-dkms zfs-utils'
+  abbr -a -g -- sc.clear.journal 'sudo journalctl --rotate; sudo journalctl --vacuum-time=1s'
+  abbr -a -g -- ksong 'open https://www.kntu.com/last-7-days-of-music-on-kntu/'
+  abbr -a -g -- e 'echo'
+
+  # NOTE: ipatch, yay on archlinux failed to install solvespace with hb_bins first in PATH
+  #
+  # REF: https://github.com/fish-shell/fish-shell/issues/2090#issuecomment-149990142
+  #
+  # $PATH, add homebrew bins last in PATH
+  # set -gx PATH "$PATH ~/homebrew/sbin ~/homebrew/bin"
+  set -gx hb_bins (echo "~/homebrew/sbin:~/homebrew/bin" | string split ":")
+  if not contains $hb_bins $PATH
+    # set -gx hb_bin "~/homebrew/bin"
+    set -gx PATH $PATH $hb_bins
+  end
 
   # set created & updated files & directories to 664 & 775
   umask 002
