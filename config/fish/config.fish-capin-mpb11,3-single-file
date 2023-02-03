@@ -4,6 +4,7 @@ if status is-interactive
   alias l='ls -lah'
   alias ffprobe='ffprobe -hide_banner'
   alias ffmpeg='ffmpeg -hide_banner'
+  alias pgrep='pgrep -i'
 
   # builtin env vars
   set -gx fish_greeting ""
@@ -24,24 +25,27 @@ if status is-interactive
 
   # fish shell specific abbreviations
   abbr -a -g -- fr 'exec fish'
+  abbr -a -g -- pp 'string join \n $PATH | nl  '
   abbr -a -g -- lr 'ls -lrth'
   abbr -a -g -- dots 'cd $dots'
   abbr -a -g -- gitc 'git commit -m'
   abbr -a -g -- cpv 'rsync -a --no-o --no-g -h --info=progress2 -P'
-  abbr -a -g -- clear.journal 'sudo journalctl --rotate; sudo journalctl --vacuum-time=1s'
   abbr -a -g -- mkdir 'mkdir -p'
   abbr -a -g -- d 'docker'
   abbr -a -g -- rmd 'rm -rf'
-  abbr -a -g -- sc 'sudo systemctl'
   abbr -a -g -- youdl 'yt-dlp'
-  abbr -a -g -- yay.up.zfs 'yay -Sa --nodeps zfs-dkms zfs-utils'
-  abbr -a -g -- sc.clear.journal 'sudo journalctl --rotate; sudo journalctl --vacuum-time=1s'
   abbr -a -g -- ksong 'open https://www.kntu.com/last-7-days-of-music-on-kntu/'
   abbr -a -g -- e 'echo'
-  abbr -a -g -- pp 'string join \n $PATH | nl  '
 
   # fish shell abbr / gnu+linux specific
   abbr -a -g -- hlp.group.reload 'echo "exec su -l $USER"'
+  abbr -a -g -- clear.journal 'sudo journalctl --rotate; sudo journalctl --vacuum-time=1s'
+  abbr -a -g -- sc.clear.journal 'sudo journalctl --rotate; sudo journalctl --vacuum-time=1s'
+  abbr -a -g -- yay.up.zfs 'yay -Sa --nodeps zfs-dkms zfs-utils'
+  abbr -a -g -- sc 'sudo systemctl'
+  abbr -a -g -- ys 'yay -Ss'
+  abbr -a -g -- yass 'yay -Ss'
+  abbr -a -g -- yas 'yay -Ss'
 
   # NOTE: ipatch, yay on archlinux failed to install solvespace with hb_bins first in PATH
   #
@@ -68,5 +72,21 @@ if status is-interactive
   # $USER functions
   function mkcd --description '`mkdir` then `cd` into it'
     mkdir -p $argv; and cd $argv
+  end
+
+  function vman --wraps man --description 'use vim / nvim for displaying man pages'
+    # col `-b` flag = don't output any backspaces
+    # col `-p` flag = force uknown control sequences
+    # ===
+    # iconv -convert between character encodings
+    # ==
+    # iconv `-c` flag = characters that can't be converter are
+    # ...silently discarded
+    # ===
+    # nvim `-c` flag = run argument / command after executing nvim
+    # nvim `-R` flag = open "file" in read-only mode
+    # ===
+    # NOTE: not loading `.vimrc` won't work because i want some bells and whistles provided by my `.vimrc`, ie. syntax highlighting.
+    man $argv | col -bp | iconv -c | nvim -c 'set ft=man nomod nolist' -;
   end
 end
