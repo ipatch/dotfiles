@@ -20,7 +20,7 @@ if status is-interactive
   set -gx ghforks "/opt/code/git/github/forks"
 
   # app env vars
-  # export HOMEBREW_NO_INSTALL_CLEANUP=1
+  export HOMEBREW_NO_INSTALL_CLEANUP=1
 
   # fish shell specific abbreviations
   abbr -a -g -- fr 'exec fish'
@@ -40,14 +40,17 @@ if status is-interactive
   abbr -a -g -- e 'echo'
   abbr -a -g -- pp 'string join \n $PATH | nl  '
 
+  # fish shell abbr / gnu+linux specific
+  abbr -a -g -- hlp.group.reload 'echo "exec su -l $USER"'
+
   # NOTE: ipatch, yay on archlinux failed to install solvespace with hb_bins first in PATH
   #
   # REF: https://github.com/fish-shell/fish-shell/issues/2090#issuecomment-149990142
   #
   # $PATH, add homebrew bins last in PATH
   # set -gx PATH "$PATH ~/homebrew/sbin ~/homebrew/bin"
-#
-# TODO: ipatch, the below 2 dirs are added to the path regardless if the dirs exist or not
+  #
+  # TODO: ipatch, the below 2 dirs are added to the path regardless if the dirs exist or not
   set -gx hb_bins (echo "~/homebrew/sbin:~/homebrew/bin" | string split ":")
   if not contains $hb_bins $PATH
     # set -gx hb_bin "~/homebrew/bin"
@@ -62,4 +65,8 @@ if status is-interactive
     source $dots/config/fish/private-env-vars.fish
   end
 
+  # $USER functions
+  function mkcd --description '`mkdir` then `cd` into it'
+    mkdir -p $argv; and cd $argv
+  end
 end
