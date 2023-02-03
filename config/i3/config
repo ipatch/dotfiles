@@ -217,7 +217,12 @@ for_window [class="Bluebubbles"] move to workspace $ws8
 for_window [class="mpv"] floating enable
 
 # TODO: ipatch, launch thunar file explorer window with a specific size
+# NOTE: i think thunar remembers the last window size, not sure about placement
 for_window [class="Thunar"] floating enable
+
+# WM_CLASS(STRING) = "gloobus-preview", "Gloobus-preview"
+for_window [class="Gloobus-preview"] floating enable
+
 
 # NOTE: ipatch, no work nova
 # for_window [class="firefox"] move container to workspace $web
