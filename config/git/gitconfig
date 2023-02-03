@@ -449,3 +449,5 @@
 
 [credential "https://dev.azure.com"]
   useHttpPath = true
+[safe]
+	directory = /opt/flutter
