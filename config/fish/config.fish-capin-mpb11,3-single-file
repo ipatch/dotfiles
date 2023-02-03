@@ -46,6 +46,8 @@ if status is-interactive
   #
   # $PATH, add homebrew bins last in PATH
   # set -gx PATH "$PATH ~/homebrew/sbin ~/homebrew/bin"
+#
+# TODO: ipatch, the below 2 dirs are added to the path regardless if the dirs exist or not
   set -gx hb_bins (echo "~/homebrew/sbin:~/homebrew/bin" | string split ":")
   if not contains $hb_bins $PATH
     # set -gx hb_bin "~/homebrew/bin"
