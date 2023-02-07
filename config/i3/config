@@ -200,12 +200,19 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 
 # NOTE: ipatch, assign certain apps to certain workspaces
 # NOTE: ipatch, the below setting seems to put all firefox windows on workspace #2 👍
+
 assign [class="firefox"] workspace $web
+# TODO: ipatch, make about window,dialogue box floating
+# WM_CLASS(STRING) = "Browser", "firefox"
+# WM_NAME(STRING) = "About Mozilla Firefox"
+# WM_WINDOW_ROLE(STRING) = "About"
+# for_window [title="About Mozilla Firefox"] floating enable # NOVA ❌
+for_window [title="About Mozilla Firefox" window_role="About"] floating enable
 
 # NOTE: ipatch, spotify no worky 👎
 # assign [class="Spotify"] workspace $ws4
-
 for_window [class="Spotify"] move to workspace $ws4
+
 for_window [class="code-oss"] move to workspace $ws3
 for_window [class="discord"] move to workspace $ws5
 
