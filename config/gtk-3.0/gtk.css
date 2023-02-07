@@ -1,0 +1,10 @@
+scrollbar slider {
+    /* Size of the slider */
+    min-width: 15px;
+    min-height: 15px;
+    border-radius: 17px;
+
+    /* Padding around the slider */
+    border: 2px solid transparent;
+}
+
