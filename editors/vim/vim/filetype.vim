@@ -1,4 +1,4 @@
-" NOTE: ipatch, settings for my custom filetypes 
+" NOTE: ipatch, custom filetype settings 
 
 if exists("did_load_filetypes")
   finish
