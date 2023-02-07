@@ -94,7 +94,7 @@ opt.cmdheight = 1
 opt.expandtab = true            -- use spaces instead of tabs
 opt.hidden = true               -- use background buffers
 opt.ignorecase = true           -- ignore case
-opt.list = false                 -- show some invisible chars
+opt.list = false                -- show invisible chars
 opt.number = true               -- show line numbers
 opt.scrolloff = 4               -- lines of context
 opt.shiftround = true           -- round indent
@@ -116,7 +116,9 @@ opt.listchars:append("extends:»") -- RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK
 opt.listchars:append("precedes:«") -- LEFT-POINTING DOUBLE ANGLE QUOTATION MARK (U+00AB, UTF-8: C2 AB)
 opt.listchars:append("trail:•") -- BULLET (U+2022, UTF-8: E2 80 A2)
 opt.listchars:append("eol:¬")
-opt.listchars:append("space:␣") -- Symbol for the space key
+-- vim.opt.listchars:append("eol:↴")
+-- opt.lcs:append("eol:↴")
+opt.lcs:append("space:␣") -- Symbol for the space key
 
 -- setting / filetype / markdown
 markdown_folding = 1
@@ -143,8 +145,8 @@ g.netrw_banner = false
 g.netrw_liststyle = 3
 
 -- clipboard settings
--- TODO: ipatch, how to print display the current clipboard in use, ie. cmd
-cmd 'set clipboard&'
+-- NOTE: ipatch, to print the current clipboard use, `set clipboard?`
+-- TODO: make `y` put yank into system clipboard
 if fn.has('mac') then
   opt.clipboard:append {'unnamed'}
 elseif fn.has('win64') then
@@ -191,13 +193,24 @@ local g = vim.g
 local cmd = vim.cmd
 
 -- colorscheme
-g.onedark_style = "deep"
-g.vscode_style = "dark"
--- cmd('colorscheme onedark')
-require("github-theme").setup({
-  theme_style = "dark_default",
-  -- other config
-})
+require('onedark').setup {
+    style = 'deep'
+    -- style = 'darker'
+    -- style = 'dark'
+    -- style = 'warmer'
+}
+require('onedark').load()
+
+vim.api.nvim_command([[
+    augroup ChangeBackgroudColour
+        autocmd colorscheme * :hi normal guibg=#0a0a0a
+    augroup END
+]])
+vim.o.termguicolors = true
+vim.cmd [[silent! colorscheme onedark]]
+
+
+
 cmd('set foldmethod=expr')
 cmd('set foldexpr=nvim_treesitter#foldexpr()')
 
