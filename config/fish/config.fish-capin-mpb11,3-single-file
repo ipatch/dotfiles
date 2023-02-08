@@ -57,7 +57,8 @@ if status is-interactive
   # set -gx PATH "$PATH ~/homebrew/sbin ~/homebrew/bin"
   #
   # TODO: ipatch, the below 2 dirs are added to the path regardless if the dirs exist or not
-  set -gx hb_bins (echo "~/homebrew/sbin:~/homebrew/bin" | string split ":")
+  # NOTE: ipatch, fish does not play well with `~` use $HOME env var instead
+  set -gx hb_bins (echo "$HOME/homebrew/sbin:$HOME/homebrew/bin" | string split ":")
   if not contains $hb_bins $PATH
     # set -gx hb_bin "~/homebrew/bin"
     set -gx PATH $PATH $hb_bins
