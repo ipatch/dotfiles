@@ -45,9 +45,8 @@ if status is-interactive
   abbr -a -g -- sc.clear.journal 'sudo journalctl --rotate; sudo journalctl --vacuum-time=1s'
   abbr -a -g -- yay.up.zfs 'yay -Sa --nodeps zfs-dkms zfs-utils'
   abbr -a -g -- sc 'sudo systemctl'
-  abbr -a -g -- ys 'yay -Ss'
-  abbr -a -g -- yass 'yay -Ss'
-  abbr -a -g -- yas 'yay -Ss'
+  abbr -a -g -- ys 'yay -S'
+  abbr -a -g -- yss 'yay -Ss'
 
   # NOTE: ipatch, yay on archlinux failed to install solvespace with hb_bins first in PATH
   #
