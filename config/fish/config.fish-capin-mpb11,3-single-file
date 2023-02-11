@@ -19,6 +19,7 @@ if status is-interactive
   set -gx archdots "$dots/jobs/Linux/arch"
   set -gx github "/opt/code/git/github"
   set -gx ghforks "/opt/code/git/github/forks"
+  set -gx ltmp "$HOME/ltmp"
 
   # app env vars
   export HOMEBREW_NO_INSTALL_CLEANUP=1
