@@ -1,6 +1,6 @@
 -- Author: github.com/ipatch
 -- my experiemental neovim ≥ 0.5 configuratoin/setup
--- Inspiration: https://github.com/David-Kunz/vim/blob/master/init.lua
+-- some inspiration: https://github.com/David-Kunz/vim/blob/master/init.lua
 
 -- helpers
 local cmd = vim.cmd  -- to execute Vim commands e.g. cmd('pwd')
@@ -24,10 +24,12 @@ vim.g.loaded_perl_provider = 0
 
 -- packer.nvim / bootstrap if not setup
 local install_path = fn.stdpath('data')..'/site/pack/packer/opt/packer.nvim'
+local is_bootstrap = false
 if fn.empty(fn.glob(install_path)) > 0 then
-  fn.system(
-    {'git', 'clone', 'https://github.com/wbthomason/packer.nvim', install_path}
-  )
+  is_bootstrap = true
+  fn.system
+    {'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path}
+    cmd [[packadd packer.nvim]]
 end
 
 -- add below line after cloning packer.nvim to ~/.local/share/nvim/site/pack/packer/start/packer.nvim
@@ -157,15 +159,9 @@ else
   opt.clipboard:append {'unnamedplus'}
 end
 
---[[ require('settings')       -- lua/settings.lua
-require('maps')           -- lua/maps.lua
-require('statusline')     --lua/statusline.lua ]]
-
 -- plugin / neovim telescope / key mappings
 -- mapping using the provided helper function
 map('n', ';', ':Telescope buffers<CR>')
--- TODO: set <c-p> in normal mode to launch fuzzy find files
--- map('n', '<leader>fd', ':lua telescope_find_files_path()<CR>') -- NOTE: requires custom function
 map('n', '<c-p>', ':Telescope find_files<CR>')
 
 -- mappings / plugin / vim-turmuxnavigator
@@ -189,8 +185,6 @@ ts.setup {ensure_installed = 'all', highlight = {enable = true}}
 
 -- plugin / tree-sitter / colorscheme
 -- REF: https://github.com/David-Kunz/vim/blob/master/init.lua#L235
-local g = vim.g
-local cmd = vim.cmd
 
 -- colorscheme
 require('onedark').setup {
@@ -199,24 +193,24 @@ require('onedark').setup {
     -- style = 'dark'
     -- style = 'warmer'
 }
+
 require('onedark').load()
 
+-- NOTE: ipatch, override the default bg color for onedark theme
 vim.api.nvim_command([[
     augroup ChangeBackgroudColour
         autocmd colorscheme * :hi normal guibg=#0a0a0a
     augroup END
 ]])
-vim.o.termguicolors = true
-vim.cmd [[silent! colorscheme onedark]]
-
-
+opt.termguicolors = true
+cmd [[silent! colorscheme onedark]]
 
 cmd('set foldmethod=expr')
 cmd('set foldexpr=nvim_treesitter#foldexpr()')
 
 -- unsorted / builtin vim commands
 -- -- highlight on yank
-vim.cmd([[au TextYankPost * lua vim.highlight.on_yank {higroup="IncSearch", timeout=150, on_visual=true}]])
+cmd([[au TextYankPost * lua vim.highlight.on_yank {higroup="IncSearch", timeout=150, on_visual=true}]])
 
 -- plugin / mfussenegger/nvim-dap
 -- NOTE: https://github.com/mfussenegger/nvim-dap/wiki/Debug-Adapter-installation#Python
