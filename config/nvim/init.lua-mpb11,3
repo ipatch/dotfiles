@@ -17,10 +17,10 @@ end
 
 -- nvim / native / providers
 -- let g:loaded_python3_provider = 0 -- VIMscript
-vim.g.loaded_python3_provider = 0
-vim.g.loaded_ruby_provider = 0
-vim.g.loaded_node_provider = 0
-vim.g.loaded_perl_provider = 0
+g.loaded_python3_provider = 0
+g.loaded_ruby_provider = 0
+g.loaded_node_provider = 0
+g.loaded_perl_provider = 0
 
 -- packer.nvim / bootstrap if not setup
 local install_path = fn.stdpath('data')..'/site/pack/packer/opt/packer.nvim'
@@ -33,7 +33,7 @@ if fn.empty(fn.glob(install_path)) > 0 then
 end
 
 -- add below line after cloning packer.nvim to ~/.local/share/nvim/site/pack/packer/start/packer.nvim
-vim.cmd [[packadd packer.nvim]]
+cmd [[packadd packer.nvim]]
 -- REF: https://www.reddit.com/r/neovim/comments/mpuqzg/help_strange_error_with_initlua_file/
 -- NOTE: exp with removing the `return` statement
 require('packer').startup(function(use)
@@ -188,10 +188,19 @@ ts.setup {ensure_installed = 'all', highlight = {enable = true}}
 
 -- colorscheme
 require('onedark').setup {
-    style = 'deep'
+    style = 'deep',
     -- style = 'darker'
     -- style = 'dark'
     -- style = 'warmer'
+
+    colors = {
+      -- NOTE: ipatch, default grey color too light to see on dark background with lots of ambient light
+      -- NOTE: github uses #8b949e for code comments in dark contrast web UI
+      github_grey = "#8b94e",
+    },
+    highlights = { 
+      ["@Comment"] = {fg = '$github_grey'},
+    }
 }
 
 require('onedark').load()
