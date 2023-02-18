@@ -10,9 +10,34 @@
 #---
 # journalctl -u udevmon
 #---
+# NOTE: ipatch, when my keychron k6 is in BT mode its name is `Keychron K6`
+# useful cmd: `libinput list-devices | grep "^Device"`
+#---
+
+# NOTE: ipatch, ref: https://gitlab.com/interception/linux/plugins/dual-function-keys#multiple-devices 
+# - CMD: mux -c dfk -c my-keyboard -c my-mouse
+# - JOB:
+#   - mux -i dfk | dual-function-keys -c /etc/interception/dual-function-keys/my-cfg.yaml | mux -o my-keyboard -o my-mouse
+#   - mux -i my-keyboard | uinput -c /etc/interception/udevmon.d/my-keyboard.yaml
+#   - mux -i my-mouse | uinput -c /etc/interception/udevmon.d/my-mouse.yaml
+# - JOB: intercept -g $DEVNODE | mux -o dfk
+#   DEVICE:
+#     NAME: AT Translated Set 2 keyboard
+#     EVENTS:
+#       EV_KEY: [ KEY_LEFTCTRL ]
+# - JOB: intercept -g $DEVNODE | mux -o dfk
+#   DEVICE:
+#     NAME: Razer Razer Naga Trinity
+#     EVENTS:
+#       EV_REL: [REL_WHEEL]
+#       EV_KEY: [BTN_LEFT]
+#
 
 - JOB: "intercept -g $DEVNODE | dual-function-keys -c /home/capin/.config/dual-function-keys/dual-func-key.yaml | uinput -d $DEVNODE"
   DEVICE:
-    NAME: "Keychron Keychron K6"
+    # NOTE: ipatch, wired keyboard name
+    # NAME: "Keychron Keychron K6"
+    # NOTE: ipatch, BT keyboard name
+    NAME: "Keychron K6"
     # LINK: /dev/input/by-id/usb-Keychron_Keychron_K6-event-kbd
     # LINK: /dev/input/by-path/pci-0000:00:14.0-usb-0:1:1.0-event-kbd
