@@ -24,7 +24,7 @@
 
 ## Installation
 
-<a id="installation"></a>
+<a name="installation"></a>
 
 <!-- NOTE: ipatch, github flavored markdown presently doesnot support `target="_blank"` -->
 
@@ -62,11 +62,12 @@ https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.conf \
 | background music | ??? | ??? |
 | Finder.app | thunar | explorer |
 | iMessage | bluebubbles | ??? |
+| karabiner elements | interception | ??? |
 
 
 ## File Structure
 
-<a id="file-structure"></a>
+<a name="file-structure"></a>
 
 > Certain files and folders are omitted for brevity & security, most notably the `pack` directory polluting the **File Structure** with vim plugin files.
 
