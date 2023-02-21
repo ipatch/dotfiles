@@ -42,32 +42,33 @@ require('packer').startup(function(use)
 
   use 'christoomey/vim-tmux-navigator'
 
-
-  use { -- Highlight, edit, and navigate code
+  use { -- nvim-treesitter Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
     run = function()
-      pcall(require('nvim-treesitter.install').update { with_sync = true })
+      pcall(require('nvim-treesitter.install').update { with_sync = false })
     end,
   }
-
+  use 'nvim-treesitter/playground'
 
   use 'neovim/nvim-lspconfig'
-  use {
+
+  use { -- telescope
     'nvim-telescope/telescope.nvim',
     requires = { { 'nvim-lua/plenary.nvim'} }
     }
-  --
+
   use 'nvim-lua/popup.nvim'
   use 'mfussenegger/nvim-dap'
   use 'nvim-telescope/telescope-dap.nvim'
   use 'rcarriga/nvim-dap-ui'
 
-  use {
+  use { -- 'numToStr/Comment.nvim',
     'numToStr/Comment.nvim',
     config = function()
         require('Comment').setup()
     end
   }
+
   -- themes
   use 'Mofiqul/vscode.nvim'
   use 'navarasu/onedark.nvim'
@@ -99,6 +100,12 @@ map('n', '<cr>', ':', {noremap = true}) -- press enter, return ↩ in normal to 
 map('n', '<leader>w', ':w<cr>', {noremap = true}) -- save current buffer
 map('n', '<leader><leader>', '<c-^>', {noremap = true}) -- toggle between last 2 buffers
 map('n', '<leader>e', ':e ', {noremap = true}) -- open/edit new file from cmd
+map('n', '<leader>pv', ':Ex<cr>') -- open netrw, ie. file explorer
+-- alt way to above mapping
+-- vim.keymap.set('n', '<leader>pv', vim.cmd.Ex) -- open netrw, ie. file explorer
+-- NOTE: ipatch, `gn` in netrw to refocus the top level dir under the cursor
+vim.keymap.set('n', '<C-d>', '<C-d>zz')
+vim.keymap.set('n', '<C-u>', '<C-u>zz')
 
 ---------------
 -- toggle hidden chars & Settings for hidden chars
@@ -106,14 +113,17 @@ map('n', '<leader>e', ':e ', {noremap = true}) -- open/edit new file from cmd
 -- nmap <leader>h :set list!<CR>
 map('n', '<leader>h', ':set list!<cr>', {noremap = true}) -- toggle hidden chars
 
-
 -- settings / options / use vim settings within nvim via lua
 opt.completeopt = {'menu', 'menuone', 'noselect'}
 opt.mouse = 'a'
 opt.splitright = true
 opt.splitbelow = true
 opt.shiftwidth = 2
+
 opt.incsearch = true
+-- TODO: ipatch, should probably only have this mapping if there are highlighted search terms
+-- map('n', '<CR>', ':nohl<CR>') -- unhighlight search terms
+
 opt.cmdheight = 1
 opt.expandtab = true            -- use spaces instead of tabs
 opt.hidden = true               -- use background buffers
@@ -128,10 +138,15 @@ opt.smartcase = true            -- don't ignore capital letters when present
 opt.smartindent = true          -- insert indents automatically
 opt.tabstop = 2                 -- number of spaces tabs count for
 opt.termguicolors = true        -- true color support
---opt.wildmode = {'list', 'longest'} -- command mode completion
 opt.wrap = true
 -- settings / code folds and others
 opt.viewoptions = "folds,cursor"
+
+vim.opt.swapfile = false
+vim.opt.backup = false
+vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir" 
+
+vim.opt.signcolumn = "yes"
 
 -- settings / hidden chars
 opt.listchars:append("tab:‣ ") -- NOTE:ipatch, requires a trailing `space` after char
@@ -165,8 +180,8 @@ augroup END
  ]], true)
 
 --
-g.netrw_banner = false
-g.netrw_liststyle = 3
+g.netrw_banner = true
+-- g.netrw_liststyle = 3
 
 -- clipboard settings
 -- NOTE: ipatch, to print the current clipboard use, `set clipboard?`
@@ -183,8 +198,14 @@ end
 
 -- plugin / neovim telescope / key mappings
 -- mapping using the provided helper function
-map('n', ';', ':Telescope buffers<CR>')
-map('n', '<c-p>', ':Telescope find_files<CR>')
+local builtin = require('telescope.builtin')
+
+vim.keymap.set('n', '<leader>pf', builtin.find_files, {})
+vim.keymap.set('n', '<C-p>', builtin.git_files, {})
+vim.keymap.set('n', ';', builtin.buffers, {})
+vim.keymap.set('n', '<leader>ps', function()
+  builtin.grep_string({ search = vim.fn.input("Grep >") })
+end)
 
 -- mappings / plugin / vim-turmuxnavigator
 -- TODO: migrate these mappings from VimL to lua
@@ -197,15 +218,23 @@ nnoremap <silent> <leader>l :TmuxNavigateRight<cr>
 "nnoremap <silent> :TmuxNavigatePrevious<cr> ]]
 
 -- plugin / tree-sitter
-local ts = require 'nvim-treesitter.configs'
 --
 -- NOTE: ipatch, migrate from `maintained` to `all` per ts deprecation notice
 -- NOTE: ipatch, `all` blows up 💥 on m1 mac due to `phpdoc` use maintained for time being
---
 -- ts.setup {ensure_installed = 'maintained', highlight = {enable = true}}
-ts.setup {ensure_installed = 'all', highlight = {enable = true}}
+--
+local ts = require 'nvim-treesitter.configs'
+ts.setup {
+  ensure_installed = { 'c', 'rust', 'javascript', 'typescript', 'python', 'ruby', 'fish', 'bash', 'help', 'lua', },
+  sync_install = false,
+  auto_install = false,
+  highlight = {
+    enable = true,
+    additional_vim_regex_highlighting = false
+  }
+}
 
--- plugin / tree-sitter / colorscheme
+-- plugin / theme / colorscheme
 -- REF: https://github.com/David-Kunz/vim/blob/master/init.lua#L235
 
 -- colorscheme
@@ -228,6 +257,7 @@ require('onedark').setup {
 require('onedark').load()
 
 -- NOTE: ipatch, override the default bg color for onedark theme
+-- TODO: ipatch, migrate this function, cmd to the above onedark colorscheme
 vim.api.nvim_command([[
     augroup ChangeBackgroudColour
         autocmd colorscheme * :hi normal guibg=#0a0a0a
