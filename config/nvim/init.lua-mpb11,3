@@ -200,6 +200,7 @@ end
 -- mapping using the provided helper function
 local builtin = require('telescope.builtin')
 
+ -- NOTE: ipatch, the below binding was unable to find my `fish_history` within `~/.local/share/fish` WTF  🤷‍♂️
 vim.keymap.set('n', '<leader>pf', builtin.find_files, {})
 vim.keymap.set('n', '<C-p>', builtin.git_files, {})
 vim.keymap.set('n', ';', builtin.buffers, {})
