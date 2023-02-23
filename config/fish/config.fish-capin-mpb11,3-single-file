@@ -31,7 +31,7 @@ if status is-interactive
   abbr -a -g -- dots 'cd $dots'
   abbr -a -g -- gitc 'git commit -m'
   abbr -a -g -- gp 'git push -q'
-  abbr -a -g -- cpv 'rsync -a --no-o --no-g -h --info=progress2 -P'
+  abbr -a -g -- cpv 'rsync -at --no-o --no-g -h --info=progress2 -P'
   abbr -a -g -- mkdir 'mkdir -p'
   abbr -a -g -- d 'docker'
   abbr -a -g -- rmd 'rm -rf'
