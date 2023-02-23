@@ -24,7 +24,7 @@
 
 ## Installation
 
-<a name="installation"></a>
+<a id="installation"></a>
 
 <!-- NOTE: ipatch, github flavored markdown presently doesnot support `target="_blank"` -->
 
@@ -49,7 +49,7 @@ https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.conf \
 
 ## apps
 
-<a id="apps"></a>
+<a name="apps"></a>
 
 > apps i use on various operating systems
 
@@ -67,7 +67,7 @@ https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.conf \
 
 ## File Structure
 
-<a name="file-structure"></a>
+<a id="file-structure"></a>
 
 > Certain files and folders are omitted for brevity & security, most notably the `pack` directory polluting the **File Structure** with vim plugin files.
 
@@ -763,7 +763,7 @@ https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.conf \
 
 ## Useful Links ___no particular order___
 
-<a id="useful-links"></a>
+<a name="useful-links"></a>
 
 - [**Github** wincent/wincent](https://github.com/wincent/wincent)
 - [**Github** mathiasbynenes/dotfiles](https://github.com/mathiasbynens/dotfiles)
@@ -778,6 +778,11 @@ https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.conf \
 
 <summary>Uncompleted</summary>
 
+- [ ] #arch how to side scroll with standard wired USB mouse with only a vertical scroll wheel 🤔 ?
+- [ ] #nvim, code folds in this readme `%` do not work when relaunching nvim, have to change html tag for them to work 👎
+- [ ] #treesitter, #tmux config, `tmux.config` needs same love as `polybar.ini`
+- [ ] #treesitter, how to add a commentstring for a specific file ie. `polybar.ini`
+- [ ] #milliondollaridea 🤑, some way to search the youtube transcript in browser to find a specific spot of a video
 - [ ] #arch #i3 when i3 starts firefox loads on 2nd workspace labled `1` instead of `2:web`
   - ...need to wait for al to finish loading or something of that nature 🤔
 - [ ] #arch #tmux add key binding to toggle window display numbers
