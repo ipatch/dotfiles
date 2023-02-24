@@ -778,6 +778,8 @@ https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.conf \
 
 <summary>Uncompleted</summary>
 
+- [ ] #arch enable inteliommu as a grub boot line param
+- [ ] #arch map left control key on keychron to `fn` key ala macbook builtin keyboard
 - [ ] #arch how to side scroll with standard wired USB mouse with only a vertical scroll wheel 🤔 ?
 - [ ] #nvim, code folds in this readme `%` do not work when relaunching nvim, have to change html tag for them to work 👎
 - [ ] #treesitter, #tmux config, `tmux.config` needs same love as `polybar.ini`
