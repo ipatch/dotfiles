@@ -13,6 +13,9 @@ if status is-interactive
   # GPG key signing
   export GPG_TTY=(tty)
 
+  # $USER tooling / js / node / nvm
+  set -gx NVM_DIR "$HOME/.config/nvm"
+
   # $USER env vars
   set -gx code "/opt/code"
   set -gx dots "/opt/code/dotfiles"
@@ -24,7 +27,7 @@ if status is-interactive
   # app env vars
   export HOMEBREW_NO_INSTALL_CLEANUP=1
 
-  # fish shell specific abbreviations
+  # $USER specific abbreviations
   abbr -a -g -- fr 'exec fish'
   abbr -a -g -- pp 'string join \n $PATH | nl  '
   abbr -a -g -- lr 'ls -lrth'
@@ -41,8 +44,10 @@ if status is-interactive
   abbr -a -g -- e 'echo'
 
   # fish shell abbr / gnu+linux specific
-# NOTE: ipatch, the below cmd will nuke the $DISPLAY env var  🤷‍♂️
+  #
+  # NOTE: ipatch, the below cmd will nuke the $DISPLAY env var  🤷‍♂️
   abbr -a -g -- hlp.group.reload 'echo "exec su -l $USER"'
+
   abbr -a -g -- clear.journal 'sudo journalctl --rotate; sudo journalctl --vacuum-time=1s'
   abbr -a -g -- sc.clear.journal 'sudo journalctl --rotate; sudo journalctl --vacuum-time=1s'
   abbr -a -g -- yay.up.zfs 'yay -Sa --nodeps zfs-dkms zfs-utils'
@@ -61,7 +66,6 @@ if status is-interactive
   # NOTE: ipatch, fish does not play well with `~` use $HOME env var instead
   set -gx hb_bins (echo "$HOME/homebrew/sbin:$HOME/homebrew/bin" | string split ":")
   if not contains $hb_bins $PATH
-    # set -gx hb_bin "~/homebrew/bin"
     set -gx PATH $PATH $hb_bins
   end
 
