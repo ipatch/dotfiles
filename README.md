@@ -781,14 +781,10 @@ https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.conf \
 - [ ] #arch enable inteliommu as a grub boot line param
 - [ ] #arch map left control key on keychron to `fn` key ala macbook builtin keyboard
 - [ ] #arch how to side scroll with standard wired USB mouse with only a vertical scroll wheel 🤔 ?
-- [ ] #nvim, code folds in this readme `%` do not work when relaunching nvim, have to change html tag for them to work 👎
 - [ ] #treesitter, #tmux config, `tmux.config` needs same love as `polybar.ini`
 - [ ] #treesitter, how to add a commentstring for a specific file ie. `polybar.ini`
 - [ ] #milliondollaridea 🤑, some way to search the youtube transcript in browser to find a specific spot of a video
-- [ ] #arch #i3 when i3 starts firefox loads on 2nd workspace labled `1` instead of `2:web`
-  - ...need to wait for al to finish loading or something of that nature 🤔
 - [ ] #arch #tmux add key binding to toggle window display numbers
-- [ ] #arch when generating a list of installed packages from aur, only put packages that were specifically specified, ie. dont put deps of top level packages, ie. just but _cheat_ and not all the haskell deps
 - [ ] #hammerspoon #karabiner #cmake it'd be nice to swap the `[]` with the `{}` when capslock is activated similiar to how i swapped underbar `_` with hyphen `-`
 - [ ] #macos #homebrew apparently my `Brewfile` does not contain an updated list of installed casks
 - [ ] #ssh #tmux copy/paste it seems using my fish abbr on a remote box (arch) `pbpaste` is unable to paste the contents of my local clipboard it'd be much cooler™️ if clipboard worked seemlessly across ssh (one can dream 🦄)
@@ -893,6 +889,12 @@ https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.conf \
 <details>
 <summary><strong>TODOs completed</strong></summary>
 
+- [x] #arch when generating a list of installed packages from aur, only put packages that were specifically specified, ie. dont put deps of top level packages, ie. just but _cheat_ and not all the haskell deps
+  > List all explicitly installed packages: `pacman -Qe`
+- [x] #arch #i3 when i3 starts firefox loads on 2nd workspace labled `1` instead of `2:web`
+  - ...need to wait for al to finish loading or something of that nature 🤔
+- [x] ~~#nvim, code folds in this readme `%` do not work when relaunching nvim, have to change html tag for them to work 👎~~
+ > not sure what the fix was but since relaunching nvim and loading session, code folds seem to be working with markdown files 🤞
 - [x] [arch], set timeout for git credential cache so i don't have to keep inputting github username/password
 - [x] #alacritty #macos for the love g0d, can we please support the emoji context menu ..."we can have nice things™️"
     - ended up forking alacritty myself and pulling a PR that allow emoji context menu 🎉
