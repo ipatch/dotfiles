@@ -36,6 +36,7 @@ end
 -- cmd [[packadd packer.nvim]]
 -- REF: https://www.reddit.com/r/neovim/comments/mpuqzg/help_strange_error_with_initlua_file/
 -- NOTE: exp with removing the `return` statement
+--
 require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
@@ -55,7 +56,13 @@ require('packer').startup(function(use)
   use { -- telescope
     'nvim-telescope/telescope.nvim',
     requires = { { 'nvim-lua/plenary.nvim'} }
-    }
+  }
+
+  -- use {
+    -- 'nvim-telescope/telescope-fzf-native.nvim', 
+    -- run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' 
+  -- }
+  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
   use 'nvim-lua/popup.nvim'
   use 'mfussenegger/nvim-dap'
@@ -196,11 +203,40 @@ else
   opt.clipboard:append {'unnamedplus'}
 end
 
+--
 -- plugin / neovim telescope / key mappings
 -- mapping using the provided helper function
+--
+
+
+local telescope = require("telescope")
+local telescopeConfig = require("telescope.config")
+
+-- Clone the default Telescope configuration
+local vimgrep_arguments = { unpack(telescopeConfig.values.vimgrep_arguments) }
+
+-- I want to search in hidden/dot files.
+table.insert(vimgrep_arguments, "--hidden")
+-- I don't want to search in the `.git` directory.
+table.insert(vimgrep_arguments, "--glob")
+table.insert(vimgrep_arguments, "!**/.git/*")
+
+telescope.setup({
+	defaults = {
+		-- `hidden = true` is not supported in text grep commands.
+		vimgrep_arguments = vimgrep_arguments,
+	},
+	pickers = {
+		find_files = {
+			-- `hidden = true` will still show the inside of `.git/` as it's not `.gitignore`d.
+			find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
+		},
+	},
+})
+
 local builtin = require('telescope.builtin')
 
- -- NOTE: ipatch, the below binding was unable to find my `fish_history` within `~/.local/share/fish` WTF  🤷‍♂️
+-- NOTE: ipatch, install telecope-fzf-native.nvim to fuzzy search
 vim.keymap.set('n', '<leader>pf', builtin.find_files, {})
 vim.keymap.set('n', '<C-p>', builtin.git_files, {})
 vim.keymap.set('n', ';', builtin.buffers, {})
@@ -208,7 +244,12 @@ vim.keymap.set('n', '<leader>ps', function()
   builtin.grep_string({ search = vim.fn.input("Grep >") })
 end)
 
--- mappings / plugin / vim-turmuxnavigator
+-- plugin / nvim-telescope
+-- To get fzf loaded and working with telescope, you need to call
+-- load_extension, somewhere after setup function:
+require('telescope').load_extension('fzf')
+
+-- plugin / vim-turmuxnavigator / mappings
 -- TODO: migrate these mappings from VimL to lua
 --[[ let g:tmux_navigator_no_mappings = 1
 
@@ -256,6 +297,19 @@ require('onedark').setup {
 }
 
 require('onedark').load()
+
+-- plugin / 'numToStr/Comment.nvim'
+-- NOTE: ipatch, attempt to define commentstring for specific dot files
+local ft = require('Comment.ft')
+
+-- 1. Using set function
+
+ft
+ -- Set only line comment
+ -- .set('yaml', '#%s')
+ -- Or set both line and block commentstring
+ -- .set('javascript', {'//%s', '/*%s*/'})
+  .set('ini', ';%s')
 
 -- NOTE: ipatch, override the default bg color for onedark theme
 -- TODO: ipatch, migrate this function, cmd to the above onedark colorscheme
