@@ -67,7 +67,7 @@ https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.conf \
 
 ## File Structure
 
-<a name="file-structure"></a>
+<a id="file-structure"></a>
 
 > Certain files and folders are omitted for brevity & security, most notably the `pack` directory polluting the **File Structure** with vim plugin files.
 
@@ -772,7 +772,7 @@ https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.conf \
 
 <!-- <h3>TODOs</h3> -->
 
-## <a id="todos"></a> TODOs
+## <a name="todos"></a> TODOs
 
 <details>
 
@@ -782,8 +782,6 @@ https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.conf \
 - [ ] #arch enable inteliommu as a grub boot line param
 - [ ] #arch map left control key on keychron to `fn` key ala macbook builtin keyboard
 - [ ] #arch how to side scroll with standard wired USB mouse with only a vertical scroll wheel 🤔 ?
-- [ ] #treesitter, #tmux config, `tmux.config` needs same love as `polybar.ini`
-- [ ] #treesitter, how to add a commentstring for a specific file ie. `polybar.ini`
 - [ ] #milliondollaridea 🤑, some way to search the youtube transcript in browser to find a specific spot of a video
 - [ ] #arch #tmux add key binding to toggle window display numbers
 - [ ] #hammerspoon #karabiner #cmake it'd be nice to swap the `[]` with the `{}` when capslock is activated similiar to how i swapped underbar `_` with hyphen `-`
@@ -800,7 +798,6 @@ https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.conf \
 - [ ] #freecad create asciinema of configuring and building freecad from source on macos
     - [ ] #freecad make an additional cast of runing through the test suite after building/installing freecad
 - [ ] #mpv #hammerspoon, setup a env var for `mpvsocket` to make interacting the mpv socket a little less brittle 🧊
-
 - [ ] #arch #archlinux #linux go through the following procedures to see if the intel crystalwell igpu is properly being used on my archbox
     - https://wiki.archlinux.org/title/Hardware_video_acceleration#Verification 
     - https://linux-hardware.org/?id=pci:8086-0d22-106b-0122
@@ -812,9 +809,6 @@ https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.conf \
     - https://01.org/linuxmedia/vaapi
     - https://01.org/linuxgraphics/downloads/2018q1-intel-graphics-stack-recipe
     - https://bbs.archlinux.org/viewtopic.php?id=186501
-
-- [x] **Q** does changing path to open buffers within a saved session file find new buffers with **old** neovim configuration files
-    - short answer, **no** there's some automagic inside the `init.lua` either setting or plugin
 - [ ] `init.lua` remember _code fold_ settings when closing then reopening a buffer
 - [ ] #vim #neovim #nvim, specific, add or implement _goto definition_ function when editing homebrew formula files to have a go to definition when cursor is on a `depends_on` block, ie. open that respected formula file
 - [ ] display some sort message, alert, or menubar icon when caps lock is activated "for all that is sane" 👩🏻‍⚕️
@@ -870,16 +864,15 @@ https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.conf \
 - [ ] [tmux] **getting closer** it'd be nice to have a quick double tap of either <kbd>shift</kbd>key then<kbd>shift</kbd> to toggle between remote and local tmux sessions 
   - [learn more][lm1]
   - [and more][lm2] 
-
-  [lm1]: <https://gist.github.com/samoshkin/05e65f7f1c9b55d3fc7690b59d678734>
-  [lm2]: <https://www.freecodecamp.org/news/tmux-in-practice-local-and-nested-remote-tmux-sessions-4f7ba5db8795/>
-
 - [ ] [karabiner], toggle function keys on a macbook with double tap of <kbd>fn</kbd>
 - [ ] [python] [fish] [virtualenv] setup keybinding <kbd>control</kbd>+<kbd>d</kbd> to exit virtualenv but not exit terminal / shell session, ie. make control+d local to the virtualenv
 - [ ] [python] [fish] [neolambda] update prompt to remove ~λ~ and put name of virtualenv instead
 - [ ] see if there is a fish function of _omf_ or _fisher_ plugin that supports sharing command history between bash and fish
 - [ ] make abe graphic more personal.
 - [ ] spend an hour or two working on install script for aiding the process of setting up my dotfiles on fresh box 📦.
+
+  [lm1]: <https://gist.github.com/samoshkin/05e65f7f1c9b55d3fc7690b59d678734>
+  [lm2]: <https://www.freecodecamp.org/news/tmux-in-practice-local-and-nested-remote-tmux-sessions-4f7ba5db8795/>
 
 </details> <!-- end of uncompleted todo items -->
 
@@ -890,6 +883,10 @@ https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.conf \
 <details>
 <summary><strong>TODOs completed</strong></summary>
 
+- [x] #treesitter, how to add a commentstring for a specific file ie. `polybar.ini`
+- [x] **Q** does changing path to open buffers within a saved session file find new buffers with **old** neovim configuration files
+    - short answer, **no** there's some automagic inside the `init.lua` either setting or plugin
+- [x] #treesitter, #tmux config, `tmux.config` needs same love as `polybar.ini`
 - [x] #arch how to print the battery level of BT headphones, and BT keyboard
   > TL;DR `upower -d`
 - [x] #arch when generating a list of installed packages from aur, only put packages that were specifically specified, ie. dont put deps of top level packages, ie. just but _cheat_ and not all the haskell deps
