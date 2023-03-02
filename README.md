@@ -14,7 +14,7 @@
 
 <div align="center">
 
-<a name="contents"></a>
+<a id="contents"></a>
 
 • [**wiki**](https://github.com/ipatch/dotfiles/wiki) • [Installation](#installation) • [apps](#apps) •  [File Structure](#file-structure) • [Useful Links](#useful-links) • [arch][ul1] • [TODOs](#todos) • [Contact](#contact) •
 
@@ -24,7 +24,7 @@
 
 ## Installation
 
-<a id="installation"></a>
+<a name="installation"></a>
 
 <!-- NOTE: ipatch, github flavored markdown presently doesnot support `target="_blank"` -->
 
@@ -67,7 +67,7 @@ https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.conf \
 
 ## File Structure
 
-<a id="file-structure"></a>
+<a name="file-structure"></a>
 
 > Certain files and folders are omitted for brevity & security, most notably the `pack` directory polluting the **File Structure** with vim plugin files.
 
@@ -763,7 +763,7 @@ https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.conf \
 
 ## Useful Links ___no particular order___
 
-<a name="useful-links"></a>
+<a id="useful-links"></a>
 
 - [**Github** wincent/wincent](https://github.com/wincent/wincent)
 - [**Github** mathiasbynenes/dotfiles](https://github.com/mathiasbynens/dotfiles)
@@ -889,6 +889,8 @@ https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.conf \
 <details>
 <summary><strong>TODOs completed</strong></summary>
 
+- [x] #arch how to print the battery level of BT headphones, and BT keyboard
+  > TL;DR `upower -d`
 - [x] #arch when generating a list of installed packages from aur, only put packages that were specifically specified, ie. dont put deps of top level packages, ie. just but _cheat_ and not all the haskell deps
   > List all explicitly installed packages: `pacman -Qe`
 - [x] #arch #i3 when i3 starts firefox loads on 2nd workspace labled `1` instead of `2:web`
