@@ -778,6 +778,7 @@ https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.conf \
 
 <summary>Uncompleted</summary>
 
+- [ ] #arch #tmux, exp with using `alt+[NUMS]` to switch between windows in a session, ie. `alt+1` goto window 1
 - [ ] #arch enable inteliommu as a grub boot line param
 - [ ] #arch map left control key on keychron to `fn` key ala macbook builtin keyboard
 - [ ] #arch how to side scroll with standard wired USB mouse with only a vertical scroll wheel 🤔 ?
