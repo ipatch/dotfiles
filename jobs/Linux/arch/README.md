@@ -11,10 +11,10 @@
 - [todos](#todos)
 - [useful links](#useful-links)
 
-
 ## pacman
 
 <a name="pacman"></a>
+
 
 - to generate a list of installed packages
 
@@ -50,6 +50,9 @@ there are multiple ways and utilities for assigning static ip addresses within a
 
 #### networking / useful links
 
+sometime the stock broadcom 4260 network card in the mbp 11,3 has issues connecting to routers at higher 5GHz frequiences. see the below link for more info to getting the card to work
+
+- https://bbs.archlinux.org/viewtopic.php?id=249038
 - https://github.com/foxlet/macOS-Simple-KVM/blob/master/docs/guide-networking.md
 - https://wiki.archlinux.org/title/Network_configuration
 - https://wiki.archlinux.org/title/Network_bridge
@@ -57,6 +60,8 @@ there are multiple ways and utilities for assigning static ip addresses within a
 - https://wiki.archlinux.org/title/Bridge_with_netctl
 
 ## i3
+
+<a name="i3"></a>
 
 i wanted to display RPM speed of both the left and right fans inside my i3status bar.
 
