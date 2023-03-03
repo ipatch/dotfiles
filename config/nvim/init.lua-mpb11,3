@@ -155,11 +155,9 @@ vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 
 vim.opt.signcolumn = "yes"
 
-
 vim.api.nvim_exec([[
 command SynID  echo synIDattr(synID(line("."), col("."), 1), "name")
  ]], true)
-
 
 -- settings / hidden chars
 opt.listchars:append("tab:‣ ") -- NOTE:ipatch, requires a trailing `space` after char
