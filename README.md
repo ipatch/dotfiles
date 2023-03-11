@@ -49,6 +49,7 @@ https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.conf \
 
 ## apps
 
+
 <a name="apps"></a>
 
 > apps i use on various operating systems
@@ -63,7 +64,6 @@ https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.conf \
 | Finder.app | thunar | explorer |
 | iMessage | bluebubbles | ??? |
 | karabiner elements | interception | ??? |
-
 
 ## File Structure
 
@@ -757,6 +757,7 @@ https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.conf \
 
 191 directories, 488 files
 
+
 </pre>
 </details>
 
@@ -778,6 +779,7 @@ https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.conf \
 
 <summary>Uncompleted</summary>
 
+- [ ] #webdev, side quest, 🤺 figure out reimp search so a site such autozone can find b12 chemtool instead having to type b-12
 - [ ] #arch #tmux, exp with using `alt+[NUMS]` to switch between windows in a session, ie. `alt+1` goto window 1
 - [ ] #arch enable inteliommu as a grub boot line param
 - [ ] #arch map left control key on keychron to `fn` key ala macbook builtin keyboard
@@ -879,6 +881,7 @@ https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.conf \
 <!-- <h3>TODOs completed</h3> -->
 
 ##
+
 
 <details>
 <summary><strong>TODOs completed</strong></summary>
