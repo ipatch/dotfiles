@@ -201,8 +201,14 @@ bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 
 # NOTE: ipatch, assign certain apps to certain workspaces
-# NOTE: ipatch, the below setting seems to put all firefox windows on workspace #2 👍
+# NOTE: ipatch, use below cmd to get window/app props `xprop`
 
+# NOTE: ipatch, set default window size
+for_window [class="GParted"] floating enable resize set 1800 1000, move position center
+
+# WM_CLASS(STRING) = "gpartedbin", "GParted"
+
+# NOTE: ipatch, the below setting seems to put all firefox windows on workspace #2 👍
 assign [class="firefox"] workspace $web
 # TODO: ipatch, make about window,dialogue box floating
 # WM_CLASS(STRING) = "Browser", "firefox"
@@ -232,13 +238,6 @@ for_window [class="Thunar"] floating enable
 # WM_CLASS(STRING) = "gloobus-preview", "Gloobus-preview"
 for_window [class="Gloobus-preview"] floating enable
 
-
-# NOTE: ipatch, no work nova
-# for_window [class="firefox"] move container to workspace $web
-# for_window [class="firefox" title="File Upload"] move to workspace $web
-
-# for_window [class="Spotify"] move container to workspace $ws4
-
 assign [class="Alacritty"] $terms
 exec --no-startup-id i3-msg 'workspace $terms; exec /usr/bin/alacritty'
 exec --no-startup-id i3-msg 'workspace $web; exec /usr/bin/firefox'
@@ -248,23 +247,23 @@ exec --no-startup-id i3-msg 'workspace $web; exec /usr/bin/firefox'
 # ...requires restarting i3, ie. cmd+shift+r
 #
 # TODO: for reasons i don't understand neither of the two settings are hidding the title bar
-#
 # for_window [class="firefox"] border pixel 1
+
 default_border pixel 1
 default_floating_border pixel 1
 for_window [class="^.*"] border pixel 1
 
-# NOTE: ipatch, attemp to make galculator a floating window by default
+# NOTE: ipatch, make galculator a floating window by default
 for_window [class="Galculator"] floating enable
 # NOTE: ipatch, i created a symlink of galculator to /usr/bin/calculator ie. WM_CLASS(STRING) = "calculator", "Calculator"
 for_window [class="Calculator"] floating enable
 
-# NOTE: ipatch, attempt to make floating windows float
+# NOTE: ipatch, make floating windows float
 for_window [window_role="pop-up"] floating enable
 for_window [window_role="task_dialog"] floating enable
 
 # NOTE: ipatch, emoji picker
-# launch emote using the same keyboard shortcut as macos
+# launch emote using macos keyboard shortcut
 bindsym $mod+control+space exec /usr/sbin/emote
 
 # reload the configuration file
