@@ -1,0 +1,24 @@
+# ---
+# NOTE: ipatch, useful commands
+# ----
+# sudo systemctl restart udevmon
+# sudo systemctl enable udevmon
+# ----
+# https://gitlab.com/interception/linux/plugins/dual-function-keys
+# ----
+# check for errors
+# ---
+# journalctl -u udevmon
+# ---
+# NOTE: ipatch, when my keychron k6 is in BT mode its name is `Keychron K6`
+# useful cmd: `libinput list-devices | grep "^Device"`
+# ---
+# NOTE: ipatch, using the below combo was the ONLY way i could get dfk to work with my kbd in both modes, no luck with mux
+---
+- JOB: "intercept -g $DEVNODE | dual-function-keys -c /home/capin/.config/dual-function-keys/dual-func-key.yaml | uinput -d $DEVNODE"
+  DEVICE:
+    NAME: "Keychron Keychron K6"
+
+- JOB: "intercept -g $DEVNODE | dual-function-keys -c /home/capin/.config/dual-function-keys/dual-func-key.yaml | uinput -d $DEVNODE"
+  DEVICE:
+    NAME: "Keychron K6"
