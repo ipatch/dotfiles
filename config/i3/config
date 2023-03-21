@@ -204,9 +204,12 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 # NOTE: ipatch, use below cmd to get window/app props `xprop`
 
 # NOTE: ipatch, set default window size
+# WM_CLASS(STRING) = "gpartedbin", "GParted"
 for_window [class="GParted"] floating enable resize set 1800 1000, move position center
 
-# WM_CLASS(STRING) = "gpartedbin", "GParted"
+# WM_CLASS(STRING) = "xfreerdp", "xfreerdp"
+for_window [class="xfreerdp"] move to workspace $ws7
+
 
 # NOTE: ipatch, the below setting seems to put all firefox windows on workspace #2 👍
 assign [class="firefox"] workspace $web
