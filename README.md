@@ -779,9 +779,8 @@ https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.conf \
 
 <summary>Uncompleted</summary>
 
-- [ ] #webdev, side quest, 🤺 figure out reimp search so a site such autozone can find b12 chemtool instead having to type b-12
+- [ ] #webdev, side quest, 🤺 figure out reimp search so a site such autozone can find `b12 chemtool` instead having to type `b-12`
 - [ ] #arch #tmux, exp with using `alt+[NUMS]` to switch between windows in a session, ie. `alt+1` goto window 1
-- [ ] #arch enable inteliommu as a grub boot line param
 - [ ] #arch map left control key on keychron to `fn` key ala macbook builtin keyboard
 - [ ] #arch how to side scroll with standard wired USB mouse with only a vertical scroll wheel 🤔 ?
 - [ ] #milliondollaridea 🤑, some way to search the youtube transcript in browser to find a specific spot of a video
@@ -886,6 +885,7 @@ https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.conf \
 <details>
 <summary><strong>TODOs completed</strong></summary>
 
+- [x] #arch enable inteliommu as a grub boot line param
 - [x] #treesitter, how to add a commentstring for a specific file ie. `polybar.ini`
 - [x] **Q** does changing path to open buffers within a saved session file find new buffers with **old** neovim configuration files
     - short answer, **no** there's some automagic inside the `init.lua` either setting or plugin
