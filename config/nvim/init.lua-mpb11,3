@@ -248,6 +248,9 @@ vim.keymap.set('n', '<leader>ps', function()
   builtin.grep_string({ search = vim.fn.input("Grep >") })
 end)
 
+-- NOTE: ipatch, mapping to delete/close buffer from picker view
+-- https://github.com/nvim-telescope/telescope.nvim/wiki/Configuration-Recipes#mapping-c-d-to-delete-buffer
+
 -- plugin / nvim-telescope
 -- To get fzf loaded and working with telescope, you need to call
 -- load_extension, somewhere after setup function:
