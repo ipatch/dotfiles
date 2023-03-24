@@ -26,6 +26,7 @@ if status is-interactive
 
   # app env vars
   export HOMEBREW_NO_INSTALL_CLEANUP=1
+  export HOMEBREW_EDITOR=nvim
 
   # $USER specific abbreviations
   abbr -a -g -- fr 'exec fish'
