@@ -1,3 +1,5 @@
+# NOTE: ipatch, my current (2023) global config.fish - single file
+
 if status is-interactive
   # Commands to run in interactive sessions can go here
   alias gs='git status'
@@ -23,6 +25,7 @@ if status is-interactive
   set -gx github "/opt/code/git/github"
   set -gx ghforks "/opt/code/git/github/forks"
   set -gx ltmp "$HOME/ltmp"
+  set -gx hb "$HOME/homebrew"
 
   # app env vars
   export HOMEBREW_NO_INSTALL_CLEANUP=1
@@ -43,6 +46,9 @@ if status is-interactive
   abbr -a -g -- ydl 'yt-dlp'
   abbr -a -g -- ksong 'open https://www.kntu.com/last-7-days-of-music-on-kntu/'
   abbr -a -g -- e 'echo'
+  abbr -a -g -- df 'df -h'
+
+  abbr -a -g -- be 'bundle exec'
 
   # fish shell abbr / gnu+linux specific
   #
@@ -55,13 +61,14 @@ if status is-interactive
   abbr -a -g -- sc 'sudo systemctl'
   abbr -a -g -- ys 'yay -S'
   abbr -a -g -- yss 'yay -Ss'
+  # TODO: ipatch, below abbr probably better served as a function that can take arg for custom msgs
+  abbr -a -g -- alert 'notify-send -t 0 doitlive'
+
+# NOTE: ipatch, $USER lang tooling $PATHs
 
   # NOTE: ipatch, yay on archlinux failed to install solvespace with hb_bins first in PATH
   #
   # REF: https://github.com/fish-shell/fish-shell/issues/2090#issuecomment-149990142
-  #
-  # $PATH, add homebrew bins last in PATH
-  # set -gx PATH "$PATH ~/homebrew/sbin ~/homebrew/bin"
   #
   # TODO: ipatch, the below 2 dirs are added to the path regardless if the dirs exist or not
   # NOTE: ipatch, fish does not play well with `~` use $HOME env var instead
@@ -69,6 +76,16 @@ if status is-interactive
   if not contains $hb_bins $PATH
     set -gx PATH $PATH $hb_bins
   end
+
+  set -gx rvm_bin (echo "$HOME/.rvm/bin")
+  if not contains $rvm_bin $PATH
+    set -gx PATH $PATH $rvm_bin
+  end
+
+  # TODO: ipatch, add bun bins to path in a more elegant way
+  # bun
+  set --export BUN_INSTALL "$HOME/.bun"
+  set --export PATH $BUN_INSTALL/bin $PATH
 
   # set created & updated files & directories to 664 & 775
   umask 002
@@ -83,18 +100,18 @@ if status is-interactive
     mkdir -p $argv; and cd $argv
   end
 
-  function vman --wraps man --description 'use vim / nvim for displaying man pages'
+  function vman --wraps man --description 'use vim / nvim for reading man pages'
     # col `-b` flag = don't output any backspaces
     # col `-p` flag = force uknown control sequences
-    # ===
+    # ---
     # iconv -convert between character encodings
-    # ==
+    # --
     # iconv `-c` flag = characters that can't be converter are
     # ...silently discarded
-    # ===
+    # ---
     # nvim `-c` flag = run argument / command after executing nvim
     # nvim `-R` flag = open "file" in read-only mode
-    # ===
+    # ---
     # NOTE: not loading `.vimrc` won't work because i want some bells and whistles provided by my `.vimrc`, ie. syntax highlighting.
     man $argv | col -bp | iconv -c | nvim -c 'set ft=man nomod nolist' -;
   end
