@@ -82,10 +82,10 @@ if status is-interactive
     set -gx PATH $PATH $rvm_bin
   end
 
-  # TODO: ipatch, add bun bins to path in a more elegant way
-  # bun
-  set --export BUN_INSTALL "$HOME/.bun"
-  set --export PATH $BUN_INSTALL/bin $PATH
+  set -gx bun_bin (echo "$HOME/.bun/bin")
+  if not contains $bun_bin $PATH
+    set -gx PATH $PATH $bun_bin
+  end
 
   # set created & updated files & directories to 664 & 775
   umask 002
