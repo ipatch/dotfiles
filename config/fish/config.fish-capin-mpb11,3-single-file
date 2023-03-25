@@ -77,6 +77,7 @@ if status is-interactive
     set -gx PATH $PATH $hb_bins
   end
 
+# NOTE: ipatch, be sure to link the `rvm.fish` in the `~/.config/fish/functions`
   set -gx rvm_bin (echo "$HOME/.rvm/bin")
   if not contains $rvm_bin $PATH
     set -gx PATH $PATH $rvm_bin
