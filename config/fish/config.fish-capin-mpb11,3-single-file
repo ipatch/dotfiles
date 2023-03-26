@@ -63,6 +63,7 @@ if status is-interactive
   abbr -a -g -- yss 'yay -Ss'
   # TODO: ipatch, below abbr probably better served as a function that can take arg for custom msgs
   abbr -a -g -- alert 'notify-send -t 0 doitlive'
+  abbr -a -g -- pbcopy 'xclip -selection clipboard'
 
 # NOTE: ipatch, $USER lang tooling $PATHs
 
