@@ -276,7 +276,7 @@ local ts = require 'nvim-treesitter.configs'
 ts.setup {
   ensure_installed = { 'c', 'rust', 'javascript', 'typescript', 'python', 'ruby', 'fish', 'bash', 'help', 'lua', },
   sync_install = false,
-  ignore_install = { "" }, -- List of parsers to ignore installing
+  ignore_install = { 'slint', 'gleam', 'clojure', 'beancount', 'help' }, -- List of parsers to ignore installing
   auto_install = false,
   highlight = {
     enable = true,
