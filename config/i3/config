@@ -241,8 +241,16 @@ for_window [class="Thunar"] floating enable
 # WM_CLASS(STRING) = "gloobus-preview", "Gloobus-preview"
 for_window [class="Gloobus-preview"] floating enable
 
-assign [class="Alacritty"] $terms
 exec --no-startup-id i3-msg 'workspace $terms; exec /usr/bin/alacritty'
+
+# TODO: ipatch, the first instance of alacritty launches on workspace #1 as intended
+# however if i launch a new window it will not launch on the active workspace ie. workspace #2
+# what would be a config where subsquent windows can open on an independent workspace
+#---
+# rm below config line allows al to be spawned in any workspace 👍
+#---
+# assign [class="Alacritty"] $terms
+
 exec --no-startup-id i3-msg 'workspace $web; exec /usr/bin/firefox'
 
 # NOTE: ipatch, attempt to style specific applications
