@@ -65,7 +65,10 @@ if status is-interactive
   abbr -a -g -- alert 'notify-send -t 0 doitlive'
   abbr -a -g -- pbcopy 'xclip -selection clipboard'
 
-# NOTE: ipatch, $USER lang tooling $PATHs
+  # nice things
+  zoxide init fish | source
+
+  # NOTE: ipatch, $USER lang tooling $PATHs
 
   # NOTE: ipatch, yay on archlinux failed to install solvespace with hb_bins first in PATH
   #
