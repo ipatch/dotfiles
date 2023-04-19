@@ -779,6 +779,7 @@ https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.conf \
 
 <summary>Uncompleted</summary>
 
+- [ ] #tmux setup a custom code fold function using vimscript or possible lua for my `tmux.conf` reference the stock `html` and `c` lang syntax files for how the use different types of expressions for code folds 🤔
 - [ ] #webdev, side quest, 🤺 figure out reimp search so a site such autozone can find `b12 chemtool` instead having to type `b-12`
 - [ ] #arch #tmux, exp with using `alt+[NUMS]` to switch between windows in a session, ie. `alt+1` goto window 1
 - [ ] #arch map left control key on keychron to `fn` key ala macbook builtin keyboard
