@@ -170,8 +170,9 @@ opt.listchars:append("eol:¬")
 -- opt.lcs:append("eol:↴")
 opt.lcs:append("space:␣") -- Symbol for the space key
 
+-- NOTE: ipatch, the below is not required is the TS markdown and markdown_inline parsers are installed
 -- setting / filetype / markdown
-markdown_folding = 1
+-- markdown_folding = 1
 
 ------------------------------
 -- settings / views
