@@ -49,7 +49,6 @@ https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.conf \
 
 ## apps
 
-
 <a name="apps"></a>
 
 > apps i use on various operating systems
@@ -881,7 +880,6 @@ https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.conf \
 <!-- <h3>TODOs completed</h3> -->
 
 ##
-
 
 <details>
 <summary><strong>TODOs completed</strong></summary>
