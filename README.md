@@ -63,6 +63,7 @@ https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.conf \
 | Finder.app | thunar | explorer |
 | iMessage | bluebubbles | ??? |
 | karabiner elements | interception | ??? |
+| clipy | copyq | ??? |
 
 ## File Structure
 
