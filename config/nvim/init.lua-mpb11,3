@@ -86,7 +86,7 @@ require('packer').startup(function(use)
   end
 end)
 
--- When we are bootstrapping a configuration, it doesn't
+-- When bootstrapping a configuration, it doesn't
 -- make sense to execute the rest of the init.lua.
 --
 -- You'll need to restart nvim, and then it will work.
@@ -115,9 +115,9 @@ vim.keymap.set('n', '<C-d>', '<C-d>zz')
 vim.keymap.set('n', '<C-u>', '<C-u>zz')
 
 ---------------
--- toggle hidden chars & Settings for hidden chars
---
+-- key mapping / toggle hidden chars & Settings for hidden chars
 -- nmap <leader>h :set list!<CR>
+--
 map('n', '<leader>h', ':set list!<cr>', {noremap = true}) -- toggle hidden chars
 
 -- settings / options / use vim settings within nvim via lua
@@ -146,6 +146,7 @@ opt.smartindent = true          -- insert indents automatically
 opt.tabstop = 2                 -- number of spaces tabs count for
 opt.termguicolors = true        -- true color support
 opt.wrap = true
+opt.cursorline = true           -- highlight the current line
 -- settings / code folds and others
 opt.viewoptions = "folds,cursor"
 
@@ -212,8 +213,6 @@ end
 -- plugin / neovim telescope / key mappings
 -- mapping using the provided helper function
 --
-
-
 local telescope = require("telescope")
 local telescopeConfig = require("telescope.config")
 
