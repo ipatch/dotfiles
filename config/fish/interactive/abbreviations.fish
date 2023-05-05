@@ -39,13 +39,11 @@ abbr -ag ex.git.undo.unstaged.changes 'echo "git checkout /path/to/file see http
 abbr -ag cd- 'cd -'
 abbr -ag cp "cp -iv"
 
-
 # double quote example
 abbr -ag dots "cd $dots"
 
 # single quote example
 abbr -ag dotss 'cd $dots'
-
 
 abbr -ag dotsw "cd $dots/.wiki"
 abbr -ag rmd "rm -rf"
