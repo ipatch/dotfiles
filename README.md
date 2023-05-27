@@ -779,6 +779,7 @@ https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.conf \
 
 <summary>Uncompleted</summary>
 
+- [ ] #arch #i3, how to change the outline color of the active window on the screen?
 - [ ] #arch #emojis some how my key binding for launching my emoji picker emote NO LONGER WORKS!!!!!
 - [ ] #copypasta #fish #tmux, when logged in to a remote system via ssh, and running tmux locally and on a remote system copying the STDOUT to the local clipboard DOES NOT WORK!!!!!, **need that**
 - [ ] #tmux setup a custom code fold function using vimscript or possible lua for my `tmux.conf` reference the stock `html` and `c` lang syntax files for how the use different types of expressions for code folds 🤔
