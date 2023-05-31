@@ -27,6 +27,7 @@ bluez
 bluez-utils
 broadcom-wl-dkms
 catimg
+cereal
 cifs-utils
 clinfo
 code
@@ -59,6 +60,7 @@ firefox
 fish
 flameshot
 flex
+fontforge
 freecad
 fzf
 galculator
@@ -77,6 +79,8 @@ groff
 grub-customizer
 gsfonts
 gucharmap
+gvfs
+gvfs-smb
 hdparm
 hplip
 htop
@@ -86,6 +90,7 @@ i2c-tools
 i3-wm
 i3status
 i3status-rust
+ifuse
 imwheel
 intel-ucode
 interception-dual-function-keys
@@ -98,6 +103,7 @@ kernel-modules-hook
 kitty
 libguestfs
 libicns
+libigl
 libreoffice-fresh
 librsvg
 libtool
@@ -165,6 +171,7 @@ python-websockets
 quassel-common
 rdesktop
 redshift
+remmina
 reptyr
 ripgrep
 ristretto
@@ -194,6 +201,7 @@ udisks2
 usbutils
 valgrind
 vim
+vinagre
 virt-manager
 virtualgl
 vivaldi

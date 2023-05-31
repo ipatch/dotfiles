@@ -30,6 +30,8 @@ hpoj
 jdownloader2
 libirecovery
 linux-apfs-rw-dkms-git
+llvm12
+llvm12-libs-minimal
 mbpfan-git
 mons
 net-tools-debian-ifconfig
@@ -37,7 +39,7 @@ ntfs3-dkms
 nvidia-470xx-dkms
 nwipe
 openboardview-git
-optimus-manager
+palera1n
 perl-font-freetype
 pnmixer
 polkit-dumb-agent-git
@@ -49,6 +51,7 @@ realvnc-vnc-viewer
 rtl8814au-dkms-git
 siji-git
 slack-desktop
+snapd
 solvespace
 spotify
 superslicer-prerelease-bin
@@ -58,6 +61,7 @@ ttf-mac-fonts
 ttf-ms-fonts
 udisks
 uml_utilities
+ungoogled-chromium-bin
 update-grub
 usbfluxd
 xf86-input-mtrack-git
@@ -68,4 +72,5 @@ xvkbd
 yay-bin
 zf
 zfs-dkms
+zfs-utils
 zoom
