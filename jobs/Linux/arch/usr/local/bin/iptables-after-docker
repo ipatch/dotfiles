@@ -6,3 +6,4 @@
 
 iptables-legacy -I FORWARD -i br1 -o br1 -j ACCEPT
 iptables -I FORWARD -i br1 -o br1 -j ACCEPT
+iptables -I FORWARD -i br0 -o br0 -j ACCEPT
