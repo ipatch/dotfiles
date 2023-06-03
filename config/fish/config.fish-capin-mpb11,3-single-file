@@ -8,9 +8,11 @@ if status is-interactive
   alias ffmpeg='ffmpeg -hide_banner'
   alias pgrep='pgrep -i'
 
-  # builtin env vars
+  # fish specific env vars
   set -gx fish_greeting ""
   set -gx fish_emoji_width 2 # NOT COMPATIBLE with fish <= 2.7.1
+
+  # *nix specific env vars
   set -gx XDG_CONFIG_HOME $HOME/.config
   # GPG key signing
   export GPG_TTY=(tty)
@@ -27,7 +29,7 @@ if status is-interactive
   set -gx ltmp "$HOME/ltmp"
   set -gx hb "$HOME/homebrew"
 
-  # app env vars
+  # app env vars / homebrew
   export HOMEBREW_NO_INSTALL_CLEANUP=1
   export HOMEBREW_EDITOR=nvim
 
@@ -66,6 +68,7 @@ if status is-interactive
   # TODO: ipatch, below abbr probably better served as a function that can take arg for custom msgs
   abbr -a -g -- alert 'notify-send -t 0 doitlive'
   abbr -a -g -- pbcopy 'xclip -selection clipboard'
+  abbr -a -g -- nmc 'nmcli'
 
   # nice things
   if which zoxide >/dev/null
@@ -79,13 +82,13 @@ if status is-interactive
   # REF: https://github.com/fish-shell/fish-shell/issues/2090#issuecomment-149990142
   #
   # TODO: ipatch, the below 2 dirs are added to the path regardless if the dirs exist or not
-  # NOTE: ipatch, fish does not play well with `~` use $HOME env var instead
+  # NOTE: ipatch, fish does not play nice with `~` use $HOME env var instead
   set -gx hb_bins (echo "$HOME/homebrew/sbin:$HOME/homebrew/bin" | string split ":")
   if not contains $hb_bins $PATH
     set -gx PATH $PATH $hb_bins
   end
 
-# NOTE: ipatch, be sure to link the `rvm.fish` in the `~/.config/fish/functions`
+  # NOTE: ipatch, be sure to link the `rvm.fish` in the `~/.config/fish/functions`
   set -gx rvm_bin (echo "$HOME/.rvm/bin")
   if not contains $rvm_bin $PATH
     set -gx PATH $PATH $rvm_bin
@@ -105,7 +108,7 @@ if status is-interactive
   # set created & updated files & directories to 664 & 775
   umask 002
 
-  # check if file exists, if so, then load it
+  # if file exists, then load it
   if test -f $dots/config/fish/private-env-vars.fish
     source $dots/config/fish/private-env-vars.fish
   end
