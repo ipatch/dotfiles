@@ -1,4 +1,4 @@
-# NOTE: ipatch, my current (2023) global config.fish - single file
+# NOTE: ipatch, current (2023) global config.fish - single file
 
 if status is-interactive
   # Commands to run in interactive sessions can go here
@@ -33,7 +33,7 @@ if status is-interactive
   export HOMEBREW_NO_INSTALL_CLEANUP=1
   export HOMEBREW_EDITOR=nvim
 
-  # $USER specific abbreviations
+  # $USER fish abbreviations
   abbr -a -g -- fr 'exec fish'
   abbr -a -g -- pp 'string join \n $PATH | nl  '
   abbr -a -g -- lr 'ls -lrth'
@@ -100,9 +100,9 @@ if status is-interactive
   end
 
   # NOTE: ipatch prepend my local git src builds first
-  set -gx git_src_bin (echo "$code/git/local/bin")
-  if not contains $git_src_bin $PATH
-    set -gx PATH $git_src_bin $PATH
+  set -gx git_src_bin_plus_lbin (echo "$code/git/local/bin:$HOME/.local/bin" | string split ":")
+  if not contains $git_src_bin_plus_lbin $PATH
+    set -gx PATH $git_src_bin_plus_lbin $PATH
   end
 
   # set created & updated files & directories to 664 & 775
