@@ -54,6 +54,7 @@ if status is-interactive
   abbr -a -g -- df 'df -h'
 
   abbr -a -g -- be 'bundle exec'
+  abbr -a -g -- sh2 'sha256sum'
 
   # fish shell abbr / gnu+linux specific
   #
