@@ -56,6 +56,9 @@ if status is-interactive
   abbr -a -g -- be 'bundle exec'
   abbr -a -g -- sh2 'sha256sum'
 
+  # $USER / macos vm tooling / helpful
+  abbr -a -g -- mpb '/opt/local/bin'
+
   # fish shell abbr / gnu+linux specific
   #
   # NOTE: ipatch, the below cmd will nuke the $DISPLAY env var  🤷‍♂️
