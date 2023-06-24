@@ -222,9 +222,9 @@ for_window [title="About Mozilla Firefox" window_role="About"] floating enable
 
 # NOTE: ipatch, spotify no worky 👎
 # assign [class="Spotify"] workspace $ws4
-# for_window [class="Spotify"] move to workspace $ws4
+#-
+# NOTE: ipatch, fun fact if on workspace 4 and one launches spotify the main window opens on the previous workspace NOT workspace 4 WTF 🤷
 for_window [class="Spotify"] move window to workspace $ws4
-# for_window [class="Spotify"] move to workspace $workspace3
 
 for_window [class="code-oss"] move to workspace $ws3
 for_window [class="discord"] move to workspace $ws5
