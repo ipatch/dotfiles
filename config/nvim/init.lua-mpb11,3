@@ -76,10 +76,13 @@ require('packer').startup(function(use)
     end
   }
 
-  -- themes
+  -- UI / themes
   use 'Mofiqul/vscode.nvim'
   use 'navarasu/onedark.nvim'
   use "projekt0n/github-nvim-theme"
+
+  -- UI / enhancements
+  use "lukas-reineke/indent-blankline.nvim"
 
   if is_bootstrap then
 	  require('packer').sync()
@@ -274,9 +277,27 @@ nnoremap <silent> <leader>l :TmuxNavigateRight<cr>
 --
 local ts = require 'nvim-treesitter.configs'
 ts.setup {
-  ensure_installed = { 'c', 'rust', 'javascript', 'typescript', 'python', 'ruby', 'fish', 'bash', 'help', 'lua', },
   sync_install = false,
-  ignore_install = { 'slint', 'gleam', 'clojure', 'beancount', 'help' }, -- List of parsers to ignore installing
+  ensure_installed = { 
+    'c', 
+    'rust', 
+    'javascript', 
+    'typescript', 
+    'python', 
+    'ruby', 
+    'fish', 
+    'bash', 
+    'help', 
+    'lua', 
+  },
+  -- List of parsers to ignore installing
+  ignore_install = { 
+    'slint', 
+    'gleam', 
+    'clojure', 
+    'beancount', 
+    'help' 
+  }, 
   auto_install = false,
   highlight = {
     enable = true,
@@ -284,24 +305,25 @@ ts.setup {
   }
 }
 
+-- plugin / theme / ui / indentlines
+
 -- plugin / theme / colorscheme
 -- REF: https://github.com/David-Kunz/vim/blob/master/init.lua#L235
-
 -- colorscheme
 require('onedark').setup {
-    style = 'deep',
-    -- style = 'darker'
-    -- style = 'dark'
-    -- style = 'warmer'
+  style = 'deep',
+  -- style = 'darker'
+  -- style = 'dark'
+  -- style = 'warmer'
 
-    colors = {
-      -- NOTE: ipatch, default grey color too light to see on dark background with lots of ambient light
-      -- NOTE: github uses #8b949e for code comments in dark contrast web UI
-      github_grey = "#8b94e",
-    },
-    highlights = { 
-      ["@Comment"] = {fg = '$github_grey'},
-    }
+  colors = {
+    -- NOTE: ipatch, default grey color too light to see on dark background with lots of ambient light
+    -- NOTE: github uses #8b949e for code comments in dark contrast web UI
+    github_grey = "#8b94e",
+  },
+  highlights = { 
+    ["@Comment"] = {fg = '$github_grey'},
+  }
 }
 
 require('onedark').load()
@@ -313,18 +335,18 @@ local ft = require('Comment.ft')
 -- 1. Using set function
 
 ft
- -- Set only line comment
- -- .set('yaml', '#%s')
- -- Or set both line and block commentstring
- -- .set('javascript', {'//%s', '/*%s*/'})
-  .set('ini', ';%s')
+-- Set only line comment
+-- .set('yaml', '#%s')
+-- Or set both line and block commentstring
+-- .set('javascript', {'//%s', '/*%s*/'})
+.set('ini', ';%s')
 
 -- NOTE: ipatch, override the default bg color for onedark theme
 -- TODO: ipatch, migrate this function, cmd to the above onedark colorscheme
 vim.api.nvim_command([[
-    augroup ChangeBackgroudColour
-        autocmd colorscheme * :hi normal guibg=#0a0a0a
-    augroup END
+augroup ChangeBackgroudColour
+autocmd colorscheme * :hi normal guibg=#0a0a0a
+augroup END
 ]])
 opt.termguicolors = true
 cmd [[silent! colorscheme onedark]]
