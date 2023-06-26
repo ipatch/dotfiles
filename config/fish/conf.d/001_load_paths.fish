@@ -1,34 +1,34 @@
-##############################
+#-----------------------------
 # ~ 001_load_paths.fish ~
-##
+#-
 
-##############################
+#-----------------------------
 # Global PATH
-##
+#-
 # SEE: `jobs/macOS/etc/profile` within this repo for a list of default paths for macOS, ie. paths defined for every user on the system.
-##
+#-
 # NOTE: to update order, or remove old crusty path entries from the $PATH env var
 # `set -e PATH`, then reload shell
-##
+#-
 
-#############################
+#----------------------------
 # NOTE: 🚨 path ordering issues
 # quickest way to regen path entries,
 # `set -gx PATH "/usr/bin:/bin"
 # `exec /usr/local/bin/fish
-##
+#-
 # NOTE: tmux will inherit entries related to bashrc startup scripts so be sure to set
 # ...the default startup cmd in tmux
 # REF: https://unix.stackexchange.com/a/548516/33002
 # NOTE: when overhauling path entries the tmux server needs killing, start everything fresh
 
-#############################
+#----------------------------
 # OS check
-#
+#-
 # NOTE: be sure to symlink `/bin/uname` to `/usr/bin/uname` on Debian
 # NOTE: macOS == `Darwin` GNU+Linux == `Linux`
 # NOTE: arch linux symlinks /usr/bin to /bin ...w00t
-##
+#-
 set -gx os (/usr/bin/uname)  
 # echo $os # DEBUG
 set -gx XDG_CONFIG_HOME $HOME/.config
