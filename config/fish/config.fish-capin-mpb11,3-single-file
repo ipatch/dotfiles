@@ -7,6 +7,10 @@
 #--
 # old non tree-sitter vim syntax file
 # https://github.com/dag/vim-fish
+#--
+# - [ ] TODO: get code folds working for the love of GOD
+# - [ ] TODO: properly highlight the word `NOTE:`
+# - [ ] TODO: look ruby related tree-sitter files inspiration
 
 if status is-interactive
   # Commands to run in interactive sessions can go here
@@ -15,6 +19,7 @@ if status is-interactive
   alias ffprobe='ffprobe -hide_banner'
   alias ffmpeg='ffmpeg -hide_banner'
   alias pgrep='pgrep -i'
+  alias pthrm='fish.rm.path'
 
   # fish specific env vars
   set -gx fish_greeting ""
@@ -90,41 +95,45 @@ if status is-interactive
     zoxide init fish | source
   end
 
-  # NOTE: ipatch, $USER lang tooling $PATHs
-
   # NOTE: ipatch, yay on archlinux failed to install solvespace with hb_bins first in PATH
   #--
   # REF: https://github.com/fish-shell/fish-shell/issues/2090#issuecomment-149990142
   #--
-  # TODO: ipatch, the below 2 dirs are added to the path regardless if the dirs exist or not
   # NOTE: ipatch, fish does not play nice with `~` use $HOME env var instead
+  # NOTE: ipatch, $USER lang tooling $PATHs
   #--
-  # NOTE: repeating 5 if statements is a BIG code smell 💩
-  set -gx hb_bins (echo "$HOME/homebrew/sbin:$HOME/homebrew/bin" | string split ":")
-  if not contains $hb_bins $PATH
-    set -gx PATH $PATH $hb_bins
+
+  set -l paths \
+  $HOME/homebrew/sbin \
+  $HOME/homebrew/bin \
+  $HOME/.rvm/bin \
+  $HOME/.bun/bin \
+  $HOME/go/bin \
+  $code/git/local/bin \
+  $HOME/.local/bin \
+  # below entry should NOT be added
+  $HOME/wtf/bin \
+
+  for p in $paths
+    if not contains $p $PATH; and test -d $p
+      # append PATH entries, ie. top entry appears first in PATH
+      # set -gx PATH $PATH $p
+
+      # prepend PATH entries, so that `/usr/sbin:/usr/bin:/sbin:/bin` are the last 4 entries in the PATH
+      # NOTE: the path entry order can be tested w/ the fish shell abbr `pp` contained within `abbreviations.fish`
+      set -gx PATH $p $PATH
+    end
   end
 
-  # NOTE: ipatch, be sure to link the `rvm.fish` in the `~/.config/fish/functions`
-  set -gx rvm_bin (echo "$HOME/.rvm/bin")
-  if not contains $rvm_bin $PATH
-    set -gx PATH $PATH $rvm_bin
-  end
 
-  set -gx bun_bin (echo "$HOME/.bun/bin")
-  if not contains $bun_bin $PATH
-    set -gx PATH $PATH $bun_bin
-  end
-
-  set -gx go_bin (echo "$HOME/go/bin")
-  if not contains $go_bin $PATH
-    set -gx PATH $PATH $go_bin
-  end
-
-  # NOTE: ipatch prepend my local git src builds first
-  set -gx git_src_bin_plus_lbin (echo "$code/git/local/bin:$HOME/.local/bin" | string split ":")
-  if not contains $git_src_bin_plus_lbin $PATH
-    set -gx PATH $git_src_bin_plus_lbin $PATH
+  function fish.rm.path --description 'remove a PATH from \$PATH'
+    if set -l index (contains -i $argv[1] $PATH)
+      set --erase PATH[$index]
+      # echo "Updated PATH: $PATH"
+      echo "Updated PATH:"; string join \n $PATH | nl 
+    else
+      echo "$argv[1] not found in PATH:"; string join \n $PATH | nl
+    end
   end
 
   # set created & updated files & directories to 664 & 775
