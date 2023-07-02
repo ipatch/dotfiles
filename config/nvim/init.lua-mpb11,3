@@ -163,6 +163,10 @@ opt.cursorline = true           -- highlight the current line
 -- NOTE: ipatch, i believe enabling the below settings will allow nvim to remember fold and cursor setting/position
 opt.viewoptions = "folds,cursor"
 
+-- set default fold level when buffer is open / activated
+-- ie. set NO code folds
+opt.foldlevelstart = 99
+
 vim.opt.swapfile = false
 vim.opt.backup = false
 vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir" 

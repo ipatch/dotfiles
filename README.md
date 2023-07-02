@@ -779,7 +779,6 @@ https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.conf \
 
 <summary>Uncompleted</summary>
 
-- [ ] #neovim Question, why does neovim always open new files with all code folds collapased?
 - [ ] #fish #neovim #tree-sitter properly highlight the word `NOTE:`
 - [ ] #arch #i3, how to change the outline color of the active window on the screen?
 - [ ] #copypasta #fish #tmux, when logged in to a remote system via ssh, and running tmux locally and on a remote system copying the STDOUT to the local clipboard DOES NOT WORK!!!!!, **need that**
@@ -889,6 +888,7 @@ https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.conf \
 <details>
 <summary><strong>TODOs completed</strong></summary>
 
+- [x] #neovim Question, why does neovim always open new files with all code folds collapased?
 - [x] #arch #emojis some how my key binding for launching my emoji picker emote NO LONGER WORKS!!!!!
 - [x] #arch enable inteliommu as a grub boot line param
 - [x] #treesitter, how to add a commentstring for a specific file ie. `polybar.ini`
