@@ -41,6 +41,7 @@ if status is-interactive
   set -gx ghforks "/opt/code/git/github/forks"
   set -gx ltmp "$HOME/ltmp"
   set -gx hb "$HOME/homebrew"
+  set -gx hbfc "$HOME/homebrew/Library/Taps/freecad/homebrew-freecad"
 
   # app env vars / homebrew
   export HOMEBREW_NO_INSTALL_CLEANUP=1
