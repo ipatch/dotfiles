@@ -73,7 +73,24 @@ i3status doesn't directly support calling/running shell scripts from what i unde
 
 <a name="troubleshooting"></a>
 
+### troubleshooting / upgrades
+
+<a name="troubleshooting-upgrades"></a>
+
+recently upgrading to linux kernel 6.4.1 broke my nvidia proprietary driver installation, and also rendered my bluetooth controller on my builtin bmc 4360 broadcom dual wifi/bluetooth card to stop appearing as a bluetooth controller 🤷‍♂️
+
+long story short, this whole issue probably warrants some form of blog post, but unfortunately i don't have an active blog going at the moment, so i'll just type my frustations here.
+
+the quickest fix i came up with was 
+1. rebuild the nvidia properitary driver aur package for the cache dir stored within my home dir. 
+2. downgrade linux to the last 6.3.x series kernel using the downgrade package provided by AUR
+
+> **NOTE** be sure to downgrade both linux and linux-headers or the dkms modules will not build, thus rendering the system pretty much useless.
+
+
 ### troubleshooting / pacman or yay
+
+<a name="tshoot-pacman-yay"></a>
 
 if the below error arrises when trying to upgrade an arch based GNU+Linux system
 
@@ -138,7 +155,7 @@ i've run into several instances where i attempt to mount my ext USB drive using 
 
 ***hypothesis*** i've run a system update _yay_ and have updated all packages on the system, but have yet to reboot the system. for whatever reason i think this is preventing the zfs module from loading. ...will attempt to restart computer after all pkg installations have been completed.
 
-**correct** ✅ rebooting my archlinux box, followd by running, `sudo -E /sbin/modprobe zfs` loaded the zfs modules for my running kernel.
+**correct** ✅ rebooting my archlinux box, followed by running, `sudo -E /sbin/modprobe zfs` loaded the zfs modules for my running kernel.
 
 [lm.zfs1]: <https://www.reddit.com/r/archlinux/comments/tzysyg/installing_zfs_breaks_dependency/>
 
@@ -217,7 +234,6 @@ A good [reference/explanation][ul3] of the above procedure
 ## useful links / todos / followup
 
 - https://saveman71.com/2019/automatic-pause-music-screen-lock-linux-mpris/
-
 - [calculating DPI **https://dpi.lv/** ❤][ul8]
 - [**medium article** arch linux running on a macbook][ul4]
 - [**github** arch linux macbook dual boot][ul5]
