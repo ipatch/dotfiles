@@ -201,7 +201,7 @@ bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 
 # NOTE: ipatch, assign certain apps to certain workspaces
-# NOTE: ipatch, use below cmd to get window/app props `xprop`
+# NOTE: ipatch, run `xprop` to get app/window properties
 
 # NOTE: ipatch, set default window size
 # WM_CLASS(STRING) = "gpartedbin", "GParted"
