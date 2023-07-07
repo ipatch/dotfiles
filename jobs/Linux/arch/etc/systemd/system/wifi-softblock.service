@@ -1,0 +1,12 @@
+[Unit]
+Description=Soft block internal bmc4360 wifi only 
+DefaultDependencies=no
+After=sysinit.target local-fs.target
+
+[Service]
+Type=oneshot
+; ExecStart=/usr/bin/rfkill block <wifi-device-index>
+ExecStart=/usr/bin/rfkill block 0
+
+[Install]
+WantedBy=sysinit.target
