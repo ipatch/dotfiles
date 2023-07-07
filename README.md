@@ -779,6 +779,8 @@ https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.conf \
 
 <summary>Uncompleted</summary>
 
+- [ ] #arch #systemd, come to a peaceful solution on why i can't set the perms i want for my log files
+    - https://github.com/systemd/systemd/issues/28302
 - [ ] a much better solution for ricing my arch install ie. editing config files that require a reboot would be to edit in a virtual machine or even using a docker container to not require a full reboot  🤦‍♂️
 - [ ] #rice, created a new branch _firewood_ for place to store things that are no longer required
 - [ ] #fish, possible to add a key binding to toggle the display of the right side prompt?
