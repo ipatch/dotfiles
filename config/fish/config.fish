@@ -49,6 +49,7 @@ if status is-interactive
   export HOMEBREW_NO_GITHUB_API=1
   export HOMEBREW_NO_ANALYTICS=1
   export HOMEBREW_NO_AUTO_UPDATE=1
+  export HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK=1
 
   # $USER fish abbreviations
   abbr -a -- fr 'exec fish'
