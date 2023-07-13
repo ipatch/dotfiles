@@ -9,7 +9,7 @@ in order to use the `userChrome.css` contained within this directory with firefo
 toolkit.legacyUserProfileCustomizations.stylesheets
 ```
 
-then place the `userChrome.css` within the firefox profile directory. the profile directory is a different location for each of the three mmajor OSes, and can be found by opening either the `about: profiles` or the `about:config`
+then place the `userChrome.css` within the firefox profile directory. the profile directory is a different location for each of the three major OSes, and can be found by opening either the `about: profiles` or the `about:config`
 
 i pulled this information from the following [blog post][ul1]
 

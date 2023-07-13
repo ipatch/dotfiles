@@ -3,8 +3,8 @@
  * You should consider using !important on rules which you want to
  * override default settings.
  */
-
-@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+@namespace xul url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+@namespace html url("http://www.w3.org/1999/xhtml");
 
 /* set default namespace to XUL */
 
@@ -12,6 +12,22 @@
 /* .toolbarbutton-icon { */
 /*   display: none !important; */
 /* } */
+
+/* NOTE: ipatch, none of the below solutions worked in increasing the font size of the dev tools 👎 */
+/* Increase the font size in the developer tools */
+/* @-moz-document url("chrome://browser/content/devtools/*") { */
+/*   body { */
+/*     font-size: 24px !important; */
+/*   } */
+/* } */
+
+/* devtools-monospace, */
+/* .CodeMirror, */
+/* .CodeMirror pre { */
+/*     font-family: "Courier New", monospace !important; */
+/*     font-size: 30pt !important; */
+/* } */
+
 
 #personal-bookmarks .bookmark-item .toolbarbutton-icon {display:none!important;} 
 
