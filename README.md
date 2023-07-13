@@ -779,6 +779,7 @@ https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.conf \
 
 <summary>Uncompleted</summary>
 
+- [ ] #nvim #packer, running `:PackerSync` always blocks neovim ie. ui changes and makes the entire usage unresponsive
 - [ ] #arch #systemd, come to a peaceful solution on why i can't set the perms i want for my log files
     - https://github.com/systemd/systemd/issues/28302
 - [ ] a much better solution for ricing my arch install ie. editing config files that require a reboot would be to edit in a virtual machine or even using a docker container to not require a full reboot  🤦‍♂️
