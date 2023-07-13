@@ -168,11 +168,15 @@ set $web   "2: web"
 # NOTE: ipatch, launch copyq when i3 starts, ie. autostart, auto start
 # ref: https://i3wm.org/docs/userguide.html#_automatically_starting_applications_on_i3_startup
 
+# blueberry / bluetooth device manager
+exec --no-startup-id "/usr/bin/blueberry"
+
 # clipboard manager
 exec --no-startup-id "/usr/bin/copyq"
 
 # screenshot manager
 exec --no-startup-id "/usr/bin/flameshot"
+
 # flameshot launch a selction
 bindsym $mod+shift+control+4 exec --no-startup-id "flameshot gui --clipboard"
 
