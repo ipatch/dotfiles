@@ -116,6 +116,8 @@ if status is-interactive
   $HOME/go/bin \
   $code/git/local/bin \
   $HOME/.local/bin \
+  /usr/local/sbin \
+  /usr/local/bin \
   # below entry should NOT be added
   $HOME/wtf/bin \
 
