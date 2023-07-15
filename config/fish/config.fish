@@ -2,7 +2,7 @@
 #--
 # NOTE: ipatch, editing this file in neovim is less than ideal
 # ie. most vim navigation does not work ie. [[ or ]] and
-# indentation doesn't really work, i blame you tree-sitter
+# indentation doesn't really work, i blame you 😑 tree-sitter
 # https://github.com/ram02z/tree-sitter-fish
 #--
 # old non tree-sitter vim syntax file
@@ -11,6 +11,10 @@
 # - [ ] TODO: get code folds working for the love of GOD
 # - [ ] TODO: properly highlight the word `NOTE:`
 # - [ ] TODO: look at ruby related tree-sitter files for inspiration
+# - [ ] TODO: for reasons i dont understand when closing nvim and opening this file again
+# ...the filetype defaults to `conf`
+# - [ ] TODO: update `pthrm` func to rm path entries based the number index ie.
+# ... `pathrm 1,2,3` instead of copypastaing the entire path entries
 
 if status is-interactive
   # Commands to run in interactive sessions can go here
@@ -108,18 +112,18 @@ if status is-interactive
   #--
 
   set -l paths \
-  $HOME/homebrew/sbin \
-  $HOME/homebrew/bin \
-  $HOME/homebrew/opt/python/libexec/bin \
-  $HOME/.rvm/bin \
-  $HOME/.bun/bin \
-  $HOME/go/bin \
-  $code/git/local/bin \
-  $HOME/.local/bin \
-  /usr/local/sbin \
-  /usr/local/bin \
-  # below entry should NOT be added
-  $HOME/wtf/bin \
+    $HOME/homebrew/sbin \
+    $HOME/homebrew/bin \
+    $HOME/homebrew/opt/python/libexec/bin \
+    $HOME/.rvm/bin \
+    $HOME/.bun/bin \
+    $HOME/go/bin \
+    $code/git/local/bin \
+    $HOME/.local/bin \
+    /usr/local/sbin \
+    /usr/local/bin \
+    # below entry should NOT be added
+    $HOME/wtf/bin \
 
   for p in $paths
     if not contains $p $PATH; and test -d $p
@@ -131,18 +135,7 @@ if status is-interactive
       set -gx PATH $p $PATH
     end
   end
-
-
-  function fish.rm.path --description 'remove a PATH from \$PATH'
-    if set -l index (contains -i $argv[1] $PATH)
-      set --erase PATH[$index]
-      # echo "Updated PATH: $PATH"
-      echo "Updated PATH:"; string join \n $PATH | nl 
-    else
-      echo "$argv[1] not found in PATH:"; string join \n $PATH | nl
-    end
-  end
-
+  
   # set created & updated files & directories to 664 & 775
   umask 002
 
@@ -152,6 +145,27 @@ if status is-interactive
   end
 
   # $USER functions
+  function fish.rm.path --description 'remove PATH entries from $PATH'
+    for arg in $argv
+        if set -l index (contains -i $arg $PATH)
+            set --erase PATH[$index]
+        else
+            echo "$arg not found in PATH:"
+        end
+    end
+    echo "Updated PATH:"; string join \n $PATH | nl 
+  end
+
+  # function fish.rm.path --description 'remove a PATH from \$PATH'
+  #   if set -l index (contains -i $argv[1] $PATH)
+  #     set --erase PATH[$index]
+  #     # echo "Updated PATH: $PATH"
+  #     echo "Updated PATH:"; string join \n $PATH | nl 
+  #   else
+  #     echo "$argv[1] not found in PATH:"; string join \n $PATH | nl
+  #   end
+  # end
+
   function mkcd --description '`mkdir` then `cd` into it'
     mkdir -p $argv; and cd $argv
   end
