@@ -1,5 +1,6 @@
 # User driven .irbrc file for working in interactive ruby sessions, ie. a Ruby REPL
-#
+# github.com/ipatch
+# twitter.com/truckmonth
 #
 
 require 'irb/completion'
@@ -18,4 +19,16 @@ end
 
 def pbpaste
   `pbpaste`
+end
+
+# thanks @flatiron-school
+# show local methods first on instance classes that inherit from the overall base object ruby class
+class Object
+  def lm
+    (self.methods - Object.methods).sort
+  end
+
+  def lim
+    (self.instance_methods - Object.instance_methods).sort
+  end
 end
