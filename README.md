@@ -785,6 +785,7 @@ https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.conf \
 - [ ] a much better solution for ricing my arch install ie. editing config files that require a reboot would be to edit in a virtual machine or even using a docker container to not require a full reboot  🤦‍♂️
 - [ ] #rice, created a new branch _firewood_ for place to store things that are no longer required
 - [ ] #fish, possible to add a key binding to toggle the display of the right side prompt?
+- [ ] #fish add a keyboard shortcut to toggle the right prompt **on** / **off**
 - [ ] #fish #neovim #tree-sitter properly highlight the word `NOTE:`
 - [ ] #arch #i3, how to change the outline color of the active window on the screen?
 - [ ] #copypasta #fish #tmux, when logged in to a remote system via ssh, and running tmux locally and on a remote system copying the STDOUT to the local clipboard DOES NOT WORK!!!!!, **need that**
@@ -797,7 +798,6 @@ https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.conf \
 - [ ] #arch #tmux add key binding to toggle window display numbers
 - [ ] #hammerspoon #karabiner #cmake it'd be nice to swap the `[]` with the `{}` when capslock is activated similiar to how i swapped underbar `_` with hyphen `-`
 - [ ] #macos #homebrew apparently my `Brewfile` does not contain an updated list of installed casks
-- [ ] #ssh #tmux copy/paste it seems using my fish abbr on a remote box (arch) `pbpaste` is unable to paste the contents of my local clipboard it'd be much cooler™️ if clipboard worked seemlessly across ssh (one can dream 🦄)
 - [ ] #tmux how to map the apple cmd key <kbd>⌘</kbd>
     - as far as i can tell tmux does not support a third modifier key 👎, so closest i can do is swith command and alt keys using karabiner
 - [ ] #fish device a cmd to remove all python path entries from `$PATH` so I can just work with homebrew python in peace.
@@ -820,13 +820,9 @@ https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.conf \
     - https://01.org/linuxmedia/vaapi
     - https://01.org/linuxgraphics/downloads/2018q1-intel-graphics-stack-recipe
     - https://bbs.archlinux.org/viewtopic.php?id=186501
-- [ ] `init.lua` remember _code fold_ settings when closing then reopening a buffer
 - [ ] #vim #neovim #nvim, specific, add or implement _goto definition_ function when editing homebrew formula files to have a go to definition when cursor is on a `depends_on` block, ie. open that respected formula file
 - [ ] display some sort message, alert, or menubar icon when caps lock is activated "for all that is sane" 👩🏻‍⚕️
 - [ ] #karabiner-elements #karabinerelements, swap <kbd>-</kbd> with <kbd>_</kbd> when **caps lock** is activated
-- [ ] [tmux] nesting tmux sessions, finish exploring (if possilbe) get a working tmux setup that allows nesting sessions.
-    - https://github.com/aleclearmind/nested-tmux
-    - https://forum.upcase.com/t/managing-local-and-remote-nested-tmux-sessions/7601
 - [ ] [vnc viewer] using _vnc viewer.app_ on macos sucks when using an external mouse to scroll through the terminal history.
     - is ther some setting where the sensitivity can be set, so scroll begins with one click of the mouse wheel.
 - [ ] [vim] [nvim] when toggling the tagbar <kbd>leader+\\</kbd> move the cursor/focus to the tagbar buffer automatically.
@@ -853,7 +849,6 @@ https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.conf \
   - GitGutterDelete
   - LineNr
   - Number
-- [ ] [fish] add a keyboard shortcut to toggle the right prompt **on** / **off**
 - [ ] [fish, dots] # TODO: migrate all `mac, mac-` related abbrs, alias, shell scripts to use `apl` prefix
 - [ ] [vim, tmux, or macos] some form of icon / notification of **caps lock** being enabled
 - [ ] [tmux] add space at the end of window names to prevent moving of text in status bar
@@ -867,7 +862,6 @@ https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.conf \
 - [ ] [vim, markdown] have basic code folding for certain HTML tags when editing markdown documents
 - [ ] [macos] what is the procedure macos uses to mount a file system when a usb drive is plugged into a macos system
 - [ ] [tmux] instead <kbd>prefix</kbd> then <kbd>control+l</kbd> to clear the screen, try using <kbd>control+l followed by l</kbd>, no good, try using <kbd>super + l</kbd>
-- [ ] [macos] look into creating a _lazy mouse hover_ function, if the mouse is hovering a application specific window for a certain period of time (threshold) bring that application to focus, ie. a pseudo auto hover.
 - [ ] [tmux] put short synopsis of current weather in tmux status bar, _right side_
 - [ ] **vivaldi** / **voilentmonkey**
   - youtube script, to switch view mode on viewer window hover with mouse or mash a key to bring focus to viewer window so playback shortcuts become active.
@@ -894,6 +888,12 @@ https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.conf \
 <details>
 <summary><strong>TODOs completed</strong></summary>
 
+- [x] [macos] look into creating a _lazy mouse hover_ function, if the mouse is hovering a application specific window for a certain period of time (threshold) bring that application to focus, ie. a pseudo auto hover.
+- [x] [tmux] nesting tmux sessions, finish exploring (if possilbe) get a working tmux setup that allows nesting sessions.
+    - https://github.com/aleclearmind/nested-tmux
+    - https://forum.upcase.com/t/managing-local-and-remote-nested-tmux-sessions/7601
+- [x] `init.lua` remember _code fold_ settings when closing then reopening a buffer
+- [x] #ssh #tmux copy/paste it seems using my fish abbr on a remote box (arch) `pbpaste` is unable to paste the contents of my local clipboard it'd be much cooler™️ if clipboard worked seemlessly across ssh (one can dream 🦄)
 - [x] #neovim Question, why does neovim always open new files with all code folds collapased?
 - [x] #arch #emojis some how my key binding for launching my emoji picker emote NO LONGER WORKS!!!!!
 - [x] #arch enable inteliommu as a grub boot line param
