@@ -95,8 +95,9 @@ if status is-interactive
   # TODO: ipatch, below abbr probably better served as a function that can take arg for custom msgs
   abbr -a -- alert 'notify-send -t 0 doitlive'
   abbr -a -- pbcopy 'xclip -selection clipboard'
-  abbr -ag pbpaste "xclip -selection clipboard -o"
+  abbr -a -- pbpaste "xclip -selection clipboard -o"
   abbr -a -- nmc 'nmcli'
+  abbr -a -- htp 'http'
 
   # nice things
   if which zoxide >/dev/null
