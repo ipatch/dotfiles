@@ -779,6 +779,7 @@ https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.conf \
 
 <summary>Uncompleted</summary>
 
+- [ ] #tmux since working with multiple sessions it'd be nice to have tmux present a modal to quickly show all windows in all sessions and type the name of the window to quickly jump between tmux windows that aren't presently visible in the current tmux session. (one can dream™)
 - [ ] #i3 when launching an app that is defined for a specific workspace and already on that workspace the app launches on the previously active workspace WTF?
 - [ ] #nvim #packer, running `:PackerSync` always blocks neovim ie. ui changes and makes the entire usage unresponsive
 - [ ] #arch #systemd, come to a peaceful solution on why i can't set the perms i want for my log files
