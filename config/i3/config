@@ -209,6 +209,18 @@ assign [class="firefox"] workspace $web
 # for_window [title="About Mozilla Firefox"] floating enable # NOVA ❌
 for_window [title="About Mozilla Firefox" window_role="About"] floating enable
 
+# NOTE: ipatch, xpdf / file open dialogue
+for_window [title="Open PDF File"] floating enable resize set 1817 1156, move position center
+
+
+# WM_NORMAL_HINTS(WM_SIZE_HINTS):
+# 		user specified location: 1060, 631
+# 		user specified size: 1817 by 1156
+# 		program specified minimum size: 622 by 388
+# 		window gravity: Static
+# _NET_WM_NAME(UTF8_STRING) = "Open PDF File"
+# WM_NAME(STRING) = "Open PDF File"
+
 # NOTE: ipatch, spotify no worky 👎
 # assign [class="Spotify"] workspace $ws4
 #-
