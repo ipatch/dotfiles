@@ -1,6 +1,5 @@
 
 # NOTE: ipatch, `man xpdfrc`
-# TODO: ipatch set vim `gcc` cmd to properly comment lines within file
 
 # NOTE: ipatch, https://forum.xpdfreader.com/viewtopic.php?t=41790
 bind mousePress4 any scrollUpPrevPage(100)
@@ -14,3 +13,9 @@ bind h any scrollLeft(32)
 bind l any scrollRight(32)
 bind k any scrollUp(100)
 bind j any scrollDown(100)
+
+# NOTE: ipatch, run `man xpdf` for a list of commands
+# popupmenucmd / ie. right click menu
+popupMenuCmd "Copy Text" copy
+popupMenuCmd "GoTo Previous View" goBackward
+popupMenuCmd "GoTo Next View" goForward
