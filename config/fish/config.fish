@@ -36,6 +36,8 @@ if status is-interactive
 
   # $USER tooling / js / node / nvm
   set -gx NVM_DIR "$HOME/.config/nvm"
+  # .. / rust / deno
+  set -gx DENO_INSTALL "$HOME/.deno"
 
   # $USER env vars
   set -gx code "/opt/code"
@@ -120,6 +122,7 @@ if status is-interactive
     $HOME/.bun/bin \
     $HOME/go/bin \
     $HOME/.cargo/bin \
+    $DENO_INSTALL/bin \
     $code/git/local/bin \
     $HOME/.local/bin \
     /usr/local/sbin \
