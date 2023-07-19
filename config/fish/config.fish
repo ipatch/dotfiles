@@ -119,6 +119,7 @@ if status is-interactive
     $HOME/.rvm/bin \
     $HOME/.bun/bin \
     $HOME/go/bin \
+    $HOME/.cargo/bin \
     $code/git/local/bin \
     $HOME/.local/bin \
     /usr/local/sbin \
