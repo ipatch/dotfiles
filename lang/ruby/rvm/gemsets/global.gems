@@ -1,0 +1,10 @@
+gem-wrappers
+rubygems-bundler
+rake
+rvm
+bundler
+pry
+cocoapods
+ruby-lint
+memory_profiler
+derailed_benchmarks
