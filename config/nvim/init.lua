@@ -110,6 +110,7 @@ if is_bootstrap then
   return
 end
 
+---------------
 -- key mappings
 g.mapleader = " " -- map leader key to spacebar 
 map('n', '<leader>bd', ':bd<cr>', {noremap = true}) -- close buffer
@@ -129,11 +130,13 @@ vim.keymap.set('n', '<C-u>', '<C-u>zz')
 -- key mapping / toggle hidden chars & Settings for hidden chars
 map('n', '<leader>h', ':set list!<cr>', {noremap = true})
 
+---------------
 -- key mapping / bubble text
 -- bubble text, Normal mode, <M-???>, `M` is meta key, `alt` on macOS
 map('n', '<M-k>', ':m .-2<cr>==', {noremap = true})
 map('n', '<M-j>', ':m .+1<cr>==', {noremap = true})
 
+---------------
 -- settings / options / use vim settings within nvim via lua
 opt.completeopt = {'menu', 'menuone', 'noselect'}
 opt.mouse = 'a'
@@ -182,6 +185,7 @@ vim.api.nvim_exec([[
 command SynID  echo synIDattr(synID(line("."), col("."), 1), "name")
  ]], true)
 
+---------------
 -- settings / hidden chars
 opt.listchars:append("tab:‣ ") -- NOTE:ipatch, requires a trailing `space` after char
 opt.listchars:append("nbsp:⦸") -- CIRCLED REVERSE SOLIDUS (U+29B8, UTF-8: E2 A6 B8)
@@ -218,6 +222,12 @@ augroup END
 g.netrw_banner = true
 -- g.netrw_liststyle = 3
 
+---------------
+-- NOTE: ipatch / useful reminders, and other assorted BS
+-- convert all single quotes in a file to double quotes
+-- :%s/'\([^']*\)'/"\1"/g
+
+
 -- clipboard settings
 -- NOTE: ipatch, to print the current clipboard use, `set clipboard?`
 -- TODO: make `y` put yank into system clipboard
@@ -231,7 +241,7 @@ else
   opt.clipboard:append {'unnamedplus'}
 end
 
---
+---------------
 -- plugin / neovim telescope / key mappings
 -- mapping using the provided helper function
 --
