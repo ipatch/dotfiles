@@ -17,6 +17,10 @@
 # ... `pathrm 1,2,3` instead of copypastaing the entire path entries
 
 if status is-interactive
+
+  # NOTE: ipatch, local var for defining OS specific settings
+  set -gx os (/usr/bin/uname)  
+
   # Commands to run in interactive sessions can go here
   alias gs='git status'
   alias l='ls -lah'
@@ -90,14 +94,20 @@ if status is-interactive
 
   abbr -a -- clear.journal 'sudo journalctl --rotate; sudo journalctl --vacuum-time=1s'
   abbr -a -- sc.clear.journal 'sudo journalctl --rotate; sudo journalctl --vacuum-time=1s'
-  abbr -a -- yay.up.zfs 'yay -Sa --nodeps zfs-dkms zfs-utils'
   abbr -a -- sc 'sudo systemctl'
-  abbr -a -- ys 'yay -S'
-  abbr -a -- yss 'yay -Ss'
   # TODO: ipatch, below abbr probably better served as a function that can take arg for custom msgs
   abbr -a -- alert 'notify-send -t 0 doitlive'
-  abbr -a -- pbcopy 'xclip -selection clipboard'
-  abbr -a -- pbpaste "xclip -selection clipboard -o"
+
+  # NOTE: ipatch, arch linux specifics
+  if [ "$os" = Linux ]; and [ -n /usr/bin/pacman ]
+    # TODO: only set this on gnu+linux distros
+    abbr -a -- pbcopy 'xclip -selection clipboard'
+    abbr -a -- pbpaste "xclip -selection clipboard -o"
+    abbr -a -- yay.up.zfs 'yay -Sa --nodeps zfs-dkms zfs-utils'
+    abbr -a -- ys 'yay -S'
+    abbr -a -- yss 'yay -Ss'
+  end
+
   abbr -a -- nmc 'nmcli'
   abbr -a -- htp 'http'
 
