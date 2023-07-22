@@ -779,6 +779,7 @@ https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.conf \
 
 <summary>Uncompleted</summary>
 
+- [ ] #nvim put `:yy` in system clipboard
 - [ ] #nvim plugin / #nvim-ufo can not fold html tags contained with a markdown document out of the box
 - [ ] #nvim figure out a way to prevent my <kbd>;</kbd> binding from omitting my `.wiki` dir in certain projects
 - [ ] #tmux since working with multiple sessions it'd be nice to have tmux present a modal to quickly show all windows in all sessions and type the name of the window to quickly jump between tmux windows that aren't presently visible in the current tmux session. (one can dream™)
