@@ -779,6 +779,8 @@ https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.conf \
 
 <summary>Uncompleted</summary>
 
+- [ ] #tmux change the format of the tmux clock from 24 to 12 hour
+- [ ] #arch #emote how to make the gui for my emoji picker larger 👩‍🦯
 - [ ] #nvim put `:yy` in system clipboard
 - [ ] #nvim plugin / #nvim-ufo can not fold html tags contained with a markdown document out of the box
 - [ ] #nvim figure out a way to prevent my <kbd>;</kbd> binding from omitting my `.wiki` dir in certain projects
