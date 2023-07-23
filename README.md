@@ -779,12 +779,9 @@ https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.conf \
 
 <summary>Uncompleted</summary>
 
-- [ ] #tmux change the format of the tmux clock from 24 to 12 hour
 - [ ] #arch #emote how to make the gui for my emoji picker larger 👩‍🦯
-- [ ] #nvim put `:yy` in system clipboard
 - [ ] #nvim plugin / #nvim-ufo can not fold html tags contained with a markdown document out of the box
 - [ ] #nvim figure out a way to prevent my <kbd>;</kbd> binding from omitting my `.wiki` dir in certain projects
-- [ ] #tmux since working with multiple sessions it'd be nice to have tmux present a modal to quickly show all windows in all sessions and type the name of the window to quickly jump between tmux windows that aren't presently visible in the current tmux session. (one can dream™)
 - [ ] #i3 when launching an app that is defined for a specific workspace and already on that workspace the app launches on the previously active workspace WTF?
 - [ ] #nvim #packer, running `:PackerSync` always blocks neovim ie. ui changes and makes the entire usage unresponsive
 - [ ] #arch #systemd, come to a peaceful solution on why i can't set the perms i want for my log files
@@ -795,7 +792,6 @@ https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.conf \
 - [ ] #fish add a keyboard shortcut to toggle the right prompt **on** / **off**
 - [ ] #fish #neovim #tree-sitter properly highlight the word `NOTE:`
 - [ ] #arch #i3, how to change the outline color of the active window on the screen?
-- [ ] #copypasta #fish #tmux, when logged in to a remote system via ssh, and running tmux locally and on a remote system copying the STDOUT to the local clipboard DOES NOT WORK!!!!!, **need that**
 - [ ] #tmux setup a custom code fold function using vimscript or possible lua for my `tmux.conf` reference the stock `html` and `c` lang syntax files for how the use different types of expressions for code folds 🤔
 - [ ] #webdev, side quest, 🤺 figure out reimp search so a site such autozone can find `b12 chemtool` instead having to type `b-12`
 - [ ] #arch #tmux, exp with using `alt+[NUMS]` to switch between windows in a session, ie. `alt+1` goto window 1
@@ -895,6 +891,10 @@ https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.conf \
 <details>
 <summary><strong>TODOs completed</strong></summary>
 
+- [x] #tmux change the format of the tmux clock from 24 to 12 hour
+- [x] #copypasta #fish #tmux, when logged in to a remote system via ssh, and running tmux locally and on a remote system copying the STDOUT to the local clipboard DOES NOT WORK!!!!!, **need that**
+- [x] #tmux since working with multiple sessions it'd be nice to have tmux present a modal to quickly show all windows in all sessions and type the name of the window to quickly jump between tmux windows that aren't presently visible in the current tmux session. (one can dream™)
+- [x] #nvim put `:yy` in system clipboard
 - [x] [macos] look into creating a _lazy mouse hover_ function, if the mouse is hovering a application specific window for a certain period of time (threshold) bring that application to focus, ie. a pseudo auto hover.
 - [x] [tmux] nesting tmux sessions, finish exploring (if possilbe) get a working tmux setup that allows nesting sessions.
     - https://github.com/aleclearmind/nested-tmux
