@@ -229,16 +229,11 @@ g.netrw_banner = true
 
 
 -- clipboard settings
--- NOTE: ipatch, to print the current clipboard use, `set clipboard?`
--- TODO: make `y` put yank into system clipboard
-if fn.has('mac') then
-  opt.clipboard:append {'unnamed'}
-elseif fn.has('win64') then
-  opt.clipboard:append {'unnamed'}
-elseif fn.has('win32') then
-  opt.clipboard:append {'unnamed'}
+-- Check the operating system and set clipboard accordingly
+if vim.fn.has('mac') == 1 or vim.fn.has('win64') == 1 or vim.fn.has('win32') == 1 then
+    vim.opt.clipboard:append {'unnamed'}
 else
-  opt.clipboard:append {'unnamedplus'}
+    vim.opt.clipboard:append {'unnamedplus'}
 end
 
 ---------------
