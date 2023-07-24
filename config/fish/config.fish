@@ -32,6 +32,7 @@ if status is-interactive
   # fish specific env vars
   set -gx fish_greeting ""
   set -gx fish_emoji_width 2 # NOT COMPATIBLE with fish <= 2.7.1
+  set -gx fish_complete_path show_matching
 
   # *nix specific env vars
   set -gx XDG_CONFIG_HOME $HOME/.config
