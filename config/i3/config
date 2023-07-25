@@ -28,6 +28,7 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec_always --no-startup-id nm-applet
+# TODO: ipatch, still does not display the copyq tray icon in polybar
 exec_always --no-startup-id copyq
 exec_always --no-startup-id flameshot
 
