@@ -1,7 +1,7 @@
 # Should you change your keyboard layout some time, delete
 # this file and re-run i3-config-wizard(1).
 # i3 config file (v4)
-# Please see https://i3wm.org/docs/userguide.html for a complete reference!
+# https://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod4
 
@@ -52,12 +52,10 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 floating_modifier $mod
 
 # start a terminal
-# bindsym $mod+Return exec i3-sensible-terminal # DEFAULT:
 bindsym $mod+Return exec alacritty
 
 # kill focused window
 # NOTE: ipatch, macos will grab default binding, REMAP
-# bindsym $mod+Shift+q kill
 # bindsym $mod+Shift+x kill # default
 bindsym $mod+q kill
 
@@ -72,12 +70,8 @@ hide_edge_borders  smart
 # TODO: how does one determine the `40` is the `d` key on the keyboard
 # NOTE: ipatch, use `xev`
 
-# start dmenu (a program launcher)
-# bindsym $mod+d exec --no-startup-id dmenu_run
-
 # A more modern dmenu replacement is rofi:
 # NOTE: ipatch, bind command+spacebar ala spotlight launch on macos
-# bindcode $mod+65 exec fish -c "rofi -modi drun,run -show drun"
 bindcode $mod+65 exec fish -c "rofi -show run"
 
 # TODO: ipatch, how to add `~/.local/bin` to search path
@@ -88,11 +82,6 @@ workspace_auto_back_and_forth yes
 
 # start dmenu (a program launcher)
 bindsym $mod+d exec --no-startup-id dmenu_run -fn 'Source Code Pro'
-# A more modern dmenu replacement is rofi:
-# bindcode $mod+40 exec "rofi -modi drun,run -show drun"
-# There also is i3-dmenu-desktop which only displays applications shipping a
-# .desktop file. It is a wrapper around dmenu, so you need that installed.
-# bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
 
 # change focus
 bindsym $mod+h focus left
@@ -137,8 +126,6 @@ bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
 # bindsym $mod+space focus mode_toggle
-# NOTE: ipatch
-bindsym $mod+control+e exec rofi -show run
 
 # focus the parent container
 bindsym $mod+a focus parent
@@ -148,8 +135,37 @@ bindsym $mod+a focus parent
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1"
-set $ws2 "2"
+
+# NOTE: ipatch, setup workspaces for multi monitor setup
+set $mon1 "DP-2"
+set $mon2 "DP-3"
+
+workspace 1 output $mon1
+workspace 2 output $mon1
+workspace 3 output $mon1
+workspace 4 output $mon1
+workspace 5 output $mon1
+workspace 6 output $mon1
+workspace 7 output $mon1
+workspace 8 output $mon1
+workspace 9 output $mon1
+
+workspace 20 output $mon2
+workspace 21 output $mon2
+workspace 22 output $mon2
+workspace 23 output $mon2
+workspace 24 output $mon2
+workspace 25 output $mon2
+workspace 26 output $mon2
+workspace 27 output $mon2
+workspace 28 output $mon2
+workspace 29 output $mon2
+
+# NOTE: ipatch, define specific apps for specific workspaces
+set $terms "1: terms"
+set $web   "2: web"
+# set $ws1 "1"
+# set $ws2 "2"
 set $ws3 "3"
 set $ws4 "4"
 set $ws5 "5"
@@ -157,11 +173,17 @@ set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
-set $ws10 "10"
 
-# NOTE: ipatch, define specific apps for specific workspaces
-set $terms "1: terms"
-set $web   "2: web"
+set $ws21 "21"
+set $ws22 "22"
+set $ws23 "23"
+set $ws24 "24"
+set $ws25 "25"
+set $ws26 "26"
+set $ws27 "27"
+set $ws28 "28"
+set $ws29 "29"
+
 
 # flameshot launch a selction
 bindsym $mod+shift+control+4 exec --no-startup-id "flameshot gui --clipboard"
@@ -176,7 +198,17 @@ bindsym $mod+6 workspace number $ws6
 bindsym $mod+7 workspace number $ws7
 bindsym $mod+8 workspace number $ws8
 bindsym $mod+9 workspace number $ws9
-bindsym $mod+0 workspace number $ws10
+# bindsym $mod+0 workspace number $ws10
+
+bindsym Mod1+1 workspace number $ws21
+bindsym Mod1+2 workspace number $ws22
+bindsym Mod1+3 workspace number $ws23
+bindsym Mod1+4 workspace number $ws24
+bindsym Mod1+5 workspace number $ws25
+bindsym Mod1+6 workspace number $ws26
+bindsym Mod1+7 workspace number $ws27
+bindsym Mod1+8 workspace number $ws28
+bindsym Mod1+9 workspace number $ws29
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number $terms
@@ -189,6 +221,10 @@ bindsym $mod+Shift+7 move container to workspace number $ws7
 bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
+
+# monitor2
+# NOTE: ipatch, `Mod1` refers to the `option` / `alt` key on my keyboard
+bindsym Mod1+Shift+1 move container to workspace number $ws21
 
 # NOTE: ipatch, assign certain apps to certain workspaces
 # NOTE: ipatch, run `xprop` to get app/window properties
