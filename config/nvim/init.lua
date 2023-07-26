@@ -46,6 +46,9 @@ require('packer').startup(function(use)
   -- nvim-treesitter Highlight, edit, and navigate code
   use {     
     'nvim-treesitter/nvim-treesitter',
+    requires = {
+      'JoosepAlviste/nvim-ts-context-commentstring'
+    },
     run = function()
       pcall(require('nvim-treesitter.install').update { with_sync = false })
     end
@@ -71,10 +74,13 @@ require('packer').startup(function(use)
   use 'nvim-telescope/telescope-dap.nvim'
   use 'rcarriga/nvim-dap-ui'
 
+  -- code commenting
   use { 
     'numToStr/Comment.nvim',
     config = function()
-        require('Comment').setup()
+        require('Comment').setup{
+           pre_hook = require('ts_context_commentstring.integrations.comment_nvim').create_pre_hook(),
+        }
     end
   }
 
@@ -306,16 +312,21 @@ ts.setup {
     'bash', 
     'c', 
     'cpp',
+    'css',
     'fish', 
     'help', 
+    'html',
     'javascript', 
+    'json',
     'lua', 
     'markdown',
     'markdown_inline',
     'python', 
-    'typescript', 
     'ruby', 
     'rust', 
+    'tsx',
+    'typescript', 
+    'vim',
   },
   -- List of parsers to ignore installing
   ignore_install = { 
@@ -329,8 +340,16 @@ ts.setup {
   highlight = {
     enable = true,
     additional_vim_regex_highlighting = false
-  }
+  },
+
+  context_commentstring = {
+    enable = true,
+    enable_autocmd = false,
+  },
 }
+
+-- plugin / https://github.com/JoosepAlviste/nvim-ts-context-commentstring/issues/67
+vim.opt.updatetime = 100
 
 -- plugin / theme / ui / indentlines
 
