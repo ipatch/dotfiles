@@ -779,7 +779,6 @@ https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.conf \
 
 <summary>Uncompleted</summary>
 
-- [ ] #webdev #react #nvim properly setup `comment.nvim` to make the correct comments using `:gcc` in JSX
 - [ ] #arch #emote how to make the gui for my emoji picker larger 👩‍🦯
 - [ ] #nvim plugin / #nvim-ufo can not fold html tags contained with a markdown document out of the box
 - [ ] #nvim figure out a way to prevent my <kbd>;</kbd> binding from omitting my `.wiki` dir in certain projects
@@ -788,28 +787,20 @@ https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.conf \
 - [ ] #arch #systemd, come to a peaceful solution on why i can't set the perms i want for my log files
     - https://github.com/systemd/systemd/issues/28302
 - [ ] a much better solution for ricing my arch install ie. editing config files that require a reboot would be to edit in a virtual machine or even using a docker container to not require a full reboot  🤦‍♂️
-- [ ] #rice, created a new branch _firewood_ for place to store things that are no longer required
 - [ ] #fish, possible to add a key binding to toggle the display of the right side prompt?
 - [ ] #fish add a keyboard shortcut to toggle the right prompt **on** / **off**
 - [ ] #fish #neovim #tree-sitter properly highlight the word `NOTE:`
 - [ ] #arch #i3, how to change the outline color of the active window on the screen?
 - [ ] #tmux setup a custom code fold function using vimscript or possible lua for my `tmux.conf` reference the stock `html` and `c` lang syntax files for how the use different types of expressions for code folds 🤔
 - [ ] #webdev, side quest, 🤺 figure out reimp search so a site such autozone can find `b12 chemtool` instead having to type `b-12`
-- [ ] #arch #tmux, exp with using `alt+[NUMS]` to switch between windows in a session, ie. `alt+1` goto window 1
 - [ ] #arch map left control key on keychron to `fn` key ala macbook builtin keyboard
 - [ ] #arch how to side scroll with standard wired USB mouse with only a vertical scroll wheel 🤔 ?
 - [ ] #milliondollaridea 🤑, some way to search the youtube transcript in browser to find a specific spot of a video
 - [ ] #arch #tmux add key binding to toggle window display numbers
 - [ ] #hammerspoon #karabiner #cmake it'd be nice to swap the `[]` with the `{}` when capslock is activated similiar to how i swapped underbar `_` with hyphen `-`
-- [ ] #macos #homebrew apparently my `Brewfile` does not contain an updated list of installed casks
-- [ ] #tmux how to map the apple cmd key <kbd>⌘</kbd>
-    - as far as i can tell tmux does not support a third modifier key 👎, so closest i can do is swith command and alt keys using karabiner
-- [ ] #fish device a cmd to remove all python path entries from `$PATH` so I can just work with homebrew python in peace.
 - [ ] #fish it'd be cool to remove all entries from my fish history that were invalid commands thus when searching through history i don't repeat the same mistake
 - [ ] #gitsecret reencodes secret files on every commit, **boo** 👻 WHY
 - [ ] #alacritty does **not** properly highlight, select URLs when wrapped
-- [ ] #NOTE #homebrew certain mac homebrew casks do not autoload when a macos box is rebooted
-    - 🤔 i could use one of my macos vm's to troubleshoot why certain casks do not autostart ie. lulu and rectangle.app
 - [ ] #freecad create asciinema of configuring and building freecad from source on macos
     - [ ] #freecad make an additional cast of runing through the test suite after building/installing freecad
 - [ ] #mpv #hammerspoon, setup a env var for `mpvsocket` to make interacting the mpv socket a little less brittle 🧊
@@ -831,18 +822,13 @@ https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.conf \
     - is ther some setting where the sensitivity can be set, so scroll begins with one click of the mouse wheel.
 - [ ] [vim] [nvim] when toggling the tagbar <kbd>leader+\\</kbd> move the cursor/focus to the tagbar buffer automatically.
 - [ ] [tmux] [fish] possible to restore scroll back history after closing tmux server and terminal _alacritty_
-- [ ] [neovim], 0.5.0, updating neovim to latest release
-    - breaks my custom cursor color
-    - ~~my <kbd>esc</kbd> binding when fzf terminal window is open does not work, boo 👻~~ appears to be working as intended now 🤔
 - [ ] [arch], implement a more elegant way to fix the `can't read temp` in the i3 status bar after reboots
 - [ ] [arch], set lshift+rshift to toggle caps-lock on/off
 - [ ] [fish], possible to detach current pane in a tmux window from shell history, or write commands run from certain directory to specific history file to keep commands ran in a specific directory quickly accessible, ie. useful when working with a node or ruby based project.
 - [ ] [vim] [nvim], set default filetype for JSON files to `jsonc`
 - [ ] [tmux] use vivaldi keybinding for switching between windows as opposed to using shift+arrow keys
 - [ ] [alacritty] [fish] [tmux] [karabiner] [hammerspoon] _double tap esc_, ie. esc², to run the keyboard shortcut of clearing the scree, ie. prefix (tmux), then control+l
-- [ ] [vim] [nvim] [coc] [eslint] gutter warn glyph appeares to be `>>` in the color red, would much prefer to keep warning color consistent with the color of the warning text, and same with error text, keep that the color red.
 - [ ] [macos] [afloat] [ke] [hammerspoon] double tap right shift, toggle keep window atop
-- [ ] [fish] followup on my reddit question about suggestions / completions when writing fish scripts
 - [ ] [vim] implement func to decrypt / encrypt GPG files
 - [ ] [phys] reapply liquid metal to local cpu and gpu, run geekbench test before after, and exp with copper shims for gpu + cpu
 - [ ] [macos] [homebrew] howto search for homebrew taps
@@ -859,17 +845,13 @@ https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.conf \
 - [ ] [fish] detach fish shell instance from command history
   - **Q** can tmux separate all panes within a window from the global command history _fish shell_
 - [ ] [nvim] **references** text when working with JS files, toggle with _leader+h_ as other hidden chars are toggled
-- [ ] [vim] jump to open curly brace then jump back to close curly brace
 - [ ] [vim, json] adjust default conceal settings for json files
 - [ ] [vim, javascript] **Q** how to make certain javascript lang _keywords_ appear in italics using color / font scheme
     - **className, const, return, this.state, onClick, import**
 - [ ] [vim, markdown] have basic code folding for certain HTML tags when editing markdown documents
-- [ ] [macos] what is the procedure macos uses to mount a file system when a usb drive is plugged into a macos system
-- [ ] [tmux] instead <kbd>prefix</kbd> then <kbd>control+l</kbd> to clear the screen, try using <kbd>control+l followed by l</kbd>, no good, try using <kbd>super + l</kbd>
 - [ ] [tmux] put short synopsis of current weather in tmux status bar, _right side_
 - [ ] **vivaldi** / **voilentmonkey**
   - youtube script, to switch view mode on viewer window hover with mouse or mash a key to bring focus to viewer window so playback shortcuts become active.
-- [ ] [vim] navigating documents with line wraps makes jumping through buffer by line number inaccurate, wrapped lines are displayed as one line, but the jump cmd treats them as multiple
 - [ ] [tmux] **getting closer** it'd be nice to have a quick double tap of either <kbd>shift</kbd>key then<kbd>shift</kbd> to toggle between remote and local tmux sessions 
   - [learn more][lm1]
   - [and more][lm2] 
@@ -892,6 +874,11 @@ https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.conf \
 <details>
 <summary><strong>TODOs completed</strong></summary>
 
+- [x] [vim] navigating documents with line wraps makes jumping through buffer by line number inaccurate, wrapped lines are displayed as one line, but the jump cmd treats them as multiple
+- [x] [vim] jump to open curly brace then jump back to close curly brace
+    > in **normal** mode press `%` to jump from opening to closing brace
+- [x] #rice, created a new branch _firewood_ for place to store things that are no longer required
+- [x] #webdev #react #nvim properly setup `comment.nvim` to make the correct comments using `:gcc` in JSX
 - [x] #tmux change the format of the tmux clock from 24 to 12 hour
 - [x] #copypasta #fish #tmux, when logged in to a remote system via ssh, and running tmux locally and on a remote system copying the STDOUT to the local clipboard DOES NOT WORK!!!!!, **need that**
 - [x] #tmux since working with multiple sessions it'd be nice to have tmux present a modal to quickly show all windows in all sessions and type the name of the window to quickly jump between tmux windows that aren't presently visible in the current tmux session. (one can dream™)
