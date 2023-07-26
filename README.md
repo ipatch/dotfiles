@@ -779,6 +779,7 @@ https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.conf \
 
 <summary>Uncompleted</summary>
 
+- [ ] #webdev #react #nvim properly setup `comment.nvim` to make the correct comments using `:gcc` in JSX
 - [ ] #arch #emote how to make the gui for my emoji picker larger 👩‍🦯
 - [ ] #nvim plugin / #nvim-ufo can not fold html tags contained with a markdown document out of the box
 - [ ] #nvim figure out a way to prevent my <kbd>;</kbd> binding from omitting my `.wiki` dir in certain projects
