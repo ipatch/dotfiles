@@ -2,6 +2,13 @@
 -- my experiemental neovim ≥ 0.5 configuratoin/setup
 -- some inspiration: https://github.com/David-Kunz/vim/blob/master/init.lua
 
+---------------
+-- NOTE: ipatch / ⭐️ USEFUL REMINDERS, and other assorted BS
+---
+-- convert all single quotes in a file to double quotes
+-- :%s/'\([^']*\)'/"\1"/g
+---
+
 -- helpers
 local cmd = vim.cmd  -- to execute Vim commands e.g. cmd('pwd')
 local fn = vim.fn    -- to call Vim functions e.g. fn.bufnr()
@@ -43,6 +50,25 @@ require('packer').startup(function(use)
 
   use 'christoomey/vim-tmux-navigator'
 
+  -- lsp configuration and plugins
+  use { 
+    'neovim/nvim-lspconfig',
+    requies = {
+      -- automatically install lsps to stdpath for neovim
+      'williamboman/mason.nvim',
+      'williamboman/mason-lspconfig.nvim',
+
+      -- useful status updates for lsp
+      'j-hui/fidget.nvim'
+    }
+  }
+
+  -- autocompletion
+  use {
+    'hrsh7th/nvim-cmp',
+    requires = { 'hrsh7th/cmp-nvim-lsp', 'L3MON4D3/LuaSnip', 'saadparwaiz1/cmp_luasnip' },
+  }
+
   -- nvim-treesitter Highlight, edit, and navigate code
   use {     
     'nvim-treesitter/nvim-treesitter',
@@ -55,8 +81,6 @@ require('packer').startup(function(use)
   }
   use 'nvim-treesitter/playground'
 
-  use 'neovim/nvim-lspconfig'
-  
   -- telescope
   use {     
     'nvim-telescope/telescope.nvim',
@@ -89,10 +113,11 @@ require('packer').startup(function(use)
   use 'navarasu/onedark.nvim'
   use "projekt0n/github-nvim-theme"
 
-  -- UI / enhancements
+  -- UI / enhancements / newlines
   use "lukas-reineke/indent-blankline.nvim"
+  -- use "tpope/vim-sleuth"
 
-  -- UI / code folds
+  -- UI / enhancements / code folds
   use {
     'kevinhwang91/nvim-ufo', 
     requires = 'kevinhwang91/promise-async'
@@ -146,64 +171,68 @@ map('n', '<M-j>', ':m .+1<cr>==', {noremap = true})
 -- settings / options / use vim settings within nvim via lua
 opt.completeopt = {'menu', 'menuone', 'noselect'}
 opt.mouse = 'a'
-opt.splitright = true
-opt.splitbelow = true
 opt.shiftwidth = 2
+opt.splitbelow = true
+opt.splitright = true
 
 opt.incsearch = true
 -- TODO: ipatch, should probably only have this mapping if there are highlighted search terms
 -- map('n', '<CR>', ':nohl<CR>') -- unhighlight search terms
 
 opt.cmdheight = 1
+opt.cursorline = true           -- highlight the current line
 opt.expandtab = true            -- use spaces instead of tabs
 opt.hidden = true               -- use background buffers
+opt.ignorecase = true           -- ignore case
 opt.list = false                -- show invisible chars
 opt.number = true               -- show line numbers
 opt.scrolloff = 4               -- lines of context
 opt.shiftround = true           -- round indent
 opt.shiftwidth = 2              -- size of an indent
-opt.softtabstop = 2
-opt.ignorecase = true           -- ignore case
 opt.smartcase = true            -- don't ignore capital letters when present
 opt.smartindent = true          -- insert indents automatically
+opt.softtabstop = 2
 opt.tabstop = 2                 -- number of spaces tabs count for
+opt.termguicolors = true
 opt.termguicolors = true        -- true color support
 opt.wrap = true
-opt.cursorline = true           -- highlight the current line
 -- settings / code folds and others
 -- NOTE: ipatch, i believe enabling the below settings will allow nvim to remember fold and cursor setting/position
 opt.viewoptions = "folds,cursor"
 
 -- set default fold level when buffer is open / activated
 -- ie. set NO code folds
--- opt.foldlevelstart = 99
-vim.opt.foldlevel= 99
-vim.opt.foldlevelstart=-1
-vim.opt.foldenable = true
+opt.foldenable = true
+opt.foldlevel= 99
+opt.foldlevelstart=-1
 
-vim.opt.swapfile = false
-vim.opt.backup = false
-vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir" 
+opt.backup = false
+opt.swapfile = false
+opt.undodir = os.getenv("HOME") .. "/.vim/undodir" 
 
-vim.opt.signcolumn = "yes"
+opt.signcolumn = "yes"
 
-vim.api.nvim_exec([[
-command SynID  echo synIDattr(synID(line("."), col("."), 1), "name")
- ]], true)
+-- plugin / https://github.com/JoosepAlviste/nvim-ts-context-commentstring/issues/67
+opt.updatetime = 100
+
+-- NOTE: ipatch, below causes error when reloading this config file
+-- vim.api.nvim_exec([[
+-- command SynID  echo synIDattr(synID(line("."), col("."), 1), "name")
+--  ]], true)
 
 ---------------
 -- settings / hidden chars
-opt.listchars:append("tab:‣ ") -- NOTE:ipatch, requires a trailing `space` after char
-opt.listchars:append("nbsp:⦸") -- CIRCLED REVERSE SOLIDUS (U+29B8, UTF-8: E2 A6 B8)
-opt.listchars:append("extends:»") -- RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK (U+00BB, UTF-8: C2 BB)
-opt.listchars:append("precedes:«") -- LEFT-POINTING DOUBLE ANGLE QUOTATION MARK (U+00AB, UTF-8: C2 AB)
-opt.listchars:append("trail:•") -- BULLET (U+2022, UTF-8: E2 80 A2)
 opt.listchars:append("eol:¬")
+opt.listchars:append("extends:»") -- RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK (U+00BB, UTF-8: C2 BB)
+opt.listchars:append("nbsp:⦸") -- CIRCLED REVERSE SOLIDUS (U+29B8, UTF-8: E2 A6 B8)
+opt.listchars:append("precedes:«") -- LEFT-POINTING DOUBLE ANGLE QUOTATION MARK (U+00AB, UTF-8: C2 AB)
+opt.listchars:append("tab:‣ ") -- NOTE:ipatch, requires a trailing `space` after char
+opt.listchars:append("trail:•") -- BULLET (U+2022, UTF-8: E2 80 A2)
 -- vim.opt.listchars:append("eol:↴")
 -- opt.lcs:append("eol:↴")
 opt.lcs:append("space:␣") -- Symbol for the space key
 
--- NOTE: ipatch, the below is not required is the TS markdown and markdown_inline parsers are installed
+-- NOTE: ipatch, not required if the TS markdown and markdown_inline parsers are installed
 -- setting / filetype / markdown
 -- markdown_folding = 1
 
@@ -228,11 +257,6 @@ augroup END
 g.netrw_banner = true
 -- g.netrw_liststyle = 3
 
----------------
--- NOTE: ipatch / useful reminders, and other assorted BS
--- convert all single quotes in a file to double quotes
--- :%s/'\([^']*\)'/"\1"/g
-
 
 -- clipboard settings
 -- Check the operating system and set clipboard accordingly
@@ -252,7 +276,7 @@ local telescopeConfig = require("telescope.config")
 -- Clone the default Telescope configuration
 local vimgrep_arguments = { unpack(telescopeConfig.values.vimgrep_arguments) }
 
--- I want to search in hidden/dot files.
+-- search in hidden/dot files.
 table.insert(vimgrep_arguments, "--hidden")
 -- I don't want to search in the `.git` directory.
 table.insert(vimgrep_arguments, "--glob")
@@ -281,14 +305,16 @@ vim.keymap.set('n', '<leader>ps', function()
   builtin.grep_string({ search = vim.fn.input("Grep >") })
 end)
 
--- NOTE: ipatch, mapping to delete/close buffer from picker view
+-- TODO: ipatch, mapping to delete/close buffer from picker view
 -- https://github.com/nvim-telescope/telescope.nvim/wiki/Configuration-Recipes#mapping-c-d-to-delete-buffer
 
+---------------
 -- plugin / nvim-telescope
 -- To get fzf loaded and working with telescope, you need to call
 -- load_extension, somewhere after setup function:
 require('telescope').load_extension('fzf')
 
+---------------
 -- plugin / vim-turmuxnavigator / mappings
 -- TODO: migrate these mappings from VimL to lua
 --[[ let g:tmux_navigator_no_mappings = 1
@@ -299,11 +325,9 @@ nnoremap <silent> <leader>k :TmuxNavigateUp<cr>
 nnoremap <silent> <leader>l :TmuxNavigateRight<cr>
 "nnoremap <silent> :TmuxNavigatePrevious<cr> ]]
 
+---------------
 -- plugin / tree-sitter
---
--- NOTE: ipatch, migrate from `maintained` to `all` per ts deprecation notice
 -- NOTE: ipatch, `all` blows up 💥 on m1 mac due to `phpdoc` use maintained for time being
--- ts.setup {ensure_installed = 'maintained', highlight = {enable = true}}
 --
 local ts = require 'nvim-treesitter.configs'
 ts.setup {
@@ -334,6 +358,7 @@ ts.setup {
     'clojure', 
     'gleam', 
     'help', 
+    'phpdoc'
     'slint', 
   }, 
   auto_install = false,
@@ -348,11 +373,7 @@ ts.setup {
   },
 }
 
--- plugin / https://github.com/JoosepAlviste/nvim-ts-context-commentstring/issues/67
-vim.opt.updatetime = 100
-
--- plugin / theme / ui / indentlines
-
+---------------
 -- plugin / theme / colorscheme
 -- REF: https://github.com/David-Kunz/vim/blob/master/init.lua#L235
 -- colorscheme
@@ -374,6 +395,7 @@ require('onedark').setup {
 
 require('onedark').load()
 
+---------------
 -- plugin / 'numToStr/Comment.nvim'
 -- NOTE: ipatch, attempt to define commentstring for specific dot files
 local ft = require('Comment.ft')
@@ -394,7 +416,7 @@ augroup ChangeBackgroudColour
 autocmd colorscheme * :hi normal guibg=#0a0a0a
 augroup END
 ]])
-opt.termguicolors = true
+
 cmd [[silent! colorscheme onedark]]
 
 cmd('set foldmethod=expr')
@@ -404,6 +426,7 @@ cmd('set foldexpr=nvim_treesitter#foldexpr()')
 -- -- highlight on yank
 cmd([[au TextYankPost * lua vim.highlight.on_yank {higroup="IncSearch", timeout=150, on_visual=true}]])
 
+---------------
 -- plugin / folding / fold settings - ufo
 -- Option 3: treesitter as a main provider instead
 -- Only depend on `nvim-treesitter/queries/filetype/folds.scm`,
@@ -415,6 +438,7 @@ require('ufo').setup({
     end
 })
 
+---------------
 -- plugin / mfussenegger/nvim-dap
 -- NOTE: https://github.com/mfussenegger/nvim-dap/wiki/Debug-Adapter-installation#Python
 local dap = require('dap')
@@ -450,6 +474,7 @@ dap.configurations.python = {
   },
 }
 
+---------------
 -- plugin / nvim-dap / debug node / javascript
 dap.adapters.node2 = {
   type = 'executable',
@@ -467,11 +492,14 @@ dap.configurations.javascript = {
     console = 'integratedTerminal',
   },
 }
+
+---------------
 -- plugin /mfussenegger/nvim-dap 
 vim.fn.sign_define('DapBreakpoint', {text='🛑', texthl='', linehl='', numhl=''})
 vim.fn.sign_define('DapBreakpointRejected', {text='🙅', texthl='', linehl='', numhl=''})
 vim.fn.sign_define('DapStopped', {text='✋', texthl='', linehl='', numhl=''})
 
+---------------
 -- plugin /mfussenegger/nvim-dap / mappings (requires helper function)
 --
 map('n', '<leader>dh', ':lua require"dap".toggle_breakpoint()<CR>')
@@ -486,11 +514,13 @@ map('n', '<leader>d?', ':lua local widgets=require"dap.ui.widgets";widgets.cente
 map('n', '<leader>dk', ':lua require"dap".up()<CR>')
 map('n', '<leader>dj', ':lua require"dap".down()<CR>')
 
+---------------
 -- plugin / nvim-telescope/telescope-dap.nvim
 require('telescope').load_extension('dap')
 map('n', '<leader>dtb', ':Telescope dap list_breakpoints<CR>')
 map('n', '<leader>dtf', ':Telescope dap frames<CR>')
 
+---------------
 -- plugin / rcarriga/nvim-dap-ui
 require('dapui').setup()
 map('n', '<leader>dq', ':lua require"dapui".toggle()<CR>')
