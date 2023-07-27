@@ -193,7 +193,6 @@ opt.smartcase = true            -- don't ignore capital letters when present
 opt.smartindent = true          -- insert indents automatically
 opt.softtabstop = 2
 opt.tabstop = 2                 -- number of spaces tabs count for
-opt.termguicolors = true
 opt.termguicolors = true        -- true color support
 opt.wrap = true
 -- settings / code folds and others
@@ -222,15 +221,15 @@ opt.updatetime = 100
 
 ---------------
 -- settings / hidden chars
+-- vim.opt.listchars:append("eol:↴")
+-- opt.lcs:append("eol:↴")
 opt.listchars:append("eol:¬")
 opt.listchars:append("extends:»") -- RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK (U+00BB, UTF-8: C2 BB)
 opt.listchars:append("nbsp:⦸") -- CIRCLED REVERSE SOLIDUS (U+29B8, UTF-8: E2 A6 B8)
 opt.listchars:append("precedes:«") -- LEFT-POINTING DOUBLE ANGLE QUOTATION MARK (U+00AB, UTF-8: C2 AB)
+opt.lcs:append("space:␣") -- Symbol for the space key
 opt.listchars:append("tab:‣ ") -- NOTE:ipatch, requires a trailing `space` after char
 opt.listchars:append("trail:•") -- BULLET (U+2022, UTF-8: E2 80 A2)
--- vim.opt.listchars:append("eol:↴")
--- opt.lcs:append("eol:↴")
-opt.lcs:append("space:␣") -- Symbol for the space key
 
 -- NOTE: ipatch, not required if the TS markdown and markdown_inline parsers are installed
 -- setting / filetype / markdown
@@ -257,14 +256,26 @@ augroup END
 g.netrw_banner = true
 -- g.netrw_liststyle = 3
 
-
--- clipboard settings
+------------------------------
+-- settings / clipboard
 -- Check the operating system and set clipboard accordingly
 if vim.fn.has('mac') == 1 or vim.fn.has('win64') == 1 or vim.fn.has('win32') == 1 then
     vim.opt.clipboard:append {'unnamed'}
 else
     vim.opt.clipboard:append {'unnamedplus'}
 end
+
+-- NOTE: ipatch, open help pages in new buffer and NOT a split or tab
+vim.api.nvim_create_autocmd('BufWinEnter', {
+  pattern = '*',
+  callback = function(event)
+    if vim.bo[event.buf].filetype == 'help' then 
+      -- display help files in the buffer list
+      vim.cmd('setlocal buflisted')
+      vim.cmd.only() 
+    end
+  end,
+})
 
 ---------------
 -- plugin / neovim telescope / key mappings
@@ -358,7 +369,7 @@ ts.setup {
     'clojure', 
     'gleam', 
     'help', 
-    'phpdoc'
+    'phpdoc',
     'slint', 
   }, 
   auto_install = false,
