@@ -236,7 +236,12 @@ for_window [class="GParted"] floating enable resize set 1800 1000, move position
 # WM_CLASS(STRING) = "xfreerdp", "xfreerdp"
 for_window [class="xfreerdp"] move to workspace $ws7
 
-
+#---------------------------------------
+# TODO: # FIXME: every subsequent firefox window launches on workspace 2
+#...how to only make the first instance of firefox launch on workspace 2 and all new windows
+#...launch from the workspace they were called from
+#---------------------------------------
+#--
 # NOTE: ipatch, the below setting seems to put all firefox windows on workspace #2 👍
 assign [class="firefox"] workspace $web
 # TODO: ipatch, make about window,dialogue box floating
