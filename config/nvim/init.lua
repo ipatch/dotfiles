@@ -179,6 +179,7 @@ opt.incsearch = true
 -- TODO: ipatch, should probably only have this mapping if there are highlighted search terms
 -- map('n', '<CR>', ':nohl<CR>') -- unhighlight search terms
 
+opt.backup = false
 opt.cmdheight = 1
 opt.cursorline = true           -- highlight the current line
 opt.expandtab = true            -- use spaces instead of tabs
@@ -189,27 +190,16 @@ opt.number = true               -- show line numbers
 opt.scrolloff = 4               -- lines of context
 opt.shiftround = true           -- round indent
 opt.shiftwidth = 2              -- size of an indent
+opt.signcolumn = "yes"
 opt.smartcase = true            -- don't ignore capital letters when present
 opt.smartindent = true          -- insert indents automatically
 opt.softtabstop = 2
+opt.swapfile = false
 opt.tabstop = 2                 -- number of spaces tabs count for
 opt.termguicolors = true        -- true color support
-opt.wrap = true
--- settings / code folds and others
--- NOTE: ipatch, i believe enabling the below settings will allow nvim to remember fold and cursor setting/position
-opt.viewoptions = "folds,cursor"
-
--- set default fold level when buffer is open / activated
--- ie. set NO code folds
-opt.foldenable = true
-opt.foldlevel= 99
-opt.foldlevelstart=-1
-
-opt.backup = false
-opt.swapfile = false
 opt.undodir = os.getenv("HOME") .. "/.vim/undodir" 
-
-opt.signcolumn = "yes"
+opt.viewoptions = "folds,cursor"
+opt.wrap = true
 
 -- plugin / https://github.com/JoosepAlviste/nvim-ts-context-commentstring/issues/67
 opt.updatetime = 100
@@ -265,7 +255,7 @@ else
     vim.opt.clipboard:append {'unnamedplus'}
 end
 
--- NOTE: ipatch, open help pages in new buffer and NOT a split or tab
+-- NOTE: ipatch, open help pages in new buffer NOT in a split or tab
 vim.api.nvim_create_autocmd('BufWinEnter', {
   pattern = '*',
   callback = function(event)
@@ -278,8 +268,12 @@ vim.api.nvim_create_autocmd('BufWinEnter', {
 })
 
 ---------------
--- plugin / neovim telescope / key mappings
--- mapping using the provided helper function
+-- plugin / neovim / lsp settings
+--
+--
+
+---------------
+-- plugin / neovim telescope 
 --
 local telescope = require("telescope")
 local telescopeConfig = require("telescope.config")
@@ -308,6 +302,7 @@ telescope.setup({
 
 local builtin = require('telescope.builtin')
 
+-- plugin / neovim telescope / key mappings
 -- NOTE: ipatch, install telecope-fzf-native.nvim to fuzzy search
 vim.keymap.set('n', '<leader>pf', builtin.find_files, {})
 vim.keymap.set('n', '<C-p>', builtin.git_files, {})
@@ -338,7 +333,7 @@ nnoremap <silent> <leader>l :TmuxNavigateRight<cr>
 
 ---------------
 -- plugin / tree-sitter
--- NOTE: ipatch, `all` blows up 💥 on m1 mac due to `phpdoc` use maintained for time being
+-- NOTE: ipatch, `all` blows up 💥 on m1 mac due to `phpdoc` use `maintained` for time being
 --
 local ts = require 'nvim-treesitter.configs'
 ts.setup {
@@ -364,13 +359,13 @@ ts.setup {
     'vim',
   },
   -- List of parsers to ignore installing
-  ignore_install = { 
-    'beancount', 
-    'clojure', 
-    'gleam', 
-    'help', 
+  ignore_install = {
+    'beancount',
+    'clojure',
+    'gleam',
+    'help',
     'phpdoc',
-    'slint', 
+    'slint',
   }, 
   auto_install = false,
   highlight = {
@@ -390,9 +385,9 @@ ts.setup {
 -- colorscheme
 require('onedark').setup {
   style = 'deep',
-  -- style = 'darker'
-  -- style = 'dark'
-  -- style = 'warmer'
+  -- style = 'darker',
+  -- style = 'dark',
+  -- style = 'warmer',
 
   colors = {
     -- NOTE: ipatch, default grey color too light to see on dark background with lots of ambient light
@@ -405,6 +400,16 @@ require('onedark').setup {
 }
 
 require('onedark').load()
+
+-- NOTE: ipatch, override the default bg color for onedark theme
+-- TODO: ipatch, migrate this function, cmd to the above onedark colorscheme
+vim.api.nvim_command([[
+augroup ChangeBackgroudColour
+autocmd colorscheme * :hi normal guibg=#0a0a0a
+augroup END
+]])
+
+cmd [[silent! colorscheme onedark]]
 
 ---------------
 -- plugin / 'numToStr/Comment.nvim'
@@ -420,16 +425,6 @@ ft
 -- .set('javascript', {'//%s', '/*%s*/'})
 .set('ini', ';%s')
 
--- NOTE: ipatch, override the default bg color for onedark theme
--- TODO: ipatch, migrate this function, cmd to the above onedark colorscheme
-vim.api.nvim_command([[
-augroup ChangeBackgroudColour
-autocmd colorscheme * :hi normal guibg=#0a0a0a
-augroup END
-]])
-
-cmd [[silent! colorscheme onedark]]
-
 cmd('set foldmethod=expr')
 cmd('set foldexpr=nvim_treesitter#foldexpr()')
 
@@ -439,15 +434,40 @@ cmd([[au TextYankPost * lua vim.highlight.on_yank {higroup="IncSearch", timeout=
 
 ---------------
 -- plugin / folding / fold settings - ufo
+-----
 -- Option 3: treesitter as a main provider instead
 -- Only depend on `nvim-treesitter/queries/filetype/folds.scm`,
 -- performance and stability are better than `foldmethod=nvim_treesitter#foldexpr()`
 -- use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
 require('ufo').setup({
-    provider_selector = function(bufnr, filetype, buftype)
-        return {'treesitter', 'indent'}
-    end
+  provider_selector = function(bufnr, filetype, buftype)
+    return {'treesitter', 'indent'}
+  end
 })
+
+-- NOTE: ipatch Helper function to restore folds
+function RestoreFolds()
+  local last_view = vim.fn.winsaveview()
+  if vim.fn.empty(vim.fn.getwininfo()) > 1 or last_view == nil or last_view.foldlevel == 0 then
+    -- set defaults if non exist
+    vim.opt.foldenable = true
+    vim.opt.foldlevel = 99
+    vim.opt.foldlevelstart = -1
+  else
+    vim.opt.foldenable = true
+    vim.opt.foldlevel = last_view.foldlevel
+    vim.opt.foldlevelstart = last_view.foldlevel
+  end
+end
+
+-- Autocommand to call RestoreFolds() on BufReadPost
+vim.cmd([[
+augroup remember_folds
+autocmd!
+  autocmd BufWinLeave *.* mkview
+  autocmd BufReadPost *.* lua RestoreFolds()
+augroup END
+]])
 
 ---------------
 -- plugin / mfussenegger/nvim-dap
