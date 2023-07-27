@@ -1,6 +1,7 @@
 -- Author: github.com/ipatch
 -- my experiemental neovim ≥ 0.5 configuratoin/setup
 -- some inspiration: https://github.com/David-Kunz/vim/blob/master/init.lua
+-- NOTE: ipatch, cursor postion is not restored when loading this file with `:e init.lua`
 
 ---------------
 -- NOTE: ipatch / ⭐️ USEFUL REMINDERS, and other assorted BS
@@ -51,26 +52,29 @@ require('packer').startup(function(use)
   use 'christoomey/vim-tmux-navigator'
 
   -- lsp configuration and plugins
-  use { 
-    'neovim/nvim-lspconfig',
-    requies = {
-      -- automatically install lsps to stdpath for neovim
-      'williamboman/mason.nvim',
-      'williamboman/mason-lspconfig.nvim',
+  use {
+    'VonHeikemen/lsp-zero.nvim',
+    branch = 'dev-v3',
+    requires = {
+      -- LSP Support
+      {'neovim/nvim-lspconfig'},             -- Required
+      {                                      -- Optional
+        'williamboman/mason.nvim',
+        run = function()
+          pcall(vim.api.nvim_command, 'MasonUpdate')
+        end,
+      },
+      {'williamboman/mason-lspconfig.nvim'}, -- Optional
 
-      -- useful status updates for lsp
-      'j-hui/fidget.nvim'
+      -- Autocompletion
+      {'hrsh7th/nvim-cmp'},     -- Required
+      {'hrsh7th/cmp-nvim-lsp'}, -- Required
+      {'L3MON4D3/LuaSnip'},     -- Required
     }
   }
 
-  -- autocompletion
-  use {
-    'hrsh7th/nvim-cmp',
-    requires = { 'hrsh7th/cmp-nvim-lsp', 'L3MON4D3/LuaSnip', 'saadparwaiz1/cmp_luasnip' },
-  }
-
   -- nvim-treesitter Highlight, edit, and navigate code
-  use {     
+  use {
     'nvim-treesitter/nvim-treesitter',
     requires = {
       'JoosepAlviste/nvim-ts-context-commentstring'
@@ -82,14 +86,14 @@ require('packer').startup(function(use)
   use 'nvim-treesitter/playground'
 
   -- telescope
-  use {     
+  use {
     'nvim-telescope/telescope.nvim',
     requires = { { 'nvim-lua/plenary.nvim'} }
   }
 
-  -- use {
-    -- 'nvim-telescope/telescope-fzf-native.nvim', 
-    -- run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' 
+-- use {
+  -- 'nvim-telescope/telescope-fzf-native.nvim', 
+  -- run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' 
   -- }
   use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
@@ -99,12 +103,12 @@ require('packer').startup(function(use)
   use 'rcarriga/nvim-dap-ui'
 
   -- code commenting
-  use { 
+  use {
     'numToStr/Comment.nvim',
     config = function()
-        require('Comment').setup{
-           pre_hook = require('ts_context_commentstring.integrations.comment_nvim').create_pre_hook(),
-        }
+      require('Comment').setup{
+        pre_hook = require('ts_context_commentstring.integrations.comment_nvim').create_pre_hook(),
+      }
     end
   }
 
@@ -119,12 +123,12 @@ require('packer').startup(function(use)
 
   -- UI / enhancements / code folds
   use {
-    'kevinhwang91/nvim-ufo', 
+    'kevinhwang91/nvim-ufo',
     requires = 'kevinhwang91/promise-async'
   }
 
   if is_bootstrap then
-	  require('packer').sync()
+    require('packer').sync()
   end
 end)
 
@@ -163,7 +167,7 @@ map('n', '<leader>h', ':set list!<cr>', {noremap = true})
 
 ---------------
 -- key mapping / bubble text
--- bubble text, Normal mode, <M-???>, `M` is meta key, `alt` on macOS
+-- bubble text, Normal mode, <M-???>, `M` is meta key, `alt/option` on macOS
 map('n', '<M-k>', ':m .-2<cr>==', {noremap = true})
 map('n', '<M-j>', ':m .+1<cr>==', {noremap = true})
 
@@ -197,7 +201,7 @@ opt.softtabstop = 2
 opt.swapfile = false
 opt.tabstop = 2                 -- number of spaces tabs count for
 opt.termguicolors = true        -- true color support
-opt.undodir = os.getenv("HOME") .. "/.vim/undodir" 
+opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 opt.viewoptions = "folds,cursor"
 opt.wrap = true
 
@@ -259,10 +263,10 @@ end
 vim.api.nvim_create_autocmd('BufWinEnter', {
   pattern = '*',
   callback = function(event)
-    if vim.bo[event.buf].filetype == 'help' then 
+    if vim.bo[event.buf].filetype == 'help' then
       -- display help files in the buffer list
       vim.cmd('setlocal buflisted')
-      vim.cmd.only() 
+      vim.cmd.only()
     end
   end,
 })
@@ -270,7 +274,48 @@ vim.api.nvim_create_autocmd('BufWinEnter', {
 ---------------
 -- plugin / neovim / lsp settings
 --
---
+local lsp = require('lsp-zero').preset({})
+
+lsp.on_attach(function(client, bufnr)
+  local opts = {buffer = bufnr, remap = false}
+
+  vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
+  vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
+  vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end, opts)
+  vim.keymap.set("n", "<leader>vd", function() vim.diagnostic.open_float() end, opts)
+  vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end, opts)
+  vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end, opts)
+  vim.keymap.set("n", "<leader>vca", function() vim.lsp.buf.code_action() end, opts)
+  vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.references() end, opts)
+  vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
+  vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
+end)
+
+require('mason').setup({})
+require('mason-lspconfig').setup({
+  -- ensure_installed = {'tsserver', 'rust_analyzer'},
+  handlers = {
+    lsp.default_setup,
+    lua_ls = function()
+      require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
+    end,
+  }
+})
+
+require('lsp-zero').extend_cmp()
+
+local cmp = require('cmp')
+
+cmp.setup({
+  sources = {
+    {name = 'path'},
+    {name = 'nvim_lsp'},
+    {name = 'nvim_lua'},
+  },
+  mapping = {
+    ['<C-Space>'] = cmp.mapping.complete(),
+  },
+})
 
 ---------------
 -- plugin / neovim telescope 
@@ -338,24 +383,24 @@ nnoremap <silent> <leader>l :TmuxNavigateRight<cr>
 local ts = require 'nvim-treesitter.configs'
 ts.setup {
   sync_install = false,
-  ensure_installed = { 
-    'bash', 
-    'c', 
+  ensure_installed = {
+    'bash',
+    'c',
     'cpp',
     'css',
-    'fish', 
-    'help', 
+    'fish',
+    'help',
     'html',
-    'javascript', 
+    'javascript',
     'json',
-    'lua', 
+    'lua',
     'markdown',
     'markdown_inline',
-    'python', 
-    'ruby', 
-    'rust', 
+    'python',
+    'ruby',
+    'rust',
     'tsx',
-    'typescript', 
+    'typescript',
     'vim',
   },
   -- List of parsers to ignore installing
@@ -366,7 +411,7 @@ ts.setup {
     'help',
     'phpdoc',
     'slint',
-  }, 
+  },
   auto_install = false,
   highlight = {
     enable = true,
@@ -394,7 +439,7 @@ require('onedark').setup {
     -- NOTE: github uses #8b949e for code comments in dark contrast web UI
     github_grey = "#8b94e",
   },
-  highlights = { 
+  highlights = {
     ["@Comment"] = {fg = '$github_grey'},
   }
 }
