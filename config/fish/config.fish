@@ -110,6 +110,9 @@ if status is-interactive
     abbr -a -- ys 'yay -S'
     abbr -a -- yss 'yay -Ss'
     set -gx bp "$HOME/homebrew"
+
+    abbr -a --set-cursor='%' -- nrd 'npm run dev%'
+    abbr -a --set-cursor='%' -- rnd 'npm run dev%'
   end
 
   abbr -a -- nmc 'nmcli'
