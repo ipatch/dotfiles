@@ -279,6 +279,8 @@ local lsp = require('lsp-zero').preset({})
 lsp.on_attach(function(client, bufnr)
   local opts = {buffer = bufnr, remap = false}
 
+  -- Buffer local mappings.
+  -- See `:help vim.lsp.*` for documentation on any of the below functions
   vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
   vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
   vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end, opts)
@@ -291,9 +293,10 @@ lsp.on_attach(function(client, bufnr)
   vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
 end)
 
+-- TODO: ipatch, set the `cmd` var for the setup parameter for tsserver
+
 require('mason').setup({})
 require('mason-lspconfig').setup({
-  -- ensure_installed = {'tsserver', 'rust_analyzer'},
   handlers = {
     lsp.default_setup,
     lua_ls = function()
@@ -313,7 +316,11 @@ cmp.setup({
     {name = 'nvim_lua'},
   },
   mapping = {
-    ['<C-Space>'] = cmp.mapping.complete(),
+    -- use `TAB` key to highlight next item in list
+    ['<Tab>'] = cmp.mapping.select_next_item(),
+    ['<S-Tab>'] = cmp.mapping.select_prev_item(),
+    -- ['<C-Space>'] = cmp.mapping.complete(),
+    ['<CR>'] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace }),
   },
 })
 
