@@ -73,6 +73,10 @@ require('packer').startup(function(use)
     }
   }
 
+  -- lsp helper / typescript
+  -- https://stackoverflow.com/a/70294761/708807
+  use 'jose-elias-alvarez/nvim-lsp-ts-utils'
+
   -- nvim-treesitter Highlight, edit, and navigate code
   use {
     'nvim-treesitter/nvim-treesitter',
@@ -277,6 +281,13 @@ vim.api.nvim_create_autocmd('BufWinEnter', {
 local lsp = require('lsp-zero').preset({})
 
 lsp.on_attach(function(client, bufnr)
+
+  -- TODO: ipatch, this didn't work, updated the tsconfig.json for the project instead
+  require('nvim-lsp-ts-utils').setup({
+    filter_out_diagnositics_by_code = { 80001 },
+  })
+  require('nvim-lsp-ts-utils').setup_client(client)
+
   local opts = {buffer = bufnr, remap = false}
 
   -- Buffer local mappings.
