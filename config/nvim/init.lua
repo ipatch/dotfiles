@@ -170,6 +170,11 @@ vim.keymap.set('n', '<C-u>', '<C-u>zz')
 map('n', '<leader>h', ':set list!<cr>', {noremap = true})
 
 ---------------
+-- key mapping / copy the entire buffer to clipboard
+-- vim.keymap.set('n', '<C-a>', '<esc>ggVG<CR>')
+vim.keymap.set('n', '<C-a>', ':%y+<CR>', { noremap = true})
+
+---------------
 -- key mapping / bubble text
 -- bubble text, Normal mode, <M-???>, `M` is meta key, `alt/option` on macOS
 map('n', '<M-k>', ':m .-2<cr>==', {noremap = true})
@@ -277,18 +282,70 @@ vim.api.nvim_create_autocmd('BufWinEnter', {
 
 ---------------
 -- plugin / neovim / lsp settings
---
+-- ref: https://github.com/neovim/nvim-lspconfig/wiki/UI-Customization
+---
+
+-- copy diagnostic message to clipboard
+-- NOTE: ipatch, best solution i could come up with for time being
+-- ...could not get a toggle focus/nofocus binding working
+-- ...and float window would reopen after close NO BUENO!
+local function copy_diagnostic_to_clipboard()
+  local row, _ = unpack(vim.api.nvim_win_get_cursor(0))
+  local bufnr = vim.api.nvim_get_current_buf()
+
+  local line_diagnostics = vim.lsp.diagnostic.get_line_diagnostics(bufnr, row - 1)
+  if next(line_diagnostics) == nil then
+    print("No diagnostic message at the current position.")
+  else
+    local message = ""
+    for _, diagnostic in ipairs(line_diagnostics) do
+      message = message .. diagnostic.message .. "\n"
+    end
+    vim.fn.setreg("+", message)
+    print("Diagnostic message copied to clipboard.")
+  end
+end
+
+vim.keymap.set('n', '<leader>x', copy_diagnostic_to_clipboard, { noremap = true, silent = true })
+
+-- NOTE: ipatch, style LSP diagnostic messages
+vim.diagnostic.config({
+  virtual_text = false,
+  signs = true,
+  underline = true,
+  update_in_insert = false,
+  severity_sort = false,
+})
+
 local lsp = require('lsp-zero').preset({})
 
 lsp.on_attach(function(client, bufnr)
 
   -- TODO: ipatch, this didn't work, updated the tsconfig.json for the project instead
-  require('nvim-lsp-ts-utils').setup({
-    filter_out_diagnositics_by_code = { 80001 },
-  })
-  require('nvim-lsp-ts-utils').setup_client(client)
+  -- require('nvim-lsp-ts-utils').setup({
+  --   filter_out_diagnositics_by_code = { 80001 },
+  -- })
+  -- require('nvim-lsp-ts-utils').setup_client(client)
 
   local opts = {buffer = bufnr, remap = false}
+
+  -- NOTE: ipatch, style LSP diagnostic messages requires nvim >= 0.7
+  vim.api.nvim_create_autocmd("CursorHold", {
+    buffer = bufnr,
+    callback = function()
+      local opts = {
+        -- NOTE: ipatch, toggle to true to copy text in diagnostics float window
+        focusable = false,
+        -- focusable = true,
+        close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
+        border = 'rounded',
+        source = 'always',
+        prefix = ' ',
+        scope = 'cursor',
+      }
+      vim.diagnostic.open_float(nil, opts)
+    end
+  })
 
   -- Buffer local mappings.
   -- See `:help vim.lsp.*` for documentation on any of the below functions
