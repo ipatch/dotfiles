@@ -113,6 +113,7 @@ if status is-interactive
 
     abbr -a --set-cursor='%' -- nrd 'npm run dev%'
     abbr -a --set-cursor='%' -- rnd 'npm run dev%'
+    abbr -a -- nrdh 'npm run dev:hot'
   end
 
   abbr -a -- nmc 'nmcli'
