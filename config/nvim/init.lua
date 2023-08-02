@@ -73,6 +73,9 @@ require('packer').startup(function(use)
     }
   }
 
+  -- lsp helper / json files ie. tsconfig.json
+  use "b0o/schemastore.nvim"
+
   -- lsp helper / typescript
   -- https://stackoverflow.com/a/70294761/708807
   use 'jose-elias-alvarez/nvim-lsp-ts-utils'
@@ -281,9 +284,18 @@ vim.api.nvim_create_autocmd('BufWinEnter', {
 })
 
 ---------------
--- plugin / neovim / lsp settings
+-- plugin / neovim native / LSP settings
 -- ref: https://github.com/neovim/nvim-lspconfig/wiki/UI-Customization
 ---
+
+---------------
+-- plugin / neovim / native LSP / mason / lsp manager
+-- NOTE: ipatch, did not notice difference before/after lsp settings in init.lua
+require('mason').setup({
+  ui = {
+    border = 'rounded'
+  }
+})
 
 -- copy diagnostic message to clipboard
 -- NOTE: ipatch, best solution i could come up with for time being
@@ -319,13 +331,27 @@ vim.diagnostic.config({
 
 local lsp = require('lsp-zero').preset({})
 
+-- TODO: ipatch, set the `cmd` var for the setup parameter for tsserver
 lsp.on_attach(function(client, bufnr)
+
+  lsp.set_sign_icons({
+    error = '✘',
+    warn = '▲',
+    hint = '⚑',
+    info = '»'
+  })
 
   -- TODO: ipatch, this didn't work, updated the tsconfig.json for the project instead
   -- require('nvim-lsp-ts-utils').setup({
   --   filter_out_diagnositics_by_code = { 80001 },
   -- })
   -- require('nvim-lsp-ts-utils').setup_client(client)
+
+  -- NOTE: ipatch, setup jsonls for tsconfig.json
+  -- require('lspconfig').jsonls.setup({
+  --   fileMatch = {"tsconfig*.json"},
+  --   url = "https://json.schemastore.org/tsconfig.json"
+  -- })
 
   local opts = {buffer = bufnr, remap = false}
 
@@ -340,7 +366,8 @@ lsp.on_attach(function(client, bufnr)
         close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
         border = 'rounded',
         source = 'always',
-        prefix = ' ',
+        prefix = '',
+        header = '',
         scope = 'cursor',
       }
       vim.diagnostic.open_float(nil, opts)
@@ -361,9 +388,24 @@ lsp.on_attach(function(client, bufnr)
   vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
 end)
 
--- TODO: ipatch, set the `cmd` var for the setup parameter for tsserver
+lsp.setup()
 
-require('mason').setup({})
+require('lspconfig').jsonls.setup {
+  settings = {
+    json = {
+      schemas = require('schemastore').json.schemas(),
+      validate = { enable = true },
+    },
+  },
+}
+
+-- NOTE: ipatch, did not notice difference before/after lsp settings in init.lua
+-- require('mason').setup({
+--   ui = {
+--     border = 'rounded'
+--   }
+-- })
+
 require('mason-lspconfig').setup({
   handlers = {
     lsp.default_setup,
@@ -378,6 +420,12 @@ require('lsp-zero').extend_cmp()
 local cmp = require('cmp')
 
 cmp.setup({
+
+  window = {
+    completion = cmp.config.window.bordered(),
+    documentation = cmp.config.window.bordered(),
+  },
+
   sources = {
     {name = 'path'},
     {name = 'nvim_lsp'},
