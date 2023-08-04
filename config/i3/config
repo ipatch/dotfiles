@@ -362,6 +362,7 @@ bindsym $mod+r mode "resize"
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # NOTE: ipatch, setup i3 socket
+# TODO: still not seeing socket file being created WTF 🤷‍♂️
 ipc-socket $HOME/.config/i3/ipc-socket.$(hostname)
 
 
