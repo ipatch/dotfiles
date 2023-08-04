@@ -168,7 +168,6 @@ workspace 29 output $mon2
 # set $web   "2: web"
 set $ws1 "1"
 set $ws2 "2"
-
 set $ws3 "3"
 set $ws4 "4"
 set $ws5 "5"
@@ -186,7 +185,6 @@ set $ws26 "26"
 set $ws27 "27"
 set $ws28 "28"
 set $ws29 "29"
-
 
 # flameshot launch a selction
 bindsym $mod+shift+control+4 exec --no-startup-id "flameshot gui --clipboard"
@@ -214,8 +212,8 @@ bindsym Mod1+8 workspace number $ws28
 bindsym Mod1+9 workspace number $ws29
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace number $terms
-bindsym $mod+Shift+2 move container to workspace number $web
+bindsym $mod+Shift+1 move container to workspace number $ws1
+bindsym $mod+Shift+2 move container to workspace number $ws2
 bindsym $mod+Shift+3 move container to workspace number $ws3
 bindsym $mod+Shift+4 move container to workspace number $ws4
 bindsym $mod+Shift+5 move container to workspace number $ws5
@@ -363,7 +361,7 @@ bindsym $mod+r mode "resize"
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # NOTE: ipatch, setup i3 socket
-# ipc-socket /run/user/$(id -u)/i3/ipc-socket.$(hostname)
+ipc-socket $HOME/.config/i3/ipc-socket.$(hostname)
 
 
 # Start i3bar to display a workspace bar (plus the system information i3status
