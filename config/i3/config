@@ -233,7 +233,7 @@ bindsym Mod1+Shift+1 move container to workspace number $ws21
 # NOTE: ipatch, set default window size
 # WM_CLASS(STRING) = "gpartedbin", "GParted"
 for_window [class="GParted"] floating enable resize set 1800 1000, move position center
-for_window [class="Arandr"] floating enable, move position center
+for_window [class="Arandr"] floating enable, resize set 1800 1000, move position center
 
 # WM_CLASS(STRING) = "xfreerdp", "xfreerdp"
 for_window [class="xfreerdp"] move to workspace $ws7
@@ -245,7 +245,7 @@ for_window [class="xfreerdp"] move to workspace $ws7
 #---------------------------------------
 #--
 # NOTE: ipatch, the below setting seems to put all firefox windows on workspace #2 👍
-assign [class="firefox"] workspace $web
+assign [class="firefox"] workspace $ws2
 # TODO: ipatch, make about window,dialogue box floating
 # WM_CLASS(STRING) = "Browser", "firefox"
 # WM_NAME(STRING) = "About Mozilla Firefox"
@@ -288,7 +288,7 @@ for_window [class="Thunar"] floating enable
 # WM_CLASS(STRING) = "gloobus-preview", "Gloobus-preview"
 for_window [class="Gloobus-preview"] floating enable
 
-exec --no-startup-id i3-msg 'workspace $terms; exec /usr/bin/alacritty'
+exec --no-startup-id i3-msg 'workspace $ws1; exec /usr/bin/alacritty'
 
 # TODO: ipatch, the first instance of alacritty launches on workspace #1 as intended
 # however if i launch a new window it will not launch on the active workspace ie. workspace #2
@@ -333,24 +333,24 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
-# These bindings trigger as soon as you enter the resize mode
+  # These bindings trigger as soon as you enter the resize mode
 
-# Pressing left will shrink the window’s width.
-# Pressing right will grow the window’s width.
-# Pressing up will shrink the window’s height.
-# Pressing down will grow the window’s height.
+  # Pressing left will shrink the window’s width.
+  # Pressing right will grow the window’s width.
+  # Pressing up will shrink the window’s height.
+  # Pressing down will grow the window’s height.
   bindsym j resize shrink width 10 px or 10 ppt
   bindsym k resize grow height 10 px or 10 ppt
   bindsym l resize shrink height 10 px or 10 ppt
   bindsym semicolon resize grow width 10 px or 10 ppt
 
-# same bindings, but for the arrow keys
+  # same bindings, but for the arrow keys
   bindsym Left resize shrink width 10 px or 10 ppt
   bindsym Down resize grow height 10 px or 10 ppt
   bindsym Up resize shrink height 10 px or 10 ppt
   bindsym Right resize grow width 10 px or 10 ppt
 
-# back to normal: Enter or Escape or $mod+r
+  # back to normal: Enter or Escape or $mod+r
   bindsym Return mode "default"
   bindsym Escape mode "default"
   bindsym $mod+r mode "default"
