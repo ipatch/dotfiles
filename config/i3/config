@@ -224,7 +224,7 @@ bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 
 # monitor2
-# NOTE: ipatch, `Mod1` refers to the `option` / `alt` key on my keyboard
+# NOTE: ipatch, `Mod1` refers to the `option`,`alt` key on my keyboard
 bindsym Mod1+Shift+1 move container to workspace number $ws21
 
 # NOTE: ipatch, assign certain apps to certain workspaces
@@ -233,6 +233,7 @@ bindsym Mod1+Shift+1 move container to workspace number $ws21
 # NOTE: ipatch, set default window size
 # WM_CLASS(STRING) = "gpartedbin", "GParted"
 for_window [class="GParted"] floating enable resize set 1800 1000, move position center
+for_window [class="Arandr"] floating enable, move position center
 
 # WM_CLASS(STRING) = "xfreerdp", "xfreerdp"
 for_window [class="xfreerdp"] move to workspace $ws7
