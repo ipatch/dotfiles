@@ -192,27 +192,10 @@ function ClearSearchAndCmd()
     vim.fn.setreg('/', '')
     vim.cmd('noh')
   end
-  -- vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(':'), 'n', true, {})
   vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(':', true, true, true), 'n', true)
 end
 
 vim.api.nvim_set_keymap('n', '<CR>', ':lua ClearSearchAndCmd()<CR>', { noremap = true, silent = true })
-
-
-
--- function! ClearSearchAndHighlight()
---     if getreg('/') != ''
---         call setreg('/', '')
---         noh
---     else
---         let g:cleared_search = 0
---         return "\<CR>"
---     end
--- end
-
--- nnoremap <expr> <CR> ClearSearchAndHighlight()
-
--- vim.api.nvim_set_keymap('n', '<CR>', ':lua ClearSearchAndCmd()<CR>', { noremap = true, silent = true })
 
 ---------------
 -- settings / options / use vim settings within nvim via lua
@@ -251,11 +234,6 @@ opt.wrap = true
 -- plugin / https://github.com/JoosepAlviste/nvim-ts-context-commentstring/issues/67
 opt.updatetime = 100
 
--- NOTE: ipatch, below causes error when reloading this config file
--- vim.api.nvim_exec([[
--- command SynID  echo synIDattr(synID(line("."), col("."), 1), "name")
---  ]], true)
-
 ---------------
 -- settings / hidden chars
 -- vim.opt.listchars:append("eol:↴")
@@ -275,19 +253,27 @@ opt.listchars:append("trail:•") -- BULLET (U+2022, UTF-8: E2 80 A2)
 ------------------------------
 -- settings / views
 -- below should remember cursor position in file
--- TODO: this really should be lua 🤷<200d>♂️
 -- TODO: `:h 'viewdir`
-vim.api.nvim_exec([[
-augroup remember_folds
-autocmd!
-  if exists('$SUDO_USER')
-      set viewdir=
-  else
-    au BufWinLeave *.* mkview
-    au BufWinEnter *.* silent! loadview
-  endif
-augroup END
- ]], true)
+
+-- Save and restore cursor positions in the shada file
+-- Define the user namespace table
+vim.g.user = {}
+
+-- Set the event field in the user namespace
+vim.g.user.event = "my_event_group"
+
+-- Create an autocmd
+vim.api.nvim_create_autocmd('BufReadPost', {
+  group = vim.g.user.event,
+  callback = function(args)
+    local valid_line = vim.fn.line([['"]]) >= 1 and vim.fn.line([['"]]) < vim.fn.line('$')
+    local not_commit = vim.b[args.buf].filetype ~= 'commit'
+
+    if valid_line and not_commit then
+      vim.cmd([[normal! g`"]])
+    end
+  end,
+})
 
 --
 g.netrw_banner = true
@@ -671,15 +657,6 @@ function RestoreFolds()
     vim.opt.foldlevelstart = last_view.foldlevel
   end
 end
-
--- Autocommand to call RestoreFolds() on BufReadPost
-vim.cmd([[
-augroup remember_folds
-autocmd!
-  autocmd BufWinLeave *.* mkview
-  autocmd BufReadPost *.* lua RestoreFolds()
-augroup END
-]])
 
 ---------------
 -- plugin / mfussenegger/nvim-dap
