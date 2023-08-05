@@ -157,7 +157,8 @@ end
 g.mapleader = " " -- map leader key to spacebar 
 map('n', '<leader>bd', ':bd<cr>', {noremap = true}) -- close buffer
 map('n', '<leader>x', ':bd<cr>', {noremap = true}) -- close buffer
-map('n', '<cr>', ':', {noremap = true}) -- press enter, return ↩ in normal to go into cmd mode
+-- NOTE: ipatch, see line num ~= :191
+-- map('n', '<cr>', ':', {noremap = true}) -- press enter, return ↩ in normal to go into cmd mode
 map('n', '<leader>w', ':w<cr>', {noremap = true}) -- save current buffer
 map('n', '<leader><leader>', '<c-^>', {noremap = true}) -- toggle between last 2 buffers
 map('n', '<leader>e', ':e ', {noremap = true}) -- open/edit new file from cmd
@@ -182,6 +183,36 @@ vim.keymap.set('n', '<C-a>', ':%y+<CR>', { noremap = true})
 -- bubble text, Normal mode, <M-???>, `M` is meta key, `alt/option` on macOS
 map('n', '<M-k>', ':m .-2<cr>==', {noremap = true})
 map('n', '<M-j>', ':m .+1<cr>==', {noremap = true})
+
+---------------
+-- key mapping / clear search term, remove highlighting, then map CR to `:` for normal mode
+---
+function ClearSearchAndCmd()
+  if vim.fn.getreg('/') ~= '' then
+    vim.fn.setreg('/', '')
+    vim.cmd('noh')
+  end
+  -- vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(':'), 'n', true, {})
+  vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(':', true, true, true), 'n', true)
+end
+
+vim.api.nvim_set_keymap('n', '<CR>', ':lua ClearSearchAndCmd()<CR>', { noremap = true, silent = true })
+
+
+
+-- function! ClearSearchAndHighlight()
+--     if getreg('/') != ''
+--         call setreg('/', '')
+--         noh
+--     else
+--         let g:cleared_search = 0
+--         return "\<CR>"
+--     end
+-- end
+
+-- nnoremap <expr> <CR> ClearSearchAndHighlight()
+
+-- vim.api.nvim_set_keymap('n', '<CR>', ':lua ClearSearchAndCmd()<CR>', { noremap = true, silent = true })
 
 ---------------
 -- settings / options / use vim settings within nvim via lua
@@ -271,7 +302,7 @@ else
     vim.opt.clipboard:append {'unnamedplus'}
 end
 
--- NOTE: ipatch, open help pages in new buffer NOT in a split or tab
+-- NOTE: ipatch, open help pages in new buffer NOT in splits or tabs
 vim.api.nvim_create_autocmd('BufWinEnter', {
   pattern = '*',
   callback = function(event)
@@ -617,14 +648,23 @@ require('ufo').setup({
 vim.keymap.set('n', 'zR', require('ufo').openAllFolds)
 vim.keymap.set('n', 'zM', require('ufo').closeAllFolds)
 
+vim.api.nvim_exec([[
+augroup remember_folds
+autocmd!
+  autocmd BufWinLeave *.* mkview
+  autocmd BufReadPost *.* lua RestoreFolds(99)
+augroup END
+]], true)
+
 -- NOTE: ipatch Helper function to restore folds
 function RestoreFolds()
   local last_view = vim.fn.winsaveview()
   if vim.fn.empty(vim.fn.getwininfo()) > 1 or last_view == nil or last_view.foldlevel == 0 then
     -- set defaults if non exist
-    vim.opt.foldenable = true
+    -- vim.opt.foldlevel = defaultFoldlevel
     vim.opt.foldlevel = 99
-    vim.opt.foldlevelstart = -1
+    vim.opt.foldlevelstart = 99
+    vim.opt.foldenable = true
   else
     vim.opt.foldenable = true
     vim.opt.foldlevel = last_view.foldlevel
