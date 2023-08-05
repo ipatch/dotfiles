@@ -255,12 +255,18 @@ opt.listchars:append("trail:•") -- BULLET (U+2022, UTF-8: E2 80 A2)
 -- below should remember cursor position in file
 -- TODO: `:h 'viewdir`
 
+------------------------------
 -- Save and restore cursor positions in the shada file
 -- Define the user namespace table
+-----
 vim.g.user = {}
 
 -- Set the event field in the user namespace
 vim.g.user.event = "my_event_group"
+
+-- Set the event field in the user namespace
+vim.g.user.fold_event = "my_fold_event_group"
+
 
 -- Create an autocmd
 vim.api.nvim_create_autocmd('BufReadPost', {
@@ -634,29 +640,18 @@ require('ufo').setup({
 vim.keymap.set('n', 'zR', require('ufo').openAllFolds)
 vim.keymap.set('n', 'zM', require('ufo').closeAllFolds)
 
-vim.api.nvim_exec([[
+-- remember folds
+vim.cmd [[
 augroup remember_folds
-autocmd!
+  autocmd!
   autocmd BufWinLeave *.* mkview
-  autocmd BufReadPost *.* lua RestoreFolds(99)
+  autocmd BufWinEnter *.* silent! loadview
 augroup END
-]], true)
+]]
 
--- NOTE: ipatch Helper function to restore folds
-function RestoreFolds()
-  local last_view = vim.fn.winsaveview()
-  if vim.fn.empty(vim.fn.getwininfo()) > 1 or last_view == nil or last_view.foldlevel == 0 then
-    -- set defaults if non exist
-    -- vim.opt.foldlevel = defaultFoldlevel
-    vim.opt.foldlevel = 99
-    vim.opt.foldlevelstart = 99
-    vim.opt.foldenable = true
-  else
-    vim.opt.foldenable = true
-    vim.opt.foldlevel = last_view.foldlevel
-    vim.opt.foldlevelstart = last_view.foldlevel
-  end
-end
+-- Set the default fold level to 99
+vim.o.foldlevel = 99
+vim.o.foldlevelstart = 99
 
 ---------------
 -- plugin / mfussenegger/nvim-dap
