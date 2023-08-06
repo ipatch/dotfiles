@@ -126,13 +126,14 @@ require('packer').startup(function(use)
 
   -- UI / enhancements / newlines
   use "lukas-reineke/indent-blankline.nvim"
-  -- use "tpope/vim-sleuth"
 
   -- UI / enhancements / code folds
   use {
     'kevinhwang91/nvim-ufo',
     requires = 'kevinhwang91/promise-async'
   }
+  -- UI / enhancements / color picker
+  use 'NvChad/nvim-colorizer.lua'
 
   if is_bootstrap then
     require('packer').sync()
@@ -233,6 +234,7 @@ opt.wrap = true
 
 -- plugin / https://github.com/JoosepAlviste/nvim-ts-context-commentstring/issues/67
 opt.updatetime = 100
+g.netrw_banner = true
 
 ---------------
 -- settings / hidden chars
@@ -252,11 +254,8 @@ opt.listchars:append("trail:•") -- BULLET (U+2022, UTF-8: E2 80 A2)
 
 ------------------------------
 -- settings / views
--- below should remember cursor position in file
--- TODO: `:h 'viewdir`
-
-------------------------------
 -- Save and restore cursor positions in the shada file
+-- `:h 'viewdir`
 -- Define the user namespace table
 -----
 vim.g.user = {}
@@ -280,10 +279,6 @@ vim.api.nvim_create_autocmd('BufReadPost', {
     end
   end,
 })
-
---
-g.netrw_banner = true
--- g.netrw_liststyle = 3
 
 ------------------------------
 -- settings / clipboard
@@ -523,6 +518,12 @@ nnoremap <silent> <leader>l :TmuxNavigateRight<cr>
 "nnoremap <silent> :TmuxNavigatePrevious<cr> ]]
 
 ---------------
+-- plugin / nvchad/nvim-colorizer.lua
+-- NOTE: ipatch 
+---
+require 'colorizer'.setup()
+
+---------------
 -- plugin / tree-sitter
 -- NOTE: ipatch, `all` blows up 💥 on m1 mac due to `phpdoc` use `maintained` for time being
 --
@@ -642,11 +643,11 @@ vim.keymap.set('n', 'zM', require('ufo').closeAllFolds)
 
 -- remember folds
 vim.cmd [[
-augroup remember_folds
-  autocmd!
-  autocmd BufWinLeave *.* mkview
-  autocmd BufWinEnter *.* silent! loadview
-augroup END
+  augroup remember_folds
+    autocmd!
+    autocmd BufWinLeave *.* mkview
+    autocmd BufWinEnter *.* silent! loadview
+  augroup END
 ]]
 
 -- Set the default fold level to 99
