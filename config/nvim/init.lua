@@ -438,6 +438,9 @@ require('lsp-zero').extend_cmp()
 local cmp = require('cmp')
 
 cmp.setup({
+  completion = {
+    autocomplete = false
+  },
 
   window = {
     completion = cmp.config.window.bordered(),
@@ -453,7 +456,7 @@ cmp.setup({
     -- use `TAB` key to highlight next item in list
     ['<Tab>'] = cmp.mapping.select_next_item(),
     ['<S-Tab>'] = cmp.mapping.select_prev_item(),
-    -- ['<C-Space>'] = cmp.mapping.complete(),
+    ['<C-Space>'] = cmp.mapping.complete(),
     ['<CR>'] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace }),
   },
 })
