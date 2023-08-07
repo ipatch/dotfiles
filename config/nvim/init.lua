@@ -1,14 +1,14 @@
 -- Author: github.com/ipatch
 -- my experiemental neovim ≥ 0.5 configuratoin/setup
 -- some inspiration: https://github.com/David-Kunz/vim/blob/master/init.lua
--- NOTE: ipatch, cursor postion is not restored when loading this file with `:e init.lua`
 
 ---------------
 -- NOTE: ipatch / ⭐️ USEFUL REMINDERS, and other assorted BS
----
+-- TODO: ipatch, when reloading this file with `:so %` all folds are openend 👎️ workaround save to svim the load svim
+----
 -- convert all single quotes in a file to double quotes
 -- :%s/'\([^']*\)'/"\1"/g
----
+----
 
 -- helpers
 local cmd = vim.cmd  -- to execute Vim commands e.g. cmd('pwd')
@@ -253,8 +253,7 @@ opt.listchars:append("trail:•") -- BULLET (U+2022, UTF-8: E2 80 A2)
 -- markdown_folding = 1
 
 ------------------------------
--- settings / views
--- Save and restore cursor positions in the shada file
+-- SETTINGS / VIEWS / Save and restore cursor position
 -- `:h 'viewdir`
 -- Define the user namespace table
 -----
@@ -265,7 +264,6 @@ vim.g.user.event = "my_event_group"
 
 -- Set the event field in the user namespace
 vim.g.user.fold_event = "my_fold_event_group"
-
 
 -- Create an autocmd
 vim.api.nvim_create_autocmd('BufReadPost', {
@@ -281,8 +279,8 @@ vim.api.nvim_create_autocmd('BufReadPost', {
 })
 
 ------------------------------
--- settings / clipboard
--- Check the operating system and set clipboard accordingly
+-- SETTINGS / clipboard
+-- Check the operating system then set clipboard accordingly
 if vim.fn.has('mac') == 1 or vim.fn.has('win64') == 1 or vim.fn.has('win32') == 1 then
     vim.opt.clipboard:append {'unnamed'}
 else
@@ -435,12 +433,42 @@ require('mason-lspconfig').setup({
 
 require('lsp-zero').extend_cmp()
 
+---------------
+-- plugin / neovim nvim-cmp / neovim completion 
+--
+-- NOTE: ipatch,
+-- ref: https://github.com/hrsh7th/nvim-cmp/wiki/Menu-Appearance#how-to-add-visual-studio-code-codicons-to-the-menu
+local kind_icons = {
+  Text = '  ',
+  Method = '  ',
+  Function = '  ',
+  Constructor = '  ',
+  Field = '  ',
+  Variable = '  ',
+  Class = '  ',
+  Interface = '  ',
+  Module = '  ',
+  Property = '  ',
+  Unit = '  ',
+  Value = '  ',
+  Enum = '  ',
+  Keyword = '  ',
+  Snippet = '  ',
+  Color = '  ',
+  File = '  ',
+  Reference = '  ',
+  Folder = '  ',
+  EnumMember = '  ',
+  Constant = '  ',
+  Struct = '  ',
+  Event = '  ',
+  Operator = '  ',
+  TypeParameter = '  ',
+}
+
 local cmp = require('cmp')
 
 cmp.setup({
-  completion = {
-    autocomplete = false
-  },
 
   window = {
     completion = cmp.config.window.bordered(),
@@ -452,13 +480,33 @@ cmp.setup({
     {name = 'nvim_lsp'},
     {name = 'nvim_lua'},
   },
+
   mapping = {
     -- use `TAB` key to highlight next item in list
+    ['<C-Space>'] = cmp.mapping.complete(),
     ['<Tab>'] = cmp.mapping.select_next_item(),
     ['<S-Tab>'] = cmp.mapping.select_prev_item(),
-    ['<C-Space>'] = cmp.mapping.complete(),
     ['<CR>'] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace }),
-  },
+    ['<C-e>'] = cmp.mapping.abort(),
+ },
+
+formatting = {
+  fields = { "kind", "abbr" },
+  format = function(entry, vim_item)
+
+    -- kind icons
+    -- vim_item.kind = (cmp_kinds[vim_item.kind] or '') .. vim_item.kind
+    vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
+    vim_item.menu = ({
+      buffer = "(Buffer)",
+      path = "(Path)",
+    })[entry.source.name]
+
+    return vim_item
+  end,
+},
+
+
 })
 
 ---------------
