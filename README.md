@@ -779,10 +779,12 @@ https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.conf \
 
 <summary>Uncompleted</summary>
 
+- [ ] #nvim need to disable highlight color for markdown docs
 - [ ] #arch #emote how to make the gui for my emoji picker larger 👩‍🦯
 - [ ] #nvim plugin / #nvim-ufo can not fold html tags contained with a markdown document out of the box
 - [ ] #i3 when launching an app that is defined for a specific workspace and already on that workspace the app launches on the previously active workspace WTF?
 - [ ] #nvim #packer, running `:PackerSync` always blocks neovim ie. ui changes and makes the entire usage unresponsive
+    - specific to install ts parsers
 - [ ] #arch #systemd, come to a peaceful solution on why i can't set the perms i want for my log files
     - https://github.com/systemd/systemd/issues/28302
 - [ ] a much better solution for ricing my arch install ie. editing config files that require a reboot would be to edit in a virtual machine or even using a docker container to not require a full reboot  🤦‍♂️
@@ -794,9 +796,10 @@ https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.conf \
 - [ ] #webdev, side quest, 🤺 figure out reimp search so a site such autozone can find `b12 chemtool` instead having to type `b-12`
 - [ ] #arch map left control key on keychron to `fn` key ala macbook builtin keyboard
 - [ ] #arch how to side scroll with standard wired USB mouse with only a vertical scroll wheel 🤔 ?
+    - <kbd>shift</kbd>+<kbd>wheel</kbd> works well enough with firefox
 - [ ] #milliondollaridea 🤑, some way to search the youtube transcript in browser to find a specific spot of a video
 - [ ] #arch #tmux add key binding to toggle window display numbers
-- [ ] #hammerspoon #karabiner #cmake it'd be nice to swap the `[]` with the `{}` when capslock is activated similiar to how i swapped underbar `_` with hyphen `-`
+- [ ] ~~#hammerspoon~~ ~~#karabiner~~ #cmake it'd be nice to swap the `[]` with the `{}` when capslock is activated similiar to how i swapped underbar `_` with hyphen `-`
 - [ ] #fish it'd be cool to remove all entries from my fish history that were invalid commands thus when searching through history i don't repeat the same mistake
 - [ ] #gitsecret reencodes secret files on every commit, **boo** 👻 WHY
 - [ ] #alacritty does **not** properly highlight, select URLs when wrapped
@@ -821,15 +824,11 @@ https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.conf \
     - is ther some setting where the sensitivity can be set, so scroll begins with one click of the mouse wheel.
 - [ ] [vim] [nvim] when toggling the tagbar <kbd>leader+\\</kbd> move the cursor/focus to the tagbar buffer automatically.
 - [ ] [tmux] [fish] possible to restore scroll back history after closing tmux server and terminal _alacritty_
-- [ ] [arch], implement a more elegant way to fix the `can't read temp` in the i3 status bar after reboots
 - [ ] [arch], set lshift+rshift to toggle caps-lock on/off
 - [ ] [fish], possible to detach current pane in a tmux window from shell history, or write commands run from certain directory to specific history file to keep commands ran in a specific directory quickly accessible, ie. useful when working with a node or ruby based project.
-- [ ] [vim] [nvim], set default filetype for JSON files to `jsonc`
 - [ ] [tmux] use vivaldi keybinding for switching between windows as opposed to using shift+arrow keys
 - [ ] [alacritty] [fish] [tmux] [karabiner] [hammerspoon] _double tap esc_, ie. esc², to run the keyboard shortcut of clearing the scree, ie. prefix (tmux), then control+l
-- [ ] [macos] [afloat] [ke] [hammerspoon] double tap right shift, toggle keep window atop
 - [ ] [vim] implement func to decrypt / encrypt GPG files
-- [ ] [phys] reapply liquid metal to local cpu and gpu, run geekbench test before after, and exp with copper shims for gpu + cpu
 - [ ] [macos] [homebrew] howto search for homebrew taps
 - [ ] [neovim] review the below highlight settings, obviously time permitting of course
   - Folded
@@ -847,7 +846,6 @@ https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.conf \
 - [ ] [vim, json] adjust default conceal settings for json files
 - [ ] [vim, javascript] **Q** how to make certain javascript lang _keywords_ appear in italics using color / font scheme
     - **className, const, return, this.state, onClick, import**
-- [ ] [vim, markdown] have basic code folding for certain HTML tags when editing markdown documents
 - [ ] [tmux] put short synopsis of current weather in tmux status bar, _right side_
 - [ ] **vivaldi** / **voilentmonkey**
   - youtube script, to switch view mode on viewer window hover with mouse or mash a key to bring focus to viewer window so playback shortcuts become active.
@@ -873,6 +871,11 @@ https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.conf \
 <details>
 <summary><strong>TODOs completed</strong></summary>
 
+- [x] [vim, markdown] have basic code folding for certain HTML tags when editing markdown documents
+    > nvim-ufo FTW 🥳
+- [x] [phys] reapply liquid metal to local cpu and gpu, run geekbench test before after, and exp with copper shims for gpu + cpu
+    > shits old what can i say™️, cleaned main box **aug 24 2023**, applied new liquid metal
+- [ ] ~~[macos] [afloat] [ke] [hammerspoon] double tap right shift, toggle keep window atop~~
 - [x] [vim] navigating documents with line wraps makes jumping through buffer by line number inaccurate, wrapped lines are displayed as one line, but the jump cmd treats them as multiple
 - [x] [vim] jump to open curly brace then jump back to close curly brace
     > in **normal** mode press `%` to jump from opening to closing brace
