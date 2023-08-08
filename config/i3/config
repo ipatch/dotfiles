@@ -226,6 +226,7 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 # monitor2
 # NOTE: ipatch, `Mod1` refers to the `option`,`alt` key on my keyboard
 bindsym Mod1+Shift+1 move container to workspace number $ws21
+bindsym Mod1+Shift+2 move container to workspace number $ws22
 
 # NOTE: ipatch, assign certain apps to certain workspaces
 # NOTE: ipatch, run `xprop` to get app/window properties
