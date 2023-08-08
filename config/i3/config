@@ -28,8 +28,8 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec_always --no-startup-id nm-applet
-# TODO: ipatch, still does not display the copyq tray icon in polybar
-exec_always --no-startup-id copyq
+# NOTE: ipatch, ✅ best workaround i could come up with for time being
+exec_always --no-startup-id killall copyq; sleep 5; copyq
 exec_always --no-startup-id flameshot
 
 # NOTE: ipatch, below NO GOOD, app starts maximized and not in tray
@@ -286,6 +286,7 @@ for_window [class="mpv"] floating enable
 # NOTE: i think thunar remembers the last window size, not sure about placement
 for_window [class="Thunar"] floating enable
 
+# NOTE: ipatch, file preview ala quicklook on macos, works with thunar file manager
 # WM_CLASS(STRING) = "gloobus-preview", "Gloobus-preview"
 for_window [class="Gloobus-preview"] floating enable
 
@@ -299,7 +300,7 @@ exec --no-startup-id i3-msg 'workspace $ws1; exec /usr/bin/alacritty'
 #---
 # assign [class="Alacritty"] $terms
 
-exec --no-startup-id i3-msg 'workspace $web; exec /usr/bin/firefox'
+exec --no-startup-id i3-msg 'workspace $ws2; exec /usr/bin/firefox'
 
 # NOTE: ipatch, attempt to style specific applications
 # ...reloading the config is NOT enough, making style changes ie. making certain apps floating
