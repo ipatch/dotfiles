@@ -180,16 +180,6 @@ if status is-interactive
     echo "Updated PATH:"; string join \n $PATH | nl 
   end
 
-  # function fish.rm.path --description 'remove a PATH from \$PATH'
-  #   if set -l index (contains -i $argv[1] $PATH)
-  #     set --erase PATH[$index]
-  #     # echo "Updated PATH: $PATH"
-  #     echo "Updated PATH:"; string join \n $PATH | nl 
-  #   else
-  #     echo "$argv[1] not found in PATH:"; string join \n $PATH | nl
-  #   end
-  # end
-
   function brew --description "catch common misspelling & add some goodies"
     # NOTE: ipatch, `$bp` is an env var defined when setting up `$PATH`
     if test -f "$bp/bin/brew"
@@ -254,5 +244,18 @@ if status is-interactive
     # ---
     # NOTE: not loading `.vimrc` won't work because i want some bells and whistles provided by my `.vimrc`, ie. syntax highlighting.
     man $argv | col -bp | iconv -c | nvim -c 'set ft=man nomod nolist' -;
+  end
+
+  function run_posix_func
+    bash -c '
+      function posix_func() {
+        if [ $(whoami) == 'capin' ]; then
+          echo "hello capin";
+        else
+          echo "nope";
+        fi
+      }
+      posix_func
+      '
   end
 end
