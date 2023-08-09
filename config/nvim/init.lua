@@ -577,6 +577,7 @@ require 'colorizer'.setup({
   filetypes = {
     '*';
     '!markdown';
+    '!gitconfig';
   },
 })
 
