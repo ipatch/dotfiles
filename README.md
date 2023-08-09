@@ -779,7 +779,7 @@ https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.conf \
 
 <summary>Uncompleted</summary>
 
-- [ ] #nvim need to disable highlight color for markdown docs
+- [ ] #arch xrandr + arandr is it possible to have auto probe monitors to load layouts on the fly a la how macos does it
 - [ ] #arch #emote how to make the gui for my emoji picker larger 👩‍🦯
 - [ ] #nvim plugin / #nvim-ufo can not fold html tags contained with a markdown document out of the box
 - [ ] #i3 when launching an app that is defined for a specific workspace and already on that workspace the app launches on the previously active workspace WTF?
@@ -871,6 +871,7 @@ https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.conf \
 <details>
 <summary><strong>TODOs completed</strong></summary>
 
+- [x] #nvim need to disable highlight color for markdown docs
 - [x] [vim, markdown] have basic code folding for certain HTML tags when editing markdown documents
     > nvim-ufo FTW 🥳
 - [x] [phys] reapply liquid metal to local cpu and gpu, run geekbench test before after, and exp with copper shims for gpu + cpu
