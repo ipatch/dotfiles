@@ -571,8 +571,14 @@ nnoremap <silent> <leader>l :TmuxNavigateRight<cr>
 ---------------
 -- plugin / nvchad/nvim-colorizer.lua
 -- NOTE: ipatch 
+-- ref: https://github.com/norcalli/nvim-colorizer.lua
 ---
-require 'colorizer'.setup()
+require 'colorizer'.setup({
+  filetypes = {
+    '*';
+    '!markdown';
+  },
+})
 
 ---------------
 -- plugin / tree-sitter
