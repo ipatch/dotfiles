@@ -8,11 +8,13 @@
 # old non tree-sitter vim syntax file
 # https://github.com/dag/vim-fish
 #--
-# - [ ] TODO: get code folds working for the love of GOD
+# - [x] TODO: get code folds working for the love of GOD
+    # - i think properly setting this ft to fish has helped some
 # - [ ] TODO: properly highlight the word `NOTE:`
 # - [ ] TODO: look at ruby related tree-sitter files for inspiration
-# - [ ] TODO: for reasons i dont understand when closing nvim and opening this file again
+# - [x] TODO: for reasons i dont understand when closing nvim and opening this file again
 # ...the filetype defaults to `conf`
+    # - not anymore 👍️
 # - [ ] TODO: update `pthrm` func to rm path entries based the number index ie.
 # ... `pathrm 1,2,3` instead of copypastaing the entire path entries
 
@@ -200,31 +202,40 @@ if status is-interactive
       return;
     end
 
-    switch "$argv[2]"
-    # TODO: could be implemented better, the 2nd arg `--greddy` seems to still issue an error with brew
-    case outdated --greddy
-      echo "greedy NOT greddy";
-      echo "================================="
-      command brew outdated --greedy
-      return # required, or else orig misspelling will be passed to brew
-      set_color -d; printf '\n%s' 'use '; set_color -o green; echo "brew outdated --greedy"; set_color normal
-    end #switch
+      switch "$argv[2]"
+      # TODO: could be implemented better, the 2nd arg `--greddy` seems to still issue an error with brew
+        case outdated --greddy
+          echo "greedy NOT greddy";
+          echo "================================="
+          command brew outdated --greedy
+          return # required, or else orig misspelling will be passed to brew
+          set_color -d; printf '\n%s' 'use '; set_color -o green; echo "brew outdated --greedy"; set_color normal
+      end #switch
 
-    switch "$argv[3]"
-     case cask outdated --greddy
-     echo "greedy NOT greddy";
-     echo "================================="
-     set_color -d red; echo "`brew cask outdated --greedy obsolete`"; set_color normal
-     printf "use "; set_color -o green; echo "brew outdated --greedy"; set_color normal
-     command brew outdated --greedy
-     set_color -d; printf '\n%s' 'use '; set_color -o green; echo "brew outdated --greedy"; set_color normal
-    case "*"
-     command brew $argv
-    end #switch
+      switch "$argv[3]"
+        case cask outdated --greddy
+        echo "greedy NOT greddy";
+        echo "================================="
+        set_color -d red; echo "`brew cask outdated --greedy obsolete`"; set_color normal
+        printf "use "; set_color -o green; echo "brew outdated --greedy"; set_color normal
+        command brew outdated --greedy
+        set_color -d; printf '\n%s' 'use '; set_color -o green; echo "brew outdated --greedy"; set_color normal
+        case "*"
+        command brew $argv
+      end #switch
    else
      echo "brew not found"
     end # if  test /usr/local/bin/brew
   end #function
+
+  function yay --description "add a `remove` arg for yay and possibly some other goodies"
+    if test "$argv[1]" = "remove"
+      set -l args $argv[2..-1]
+      command yay -Rns $args
+    else
+      command yay $argv
+    end
+  end
 
   function mkcd --description '`mkdir` then `cd` into it'
     mkdir -p $argv; and cd $argv
@@ -258,4 +269,5 @@ if status is-interactive
       posix_func
       '
   end
+
 end
