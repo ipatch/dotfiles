@@ -779,6 +779,8 @@ https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.conf \
 
 <summary>Uncompleted</summary>
 
+- [ ] #i3 #polybar put cpu / gpu fan speeds in my bar
+- [ ] #nvim WTF, when i've been running `:e` on my open buffer (config.fish) it's been resetting my `foldlevel=2` 😡
 - [ ] #arch xrandr + arandr is it possible to have auto probe monitors to load layouts on the fly a la how macos does it
 - [ ] #arch #emote how to make the gui for my emoji picker larger 👩‍🦯
 - [ ] #nvim plugin / #nvim-ufo can not fold html tags contained with a markdown document out of the box
