@@ -1,1 +1,1 @@
-../config/nvim/init.lua-mpb11,3
+../config/nvim/init.lua

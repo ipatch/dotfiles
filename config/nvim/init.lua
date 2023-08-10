@@ -199,7 +199,7 @@ end
 vim.api.nvim_set_keymap('n', '<CR>', ':lua ClearSearchAndCmd()<CR>', { noremap = true, silent = true })
 
 ---------------
--- settings / options / use vim settings within nvim via lua
+-- SETTINGS / options / use vim settings within nvim via lua
 opt.completeopt = {'menu', 'menuone', 'noselect'}
 opt.mouse = 'a'
 opt.shiftwidth = 2
@@ -207,9 +207,6 @@ opt.splitbelow = true
 opt.splitright = true
 
 opt.incsearch = true
--- TODO: ipatch, should probably only have this mapping if there are highlighted search terms
--- map('n', '<CR>', ':nohl<CR>') -- unhighlight search terms
-
 opt.backup = false
 opt.cmdheight = 1
 opt.cursorline = true           -- highlight the current line
@@ -237,7 +234,7 @@ opt.updatetime = 100
 g.netrw_banner = true
 
 ---------------
--- settings / hidden chars
+-- SETTINGS / hidden chars
 -- vim.opt.listchars:append("eol:↴")
 -- opt.lcs:append("eol:↴")
 opt.listchars:append("eol:¬")
@@ -255,8 +252,9 @@ opt.listchars:append("trail:•") -- BULLET (U+2022, UTF-8: E2 80 A2)
 ------------------------------
 -- SETTINGS / VIEWS / Save and restore cursor position
 -- `:h 'viewdir`
--- Define the user namespace table
 -----
+
+-- Define the user namespace table
 vim.g.user = {}
 
 -- Set the event field in the user namespace
@@ -265,7 +263,7 @@ vim.g.user.event = "my_event_group"
 -- Set the event field in the user namespace
 vim.g.user.fold_event = "my_fold_event_group"
 
--- Create an autocmd
+-- Create an autocmd / save restore cursor position
 vim.api.nvim_create_autocmd('BufReadPost', {
   group = vim.g.user.event,
   callback = function(args)
@@ -313,7 +311,7 @@ require('mason').setup({
   }
 })
 
--- copy diagnostic message to clipboard
+-- COPY DIAGNOSTIC MESSAGE TO CLIPBOARD
 -- NOTE: ipatch, best solution i could come up with for time being
 -- ...could not get a toggle focus/nofocus binding working
 -- ...and float window would reopen after close NO BUENO!
@@ -441,7 +439,7 @@ require('lsp-zero').extend_cmp()
 local kind_icons = {
   Text = '  ',
   Method = '  ',
-  Function = '  ',
+  Function = 'fn  ',
   Constructor = '  ',
   Field = '  ',
   Variable = '  ',
@@ -578,6 +576,7 @@ require 'colorizer'.setup({
     '*';
     '!markdown';
     '!gitconfig';
+    lua = { mode = 'foreground'; }
   },
 })
 
@@ -630,7 +629,7 @@ ts.setup {
 }
 
 ---------------
--- plugin / theme / colorscheme
+-- plugin / UI / theme / colorscheme
 -- REF: https://github.com/David-Kunz/vim/blob/master/init.lua#L235
 -- colorscheme
 require('onedark').setup {
@@ -642,24 +641,61 @@ require('onedark').setup {
   colors = {
     -- NOTE: ipatch, default grey color too light to see on dark background with lots of ambient light
     -- NOTE: github uses #8b949e for code comments in dark contrast web UI
-    github_grey = "#8b94e",
+    github_grey = "#8b949e",
+    bright_orange = "#ff8800"
   },
   highlights = {
-    ["@Comment"] = {fg = '$github_grey'},
+    ["@comment"] = {fg = '$github_grey'},
+    -- ["@comment.documentation"] = {fg = '$github_grey'},
+    -- ["@spell"] = {fg = '$github_grey'},
+  },
+
+  diagnostics = {
+    undercurl = true,
+  },
+  code_style = {
+    -- comments = 'none'
+    comments = 'italic',
   }
 }
 
 require('onedark').load()
+
+-- NOTE: ipatch, run `:SynID` ie. syntaxid to print the formatting/highlight under the cursor
+-- NOTE: ipatch, adding `command!` allows reloading of this config
+vim.api.nvim_exec([[
+  command! Syntaxid echo synIDattr(synID(line("."), col("."), 1), "name")
+]], true)
 
 -- NOTE: ipatch, override the default bg color for onedark theme
 -- TODO: ipatch, migrate this function, cmd to the above onedark colorscheme
 vim.api.nvim_command([[
 augroup ChangeBackgroudColour
 autocmd colorscheme * :hi normal guibg=#0a0a0a
+
+" NOTE: ipatch did NOT work
+" autocmd colorscheme * :hi comment fg=#8b949e
+
 augroup END
 ]])
 
+-- NOTE: ipatch below line required or bg color is not updated in terminal
 cmd [[silent! colorscheme onedark]]
+
+-- NO WORK
+-- function hi(group, val)
+--   vim.api.nvim_set_hl(0, group, val)
+-- end
+-- hi('Comment', {ctermfg='red'})
+-- hi('@comment', {ctermfg='red'})
+
+-- NO WORK with tree-sitter
+-- vim.cmd("highlight Comment guifg=#fff")
+
+-- -- NO WORK with tree-sitter
+-- local hl = vim.treesitter.highlight
+-- local newColor = "#fff"
+-- hl.set_foreground("comment", newColor)
 
 ---------------
 -- plugin / 'numToStr/Comment.nvim'
@@ -707,6 +743,10 @@ vim.cmd [[
     autocmd BufWinEnter *.* silent! loadview
   augroup END
 ]]
+
+vim.api.nvim_exec([[
+  autocmd BufReadPost * setlocal foldlevel=0
+]], false)
 
 -- Set the default fold level to 99
 vim.o.foldlevel = 99
