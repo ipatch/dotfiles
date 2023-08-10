@@ -645,16 +645,15 @@ require('onedark').setup {
     bright_orange = "#ff8800"
   },
   highlights = {
+    -- NOTE: ipatch, run `:Inspect` to get the highlighting group
     ["@comment"] = {fg = '$github_grey'},
-    -- ["@comment.documentation"] = {fg = '$github_grey'},
-    -- ["@spell"] = {fg = '$github_grey'},
+    ["@lsp.type.comment"] = {fg = '$github_grey' }
   },
 
   diagnostics = {
     undercurl = true,
   },
   code_style = {
-    -- comments = 'none'
     comments = 'italic',
   }
 }
@@ -672,30 +671,11 @@ vim.api.nvim_exec([[
 vim.api.nvim_command([[
 augroup ChangeBackgroudColour
 autocmd colorscheme * :hi normal guibg=#0a0a0a
-
-" NOTE: ipatch did NOT work
-" autocmd colorscheme * :hi comment fg=#8b949e
-
 augroup END
 ]])
 
 -- NOTE: ipatch below line required or bg color is not updated in terminal
 cmd [[silent! colorscheme onedark]]
-
--- NO WORK
--- function hi(group, val)
---   vim.api.nvim_set_hl(0, group, val)
--- end
--- hi('Comment', {ctermfg='red'})
--- hi('@comment', {ctermfg='red'})
-
--- NO WORK with tree-sitter
--- vim.cmd("highlight Comment guifg=#fff")
-
--- -- NO WORK with tree-sitter
--- local hl = vim.treesitter.highlight
--- local newColor = "#fff"
--- hl.set_foreground("comment", newColor)
 
 ---------------
 -- plugin / 'numToStr/Comment.nvim'
