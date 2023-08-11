@@ -488,23 +488,21 @@ cmp.setup({
     ['<C-e>'] = cmp.mapping.abort(),
  },
 
-formatting = {
-  fields = { "kind", "abbr" },
-  format = function(entry, vim_item)
+ formatting = {
+   fields = { "kind", "abbr" },
+   format = function(entry, vim_item)
 
-    -- kind icons
-    -- vim_item.kind = (cmp_kinds[vim_item.kind] or '') .. vim_item.kind
-    vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
-    vim_item.menu = ({
-      buffer = "(Buffer)",
-      path = "(Path)",
-    })[entry.source.name]
+     -- kind icons
+     -- vim_item.kind = (cmp_kinds[vim_item.kind] or '') .. vim_item.kind
+     vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
+     vim_item.menu = ({
+       buffer = "(Buffer)",
+       path = "(Path)",
+     })[entry.source.name]
 
-    return vim_item
-  end,
-},
-
-
+     return vim_item
+   end,
+ },
 })
 
 ---------------
@@ -576,6 +574,7 @@ require 'colorizer'.setup({
     '*';
     '!markdown';
     '!gitconfig';
+    '!sh';
     lua = { mode = 'foreground'; }
   },
 })
@@ -642,12 +641,14 @@ require('onedark').setup {
     -- NOTE: ipatch, default grey color too light to see on dark background with lots of ambient light
     -- NOTE: github uses #8b949e for code comments in dark contrast web UI
     github_grey = "#8b949e",
-    bright_orange = "#ff8800"
+    tmux_comment = "#6a7076",
+    bright_orange = "#ff8800",
   },
   highlights = {
     -- NOTE: ipatch, run `:Inspect` to get the highlighting group
     ["@comment"] = {fg = '$github_grey'},
-    ["@lsp.type.comment"] = {fg = '$github_grey' }
+    ["@lsp.type.comment"] = {fg = '$github_grey' },
+    ["Comment"] = {fg = '$github_grey'},
   },
 
   diagnostics = {
@@ -725,7 +726,7 @@ vim.cmd [[
 ]]
 
 vim.api.nvim_exec([[
-  autocmd BufReadPost * setlocal foldlevel=0
+  " autocmd BufReadPost * setlocal foldlevel=0
 ]], false)
 
 -- Set the default fold level to 99
