@@ -1,13 +1,16 @@
 -- Author: github.com/ipatch
--- my experiemental neovim ≥ 0.5 configuratoin/setup
+-- my experimental neovim ≥ 0.5 configuration/setup
 -- some inspiration: https://github.com/David-Kunz/vim/blob/master/init.lua
 
 ---------------
 -- NOTE: ipatch / ⭐️ USEFUL REMINDERS, and other assorted BS
--- TODO: ipatch, when reloading this file with `:so %` all folds are openend 👎️ workaround save to svim the load svim
+-- TODO: ipatch, when reloading this file with `:so %` all folds are opened 👎️ workaround save to svim then load svim
 ----
 -- convert all single quotes in a file to double quotes
 -- :%s/'\([^']*\)'/"\1"/g
+----
+-- print the value of the color under the cursor
+-- echo synIDattr(synIDtrans(synID(line("."), col("."), 1)), "fg#")
 ----
 
 -- helpers
@@ -169,6 +172,7 @@ map('n', '<leader>pv', ':Ex<cr>') -- open netrw, ie. file explorer
 -- NOTE: ipatch, `gn` in netrw to refocus the top level dir under the cursor
 vim.keymap.set('n', '<C-d>', '<C-d>zz')
 vim.keymap.set('n', '<C-u>', '<C-u>zz')
+vim.keymap.set('n', '<leader>s', ':set spell!<cr>') -- toggle spell checking
 
 ---------------
 -- key mapping / toggle hidden chars & Settings for hidden chars
@@ -438,19 +442,19 @@ require('lsp-zero').extend_cmp()
 -- ref: https://github.com/hrsh7th/nvim-cmp/wiki/Menu-Appearance#how-to-add-visual-studio-code-codicons-to-the-menu
 local kind_icons = {
   Text = '  ',
-  Method = '  ',
+  Method = 'mth  ',
   Function = 'fn  ',
   Constructor = '  ',
   Field = '  ',
-  Variable = '  ',
+  Variable = 'var  ',
   Class = '  ',
   Interface = '  ',
   Module = '  ',
-  Property = '  ',
+  Property = 'prop  ',
   Unit = '  ',
   Value = '  ',
   Enum = '  ',
-  Keyword = '  ',
+  Keyword = 'kwd  ',
   Snippet = '  ',
   Color = '  ',
   File = '  ',
