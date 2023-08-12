@@ -125,38 +125,38 @@
   pshom = !git push origin master
   fresh = "!sh -c 'git pull upstream master; git push origin master'"
 
-  ####
+  #---
   # diff
-  ##
+  #-
   d = diff
   dc = diff --cached
 
-  ####
+  #---
   # fetch
-  ##
+  #-
   fo = fetch origin
 
-  ####
+  #---
   # merge
-  ##
+  #-
   m = merge
 
-  ####
+  #---
   # status
-  ##
+  #-
   st = status
   s = status --short --branch
   # list contributors with number of commits
   sl = shortlog --summary --numbered
 
-  ####
+  #---
   # TODO: label
-  ##
+  #-
   # NOTE: see fish / abbreviations.fish for querying shallow status
 
-  ####
+  #---
   # remote
-  ##
+  #-
   remotes = remote --verbose
   r = remote --verbose
 
@@ -172,11 +172,11 @@
   # EXAMPLE: git tag-mv v0.1.2.2 v0.1.2.3
   tag-mv = "!sh -c 'set -e;git t $2 $1; git t -d $1;git push origin :refs/tags/$1;git push --tags' -"
 
-  ####
+  #---
   # NOTE: ipatch, working with PRs
   # NOTE: https://gist.github.com/gnarf/5406589
   # NOTE: https://gist.github.com/gnarf/5406589#usage
-  ##
+  #-
   pr  = "!f() { git fetch -fu ${2:-$(git remote |grep ^upstream || echo origin)} refs/pull/$1/head:pr/$1 && git checkout pr/$1; }; f"
   pr-clean = "!git for-each-ref refs/heads/pr/* --format='%(refname)' | while read ref ; do branch=${ref#refs/heads/} ; git branch -D $branch ; done"
   # for bitbucket/stash remotes
@@ -232,9 +232,9 @@
   ###
   smp = "!git push --recurse-submodules=on-demand"
   
-  ####
+  #---
   # Useful Commands 👌 -- compound commands
-  ##
+  #-
 
   # get / retrieve the commit ID / HASH when a particular file was checked in
   # EX: `git when-added -- **foo.js`
@@ -278,9 +278,9 @@
   editor = nvim
   excludesfile = /home/capin/.config/git/gitexcludes
   attributesfile = /home/capin/.config/git/gitattributes
-    ###############################
+  #------------------------------
   # TODO: [x] give me some mouse 🐭 support please ✅
-  ##
+  #-
   # pager = less # NOTE `-r` flag may break things from time to time
 
   # NOTE: no syntax highlighting
@@ -290,19 +290,19 @@
 [filter "zippey"]
   smudge = /home/capin/.local/bin/zippey.py d
   clean = /home/capin/.local/bin/zippey.py e
-  ##############################
+  #-----------------------------
   # macOS, Linux, Windows, y'all play nice
-  ##
-  ###############
+  #-
+  #--------------
   # Windows
   ##
   # autocrlf = true
-  ###############
+  #--------------
   # macOS & Linux
-  ##
+  #-
   autocrlf = input
   precomposeUnicode = true
-  ###############################
+  #------------------------------
   # To set a `core.excludesfile` on a per $HOME dir basis, see `config.fish or `.bashrc`
 
 [color]
@@ -349,6 +349,10 @@
 
 [diff]
   submodule = log
+
+[diff "lockb"]
+  textconv = bun
+  binary = true
 
 [difftool "meld"]
   cmd = meld
