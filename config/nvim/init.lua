@@ -629,6 +629,9 @@ ts.setup {
     enable = true,
     enable_autocmd = false,
   },
+  indent = {
+    enable = true
+  }
 }
 
 ---------------
@@ -686,7 +689,9 @@ vim.api.nvim_command([[
 cmd [[silent! colorscheme onedark]]
 
 -- ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ NOTE: ipatch, this needs to be below the `colorscheme onedark` cmd above
-vim.cmd [[hi SpellBad gui=undercurl]]
+-- NOTE: ipatch, it appears below line not required with recent update 
+-- ref: https://github.com/navarasu/onedark.nvim/commit/09b71d84b
+-- vim.cmd [[hi SpellBad gui=undercurl]]
 
 ---------------
 -- plugin / 'numToStr/Comment.nvim'
