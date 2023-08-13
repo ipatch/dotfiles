@@ -76,6 +76,9 @@ require('packer').startup(function(use)
     }
   }
 
+  -- lsp helper / nvim configuring init.lua + friends
+  use "folke/neodev.nvim"
+
   -- lsp helper / json files ie. tsconfig.json
   use "b0o/schemastore.nvim"
 
@@ -338,6 +341,15 @@ end
 
 vim.keymap.set('n', '<leader>x', copy_diagnostic_to_clipboard, { noremap = true, silent = true })
 
+------------------------------
+-- PLUGIN / folke/neodev.nvim
+-----
+-- IMPORTANT: make sure to setup neodev BEFORE lspconfig
+require("neodev").setup({
+  -- add any options here, or leave empty to use the default settings
+})
+
+
 -- NOTE: ipatch, style LSP diagnostic messages
 vim.diagnostic.config({
   virtual_text = false,
@@ -584,7 +596,7 @@ require 'colorizer'.setup({
 })
 
 ---------------
--- plugin / tree-sitter
+-- plugin / tree-sitter, treesitter
 -- NOTE: ipatch, `all` blows up 💥 on m1 mac due to `phpdoc` use `maintained` for time being
 --
 local ts = require 'nvim-treesitter.configs'
@@ -631,7 +643,8 @@ ts.setup {
   },
   indent = {
     enable = true
-  }
+  },
+  autopairs = { enable = true },
 }
 
 ---------------
