@@ -228,7 +228,7 @@ opt.smartindent = true          -- insert indents automatically
 opt.softtabstop = 2
 opt.swapfile = false
 opt.tabstop = 2                 -- number of spaces tabs count for
-opt.termguicolors = true        -- true color support
+opt.termguicolors = true        -- true color support, use guifg/guibg instead of ctermfg/ctermbg in terminal
 opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 opt.viewoptions = "folds,cursor"
 opt.wrap = true
@@ -569,7 +569,7 @@ nnoremap <silent> <leader>l :TmuxNavigateRight<cr>
 "nnoremap <silent> :TmuxNavigatePrevious<cr> ]]
 
 ---------------
--- plugin / nvchad/nvim-colorizer.lua
+-- plugin / nvchad/nvim-colorizer.lua 🎨
 -- NOTE: ipatch 
 -- ref: https://github.com/norcalli/nvim-colorizer.lua
 ---
@@ -632,7 +632,7 @@ ts.setup {
 }
 
 ---------------
--- plugin / UI / theme / colorscheme
+-- plugin / UI / theme / colorscheme 🌈 🏳️‍🌈
 -- REF: https://github.com/David-Kunz/vim/blob/master/init.lua#L235
 -- colorscheme
 require('onedark').setup {
@@ -647,12 +647,15 @@ require('onedark').setup {
     github_grey = "#8b949e",
     tmux_comment = "#6a7076",
     bright_orange = "#ff8800",
+    -- red = "#ff0000",
   },
   highlights = {
     -- NOTE: ipatch, run `:Inspect` to get the highlighting group
     ["@comment"] = {fg = '$github_grey'},
     ["@lsp.type.comment"] = {fg = '$github_grey' },
     ["Comment"] = {fg = '$github_grey'},
+    -- ["@spell.mardown"] = { fmt = "undercurl" },
+    -- ["@spell"] = { fg = '$red', fmt = "undercurl", sp = '$red'}
   },
 
   diagnostics = {
@@ -674,13 +677,16 @@ vim.api.nvim_exec([[
 -- NOTE: ipatch, override the default bg color for onedark theme
 -- TODO: ipatch, migrate this function, cmd to the above onedark colorscheme
 vim.api.nvim_command([[
-augroup ChangeBackgroudColour
-autocmd colorscheme * :hi normal guibg=#0a0a0a
-augroup END
+  augroup ChangeBackgroudColour
+  autocmd colorscheme * :hi normal guibg=#0a0a0a
+  augroup END
 ]])
 
 -- NOTE: ipatch below line required or bg color is not updated in terminal
 cmd [[silent! colorscheme onedark]]
+
+-- ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ NOTE: ipatch, this needs to be below the `colorscheme onedark` cmd above
+vim.cmd [[hi SpellBad gui=undercurl]]
 
 ---------------
 -- plugin / 'numToStr/Comment.nvim'
@@ -823,4 +829,6 @@ map('n', '<leader>dtf', ':Telescope dap frames<CR>')
 -- plugin / rcarriga/nvim-dap-ui
 require('dapui').setup()
 map('n', '<leader>dq', ':lua require"dapui".toggle()<CR>')
+
+
 
