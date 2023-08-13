@@ -287,9 +287,9 @@ vim.api.nvim_create_autocmd('BufReadPost', {
 -- SETTINGS / clipboard
 -- Check the operating system then set clipboard accordingly
 if vim.fn.has('mac') == 1 or vim.fn.has('win64') == 1 or vim.fn.has('win32') == 1 then
-    vim.opt.clipboard:append {'unnamed'}
+  vim.opt.clipboard:append {'unnamed'}
 else
-    vim.opt.clipboard:append {'unnamedplus'}
+  vim.opt.clipboard:append {'unnamedplus'}
 end
 
 -- NOTE: ipatch, open help pages in new buffer NOT in splits or tabs
