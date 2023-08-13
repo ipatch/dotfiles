@@ -193,6 +193,12 @@ map('n', '<M-k>', ':m .-2<cr>==', {noremap = true})
 map('n', '<M-j>', ':m .+1<cr>==', {noremap = true})
 
 ---------------
+-- key mapping / moving through wrapped lines of text, treat wrapped lines of text as multiple lines
+--
+vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+
+---------------
 -- key mapping / clear search term, remove highlighting, then map CR to `:` for normal mode
 ---
 function ClearSearchAndCmd()
@@ -292,7 +298,7 @@ else
   vim.opt.clipboard:append {'unnamedplus'}
 end
 
--- NOTE: ipatch, open help pages in new buffer NOT in splits or tabs
+-- NOTE: ipatch, UI / personal preference / open help pages in new buffer NOT in splits or tabs
 vim.api.nvim_create_autocmd('BufWinEnter', {
   pattern = '*',
   callback = function(event)
