@@ -384,22 +384,45 @@ vim.diagnostic.config({
 --   }
 -- })
 
+
+-- nvim_lsp.lua_ls.setup {
+--   on_init = function(client)
+--     local path = client.workspace_folders[1].name
+--     if not vim.uv.fs_stat(path..'/.luarc.json') then
+--       -- Make the server aware of Neovim runtime files
+--       client.config.settings.Lua.workspace.library = { vim.env.VIMRUNTIME }
+--       -- or for everything:
+--       -- client.config.settings.Lua.workspace.library = vim.api.nvim_get_runtime_file("", true)
+--       client.notify("workspace/didChangeConfiguration", {
+--         settings = client.config.settings
+--       })
+--     end
+--   end
+-- }
 local nvim_lsp = require('lspconfig')
 
-nvim_lsp.lua_ls.setup {
-  on_init = function(client)
-    local path = client.workspace_folders[1].name
-    if not vim.uv.fs_stat(path..'/.luarc.json') then
-      -- Make the server aware of Neovim runtime files
-      client.config.settings.Lua.workspace.library = { vim.env.VIMRUNTIME }
-      -- or for everything:
-      -- client.config.settings.Lua.workspace.library = vim.api.nvim_get_runtime_file("", true)
-      client.notify("workspace/didChangeConfiguration", {
-        settings = client.config.settings
-      })
-    end
-  end
-}
+nvim_lsp.lua_ls.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+	on_init = function(client)
+		local path = client.workspace_folders[1].name
+		if not vim.loop.fs_stat(path .. "/.luarc.json") then
+			client.config.settings = vim.tbl_deep_extend("force", client.config.settings.Lua, {
+				runtime = {
+					version = "LuaJIT",
+				},
+				diagnostics = {
+					globals = { "vim" },
+				},
+				workspace = {
+					library = { vim.env.VIMRUNTIME },
+					checkThirdParty = false,
+				},
+			})
+			client.notify("workspace/didChangeConfiguration", { settings = client.config.settings })
+		end
+	end,
+})
 
 local lsp = require('lsp-zero').preset({})
 
