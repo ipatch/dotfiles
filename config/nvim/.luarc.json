@@ -1,0 +1,9 @@
+{
+  "$schema": "https://raw.githubusercontent.com/sumneko/vscode-lua/master/setting/schema.json",
+  "workspace": {
+    "library": [
+      "$VIMRUNTIME",
+      "/home/capin/.local/share/nvim/site/pack/packer/start/nvim-treesitter/lua"
+    ]
+  }
+}
