@@ -402,26 +402,26 @@ vim.diagnostic.config({
 local nvim_lsp = require('lspconfig')
 
 nvim_lsp.lua_ls.setup({
-	on_attach = on_attach,
-	capabilities = capabilities,
-	on_init = function(client)
-		local path = client.workspace_folders[1].name
-		if not vim.loop.fs_stat(path .. "/.luarc.json") then
-			client.config.settings = vim.tbl_deep_extend("force", client.config.settings.Lua, {
-				runtime = {
-					version = "LuaJIT",
-				},
-				diagnostics = {
-					globals = { "vim" },
-				},
-				workspace = {
-					library = { vim.env.VIMRUNTIME },
-					checkThirdParty = false,
-				},
-			})
-			client.notify("workspace/didChangeConfiguration", { settings = client.config.settings })
-		end
-	end,
+  on_attach = on_attach,
+  capabilities = capabilities,
+  on_init = function(client)
+    local path = client.workspace_folders[1].name
+    if not vim.loop.fs_stat(path .. "/.luarc.json") then
+      client.config.settings = vim.tbl_deep_extend("force", client.config.settings.Lua, {
+        runtime = {
+          version = "LuaJIT",
+        },
+        diagnostics = {
+          globals = { "vim" },
+        },
+        workspace = {
+          library = { vim.env.VIMRUNTIME },
+          checkThirdParty = false,
+        },
+      })
+      client.notify("workspace/didChangeConfiguration", { settings = client.config.settings })
+    end
+  end,
 })
 
 local lsp = require('lsp-zero').preset({})
