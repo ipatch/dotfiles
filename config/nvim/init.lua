@@ -311,12 +311,13 @@ vim.api.nvim_create_autocmd('BufWinEnter', {
 })
 
 ---------------
--- plugin / neovim native / LSP settings
+-- PLUGIN / neovim native / LSP settings
+----
 -- ref: https://github.com/neovim/nvim-lspconfig/wiki/UI-Customization
----
 
 ---------------
--- plugin / neovim / native LSP / mason / lsp manager
+-- PLUGIN / neovim / native LSP / mason / lsp manager
+----
 -- NOTE: ipatch, did not notice difference before/after lsp settings in init.lua
 require('mason').setup({
   ui = {
@@ -347,15 +348,6 @@ end
 
 vim.keymap.set('n', '<leader>x', copy_diagnostic_to_clipboard, { noremap = true, silent = true })
 
-------------------------------
--- PLUGIN / folke/neodev.nvim
------
--- IMPORTANT: make sure to setup neodev BEFORE lspconfig
-require("neodev").setup({
-  -- add any options here, or leave empty to use the default settings
-})
-
-
 -- NOTE: ipatch, style LSP diagnostic messages
 vim.diagnostic.config({
   virtual_text = false,
@@ -364,6 +356,50 @@ vim.diagnostic.config({
   update_in_insert = false,
   severity_sort = false,
 })
+
+------------------------------
+-- PLUGIN / folke/neodev.nvim
+-----
+-- IMPORTANT: make sure to setup neodev BEFORE lspconfig
+-- require("neodev").setup({
+--   -- add any options here, or leave empty to use the default settings
+--   -- Always add neovim plugins into lua_ls library, even if not neovim config
+--   -- override = function(root_dir, library)
+--   --   library.enabled = true
+--   --   library.plugins = true
+--   -- end,
+-- })
+
+-- then setup your lsp server as usual
+-- local lspconfig = require('lspconfig')
+
+-- example to setup lua_ls and enable call snippets
+-- lspconfig.lua_ls.setup({
+--   settings = {
+--     Lua = {
+--       completion = {
+--         callSnippet = "Replace"
+--       }
+--     }
+--   }
+-- })
+
+local nvim_lsp = require('lspconfig')
+
+nvim_lsp.lua_ls.setup {
+  on_init = function(client)
+    local path = client.workspace_folders[1].name
+    if not vim.uv.fs_stat(path..'/.luarc.json') then
+      -- Make the server aware of Neovim runtime files
+      client.config.settings.Lua.workspace.library = { vim.env.VIMRUNTIME }
+      -- or for everything:
+      -- client.config.settings.Lua.workspace.library = vim.api.nvim_get_runtime_file("", true)
+      client.notify("workspace/didChangeConfiguration", {
+        settings = client.config.settings
+      })
+    end
+  end
+}
 
 local lsp = require('lsp-zero').preset({})
 
@@ -377,7 +413,7 @@ lsp.on_attach(function(client, bufnr)
     info = '»'
   })
 
-  -- TODO: ipatch, this didn't work, updated the tsconfig.json for the project instead
+  -- TODO: ipatch, NO WORK, updated the tsconfig.json for the project instead
   -- require('nvim-lsp-ts-utils').setup({
   --   filter_out_diagnositics_by_code = { 80001 },
   -- })
@@ -435,27 +471,27 @@ require('lspconfig').jsonls.setup {
   },
 }
 
--- NOTE: ipatch, did not notice difference before/after lsp settings in init.lua
--- require('mason').setup({
---   ui = {
---     border = 'rounded'
---   }
--- })
-
 require('mason-lspconfig').setup({
   handlers = {
     lsp.default_setup,
     lua_ls = function()
       require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
     end,
+    
   }
 })
 
 require('lsp-zero').extend_cmp()
 
 ---------------
--- plugin / neovim nvim-cmp / neovim completion 
---
+-- PLUGIN / nvim-cmp, neovim completion 
+----
+
+-- nvim-cmp supports additional completion capabilities, so broadcast that to servers
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
+
+
 -- NOTE: ipatch,
 -- ref: https://github.com/hrsh7th/nvim-cmp/wiki/Menu-Appearance#how-to-add-visual-studio-code-codicons-to-the-menu
 local kind_icons = {
@@ -528,7 +564,7 @@ cmp.setup({
 })
 
 ---------------
--- plugin / neovim telescope 
+-- PLUGIN / neovim telescope 
 --
 local telescope = require("telescope")
 local telescopeConfig = require("telescope.config")
@@ -557,7 +593,8 @@ telescope.setup({
 
 local builtin = require('telescope.builtin')
 
--- plugin / neovim telescope / key mappings
+---------------
+-- PLUGIN / neovim telescope / key mappings
 -- NOTE: ipatch, install telecope-fzf-native.nvim to fuzzy search
 vim.keymap.set('n', '<leader>pf', builtin.find_files, {})
 vim.keymap.set('n', '<C-p>', builtin.git_files, {})
@@ -576,18 +613,12 @@ end)
 require('telescope').load_extension('fzf')
 
 ---------------
--- plugin / vim-turmuxnavigator / mappings
--- TODO: migrate these mappings from VimL to lua
---[[ let g:tmux_navigator_no_mappings = 1
-
-nnoremap <silent> <leader>h :TmuxNavigateLeft<cr>
-nnoremap <silent> <leader>j :TmuxNavigateDown<cr>
-nnoremap <silent> <leader>k :TmuxNavigateUp<cr>
-nnoremap <silent> <leader>l :TmuxNavigateRight<cr>
-"nnoremap <silent> :TmuxNavigatePrevious<cr> ]]
+-- PLUGIN / vim-turmuxnavigator / mappings
+----
 
 ---------------
--- plugin / nvchad/nvim-colorizer.lua 🎨
+-- PLUGIN / nvchad/nvim-colorizer.lua 🎨
+----
 -- NOTE: ipatch 
 -- ref: https://github.com/norcalli/nvim-colorizer.lua
 ---
@@ -602,7 +633,7 @@ require 'colorizer'.setup({
 })
 
 ---------------
--- plugin / tree-sitter, treesitter
+-- PLUGIN / tree-sitter, treesitter
 -- NOTE: ipatch, `all` blows up 💥 on m1 mac due to `phpdoc` use `maintained` for time being
 --
 local ts = require 'nvim-treesitter.configs'
@@ -651,10 +682,12 @@ ts.setup {
     enable = true
   },
   autopairs = { enable = true },
+  
 }
 
+
 ---------------
--- plugin / UI / theme / colorscheme 🌈 🏳️‍🌈
+-- PLUGIN / UI / theme / colorscheme 🌈 🏳️‍🌈
 -- REF: https://github.com/David-Kunz/vim/blob/master/init.lua#L235
 -- colorscheme
 require('onedark').setup {
@@ -768,8 +801,9 @@ vim.o.foldlevel = 99
 vim.o.foldlevelstart = 99
 
 ---------------
--- plugin / mfussenegger/nvim-dap
+-- PLUGIN / mfussenegger/nvim-dap
 -- NOTE: https://github.com/mfussenegger/nvim-dap/wiki/Debug-Adapter-installation#Python
+----
 local dap = require('dap')
 dap.adapters.python = {
   type = 'executable';
