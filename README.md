@@ -873,6 +873,7 @@ https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.conf \
 <details>
 <summary><strong>TODOs completed</strong></summary>
 
+- [x] #nvim, using `gcc` in normal mode to toggle code comments in a `tsconfig.json` file inserts `//` instead of `/* */`
 - [x] #nvim need to disable highlight color for markdown docs
 - [x] [vim, markdown] have basic code folding for certain HTML tags when editing markdown documents
     > nvim-ufo FTW 🥳
