@@ -548,7 +548,9 @@ local kind_icons = {
 local cmp = require('cmp')
 
 cmp.setup({
-
+  experimental = {
+    ghost_text = true,
+  },
   window = {
     completion = cmp.config.window.bordered(),
     documentation = cmp.config.window.bordered(),
@@ -705,7 +707,12 @@ ts.setup {
     enable = true
   },
   autopairs = { enable = true },
-  
+
+  rainbow = {
+    enable = true,
+    extended_mode = true,
+    max_file_lines = 1000
+  }
 }
 
 
