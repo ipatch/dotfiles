@@ -799,7 +799,7 @@ cmd [[silent! colorscheme onedark]]
 -- vim.cmd [[hi SpellBad gui=undercurl]]
 
 ---------------
--- plugin / 'numToStr/Comment.nvim'
+-- PLUGIN / 'numToStr/Comment.nvim'
 -- NOTE: ipatch, attempt to define commentstring for specific dot files
 local ft = require('Comment.ft')
 
