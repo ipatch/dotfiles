@@ -494,15 +494,39 @@ require('lspconfig').jsonls.setup {
   },
 }
 
-require('mason-lspconfig').setup({
-  handlers = {
-    lsp.default_setup,
-    lua_ls = function()
-      require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
-    end,
-    
-  }
-})
+-- require('mason-lspconfig').setup({
+--   handlers = {
+--     lsp.default_setup,
+--     lua_ls = function()
+--       -- NOTE: ipatch, DO NOT CALL `lua_ls.setup` 2x, twice!
+--       require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
+--     end,
+--     
+--   }
+-- })
+
+-- nvim_lsp.lua_ls.setup({
+--   on_attach = on_attach,
+--   capabilities = capabilities,
+--   on_init = function(client)
+--     local path = client.workspace_folders[1].name
+--     if not vim.loop.fs_stat(path .. "/.luarc.json") then
+--       client.config.settings = vim.tbl_deep_extend("force", client.config.settings.Lua, {
+--         runtime = {
+--           version = "LuaJIT",
+--         },
+--         diagnostics = {
+--           globals = { "vim" },
+--         },
+--         workspace = {
+--           library = { vim.env.VIMRUNTIME },
+--           checkThirdParty = false,
+--         },
+--       })
+--       client.notify("workspace/didChangeConfiguration", { settings = client.config.settings })
+--     end
+--   end,
+-- })
 
 require('lsp-zero').extend_cmp()
 
@@ -712,8 +736,8 @@ ts.setup {
     extended_mode = true,
     max_file_lines = 1000
   }
+  
 }
-
 
 ---------------
 -- PLUGIN / UI / theme / colorscheme 🌈 🏳️‍🌈
@@ -787,6 +811,7 @@ ft
 -- Or set both line and block commentstring
 -- .set('javascript', {'//%s', '/*%s*/'})
 .set('ini', ';%s')
+.set('jsonc', '/*%s*/')
 
 cmd('set foldmethod=expr')
 cmd('set foldexpr=nvim_treesitter#foldexpr()')
