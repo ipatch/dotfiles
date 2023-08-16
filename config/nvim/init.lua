@@ -528,11 +528,12 @@ require('lspconfig').jsonls.setup {
 --   end,
 -- })
 
-require('lsp-zero').extend_cmp()
 
 ---------------
 -- PLUGIN / nvim-cmp, neovim completion 
 ----
+
+require('lsp-zero').extend_cmp()
 
 -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
 local capabilities = vim.lsp.protocol.make_client_capabilities()

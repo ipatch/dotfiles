@@ -10,41 +10,13 @@
   },
   "workspace": {
     "library": [
-      /* Runtime and builtin libraries. */
       "$VIMRUNTIME",
       "$VIMRUNTIME/lua",
       "${3rd}/luv/library",
       "$XDG_DATA_HOME",
-      /* Extra configuration helpers. */
       "lua/utils",
-      /* Include some plugins for API completion. */
-      /* "$XDG_DATA_HOME/nvim/lazy/LuaSnip/lua", */
-      "$XDG_DATA_HOME/nvim/site/pack/packer/start/nvim-treesitter/lua",
+      "$XDG_DATA_HOME/nvim/site/pack/packer/start/nvim-treesitter/lua"
     ],
     "checkThirdParty": false
   }
-  /* "$XDG_DATA_HOME/nvim/lazy/alpha-nvim/lua", */
-  /* "$XDG_DATA_HOME/nvim/lazy/bufferline.nvim/lua", */
-  /* "$XDG_DATA_HOME/nvim/lazy/copilot.lua/lua", */
-  /* "$XDG_DATA_HOME/nvim/lazy/crates.nvim/lua", */
-  /* "$XDG_DATA_HOME/nvim/lazy/dracula.nvim/lua", */
-  /* "$XDG_DATA_HOME/nvim/lazy/dressing.nvim/lua", */
-  /* "$XDG_DATA_HOME/nvim/lazy/dropbar.nvim/lua", */
-  /* "$XDG_DATA_HOME/nvim/lazy/efmls-configs-nvim/lua", */
-  /* "$XDG_DATA_HOME/nvim/lazy/flash.nvim/lua", */
-  /* "$XDG_DATA_HOME/nvim/lazy/harpoon/lua", */
-  /* "$XDG_DATA_HOME/nvim/lazy/lazy.nvim/lua", */
-  /* "$XDG_DATA_HOME/nvim/lazy/mini.ai/lua", */
-  /* "$XDG_DATA_HOME/nvim/lazy/mini.bufremove/lua", */
-  /* "$XDG_DATA_HOME/nvim/lazy/mini.files/lua", */
-  /* "$XDG_DATA_HOME/nvim/lazy/noice.nvim/lua", */
-  /* "$XDG_DATA_HOME/nvim/lazy/nvim-autopairs/lua", */
-  /* "$XDG_DATA_HOME/nvim/lazy/nvim-cmp/lua", */
-  /* "$XDG_DATA_HOME/nvim/lazy/nvim-dap-ui/lua", */
-  /* "$XDG_DATA_HOME/nvim/lazy/nvim-dap/lua", */
-  /* "$XDG_DATA_HOME/nvim/lazy/nvim-ufo/lua", */
-  /* "$XDG_DATA_HOME/nvim/lazy/rust-tools.nvim/lua", */
-  /* "$XDG_DATA_HOME/nvim/lazy/telescope.nvim/lua", */
-  /* "$XDG_DATA_HOME/nvim/lazy/vim-illuminate/lua", */
-  /* "$XDG_DATA_HOME/nvim/lazy/which-key.nvim/lua" */
 }
