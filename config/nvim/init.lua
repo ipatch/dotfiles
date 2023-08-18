@@ -212,6 +212,13 @@ end
 vim.api.nvim_set_keymap('n', '<CR>', ':lua ClearSearchAndCmd()<CR>', { noremap = true, silent = true })
 
 ---------------
+-- key mapping / delete the current buffer and remove the file from disk
+---- delete the current buffer, <leader>rm
+------
+vim.keymap.set('n', '<leader>rm', ':call delete(expand("%")) | bdelete!<CR>', { noremap = true, silent = true })
+
+
+---------------
 -- SETTINGS / options / use vim settings within nvim via lua
 opt.completeopt = {'menu', 'menuone', 'noselect'}
 opt.mouse = 'a'
@@ -494,6 +501,79 @@ require('lspconfig').jsonls.setup {
   },
 }
 
+-- plugin / nvim native lsp / ruby-lsp
+-- NOTE: ipatch, when using rvm to manage rubies, rvm needs to be init'd before running `:masoninstall ruby-lsp`
+require'lspconfig'.ruby_ls.setup{}
+
+-- textDocument/diagnostic support until 0.10.0 is released
+-- _timers = {}
+-- local function setup_diagnostics(client, buffer)
+--   if require("vim.lsp.diagnostic")._enable then
+--     return
+--   end
+--
+--   local diagnostic_handler = function()
+--     local params = vim.lsp.util.make_text_document_params(buffer)
+--     client.request("textDocument/diagnostic", { textDocument = params }, function(err, result)
+--       if err then
+--         local err_msg = string.format("diagnostics error - %s", vim.inspect(err))
+--         vim.lsp.log.error(err_msg)
+--       end
+--       if not result then
+--         return
+--       end
+--       vim.lsp.diagnostic.on_publish_diagnostics(
+--         nil,
+--         vim.tbl_extend("keep", params, { diagnostics = result.items }),
+--         { client_id = client.id }
+--       )
+--     end)
+--   end
+--
+--   diagnostic_handler() -- to request diagnostics on buffer when first attaching
+--
+--   vim.api.nvim_buf_attach(buffer, false, {
+--     on_lines = function()
+--       if _timers[buffer] then
+--         vim.fn.timer_stop(_timers[buffer])
+--       end
+--       _timers[buffer] = vim.fn.timer_start(200, diagnostic_handler)
+--     end,
+--     on_detach = function()
+--       if _timers[buffer] then
+--         vim.fn.timer_stop(_timers[buffer])
+--       end
+--     end,
+--   })
+-- end
+
+-- PLUGIN / neovim native lsp / ruby / solargraph
+require'lspconfig'.solargraph.setup{
+  -- cmd = { os.getenv( "HOME" ) .. "/.rvm/shims/solargraph", 'stdio' },
+  cmd = { os.getenv( "HOME" ) .. "/.rvm/gems/ruby-3.2.2/wrappers/solargraph", 'stdio' },
+  root_dir = nvim_lsp.util.root_pattern("Gemfile", ".git", "."),
+  settings = {
+    solargraph = {
+      autoformat = false,
+      formatting = false,
+      completion = true,
+      diagnostic = true,
+      folding = true,
+      references = true,
+      rename = true,
+      symbols = true
+    }
+  }
+}
+
+-- require("lspconfig").ruby_ls.setup({
+--   -- on_attach = function(client, buffer)
+--   --   setup_diagnostics(client, buffer)
+--   -- end,
+--   cmd = { "bundle", "exec", "ruby-lsp" }
+-- })
+
+
 -- require('mason-lspconfig').setup({
 --   handlers = {
 --     lsp.default_setup,
@@ -584,6 +664,7 @@ cmp.setup({
     {name = 'path'},
     {name = 'nvim_lsp'},
     {name = 'nvim_lua'},
+
   },
 
   mapping = {
@@ -737,7 +818,6 @@ ts.setup {
     extended_mode = true,
     max_file_lines = 1000
   }
-  
 }
 
 ---------------
