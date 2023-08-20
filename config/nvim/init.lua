@@ -54,6 +54,19 @@ require('packer').startup(function(use)
 
   use 'christoomey/vim-tmux-navigator'
 
+  -- chatgpt
+  use({
+    "jackMort/ChatGPT.nvim",
+    config = function()
+      require("chatgpt").setup()
+    end,
+    requires = {
+      "MunifTanjim/nui.nvim",
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope.nvim"
+    }
+  })
+
   -- lsp configuration and plugins
   use {
     'VonHeikemen/lsp-zero.nvim',
@@ -208,7 +221,6 @@ function ClearSearchAndCmd()
   end
   vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(':', true, true, true), 'n', true)
 end
-
 vim.api.nvim_set_keymap('n', '<CR>', ':lua ClearSearchAndCmd()<CR>', { noremap = true, silent = true })
 
 ---------------
@@ -216,7 +228,6 @@ vim.api.nvim_set_keymap('n', '<CR>', ':lua ClearSearchAndCmd()<CR>', { noremap =
 ---- delete the current buffer, <leader>rm
 ------
 vim.keymap.set('n', '<leader>rm', ':call delete(expand("%")) | bdelete!<CR>', { noremap = true, silent = true })
-
 
 ---------------
 -- SETTINGS / options / use vim settings within nvim via lua
@@ -315,6 +326,14 @@ vim.api.nvim_create_autocmd('BufWinEnter', {
       vim.cmd.only()
     end
   end,
+})
+
+---------------
+-- PLUGIN / AI / chatgpt.nvim
+----
+local home = vim.fn.expand('$HOME')
+require('chatgpt').setup({
+    api_key_cmd = 'gpg --decrypt ' .. home .. '/.ssh/my.openai.api.key.secret.gpg'
 })
 
 ---------------
@@ -821,10 +840,10 @@ ts.setup {
   incremental_selection = {
     enable = true,
     keymaps = {
-      init_selection = "gnn", -- set to `false` to disable one of the mappings
-      node_incremental = "grn",
-      scope_incremental = "grc",
-      node_decremental = "grm",
+      init_selection = '<c-space>', -- set to `false` to disable one of the mappings
+      node_incremental = '<c-space>',
+      scope_incremental = '<c-s>',
+      node_decremental = '<c-backspace>',
     },
   },
 }
