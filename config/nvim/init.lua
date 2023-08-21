@@ -887,9 +887,10 @@ require('onedark').load()
 
 -- NOTE: ipatch, run `:SynID` ie. syntaxid to print the formatting/highlight under the cursor
 -- NOTE: ipatch, adding `command!` allows reloading of this config
-vim.api.nvim_exec([[
+-- TODO: not seeing the output of this command being printed
+vim.api.nvim_command([[
   command! Syntaxid echo synIDattr(synID(line("."), col("."), 1), "name")
-]], true)
+]])
 
 -- NOTE: ipatch, override the default bg color for onedark theme
 -- TODO: ipatch, migrate this function, cmd to the above onedark colorscheme
