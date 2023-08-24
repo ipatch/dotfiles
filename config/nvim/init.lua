@@ -83,18 +83,21 @@ require('packer').startup(function(use)
       {'williamboman/mason-lspconfig.nvim'}, -- Optional
 
       -- Autocompletion
-      {'hrsh7th/nvim-cmp'},     -- Required
       {'hrsh7th/cmp-nvim-lsp'}, -- Required
-      -- {'L3MON4D3/LuaSnip'},     -- Required
-        -- snippets
-        use({
-          "L3MON4D3/LuaSnip",
-          -- follow latest release.
-          tag = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
-          -- install jsregexp (optional!:).
-          run = "make install_jsregexp"
-        }),
-        use "rafamadriz/friendly-snippets"
+      {'hrsh7th/cmp-buffer'},
+      {'hrsh7th/cmp-path'},
+      {'hrsh7th/cmp-cmdline'},
+      {'hrsh7th/nvim-cmp'},     -- Required
+      -- snippets
+      use({
+        'L3MON4D3/LuaSnip',
+        -- follow latest release.
+        tag = 'v2.*', -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+        -- install jsregexp (optional!:).
+        run = 'make install_jsregexp'
+      }),
+      use 'rafamadriz/friendly-snippets',
+      use 'saadparwaiz1/cmp_luasnip'
     }
   }
 
@@ -702,6 +705,15 @@ local kind_icons = {
 local cmp = require('cmp')
 
 cmp.setup({
+  snippet = {
+    -- REQUIRED - you must specify a snippet engine
+    expand = function(args)
+      -- vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
+      require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+      -- require('snippy').expand_snippet(args.body) -- For `snippy` users.
+      -- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
+    end,
+  },
   experimental = {
     ghost_text = true,
   },
@@ -709,12 +721,17 @@ cmp.setup({
     completion = cmp.config.window.bordered(),
     documentation = cmp.config.window.bordered(),
   },
-  sources = {
-    {name = 'path'},
-    {name = 'nvim_lsp'},
-    {name = 'nvim_lua'},
-
-  },
+  sources = cmp.config.sources({
+    { name = 'path' },
+    { name = 'nvim_lsp' },
+    { name = 'nvim_lua' },
+    { name = 'luasnip' }, -- For luasnip users.
+    -- { name = 'vsnip' }, -- For vsnip users.
+    -- { name = 'ultisnips' }, -- For ultisnips users.
+    -- { name = 'snippy' }, -- For snippy users.
+  }, {
+    { name = 'buffer' },
+  }),
 
   mapping = {
     -- use `TAB` key to highlight next item in list
