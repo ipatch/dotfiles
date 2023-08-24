@@ -76,6 +76,7 @@ if status is-interactive
   abbr -a -- cpv 'rsync -at --no-o --no-g -h --info=progress2 -P'
   abbr -a -- mkdir 'mkdir -p'
   abbr -a -- d 'docker'
+  abbr -a -- dkc 'docker-compose'
   abbr -a -- rmd 'rm -rf'
   abbr -a -- youdl 'yt-dlp'
   abbr -a -- ydl 'yt-dlp'
