@@ -85,7 +85,16 @@ require('packer').startup(function(use)
       -- Autocompletion
       {'hrsh7th/nvim-cmp'},     -- Required
       {'hrsh7th/cmp-nvim-lsp'}, -- Required
-      {'L3MON4D3/LuaSnip'},     -- Required
+      -- {'L3MON4D3/LuaSnip'},     -- Required
+        -- snippets
+        use({
+          "L3MON4D3/LuaSnip",
+          -- follow latest release.
+          tag = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+          -- install jsregexp (optional!:).
+          run = "make install_jsregexp"
+        }),
+        use "rafamadriz/friendly-snippets"
     }
   }
 
@@ -98,6 +107,15 @@ require('packer').startup(function(use)
   -- lsp helper / typescript
   -- https://stackoverflow.com/a/70294761/708807
   use 'jose-elias-alvarez/nvim-lsp-ts-utils'
+
+  -- -- snippets
+  -- use({
+  --   "L3MON4D3/LuaSnip",
+  --   -- follow latest release.
+  --   tag = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+  --   -- install jsregexp (optional!:).
+  --   run = "make install_jsregexp"
+  -- })
 
   -- nvim-treesitter Highlight, edit, and navigate code
   use {
@@ -431,6 +449,7 @@ vim.diagnostic.config({
 --     end
 --   end
 -- }
+
 local nvim_lsp = require('lspconfig')
 
 nvim_lsp.lua_ls.setup({
@@ -517,6 +536,30 @@ end)
 
 lsp.setup()
 
+-- Enable (broadcasting) snippet capability for completion
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+
+-- NOTE: ipatch, https://github.com/hrsh7th/vscode-langservers-extracted
+-- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#html
+require'lspconfig'.html.setup {
+  capabilities = capabilities,
+  cmd = { "vscode-html-language-server", "--stdio" },
+  filetypes = { "html" },
+  init_options = {
+    configurationSection = { "html", "css", "javascript" },
+    embeddedLanguages = {
+      css = true,
+      javascript = true
+    },
+    -- The code-formatting feature of the lsp can be controlled with the `provideFormatter` option.
+    provideFormatter = true
+  },
+  -- settings = {},
+  -- single_file_support = true,
+  on_attach = on_attach,
+}
+
 require('lspconfig').jsonls.setup {
   settings = {
     json = {
@@ -528,7 +571,7 @@ require('lspconfig').jsonls.setup {
 
 -- plugin / nvim native lsp / ruby-lsp
 -- NOTE: ipatch, when using rvm to manage rubies, rvm needs to be init'd before running `:masoninstall ruby-lsp`
-require'lspconfig'.ruby_ls.setup{}
+require('lspconfig').ruby_ls.setup {}
 
 -- textDocument/diagnostic support until 0.10.0 is released
 -- _timers = {}
@@ -615,17 +658,18 @@ require'lspconfig'.solargraph.setup{
 -- })
 
 ---------------
+-- PLUGIN / luasnips, neovim snippets plugin
+----
+require("luasnip.loaders.from_vscode").lazy_load()
+
+
+---------------
 -- PLUGIN / nvim-cmp, neovim completion 
 ----
 
 require('lsp-zero').extend_cmp()
 
--- nvim-cmp supports additional completion capabilities, so broadcast that to servers
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
-
-
--- NOTE: ipatch,
+-- NOTE: ipatch, / plugin / nvim-cpm
 -- ref: https://github.com/hrsh7th/nvim-cmp/wiki/Menu-Appearance#how-to-add-visual-studio-code-codicons-to-the-menu
 local kind_icons = {
   Text = '  ',
@@ -751,7 +795,7 @@ end)
 -- https://github.com/nvim-telescope/telescope.nvim/wiki/Configuration-Recipes#mapping-c-d-to-delete-buffer
 
 ---------------
--- plugin / nvim-telescope
+-- PLUGIN / nvim-telescope
 -- To get fzf loaded and working with telescope, you need to call
 -- load_extension, somewhere after setup function:
 require('telescope').load_extension('fzf')
@@ -823,9 +867,23 @@ ts.setup {
     enable_autocmd = false,
   },
   indent = {
-    enable = true
+    enable = false
   },
   autopairs = { enable = true },
+
+  autotag = {
+    enable = true,
+    filetypes = {
+      'html',
+      'javascript',
+      'javascriptreact',
+      'svelte',
+      'typescript',
+      'typescriptreact',
+      'vue',
+      'xml',
+      },
+  },
 
   rainbow = {
     enable = true,
