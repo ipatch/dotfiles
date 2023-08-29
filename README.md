@@ -62,8 +62,10 @@ https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.conf \
 | background music | ??? | ??? |
 | Finder.app | thunar | explorer |
 | iMessage | bluebubbles | ??? |
-| karabiner elements | interception | ??? |
+| karabiner elements | interception / [dual function keys][apps-lnk1] | ??? |
 | clipy | copyq | ??? |
+
+[apps-lnk1]: <https://gitlab.com/interception/linux/plugins/dual-function-keys> 
 
 ## File Structure
 
