@@ -781,6 +781,9 @@ https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.conf \
 
 <summary>Uncompleted</summary>
 
+- [ ] #nvim RIP 🪦 `packer.nvim` looks i need to migrate to `lazy.nvim` sooner than later 😑
+- [ ] #tmux only display window index numbers after the prefix key has pressed (this gunna be a tricky one) 🤔
+- [ ] #linux, #dual-function-keys, #dualfunctionkeys, with my ext keychron k6 keyboard map lower left `control` to `fn` ie. function key.
 - [ ] #i3 #polybar put cpu / gpu fan speeds in my bar
 - [ ] #nvim WTF, when i've been running `:e` on my open buffer (config.fish) it's been resetting my `foldlevel=2` 😡
 - [ ] #arch xrandr + arandr is it possible to have auto probe monitors to load layouts on the fly a la how macos does it
