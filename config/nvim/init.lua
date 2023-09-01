@@ -572,6 +572,7 @@ require('lspconfig').jsonls.setup {
   },
 }
 
+---------------
 -- plugin / nvim native lsp / ruby-lsp
 -- NOTE: ipatch, when using rvm to manage rubies, rvm needs to be init'd before running `:masoninstall ruby-lsp`
 require('lspconfig').ruby_ls.setup {}
@@ -618,6 +619,7 @@ require('lspconfig').ruby_ls.setup {}
 --   })
 -- end
 
+---------------
 -- PLUGIN / neovim native lsp / ruby / solargraph
 require'lspconfig'.solargraph.setup{
   -- cmd = { os.getenv( "HOME" ) .. "/.rvm/shims/solargraph", 'stdio' },
@@ -669,7 +671,6 @@ require("luasnip.loaders.from_vscode").lazy_load()
 ---------------
 -- PLUGIN / nvim-cmp, neovim completion 
 ----
-
 require('lsp-zero').extend_cmp()
 
 -- NOTE: ipatch, / plugin / nvim-cpm
@@ -833,7 +834,8 @@ require 'colorizer'.setup({
     '!markdown';
     '!gitconfig';
     '!sh';
-    lua = { mode = 'foreground'; }
+    lua = { mode = 'foreground'; },
+    tmux =  { mode = 'foreground'; }
   },
 })
 
