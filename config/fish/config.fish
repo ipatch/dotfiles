@@ -35,13 +35,18 @@ if status is-interactive
   set -gx fish_greeting ""
   set -gx fish_emoji_width 2 # NOT COMPATIBLE with fish <= 2.7.1
 
-  # NOTE: ipatch, below env var will break fuzzy search for `git add`
+  # NOTE: ipatch, below env var will break fuzzy match for `git add`
   # set -gx fish_complete_path show_matching
 
   # *nix specific env vars
   set -gx XDG_CONFIG_HOME $HOME/.config
   # GPG key signing
   export GPG_TTY=(tty)
+
+  # start ssh agent
+  if not set -q SSH_AUTH_SOCK
+    eval (ssh-agent -c) > /dev/null
+  end
 
   # $USER tooling / js / node / nvm
   set -gx NVM_DIR "$HOME/.config/nvm"
