@@ -10,3 +10,23 @@ https://stackoverflow.com/a/70160696/708807
 ```
 ssh-keygen -y -P "" -f ~/.ssh/id_ed25519
 ```
+
+## editing / preparing files
+
+> i use fish (fight me) the below commands are useful enc and denc
+
+enc example
+
+```fish
+for encrypted_file in file1.txt.gpg file2.txt.gpg file3.txt.gpg
+    gpg --decrypt "$encrypted_file" > (basename "$encrypted_file" .gpg)
+end
+```
+
+denc example
+
+```fish
+for file in file1.txt file2.txt file3.txt;
+    gpg --recipient your@email.com --encrypt "$file"
+end
+```
