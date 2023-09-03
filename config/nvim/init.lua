@@ -369,10 +369,18 @@ vim.cmd([[
 -- PLUGIN / AI / chatgpt.nvim
 ----
 local home = vim.fn.expand('$HOME')
-require('chatgpt').setup({
-    api_key_cmd = 'gpg --decrypt ' .. home .. '/.ssh/my.openai.api.key.secret.gpg'
-})
+local api_key_cmd
 
+-- Check if the file exists before setting api_key_cmd
+local api_key_file = home .. '/.ssh/my.openai.api.key.secret.gpg'
+if vim.fn.filereadable(api_key_file) == 1 then
+    api_key_cmd = 'gpg --decrypt ' .. api_key_file
+
+    -- Conditionally load the setup function
+    require('chatgpt').setup({
+        api_key_cmd = api_key_cmd,
+    })
+end
 ---------------
 -- PLUGIN / neovim native / LSP settings
 ----
