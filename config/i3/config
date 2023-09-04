@@ -366,8 +366,12 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 # NOTE: ipatch, setup i3 socket
 #-
 # TODO: FIXME: creates a literal `$HOME` dir within my actual home dir 👎️
-ipc-socket $HOME/.config/i3/ipc-socket.$(hostname)
-
+# TODO: setup binding to enable shmlog then restart i3 in place to tshoot socket creation 🙃
+#--
+# ipc-socket $HOME/.config/i3/ipc-socket.$(hostname)
+#--
+# NOVA 🤷
+exec_always --no-startup-id /usr/bin/socat UNIX-LISTEN:~/.config/i3/i3ipc.sock,fork EXEC:"/usr/bin/i3ipc"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
