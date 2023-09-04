@@ -328,6 +328,8 @@ bindsym $mod+control+space exec /usr/sbin/emote
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
+# FIXME: ipatch, reloading i3 in place breaks my spotify polybar module 😡
+# NOTE: spot module in use, https://github.com/mihirlad55/polybar-spotify-module
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
@@ -365,14 +367,10 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # NOTE: ipatch, setup i3 socket
 #-
-# TODO: FIXME: creates a literal `$HOME` dir within my actual home dir 👎️
 # TODO: setup binding to enable shmlog then restart i3 in place to tshoot socket creation 🙃
 #--
-# ipc-socket $HOME/.config/i3/ipc-socket.$(hostname)
 ipc-socket ~/.config/i3/i3-ip.sock
 #--
-# NOVA 🤷
-# exec_always --no-startup-id /usr/bin/socat UNIX-LISTEN:~/.config/i3/i3ipc.sock,fork EXEC:"/usr/bin/i3ipc"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
