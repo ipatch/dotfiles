@@ -231,6 +231,12 @@ bindsym Mod1+Shift+2 move container to workspace number $ws22
 # NOTE: ipatch, assign certain apps to certain workspaces
 # NOTE: ipatch, run `xprop` to get app/window properties
 
+# NOTE: ipatch, make all about windows floating GLOBAL
+for_window [window_role="About"] floating enable
+for_window [window_type="dialog"] floating enable
+for_window [window_role="task_dialog"] floating enable
+for_window [window_role="Preferences"] floating enable
+
 # NOTE: ipatch, set default window size
 # WM_CLASS(STRING) = "gpartedbin", "GParted"
 for_window [class="GParted"] floating enable resize set 1800 1000, move position center
@@ -252,7 +258,7 @@ assign [class="firefox"] workspace $ws2
 # WM_NAME(STRING) = "About Mozilla Firefox"
 # WM_WINDOW_ROLE(STRING) = "About"
 # for_window [title="About Mozilla Firefox"] floating enable # NOVA ❌
-for_window [title="About Mozilla Firefox" window_role="About"] floating enable
+# for_window [title="About Mozilla Firefox" window_role="About"] floating enable
 
 # NOTE: ipatch, xpdf / file open dialogue
 for_window [title="Open PDF File"] floating enable resize set 1817 1156, move position center
