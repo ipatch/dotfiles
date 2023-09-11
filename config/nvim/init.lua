@@ -364,7 +364,6 @@ vim.cmd([[
   autocmd BufRead,BufNewFile config.fish-capin-mpb14,3-single-file filetype=fish
 ]])
 
-
 ---------------
 -- PLUGIN / AI / chatgpt.nvim
 ----
@@ -385,6 +384,8 @@ end
 -- PLUGIN / neovim native / LSP settings
 ----
 -- ref: https://github.com/neovim/nvim-lspconfig/wiki/UI-Customization
+local lsp_zero = require('lsp-zero')
+lsp_zero.extend_lspconfig()
 
 ---------------
 -- PLUGIN / neovim / native LSP / mason / lsp manager
