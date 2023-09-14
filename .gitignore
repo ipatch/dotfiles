@@ -83,12 +83,11 @@ tags
 #--
 # Ignore vscode project files
 **/.vscode
-editors/vscode-oss/**
-!/editors/vscode-oss/argv.json
-# editors/vscode-oss/extensions/
-!/editors/vscode-oss/extensions/extensions.json
+!editors/vscode-oss/argv.json
+# DOES NOT WORK WITH leading dot ie. `./editors`
+/editors/vscode-oss/extensions/*
+!editors/vscode-oss/extensions/extensions.json
 !editors/vscode-oss/extensions/.gitkeep
-!./editors/vscode-oss/extensions/.gitkeep
 
 # Ignore those pesky macOS .DS_Store files recursively throughout repo
 **/.DS_Store
