@@ -86,15 +86,13 @@ tags
 editors/vscode-oss/**
 !/editors/vscode-oss/argv.json
 editors/vscode-oss/extensions/**
-!editors/vscode-oss/extensions/extensions.json
+!/editors/vscode-oss/extensions/extensions.json
 
 # Ignore those pesky macOS .DS_Store files recursively throughout repo
 **/.DS_Store
 
 **/*.bkup
 
-# track all files with a name of `.gitkeep`
-!*.gitkeep
 
 #-----------------------------
 # weechat
@@ -316,3 +314,7 @@ jobs/macOS/Users/mr-fancy/Library/Preferences/FreeCAD/user.cfg
 # gnu+linux / printer / cups
 #-
 jobs/Linux/arch/etc/cups/
+
+# track all files with a name of `.gitkeep`
+!*.gitkeep
+
