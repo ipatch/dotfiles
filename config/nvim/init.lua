@@ -335,6 +335,10 @@ vim.api.nvim_create_autocmd('BufReadPost', {
 })
 
 ------------------------------
+-- TODO: autocmd / replace <200b> unicode char on paste
+----
+
+------------------------------
 -- SETTINGS / clipboard
 -- Check the operating system then set clipboard accordingly
 if vim.fn.has('mac') == 1 or vim.fn.has('win64') == 1 or vim.fn.has('win32') == 1 then
@@ -355,11 +359,10 @@ vim.api.nvim_create_autocmd('BufWinEnter', {
   end,
 })
 
-
 ------------------------------
 -- SETTINGS / filetype / my custom filename for my config.fish
 -- NOTE: rm'd symlink not required anymore but leave here for future ref
----
+----
 vim.cmd([[
   autocmd BufRead,BufNewFile config.fish-capin-mpb14,3-single-file filetype=fish
 ]])
