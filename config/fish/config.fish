@@ -86,7 +86,7 @@ if status is-interactive
   abbr -a -- youdl 'yt-dlp'
   abbr -a -- ydl 'yt-dlp'
   abbr -a -- ksong 'open https://www.kntu.com/last-7-days-of-music-on-kntu/'
-  abbr -a -- the.ticket  'mpv --no-video --volume=30 --no-resume-playback "https://18313.live.streamtheworld.com/KTCKAMAAC"'
+  abbr -a -- the.ticket  'mpv --no-video --volume=30 --no-resume-playback "https://13693.live.streamtheworld.com/KTCKAMAAC.aac"'
   abbr -a -- e 'echo'
   abbr -a -- df 'df -h'
 
