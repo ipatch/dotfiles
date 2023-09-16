@@ -37,6 +37,9 @@ if status is-interactive
 
   # NOTE: ipatch, below env var will break fuzzy match for `git add`
   # set -gx fish_complete_path show_matching
+  # Load the right prompt state
+  # TODO: requires theme-neolambda
+  set -gx display_right_prompt (cat ~/.config/fish/right_prompt_state)
 
   # *nix specific env vars
   set -gx XDG_CONFIG_HOME $HOME/.config
