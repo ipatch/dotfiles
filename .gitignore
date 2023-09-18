@@ -86,7 +86,7 @@ tags
 !editors/vscode-oss/argv.json
 # DOES NOT WORK WITH leading dot ie. `./editors`
 /editors/vscode-oss/extensions/*
-!editors/vscode-oss/extensions/extensions.json
+editors/vscode-oss/extensions/extensions.json
 !editors/vscode-oss/extensions/.gitkeep
 
 # Ignore those pesky macOS .DS_Store files recursively throughout repo
