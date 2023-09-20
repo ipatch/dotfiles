@@ -1,0 +1,11 @@
+# this file requires the below criteria 
+# 1. the host system requires a user group with the name farmers
+# 2. a systemd service with the name vmmojave
+# 3. a user added to the user group farmers
+# 4. the /etc/sudoers file requires the below line
+# `@includedir /etc/sudoers.d`
+
+%farmers ALL= NOPASSWD: /bin/systemctl start vmmojave
+%farmers ALL= NOPASSWD: /bin/systemctl stop vmmojave
+%farmers ALL= NOPASSWD: /bin/systemctl restart vmmojave
+
