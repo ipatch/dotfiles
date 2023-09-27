@@ -781,6 +781,7 @@ https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.conf \
 
 <summary>Uncompleted</summary>
 
+- [ ] #nvim #neovim is there an elegant way to switch a word from single quotes `'` to double quotes `"` and vise versa
 - [ ] #linux #screencasting #i3, setup binding to toggle showkey, and auto launch showkey after i3 starts ala copyq
 - [ ] #tmux how not move window title names when prefix key is pressed and label `^S` is shown in the left side of the status bar.
 - [ ] #nvim RIP 🪦 `packer.nvim` looks i need to migrate to `lazy.nvim` sooner than later 😑
