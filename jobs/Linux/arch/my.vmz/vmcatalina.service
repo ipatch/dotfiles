@@ -1,0 +1,16 @@
+[Unit]
+Description=macos catalina qemu virtual machine
+After=network-online.target docker.service
+Requires=network-online.target 
+
+[Service]
+EnvironmentFile=/etc/environment_vars
+Environment="haltcmd=kill -INT $MAINPID"
+Type=forking
+User=capin
+ExecStart=/bin/bash -c '/home/capin/vmz/basic.mydisk.catalina.bridge.sh || true' &
+ExecStop=/usr/bin/bash -c ${haltcmd}
+ExecStop=/usr/bin/bash -c 'while nc localhost 7500; do sleep 1; done'
+
+[Install]
+WantedBy=multi-user.target
