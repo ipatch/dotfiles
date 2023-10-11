@@ -10,7 +10,7 @@ Type=forking
 User=capin
 ExecStart=/bin/bash -c '/home/capin/vmz/basic.mydisk.mojave.bridge.sh || true' &
 ExecStop=/usr/bin/bash -c ${haltcmd}
-ExecStop=/usr/bin/bash -c 'while nc localhost 7100; do sleep 1; done'
+ExecStop=/usr/bin/bash -c 'while nc localhost 7400; do sleep 1; done'
 
 [Install]
 WantedBy=multi-user.target
