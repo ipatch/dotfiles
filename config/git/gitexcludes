@@ -16,8 +16,9 @@ tags
 tags.lock
 tags.temp
 .gutctags # tags file specific to gutentags
+.svim # my vim session files
 
-##############################
+#-----------------------------
 # pyenv
-##
+#-
 .python-version
