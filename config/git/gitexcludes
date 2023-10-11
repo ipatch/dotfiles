@@ -1,4 +1,4 @@
-# This file should be symlinked to `$XDG_CONFIG/.config/git/ignore`
+# This file should be symlinked to `$XDG_CONFIG_HOME/git/gitexcludes`
 
 .DS_Store
 .swp
@@ -15,8 +15,10 @@ secrets.yml
 tags
 tags.lock
 tags.temp
-.gutctags # tags file specific to gutentags
-.svim # my vim session files
+# tags file specific to gutentags
+.gutctags 
+# my vim session files
+*.svim
 
 #-----------------------------
 # pyenv
