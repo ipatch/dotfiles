@@ -365,6 +365,7 @@ vim.api.nvim_create_autocmd('BufWinEnter', {
 ----
 vim.cmd([[
   autocmd BufRead,BufNewFile config.fish-capin-mpb14,3-single-file filetype=fish
+  autocmd BufNewFile,BufRead *.service* set ft=systemd
 ]])
 
 ---------------
