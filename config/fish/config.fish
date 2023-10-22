@@ -193,6 +193,11 @@ if status is-interactive
   end
 
   function brew --description "catch common misspelling & add some goodies"
+    # Check if /usr/local/bin/brew exists and is executable
+    if test -x /usr/local/bin/brew
+      /usr/local/bin/brew $argv
+      return
+    end
     # NOTE: ipatch, `$bp` is an env var defined when setting up `$PATH`
     if test -f "$bp/bin/brew"
     # REF: https://stackoverflow.com/a/60607145/708807
