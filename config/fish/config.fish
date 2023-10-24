@@ -44,7 +44,7 @@ if status is-interactive
   # *nix specific env vars
   set -gx XDG_CONFIG_HOME $HOME/.config
   # GPG key signing
-  export GPG_TTY=(tty)
+  set -gx GPG_TTY=(tty)
 
   # start ssh agent
   if not set -q SSH_AUTH_SOCK
@@ -67,12 +67,12 @@ if status is-interactive
   set -gx hbfc "$HOME/homebrew/Library/Taps/freecad/homebrew-freecad"
 
   # app env vars / homebrew
-  export HOMEBREW_NO_INSTALL_CLEANUP=1
-  export HOMEBREW_EDITOR=nvim
-  export HOMEBREW_NO_GITHUB_API=1
-  export HOMEBREW_NO_ANALYTICS=1
-  export HOMEBREW_NO_AUTO_UPDATE=1
-  export HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK=1
+  set -gx HOMEBREW_NO_INSTALL_CLEANUP=1
+  set -gx HOMEBREW_EDITOR=nvim
+  set -gx HOMEBREW_NO_GITHUB_API=1
+  set -gx HOMEBREW_NO_ANALYTICS=1
+  set -gx HOMEBREW_NO_AUTO_UPDATE=1
+  set -gx HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK=1
 
   # $USER fish abbreviations
   abbr -a -- fr 'exec fish'
