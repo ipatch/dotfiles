@@ -1,16 +1,19 @@
 # Static information about the filesystems.
 # See fstab(5) for details.
 
-# <file system> <dir> <type> <options> <dump> <pass>
+# TODO: ipatch, convert all tabs to spaces
 
+# <file system> <dir> <type> <options> <dump> <pass>
 # TODO: ipatch, 6th field <pass> controls whether the fs should be checked, val=1 check fs, val=2 check fs in parallel to root fs
 # NOTE: ipatch, remove `discard` from SSD partitions, use periodic TRIM instead of realtime
 
-/swapfile none swap defaults	0 0
+# /swapfile none swap defaults	0 0
 
-# /dev/nvme0n1p3
-UUID=5f9999eb-0812-4a84-be72-6135a8fe3627	/         	ext4      	rw,relatime,data=ordered	0 1
-
-# /dev/nvme0n1p2 LABEL=Arch\134x20Linux
-UUID=1f633ac8-825f-3ca4-a190-20a0b6d37297	/boot         	hfsplus   	force,rw,relatime,umask=22,uid=0,gid=0,nls=utf8	0 2
+/dev/nvme0n1p1  /boot vfat    defaults,umask=0000 0	2	
+/dev/nvme0n1p3  /     ext4    rw,relatime,data=ordered,discard	0 1
+#------
+# example / archwiki / sshfs
+#--
+# user@host:/remote/path /local/path  fuse.sshfs noauto,x-systemd.automount,_netdev,user,idmap=user,follow_symlinks,identityfile=/home/user/.ssh/id_rsa,allow_other,default_permissions,uid=USER_ID_N,gid=USER_GID_N 0 0
+capin@192.168.1.111:/home/capin/homebrew/Library/Taps/freecad/homebrew-freecad /opt/mnt/archbox/hbfc fuse.sshfs delay_connect,workaround=rename,x-sytemd.automount,_netdev,user,idmap=user,follow_symlinks,identityfile=/home/capin/.ssh/id_rsa,allow_other,default_permissions,uid=1000,gid=984 0 0
 
