@@ -85,6 +85,10 @@ PATH=$PATH:/Library/Apple/usr/bin
 
 # export PATH=/usr/local/bin:
 export HOMEBREW_NO_INSTALL_CLEANUP=1
+export GPG_TTY=$(tty)
+
+# setup locale to try and make gpg happy *crossfingers
+export LANG="en_US.UTF-8"
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 # export PATH="$PATH:$HOME/.rvm/bin"

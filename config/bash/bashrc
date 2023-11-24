@@ -1,16 +1,16 @@
 #!/usr/bin/env bash
 
-##############################
+#-----------------------------
 # $USER specified file for configuring BASH.
 # Author: Chris Jones
 # Contact: twitter > @truckmonth
 # Contact: email > chris.r.jones.1983@gmail.com <- email
 # Contact: github > @ipatch
-##
+#-
 
 # shellcheck source=/dev/null
 
-##############################
+#-----------------------------
 # 1) /etc/profile
 # 2) /etc/bash.bashrc
 # 3) ~/.bashrc | NOTE non-login interactive mode 
@@ -19,7 +19,7 @@
 # 5) ~/.bash_login
 # 6) ~/.profile | NOTE used for graphical sessions, ie. KDE, | NOTE `~/.bash_profile` is not sourced
 # 7) ~/.bash_logout
-##
+#-
 
 ## Extremely helpful for debugging BASH scripts
 #set -x
@@ -41,9 +41,9 @@ export private="/opt/code/github/private"
 # Env Vars for git
 export GIT_RC="$XDG_CONFIG_HOME/git"
 
-##############################
+#-----------------------------
 # Aliases for interactive shell sessions
-##
+#-
 alias ..='cd ..'
 alias cd..='cd ..'
 # alias l='ls -lahF --color=auto'
@@ -51,11 +51,8 @@ alias l='/bin/ls -lahF'
 alias ls='ls --color=auto'
 alias lr='ls -lrth'
 
-##
 alias pp='echo $PATH'
 alias br='exec bash'
-
-
 
 alias cp='cp -iv'
 alias rm='rm -iv'
@@ -79,11 +76,11 @@ alias du='du -sh'
 # NOTE: functions in BASH are all stored in memory, ie. RAM and not on disk
 # test to see if a functions dir exists with `$XDG_CONFG_HOME`
 if [ -d ~/.config/bash/functions ]; then
-	export funcs_dir="$HOME/.config/bash/functions"
-	for file in "$funcs_dir"/*.bash; 
-	do 
-		source "$file";
-	done
+  export funcs_dir="$HOME/.config/bash/functions"
+  for file in "$funcs_dir"/*.bash; 
+  do 
+    source "$file";
+  done
 fi
 
 
@@ -128,15 +125,12 @@ PATH=""
 # setup an $OS env var for distinguishing between different Operating Systems
 # NOTE: Darwin = macOS, Linux = Debian; and other assorted Linux distros
 if [ -x /usr/bin/uname ]; then
-	os=$(/usr/bin/uname)
-	export os
+  os=$(/usr/bin/uname)
+  export os
 elif [ -x /bin/uname ]; then
-	os=$(/bin/uname)
-	export os
+  os=$(/bin/uname)
+  export os
 fi
-
-# os=$(/usr/bin/uname)
-# export os
 
 # some homebrew magic
 if [ "$os" = Darwin ] && [ -e /usr/local/bin/brew ]; then
@@ -163,17 +157,17 @@ PATH=$PATH:/bin
 
 # source helpful files for working with the `asdf` version manager
 # if [ -f ~/.asdf/asdf.sh ]; then
-# 	source ~/.asdf/asdf.sh
+#   source ~/.asdf/asdf.sh
 # fi
 
 # if [ -f ~/.asdf/completions/asdf.bash ]; then 
-# 	source ~/.asdf/completions/asdf.bash
+#   source ~/.asdf/completions/asdf.bash
 # fi
 
 # source helpful file for working with `fzf` CLI fuzzy finder
 # NOTE: the below statement tests to see the `.fzf.bash` file exists in ~ and then loads into the interactive BASH session.
 if [ -f ~/.fzf.bash ]; then
-	source ~/.fzf.bash
+  source ~/.fzf.bash
 fi
 
 # TODO: setup bash to use node.js provided by nvm and not homebrew
