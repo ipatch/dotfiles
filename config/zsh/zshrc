@@ -6,5 +6,92 @@
 
 # [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+#-----------------------------
+# Aliases for interactive shell sessions
+#-
+alias ..='cd ..'
+alias cd..='cd ..'
+
+# alias l='ls -lahF --color=auto'
+alias l='/bin/ls -lahF'
+alias ls='ls --color=auto'
+alias lr='ls -lrth'
+
+alias pp='echo $PATH'
+alias br='exec bash'
+
+alias cp='cp -iv'
+alias rm='rm -iv'
+alias mv='mv -iv'
+# move quickly to directories
+alias dots='cd $dots'
+alias public='cd $public'
+alias private='cd $private'
+alias dotfiles='cd /opt/code/dotfiles'
+
+# `git` aliases for git projects
+alias gs='git status'
+alias gd='git diff --stat'
+alias ga='git add --all'
+alias gp='git push'
+
+# "storage" aliases
+alias df='df -h'
+alias du='du -sh'
+
+## no dupes
+HISTCONTROL=ignoredups:erasedups
+# append on exit
+setopt histappend
+
+# nuke $PATH because I manually set it up below
+# NOTE: since $PATH is being nuked for each interactive bash session there presently isn't a need to check for duplicate path entries, "BONUS".
+PATH=""
+
+# setup an $OS env var for distinguishing between different Operating Systems
+# NOTE: Darwin = macOS, Linux = Debian; and other assorted Linux distros
+if [ -x /usr/bin/uname ]; then
+  os=$(/usr/bin/uname)
+  export os
+elif [ -x /bin/uname ]; then
+  os=$(/bin/uname)
+  export os
+fi
+
+# some homebrew magic
+# TODO: search for `~/homebrew` local setup first then check for `/usr/local` default setup next
+if [ "$os" = Darwin ] && [ -e "$HOME"/homebrew/bin/brew ]; then
+  brew_prefix="$HOME/homebrew"
+  export brew_prefix
+elif [ "$os" = Linux ] && [ -e /home/linuxbrew/.linuxbrew/bin/brew ]; then
+  brew_prefix="/home/linuxbrew/.linuxbrew"
+  export brew_prefix
+fi
+
+# TODO: conditionally only add paths for different operating systems
+# NOTE: since $PATH has been nuked, these paths are added from top to bottom, ie. .../sbin will be the first entry in $PATH unless other bash files hijack the $PATH; ...i'm looking at you asdf
+# PATH=/Users/capin/.asdf/installs/elixir/1.7.4/bin
+# below entries will be appened to $PATH
+PATH=$PATH:$HOME/.local/bin
+PATH=$PATH:$brew_prefix/sbin
+PATH=$PATH:$brew_prefix/bin
+# PATH=$PATH:$brew_prefix/opt/coreutils/libexec/gnubin
+# PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+PATH=$PATH:/usr/sbin
+PATH=$PATH:/usr/bin
+PATH=$PATH:/sbin
+PATH=$PATH:/bin
+PATH=$PATH:/Library/Apple/usr/bin
+
+# export PATH=/usr/local/bin:
+export HOMEBREW_NO_INSTALL_CLEANUP=1
+
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
+# export PATH="$PATH:$HOME/.rvm/bin"
+
+# =============================================================================
+#
+# To initialize zoxide, add this to your configuration (usually ~/.zshrc):
+#
+eval "$(zoxide init zsh)"
+
