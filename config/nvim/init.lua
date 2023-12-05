@@ -348,6 +348,7 @@ else
 end
 
 -- NOTE: ipatch, requires both the client and server are running a tmux instance from what i can tell
+-- ref: https://rumpelsepp.org/blog/nvim-clipboard-through-ssh/
 if vim.env.TMUX then
     vim.g.clipboard = {
         name = 'tmux',
