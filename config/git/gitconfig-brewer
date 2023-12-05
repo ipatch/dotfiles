@@ -347,7 +347,7 @@ textconv = unzip -c -a
   stat = true
 
 [gpg]
-	program = "/opt/local/bin/gpg"
+	program = "/Users/brewer/.local/bin/gpg"
   # Make certain `gpg` is in the $USER $PATH
   # NOTE: will only work if the $bp env var is set
 	# program = /usr/local/bin/gpg
