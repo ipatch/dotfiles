@@ -276,8 +276,8 @@
 
 [core]
   editor = nvim
-  excludesfile = /home/capin/.config/git/gitexcludes
-  attributesfile = /home/capin/.config/git/gitattributes
+  excludesfile = /Users/chris/.config/git/gitexcludes
+  attributesfile = /Users/chris/.config/git/gitattributes
   #------------------------------
   # TODO: [x] give me some mouse 🐭 support please ✅
   #-
