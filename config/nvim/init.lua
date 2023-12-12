@@ -1,5 +1,5 @@
 -- Author: github.com/ipatch
--- my experimental neovim ≥ 0.5 configuration/setup
+-- my neovim ≥ 0.5 configuration/setup
 -- some inspiration: https://github.com/David-Kunz/vim/blob/master/init.lua
 
 ---------------
@@ -191,11 +191,11 @@ end)
 --
 -- You'll need to restart nvim, and then it will work.
 if is_bootstrap then
-  print '=================================='
+  print '----------------------------------'
   print '    Plugins are being installed'
   print '    Wait until Packer completes,'
   print '       then restart nvim'
-  print '=================================='
+  print '----------------------------------'
   return
 end
 
