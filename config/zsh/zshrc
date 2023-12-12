@@ -62,11 +62,8 @@ ENABLE_CORRECTION="true"
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
-# Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
 plugins=(
   history-substring-search
   zsh-autosuggestions
@@ -92,7 +89,6 @@ source $ZSH/oh-my-zsh.sh
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
-# You may need to manually set your language environment
 # setup locale to try and make gpg happy *crossfingers
 export LANG=en_US.UTF-8
 
@@ -106,10 +102,6 @@ fi
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
 #-----------------------------
 # Aliases for interactive shell sessions
 #-
@@ -120,8 +112,6 @@ alias cd..='cd ..'
 alias l='/bin/ls -lahF'
 alias ls='ls --color=auto'
 alias lr='ls -lrth'
-
-# alias pp='echo $PATH'
 
 alias cp='cp -iv'
 alias rm='rm -iv'
@@ -135,8 +125,6 @@ alias gs='git status'
 alias gd='git diff --stat'
 # alias ga='git add --all'
 alias gp='git push'
-# alias gitd='git diff -- $(git ls-files | fzf)'
-# alias gitd='git diff -- $(git status -s | fzf --preview "git diff -- {}")'
 
 # "storage" aliases
 alias df='df -h'
@@ -164,6 +152,45 @@ pp() {
     echo "$count. $p"
     ((count++))
   done
+}
+
+# https://www.techspeak.dev/2019/01/14/improve-your-git-flow-with-fuzzy-find.html
+ga(){
+  if [ $# -eq 0 ]; then
+    gfuz git add
+  else
+    git add "$@"
+  fi
+}
+
+# func to calc sha256sum of remote file via curl
+sharm() {
+    if [[ -z $1 ]]; then
+        echo "Usage: download_and_verify <url>"
+        return 1
+    fi
+
+    local url=$1
+    local filename=$(basename $url)
+    local sha256sum_file="${filename}.sha256"
+
+    echo "Downloading file from ${url}..."
+    curl -sSL "${url}" -o "${filename}"
+
+    if [[ $? -ne 0 ]]; then
+        echo "Failed to download file."
+        return 1
+    fi
+
+    echo "Calculating SHA256 checksum..."
+    local calculated_sha256sum=$(sha256sum "${filename}" | awk '{print $1}')
+
+    echo "SHA256 checksum: ${calculated_sha256sum}"
+
+    echo "Cleaning up..."
+    rm -f "${filename}"
+
+    return 0
 }
 
 # setup an $OS env var for distinguishing between different Operating Systems
@@ -221,15 +248,6 @@ alias sr='exec $SHELL'
 
 alias gfuz='git ls-files -m -o --exclude-standard | fzf --print0 -m -1 | xargs -0 -t -o'
 alias gdf='gfuz git diff'
-
-# https://www.techspeak.dev/2019/01/14/improve-your-git-flow-with-fuzzy-find.html
-ga(){
-  if [ $# -eq 0 ]; then
-    gfuz git add
-  else
-    git add "$@"
-  fi
-}
 
 #------------------------------------------------------------------------------
 # To initialize zoxide, add this to your configuration (usually ~/.zshrc):
