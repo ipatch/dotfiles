@@ -51,7 +51,7 @@ https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.conf \
 
 <a name="apps"></a>
 
-> apps i use on various operating systems
+> 🌹🪨 apps i use on various operating systems
 
 <!-- TODO: insert a markdown table with macos, linux, windows heading -->
 
