@@ -242,8 +242,9 @@ export HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK=1
 export HOMEBREW_DEVELOPER=1
 export hbfc="$bp/Library/Taps/freecad/homebrew-freecad"
 
-alias bp3="$bp/opt/python@3.11/bin/python3"
 alias bp310="$bp/opt/python@3.10/bin/python3.10"
+alias bp311="$bp/opt/python@3.11/bin/python3.11"
+alias bp312="$bp/opt/python@3.11/bin/python3.12"
 alias sr='exec $SHELL'
 
 alias gfuz='git ls-files -m -o --exclude-standard | fzf --print0 -m -1 | xargs -0 -t -o'
