@@ -31,6 +31,9 @@ if status is-interactive
   alias pgrep='pgrep -i'
   alias pthrm='fish.rm.path'
 
+  # homebrew specific aliases
+  alias bp311="$bp/opt/python@3.11/bin/python3.11"
+
   # fish specific env vars
   set -gx fish_greeting ""
   set -gx fish_emoji_width 2 # NOT COMPATIBLE with fish <= 2.7.1
@@ -76,7 +79,7 @@ if status is-interactive
   set -gx HOMEBREW_DEVELOPER 1
 
   # $USER fish abbreviations
-  abbr -a -- fr 'exec fish'
+  abbr -a -- sr 'exec fish'
   abbr -a -- pp 'string join \n $PATH | nl  '
   abbr -a -- lr 'ls -lrth'
   abbr -a -- dots 'cd $dots'
@@ -147,9 +150,9 @@ if status is-interactive
   #--
 
   set -l paths \
+    # $HOME/homebrew/opt/python/libexec/bin \
     $HOME/homebrew/sbin \
     $HOME/homebrew/bin \
-    $HOME/homebrew/opt/python/libexec/bin \
     $HOME/.rvm/bin \
     $HOME/.bun/bin \
     $HOME/go/bin \
