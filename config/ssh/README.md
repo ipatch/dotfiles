@@ -15,7 +15,7 @@ ssh-keygen -y -P "" -f ~/.ssh/id_ed25519
 
 > i use fish (fight me™️) the below commands are useful for encoding and dencoding
 
-dencode example
+decode example
 
 ```fish
 for encrypted_file in file1.txt.gpg file2.txt.gpg file3.txt.gpg
