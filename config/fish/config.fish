@@ -309,7 +309,7 @@ if status is-interactive
     end
 
     echo "Calculating SHA256 checksum..."
-    set calculated_sha256sum (sha256sum "$filename" | awk '{print $1}')
+    set calculated_sha256sum (shasum -a 256 "$filename" | awk '{print $1}')
 
     echo "SHA256 checksum: $calculated_sha256sum"
 
