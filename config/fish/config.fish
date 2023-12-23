@@ -289,4 +289,33 @@ if status is-interactive
       '
   end
 
+  # func to calc sha256sum of remote file via curl
+  function sharm
+    if test -z "$argv[1]"
+      echo "Usage: download_and_verify <url>"
+      return 1
+    end
+
+    set url $argv[1]
+    set filename (basename $url)
+    set sha256sum_file "$filename.sha256"
+
+    echo "Downloading file from $url..."
+    curl -sSL "$url" -o "$filename"
+
+    if test $status -ne 0
+      echo "Failed to download file."
+      return 1
+    end
+
+    echo "Calculating SHA256 checksum..."
+    set calculated_sha256sum (sha256sum "$filename" | awk '{print $1}')
+
+    echo "SHA256 checksum: $calculated_sha256sum"
+
+    echo "Cleaning up..."
+    rm -f "$filename"
+
+    return 0
+  end
 end
