@@ -109,9 +109,10 @@ alias ..='cd ..'
 alias cd..='cd ..'
 
 # alias l='ls -lahF --color=auto'
+# NOTE: for reasons i don't understand, full path required
 alias l='/bin/ls -lahF'
-alias ls='ls --color=auto'
-alias lr='ls -lrth'
+alias ls='/bin/ls --color=auto'
+alias lr='/bin/ls -lrth'
 
 alias cp='cp -iv'
 alias rm='rm -iv'
@@ -164,7 +165,7 @@ ga(){
 }
 
 # func to calc sha256sum of remote file via curl
-sharm() {
+sharemo() {
     if [[ -z $1 ]]; then
         echo "Usage: download_and_verify <url>"
         return 1
@@ -204,17 +205,19 @@ elif [ -x /bin/uname ]; then
 fi
 
 # some homebrew magic
-# TODO: search for `~/homebrew` local setup first then check for `/usr/local` default setup next
-if [ "$os" = Darwin ] && [ -e "$HOME"/homebrew/bin/brew ]; then
-  bp="$HOME/homebrew"
-  export bp
+if [ "$os" = Darwin ]; then
+  if [ -e "$HOME/homebrew/bin/brew" ]; then
+    bp="$HOME/homebrew"
+  elif [ -e /usr/local/bin/brew ]; then
+    bp="/usr/local"
+  fi
 elif [ "$os" = Linux ] && [ -e /home/linuxbrew/.linuxbrew/bin/brew ]; then
   bp="/home/linuxbrew/.linuxbrew"
-  export bp
 fi
+export bp
 
 # TODO: conditionally only add paths for different operating systems
-# NOTE: since $PATH has been nuked, these paths are added from top to bottom, ie. .../sbin will be the first entry in $PATH unless other bash files hijack the $PATH; ...i'm looking at you asdf
+# NOTE: since $PATH has been nuked, these paths are added from top to bottom, ie. .../sbin will be the 2nd entry in $PATH unless other bash files hijack the $PATH; ...i'm looking at you asdf
 # below entries will be appened to $PATH
 PATH=$PATH:$HOME/.local/bin
 PATH=$PATH:$bp/sbin
