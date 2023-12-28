@@ -219,6 +219,7 @@ export bp
 # TODO: conditionally only add paths for different operating systems
 # NOTE: since $PATH has been nuked, these paths are added from top to bottom, ie. .../sbin will be the 2nd entry in $PATH unless other bash files hijack the $PATH; ...i'm looking at you asdf
 # below entries will be appened to $PATH
+PATH=$PATH:$HOME/.npm/bin
 PATH=$PATH:$HOME/.local/bin
 PATH=$PATH:$bp/sbin
 PATH=$PATH:$bp/bin
