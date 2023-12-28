@@ -110,9 +110,9 @@ alias cd..='cd ..'
 
 # alias l='ls -lahF --color=auto'
 # NOTE: for reasons i don't understand, full path required
-alias l='/bin/ls -lahF'
-alias ls='/bin/ls --color=auto'
-alias lr='/bin/ls -lrth'
+alias l='/bin/ls -lahFG'
+alias ls='/bin/ls -G'
+alias lr='/bin/ls -lrthFG'
 
 alias cp='cp -iv'
 alias rm='rm -iv'
