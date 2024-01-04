@@ -52,7 +52,11 @@ require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
 
+  -- tmux / quick pane switching
   use 'christoomey/vim-tmux-navigator'
+
+  -- clipboard
+  use {'ojroques/nvim-osc52'}
 
   -- chatgpt
   use({
@@ -111,7 +115,7 @@ require('packer').startup(function(use)
   -- https://stackoverflow.com/a/70294761/708807
   use 'jose-elias-alvarez/nvim-lsp-ts-utils'
 
-  -- -- snippets
+  -- snippets
   -- use({
   --   "L3MON4D3/LuaSnip",
   --   -- follow latest release.
