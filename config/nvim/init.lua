@@ -368,7 +368,6 @@ if vim.env.TMUX then
     }
 end
 
--- SETTINGS / clipboard
 -- NOTE: ipatch, UI / personal preference / open help pages in new buffer NOT in splits or tabs
 vim.api.nvim_create_autocmd('BufWinEnter', {
   pattern = '*',
@@ -389,6 +388,16 @@ vim.cmd([[
   autocmd BufRead,BufNewFile config.fish-capin-mpb14,3-single-file filetype=fish
   autocmd BufNewFile,BufRead *.service* set ft=systemd
 ]])
+
+---------------
+-- PLUGIN / clipboard / nvim-osc52
+----
+require('osc52').setup {
+  max_length = 0,           -- Maximum length of selection (0 for no limit)
+  silent = false,           -- Disable message on successful copy
+  trim = false,             -- Trim surrounding whitespaces before copy
+  tmux_passthrough = true, -- Use tmux passthrough (requires tmux: set -g allow-passthrough on)
+}
 
 ---------------
 -- PLUGIN / AI / chatgpt.nvim
@@ -926,10 +935,13 @@ ts.setup {
     additional_vim_regex_highlighting = false
   },
 
-  context_commentstring = {
-    enable = true,
-    enable_autocmd = false,
-  },
+  -- https://github.com/JoosepAlviste/nvim-ts-context-commentstring/issues/82
+  -- nvim-ts-context-commentstring is set up automatically
+  -- context_commentstring = {
+  --   enable = true,
+  --   enable_autocmd = false,
+  -- },
+
   indent = {
     enable = false
   },
@@ -962,6 +974,16 @@ ts.setup {
       scope_incremental = '<c-s>',
       node_decremental = '<c-backspace>',
     },
+  },
+}
+
+---------------
+-- PLUGIN / treesitter / nvim-ts-context-commentstring
+----
+require('ts_context_commentstring').setup {
+  enable_autocmd = false,
+  languages = {
+    typescript = '// %s',
   },
 }
 
