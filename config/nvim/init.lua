@@ -351,6 +351,20 @@ vim.api.nvim_create_autocmd('BufReadPost', {
 --   vim.opt.clipboard:append {'unnamedplus'}
 -- end
 
+-- NOTE: ipatch, works with neovim v0.10.x with specific PR
+vim.g.clipboard = {
+  name = 'OSC 52',
+  copy = {
+    ['+'] = require('vim.ui.clipboard.osc52').copy('+'),
+    ['*'] = require('vim.ui.clipboard.osc52').copy('*'),
+  },
+  paste = {
+    ['+'] = require('vim.ui.clipboard.osc52').paste('+'),
+    ['*'] = require('vim.ui.clipboard.osc52').paste('*'),
+  },
+}
+
+
 -- NOTE: ipatch, requires both the client and server are running a tmux instance from what i can tell
 -- ref: https://rumpelsepp.org/blog/nvim-clipboard-through-ssh/
 if vim.env.TMUX then
@@ -398,56 +412,6 @@ require('osc52').setup {
   trim = false,             -- Trim surrounding whitespaces before copy
   tmux_passthrough = true, -- Use tmux passthrough (requires tmux: set -g allow-passthrough on)
 }
-
-vim.g.clipboard = {
-  name = 'OSC 52',
-  copy = {
-    ['+'] = require('vim.ui.clipboard.osc52').copy('+'),
-    ['*'] = require('vim.ui.clipboard.osc52').copy('*'),
-  },
-  paste = {
-    ['+'] = require('vim.ui.clipboard.osc52').paste('+'),
-    ['*'] = require('vim.ui.clipboard.osc52').paste('*'),
-  },
-}
-
--- vim.opt.clipboard = 'unnamedplus'
--- vim.keymap.set('n', '<leader>c', require('osc52').copy_operator, {expr = true})
--- vim.keymap.set('n', '<leader>cc', '<leader>c_', {remap = true})
--- vim.keymap.set('x', '<leader>c', require('osc52').copy_visual)
-
--- function copy()
---   if vim.v.event.operator == 'y' and (vim.v.event.regname == '' or vim.v.event.regname == '+') then
---     require('osc52').copy_register('+')
---   end
--- end
-
--- NO WORK!
--- function copy()
---   if vim.v.event.operator == 'y' and vim.v.event.regname == '+' then
---     require('osc52').copy_register('+')
---   end
--- end
---
--- local function copy(lines, _)
---   require('osc52').copy(table.concat(lines, '\n'))
--- end
-
--- local function paste()
---   return {vim.fn.split(vim.fn.getreg(''), '\n'), vim.fn.getregtype('')}
--- end
---
--- vim.g.clipboard = {
---   name = 'osc52',
---   copy = {['+'] = copy, ['*'] = copy},
---   paste = {['+'] = paste, ['*'] = paste},
--- }
---
--- -- Now the '+' register will copy to system clipboard using OSC52
--- vim.keymap.set('n', '<leader>c', '"+y')
--- vim.keymap.set('n', '<leader>cc', '"+yy')
-
--- vim.api.nvim_create_autocmd('TextYankPost', {callback = copy})
 
 ---------------
 -- PLUGIN / AI / chatgpt.nvim
