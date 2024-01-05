@@ -348,49 +348,48 @@ vim.api.nvim_create_autocmd('BufReadPost', {
 -- check for osc52 native support
 -- https://github.com/neovim/neovim/commit/cd31a72f9b22741c6ece1c47a91d990e2df218fa
 local function has_osc52_support()
-    local neovim_version = vim.version()
-    -- Replace 0, 10, 0 with the actual major, minor, and patch numbers once the PR is merged
-    return neovim_version.major > 0 or
-           neovim_version.minor > 10 or
-           (neovim_version.minor == 0 and neovim_version.patch >= 0)
+  local neovim_version = vim.version()
+  -- Checks if the version is 0.10.0 or newer
+  return neovim_version.major > 0 or
+  (neovim_version.major == 0 and neovim_version.minor >= 10)
 end
 
 -- set clipboard based on tmux and or neovim version
 -- Check if running inside tmux
 if vim.env.TMUX then
-    vim.g.clipboard = {
-        -- check the clipboard name with the below lua command,
-        -- :lua print(vim.g.clipboard.name)
-        name = 'tmux',
-        copy = {
-            ["+"] = {'tmux', 'load-buffer', '-w', '-'},
-            ["*"] = {'tmux', 'load-buffer', '-w', '-'},
-        },
-        paste = {
-            ["+"] = {'bash', '-c', 'tmux refresh-client -l && sleep 0.2 && tmux save-buffer -'},
-            ["*"] = {'bash', '-c', 'tmux refresh-client -l && sleep 0.2 && tmux save-buffer -'},
-        },
-        cache_enabled = false,
-    }
+  vim.g.clipboard = {
+    -- check the clipboard name with the below lua command,
+    -- :lua print(vim.g.clipboard.name)
+    name = 'tmux',
+    copy = {
+      ["+"] = {'tmux', 'load-buffer', '-w', '-'},
+      ["*"] = {'tmux', 'load-buffer', '-w', '-'},
+    },
+    paste = {
+      ["+"] = {'bash', '-c', 'tmux refresh-client -l && sleep 0.2 && tmux save-buffer -'},
+      ["*"] = {'bash', '-c', 'tmux refresh-client -l && sleep 0.2 && tmux save-buffer -'},
+    },
+    cache_enabled = false,
+  }
 elseif has_osc52_support() then
-    vim.g.clipboard = {
-        name = 'OSC 52',
-        copy = {
-            ['+'] = require('vim.ui.clipboard.osc52').copy('+'),
-            ['*'] = require('vim.ui.clipboard.osc52').copy('*'),
-        },
-        paste = {
-            ['+'] = require('vim.ui.clipboard.osc52').paste('+'),
-            ['*'] = require('vim.ui.clipboard.osc52').paste('*'),
-        },
-    }
+  vim.g.clipboard = {
+    name = 'OSC 52',
+    copy = {
+      ['+'] = require('vim.ui.clipboard.osc52').copy('+'),
+      ['*'] = require('vim.ui.clipboard.osc52').copy('*'),
+    },
+    paste = {
+      ['+'] = require('vim.ui.clipboard.osc52').paste('+'),
+      ['*'] = require('vim.ui.clipboard.osc52').paste('*'),
+    },
+  }
 else
-    -- Default settings for clipboard based on the operating system
-    if vim.fn.has('mac') == 1 or vim.fn.has('win64') == 1 or vim.fn.has('win32') == 1 then
-        vim.opt.clipboard:append {'unnamed'}
-    else
-        vim.opt.clipboard:append {'unnamedplus'}
-    end
+  -- Default settings for clipboard based on the operating system
+  if vim.fn.has('mac') == 1 or vim.fn.has('win64') == 1 or vim.fn.has('win32') == 1 then
+    vim.opt.clipboard:append {'unnamed'}
+  else
+    vim.opt.clipboard:append {'unnamedplus'}
+  end
 end
 
 -- NOTE: ipatch, UI / personal preference / open help pages in new buffer NOT in splits or tabs
