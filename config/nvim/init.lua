@@ -399,11 +399,16 @@ require('osc52').setup {
   tmux_passthrough = true, -- Use tmux passthrough (requires tmux: set -g allow-passthrough on)
 }
 
-function copy()
-  if vim.v.event.operator == 'y' and (vim.v.event.regname == '' or vim.v.event.regname == '+') then
-    require('osc52').copy_register('+')
-  end
-end
+vim.opt.clipboard = 'unnamedplus'
+vim.keymap.set('n', '<leader>c', require('osc52').copy_operator, {expr = true})
+vim.keymap.set('n', '<leader>cc', '<leader>c_', {remap = true})
+vim.keymap.set('x', '<leader>c', require('osc52').copy_visual)
+
+-- function copy()
+--   if vim.v.event.operator == 'y' and (vim.v.event.regname == '' or vim.v.event.regname == '+') then
+--     require('osc52').copy_register('+')
+--   end
+-- end
 
 -- NO WORK!
 -- function copy()
