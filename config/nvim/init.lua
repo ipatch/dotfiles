@@ -359,6 +359,8 @@ end
 -- Check if running inside tmux
 if vim.env.TMUX then
     vim.g.clipboard = {
+        -- check the clipboard name with the below lua command,
+        -- :lua print(vim.g.clipboard.name)
         name = 'tmux',
         copy = {
             ["+"] = {'tmux', 'load-buffer', '-w', '-'},
