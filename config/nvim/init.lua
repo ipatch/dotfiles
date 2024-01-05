@@ -345,11 +345,11 @@ vim.api.nvim_create_autocmd('BufReadPost', {
 ------------------------------
 -- SETTINGS / clipboard
 -- Check the operating system then set clipboard accordingly
-if vim.fn.has('mac') == 1 or vim.fn.has('win64') == 1 or vim.fn.has('win32') == 1 then
-  vim.opt.clipboard:append {'unnamed'}
-else
-  vim.opt.clipboard:append {'unnamedplus'}
-end
+-- if vim.fn.has('mac') == 1 or vim.fn.has('win64') == 1 or vim.fn.has('win32') == 1 then
+--   vim.opt.clipboard:append {'unnamed'}
+-- else
+--   vim.opt.clipboard:append {'unnamedplus'}
+-- end
 
 -- NOTE: ipatch, requires both the client and server are running a tmux instance from what i can tell
 -- ref: https://rumpelsepp.org/blog/nvim-clipboard-through-ssh/
