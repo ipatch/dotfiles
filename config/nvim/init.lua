@@ -399,10 +399,10 @@ require('osc52').setup {
   tmux_passthrough = true, -- Use tmux passthrough (requires tmux: set -g allow-passthrough on)
 }
 
-vim.opt.clipboard = 'unnamedplus'
-vim.keymap.set('n', '<leader>c', require('osc52').copy_operator, {expr = true})
-vim.keymap.set('n', '<leader>cc', '<leader>c_', {remap = true})
-vim.keymap.set('x', '<leader>c', require('osc52').copy_visual)
+-- vim.opt.clipboard = 'unnamedplus'
+-- vim.keymap.set('n', '<leader>c', require('osc52').copy_operator, {expr = true})
+-- vim.keymap.set('n', '<leader>cc', '<leader>c_', {remap = true})
+-- vim.keymap.set('x', '<leader>c', require('osc52').copy_visual)
 
 -- function copy()
 --   if vim.v.event.operator == 'y' and (vim.v.event.regname == '' or vim.v.event.regname == '+') then
@@ -420,20 +420,20 @@ vim.keymap.set('x', '<leader>c', require('osc52').copy_visual)
 -- local function copy(lines, _)
 --   require('osc52').copy(table.concat(lines, '\n'))
 -- end
---
--- local function paste()
---   return {vim.fn.split(vim.fn.getreg(''), '\n'), vim.fn.getregtype('')}
--- end
---
--- vim.g.clipboard = {
---   name = 'osc52',
---   copy = {['+'] = copy, ['*'] = copy},
---   paste = {['+'] = paste, ['*'] = paste},
--- }
---
+
+local function paste()
+  return {vim.fn.split(vim.fn.getreg(''), '\n'), vim.fn.getregtype('')}
+end
+
+vim.g.clipboard = {
+  name = 'osc52',
+  copy = {['+'] = copy, ['*'] = copy},
+  paste = {['+'] = paste, ['*'] = paste},
+}
+
 -- Now the '+' register will copy to system clipboard using OSC52
--- vim.keymap.set('n', '<leader>c', '"+y')
--- vim.keymap.set('n', '<leader>cc', '"+yy')
+vim.keymap.set('n', '<leader>c', '"+y')
+vim.keymap.set('n', '<leader>cc', '"+yy')
 
 -- vim.api.nvim_create_autocmd('TextYankPost', {callback = copy})
 
