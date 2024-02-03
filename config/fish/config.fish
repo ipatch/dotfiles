@@ -59,6 +59,9 @@ if status is-interactive
   # .. / rust / deno
   set -gx DENO_INSTALL "$HOME/.deno"
 
+  # $USER tooling / python / venv
+  set -gx VIRTUAL_ENV_DISABLE_PROMPT 1
+
   # $USER env vars
   set -gx code "/opt/code"
   set -gx dots "/opt/code/dotfiles"
