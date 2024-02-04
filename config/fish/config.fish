@@ -60,6 +60,7 @@ if status is-interactive
   set -gx DENO_INSTALL "$HOME/.deno"
 
   # $USER tooling / python / venv
+  # NOTE: ipatch, todo: should only disable this if fish theme is setup to print the prompt
   set -gx VIRTUAL_ENV_DISABLE_PROMPT 1
 
   # $USER env vars
