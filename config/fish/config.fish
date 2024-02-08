@@ -63,6 +63,12 @@ if status is-interactive
   # NOTE: ipatch, todo: should only disable this if fish theme is setup to print the prompt
   set -gx VIRTUAL_ENV_DISABLE_PROMPT 1
 
+  # $USER tooling / ruby / rbenv
+  # todo: check if rbenv is installed and load on init of new shell
+  if type -q rbenv
+    eval "$(rbenv init -)"
+  end
+
   # $USER env vars
   set -gx code "/opt/code"
   set -gx dots "/opt/code/dotfiles"
