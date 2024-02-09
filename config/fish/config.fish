@@ -87,6 +87,8 @@ if status is-interactive
   set -gx HOMEBREW_NO_AUTO_UPDATE 1
   set -gx HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK 1
   set -gx HOMEBREW_DEVELOPER 1
+  # NOTE: ipatch, for reasons above my pay grade the /tmp dir was running out of space on m1 mini running asahi
+  set -gx HOMEBREW_TEMP "/opt/tmp"
 
   # $USER fish abbreviations
   abbr -a -- sr 'exec fish'
