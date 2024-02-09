@@ -786,8 +786,7 @@ https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.conf \
 - [ ] #linux #screencasting #i3, setup binding to toggle showkey, and auto launch showkey after i3 starts ala copyq
 - [ ] #tmux how not move window title names when prefix key is pressed and label `^S` is shown in the left side of the status bar.
 - [ ] #nvim RIP 🪦 `packer.nvim` looks i need to migrate to `lazy.nvim` sooner than later 😑
-- [ ] #tmux only display window index numbers after the prefix key has pressed (this gunna be a tricky one) 🤔
-- [ ] #linux, #dual-function-keys, #dualfunctionkeys, with my ext keychron k6 keyboard map lower left `control` to `fn` ie. function key.
+- [ ] #tmux only display window index numbers after the pressing prefix key (this gunna be a tricky one) 🤔
 - [ ] #i3 #polybar put cpu / gpu fan speeds in my bar
 - [ ] #nvim WTF, when i've been running `:e` on my open buffer (config.fish) it's been resetting my `foldlevel=2` 😡
 - [ ] #arch xrandr + arandr is it possible to have auto probe monitors to load layouts on the fly a la how macos does it
@@ -796,18 +795,14 @@ https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.conf \
 - [ ] #i3 when launching an app that is defined for a specific workspace and already on that workspace the app launches on the previously active workspace WTF?
 - [ ] #nvim #packer, running `:PackerSync` always blocks neovim ie. ui changes and makes the entire usage unresponsive
     - specific to install ts parsers
-- [ ] #arch #systemd, come to a peaceful solution on why i can't set the perms i want for my log files
+- [x] #arch #systemd, come to a peaceful solution on why i can't set the perms i want for my log files
     - https://github.com/systemd/systemd/issues/28302
 - [ ] a much better solution for ricing my arch install ie. editing config files that require a reboot would be to edit in a virtual machine or even using a docker container to not require a full reboot  🤦‍♂️
-- [ ] #fish, possible to add a key binding to toggle the display of the right side prompt?
-- [ ] #fish add a keyboard shortcut to toggle the right prompt **on** / **off**
 - [ ] #fish #neovim #tree-sitter properly highlight the word `NOTE:`
 - [ ] #arch #i3, how to change the outline color of the active window on the screen?
 - [ ] #tmux setup a custom code fold function using vimscript or possible lua for my `tmux.conf` reference the stock `html` and `c` lang syntax files for how the use different types of expressions for code folds 🤔
 - [ ] #webdev, side quest, 🤺 figure out reimp search so a site such autozone can find `b12 chemtool` instead having to type `b-12`
 - [ ] #arch map left control key on keychron to `fn` key ala macbook builtin keyboard
-- [ ] #arch how to side scroll with standard wired USB mouse with only a vertical scroll wheel 🤔 ?
-    - <kbd>shift</kbd>+<kbd>wheel</kbd> works well enough with firefox
 - [ ] #milliondollaridea 🤑, some way to search the youtube transcript in browser to find a specific spot of a video
 - [ ] #arch #tmux add key binding to toggle window display numbers
 - [ ] ~~#hammerspoon~~ ~~#karabiner~~ #cmake it'd be nice to swap the `[]` with the `{}` when capslock is activated similiar to how i swapped underbar `_` with hyphen `-`
@@ -837,7 +832,6 @@ https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.conf \
 - [ ] [tmux] [fish] possible to restore scroll back history after closing tmux server and terminal _alacritty_
 - [ ] [arch], set lshift+rshift to toggle caps-lock on/off
 - [ ] [fish], possible to detach current pane in a tmux window from shell history, or write commands run from certain directory to specific history file to keep commands ran in a specific directory quickly accessible, ie. useful when working with a node or ruby based project.
-- [ ] [tmux] use vivaldi keybinding for switching between windows as opposed to using shift+arrow keys
 - [ ] [alacritty] [fish] [tmux] [karabiner] [hammerspoon] _double tap esc_, ie. esc², to run the keyboard shortcut of clearing the scree, ie. prefix (tmux), then control+l
 - [ ] [vim] implement func to decrypt / encrypt GPG files
 - [ ] [macos] [homebrew] howto search for homebrew taps
@@ -851,10 +845,8 @@ https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.conf \
 - [ ] [fish, dots] # TODO: migrate all `mac, mac-` related abbrs, alias, shell scripts to use `apl` prefix
 - [ ] [vim, tmux, or macos] some form of icon / notification of **caps lock** being enabled
 - [ ] [tmux] add space at the end of window names to prevent moving of text in status bar
-- [ ] [fish] detach fish shell instance from command history
   - **Q** can tmux separate all panes within a window from the global command history _fish shell_
 - [ ] [nvim] **references** text when working with JS files, toggle with _leader+h_ as other hidden chars are toggled
-- [ ] [vim, json] adjust default conceal settings for json files
 - [ ] [vim, javascript] **Q** how to make certain javascript lang _keywords_ appear in italics using color / font scheme
     - **className, const, return, this.state, onClick, import**
 - [ ] [tmux] put short synopsis of current weather in tmux status bar, _right side_
@@ -882,6 +874,13 @@ https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.conf \
 <details>
 <summary><strong>TODOs completed</strong></summary>
 
+- [x] [fish] detach fish shell instance from command history
+    - prefix commands with a <space> ie. ` ls` instead of `ls`
+- [x] [vim, json] adjust default conceal settings for json files
+- [x] #arch how to side scroll with standard wired USB mouse with only a vertical scroll wheel 🤔 ?
+    - <kbd>shift</kbd>+<kbd>wheel</kbd> works well enough with firefox
+- [x] #fish, possible to add a key binding to toggle the display of the right side prompt?
+- [x] #fish add a keyboard shortcut to toggle the right prompt **on** / **off**
 - [x] #nvim, using `gcc` in normal mode to toggle code comments in a `tsconfig.json` file inserts `//` instead of `/* */`
 - [x] #nvim need to disable highlight color for markdown docs
 - [x] [vim, markdown] have basic code folding for certain HTML tags when editing markdown documents
