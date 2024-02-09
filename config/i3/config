@@ -3,6 +3,7 @@
 # i3 config file (v4)
 # https://i3wm.org/docs/userguide.html for a complete reference!
 
+# super key ie. windows / cmd key
 set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
@@ -137,8 +138,13 @@ bindsym $mod+a focus parent
 # We use variables to avoid repeating the names in multiple places.
 
 # NOTE: ipatch, setup workspaces for multi monitor setup
-set $mon1 "DP-2"
-set $mon2 "DP-3"
+# setup for mbp 2013 late dual gpu
+# set $mon1 "DP-2"
+# set $mon2 "DP-3"
+
+# mbp 2015 mid dual gpu (amd)
+set $mon1 "eDP-1"
+set $mon2 "DP-2"
 
 workspace 1 output $mon1
 workspace 2 output $mon1
@@ -150,7 +156,6 @@ workspace 7 output $mon1
 workspace 8 output $mon1
 workspace 9 output $mon1
 
-workspace 20 output $mon2
 workspace 21 output $mon2
 workspace 22 output $mon2
 workspace 23 output $mon2
