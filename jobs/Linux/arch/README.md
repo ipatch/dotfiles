@@ -36,6 +36,15 @@ yay -F netstat
 
 <a name="arch-on-macbook"></a>
 
+### systemd / slow reboot , poweroff
+
+long story short, my computer ie. macbook pro 2013 & 2015 were taking forever to restart 🤦‍♂️, ended up masking the below systemd service and things seem to be rebooting and powering off much quicker now. 👍️
+
+```
+sudo systemctl status systemd-udev-settle.service
+sudo systemctl mask systemd-udev-settle.service
+```
+
 i checked in the `$PWD/etc/default/grub` to source control for helping me remember adding `acpi_mask_gpe=0x06` to the `GRUB_CMDLINE_LINUX_DEFAULT` argument. after adding this arg to above such line the computer went from idling at ~ 70C 🔥 to idling around ~ 40C ~= 100F 🥶
 
 ### networking
