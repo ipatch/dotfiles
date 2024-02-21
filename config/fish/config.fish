@@ -12,7 +12,7 @@
     # - i think properly setting this ft to fish has helped some
 # - [ ] TODO: properly highlight the word `NOTE:`
 # - [ ] TODO: look at ruby related tree-sitter files for inspiration
-# - [x] TODO: for reasons i dont understand when closing nvim and opening this file again
+# - [x] TODO: for reasons i don't understand when closing nvim and opening this file again
 # ...the filetype defaults to `conf`
     # - not anymore 👍️
 # - [ ] TODO: update `pthrm` func to rm path entries based the number index ie.
@@ -87,7 +87,10 @@ if status is-interactive
   set -gx HOMEBREW_NO_AUTO_UPDATE 1
   set -gx HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK 1
   set -gx HOMEBREW_DEVELOPER 1
+
   # NOTE: ipatch, for reasons above my pay grade the /tmp dir was running out of space on m1 mini running asahi
+  #---
+  # TODO: ipatch, the below env var needs to be set more robust, diff systems require different dirs
   set -gx HOMEBREW_TEMP "/opt/tmp"
 
   # $USER fish abbreviations
