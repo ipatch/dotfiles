@@ -405,14 +405,15 @@ vim.api.nvim_create_autocmd('BufWinEnter', {
 })
 
 ------------------------------
--- SETTINGS / filetype / my custom filename for my config.fish
+-- SETTINGS / filetypes / custom filenames
 -- NOTE: rm'd symlink not required anymore but leave here for future ref
 ----
 vim.cmd([[
-  autocmd BufRead,BufNewFile config.fish-capin-mpb14,3-single-file filetype=fish
-  autocmd BufNewFile,BufRead *.service* set ft=systemd
+  autocmd BufRead,BufNewFile config.fish-capin-mpb14,3-single-file set filetype=fish
+  autocmd BufNewFile,BufRead *.service* set filetype=systemd
 ]])
 
+vim.cmd('autocmd BufRead,BufNewFile ~/.config/rofi/config.rasi set filetype=rasi')
 ---------------
 -- PLUGIN / clipboard / nvim-osc52
 ----
@@ -919,7 +920,7 @@ require 'colorizer'.setup({
 
 ---------------
 -- PLUGIN / tree-sitter, treesitter
--- NOTE: ipatch, `all` blows up 💥 on m1 mac due to `phpdoc` use `maintained` for time being
+-- NOTE: ipatch, `all` blows up 💥 on m1 mac due to `phpdoc`
 --
 local ts = require 'nvim-treesitter.configs'
 ts.setup {
@@ -938,6 +939,7 @@ ts.setup {
     'markdown',
     'markdown_inline',
     'python',
+    'rasi',
     'ruby',
     'rust',
     'tsx',

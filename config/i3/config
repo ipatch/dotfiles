@@ -236,6 +236,67 @@ bindsym Mod1+Shift+3 move container to workspace number $ws23
 bindsym Mod1+Shift+4 move container to workspace number $ws24
 bindsym Mod1+Shift+5 move container to workspace number $ws25
 
+#--------------------------------------
+# i3-resurrect
+# NOTE: ipatch, requires manually running through a series of key-bindings 👎️
+#----
+set $i3_resurrect i3-resurrect
+
+# Save workspace mode.
+mode "save" {
+  bindsym 1 exec "$i3_resurrect save -w 1 --swallow=class,instance,title"
+  bindsym 2 exec "$i3_resurrect save -w 2 --swallow=class,instance,title"
+  bindsym 3 exec "$i3_resurrect save -w 3 --swallow=class,instance,title"
+  bindsym 4 exec "$i3_resurrect save -w 4 --swallow=class,instance,title"
+  bindsym 5 exec "$i3_resurrect save -w 5 --swallow=class,instance,title"
+  bindsym 6 exec "$i3_resurrect save -w 6 --swallow=class,instance,title"
+  bindsym 7 exec "$i3_resurrect save -w 7 --swallow=class,instance,title"
+  bindsym 8 exec "$i3_resurrect save -w 8 --swallow=class,instance,title"
+  bindsym 9 exec "$i3_resurrect save -w 9 --swallow=class,instance,title"
+  bindsym 0 exec "$i3_resurrect save -w 10 --swallow=class,instance,title"
+
+# Back to normal: Enter, Escape, or s
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym s mode "default"
+    bindsym $mod+s mode "default"
+}
+
+bindsym $mod+Shift+s mode "save"
+
+# Restore workspace mode.
+mode "restore" {
+  bindsym 1 exec "$i3_resurrect restore -w 1 --programs-only"
+    bindsym 2 exec "$i3_resurrect restore -w 2 --programs-only"
+    bindsym 3 exec "$i3_resurrect restore -w 3 --programs-only"
+    bindsym 4 exec "$i3_resurrect restore -w 4 --programs-only"
+    bindsym 5 exec "$i3_resurrect restore -w 5 --programs-only"
+    bindsym 6 exec "$i3_resurrect restore -w 6 --programs-only"
+    bindsym 7 exec "$i3_resurrect restore -w 7 --programs-only"
+    bindsym 8 exec "$i3_resurrect restore -w 8 --programs-only"
+    bindsym 9 exec "$i3_resurrect restore -w 9 --programs-only"
+    bindsym 0 exec "$i3_resurrect restore -w 10 --programs-only"
+
+    bindsym $mod+1 exec "$i3_resurrect restore -w 1 --layout-only"
+    bindsym $mod+2 exec "$i3_resurrect restore -w 2 --layout-only"
+    bindsym $mod+3 exec "$i3_resurrect restore -w 3 --layout-only"
+    bindsym $mod+4 exec "$i3_resurrect restore -w 4 --layout-only"
+    bindsym $mod+5 exec "$i3_resurrect restore -w 5 --layout-only"
+    bindsym $mod+6 exec "$i3_resurrect restore -w 6 --layout-only"
+    bindsym $mod+7 exec "$i3_resurrect restore -w 7 --layout-only"
+    bindsym $mod+8 exec "$i3_resurrect restore -w 8 --layout-only"
+    bindsym $mod+9 exec "$i3_resurrect restore -w 9 --layout-only"
+    bindsym $mod+0 exec "$i3_resurrect restore -w 10 --layout-only"
+
+# Back to normal: Enter, Escape, or n
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym n mode "default"
+    bindsym $mod+t mode "default"
+}
+
+bindsym $mod+Shift+t mode "restore"
+
 # NOTE: ipatch, assign certain apps to certain workspaces
 # NOTE: ipatch, run `xprop` to get app/window properties
 
@@ -260,7 +321,9 @@ for_window [class="xfreerdp"] move to workspace $ws7
 #---------------------------------------
 #--
 # NOTE: ipatch, the below setting seems to put all firefox windows on workspace #2 👍
-assign [class="firefox"] workspace $ws2
+#-
+# assign [class="firefox"] workspace $ws2
+#-
 # TODO: ipatch, make about window,dialogue box floating
 # WM_CLASS(STRING) = "Browser", "firefox"
 # WM_NAME(STRING) = "About Mozilla Firefox"
@@ -270,7 +333,6 @@ assign [class="firefox"] workspace $ws2
 
 # NOTE: ipatch, xpdf / file open dialogue
 for_window [title="Open PDF File"] floating enable resize set 1817 1156, move position center
-
 
 # WM_NORMAL_HINTS(WM_SIZE_HINTS):
 # 		user specified location: 1060, 631
@@ -284,9 +346,9 @@ for_window [title="Open PDF File"] floating enable resize set 1817 1156, move po
 # assign [class="Spotify"] workspace $ws4
 #-
 # NOTE: ipatch, fun fact if on workspace 4 and one launches spotify the main window opens on the previous workspace NOT workspace 4 WTF 🤷
-for_window [class="Spotify"] move window to workspace $ws4
+# for_window [class="Spotify"] move window to workspace $ws4
 
-for_window [class="code-oss"] move to workspace $ws3
+# for_window [class="code-oss"] move to workspace $ws3
 for_window [class="discord"] move to workspace $ws5
 
 # NOTE: ipatch, gotta use long name, ie. `qemu` didn't work
@@ -304,7 +366,8 @@ for_window [class="Thunar"] floating enable
 # WM_CLASS(STRING) = "gloobus-preview", "Gloobus-preview"
 for_window [class="Gloobus-preview"] floating enable
 
-exec --no-startup-id i3-msg 'workspace $ws1; exec /usr/bin/alacritty'
+# NOTE: use i3-save / i3-restore
+# exec --no-startup-id i3-msg 'workspace $ws1; exec /usr/bin/alacritty'
 
 # TODO: ipatch, the first instance of alacritty launches on workspace #1 as intended
 # however if i launch a new window it will not launch on the active workspace ie. workspace #2
@@ -314,7 +377,8 @@ exec --no-startup-id i3-msg 'workspace $ws1; exec /usr/bin/alacritty'
 #---
 # assign [class="Alacritty"] $terms
 
-exec --no-startup-id i3-msg 'workspace $ws2; exec /usr/bin/firefox'
+# NOTE: use i3-save / i3-restore
+# exec --no-startup-id i3-msg 'workspace $ws2; exec /usr/bin/firefox'
 
 # NOTE: ipatch, attempt to style specific applications
 # ...reloading the config is NOT enough, making style changes ie. making certain apps floating
@@ -385,6 +449,10 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 #--
 ipc-socket ~/.config/i3/i3-ip.sock
 #--
+
+# NOTE: ipatch, set default workspace layout
+# set the workspace layout within the perl script
+# exec_always ~/.config/i3/per-workspace-layout.pl
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
