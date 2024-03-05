@@ -93,7 +93,16 @@ if status is-interactive
   # NOTE: ipatch, for reasons above my pay grade the /tmp dir was running out of space on m1 mini running asahi
   #---
   # TODO: ipatch, the below env var needs to be set more robust, diff systems require different dirs
-  set -gx HOMEBREW_TEMP "/opt/tmp"
+
+  # Check if /opt/tmp is writable
+  if test -w /opt/tmp
+    # If /opt/tmp is writable, set TMPDIR to /opt/tmp
+    set -gx HOMEBREW_TEMP "/opt/tmp"
+  else
+    # If /opt/tmp is not writable, set TMPDIR to $HOME/tmp
+    set -gx HOMEBREW_TEMP "$HOME/tmp"
+  end
+
 
   # $USER fish abbreviations
   abbr -a -- sr 'exec fish'
