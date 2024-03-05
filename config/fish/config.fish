@@ -1,8 +1,8 @@
-# NOTE: ipatch, current (2023) global config.fish - single file
+# NOTE: ipatch, current (2024) global config.fish - single file
 #--
 # NOTE: ipatch, editing this file in neovim is less than ideal
-# ie. most vim navigation does not work ie. [[ or ]] and
-# indentation doesn't really work, i blame you 😑 tree-sitter
+# ie. most vim navigation does not work ie. [[ or ]]
+# i blame you 😑 tree-sitter
 # https://github.com/ram02z/tree-sitter-fish
 #--
 # old non tree-sitter vim syntax file
@@ -12,9 +12,6 @@
     # - i think properly setting this ft to fish has helped some
 # - [ ] TODO: properly highlight the word `NOTE:`
 # - [ ] TODO: look at ruby related tree-sitter files for inspiration
-# - [x] TODO: for reasons i don't understand when closing nvim and opening this file again
-# ...the filetype defaults to `conf`
-    # - not anymore 👍️
 # - [ ] TODO: update `pthrm` func to rm path entries based the number index ie.
 # ... `pathrm 1,2,3` instead of copypastaing the entire path entries
 
@@ -23,7 +20,7 @@ if status is-interactive
   # NOTE: ipatch, local var for defining OS specific settings
   set -gx os (/usr/bin/uname)  
 
-  # Commands to run in interactive sessions can go here
+  # interactive commands can go here
   alias gs='git status'
   alias l='ls -lah'
   alias ffprobe='ffprobe -hide_banner'
@@ -44,6 +41,7 @@ if status is-interactive
   # set -gx fish_complete_path show_matching
   # Load the right prompt state
   # TODO: requires theme-neolambda
+  # TODO: conditionally set var if fish theme is neolambda
   set -gx display_right_prompt (cat ~/.config/fish/right_prompt_state)
 
   # *nix specific env vars
@@ -72,11 +70,19 @@ if status is-interactive
   end
 
   # $USER env vars
-  set -gx code "/opt/code"
-  set -gx dots "/opt/code/dotfiles"
+  # TODO: ipatch, set vars based different system setups
+  if test -w /opt/code
+    set -gx code "/opt/code"
+    set -gx dots "/opt/code/dotfiles"
+  else
+    set -gx code "$HOME/code"
+    # TODO: ipatch, this dir differs on various systems
+    set -gx dots "$HOME/code/dotfiles-ipatch"
+  end
+
   set -gx archdots "$dots/jobs/Linux/arch"
-  set -gx github "/opt/code/git/github"
-  set -gx ghforks "/opt/code/git/github/forks"
+  set -gx github "$code/git/github"
+  set -gx ghforks "$code/git/github/forks"
   set -gx ltmp "$HOME/ltmp"
   set -gx hb "$HOME/homebrew"
   set -gx hbfc "$HOME/homebrew/Library/Taps/freecad/homebrew-freecad"
@@ -103,7 +109,6 @@ if status is-interactive
     set -gx HOMEBREW_TEMP "$HOME/tmp"
   end
 
-
   # $USER fish abbreviations
   abbr -a -- sr 'exec fish'
   abbr -a -- pp 'string join \n $PATH | nl  '
@@ -128,6 +133,7 @@ if status is-interactive
 
   # $USER / macos vm tooling / helpful
   abbr -a --set-cursor='%' -- mpb '/opt/local/bin/%'
+  abbr -a --set-cursor='%' -- bbrew '~/homebrew/bin/brew%'
 
   # fish shell abbr / gnu+linux specific
   #
@@ -137,9 +143,9 @@ if status is-interactive
   abbr -a -- hlp.mnt.smb.share 'echo "sudo mount -t cifs //192.168.1.666/guest_share -o username=ozzie,password=changes,iocharset=utf8,uid=(whoami),gid=users,dir_mode=0755,file_mode=0644 /some/path/on/local/fs"'
   abbr -a -- hlp.mount.fat32 'echo "sudo mount -t vfat /dev/sdb1 ~/mnt/usb.drv/ -o rw,umask=0000"'
 
-  abbr -a -- clear.journal 'sudo journalctl --rotate; sudo journalctl --vacuum-time=1s'
-  abbr -a -- sc.clear.journal 'sudo journalctl --rotate; sudo journalctl --vacuum-time=1s'
   abbr -a -- sc 'sudo systemctl'
+  abbr -a -- sc.clear.journal 'sudo journalctl --rotate; sudo journalctl --vacuum-time=1s'
+  abbr -a -- clear.journal 'sudo journalctl --rotate; sudo journalctl --vacuum-time=1s'
   # TODO: ipatch, below abbr probably better served as a function that can take arg for custom msgs
   abbr -a -- alert 'notify-send -t 0 doitlive'
 
