@@ -6,7 +6,7 @@
 # Contact: @ipatch <- github
 ##
 
-# test if `~/.bashrc` exists, and if so load it in the current bash env
+# test if `~/.bashrc` exists, then load
 if [ -f "$HOME/.bashrc" ]; then
 	source "$HOME/.bashrc"
 fi

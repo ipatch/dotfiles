@@ -50,6 +50,7 @@ alias cd..='cd ..'
 alias l='/bin/ls -lahF'
 alias ls='ls --color=auto'
 alias lr='ls -lrth'
+alias e='echo'
 
 alias pp='echo $PATH'
 alias br='exec bash'
@@ -82,7 +83,6 @@ if [ -d ~/.config/bash/functions ]; then
     source "$file";
   done
 fi
-
 
 # BASHRC FUNCTIONS
 
@@ -136,6 +136,9 @@ fi
 if [ "$os" = Darwin ] && [ -e /usr/local/bin/brew ]; then
   brew_prefix="/usr/local"
   export brew_prefix
+elif [ "$os" = Darwin ] && [ -e ~/homebrew/bin/brew ]; then
+  brew_prefix="~/homebrew"
+  export brew_prefix
 elif [ "$os" = Linux ] && [ -e /home/linuxbrew/.linuxbrew/bin/brew ]; then
   brew_prefix="/home/linuxbrew/.linuxbrew"
   export brew_prefix
@@ -174,4 +177,3 @@ fi
 export NVM_DIR="$HOME/.config/nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-alias e='echo'
