@@ -146,12 +146,12 @@ fi
 
 # TODO: conditionally only add paths for different operating systems
 # NOTE: since $PATH has been nuked, these paths are added from top to bottom, ie. .../sbin will be the first entry in $PATH unless other bash files hijack the $PATH; ...i'm looking at you asdf
-PATH=/Users/capin/.asdf/installs/elixir/1.7.4/bin
+# PATH=/Users/capin/.asdf/installs/elixir/1.7.4/bin
 # below entries will be appened to $PATH
 PATH=$PATH:$HOME/.local/bin
-PATH=$PATH:$brew_prefix/sbin
-PATH=$PATH:$brew_prefix/bin
-PATH=$PATH:$brew_prefix/opt/coreutils/libexec/gnubin
+# PATH=$PATH:$brew_prefix/sbin
+# PATH=$PATH:$brew_prefix/bin
+# PATH=$PATH:$brew_prefix/opt/coreutils/libexec/gnubin
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 PATH=$PATH:/usr/sbin
 PATH=$PATH:/usr/bin
