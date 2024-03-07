@@ -49,6 +49,11 @@ if status is-interactive
   # GPG key signing
   set -gx GPG_TTY (tty)
 
+  # gnu-coreutils / ls colors, set after XDG_CONFIG_HOME
+  if test -f $XDG_CONFIG_HOME/dir_colors/.dir_colors
+    eval (dircolors $XDG_CONFIG_HOME/dir_colors/.dir_colors | head -n 1 | sed 's/^LS_COLORS=/set -x LS_COLORS /;s/;$//')
+  end
+
   # start ssh agent
   if not set -q SSH_AUTH_SOCK
     eval (ssh-agent -c) > /dev/null
