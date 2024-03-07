@@ -138,7 +138,6 @@ if status is-interactive
 
   # $USER / macos vm tooling / helpful
   abbr -a --set-cursor='%' -- mpb '/opt/local/bin/%'
-  abbr -a --set-cursor='%' -- bbrew '~/homebrew/bin/brew%'
 
   # fish shell abbr / gnu+linux specific
   #
@@ -233,6 +232,11 @@ if status is-interactive
       end
     end
     echo "Updated PATH:"; string join \n $PATH | nl 
+  end
+
+  if test -d $HOME/homebrew
+    set -gx bp "$HOME/homebrew"
+    eval ($bp/bin/brew shellenv)
   end
 
   function brew --description "catch common misspelling & add some goodies"
@@ -351,6 +355,8 @@ if status is-interactive
     set calculated_sha256sum (shasum -a 256 "$filename" | awk '{print $1}')
 
     echo "SHA256 checksum: $calculated_sha256sum"
+
+    # TODO: autocopy shasum to clipboard based on environment, ie. xclip or pbcopy
 
     echo "Cleaning up..."
     rm -f "$filename"
