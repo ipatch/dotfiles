@@ -32,6 +32,8 @@ if status is-interactive
   alias bp310="$bp/opt/python@3.10/bin/python3.10"
   alias bp311="$bp/opt/python@3.11/bin/python3.11"
   alias bp312="$bp/opt/python@3.12/bin/python3.12"
+  alias bp310pip="$bp/opt/python@3.10/bin/pip3.10"
+
 
   # fish specific env vars
   set -gx fish_greeting ""
