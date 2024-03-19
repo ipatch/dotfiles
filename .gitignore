@@ -253,6 +253,8 @@ jobs/bin/ttygif
 # alacritty
 ##
 config/alacritty/alacritty.macos.yml
+# sym link OS based file after cloning dots
+config/alacritty/alacritty.toml
 
 #-----------------------------
 # r2 a.k.a radare radare2
