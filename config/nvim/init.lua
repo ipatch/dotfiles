@@ -157,7 +157,11 @@ require('packer').startup(function(use)
   use 'nvim-lua/popup.nvim'
   use 'mfussenegger/nvim-dap'
   use 'nvim-telescope/telescope-dap.nvim'
-  use 'rcarriga/nvim-dap-ui'
+  use {
+    'rcarriga/nvim-dap-ui',
+    requires = { { 'nvim-neotest/nvim-nio' }}
+  }
+
 
   -- code commenting
   use {
