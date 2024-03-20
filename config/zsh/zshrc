@@ -248,7 +248,14 @@ export HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK=1
 export HOMEBREW_DEVELOPER=1
 export hbfc="$bp/Library/Taps/freecad/homebrew-freecad"
 
-# TODO: dynamically setup HOMEBREW_TEMP based on system
+# Check if /opt/tmp is writable
+if test -w /opt/tmp; then
+  # If /opt/tmp is writable, set to /opt/tmp
+  export HOMEBREW_TEMP="/opt/tmp"
+else
+  # If /opt/tmp is not writable, set to $HOME/tmp
+  export HOMEBREW_TEMP="$HOME/tmp"
+fi
 
 # my custom env vars
 # TODO: make a check for code then create the env var, as my `code` differs per system
