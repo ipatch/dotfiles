@@ -114,6 +114,7 @@ alias l='/bin/ls -lahFG'
 alias ls='/bin/ls -G'
 alias lr='/bin/ls -lrthFG'
 
+alias e='echo'
 alias cp='cp -iv'
 alias rm='rm -iv'
 alias mv='mv -iv'
@@ -246,6 +247,8 @@ export HOMEBREW_NO_AUTO_UPDATE=1
 export HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK=1
 export HOMEBREW_DEVELOPER=1
 export hbfc="$bp/Library/Taps/freecad/homebrew-freecad"
+
+# TODO: dynamically setup HOMEBREW_TEMP based on system
 
 # my custom env vars
 # TODO: make a check for code then create the env var, as my `code` differs per system
