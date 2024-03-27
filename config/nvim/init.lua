@@ -33,54 +33,73 @@ g.loaded_ruby_provider = 0
 g.loaded_node_provider = 0
 g.loaded_perl_provider = 0
 
--- packer.nvim / bootstrap if not setup
-local install_path = fn.stdpath('data')..'/site/pack/packer/opt/packer.nvim'
-local is_bootstrap = false
-if fn.empty(fn.glob(install_path)) > 0 then
-  is_bootstrap = true
-  fn.system
-    {'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path}
-    cmd [[packadd packer.nvim]]
+-- keymapping / setup leader before lazy.nvim
+g.mapleader = " " -- map leader key to spacebar 
+
+-- lazy.nvim
+-- migrate from packer.nvim to lazy.nvim
+-- https://www.youtube.com/watch?v=aqlxqpHs-aQ
+local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
+if not (vim.uv or vim.loop).fs_stat(lazypath) then
+  vim.fn.system({
+    'git',
+    'clone',
+    '--filter=blob:none',
+    'https://github.com/folke/lazy.nvim.git',
+    '--branch=stable', -- latest stable release
+    lazypath,
+  })
 end
+vim.opt.rtp:prepend(lazypath)
+
+-- packer.nvim / bootstrap if not setup
+-- local install_path = fn.stdpath('data')..'/site/pack/packer/opt/packer.nvim'
+-- local is_bootstrap = false
+-- if fn.empty(fn.glob(install_path)) > 0 then
+--   is_bootstrap = true
+--   fn.system
+--     {'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path}
+--     cmd [[packadd packer.nvim]]
+-- end
 
 -- add below line after cloning packer.nvim to ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 -- cmd [[packadd packer.nvim]]
 -- REF: https://www.reddit.com/r/neovim/comments/mpuqzg/help_strange_error_with_initlua_file/
 -- NOTE: exp with removing the `return` statement
 --
-require('packer').startup(function(use)
+require('lazy').setup({
   -- Packer can manage itself
-  use 'wbthomason/packer.nvim'
+  -- use 'wbthomason/packer.nvim'
 
   -- tmux / quick pane switching
-  use 'christoomey/vim-tmux-navigator'
+  'christoomey/vim-tmux-navigator',
 
   -- clipboard
-  use {'ojroques/nvim-osc52'}
+  {'ojroques/nvim-osc52'},
 
   -- chatgpt
-  use({
+  {
     "jackMort/ChatGPT.nvim",
     config = function()
       require("chatgpt").setup()
     end,
-    requires = {
+    dependencies = {
       "MunifTanjim/nui.nvim",
       "nvim-lua/plenary.nvim",
       "nvim-telescope/telescope.nvim"
     }
-  })
+  },
 
   -- LSP configuration and plugins
-  use {
+  {
     'VonHeikemen/lsp-zero.nvim',
     branch = 'dev-v3',
-    requires = {
+    dependencies = {
       -- LSP Support
       {'neovim/nvim-lspconfig'},             -- Required
       {                                      -- Optional
         'williamboman/mason.nvim',
-        run = function()
+        build = function()
           pcall(vim.api.nvim_command, 'MasonUpdate')
         end,
       },
@@ -93,27 +112,27 @@ require('packer').startup(function(use)
       {'hrsh7th/cmp-cmdline'},
       {'hrsh7th/nvim-cmp'},     -- Required
       -- snippets
-      use({
+      ({
         'L3MON4D3/LuaSnip',
         -- follow latest release.
         tag = 'v2.*', -- Replace <CurrentMajor> by the latest released major (first number of latest release)
         -- install jsregexp (optional!:).
-        run = 'make install_jsregexp'
+        build = 'make install_jsregexp'
       }),
-      use 'rafamadriz/friendly-snippets',
-      use 'saadparwaiz1/cmp_luasnip'
+      'rafamadriz/friendly-snippets',
+      'saadparwaiz1/cmp_luasnip'
     }
-  }
+  },
 
   -- lsp helper / nvim configuring init.lua + friends
-  use "folke/neodev.nvim"
+  "folke/neodev.nvim",
 
   -- lsp helper / json files ie. tsconfig.json
-  use "b0o/schemastore.nvim"
+  "b0o/schemastore.nvim",
 
   -- lsp helper / typescript
   -- https://stackoverflow.com/a/70294761/708807
-  use 'jose-elias-alvarez/nvim-lsp-ts-utils'
+  'jose-elias-alvarez/nvim-lsp-ts-utils',
 
   -- snippets
   -- use({
@@ -124,92 +143,82 @@ require('packer').startup(function(use)
   --   run = "make install_jsregexp"
   -- })
 
-  -- nvim-treesitter Highlight, edit, and navigate code
-  use {
+  { -- nvim-treesitter Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
-    requires = {
-      'JoosepAlviste/nvim-ts-context-commentstring'
-    },
-    run = function()
+    build = function()
       pcall(require('nvim-treesitter.install').update { with_sync = false })
-    end
-  }
-  use 'nvim-treesitter/playground'
+    end,
+    dependencies = {
+      'nvim-treesitter/nvim-treesitter-textobjects',
+      'JoosepAlviste/nvim-ts-context-commentstring'
+    }
+  },
+  'nvim-treesitter/playground',
 
-  use({
-    "nvim-treesitter/nvim-treesitter-textobjects",
-    after = "nvim-treesitter",
-    requires = "nvim-treesitter/nvim-treesitter",
-  })
-
-  -- telescope
-  use {
+  { -- telescope
     'nvim-telescope/telescope.nvim',
-    requires = { { 'nvim-lua/plenary.nvim'} }
-  }
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+  'nvim-telescope/telescope-fzf-native.nvim', build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' 
+      }
+  },
 
--- use {
-  -- 'nvim-telescope/telescope-fzf-native.nvim', 
-  -- run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' 
-  -- }
-  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
-
-  use 'nvim-lua/popup.nvim'
-  use 'mfussenegger/nvim-dap'
-  use 'nvim-telescope/telescope-dap.nvim'
-  use {
+  'nvim-lua/popup.nvim',
+  'mfussenegger/nvim-dap',
+  'nvim-telescope/telescope-dap.nvim',
+  {
     'rcarriga/nvim-dap-ui',
-    requires = { { 'nvim-neotest/nvim-nio' }}
-  }
+    dependencies = { { 'nvim-neotest/nvim-nio' }}
+  },
 
 
   -- code commenting
-  use {
+  {
     'numToStr/Comment.nvim',
     config = function()
       require('Comment').setup{
         pre_hook = require('ts_context_commentstring.integrations.comment_nvim').create_pre_hook(),
       }
     end
-  }
+  },
 
   -- UI / themes
-  use 'Mofiqul/vscode.nvim'
-  use 'navarasu/onedark.nvim'
-  use "projekt0n/github-nvim-theme"
+  'Mofiqul/vscode.nvim',
+  'navarasu/onedark.nvim',
+  'projekt0n/github-nvim-theme',
 
   -- UI / enhancements / newlines
-  use "lukas-reineke/indent-blankline.nvim"
+  'lukas-reineke/indent-blankline.nvim',
 
   -- UI / enhancements / code folds
-  use {
+  {
     'kevinhwang91/nvim-ufo',
-    requires = 'kevinhwang91/promise-async'
-  }
+    dependencies = 'kevinhwang91/promise-async'
+  },
   -- UI / enhancements / color picker
-  use 'NvChad/nvim-colorizer.lua'
+  'NvChad/nvim-colorizer.lua',
 
-  if is_bootstrap then
-    require('packer').sync()
-  end
-end)
+  -- if is_bootstrap then
+    -- require('packer').sync()
+  -- end
+})
 
 -- When bootstrapping a configuration, it doesn't
 -- make sense to execute the rest of the init.lua.
 --
 -- You'll need to restart nvim, and then it will work.
-if is_bootstrap then
-  print '----------------------------------'
-  print '    Plugins are being installed'
-  print '    Wait until Packer completes,'
-  print '       then restart nvim'
-  print '----------------------------------'
-  return
-end
+-- if is_bootstrap then
+--   print '----------------------------------'
+--   print '    Plugins are being installed'
+--   print '    Wait until Packer completes,'
+--   print '       then restart nvim'
+--   print '----------------------------------'
+--   return
+-- end
 
 ---------------
 -- key mappings
-g.mapleader = " " -- map leader key to spacebar 
+-- g.mapleader = " " -- map leader key to spacebar 
 map('n', '<leader>bd', ':bd<cr>', {noremap = true}) -- close buffer
 map('n', '<leader>x', ':bd<cr>', {noremap = true}) -- close buffer
 -- NOTE: ipatch, see line num ~= :191
@@ -899,7 +908,7 @@ end)
 -- PLUGIN / nvim-telescope
 -- To get fzf loaded and working with telescope, you need to call
 -- load_extension, somewhere after setup function:
-require('telescope').load_extension('fzf')
+-- require('telescope').load_extension('fzf')
 
 ---------------
 -- PLUGIN / vim-turmuxnavigator / mappings
