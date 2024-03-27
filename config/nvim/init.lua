@@ -52,24 +52,7 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
--- packer.nvim / bootstrap if not setup
--- local install_path = fn.stdpath('data')..'/site/pack/packer/opt/packer.nvim'
--- local is_bootstrap = false
--- if fn.empty(fn.glob(install_path)) > 0 then
---   is_bootstrap = true
---   fn.system
---     {'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path}
---     cmd [[packadd packer.nvim]]
--- end
-
--- add below line after cloning packer.nvim to ~/.local/share/nvim/site/pack/packer/start/packer.nvim
--- cmd [[packadd packer.nvim]]
--- REF: https://www.reddit.com/r/neovim/comments/mpuqzg/help_strange_error_with_initlua_file/
--- NOTE: exp with removing the `return` statement
---
 require('lazy').setup({
-  -- Packer can manage itself
-  -- use 'wbthomason/packer.nvim'
 
   -- tmux / quick pane switching
   'christoomey/vim-tmux-navigator',
@@ -77,8 +60,7 @@ require('lazy').setup({
   -- clipboard
   {'ojroques/nvim-osc52'},
 
-  -- chatgpt
-  {
+  {  -- chatgpt
     "jackMort/ChatGPT.nvim",
     config = function()
       require("chatgpt").setup()
@@ -86,12 +68,11 @@ require('lazy').setup({
     dependencies = {
       "MunifTanjim/nui.nvim",
       "nvim-lua/plenary.nvim",
-      "nvim-telescope/telescope.nvim"
+      "nvim-telescope/telescope.nvim",
     }
   },
 
-  -- LSP configuration and plugins
-  {
+  { -- LSP configuration and plugins
     'VonHeikemen/lsp-zero.nvim',
     branch = 'dev-v3',
     dependencies = {
@@ -120,7 +101,7 @@ require('lazy').setup({
         build = 'make install_jsregexp'
       }),
       'rafamadriz/friendly-snippets',
-      'saadparwaiz1/cmp_luasnip'
+      'saadparwaiz1/cmp_luasnip',
     }
   },
 
@@ -150,7 +131,7 @@ require('lazy').setup({
     end,
     dependencies = {
       'nvim-treesitter/nvim-treesitter-textobjects',
-      'JoosepAlviste/nvim-ts-context-commentstring'
+      'JoosepAlviste/nvim-ts-context-commentstring',
     }
   },
   'nvim-treesitter/playground',
@@ -159,8 +140,8 @@ require('lazy').setup({
     'nvim-telescope/telescope.nvim',
     dependencies = {
       'nvim-lua/plenary.nvim',
-  'nvim-telescope/telescope-fzf-native.nvim', build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' 
-      }
+      'nvim-telescope/telescope-fzf-native.nvim', build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' 
+    }
   },
 
   'nvim-lua/popup.nvim',
@@ -168,12 +149,12 @@ require('lazy').setup({
   'nvim-telescope/telescope-dap.nvim',
   {
     'rcarriga/nvim-dap-ui',
-    dependencies = { { 'nvim-neotest/nvim-nio' }}
+    dependencies = {
+      'nvim-neotest/nvim-nio'
+    }
   },
 
-
-  -- code commenting
-  {
+  { -- code commenting
     'numToStr/Comment.nvim',
     config = function()
       require('Comment').setup{
@@ -190,31 +171,13 @@ require('lazy').setup({
   -- UI / enhancements / newlines
   'lukas-reineke/indent-blankline.nvim',
 
-  -- UI / enhancements / code folds
-  {
+  { -- UI / enhancements / code folds
     'kevinhwang91/nvim-ufo',
     dependencies = 'kevinhwang91/promise-async'
   },
   -- UI / enhancements / color picker
   'NvChad/nvim-colorizer.lua',
-
-  -- if is_bootstrap then
-    -- require('packer').sync()
-  -- end
 })
-
--- When bootstrapping a configuration, it doesn't
--- make sense to execute the rest of the init.lua.
---
--- You'll need to restart nvim, and then it will work.
--- if is_bootstrap then
---   print '----------------------------------'
---   print '    Plugins are being installed'
---   print '    Wait until Packer completes,'
---   print '       then restart nvim'
---   print '----------------------------------'
---   return
--- end
 
 ---------------
 -- key mappings
