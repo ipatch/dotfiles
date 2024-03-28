@@ -95,13 +95,14 @@ if status is-interactive
   set -gx hbfc "$HOME/homebrew/Library/Taps/freecad/homebrew-freecad"
 
   # app env vars / homebrew
-  set -gx HOMEBREW_NO_INSTALL_CLEANUP 1
   set -gx HOMEBREW_EDITOR "nvim"
-  set -gx HOMEBREW_NO_GITHUB_API 1
+  set -gx HOMEBREW_DEVELOPER 1
   set -gx HOMEBREW_NO_ANALYTICS 1
   set -gx HOMEBREW_NO_AUTO_UPDATE 1
+  set -gx HOMEBREW_NO_GITHUB_API 1
   set -gx HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK 1
-  set -gx HOMEBREW_DEVELOPER 1
+  set -gx HOMEBREW_NO_INSTALL_CLEANUP 1
+  set -gx HOMEBREW_NO_INSTALL_FROM_API 1
 
   # NOTE: ipatch, for reasons above my pay grade the /tmp dir was running out of space on m1 mini running asahi
   #---
