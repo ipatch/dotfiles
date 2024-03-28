@@ -542,7 +542,7 @@ lsp.on_attach(function(client, bufnr)
     error = '✘',
     warn = '▲',
     hint = '⚑',
-    info = '»'
+    info = '»',
   })
 
   -- TODO: ipatch, NO WORK, updated the tsconfig.json for the project instead
