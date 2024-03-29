@@ -246,9 +246,10 @@ if status is-interactive
     eval ($bp/bin/brew shellenv)
   end
 
+  # TOOD: ipatch, fix, this func breaks homebrew functionality for brewmaster @ vmmojave
   function brew --description "catch common misspelling & add some goodies"
     # Check if /usr/local/bin/brew exists and is executable
-    if test -x /usr/local/bin/brew
+    if test -x /usr/local/bin/brew && test "$USER" != "brewmaster"
       /usr/local/bin/brew $argv
       return
     end
