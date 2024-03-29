@@ -138,7 +138,9 @@ if status is-interactive
   abbr -a -- sh2 'sha256sum'
 
   # $USER / macos vm tooling / helpful
-  abbr -a --set-cursor='%' -- mpb '/opt/local/bin/%'
+  if string match -q 3.7.0 (echo $FISH_VERSION)
+    abbr -a --set-cursor='%' -- mpb '/opt/local/bin/%'
+  end
 
   # fish shell abbr / gnu+linux specific
   #
@@ -190,6 +192,7 @@ if status is-interactive
 
   set -l paths \
     # $HOME/homebrew/opt/python/libexec/bin \
+    $HOME/.local/bin \
     $HOME/homebrew/sbin \
     $HOME/homebrew/bin \
     $HOME/.rvm/bin \
@@ -198,11 +201,14 @@ if status is-interactive
     $HOME/.cargo/bin \
     $DENO_INSTALL/bin \
     $code/git/local/bin \
-    $HOME/.local/bin \
     /usr/local/sbin \
     /usr/local/bin \
     # below entry should NOT be added
     $HOME/wtf/bin \
+
+  if [ (whoami) = "brewmaster" ]
+    set paths $paths /usr/local/sbin /usr/local/bin
+  end
 
   for p in $paths
     if not contains $p $PATH; and test -d $p
