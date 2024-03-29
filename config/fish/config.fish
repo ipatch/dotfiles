@@ -192,21 +192,21 @@ if status is-interactive
 
   set -l paths \
     # $HOME/homebrew/opt/python/libexec/bin \
-    $HOME/.local/bin \
-    $HOME/homebrew/sbin \
     $HOME/homebrew/bin \
+    $HOME/homebrew/sbin \
+    $HOME/.local/bin \
     $HOME/.rvm/bin \
     $HOME/.bun/bin \
     $HOME/go/bin \
     $HOME/.cargo/bin \
     $DENO_INSTALL/bin \
     $code/git/local/bin \
-    /usr/local/sbin \
-    /usr/local/bin \
+    # /usr/local/sbin \
+    # /usr/local/bin \
     # below entry should NOT be added
     $HOME/wtf/bin \
 
-  if [ (whoami) = "brewmaster" ]
+  if [ (whoami) != "brewmaster" ]
     set paths $paths /usr/local/sbin /usr/local/bin
   end
 
