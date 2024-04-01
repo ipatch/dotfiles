@@ -9,7 +9,7 @@ my super crude readme for setting up tmux
   ```
   git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
   ```
-- symlink macos specific tmux conf, ie. related to _reattach-to-user-namespace_
+- ~~symlink macos specific tmux conf, ie. related to _reattach-to-user-namespace_~~
 - then run `prefix, I` to install listed plugins in `~/.tmux.conf`
 
 ### todos
