@@ -4,25 +4,35 @@ if [ -f "$HOME/.tmux_setup_completed" ]; then
   exit
 fi
 
-# get the directory of the script
-script_dir=$(dirname "$(readlink -f "$0")")
+# Get the absolute path of the script directory
+script_dir=$(cd "$(dirname "$0")" && pwd -P)
 
-# target dir
+# Target directory
 target_dir="$HOME/.tmux"
 
-# source dir
+# Source directory
 source_dir="$script_dir/tmux"
+
+# Print the resolved paths for debugging
+echo "Resolved source directory: $source_dir"
+echo "Resolved target directory: $target_dir"
 
 # 1. copy tmux dir within dotfiles/terms/tmux to $HOME/.tmux
 if [ ! -e "$target_dir" ]; then
-  ln -sf "$source_dir" "$target_dir"
+  ln -sfn "$source_dir" "$target_dir"
   echo "symlinked link created: $target_dir -> $source_dir"
 else
   echo "target directory already exists: $target_dir"
 fi
 
+tpm_dir="$target_dir/plugins/tpm"
+
 # 2. check if tpm has already been cloned within the $target_dir
-# above check is unnecessary
+if [ ! -e "$tpm_dir" ]; then
+ git clone "https://github.com/tmux-plugins/tpm" "$HOME/.tmux/plugins/tpm"
+else
+  echo "tpm already exists"
+fi
 
 # TODO: add commands for setting up custom term entries in term database for tmux
 
