@@ -138,12 +138,17 @@ if status is-interactive
   abbr -a -- sh2 'sha256sum'
 
   # $USER / macos vm tooling / helpful
-  if string match -q 3.7.0 (echo $FISH_VERSION)
+  # Split version string into major, minor, and patch components
+  set fish_major (echo $FISH_VERSION | cut -d. -f1)
+  set fish_minor (echo $FISH_VERSION | cut -d. -f2)
+  set fish_patch (echo $FISH_VERSION | cut -d. -f3)
+
+  # Check if Fish shell version is 3.7.0 or greater
+  if test $fish_major -ge 3; and test $fish_minor -ge 7; and test $fish_patch -ge 0
     abbr -a --set-cursor='%' -- mpb '/opt/local/bin/%'
-  end
+  end  
 
   # fish shell abbr / gnu+linux specific
-  #
   # NOTE: ipatch, the below cmd will nuke the $DISPLAY env var  🤷‍♂️
   abbr -a -- hlp.group.reload 'echo "exec su -l $USER"'
   # NOTE: ipatch, spread below cmd across multiple lines
