@@ -199,6 +199,7 @@ if status is-interactive
     # $HOME/homebrew/opt/python/libexec/bin \
     $HOME/homebrew/bin \
     $HOME/homebrew/sbin \
+    /opt/cross/apl/bin \
     $HOME/.local/bin \
     $HOME/.rvm/bin \
     $HOME/.bun/bin \
