@@ -104,12 +104,10 @@ if status is-interactive
   set -gx HOMEBREW_NO_INSTALL_CLEANUP 1
   set -gx HOMEBREW_NO_INSTALL_FROM_API 1
 
-  # TODO: ipatch, setup env var specific for homebrew on asahi linux
   # below is required to run `brew update`
   if uname -a | grep -q "asahi"
     set -gx HOMEBREW_USE_RUBY_FROM_PATH 1
   end
-
 
   # NOTE: ipatch, for reasons above my pay grade the /tmp dir was running out of space on m1 mini running asahi
   #---
