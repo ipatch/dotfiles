@@ -630,7 +630,11 @@ require('lspconfig').jsonls.setup {
 ---------------
 -- plugin / nvim native lsp / ruby-lsp
 -- NOTE: ipatch, when using rvm to manage rubies, rvm needs to be init'd before running `:masoninstall ruby-lsp`
-require('lspconfig').ruby_ls.setup {}
+--
+-- require('lspconfig').ruby_ls.setup {
+--   -- cmd = {"/home/my_user/.rbenv/shims/ruby-lsp"},
+--   cmd = { "/Users/brewmaster/.gem/ruby/3.1.0/bin/ruby-lsp" }
+-- }
 
 -- textDocument/diagnostic support until 0.10.0 is released
 -- _timers = {}
@@ -676,9 +680,11 @@ require('lspconfig').ruby_ls.setup {}
 
 ---------------
 -- PLUGIN / neovim native lsp / ruby / solargraph
+-- NOTE: https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#solargraph
+-- NOTE: ipatch, use `gem install --user-install solargraph` and NOT mason to install solargraph
+
 require'lspconfig'.solargraph.setup{
-  -- cmd = { os.getenv( "HOME" ) .. "/.rvm/shims/solargraph", 'stdio' },
-  cmd = { os.getenv( "HOME" ) .. "/.rvm/gems/ruby-3.2.2/wrappers/solargraph", 'stdio' },
+  cmd = { "solargraph", "stdio" },
   root_dir = nvim_lsp.util.root_pattern("Gemfile", ".git", "."),
   settings = {
     solargraph = {
