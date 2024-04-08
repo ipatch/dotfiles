@@ -682,7 +682,7 @@ require('lspconfig').jsonls.setup {
 -- PLUGIN / neovim native lsp / ruby / solargraph
 -- NOTE: https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#solargraph
 -- NOTE: ipatch, use `gem install --user-install solargraph` and NOT mason to install solargraph
-
+--
 require'lspconfig'.solargraph.setup{
   cmd = { "solargraph", "stdio" },
   root_dir = nvim_lsp.util.root_pattern("Gemfile", ".git", "."),
