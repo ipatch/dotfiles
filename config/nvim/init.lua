@@ -115,15 +115,6 @@ require('lazy').setup({
   -- https://stackoverflow.com/a/70294761/708807
   'jose-elias-alvarez/nvim-lsp-ts-utils',
 
-  -- snippets
-  -- use({
-  --   "L3MON4D3/LuaSnip",
-  --   -- follow latest release.
-  --   tag = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
-  --   -- install jsregexp (optional!:).
-  --   run = "make install_jsregexp"
-  -- })
-
   { -- nvim-treesitter Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
     build = function()
@@ -140,14 +131,15 @@ require('lazy').setup({
     'nvim-telescope/telescope.nvim',
     dependencies = {
       'nvim-lua/plenary.nvim',
-      'nvim-telescope/telescope-fzf-native.nvim', build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' 
+      'nvim-telescope/telescope-fzf-native.nvim', build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build'
     }
   },
 
   'nvim-lua/popup.nvim',
   'mfussenegger/nvim-dap',
   'nvim-telescope/telescope-dap.nvim',
-  {
+
+  { -- dap / nvim-dap-ui
     'rcarriga/nvim-dap-ui',
     dependencies = {
       'nvim-neotest/nvim-nio'
@@ -163,6 +155,11 @@ require('lazy').setup({
     end
   },
 
+  { -- UI / git browser
+  'junegunn/gv.vim',
+  dependencies = 'tpope/vim-fugitive',
+  },
+
   -- UI / themes
   'Mofiqul/vscode.nvim',
   'navarasu/onedark.nvim',
@@ -175,6 +172,7 @@ require('lazy').setup({
     'kevinhwang91/nvim-ufo',
     dependencies = 'kevinhwang91/promise-async'
   },
+
   -- UI / enhancements / color picker
   'NvChad/nvim-colorizer.lua',
 })
