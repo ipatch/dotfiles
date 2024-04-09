@@ -785,7 +785,6 @@ https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.conf \
 - [ ] #nvim #neovim is there an elegant way to switch a word from single quotes `'` to double quotes `"` and vise versa
 - [ ] #linux #screencasting #i3, setup binding to toggle showkey, and auto launch showkey after i3 starts ala copyq
 - [ ] #tmux how not move window title names when prefix key is pressed and label `^S` is shown in the left side of the status bar.
-- [ ] #nvim RIP 🪦 `packer.nvim` looks i need to migrate to `lazy.nvim` sooner than later 😑
 - [ ] #tmux only display window index numbers after the pressing prefix key (this gunna be a tricky one) 🤔
 - [ ] #i3 #polybar put cpu / gpu fan speeds in my bar
 - [ ] #nvim WTF, when i've been running `:e` on my open buffer (config.fish) it's been resetting my `foldlevel=2` 😡
@@ -793,8 +792,6 @@ https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.conf \
 - [ ] #arch #emote how to make the gui for my emoji picker larger 👩‍🦯
 - [ ] #nvim plugin / #nvim-ufo can not fold html tags contained with a markdown document out of the box
 - [ ] #i3 when launching an app that is defined for a specific workspace and already on that workspace the app launches on the previously active workspace WTF?
-- [ ] #nvim #packer, running `:PackerSync` always blocks neovim ie. ui changes and makes the entire usage unresponsive
-    - specific to install ts parsers
 - [x] #arch #systemd, come to a peaceful solution on why i can't set the perms i want for my log files
     - https://github.com/systemd/systemd/issues/28302
 - [ ] a much better solution for ricing my arch install ie. editing config files that require a reboot would be to edit in a virtual machine or even using a docker container to not require a full reboot  🤦‍♂️
@@ -807,7 +804,6 @@ https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.conf \
 - [ ] #arch #tmux add key binding to toggle window display numbers
 - [ ] ~~#hammerspoon~~ ~~#karabiner~~ #cmake it'd be nice to swap the `[]` with the `{}` when capslock is activated similiar to how i swapped underbar `_` with hyphen `-`
 - [ ] #fish it'd be cool to remove all entries from my fish history that were invalid commands thus when searching through history i don't repeat the same mistake
-- [ ] #gitsecret reencodes secret files on every commit, **boo** 👻 WHY
 - [ ] #alacritty does **not** properly highlight, select URLs when wrapped
 - [ ] #freecad create asciinema of configuring and building freecad from source on macos
     - [ ] #freecad make an additional cast of runing through the test suite after building/installing freecad
@@ -825,17 +821,16 @@ https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.conf \
     - https://bbs.archlinux.org/viewtopic.php?id=186501
 - [ ] #vim #neovim #nvim, specific, add or implement _goto definition_ function when editing homebrew formula files to have a go to definition when cursor is on a `depends_on` block, ie. open that respected formula file
 - [ ] display some sort message, alert, or menubar icon when caps lock is activated "for all that is sane" 👩🏻‍⚕️
-- [ ] #karabiner-elements #karabinerelements, swap <kbd>-</kbd> with <kbd>_</kbd> when **caps lock** is activated
 - [ ] [vnc viewer] using _vnc viewer.app_ on macos sucks when using an external mouse to scroll through the terminal history.
     - is ther some setting where the sensitivity can be set, so scroll begins with one click of the mouse wheel.
-- [ ] [vim] [nvim] when toggling the tagbar <kbd>leader+\\</kbd> move the cursor/focus to the tagbar buffer automatically.
-- [ ] [tmux] [fish] possible to restore scroll back history after closing tmux server and terminal _alacritty_
-- [ ] [arch], set lshift+rshift to toggle caps-lock on/off
-- [ ] [fish], possible to detach current pane in a tmux window from shell history, or write commands run from certain directory to specific history file to keep commands ran in a specific directory quickly accessible, ie. useful when working with a node or ruby based project.
+- [ ] #vim #nvim when toggling the tagbar <kbd>leader+\\</kbd> move the cursor/focus to the tagbar buffer automatically.
+- [ ] #tmux #fish possible to restore scroll back history after closing tmux server and terminal _alacritty_
+- [ ] #arch, set lshift+rshift to toggle caps-lock on/off
+- [ ] #fish, possible to detach current pane in a tmux window from shell history, or write commands run from certain directory to specific history file to keep commands ran in a specific directory quickly accessible, ie. useful when working with a node or ruby based project.
 - [ ] [alacritty] [fish] [tmux] [karabiner] [hammerspoon] _double tap esc_, ie. esc², to run the keyboard shortcut of clearing the scree, ie. prefix (tmux), then control+l
-- [ ] [vim] implement func to decrypt / encrypt GPG files
-- [ ] [macos] [homebrew] howto search for homebrew taps
-- [ ] [neovim] review the below highlight settings, obviously time permitting of course
+- [ ] #vim implement func to decrypt / encrypt GPG files
+- [ ] #macos #homebrew howto search for homebrew taps
+- [ ] #neovim review the below highlight settings, obviously time permitting of course
   - Folded
   - GitGutterAdd
   - GitGutterChange
@@ -852,12 +847,11 @@ https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.conf \
 - [ ] [tmux] put short synopsis of current weather in tmux status bar, _right side_
 - [ ] **vivaldi** / **voilentmonkey**
   - youtube script, to switch view mode on viewer window hover with mouse or mash a key to bring focus to viewer window so playback shortcuts become active.
-- [ ] [tmux] **getting closer** it'd be nice to have a quick double tap of either <kbd>shift</kbd>key then<kbd>shift</kbd> to toggle between remote and local tmux sessions 
+- [ ] #tmux **getting closer** it'd be nice to have a quick double tap of either <kbd>shift</kbd>key then<kbd>shift</kbd> to toggle between remote and local tmux sessions 
   - [learn more][lm1]
   - [and more][lm2] 
-- [ ] [karabiner], toggle function keys on a macbook with double tap of <kbd>fn</kbd>
 - [ ] [python] [fish] [virtualenv] setup keybinding <kbd>control</kbd>+<kbd>d</kbd> to exit virtualenv but not exit terminal / shell session, ie. make control+d local to the virtualenv
-- [ ] [python] [fish] [neolambda] update prompt to remove ~λ~ and put name of virtualenv instead
+- [ ] #python #fish #neolambda update prompt to remove ~λ~ and put name of virtualenv instead
 - [ ] see if there is a fish function of _omf_ or _fisher_ plugin that supports sharing command history between bash and fish
 - [ ] make abe graphic more personal.
 - [ ] spend an hour or two working on install script for aiding the process of setting up my dotfiles on fresh box 📦.
@@ -874,6 +868,8 @@ https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.conf \
 <details>
 <summary><strong>TODOs completed</strong></summary>
 
+- [x] #gitsecret reencodes secret files on every commit, **boo** 👻 WHY
+- [x] #nvim RIP 🪦 `packer.nvim` looks i need to migrate to `lazy.nvim` sooner than later 😑
 - [x] [fish] detach fish shell instance from command history
     - prefix commands with a <space> ie. ` ls` instead of `ls`
 - [x] [vim, json] adjust default conceal settings for json files
