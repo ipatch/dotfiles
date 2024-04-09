@@ -299,6 +299,7 @@ jobs/macOS/Users/mr-fancy/hammerspoon/.cli.history
 # ssh configuration files
 #- 
 config/ssh/macos/config
+config/ssh/config
 !config/ssh/macos/.gitkeep
 
 
