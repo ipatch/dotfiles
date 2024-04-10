@@ -34,6 +34,7 @@ if status is-interactive
   alias bp312="$bp/opt/python@3.12/bin/python3.12"
   alias bp310pip="$bp/opt/python@3.10/bin/pip3.10"
 
+  abbr -a -- bp310sp "cd $bp/lib/python3.10/site-packages"
 
   # fish specific env vars
   set -gx fish_greeting ""
@@ -202,6 +203,7 @@ if status is-interactive
 
   set -l paths \
     # $HOME/homebrew/opt/python/libexec/bin \
+    /Users/brewmaster/homebrew/Library/Homebrew/vendor/portable-ruby/current/bin \
     $HOME/homebrew/bin \
     $HOME/homebrew/sbin \
     /opt/cross/apl/bin \
