@@ -1,0 +1,24 @@
+# vim:filetype=msmtp
+
+# NOTE: ipatch, ref:
+# https://arnaudr.io/2020/08/24/send-emails-from-your-terminal-with-msmtp/
+# on arch linux, using gnome seahorse to manage gmail app password
+
+defaults
+auth on
+tls on
+tls_trust_file /etc/ssl/certs/ca-certificates.crt
+#tls_starttls on
+logfile ~/.config/msmtp/msmtp.log
+
+account gmail
+host smtp.gmail.com
+port 587
+# NOTE: ipatch, enabling the below setting sends unencrypted email 
+tls_starttls on
+user chris.r.jones.1983@gmail.com
+from chris.r.jones.1983@gmail.com
+
+# set a default account
+account default : gmail
+
