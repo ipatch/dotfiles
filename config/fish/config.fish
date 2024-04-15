@@ -202,8 +202,6 @@ if status is-interactive
   #--
 
   set -l paths \
-    # $HOME/homebrew/opt/python/libexec/bin \
-    /Users/brewmaster/homebrew/Library/Homebrew/vendor/portable-ruby/current/bin \
     $HOME/homebrew/bin \
     $HOME/homebrew/sbin \
     /opt/cross/apl/bin \
@@ -225,6 +223,11 @@ if status is-interactive
 
   if [ (whoami) != "brewmaster" ]
     set paths $paths /usr/local/sbin /usr/local/bin
+  end
+
+  # add below path entry if $USER is not capin
+  if [ (whoami) != "capin" ]
+    set paths $paths $HOME/homebrew/Library/Homebrew/vendor/portable-ruby/current/bin
   end
 
   for p in $paths
