@@ -115,10 +115,10 @@ if status is-interactive
   # Check if /opt/tmp is writable
   if test -w /opt/tmp
     # If /opt/tmp is writable, set to /opt/tmp
-    set -gx HOMEBREW_TEMP "/opt/tmp"
+    set -gx HOMEBREW_TEMP "/opt/tmp/homebrew"
   else
     # If /opt/tmp is not writable, set to $HOME/tmp
-    set -gx HOMEBREW_TEMP "$HOME/tmp"
+    set -gx HOMEBREW_TEMP "$HOME/tmp/homebrew"
   end
 
   # $USER fish abbreviations
