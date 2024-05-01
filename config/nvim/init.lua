@@ -39,6 +39,7 @@ g.mapleader = " " -- map leader key to spacebar
 -- lazy.nvim
 -- migrate from packer.nvim to lazy.nvim
 -- https://www.youtube.com/watch?v=aqlxqpHs-aQ
+
 local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
   vim.fn.system({
@@ -52,6 +53,7 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+-- plugins
 require('lazy').setup({
 
   -- tmux / quick pane switching
@@ -467,44 +469,45 @@ vim.diagnostic.config({
 -- PLUGIN / folke/neodev.nvim
 -----
 -- IMPORTANT: make sure to setup neodev BEFORE lspconfig
--- require("neodev").setup({
---   -- add any options here, or leave empty to use the default settings
---   -- Always add neovim plugins into lua_ls library, even if not neovim config
---   -- override = function(root_dir, library)
---   --   library.enabled = true
---   --   library.plugins = true
---   -- end,
--- })
-
+--[[ require("neodev").setup({
+  -- add any options here, or leave empty to use the default settings
+  -- Always add neovim plugins into lua_ls library, even if not neovim config
+  override = function(root_dir, library)
+    library.enabled = true
+    library.plugins = true
+  end,
+})
+]]
 -- then setup your lsp server as usual
 -- local lspconfig = require('lspconfig')
 
 -- example to setup lua_ls and enable call snippets
--- lspconfig.lua_ls.setup({
---   settings = {
---     Lua = {
---       completion = {
---         callSnippet = "Replace"
---       }
---     }
---   }
--- })
+--[[ lspconfig.lua_ls.setup({
+  settings = {
+    Lua = {
+      completion = {
+        callSnippet = "Replace"
+      }
+    }
+  }
+})
+]]
 
-
--- nvim_lsp.lua_ls.setup {
---   on_init = function(client)
---     local path = client.workspace_folders[1].name
---     if not vim.uv.fs_stat(path..'/.luarc.json') then
---       -- Make the server aware of Neovim runtime files
---       client.config.settings.Lua.workspace.library = { vim.env.VIMRUNTIME }
---       -- or for everything:
---       -- client.config.settings.Lua.workspace.library = vim.api.nvim_get_runtime_file("", true)
---       client.notify("workspace/didChangeConfiguration", {
---         settings = client.config.settings
---       })
---     end
---   end
--- }
+--[[ nvim_lsp.lua_ls.setup {
+  on_init = function(client)
+    local path = client.workspace_folders[1].name
+    if not vim.uv.fs_stat(path..'/.luarc.json') then
+      -- Make the server aware of Neovim runtime files
+      client.config.settings.Lua.workspace.library = { vim.env.VIMRUNTIME }
+      -- or for everything:
+      -- client.config.settings.Lua.workspace.library = vim.api.nvim_get_runtime_file("", true)
+      client.notify("workspace/didChangeConfiguration", {
+        settings = client.config.settings
+      })
+    end
+  end
+}
+]]
 
 local nvim_lsp = require('lspconfig')
 
@@ -628,59 +631,62 @@ require('lspconfig').jsonls.setup {
 ---------------
 -- plugin / nvim native lsp / ruby-lsp
 -- NOTE: ipatch, when using rvm to manage rubies, rvm needs to be init'd before running `:masoninstall ruby-lsp`
---
--- require('lspconfig').ruby_ls.setup {
---   -- cmd = {"/home/my_user/.rbenv/shims/ruby-lsp"},
---   cmd = { "/Users/brewmaster/.gem/ruby/3.1.0/bin/ruby-lsp" }
--- }
+----
 
--- textDocument/diagnostic support until 0.10.0 is released
--- _timers = {}
--- local function setup_diagnostics(client, buffer)
---   if require("vim.lsp.diagnostic")._enable then
---     return
---   end
---
---   local diagnostic_handler = function()
---     local params = vim.lsp.util.make_text_document_params(buffer)
---     client.request("textDocument/diagnostic", { textDocument = params }, function(err, result)
---       if err then
---         local err_msg = string.format("diagnostics error - %s", vim.inspect(err))
---         vim.lsp.log.error(err_msg)
---       end
---       if not result then
---         return
---       end
---       vim.lsp.diagnostic.on_publish_diagnostics(
---         nil,
---         vim.tbl_extend("keep", params, { diagnostics = result.items }),
---         { client_id = client.id }
---       )
---     end)
---   end
---
---   diagnostic_handler() -- to request diagnostics on buffer when first attaching
---
---   vim.api.nvim_buf_attach(buffer, false, {
---     on_lines = function()
---       if _timers[buffer] then
---         vim.fn.timer_stop(_timers[buffer])
---       end
---       _timers[buffer] = vim.fn.timer_start(200, diagnostic_handler)
---     end,
---     on_detach = function()
---       if _timers[buffer] then
---         vim.fn.timer_stop(_timers[buffer])
---       end
---     end,
---   })
--- end
+--[[ require('lspconfig').ruby_ls.setup {
+  -- cmd = {"/home/my_user/.rbenv/shims/ruby-lsp"},
+  cmd = { "/Users/brewmaster/.gem/ruby/3.1.0/bin/ruby-lsp" }
+}
+
+textDocument/diagnostic support until 0.10.0 is released
+_timers = {}
+local function setup_diagnostics(client, buffer)
+  if require("vim.lsp.diagnostic")._enable then
+    return
+  end
+
+  local diagnostic_handler = function()
+    local params = vim.lsp.util.make_text_document_params(buffer)
+    client.request("textDocument/diagnostic", { textDocument = params }, function(err, result)
+      if err then
+        local err_msg = string.format("diagnostics error - %s", vim.inspect(err))
+        vim.lsp.log.error(err_msg)
+      end
+      if not result then
+        return
+      end
+      vim.lsp.diagnostic.on_publish_diagnostics(
+        nil,
+        vim.tbl_extend("keep", params, { diagnostics = result.items }),
+        { client_id = client.id }
+      )
+    end)
+  end
+
+  diagnostic_handler() -- to request diagnostics on buffer when first attaching
+
+  vim.api.nvim_buf_attach(buffer, false, {
+    on_lines = function()
+      if _timers[buffer] then
+        vim.fn.timer_stop(_timers[buffer])
+      end
+      _timers[buffer] = vim.fn.timer_start(200, diagnostic_handler)
+    end,
+    on_detach = function()
+      if _timers[buffer] then
+        vim.fn.timer_stop(_timers[buffer])
+      end
+    end,
+  })
+end 
+]]
+
 
 ---------------
 -- PLUGIN / neovim native lsp / ruby / solargraph
 -- NOTE: https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#solargraph
 -- NOTE: ipatch, use `gem install --user-install solargraph` and NOT mason to install solargraph
---
+----
 require'lspconfig'.solargraph.setup{
   cmd = { "solargraph", "stdio" },
   root_dir = nvim_lsp.util.root_pattern("Gemfile", ".git", "."),
@@ -698,34 +704,34 @@ require'lspconfig'.solargraph.setup{
   }
 }
 
--- nvim_lsp.lua_ls.setup({
---   on_attach = on_attach,
---   capabilities = capabilities,
---   on_init = function(client)
---     local path = client.workspace_folders[1].name
---     if not vim.loop.fs_stat(path .. "/.luarc.json") then
---       client.config.settings = vim.tbl_deep_extend("force", client.config.settings.Lua, {
---         runtime = {
---           version = "LuaJIT",
---         },
---         diagnostics = {
---           globals = { "vim" },
---         },
---         workspace = {
---           library = { vim.env.VIMRUNTIME },
---           checkThirdParty = false,
---         },
---       })
---       client.notify("workspace/didChangeConfiguration", { settings = client.config.settings })
---     end
---   end,
--- })
+--[[ nvim_lsp.lua_ls.setup({
+  on_attach = on_attach,
+  capabilities = capabilities,
+  on_init = function(client)
+    local path = client.workspace_folders[1].name
+    if not vim.loop.fs_stat(path .. "/.luarc.json") then
+      client.config.settings = vim.tbl_deep_extend("force", client.config.settings.Lua, {
+        runtime = {
+          version = "LuaJIT",
+        },
+        diagnostics = {
+          globals = { "vim" },
+        },
+        workspace = {
+          library = { vim.env.VIMRUNTIME },
+          checkThirdParty = false,
+        },
+      })
+      client.notify("workspace/didChangeConfiguration", { settings = client.config.settings })
+    end
+  end,
+})
+]]
 
 ---------------
 -- PLUGIN / luasnips, neovim snippets plugin
 ----
 require("luasnip.loaders.from_vscode").lazy_load()
-
 
 ---------------
 -- PLUGIN / nvim-cmp, neovim completion 
@@ -883,10 +889,9 @@ end)
 
 ---------------
 -- PLUGIN / nvchad/nvim-colorizer.lua 🎨
-----
 -- NOTE: ipatch 
 -- ref: https://github.com/norcalli/nvim-colorizer.lua
----
+----
 require 'colorizer'.setup({
   filetypes = {
     '*';
@@ -901,7 +906,7 @@ require 'colorizer'.setup({
 ---------------
 -- PLUGIN / tree-sitter, treesitter
 -- NOTE: ipatch, `all` blows up 💥 on m1 mac due to `phpdoc`
---
+----
 local ts = require 'nvim-treesitter.configs'
 ts.setup {
   sync_install = false,
@@ -1084,6 +1089,7 @@ require'nvim-treesitter.configs'.setup {
 -- PLUGIN / UI / theme / colorscheme 🌈 🏳️‍🌈
 -- REF: https://github.com/David-Kunz/vim/blob/master/init.lua#L235
 -- colorscheme
+----
 require('onedark').setup {
   style = 'deep',
   -- style = 'darker',
@@ -1235,6 +1241,7 @@ dap.configurations.python = {
 
 ---------------
 -- plugin / nvim-dap / debug node / javascript
+----
 dap.adapters.node2 = {
   type = 'executable',
   command = 'node',
@@ -1254,13 +1261,14 @@ dap.configurations.javascript = {
 
 ---------------
 -- plugin /mfussenegger/nvim-dap 
+----
 vim.fn.sign_define('DapBreakpoint', {text='🛑', texthl='', linehl='', numhl=''})
 vim.fn.sign_define('DapBreakpointRejected', {text='🙅', texthl='', linehl='', numhl=''})
 vim.fn.sign_define('DapStopped', {text='✋', texthl='', linehl='', numhl=''})
 
 ---------------
 -- plugin /mfussenegger/nvim-dap / mappings (requires helper function)
---
+----
 map('n', '<leader>dh', ':lua require"dap".toggle_breakpoint()<CR>')
 -- requires external helper file `debugHelper.lua`
 map('n', '<leader>da', ':lua require"debugHelper".attach()<CR>')
@@ -1275,14 +1283,14 @@ map('n', '<leader>dj', ':lua require"dap".down()<CR>')
 
 ---------------
 -- plugin / nvim-telescope/telescope-dap.nvim
+----
 require('telescope').load_extension('dap')
 map('n', '<leader>dtb', ':Telescope dap list_breakpoints<CR>')
 map('n', '<leader>dtf', ':Telescope dap frames<CR>')
 
 ---------------
 -- plugin / rcarriga/nvim-dap-ui
+----
 require('dapui').setup()
 map('n', '<leader>dq', ':lua require"dapui".toggle()<CR>')
-
-
 
