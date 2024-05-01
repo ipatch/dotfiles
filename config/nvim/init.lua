@@ -628,6 +628,12 @@ require('lspconfig').jsonls.setup {
   },
 }
 
+
+---------------
+-- plugin / nvim native lsp / yaml, yml - yamlls
+----
+require'lspconfig'.yamlls.setup{}
+
 ---------------
 -- plugin / nvim native lsp / ruby-lsp
 -- NOTE: ipatch, when using rvm to manage rubies, rvm needs to be init'd before running `:masoninstall ruby-lsp`
