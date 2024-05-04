@@ -28,6 +28,12 @@ if status is-interactive
   alias pgrep='pgrep -i'
   alias pthrm='fish.rm.path'
 
+  # $USER tooling / homebrew / set local env var `bp`
+  if test -d $HOME/homebrew
+    set -gx bp "$HOME/homebrew"
+    eval ($bp/bin/brew shellenv)
+  end
+
   # homebrew specific aliases
   alias bp310="$bp/opt/python@3.10/bin/python3.10"
   alias bp311="$bp/opt/python@3.11/bin/python3.11"
@@ -261,11 +267,6 @@ if status is-interactive
     echo "Updated PATH:"; string join \n $PATH | nl 
   end
 
-  if test -d $HOME/homebrew
-    set -gx bp "$HOME/homebrew"
-    eval ($bp/bin/brew shellenv)
-  end
-
   # TOOD: ipatch, fix, this func breaks homebrew functionality for brewmaster @ vmmojave
   function brew --description "catch common misspelling & add some goodies"
     # Check if /usr/local/bin/brew exists and is executable
@@ -280,7 +281,7 @@ if status is-interactive
       switch "$argv[1]"
         case tap.ls
           echo "the $argv[2] tap provides the following formula";
-          echo "================================="
+          echo "---------------------------------"
           # echo "$argv[2]" # DEBUG
           if type -q jq
             # TODO: split line across multiple lines more gracefully
