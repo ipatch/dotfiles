@@ -80,8 +80,8 @@ require('lazy').setup({
     dependencies = {
       -- LSP Support
       {'neovim/nvim-lspconfig'},             -- Required
-      {                                      -- Optional
-        'williamboman/mason.nvim',
+      {
+        'williamboman/mason.nvim',           -- Optional
         build = function()
           pcall(vim.api.nvim_command, 'MasonUpdate')
         end,
