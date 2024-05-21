@@ -859,6 +859,7 @@ telescope.setup({
       find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
     },
     buffers = {
+      previewer = false,
       mappings = {
         i = {
           ["<c-d>"] = actions.delete_buffer
