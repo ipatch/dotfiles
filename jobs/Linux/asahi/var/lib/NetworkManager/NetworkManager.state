@@ -1,0 +1,5 @@
+[main]
+NetworkingEnabled=true
+# ref: https://askubuntu.com/a/24189/134740
+WirelessEnabled=false
+WWANEnabled=true
