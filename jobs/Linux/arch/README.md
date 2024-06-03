@@ -259,7 +259,7 @@ A good [reference/explanation][ul3] of the above procedure
 [ul9]: <https://github.com/foxlet/macOS-Simple-KVM/blob/master/docs/guide-networking.md>
 [ul10]: <https://www.linuxquestions.org/questions/linux-virtualization-and-cloud-90/virsh-failed-to-start-network-default-4175672429/>
 [ul11]: <https://bbs.archlinux.org/viewtopic.php?id=247377>
-[ul12]: <https://github.com/ipatch/dotfiles/tree/dev.evergreen/jobs/Linux/arch/>
+[ul12]: <https://github.com/ipatch/dotfiles/commit/d901970f416752cc6ea6d0b6563e1a443ffea130>
 
 <details>
 
