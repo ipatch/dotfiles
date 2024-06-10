@@ -5,7 +5,7 @@
 
 require 'irb/completion'
 require 'date'
-require 'irb/ext/save-history'
+require 'irb/ext/eval_history'
 
 IRB.conf[:PROMPT_MODE] = :SIMPLE
 IRB.conf[:SAVE_HISTORY] = 1000
