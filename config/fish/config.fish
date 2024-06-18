@@ -166,6 +166,7 @@ if status is-interactive
   # NOTE: ipatch, spread below cmd across multiple lines
   abbr -a -- hlp.mnt.smb.share 'echo "sudo mount -t cifs //192.168.1.666/guest_share -o username=ozzie,password=changes,iocharset=utf8,uid=(whoami),gid=users,dir_mode=0755,file_mode=0644 /some/path/on/local/fs"'
   abbr -a -- hlp.mount.fat32 'echo "sudo mount -t vfat /dev/sdb1 ~/mnt/usb.drv/ -o rw,umask=0000"'
+  abbr -a -- hlp.clear.journal 'sudo journalctl --rotate; sudo journalctl --vacuum-time=1s'
 
   abbr -a -- sc 'sudo systemctl'
   abbr -a -- sc.clear.journal 'sudo journalctl --rotate; sudo journalctl --vacuum-time=1s'
