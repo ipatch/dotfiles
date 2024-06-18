@@ -19,7 +19,7 @@ font pango:sans 12
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+# exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
 # NOTE: ipatch, define monitor resolution/refresh in $HOME/.xprofile
 # #nowork #nova TODO: #todo
@@ -40,7 +40,7 @@ exec_always --no-startup-id flameshot
 # NOTE: ipatch, start hot corner monitor lead
 # exec_always --no-startup-id lead
 
-exec_always --no-startup-id polkit-dumb-agent
+# exec_always --no-startup-id polkit-dumb-agent
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -240,62 +240,62 @@ bindsym Mod1+Shift+5 move container to workspace number $ws25
 # i3-resurrect
 # NOTE: ipatch, requires manually running through a series of key-bindings 👎️
 #----
-set $i3_resurrect i3-resurrect
+# set $i3_resurrect i3-resurrect
 
 # Save workspace mode.
-mode "save" {
-  bindsym 1 exec "$i3_resurrect save -w 1 --swallow=class,instance,title"
-  bindsym 2 exec "$i3_resurrect save -w 2 --swallow=class,instance,title"
-  bindsym 3 exec "$i3_resurrect save -w 3 --swallow=class,instance,title"
-  bindsym 4 exec "$i3_resurrect save -w 4 --swallow=class,instance,title"
-  bindsym 5 exec "$i3_resurrect save -w 5 --swallow=class,instance,title"
-  bindsym 6 exec "$i3_resurrect save -w 6 --swallow=class,instance,title"
-  bindsym 7 exec "$i3_resurrect save -w 7 --swallow=class,instance,title"
-  bindsym 8 exec "$i3_resurrect save -w 8 --swallow=class,instance,title"
-  bindsym 9 exec "$i3_resurrect save -w 9 --swallow=class,instance,title"
-  bindsym 0 exec "$i3_resurrect save -w 10 --swallow=class,instance,title"
-
-# Back to normal: Enter, Escape, or s
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-    bindsym s mode "default"
-    bindsym $mod+s mode "default"
-}
-
-bindsym $mod+Shift+s mode "save"
+# mode "save" {
+#   bindsym 1 exec "$i3_resurrect save -w 1 --swallow=class,instance,title"
+#   bindsym 2 exec "$i3_resurrect save -w 2 --swallow=class,instance,title"
+#   bindsym 3 exec "$i3_resurrect save -w 3 --swallow=class,instance,title"
+#   bindsym 4 exec "$i3_resurrect save -w 4 --swallow=class,instance,title"
+#   bindsym 5 exec "$i3_resurrect save -w 5 --swallow=class,instance,title"
+#   bindsym 6 exec "$i3_resurrect save -w 6 --swallow=class,instance,title"
+#   bindsym 7 exec "$i3_resurrect save -w 7 --swallow=class,instance,title"
+#   bindsym 8 exec "$i3_resurrect save -w 8 --swallow=class,instance,title"
+#   bindsym 9 exec "$i3_resurrect save -w 9 --swallow=class,instance,title"
+#   bindsym 0 exec "$i3_resurrect save -w 10 --swallow=class,instance,title"
+#
+# # Back to normal: Enter, Escape, or s
+#     bindsym Return mode "default"
+#     bindsym Escape mode "default"
+#     bindsym s mode "default"
+#     bindsym $mod+s mode "default"
+# }
+#
+# bindsym $mod+Shift+s mode "save"
 
 # Restore workspace mode.
-mode "restore" {
-  bindsym 1 exec "$i3_resurrect restore -w 1 --programs-only"
-    bindsym 2 exec "$i3_resurrect restore -w 2 --programs-only"
-    bindsym 3 exec "$i3_resurrect restore -w 3 --programs-only"
-    bindsym 4 exec "$i3_resurrect restore -w 4 --programs-only"
-    bindsym 5 exec "$i3_resurrect restore -w 5 --programs-only"
-    bindsym 6 exec "$i3_resurrect restore -w 6 --programs-only"
-    bindsym 7 exec "$i3_resurrect restore -w 7 --programs-only"
-    bindsym 8 exec "$i3_resurrect restore -w 8 --programs-only"
-    bindsym 9 exec "$i3_resurrect restore -w 9 --programs-only"
-    bindsym 0 exec "$i3_resurrect restore -w 10 --programs-only"
-
-    bindsym $mod+1 exec "$i3_resurrect restore -w 1 --layout-only"
-    bindsym $mod+2 exec "$i3_resurrect restore -w 2 --layout-only"
-    bindsym $mod+3 exec "$i3_resurrect restore -w 3 --layout-only"
-    bindsym $mod+4 exec "$i3_resurrect restore -w 4 --layout-only"
-    bindsym $mod+5 exec "$i3_resurrect restore -w 5 --layout-only"
-    bindsym $mod+6 exec "$i3_resurrect restore -w 6 --layout-only"
-    bindsym $mod+7 exec "$i3_resurrect restore -w 7 --layout-only"
-    bindsym $mod+8 exec "$i3_resurrect restore -w 8 --layout-only"
-    bindsym $mod+9 exec "$i3_resurrect restore -w 9 --layout-only"
-    bindsym $mod+0 exec "$i3_resurrect restore -w 10 --layout-only"
-
-# Back to normal: Enter, Escape, or n
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-    bindsym n mode "default"
-    bindsym $mod+t mode "default"
-}
-
-bindsym $mod+Shift+t mode "restore"
+# mode "restore" {
+#   bindsym 1 exec "$i3_resurrect restore -w 1 --programs-only"
+#     bindsym 2 exec "$i3_resurrect restore -w 2 --programs-only"
+#     bindsym 3 exec "$i3_resurrect restore -w 3 --programs-only"
+#     bindsym 4 exec "$i3_resurrect restore -w 4 --programs-only"
+#     bindsym 5 exec "$i3_resurrect restore -w 5 --programs-only"
+#     bindsym 6 exec "$i3_resurrect restore -w 6 --programs-only"
+#     bindsym 7 exec "$i3_resurrect restore -w 7 --programs-only"
+#     bindsym 8 exec "$i3_resurrect restore -w 8 --programs-only"
+#     bindsym 9 exec "$i3_resurrect restore -w 9 --programs-only"
+#     bindsym 0 exec "$i3_resurrect restore -w 10 --programs-only"
+#
+#     bindsym $mod+1 exec "$i3_resurrect restore -w 1 --layout-only"
+#     bindsym $mod+2 exec "$i3_resurrect restore -w 2 --layout-only"
+#     bindsym $mod+3 exec "$i3_resurrect restore -w 3 --layout-only"
+#     bindsym $mod+4 exec "$i3_resurrect restore -w 4 --layout-only"
+#     bindsym $mod+5 exec "$i3_resurrect restore -w 5 --layout-only"
+#     bindsym $mod+6 exec "$i3_resurrect restore -w 6 --layout-only"
+#     bindsym $mod+7 exec "$i3_resurrect restore -w 7 --layout-only"
+#     bindsym $mod+8 exec "$i3_resurrect restore -w 8 --layout-only"
+#     bindsym $mod+9 exec "$i3_resurrect restore -w 9 --layout-only"
+#     bindsym $mod+0 exec "$i3_resurrect restore -w 10 --layout-only"
+#
+# # Back to normal: Enter, Escape, or n
+#     bindsym Return mode "default"
+#     bindsym Escape mode "default"
+#     bindsym n mode "default"
+#     bindsym $mod+t mode "default"
+# }
+#
+# bindsym $mod+Shift+t mode "restore"
 
 # NOTE: ipatch, assign certain apps to certain workspaces
 # NOTE: ipatch, run `xprop` to get app/window properties
@@ -402,7 +402,7 @@ for_window [window_role="task_dialog"] floating enable
 
 # NOTE: ipatch, emoji picker
 # launch emote using macos keyboard shortcut
-bindsym $mod+control+space exec /usr/sbin/emote
+bindsym $mod+control+space exec --no-startup-id /usr/sbin/emote
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -458,16 +458,16 @@ ipc-socket ~/.config/i3/i3-ip.sock
 # finds out, if available)
 # bar {
 #   # NOTE: ipatch, ~/.config/i3/i3status.conf
-#   set $dots /opt/code/dotfiles
-#   status_command "$dots/jobs/bin/my_i3status.sh"
-#   position top # NOTE: ipatch, default bottom
-#   font pango:DejaVu Sans Mono 10
+  # set $dots /opt/code/dotfiles
+  # status_command "$dots/jobs/bin/my_i3status.sh"
+  # position top # NOTE: ipatch, default bottom
+  # font pango:DejaVu Sans Mono 10
 #
 #   # separator_symbol "A" # NO WORK!
 #   # separator "?" # NO WORK!
-#   separator_symbol "|"
-#   colors {
-#     # separator #666666
+  # separator_symbol "|"
+  # colors {
+  #   separator #666666
 #
 #     # NO WORK!
 #     # separator #aa0000
