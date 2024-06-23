@@ -110,6 +110,7 @@ if status is-interactive
   set -gx HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK 1
   set -gx HOMEBREW_NO_INSTALL_CLEANUP 1
   set -gx HOMEBREW_NO_INSTALL_FROM_API 1
+  set -gx HOMEBREW_CACHE "$bp/cache"
 
   # below is required to run `brew update`
   if uname -a | grep -q "asahi"
