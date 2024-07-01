@@ -53,7 +53,7 @@ if status is-interactive
   # TODO: conditionally set var if fish theme is neolambda
   set -gx display_right_prompt (cat ~/.config/fish/right_prompt_state)
 
-  # *nix specific env vars
+  # *nix & macos env vars
   set -gx XDG_CONFIG_HOME $HOME/.config
   # GPG key signing
   set -gx GPG_TTY (tty)
@@ -78,10 +78,7 @@ if status is-interactive
   set -gx VIRTUAL_ENV_DISABLE_PROMPT 1
 
   # $USER tooling / ruby / rbenv
-  # todo: check if rbenv is installed and load on init of new shell
-  if type -q rbenv
-    eval "$(rbenv init -)"
-  end
+  # i manually add $HOME/.rbenv/{shims,bin} to my local $paths var below
 
   # $USER env vars
   # TODO: ipatch, set vars based different system setups
@@ -185,6 +182,7 @@ if status is-interactive
     abbr -a -- yss 'yay -Ss'
 
     # TODO: needs to be set more robustly
+    # possible fix could be to test if the dir exists
     set -gx bp "$HOME/homebrew"
 
     abbr -a --set-cursor='%' -- nrd 'npm run dev%'
@@ -215,6 +213,8 @@ if status is-interactive
     /opt/cross/apl/bin \
     $HOME/.local/bin \
     $HOME/.rvm/bin \
+    $HOME/.rbenv/bin \
+    $HOME/.rbenv/shims \
     $HOME/.bun/bin \
     $HOME/go/bin \
     $HOME/.cargo/bin \
@@ -244,7 +244,7 @@ if status is-interactive
       # set -gx PATH $PATH $p
 
       # prepend PATH entries, so that `/usr/sbin:/usr/bin:/sbin:/bin` are the last 4 entries in the PATH
-      # NOTE: the path entry order can be tested w/ the fish shell abbr `pp` contained within `abbreviations.fish`
+      # NOTE: the path entry order can be tested w/ the fish shell abbr `pp`
       set -gx PATH $p $PATH
     end
   end
@@ -299,7 +299,7 @@ if status is-interactive
         # TODO: could be implemented better, the 2nd arg `--greddy` seems to still issue an error with brew
       case outdated --greddy
         echo "greedy NOT greddy";
-        echo "================================="
+        echo "---------------------------------"
         command brew outdated --greedy
         return # required, or else orig misspelling will be passed to brew
         set_color -d; printf '\n%s' 'use '; set_color -o green; echo "brew outdated --greedy"; set_color normal
@@ -308,7 +308,7 @@ if status is-interactive
       switch "$argv[3]"
         case cask outdated --greddy
           echo "greedy NOT greddy";
-          echo "================================="
+          echo "---------------------------------"
           set_color -d red; echo "`brew cask outdated --greedy obsolete`"; set_color normal
           printf "use "; set_color -o green; echo "brew outdated --greedy"; set_color normal
           command brew outdated --greedy
