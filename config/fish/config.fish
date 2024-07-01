@@ -79,6 +79,9 @@ if status is-interactive
 
   # $USER tooling / ruby / rbenv
   # i manually add $HOME/.rbenv/{shims,bin} to my local $paths var below
+  # JUST SAY NO!
+  # rbenv init -
+  # eval "$(rbenv init -)"
 
   # $USER env vars
   # TODO: ipatch, set vars based different system setups
