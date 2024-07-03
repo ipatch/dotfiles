@@ -300,16 +300,22 @@ bindsym Mod1+Shift+5 move container to workspace number $ws25
 # NOTE: ipatch, assign certain apps to certain workspaces
 # NOTE: ipatch, run `xprop` to get app/window properties
 
-# NOTE: ipatch, make all about windows floating GLOBAL
+# NOTE: ipatch, always make the below window types floating GLOBAL
 for_window [window_role="About"] floating enable
-for_window [window_type="dialog"] floating enable
 for_window [window_role="task_dialog"] floating enable
 for_window [window_role="Preferences"] floating enable
+for_window [window_role="pop-up"] floating enable
+for_window [window_type="dialog"] floating enable
 
 # NOTE: ipatch, set default window size
 # WM_CLASS(STRING) = "gpartedbin", "GParted"
 for_window [class="GParted"] floating enable resize set 1800 1000, move position center
 for_window [class="Arandr"] floating enable, resize set 1800 1000, move position center
+
+# xeyes, matching class name `xeyes` didn't work, but using both class names, ie.
+# WM_CLASS(STRING) = "xeyes", "XEyes" ...worked
+for_window [class="xeyes"] floating enable, resize set 1800 1000, move position center
+for_window [class="XEyes"] floating enable, resize set 1800 1000, move position center
 
 # WM_CLASS(STRING) = "xfreerdp", "xfreerdp"
 for_window [class="xfreerdp"] move to workspace $ws7
@@ -396,9 +402,7 @@ for_window [class="Galculator"] floating enable
 # NOTE: ipatch, i created a symlink of galculator to /usr/bin/calculator ie. WM_CLASS(STRING) = "calculator", "Calculator"
 for_window [class="Calculator"] floating enable
 
-# NOTE: ipatch, make floating windows float
-for_window [window_role="pop-up"] floating enable
-for_window [window_role="task_dialog"] floating enable
+
 
 # NOTE: ipatch, emoji picker
 # launch emote using macos keyboard shortcut
@@ -422,15 +426,23 @@ mode "resize" {
   # Pressing up will shrink the window’s height.
   # Pressing down will grow the window’s height.
   bindsym j resize shrink width 10 px or 10 ppt
-  bindsym k resize grow height 10 px or 10 ppt
   bindsym l resize shrink height 10 px or 10 ppt
+  #-
   bindsym semicolon resize grow width 10 px or 10 ppt
+  bindsym k resize grow height 10 px or 10 ppt
 
   # same bindings, but for the arrow keys
   bindsym Left resize shrink width 10 px or 10 ppt
   bindsym Down resize grow height 10 px or 10 ppt
   bindsym Up resize shrink height 10 px or 10 ppt
   bindsym Right resize grow width 10 px or 10 ppt
+
+# Larger increments with Shift
+  bindsym Shift+Left resize shrink width 30 px or 30 ppt
+  bindsym Shift+Down resize grow height 30 px or 30 ppt
+  bindsym Shift+Up resize shrink height 30 px or 30 ppt
+  bindsym Shift+Right resize grow width 30 px or 30 ppt
+
 
   # back to normal: Enter or Escape or $mod+r
   bindsym Return mode "default"
