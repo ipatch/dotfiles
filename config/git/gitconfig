@@ -202,7 +202,7 @@
   ####
   # `restore` try and "undelete" a file
   ##
-  restore = "!git checkout $(git rev-list -n 1 HEAD -- "$1")^ -- "$1""
+  # restore = "!git checkout $(git rev-list -n 1 HEAD -- "$1")^ -- "$1""
   
   ####
   # git extras
