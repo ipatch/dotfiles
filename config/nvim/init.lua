@@ -913,6 +913,7 @@ require 'colorizer'.setup({
 ---------------
 -- PLUGIN / tree-sitter, treesitter
 -- NOTE: ipatch, `all` blows up 💥 on m1 mac due to `phpdoc`
+-- NOTE: ipatch, https://www.reddit.com/r/neovim/comments/1ds8kcp/i_got_this_error_when_open_help_anyone_known_how/lbewzk1/
 ----
 local ts = require 'nvim-treesitter.configs'
 ts.setup {
@@ -928,6 +929,7 @@ ts.setup {
     'javascript',
     'json',
     'lua',
+    'luadoc',
     'markdown',
     'markdown_inline',
     'python',
@@ -937,6 +939,7 @@ ts.setup {
     'tsx',
     'typescript',
     'vim',
+    'vimdoc',
   },
   -- List of parsers to ignore installing
   ignore_install = {
