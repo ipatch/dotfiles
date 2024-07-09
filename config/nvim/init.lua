@@ -292,6 +292,14 @@ opt.listchars:append("trail:•") -- BULLET (U+2022, UTF-8: E2 80 A2)
 -- `:h 'viewdir`
 -----
 
+------------------------------
+-- SETTINGS /  statusline, stl
+----
+-- NOTE: ipatch, the default neovim statusline, stl taken from the help page
+-- vim.opt.statusline = "%<%f ${&fileformat} %h%m%r%=%-14.(%l,%c%V%) %P"
+
+vim.opt.statusline = "%<%f | %{&fileformat} %h%m%r%=%-14.(%l,%c%V%) %P"
+
 -- Define the user namespace table
 vim.g.user = {}
 
