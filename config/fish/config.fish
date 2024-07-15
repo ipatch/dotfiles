@@ -124,6 +124,9 @@ if status is-interactive
   if test -w /opt/tmp
     # If /opt/tmp is writable, set to /opt/tmp
     set -gx HOMEBREW_TEMP "/opt/tmp/homebrew"
+  else if test -w /Volumes/STORAGE/ipatch/
+    # NOTE: ipatch, will run out of space on cfarm104, ie. mac mini m1 ue large storage path
+    set -gx HOMEBREW_TEMP "/Volumes/STORAGE/ipatch/homebrew/tmp"
   else
     # If /opt/tmp is not writable, set to $HOME/tmp
     set -gx HOMEBREW_TEMP "$HOME/tmp/homebrew"
@@ -164,17 +167,24 @@ if status is-interactive
 
   # fish shell abbr / gnu+linux specific
   # NOTE: ipatch, the below cmd will nuke the $DISPLAY env var  🤷‍♂️
-  abbr -a -- hlp.group.reload 'echo "exec su -l $USER"'
-  # NOTE: ipatch, spread below cmd across multiple lines
-  abbr -a -- hlp.mnt.smb.share 'echo "sudo mount -t cifs //192.168.1.666/guest_share -o username=ozzie,password=changes,iocharset=utf8,uid=(whoami),gid=users,dir_mode=0755,file_mode=0644 /some/path/on/local/fs"'
-  abbr -a -- hlp.mount.fat32 'echo "sudo mount -t vfat /dev/sdb1 ~/mnt/usb.drv/ -o rw,umask=0000"'
-  abbr -a -- hlp.clear.journal 'sudo journalctl --rotate; sudo journalctl --vacuum-time=1s'
+  #--------
+  # TODO: do not load abbrs on macos systems, thinking it may be related to the below warn/err msgs
+  # sudo: gid=4294967295: invalid value
+  # sudo: error initializing audit plugin sudoers_audit
+  #--------
+  if test $os = Linux
+    abbr -a -- hlp.group.reload 'echo "exec su -l $USER"'
+    # NOTE: ipatch, spread below cmd across multiple lines
+    abbr -a -- hlp.mnt.smb.share 'echo "sudo mount -t cifs //192.168.1.666/guest_share -o username=ozzie,password=changes,iocharset=utf8,uid=(whoami),gid=users,dir_mode=0755,file_mode=0644 /some/path/on/local/fs"'
+    abbr -a -- hlp.mount.fat32 'echo "sudo mount -t vfat /dev/sdb1 ~/mnt/usb.drv/ -o rw,umask=0000"'
+    abbr -a -- hlp.clear.journal 'sudo journalctl --rotate; sudo journalctl --vacuum-time=1s'
 
-  abbr -a -- sc 'sudo systemctl'
-  abbr -a -- sc.clear.journal 'sudo journalctl --rotate; sudo journalctl --vacuum-time=1s'
-  abbr -a -- clear.journal 'sudo journalctl --rotate; sudo journalctl --vacuum-time=1s'
-  # TODO: ipatch, below abbr probably better served as a function that can take arg for custom msgs
-  abbr -a -- alert 'notify-send -t 0 doitlive'
+    abbr -a -- sc 'sudo systemctl'
+    abbr -a -- sc.clear.journal 'sudo journalctl --rotate; sudo journalctl --vacuum-time=1s'
+    abbr -a -- clear.journal 'sudo journalctl --rotate; sudo journalctl --vacuum-time=1s'
+    # TODO: ipatch, below abbr probably better served as a function that can take arg for custom msgs
+    abbr -a -- alert 'notify-send -t 0 doitlive'
+  end
 
   # NOTE: ipatch, arch linux specifics
   if [ "$os" = Linux ]; and [ -n /usr/bin/pacman ]
