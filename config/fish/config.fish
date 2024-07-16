@@ -35,7 +35,7 @@ if status is-interactive
     eval ($bp/bin/brew shellenv)
   end
 
-  # homebrew specific aliases
+  ## $USER tooling / homebrew / homebrew specific aliases
   alias bp310="$bp/opt/python@3.10/bin/python3.10"
   alias bp311="$bp/opt/python@3.11/bin/python3.11"
   alias bp312="$bp/opt/python@3.12/bin/python3.12"
@@ -49,6 +49,8 @@ if status is-interactive
 
   # NOTE: ipatch, below env var will break fuzzy match for `git add`
   # set -gx fish_complete_path show_matching
+
+  #------------------------------------------------------------
   # Load the right prompt state
   # TODO: requires theme-neolambda
   # TODO: conditionally set var if fish theme is neolambda
@@ -58,15 +60,14 @@ if status is-interactive
   set -gx XDG_CONFIG_HOME $HOME/.config
   # GPG key signing
   set -gx GPG_TTY (tty)
-
-  # gnu-coreutils / ls colors, set after XDG_CONFIG_HOME
-  if test -f $XDG_CONFIG_HOME/dir_colors/.dir_colors
-    eval (dircolors $XDG_CONFIG_HOME/dir_colors/.dir_colors | head -n 1 | sed 's/^LS_COLORS=/set -x LS_COLORS /;s/;$//')
-  end
-
   # start ssh agent
   if not set -q SSH_AUTH_SOCK
     eval (ssh-agent -c) > /dev/null
+  end
+
+  ## $USER tooling / gnu-coreutils / ls colors, set after XDG_CONFIG_HOME
+  if test -f $XDG_CONFIG_HOME/dir_colors/.dir_colors
+    eval (dircolors $XDG_CONFIG_HOME/dir_colors/.dir_colors | head -n 1 | sed 's/^LS_COLORS=/set -x LS_COLORS /;s/;$//')
   end
 
   # $USER tooling / js / node / nvm
@@ -74,13 +75,14 @@ if status is-interactive
   # .. / rust / deno
   set -gx DENO_INSTALL "$HOME/.deno"
 
-  # $USER tooling / python / venv
+  # $USER tooling / python / venv / fish shell related
   # NOTE: ipatch, todo: should only disable this if fish theme is setup to print the prompt
   set -gx VIRTUAL_ENV_DISABLE_PROMPT 1
 
   # $USER tooling / ruby / rbenv
   # i manually add $HOME/.rbenv/{shims,bin} to my local $paths var below
   # JUST SAY NO!
+  #----------------------------
   # rbenv init -
   # eval "$(rbenv init -)"
 
@@ -112,6 +114,7 @@ if status is-interactive
   set -gx HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK 1
   set -gx HOMEBREW_NO_INSTALL_CLEANUP 1
   set -gx HOMEBREW_NO_INSTALL_FROM_API 1
+  # NOTE: the below var will be overwritten in certain cases
   set -gx HOMEBREW_CACHE "$bp/cache"
 
   # below is required to run `brew update`
@@ -128,6 +131,16 @@ if status is-interactive
   else if test -w /Volumes/STORAGE/ipatch/
     # NOTE: ipatch, will run out of space on cfarm104, ie. mac mini m1 ue large storage path
     set -gx HOMEBREW_TEMP "/Volumes/STORAGE/ipatch/homebrew/tmp"
+    # NOTE: it seems setting the cache env var will overwrite/update the prev value
+    set -gx HOMEBREW_CACHE "/Volumes/STORAGE/ipatch/homebrew/cache"
+    set -gx code "/Volumes/STORAGE/ipatch/code"
+    set -gx dots "$code/dotfiles-ipatch"
+    set -gx archdots "$dots/jobs/Linux/arch"
+    set -gx github "$code/git/github"
+    set -gx ghforks "$code/git/github/forks"
+    set -gx ltmp "$HOME/ltmp"
+    set -gx hb "$HOME/homebrew"
+    set -gx hbfc "$HOME/homebrew/Library/Taps/freecad/homebrew-freecad"
   else
     # If /opt/tmp is not writable, set to $HOME/tmp
     set -gx HOMEBREW_TEMP "$HOME/tmp/homebrew"
