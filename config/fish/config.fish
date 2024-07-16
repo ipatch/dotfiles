@@ -8,6 +8,7 @@
 # old non tree-sitter vim syntax file
 # https://github.com/dag/vim-fish
 #--
+# - [ ] TODO: attempt to group all homebrew related entries
 # - [x] TODO: get code folds working for the love of GOD
     # - i think properly setting this ft to fish has helped some
 # - [ ] TODO: properly highlight the word `NOTE:`
