@@ -110,18 +110,18 @@
   pshsmom = !git push --recurse-submodules=on-demand origin master
   psh = push --quiet
 
-  ####
+  #---
   # pulling
-  ##
+  #-
   p = !git pull
   # TODO: add a `pull` to recursively pull submodules
   ps = !git pull
 
-  ####
+  #---
   # updating forks
-  ##
-  pulum = !git pull upstream master
-  pulom = !git pull origin master
+  #-
+  plum = !git pull upstream master
+  plom = !git pull origin master
   pshom = !git push origin master
   fresh = "!sh -c 'git pull upstream master; git push origin master'"
 
