@@ -422,4 +422,43 @@ if status is-interactive
 
     return 0
   end
+
+  #----------------------------------------------------------------------
+  # exp setup dynamic env var for working with git branches
+  #-------------
+  # Function to update the current branch variable
+  function update_current_branch
+    if test -d .git
+      set -g gcb (git rev-parse --abbrev-ref HEAD)
+    else
+      set -e gcb
+    end
+  end
+
+  # Trigger the update when changing directories
+  function on_cd --on-variable PWD
+    update_current_branch
+  end
+
+  # Set up event listeners for Git commands
+  function git_checkout_event --on-event fish_preexecd
+    set -l cmd (commandline -opc)
+    if test $cmd[1] = "git"; and test $cmd[2] = "checkout"
+      update_current_branch
+    end
+  end
+
+  function git_pull_event --on-event fish_preexecd
+    set -l cmd (commandline -opc)
+    if test $cmd[1] = "git"; and test $cmd[2] = "pull"
+      update_current_branch
+    end
+  end
+
+  function git_branch_event --on-event fish_preexecd
+    set -l cmd (commandline -opc)
+    if test $cmd[1] = "git"; and test $cmd[2] = "branch"
+      update_current_branch
+    end
+  end
 end
