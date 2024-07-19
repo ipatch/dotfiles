@@ -116,6 +116,7 @@ if status is-interactive
   set -gx HOMEBREW_NO_INSTALL_FROM_API 1
   # NOTE: the below var will be overwritten in certain cases
   set -gx HOMEBREW_CACHE "$bp/cache"
+  # HOMEBREW_NO_VERIFY_ATTESTATIONS=1
 
   # below is required to run `brew update`
   if uname -a | grep -q "asahi"
