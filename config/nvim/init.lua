@@ -1180,8 +1180,12 @@ ft
 .set('ini', ';%s')
 .set('jsonc', '/*%s*/')
 
-cmd('set foldmethod=expr')
-cmd('set foldexpr=nvim_treesitter#foldexpr()')
+-- DEPRECATED
+-- cmd('set foldmethod=expr')
+-- cmd('set foldexpr=nvim_treesitter#foldexpr()')
+
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 
 -- unsorted / builtin vim commands
 -- -- highlight on yank
