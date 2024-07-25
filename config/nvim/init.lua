@@ -1003,7 +1003,8 @@ ts.setup {
       init_selection = '<c-space>', -- set to `false` to disable one of the mappings
       node_incremental = '<c-space>',
       scope_incremental = '<c-s>',
-      node_decremental = '<c-backspace>',
+      -- node_decremental = '<c-bs>', -- NOTE: ipatch, could not get <c-bs> key bind to work
+      node_decremental = '<bs>',
     },
   },
 }
