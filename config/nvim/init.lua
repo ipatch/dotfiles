@@ -127,7 +127,8 @@ require('lazy').setup({
       'JoosepAlviste/nvim-ts-context-commentstring',
     }
   },
-  'nvim-treesitter/playground',
+  -- NOTE: ipatch, deprecated
+  -- 'nvim-treesitter/playground',
 
   { -- telescope
     'nvim-telescope/telescope.nvim',
