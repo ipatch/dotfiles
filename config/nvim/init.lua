@@ -4,7 +4,10 @@
 
 ---------------
 -- NOTE: ipatch / ⭐️ USEFUL REMINDERS, and other assorted BS
--- TODO: ipatch, when reloading this file with `:so %` all folds are opened 👎️ workaround save to svim then load svim
+-- NOTE: ipatch, when reloading this file with `:so %` all folds are opened 👎️ workaround save to svim then load svim
+---------------
+-- TODO: only add commented line when holding down the shift key, return should not make the next line a comment
+--
 ----
 -- convert all single quotes in a file to double quotes
 -- :%s/'\([^']*\)'/"\1"/g
