@@ -7,6 +7,7 @@
 -- NOTE: ipatch, when reloading this file with `:so %` all folds are opened 👎️ workaround save to svim then load svim
 ---------------
 -- TODO: only add commented line when holding down the shift key, return should not make the next line a comment
+-- TODO: finish scaffolding out lazydev.nvim
 --
 ----
 -- convert all single quotes in a file to double quotes
@@ -111,7 +112,9 @@ require('lazy').setup({
   },
 
   -- lsp helper / nvim configuring init.lua + friends
-  "folke/neodev.nvim",
+  -- DEPRECATED! migrate to lazydev.nvim
+  -- "folke/neodev.nvim",
+  "folke/lazydev.nvim",
 
   -- lsp helper / json files ie. tsconfig.json
   "b0o/schemastore.nvim",
@@ -522,29 +525,30 @@ vim.diagnostic.config({
 ]]
 
 local nvim_lsp = require('lspconfig')
-
-nvim_lsp.lua_ls.setup({
-  on_attach = on_attach,
-  capabilities = capabilities,
-  on_init = function(client)
-    local path = client.workspace_folders[1].name
-    if not vim.loop.fs_stat(path .. "/.luarc.json") then
-      client.config.settings = vim.tbl_deep_extend("force", client.config.settings.Lua, {
-        runtime = {
-          version = "LuaJIT",
-        },
-        diagnostics = {
-          globals = { "vim" },
-        },
-        workspace = {
-          library = { vim.env.VIMRUNTIME },
-          checkThirdParty = false,
-        },
-      })
-      client.notify("workspace/didChangeConfiguration", { settings = client.config.settings })
-    end
-  end,
-})
+--
+-- DEPRECATED
+-- nvim_lsp.lua_ls.setup({
+--   on_attach = on_attach,
+--   capabilities = capabilities,
+--   on_init = function(client)
+--     local path = client.workspace_folders[1].name
+--     if not vim.loop.fs_stat(path .. "/.luarc.json") then
+--       client.config.settings = vim.tbl_deep_extend("force", client.config.settings.Lua, {
+--         runtime = {
+--           version = "LuaJIT",
+--         },
+--         diagnostics = {
+--           globals = { "vim" },
+--         },
+--         workspace = {
+--           library = { vim.env.VIMRUNTIME },
+--           checkThirdParty = false,
+--         },
+--       })
+--       client.notify("workspace/didChangeConfiguration", { settings = client.config.settings })
+--     end
+--   end,
+-- })
 
 local lsp = require('lsp-zero').preset({})
 
