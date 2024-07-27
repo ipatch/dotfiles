@@ -17,6 +17,8 @@
 -- echo synIDattr(synIDtrans(synID(line("."), col("."), 1)), "fg#")
 ----
 
+vim.api.nvim_set_hl(0, '@label', { link = 'Todo' })
+
 -- helpers
 local cmd = vim.cmd  -- to execute Vim commands e.g. cmd('pwd')
 local fn = vim.fn    -- to call Vim functions e.g. fn.bufnr()
