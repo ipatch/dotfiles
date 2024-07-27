@@ -897,6 +897,7 @@ ts.setup {
   ensure_installed = {
     'bash',
     'c',
+    'comment',
     'cpp',
     'css',
     'fish',
