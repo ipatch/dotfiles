@@ -481,52 +481,11 @@ vim.diagnostic.config({
 })
 
 ------------------------------
--- PLUGIN / folke/neodev.nvim
+-- PLUGIN / folke/lazydev.nvim
+-- TODO: finish scaffolding out setup / config
 -----
--- IMPORTANT: make sure to setup neodev BEFORE lspconfig
---[[ require("neodev").setup({
-  -- add any options here, or leave empty to use the default settings
-  -- Always add neovim plugins into lua_ls library, even if not neovim config
-  override = function(root_dir, library)
-    library.enabled = true
-    library.plugins = true
-  end,
-})
-]]
--- then setup your lsp server as usual
--- local lspconfig = require('lspconfig')
-
--- example to setup lua_ls and enable call snippets
---[[ lspconfig.lua_ls.setup({
-  settings = {
-    Lua = {
-      completion = {
-        callSnippet = "Replace"
-      }
-    }
-  }
-})
-]]
-
---[[ nvim_lsp.lua_ls.setup {
-  on_init = function(client)
-    local path = client.workspace_folders[1].name
-    if not vim.uv.fs_stat(path..'/.luarc.json') then
-      -- Make the server aware of Neovim runtime files
-      client.config.settings.Lua.workspace.library = { vim.env.VIMRUNTIME }
-      -- or for everything:
-      -- client.config.settings.Lua.workspace.library = vim.api.nvim_get_runtime_file("", true)
-      client.notify("workspace/didChangeConfiguration", {
-        settings = client.config.settings
-      })
-    end
-  end
-}
-]]
-
 local nvim_lsp = require('lspconfig')
 --
--- DEPRECATED
 -- nvim_lsp.lua_ls.setup({
 --   on_attach = on_attach,
 --   capabilities = capabilities,
@@ -644,7 +603,6 @@ require('lspconfig').jsonls.setup {
   },
 }
 
-
 ---------------
 -- plugin / nvim native lsp / yaml, yml - yamlls
 ----
@@ -702,7 +660,6 @@ local function setup_diagnostics(client, buffer)
   })
 end 
 ]]
-
 
 ---------------
 -- PLUGIN / neovim native lsp / ruby / solargraph
@@ -950,6 +907,7 @@ ts.setup {
     'markdown',
     'markdown_inline',
     'python',
+    'query',
     'rasi',
     'ruby',
     'rust',
