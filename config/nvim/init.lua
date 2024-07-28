@@ -279,14 +279,15 @@ opt.wrap = true
 -- nowork!
 -- opt.formatoptions = vim.opt.formatoptions - { 'c', 'r', 'o' }
 
+-- NOTE: ipatch, workaround use <c-u> to remove new comment
 -- Create an augroup to prevent duplicate autocommands
-vim.cmd([[
-  augroup RemoveAutoComment
-    autocmd!
-    autocmd BufEnter * set formatoptions-=cro
-    autocmd BufEnter * setlocal formatoptions-=cro
-  augroup END
-]])
+-- vim.cmd([[
+--   augroup RemoveAutoComment
+--     autocmd!
+--     autocmd BufEnter * set formatoptions-=cro
+--     autocmd BufEnter * setlocal formatoptions-=cro
+--   augroup END
+-- ]])
 
 -- TODO: NO WORK!!
 -- Define a function to insert a new line with a comment
