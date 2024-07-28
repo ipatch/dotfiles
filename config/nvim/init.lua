@@ -176,7 +176,7 @@ require('lazy').setup({
   'projekt0n/github-nvim-theme',
 
   -- UI / enhancements / newlines
-  'lukas-reineke/indent-blankline.nvim',
+  {'lukas-reineke/indent-blankline.nvim', main = 'ibl', opts = {} },
 
   { -- UI / enhancements / code folds
     'kevinhwang91/nvim-ufo',
@@ -881,6 +881,11 @@ require 'colorizer'.setup({
     tmux =  { mode = 'foreground'; }
   },
 })
+
+
+---------------
+-- PLUGIN / indent-blankline
+require('ibl').setup()
 
 ---------------
 -- PLUGIN / tree-sitter, treesitter
