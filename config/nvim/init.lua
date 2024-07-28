@@ -691,8 +691,7 @@ local kind_icons = {
   Value = '  ',
   Enum = '  ',
   Keyword = 'kwd  ',
-  -- TODO: update snippet icon to scissors or something more appropriate
-  Snippet = '  ',
+  Snippet = '✂️  ',  -- Scissors icon for Snippet
   Color = '  ',
   File = '  ',
   Reference = '  ',
