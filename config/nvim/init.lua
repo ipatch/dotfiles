@@ -275,6 +275,50 @@ opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 opt.viewoptions = "folds,cursor"
 opt.wrap = true
 
+-- DO NOT insert code comment on next line
+-- nowork!
+-- opt.formatoptions = vim.opt.formatoptions - { 'c', 'r', 'o' }
+
+-- Create an augroup to prevent duplicate autocommands
+vim.cmd([[
+  augroup RemoveAutoComment
+    autocmd!
+    autocmd BufEnter * set formatoptions-=cro
+    autocmd BufEnter * setlocal formatoptions-=cro
+  augroup END
+]])
+
+-- TODO: NO WORK!!
+-- Define a function to insert a new line with a comment
+function insert_commented_line()
+  -- Temporarily enable 'formatoptions'
+  local fo = vim.opt.formatoptions:get()
+  local fo_str = table.concat(fo, "")
+  vim.opt.formatoptions:append { 'c', 'r', 'o' }
+  -- Insert a new line below and enter insert mode
+  vim.cmd('normal! o')
+  -- Restore the original 'formatoptions'
+  vim.opt.formatoptions = fo
+end
+
+-- TODO: NO WORK!!
+-- Map the function to <leader>oc for testing
+-- vim.api.nvim_set_keymap('n', '<leader>oc', ':lua insert_commented_line()<CR>', { noremap = true, silent = true })
+-- vim.keymap.set('n', '<leader>oc', insert_commented_line, {})
+
+-- Define a simple test function
+local function test_function()
+  print("Keybinding works!")
+end
+-- Test the keybinding with <leader>t
+-- vim.api.nvim_set_keymap('n', '<leader>t', ':lua test_function()<CR>', { noremap = true, silent = true })
+-- vim.keymap.set('n', '<leader>t', test_function, {})
+
+-- fooo
+
+-- Map the function to <M-o><M-c><M-r>
+-- vim.api.nvim_set_keymap('n', '<M-o><M-c><M-r>', ':lua insert_commented_line()<CR>', { noremap = true, silent = true })
+
 -- plugin / https://github.com/JoosepAlviste/nvim-ts-context-commentstring/issues/67
 opt.updatetime = 100
 g.netrw_banner = true
@@ -691,7 +735,7 @@ local kind_icons = {
   Value = '  ',
   Enum = '  ',
   Keyword = 'kwd  ',
-  Snippet = '✂️  ',  -- Scissors icon for Snippet
+  Snippet = '✂️',  -- Scissors icon for Snippet
   Color = '  ',
   File = '  ',
   Reference = '  ',
