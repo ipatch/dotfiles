@@ -315,8 +315,6 @@ end
 -- vim.api.nvim_set_keymap('n', '<leader>t', ':lua test_function()<CR>', { noremap = true, silent = true })
 -- vim.keymap.set('n', '<leader>t', test_function, {})
 
--- fooo
-
 -- Map the function to <M-o><M-c><M-r>
 -- vim.api.nvim_set_keymap('n', '<M-o><M-c><M-r>', ':lua insert_commented_line()<CR>', { noremap = true, silent = true })
 
