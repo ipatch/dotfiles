@@ -647,7 +647,7 @@ end
 -- NOTE: ipatch, use `gem install --user-install solargraph` and NOT mason to install solargraph
 ----
 require'lspconfig'.solargraph.setup{
-  capabilities = capabilities
+  capabilities = capabilities,
   cmd = { "solargraph", "stdio" },
   root_dir = nvim_lsp.util.root_pattern("Gemfile", ".git", "."),
   settings = {
