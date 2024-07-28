@@ -98,16 +98,17 @@ require('lazy').setup({
       {'hrsh7th/cmp-path'},
       {'hrsh7th/cmp-cmdline'},
       {'hrsh7th/nvim-cmp'},     -- Required
-      -- snippets
-      ({
+      ({ -- snippets / luasnip + friends
         'L3MON4D3/LuaSnip',
+          dependencies = {
+            'saadparwaiz1/cmp_luasnip',
+            'rafamadriz/friendly-snippets',
+          },
         -- follow latest release.
-        tag = 'v2.2.0', -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+        tag = 'v2.3.0', -- Replace <CurrentMajor> by the latest released major (first number of latest release)
         -- install jsregexp (optional!:).
         build = 'make install_jsregexp'
       }),
-      'rafamadriz/friendly-snippets',
-      'saadparwaiz1/cmp_luasnip',
     }
   },
 
@@ -485,30 +486,6 @@ vim.diagnostic.config({
 -- TODO: finish scaffolding out setup / config
 -----
 local nvim_lsp = require('lspconfig')
---
--- nvim_lsp.lua_ls.setup({
---   on_attach = on_attach,
---   capabilities = capabilities,
---   on_init = function(client)
---     local path = client.workspace_folders[1].name
---     if not vim.loop.fs_stat(path .. "/.luarc.json") then
---       client.config.settings = vim.tbl_deep_extend("force", client.config.settings.Lua, {
---         runtime = {
---           version = "LuaJIT",
---         },
---         diagnostics = {
---           globals = { "vim" },
---         },
---         workspace = {
---           library = { vim.env.VIMRUNTIME },
---           checkThirdParty = false,
---         },
---       })
---       client.notify("workspace/didChangeConfiguration", { settings = client.config.settings })
---     end
---   end,
--- })
-
 local lsp = require('lsp-zero').preset({})
 
 -- TODO: ipatch, set the `cmd` var for the setup parameter for tsserver
@@ -571,8 +548,9 @@ end)
 lsp.setup()
 
 -- Enable (broadcasting) snippet capability for completion
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.textDocument.completion.completionItem.snippetSupport = true
+-- local capabilities = vim.lsp.protocol.make_client_capabilities()
+-- capabilities.textDocument.completion.completionItem.snippetSupport = true
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 -- NOTE: ipatch, https://github.com/hrsh7th/vscode-langservers-extracted
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#html
@@ -606,7 +584,9 @@ require('lspconfig').jsonls.setup {
 ---------------
 -- plugin / nvim native lsp / yaml, yml - yamlls
 ----
-require'lspconfig'.yamlls.setup{}
+require'lspconfig'.yamlls.setup{
+  capabilities = capabilities
+}
 
 ---------------
 -- plugin / nvim native lsp / ruby-lsp
@@ -667,6 +647,7 @@ end
 -- NOTE: ipatch, use `gem install --user-install solargraph` and NOT mason to install solargraph
 ----
 require'lspconfig'.solargraph.setup{
+  capabilities = capabilities
   cmd = { "solargraph", "stdio" },
   root_dir = nvim_lsp.util.root_pattern("Gemfile", ".git", "."),
   settings = {
@@ -682,30 +663,6 @@ require'lspconfig'.solargraph.setup{
     }
   }
 }
-
---[[ nvim_lsp.lua_ls.setup({
-  on_attach = on_attach,
-  capabilities = capabilities,
-  on_init = function(client)
-    local path = client.workspace_folders[1].name
-    if not vim.loop.fs_stat(path .. "/.luarc.json") then
-      client.config.settings = vim.tbl_deep_extend("force", client.config.settings.Lua, {
-        runtime = {
-          version = "LuaJIT",
-        },
-        diagnostics = {
-          globals = { "vim" },
-        },
-        workspace = {
-          library = { vim.env.VIMRUNTIME },
-          checkThirdParty = false,
-        },
-      })
-      client.notify("workspace/didChangeConfiguration", { settings = client.config.settings })
-    end
-  end,
-})
-]]
 
 ---------------
 -- PLUGIN / luasnips, neovim snippets plugin
@@ -734,6 +691,7 @@ local kind_icons = {
   Value = '  ',
   Enum = '  ',
   Keyword = 'kwd  ',
+  -- TODO: update snippet icon to scissors or something more appropriate
   Snippet = '  ',
   Color = '  ',
   File = '  ',
@@ -748,13 +706,14 @@ local kind_icons = {
 }
 
 local cmp = require('cmp')
+require('luasnip.loaders.from_vscode').lazy_load()
 
 cmp.setup({
   snippet = {
     -- REQUIRED - you must specify a snippet engine
     expand = function(args)
-      -- vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
       require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+      -- vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
       -- require('snippy').expand_snippet(args.body) -- For `snippy` users.
       -- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
     end,
@@ -767,17 +726,16 @@ cmp.setup({
     documentation = cmp.config.window.bordered(),
   },
   sources = cmp.config.sources({
+    { name = 'luasnip' }, -- For luasnip users.
     { name = 'path' },
     { name = 'nvim_lsp' },
     { name = 'nvim_lua' },
-    { name = 'luasnip' }, -- For luasnip users.
     -- { name = 'vsnip' }, -- For vsnip users.
     -- { name = 'ultisnips' }, -- For ultisnips users.
     -- { name = 'snippy' }, -- For snippy users.
   }, {
     { name = 'buffer' },
   }),
-
   mapping = {
     -- use `TAB` key to highlight next item in list
     ['<C-Space>'] = cmp.mapping.complete(),
@@ -786,7 +744,6 @@ cmp.setup({
     ['<CR>'] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace }),
     ['<C-e>'] = cmp.mapping.abort(),
  },
-
  formatting = {
    fields = { "kind", "abbr" },
    format = function(entry, vim_item)
