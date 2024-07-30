@@ -117,6 +117,7 @@ if status is-interactive
   # NOTE: the below var will be overwritten in certain cases
   set -gx HOMEBREW_CACHE "$bp/cache"
   # HOMEBREW_NO_VERIFY_ATTESTATIONS=1
+  set -gx hbc "$bp/cache"
 
   # below is required to run `brew update`
   if uname -a | grep -q "asahi"
