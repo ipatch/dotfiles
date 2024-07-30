@@ -235,6 +235,7 @@ if status is-interactive
   #--
   # NOTE: ipatch, fish does not play nice with `~` use $HOME env var instead
   # NOTE: ipatch, $USER lang tooling $PATHs
+  # NOTE: path entries will persist and require manual removal!!!
   #--
 
   set -l paths \
