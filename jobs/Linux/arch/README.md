@@ -82,6 +82,20 @@ i3status doesn't directly support calling/running shell scripts from what i unde
 
 <a name="troubleshooting"></a>
 
+### troubleshooting / bluetooth, circa july 2024
+
+<a name="troubleshooting-bt"></a>
+
+for reasons i do not understand, the bluetooth on my macbook can become non workable until the computer (macbook pro 2015) is completely shutdown, and best to unplug power cord and leave powered off for say 30 seconds or longer if available. **a reboot** seems to not resolve the problem 🤷‍♂️. **a complete power off / down is required**
+
+https://forums.linuxmint.com/viewtopic.php?p=2163026#p2163026
+
+### troubleshooting / i3
+
+<a name="troubleshooting-i3"></a>
+
+for another reason i fully do not understand if i have my ethernet to dp broadcom adapter pluggedin when i startup my computer i have to wait ~ 2 minutes and 30 seconds until i can interact with i3, and my polybar loads. however if poweroff then startup my computer with the network cable (ethernet adapter unplugged) then i3 does not load with a delay. 🤷‍♂️
+
 ### troubleshooting / upgrades
 
 <a name="troubleshooting-upgrades"></a>
