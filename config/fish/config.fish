@@ -11,7 +11,8 @@
 # - [ ] TODO: attempt to group all homebrew related entries
 # - [x] TODO: get code folds working for the love of GOD
     # - i think properly setting this ft to fish has helped some
-# - [ ] TODO: properly highlight the word `NOTE:`
+# - [x] TODO: properly highlight the word `NOTE:`
+    # - installed a ts parser designed for keywords such as NOTE: and TODO:
 # - [ ] TODO: look at ruby related tree-sitter files for inspiration
 # - [ ] TODO: update `pthrm` func to rm path entries based the number index ie.
 # ... `pathrm 1,2,3` instead of copypastaing the entire path entries
@@ -103,6 +104,10 @@ if status is-interactive
   set -gx ltmp "$HOME/ltmp"
   set -gx hb "$HOME/homebrew"
   set -gx hbfc "$HOME/homebrew/Library/Taps/freecad/homebrew-freecad"
+
+  set -gx nvims "$HOME/.config/nvim/sessions"
+  set -gx nsesh "$HOME/.config/nvim/sessions"
+  set -gx nses  "$HOME/.config/nvim/sessions"
 
   # app env vars / homebrew
   set -gx HOMEBREW_EDITOR "nvim"
