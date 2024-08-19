@@ -82,6 +82,20 @@ i3status doesn't directly support calling/running shell scripts from what i unde
 
 <a name="troubleshooting"></a>
 
+### troubleshooting / blank, black screen on boot
+
+today (monday aug 19th 2024) i decided to use my laptop on the go. (imagine that). little did i know i probably should have updated the x11 display configuration after disconnecting my external monitor. so when it came time to boot my computer away from my house i was presented with a nice black screen. the keybinding to access the the virtual tty's ie. ctrl+alt+f2 was not working unfortunately. so the quick fix (after a couple of searches), edit the grub command line and add the below settings.
+
+```
+nomodeset 3
+```
+
+those 2 settings for the kernel boot params allowed my laptop to once again use the internal display, and i am able to manually boot lightdm, and resume things as normal. **note** adding just the `3` did not work as various posts / answers suggested, both `nomodeset` and `3` were required.
+
+### troubleshooting / joining a guest network
+
+after getting my computer to a working graphical target i wanted to connect to the guest network but was never redirected to the TOS page that one usually is directed to when just visiting a website after connecting to the guest network. the quick is to visit a domain ie. `http://neverssl.com`, after attempting to connect to that domain, i was properly redirected to the login page. 👍️
+
 ### troubleshooting / bluetooth, circa july 2024
 
 <a name="troubleshooting-bt"></a>
@@ -109,7 +123,6 @@ the quickest fix i came up with was
 2. downgrade linux to the last 6.3.x series kernel using the downgrade package provided by AUR
 
 > **NOTE** be sure to downgrade both linux and linux-headers or the dkms modules will not build, thus rendering the system pretty much useless.
-
 
 ### troubleshooting / pacman or yay
 
