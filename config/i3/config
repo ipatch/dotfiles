@@ -84,6 +84,9 @@ workspace_auto_back_and_forth yes
 # start dmenu (a program launcher)
 bindsym $mod+d exec --no-startup-id dmenu_run -fn 'Source Code Pro'
 
+# setup trackpad settings for my mbp 2015
+exec --no-startup-id ~/.config/x11/scripts/mbp-2015-trackpad.sh
+
 # change focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down
