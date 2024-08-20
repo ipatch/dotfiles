@@ -68,6 +68,7 @@ require('lazy').setup({
 
   {  -- chatgpt
     "jackMort/ChatGPT.nvim",
+    lazy = true,
     config = function()
       require("chatgpt").setup()
     end,
