@@ -2,7 +2,7 @@
 Description=turns on backlight for internal display when using amdgpu kernel module
 
 [Service]
-ExecStart=bach -c "sleep 1 && echo 1 > /sys/class/backlight/amdgpu_bl1/brightness"
+ExecStart=bash -c "sleep 1 && echo 1 > /sys/class/backlight/amdgpu_bl1/brightness"
 
 [Install]
 WantedBy=multi-user.target
