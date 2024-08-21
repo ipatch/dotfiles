@@ -150,9 +150,9 @@ bindsym $mod+a focus parent
 # NOTE: ipatch, `DisplayPort-0` is the port closer to the power plug
 
 # mbp 2015 mid dual gpu (amd)
-set $mon1 "eDP-1"
+set $mon1 "eDP"
 # set $mon2 "DP-2"
-set $mon3 "DisplayPort-0"
+set $mon2 "DisplayPort-0"
 
 workspace 1 output $mon1
 workspace 2 output $mon1
@@ -174,15 +174,15 @@ workspace 9 output $mon1
 # workspace 28 output $mon2
 # workspace 29 output $mon2
 
-workspace 21 output $mon3
-workspace 22 output $mon3
-workspace 23 output $mon3
-workspace 24 output $mon3
-workspace 25 output $mon3
-workspace 26 output $mon3
-workspace 27 output $mon3
-workspace 28 output $mon3
-workspace 29 output $mon3
+workspace 21 output $mon2
+workspace 22 output $mon2
+workspace 23 output $mon2
+workspace 24 output $mon2
+workspace 25 output $mon2
+workspace 26 output $mon2
+workspace 27 output $mon2
+workspace 28 output $mon2
+workspace 29 output $mon2
 
 #-----------------------
 # NOTE: ipatch, define specific apps for specific workspaces
