@@ -781,7 +781,6 @@ https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.conf \
 
 <summary>Uncompleted</summary>
 
-- [ ] #arch #linux #rofi figure out how to add additional directories to search path
 - [ ] #fish #theme #neolambda, if origin is the same _git remote_ as another _remote_ name then update _git status prompt_ for both, **not** just _origin_
 - [ ] #nvim #neovim is there an elegant way to switch a word from single quotes `'` to double quotes `"` and vise versa
 - [ ] #linux #screencasting #i3, setup binding to toggle showkey, and auto launch showkey after i3 starts ala copyq
@@ -796,7 +795,6 @@ https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.conf \
 - [x] #arch #systemd, come to a peaceful solution on why i can't set the perms i want for my log files
     - https://github.com/systemd/systemd/issues/28302
 - [ ] a much better solution for ricing my arch install ie. editing config files that require a reboot would be to edit in a virtual machine or even using a docker container to not require a full reboot  🤦‍♂️
-- [ ] #fish #neovim #tree-sitter properly highlight the word `NOTE:`
 - [ ] #arch #i3, how to change the outline color of the active window on the screen?
 - [ ] #tmux setup a custom code fold function using vimscript or possible lua for my `tmux.conf` reference the stock `html` and `c` lang syntax files for how the use different types of expressions for code folds 🤔
 - [ ] #webdev, side quest, 🤺 figure out reimp search so a site such autozone can find `b12 chemtool` instead having to type `b-12`
@@ -869,6 +867,9 @@ https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.conf \
 <details>
 <summary><strong>TODOs completed</strong></summary>
 
+- [x] #fish #neovim #tree-sitter properly highlight the word `NOTE:`
+- [x] #arch #linux #rofi figure out how to add additional directories to search path
+    - see: https://github.com/davatorium/rofi/discussions/2002
 - [x] #gitsecret reencodes secret files on every commit, **boo** 👻 WHY
 - [x] #nvim RIP 🪦 `packer.nvim` looks i need to migrate to `lazy.nvim` sooner than later 😑
 - [x] [fish] detach fish shell instance from command history
