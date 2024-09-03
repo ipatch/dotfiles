@@ -257,6 +257,7 @@ if status is-interactive
     $DENO_INSTALL/bin \
     $HOME/.rvm/gems/default/wrappers \
     $code/git/local/bin \
+    $HOME/.docker/bin \
     # /usr/local/sbin \
     # /usr/local/bin \
     # below entry should NOT be added
