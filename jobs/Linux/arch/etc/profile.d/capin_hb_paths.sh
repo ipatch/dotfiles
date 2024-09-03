@@ -4,5 +4,5 @@
 # cat /proc/$(pidof i3)/environ | tr '\0' '\n' | grep '^PATH'
 
 if [ "$USER" = "capin" ]; then
-  export PATH=$HOME/hombrew/sbin:$HOME/homebrew/bin:$PATH
+  export PATH=$HOME/homebrew/sbin:$HOME/homebrew/bin:$PATH
 fi
