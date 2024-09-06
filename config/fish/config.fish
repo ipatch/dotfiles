@@ -104,6 +104,7 @@ if status is-interactive
   set -gx ltmp "$HOME/ltmp"
   set -gx hb "$HOME/homebrew"
   set -gx hbfc "$HOME/homebrew/Library/Taps/freecad/homebrew-freecad"
+  set -gx us05 "$HOME/homebrew/Library/Taps/ipatch/homebrew-us-05"
 
   set -gx nvims "$HOME/.config/nvim/sessions"
   set -gx nsesh "$HOME/.config/nvim/sessions"
