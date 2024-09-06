@@ -24,3 +24,12 @@ sudo grubby --set-default-index=3
 ```
 The default is /boot/loader/entries/966d8f0431d04295af5b50876f4beca8-6.9.12-401.asahi.fc39.aarch64+16k.conf with index 3 and kernel /boot/vmlinuz-6.9.12-401.asahi.fc39.aarch64+16k
 ```
+
+## working with homebrew / linuxbrew on asahi
+
+when updating ruby on asahi use the below command to rebuild ruby to have openssl support
+
+```
+RUBY_CONFIGURE_OPTS=--with-openssl-dir=(brew --prefix openssl@3) rbenv install 3.3.4
+```
+
