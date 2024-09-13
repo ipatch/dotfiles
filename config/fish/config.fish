@@ -117,7 +117,7 @@ if status is-interactive
   set -gx HOMEBREW_NO_AUTO_UPDATE 1
   set -gx HOMEBREW_NO_AUTOREMOVE 1
   set -gx HOMEBREW_NO_GITHUB_API 1
-  set -gx HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK 1
+  set -gx HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK 0
   set -gx HOMEBREW_NO_INSTALL_CLEANUP 1
   set -gx HOMEBREW_NO_INSTALL_FROM_API 1
   # NOTE: the below var will be overwritten in certain cases
