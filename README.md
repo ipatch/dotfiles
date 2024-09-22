@@ -55,15 +55,16 @@ https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.conf \
 
 <!-- TODO: insert a markdown table with macos, linux, windows heading -->
 
-| macos | gnu+linux | windows |
-|-------|-----------|---------|
-| spectacle | i3    | default |
-| builtin   | flameshot | default |
-| background music | ??? | ??? |
-| Finder.app | thunar | explorer |
-| iMessage | bluebubbles | ??? |
-| karabiner elements | interception / [dual function keys][apps-lnk1] | ??? |
-| clipy | copyq | ??? |
+|apps| macos | gnu+linux | windows |
+|----|-------|-----------|---------|
+| wm | spectacle | i3    | default |
+|    | builtin   | flameshot | default |
+| 🎧️ | background music | ??? | ??? |
+| fe | Finder.app | thunar | explorer |
+|    | iMessage | bluebubbles | ??? |
+|    | karabiner elements | interception / [dual function keys][apps-lnk1] | ??? |
+| ✂️  | clipy | copyq | ??? |
+| 📺️ |       | arandr|     |
 
 [apps-lnk1]: <https://gitlab.com/interception/linux/plugins/dual-function-keys> 
 
