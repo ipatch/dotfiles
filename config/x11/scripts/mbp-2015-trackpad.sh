@@ -1,6 +1,10 @@
 #!/bin/sh 
 
-# NOTE: ipatch, my de setup doesn't use the traditional `~/.xinitrc` instead this script is run via my i3 config
+# NOTE: ipatch, my DE setup doesn't use the traditional `~/.xinitrc` instead this script is run via my i3 config
+# QUESTION: is it possible to reload this script to update mouse settings without fully restarting X11 server?
+
+# NOTE: set 2 finger click as RMB
+# xinput set-prop 'SynPS/2 Synaptics TouchPad' 'libinput Click Method Enabled' 0 1
 
 #ref: https://medium.com/@console.log_hello_uranus/customizing-mouse-settings-with-xinput-a87da33800ba
 
@@ -14,3 +18,5 @@ mouse_id=$(xinput list --name-only | grep 'bcm5974')
 # disable natural scrolling
 xinput set-prop $mouse_id "libinput Natural Scrolling Enabled" 0
 xinput set-prop $mouse_id "libinput Accel Speed" 0.5
+# set 2 finger click as RMB
+xinput set-prop $mouse_id "libinput Click Method Enabled" 0 1
