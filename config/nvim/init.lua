@@ -67,16 +67,16 @@ require('lazy').setup({
   {'ojroques/nvim-osc52'},
 
   {  -- chatgpt
-    "jackMort/ChatGPT.nvim",
-    lazy = true,
-    config = function()
-      require("chatgpt").setup()
-    end,
-    dependencies = {
-      "MunifTanjim/nui.nvim",
-      "nvim-lua/plenary.nvim",
-      "nvim-telescope/telescope.nvim",
-    }
+    -- "jackMort/ChatGPT.nvim",
+    -- lazy = true,
+    -- config = function()
+    --   require("chatgpt").setup()
+    -- end,
+    -- dependencies = {
+    --   "MunifTanjim/nui.nvim",
+    --   "nvim-lua/plenary.nvim",
+    --   "nvim-telescope/telescope.nvim",
+    -- }
   },
 
   { -- LSP configuration and plugins
@@ -462,6 +462,7 @@ require('osc52').setup {
 
 ---------------
 -- PLUGIN / AI / chatgpt.nvim
+-- DISABLE chatgpt.nvim
 ----
 local home = vim.fn.expand('$HOME')
 local api_key_cmd
@@ -472,9 +473,9 @@ if vim.fn.filereadable(api_key_file) == 1 then
     api_key_cmd = 'gpg --decrypt ' .. api_key_file
 
     -- Conditionally load the setup function
-    require('chatgpt').setup({
-        api_key_cmd = api_key_cmd,
-    })
+    -- require('chatgpt').setup({
+    --     api_key_cmd = api_key_cmd,
+    -- })
 end
 ---------------
 -- PLUGIN / neovim native / LSP settings
