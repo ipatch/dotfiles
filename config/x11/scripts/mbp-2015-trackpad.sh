@@ -3,6 +3,9 @@
 # NOTE: ipatch, my DE setup doesn't use the traditional `~/.xinitrc` instead this script is run via my i3 config
 # QUESTION: is it possible to reload this script to update mouse settings without fully restarting X11 server?
 
+# NOTE: the default x11 right on mbp with function keys set to media keys
+# `fn+shift+f10`
+
 # NOTE: set 2 finger click as RMB
 # xinput set-prop 'SynPS/2 Synaptics TouchPad' 'libinput Click Method Enabled' 0 1
 
