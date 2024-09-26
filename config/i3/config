@@ -478,7 +478,7 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 #-
 # TODO: setup binding to enable shmlog then restart i3 in place to tshoot socket creation 🙃
 #--
-ipc-socket ~/.config/i3/i3-ip.sock
+ipc-socket ~/.config/i3/ipc.sock
 #--
 
 # NOTE: ipatch, set default workspace layout
