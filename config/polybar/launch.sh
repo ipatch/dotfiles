@@ -13,6 +13,7 @@ while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 # polybar-msg cmd quit
 
 # Launch Polybar, using default config location ~/.config/polybar/config.ini
+# TODO: clear / rotate log when restarting i3 in place
 polybar mypolybar 2>&1 | tee -a /tmp/polybar.log & disown
 
 echo "Polybar launched..."
