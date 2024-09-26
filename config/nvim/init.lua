@@ -1153,6 +1153,7 @@ ft
 -- .set('javascript', {'//%s', '/*%s*/'})
 .set('ini', ';%s')
 .set('jsonc', '/*%s*/')
+.set('c', '//%s', '//%s')
 
 -- DEPRECATED
 -- cmd('set foldmethod=expr')
