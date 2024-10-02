@@ -906,6 +906,8 @@ ts.setup {
     'css',
     'fish',
     'gitattributes',
+    'gitcommit',
+    'gitignore',
     'help',
     'html',
     'javascript',
@@ -923,6 +925,7 @@ ts.setup {
     'typescript',
     'vim',
     'vimdoc',
+    'yaml',
   },
   -- List of parsers to ignore installing
   ignore_install = {
