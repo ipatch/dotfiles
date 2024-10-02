@@ -905,6 +905,7 @@ ts.setup {
     'cpp',
     'css',
     'fish',
+    'gitattributes',
     'help',
     'html',
     'javascript',
