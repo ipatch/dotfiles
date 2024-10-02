@@ -1,6 +1,18 @@
-# "cursor.style" = "Block"
-# "debug.render_timer" = false
+# NOTE: ipatch,
+# https://alacritty.org/config-alacritty.html
+
 live_config_reload = true
+
+ipc_socket = true
+
+[scrolling]
+history = 100000
+
+[cursor]
+style = "Block"
+
+[terminal]
+# https://alacritty.org/config-alacritty.html#terminal
 
 [bell]
 animation = "EaseOutExpo"
@@ -74,6 +86,10 @@ style = "Regular"
 x = 0
 y = 0
 
+# NOTE: ipatch,
+# `ctrl+shift+c` can be used to copy text when not inside tmux
+
+# https://alacritty.org/config-alacritty.html#keyboard
 [[keyboard.bindings]]
 chars = "\u001Bb"
 key = "Left"
