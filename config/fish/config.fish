@@ -66,7 +66,12 @@ if status is-interactive
     eval (ssh-agent -c) > /dev/null
   end
 
-  ## $USER tooling / gnu-coreutils / ls colors, set after XDG_CONFIG_HOME
+  # $USER tooling / sre / ghidra
+  # TO BAD! https://github.com/NationalSecurityAgency/ghidra/pull/2529
+  # /opt/ghidra/support/launch.properties
+  # set -gx GHIDRA_ROOT "$XDG_CONFIG_HOME/.ghidra"
+
+  # $USER tooling / gnu-coreutils / ls colors, set after XDG_CONFIG_HOME
   if test -f $XDG_CONFIG_HOME/dir_colors/.dir_colors
     eval (dircolors $XDG_CONFIG_HOME/dir_colors/.dir_colors | head -n 1 | sed 's/^LS_COLORS=/set -x LS_COLORS /;s/;$//')
   end
