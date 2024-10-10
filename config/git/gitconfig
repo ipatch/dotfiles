@@ -286,6 +286,7 @@
   # NOTE: no syntax highlighting
   # NOTE: the `$bp` env var NOVA ❌
   pager = less -F -X --mouse
+	autocrlf = false
 
 [filter "zippey"]
   smudge = /home/capin/.local/bin/zippey.py d
@@ -300,7 +301,7 @@
   #--------------
   # macOS & Linux
   #-
-  autocrlf = input
+  # autocrlf = input
   precomposeUnicode = true
   #------------------------------
   # To set a `core.excludesfile` on a per $HOME dir basis, see `config.fish or `.bashrc`
