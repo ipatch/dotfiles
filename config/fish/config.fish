@@ -143,7 +143,7 @@ if status is-interactive
     set -gx HOMEBREW_TEMP "/opt/tmp/homebrew"
   else if test -w /Volumes/STORAGE/ipatch/
     # NOTE: ipatch, will run out of space on cfarm104, ie. mac mini m1 ue large storage path
-    set -gx HOMEBREW_TEMP "/Volumes/STORAGE/ipatch/homebrew/tmp"
+    set -gx HOMEBREW_TEMP "/Volumes/STORAGE/ipatch/tmp"
     # NOTE: it seems setting the cache env var will overwrite/update the prev value
     set -gx HOMEBREW_CACHE "/Volumes/STORAGE/ipatch/homebrew/cache"
     set -gx code "/Volumes/STORAGE/ipatch/code"
