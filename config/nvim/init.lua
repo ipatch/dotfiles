@@ -202,9 +202,12 @@ map('n', '<leader>pv', ':Ex<cr>') -- open netrw, ie. file explorer
 -- alt way to above mapping
 -- vim.keymap.set('n', '<leader>pv', vim.cmd.Ex) -- open netrw, ie. file explorer
 -- NOTE: ipatch, `gn` in netrw to refocus the top level dir under the cursor
-vim.keymap.set('n', '<C-d>', '<C-d>zz')
-vim.keymap.set('n', '<C-u>', '<C-u>zz')
-vim.keymap.set('n', '<leader>s', ':set spell!<cr>') -- toggle spell checking
+map('n', '<C-d>', '<C-d>zz')
+map('n', '<C-u>', '<C-u>zz')
+map('n', '<leader>s', ':set spell!<cr>') -- toggle spell checking
+
+-- key mapping / use `c-q` to insert special characters
+map('i', '<C-q>', '<C-v>', {noremap = true})
 
 ---------------
 -- key mapping / toggle hidden chars & Settings for hidden chars
@@ -213,7 +216,7 @@ map('n', '<leader>h', ':set list!<cr>', {noremap = true})
 ---------------
 -- key mapping / copy the entire buffer to clipboard
 -- vim.keymap.set('n', '<C-a>', '<esc>ggVG<CR>')
-vim.keymap.set('n', '<C-a>', ':%y+<CR>', { noremap = true})
+map('n', '<C-a>', ':%y+<CR>', { noremap = true})
 
 ---------------
 -- key mapping / bubble text
@@ -224,8 +227,8 @@ map('n', '<M-j>', ':m .+1<cr>==', {noremap = true})
 ---------------
 -- key mapping / moving through wrapped lines of text, treat wrapped lines of text as multiple lines
 --
-vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
-vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+map('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+map('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
 ---------------
 -- key mapping / clear search term, remove highlighting, then map CR to `:` for normal mode
