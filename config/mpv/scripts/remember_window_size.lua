@@ -12,8 +12,12 @@
 -- Define the file path to save the window size (change as needed)
 local save_file = mp.command_native({"expand-path", "~~/window_attributes.txt"})
 
+local function foo()
+end
+
 -- os cmds func to get window size and placement
 local function get_window_info()
+  -- mp.add_timeout(0.1, function()
   -- get the window id of the mpv window using xwininfo
   local cmd = 'xwininfo -name "mpv"'
 
@@ -21,6 +25,9 @@ local function get_window_info()
   local handle = io.popen(cmd)
   local result = handle:read("*a")
   handle:close()
+
+  -- Debugging: Display the result from xwininfo
+  mp.osd_message(result)
 
   -- variables to store width, height, x, y
   local width, height, x, y
@@ -33,6 +40,7 @@ local function get_window_info()
 
   -- Convert the extracted values to numbers and return
   if width and height and x and y then
+    mp.osd_message(string.format("Window info: %dx%d @ (%d, %d)", width, height, x, y))
     return tonumber(width), tonumber(height), tonumber(x), tonumber(y)
   else
     mp.osd_message("Error: Unable to retrieve window info from xwininfo")
