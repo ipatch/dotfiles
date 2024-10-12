@@ -12,8 +12,55 @@
 -- Define the file path to save the window size (change as needed)
 local save_file = mp.command_native({"expand-path", "~~/window_attributes.txt"})
 
--- Function to get the current window size and save it
+-- os cmds func to get window size and placement
+local function get_window_info()
+  -- get the window id of the mpv window using xwininfo
+  local cmd = 'xwininfo -name "mpv"'
+
+  -- run the command and capture the output
+  local handle = io.popen(cmd)
+  local result = handle:read("*a")
+  handle:close()
+
+  -- variables to store width, height, x, y
+  local width, height, x, y
+
+  -- Parse the result to extract width, height, X, and Y
+  width = result:match("Width:%s*(%d+)")
+  height = result:match("Height:%s*(%d+)")
+  x = result:match("Absolute upper%-left X:%s*(%d+)")
+  y = result:match("Absolute upper%-left Y:%s*(%d+)")
+
+  -- Convert the extracted values to numbers and return
+  if width and height and x and y then
+    return tonumber(width), tonumber(height), tonumber(x), tonumber(y)
+  else
+    mp.osd_message("Error: Unable to retrieve window info from xwininfo")
+    return nil, nil, nil, nil
+  end
+end
+
+-- Function to save window attributes using xwininfo
 local function save_window_attributes()
+  -- Get the window size and position using xwininfo
+  local width, height, x, y = get_window_info()
+
+  if width and height and x and y then
+    -- Open the file for writing
+    local file = io.open(save_file, "w")
+    if file then
+      -- Write the window width, height, and position to the file
+      file:write(string.format("Width: %d\nHeight: %d\nX: %d\nY: %d\n", width, height, x, y))
+      file:close()
+      mp.osd_message("Window attributes saved: " .. width .. "x" .. height .. " @ (" .. x .. "," .. y .. ")")
+    else
+      mp.osd_message("Error: Unable to save window attributes")
+    end
+  end
+end
+
+-- mpv API func to get the current window size and save it
+local function save_window_attributes_mpv_api()
     -- Get the current window width and height
     local width = mp.get_property_number("osd-width", 0)
     local height = mp.get_property_number("osd-height", 0)
