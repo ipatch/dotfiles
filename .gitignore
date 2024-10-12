@@ -144,6 +144,7 @@ config/mpv/mpv_history.log
 # a file to store the size / scale of the mpv window
 config/mpv/window_size.conf
 config/mpv/window_position.txt
+config/mpv/window_attributes.txt
 
 #-----------------------------
 # GIMP
