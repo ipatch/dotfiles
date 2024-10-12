@@ -13,25 +13,96 @@
 local save_file = mp.command_native({"expand-path", "~~/window_attributes.txt"})
 
 -- Function to get the current window size and save it
-local function save_window_size()
+local function save_window_attributes()
     -- Get the current window width and height
     local width = mp.get_property_number("osd-width", 0)
     local height = mp.get_property_number("osd-height", 0)
 
+    -- Get the window position (geometry) if supported
+    local x = mp.get_property_number("window-x", 0)
+    local y = mp.get_property_number("window-y", 0)
+
     -- Open the file for writing
     local file = io.open(save_file, "w")
     if file then
-        -- Write the window width and height to the file
-        file:write(string.format("Width: %d\nHeight: %d\n", width, height))
+        -- Write the window width and height, and position to the file
+        -- NOTE: ipatch, example
+        ------------------
+        -- Width: 1095
+        -- Height: 616
+        -- X: 0
+        -- Y: 0
+        ------------------
+        file:write(string.format("Width: %d\nHeight: %d\nX: %d\nY: %d\n", width, height, x, y))
         file:close()
-        mp.osd_message("Window size saved: " .. width .. "x" .. height)
+        mp.osd_message("Window attributes saved: " .. width .. "x" .. height .. " @ (" .. x .. "," .. y .. ")")
     else
         mp.osd_message("Error: Unable to save window size")
     end
 end
 
--- Register the function to run when the video is loaded or resized
-mp.register_event("file-loaded", save_window_size)
-mp.observe_property("osd-dimensions", "native", save_window_size)
+-- Define the path to the window attributes file
+local attributes_file = mp.command_native({"expand-path", "~~/window_attributes.txt"})
 
+-- Function to read the saved window size from the attributes file
+local function read_saved_window_size()
+    -- Try to open the attributes file
+    local file = io.open(attributes_file, "r")
+    if file then
+        -- Variables to store width and height
+        local width, height
+        
+        -- Read the file line by line
+        for line in file:lines() do
+            -- Match the Width and Height lines and extract values
+            width = width or line:match("Width:%s*(%d+)")
+            height = height or line:match("Height:%s*(%d+)")
+        end
 
+        file:close()
+        
+        -- If width and height are found, return them as numbers
+        if width and height then
+            return tonumber(width), tonumber(height)
+        else
+            mp.osd_message("Error: Invalid data in window_attributes.txt")
+            return nil, nil
+        end
+    else
+        mp.osd_message("Error: Unable to open window_attributes.txt")
+        return nil, nil
+    end
+end
+
+-- Function to resize the mpv window using i3-msg
+local function resize_window_with_i3(width, height)
+    -- Construct the i3-msg command
+    local command = string.format('i3-msg \'[class="mpv"] resize set %d %d\'', width, height)
+    
+    -- Execute the command
+    os.execute(command)
+    mp.osd_message("Resizing mpv window to: " .. width .. "x" .. height)
+end
+
+-- Function to restore the window size when mpv is launched
+local function restore_window_size()
+    -- Read the saved window size
+    local width, height = read_saved_window_size()
+    
+    -- If we got valid values, resize the window
+    if width and height then
+        resize_window_with_i3(width, height)
+    end
+end
+
+-- Register the restore function to run when mpv starts
+mp.register_event("file-loaded", restore_window_size)
+
+-- Register the function to run when the video is loaded or resized/moved
+-- mp.register_event("file-loaded", save_window_attributes)
+
+-- Add event listener for window resize or move
+mp.observe_property("osd-dimensions", "native", save_window_attributes)
+mp.observe_property("window-scale", "native", save_window_attributes)
+mp.observe_property("window-x", "native", save_window_attributes)
+mp.observe_property("window-y", "native", save_window_attributes)
