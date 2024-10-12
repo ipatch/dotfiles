@@ -381,7 +381,8 @@ for_window [class="Qemu-system-x86_64"] move to workspace $ws6
 
 for_window [class="Bluebubbles"] move to workspace $ws8
 
-for_window [class="mpv"] floating enable
+# floating enable,move position 25 ppt 0 ppt,resize set 50 ppt 100 ppt
+for_window [class="mpv"] floating enable,move position 25 ppt 0 ppt,resize set 50 ppt 100 ppt
 
 # TODO: ipatch, launch thunar file explorer window with a specific size
 # NOTE: i think thunar remembers the last window size, not sure about placement
