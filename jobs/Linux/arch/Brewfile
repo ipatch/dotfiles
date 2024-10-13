@@ -1,0 +1,231 @@
+tap "freecad/freecad", "https://github.com/ipatch/homebrew-freecad.git"
+tap "homebrew/aliases"
+tap "homebrew/autoupdate"
+tap "homebrew/bundle"
+tap "homebrew/cask"
+tap "homebrew/command-not-found"
+tap "homebrew/core", "https://github.com/ipatch/homebrew-core.git"
+tap "homebrew/services"
+tap "homebrew/test-bot"
+tap "ipatch/deleteme"
+tap "ipatch/us-05", "https://github.com/ipatch/homebrew-us-05.git"
+tap "majd/repo"
+# Static checker for GitHub Actions workflow files
+brew "actionlint"
+# Cryptography and SSL/TLS Toolkit
+brew "openssl@3"
+# Extremely Fast Compression algorithm
+brew "lz4"
+# General-purpose data compression with high compression ratio
+brew "xz"
+# Color management engine supporting ICC profiles
+brew "little-cms2"
+# Library for command-line editing
+brew "readline"
+# Command-line interface for SQLite
+brew "sqlite"
+# Image format providing lossless and lossy compression for web images
+brew "webp"
+# Highly capable, feature-rich programming language
+brew "perl"
+# Aquarium animation in ASCII art
+brew "asciiquarium"
+# C/C++ and Java libraries for Unicode and globalization
+brew "icu4c"
+# X.Org: Library for common extensions to the X11 protocol
+brew "libxext"
+# Core utilities for Python packages
+brew "python-packaging", link: false
+# Tool for generating GNU Standards-compliant Makefiles
+brew "automake"
+# Collection of portable C++ source libraries
+brew "boost"
+# C++ library for C++/Python3 interoperability
+brew "boost-python3"
+# Get a file from an HTTP, HTTPS or FTP server
+brew "curl"
+# C library of Git core methods that is re-entrant and linkable
+brew "libgit2"
+# Mozilla CA bundle for Python
+brew "certifi", link: false
+# Cross-platform make
+brew "cmake"
+# Documentation for CMake
+brew "cmake-docs"
+# Get, unpack, build, and install modules from CPAN
+brew "cpanminus"
+# Common UNIX Printing System
+brew "cups"
+# Compiler for writing C extensions for the Python language
+brew "cython"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.13"
+# Integer Set Library for the polyhedral model
+brew "isl"
+# GNU compiler collection
+brew "gcc"
+# Process Management Interface for HPC environments
+brew "pmix"
+# High performance message passing library
+brew "open-mpi"
+# Cryptography and SSL/TLS Toolkit
+brew "openssl@1.1"
+# Library to load and enumerate PKCS#11 modules
+brew "p11-kit"
+# Validating, recursive, caching DNS resolver
+brew "unbound"
+# GNU Transport Layer Security (TLS) Library
+brew "gnutls"
+# MP3 player for Linux and UNIX
+brew "mpg123"
+# Library for JPEG-2000 image manipulation
+brew "openjpeg"
+# Image processing and image analysis library
+brew "leptonica"
+# Library for accessing the direct rendering manager
+brew "libdrm"
+# C library SSHv1/SSHv2 client and server protocols
+brew "libssh"
+# X.Org: X Window System Cursor management library
+brew "libxcursor"
+# Audio time stretcher tool and library
+brew "rubberband"
+# Low-level access to audio, keyboard, mouse, joystick, and graphics
+brew "sdl2"
+# Compression/decompression library aiming for high speed
+brew "snappy"
+# Audio codec designed for speech
+brew "speex"
+# Secure Reliable Transport
+brew "srt"
+# AV1 encoder
+brew "svt-av1"
+# OCR (Optical Character Recognition) engine
+brew "tesseract"
+# Open video compression format
+brew "theora"
+# H.264/AVC encoder
+brew "x264"
+# H.265/HEVC encoder
+brew "x265"
+# High-performance, high-quality MPEG-4 video library
+brew "xvid"
+# High-performance, asynchronous messaging library
+brew "zeromq"
+# Scaling, colorspace conversion, and dithering library
+brew "zimg"
+# Play, record, convert, and stream audio and video
+brew "ffmpeg"
+# Play, record, convert, and stream audio and video
+brew "ffmpeg@6"
+# High-performance theorem prover
+brew "z3"
+# Next-gen compiler infrastructure
+brew "llvm"
+# Additional Wayland protocols
+brew "wayland-protocols"
+# GNU compiler collection
+brew "gcc@13"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.11", link: false
+# GNU internationalization (i18n) and localization (l10n) library
+brew "gettext"
+# Documentation tool for GObject-based libraries
+brew "gi-docgen"
+# X Window System display server
+brew "xorg-server"
+# Multi-platform library for OpenGL applications
+brew "glfw"
+# GNU version of the tar archiving utility
+brew "gnu-tar"
+# Image manipulation
+brew "netpbm"
+# Library to render SVG files using Cairo
+brew "librsvg"
+# Graph visualization software from AT&T and Bell Labs
+brew "graphviz"
+# Toolkit for creating graphical user interfaces
+brew "gtk4"
+# HTTP client/server library for GNOME
+brew "libsoup"
+# Development framework for multimedia applications
+brew "gstreamer"
+# GNU Ubiquitous Intelligent Language for Extensions
+brew "guile"
+# File format designed to store large amounts of data
+brew "hdf5-mpi"
+# File format designed to store large amounts of data
+brew "hdf5@1.10"
+# Program providing model for GNU coding standards and practices
+brew "hello"
+# Reference implementation of the Linux FUSE interface
+brew "libfuse"
+# Netlink Library Suite
+brew "libnl"
+# X.Org: pthread-stubs.pc
+brew "libpthread-stubs"
+# Library for USB device access
+brew "libusb"
+# Open-source implementation of the OpenGL specification
+brew "mesalib-glw"
+# Fast and user friendly build system
+brew "meson"
+# Netwide Assembler (NASM) is an 80x86 assembler
+brew "nasm"
+# Libraries for security-enabled client and server applications
+brew "nss"
+# Optimized BLAS library
+brew "openblas"
+# Package for scientific computing with Python
+brew "numpy", link: false
+# Rich and complete approach to parallelism in C++
+brew "tbb"
+# 3D modeling and numerical simulation software for CAD/CAM/CAE
+brew "opencascade"
+# Passphrase entry dialog utilizing the Assuan protocol
+brew "pinentry"
+# XCB cursor library (replacement for libXcursor)
+brew "xcb-util-cursor"
+# Easily download, build, install, upgrade, and uninstall Python packages
+brew "python-setuptools"
+# Safe, concurrent, practical language
+brew "rust"
+# Static analysis and lint tool, for (ba)sh scripts
+brew "shellcheck"
+# Generate scripting interfaces to C/C++ code
+brew "swig"
+# Validating XML parser
+brew "xerces-c"
+# Convert XML to another format (based on XSL or other tools)
+brew "xmlto"
+# Modeling and Data Exchange standardized format library
+brew "freecad/freecad/med-file@4.1.1"
+# Modeling and Data Exchange standardized format library
+brew "freecad/freecad/med-file@4.1.1_py312"
+# Package for scientific computing with Python
+brew "freecad/freecad/numpy@1.26.4_py310"
+# Package for scientific computing with Python
+brew "freecad/freecad/numpy@2.1.1_py312"
+# Seamless operability between C++11 and Python
+brew "freecad/freecad/pybind11_py312"
+# GeneratorRunner plugin that outputs C++ code for CPython extensions
+brew "freecad/freecad/shiboken2@5.15.15_py312"
+# Python bindings for Qt5 and greater
+brew "freecad/freecad/pyside2@5.15.15_py312"
+# GeneratorRunner plugin that outputs C++ code for CPython extensions
+brew "freecad/freecad/shiboken2@5.15.11_py310"
+# Generate scripting interfaces to C/C++ code
+brew "freecad/freecad/swig@4.1.1"
+# Generate scripting interfaces to C/C++ code
+brew "freecad/freecad/swig@4.2.1"
+# Simple 'Hello, World!' program written in C
+brew "ipatch/us-05/hello_world_c"
+vscode "actboy168.lua-debug"
+vscode "amazonwebservices.aws-toolkit-vscode"
+vscode "asvetliakov.vscode-neovim"
+vscode "github.vscode-github-actions"
+vscode "jeanp413.open-remote-ssh"
+vscode "jvalecillos.gpg"
+vscode "ms-python.debugpy"
+vscode "ms-python.python"
+vscode "sumneko.lua"
