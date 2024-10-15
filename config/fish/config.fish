@@ -130,6 +130,13 @@ if status is-interactive
   # HOMEBREW_NO_VERIFY_ATTESTATIONS=1
   set -gx hbc "$bp/cache"
 
+  # TODO: possibly getting a false positive
+  # Warning: Homebrew's share was not found in your XDG_DATA_DIRS but you have
+  # this variable set to include other locations.
+  # Some programs like `vapigen` may not work correctly.
+  # Consider adding Homebrew's share directory to XDG_DATA_DIRS like so:
+  # echo 'export XDG_DATA_DIRS="/home/capin/homebrew/share:$XDG_DATA_DIRS"' >> ~/.config/fish/config.fish
+
   # below is required to run `brew update`
   if uname -a | grep -q "asahi"
     set -gx HOMEBREW_USE_RUBY_FROM_PATH 1
