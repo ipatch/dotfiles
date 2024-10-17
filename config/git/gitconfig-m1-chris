@@ -332,12 +332,14 @@
 
 [merge]
   # Include summaries of merged commits in newly created merge commit messages
-  log = true
-  tool = vimdiff
+  # log = true
   conflictstyle = diff3
+  # tool = nvim
+  tool = vimdiff
 
-[mergetool]
-  prompt = false
+# [mergetool "nvim"]
+  # prompt = false
+  # cmd = nvim -d $LOCAL $REMOTE $MERGED
 
 [push]
   default = simple # git ≥ 1.8+ required
