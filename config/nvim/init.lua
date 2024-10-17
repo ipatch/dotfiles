@@ -1149,10 +1149,13 @@ cmd [[silent! colorscheme onedark]]
 ---------------
 -- PLUGIN / 'numToStr/Comment.nvim'
 -- NOTE: ipatch, attempt to define commentstring for specific dot files
+require('Comment').setup({
+  -- per the plugin readme ignore empty lines
+  ignore = '^$'
+})
+
 local ft = require('Comment.ft')
-
 -- 1. Using set function
-
 ft
 -- Set only line comment
 -- .set('yaml', '#%s')
@@ -1161,6 +1164,7 @@ ft
 .set('ini', ';%s')
 .set('jsonc', '/*%s*/')
 .set('c', '//%s', '//%s')
+.set('gitconfig', '#%s')
 
 -- DEPRECATED
 -- cmd('set foldmethod=expr')
