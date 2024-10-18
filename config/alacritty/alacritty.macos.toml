@@ -74,6 +74,12 @@ style = "Regular"
 x = 0
 y = 0
 
+# the below is the default binding on my archlinux i3 setup but required when using al on macos via vnc
+[[keyboard.bindings]]
+action = "Copy"
+key = "C"
+mods = "Control|Shift"
+
 [[keyboard.bindings]]
 chars = "\u001Bb"
 key = "Left"
