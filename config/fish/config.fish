@@ -373,6 +373,7 @@ if status is-interactive
     end # if  test /usr/local/bin/brew
   end #function
 
+  # TODO: function should be isolated to systems where yay is installed
   function yay --description "add a `remove` arg for yay and possibly some other goodies"
     if test "$argv[1]" = "remove"
       set -l args $argv[2..-1]
