@@ -214,6 +214,7 @@ if status is-interactive
     abbr -a -- hlp.mount.fat32 'echo "sudo mount -t vfat /dev/sdb1 ~/mnt/usb.drv/ -o rw,umask=0000"'
     abbr -a -- hlp.clear.journal 'sudo journalctl --rotate; sudo journalctl --vacuum-time=1s'
 
+    abbr -a -- scu 'systemctl --user'
     abbr -a -- sc 'sudo systemctl'
     abbr -a -- sc.clear.journal 'sudo journalctl --rotate; sudo journalctl --vacuum-time=1s'
     abbr -a -- clear.journal 'sudo journalctl --rotate; sudo journalctl --vacuum-time=1s'
