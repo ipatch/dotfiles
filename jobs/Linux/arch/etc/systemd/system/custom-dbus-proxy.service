@@ -1,0 +1,17 @@
+[Unit]
+Description=Custom DBus to TCP Proxy
+# After=network.target
+After=dbus.socket
+Requires=dbus.socket
+PartOf=graphical-session.target
+
+[Service]
+Type=simple
+Environment=DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/%U/bus
+# ExecStart=/usr/bin/socat ABSTRACT-LISTEN:/tmp/custom_dbus_name,fork TCP:localhost:7272
+ExecStart=/usr/bin/socat TCP-LISTEN:7272,reuseaddr,fork UNIX-CONNECT:/run/user/%U/bus
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target
