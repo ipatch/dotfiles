@@ -40,6 +40,10 @@ then send / forward a test message,
 notify-send -t 0 "brew install qt@5 done"
 ```
 
+### going further with the above setup
+
+setup the systemd unit files to run the services in the background
+
 ## working with zfs
 
 - as of sep 5 2024, zfs only supports linux kernels v6.9 and below, and asahi will install a 6.10 kernel.
