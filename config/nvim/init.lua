@@ -1165,6 +1165,7 @@ ft
 .set('jsonc', '/*%s*/')
 .set('c', '//%s', '//%s')
 .set('gitconfig', '#%s')
+.set('systemd', '#%s')
 
 -- DEPRECATED
 -- cmd('set foldmethod=expr')
