@@ -4,9 +4,9 @@
 
 > this really should be a write up of some sort like blog post / gist write up or something 😑
 
-that said, here are my notes for forwarding notify-send messages to my local computer across a network to alert me a long running task / job has finished.
+that said, here are my notes for forwarding notify-send messages to my local computer across a network to alert me when a long running task / job has finished.
 
-**why?** when working with nested tmux sessions it can be difficult to know when long running job has completed ie. `brew install llvm -v -s` will take more than a couple minutes on every computer i have access to. it'd be nice to forward a message to my main desktop to let me know what job has finished either with `1` or `0`. using homebrew on asahi is officially **not** supported so every piece of software (formula) has be built and installed from source.
+**why?** when working with nested tmux sessions it can be difficult to know when long running job has completed ie. `brew install llvm -v -s` will take more than a couple minutes on every computer i have access to. it'd be nice to forward a message to my main desktop to let me know what job has finished regardless or success or not. using homebrew on asahi is officially **not** supported so every piece of software (formula) has be built and installed from source.
 
 i use tmux with nested sessions to interact with remote computers across a network, and below is how i notify myself when a long running task is done.
 
