@@ -140,6 +140,7 @@ if status is-interactive
   # below is required to run `brew update`
   if uname -a | grep -q "asahi"
     set -gx HOMEBREW_USE_RUBY_FROM_PATH 1
+    export DBUS_SESSION_BUS_ADDRESS='unix:abstract=/tmp/custom_dbus_name,guid=5fe0907d81e722390f1ce02d6033ad76'
   end
 
   # NOTE: ipatch, for reasons above my pay grade the /tmp dir was running out of space on m1 mini running asahi
