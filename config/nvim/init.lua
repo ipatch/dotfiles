@@ -873,7 +873,7 @@ end)
 
 ---------------
 -- PLUGIN / nvchad/nvim-colorizer.lua 🎨
--- NOTE: ipatch 
+-- NOTE: ipatch, display the actual colors in the text file 
 -- ref: https://github.com/norcalli/nvim-colorizer.lua
 ----
 require 'colorizer'.setup({
@@ -886,7 +886,6 @@ require 'colorizer'.setup({
     tmux =  { mode = 'foreground'; }
   },
 })
-
 
 ---------------
 -- PLUGIN / indent-blankline
@@ -1100,13 +1099,16 @@ require('onedark').setup {
     -- NOTE: ipatch, default grey color too light to see on dark background with lots of ambient light
     -- NOTE: github uses #8b949e for code comments in dark contrast web UI
     github_grey = "#8b949e",
+    github_grey_lighter = "#9BA5B0",
     tmux_comment = "#6a7076",
     bright_orange = "#ff8800",
     -- red = "#ff0000",
   },
   highlights = {
     -- NOTE: ipatch, run `:Inspect` to get the highlighting group
+    -- ["@comment"] = {fg = '$bright_orange'},
     ["@comment"] = {fg = '$github_grey'},
+    ["tmuxcomment"] = {fg = '$github_grey_lighter'},
     ["@lsp.type.comment"] = {fg = '$github_grey' },
     ["Comment"] = {fg = '$github_grey'},
     -- ["@spell.mardown"] = { fmt = "undercurl" },
