@@ -382,7 +382,7 @@ vim.api.nvim_create_autocmd('BufReadPost', {
 ----
 
 ------------------------------
--- SETTINGS / clipboard
+-- SETTINGS / clipboard, ie. pbcopy
 ----
 -- check for osc52 native support
 -- https://github.com/neovim/neovim/commit/cd31a72f9b22741c6ece1c47a91d990e2df218fa
@@ -424,7 +424,9 @@ elseif has_osc52_support() then
   }
 else
   -- Default settings for clipboard based on the operating system
-  if vim.fn.has('mac') == 1 or vim.fn.has('win64') == 1 or vim.fn.has('win32') == 1 then
+  if vim.fn.isdirectory("/var/mobile") == 1 then
+    vim.opt.clipboard:append {''}
+  elseif vim.fn.has('mac') == 1 or vim.fn.has('win64') == 1 or vim.fn.has('win32') == 1 then
     vim.opt.clipboard:append {'unnamed'}
   else
     vim.opt.clipboard:append {'unnamedplus'}
@@ -931,7 +933,7 @@ local languages = {
   'yaml',
 }
 
-if user == "mobile" then
+if user == "mobile" or user == "root" then
   languages = {}
 end
 
