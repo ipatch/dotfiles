@@ -19,8 +19,15 @@
 
 if status is-interactive
 
+  set current_user (id -un)
   # NOTE: ipatch, local var for defining OS specific settings
-  set -gx os (/usr/bin/uname)  
+  if [ "$current_user" = "mobile" ]
+	  set -gx os (/var/jb/usr/bin/uname)
+	  set -gx LANG en_US.UTF-8
+	  set -gx LC_ALL en_US.UTF-8
+  else
+	  set -gx os (/usr/bin/uname)  
+  end
 
   # interactive commands can go here
   alias gs='git status'
@@ -198,9 +205,12 @@ if status is-interactive
   set fish_patch (echo $FISH_VERSION | cut -d. -f3)
 
   # Check if Fish shell version is 3.7.0 or greater
-  if test $fish_major -ge 3; and test $fish_minor -ge 7; and test $fish_patch -ge 0
-    abbr -a --set-cursor='%' -- mpb '/opt/local/bin/%'
-  end  
+  # NOTE: ipatch, fish on iOS prints the version ie., version 26383c63
+  if test "$current_user" != "mobile"
+	  if test $fish_major -ge 3; and test $fish_minor -ge 7; and test $fish_patch -ge 0
+	    abbr -a --set-cursor='%' -- mpb '/opt/local/bin/%'
+	  end  
+  end
 
   # fish shell abbr / gnu+linux specific
   # NOTE: ipatch, the below cmd will nuke the $DISPLAY env var  🤷‍♂️
