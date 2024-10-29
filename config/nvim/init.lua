@@ -898,37 +898,46 @@ require('ibl').setup()
 -- i had to add the vimdoc and luddoc parsers to prevent the above err
 ----
 local ts = require 'nvim-treesitter.configs'
+
+local user = vim.fn.expand("$USER")
+
+local languages = {
+  'bash',
+  'c',
+  'comment',
+  'cpp',
+  'css',
+  'fish',
+  'gitattributes',
+  'gitcommit',
+  'gitignore',
+  'help',
+  'html',
+  'javascript',
+  'json',
+  'lua',
+  'luadoc',
+  'markdown',
+  'markdown_inline',
+  'python',
+  'query',
+  'rasi',
+  'ruby',
+  'rust',
+  'tsx',
+  'typescript',
+  'vim',
+  'vimdoc',
+  'yaml',
+}
+
+if user == "mobile" then
+  languages = {}
+end
+
 ts.setup {
   sync_install = false,
-  ensure_installed = {
-    'bash',
-    'c',
-    'comment',
-    'cpp',
-    'css',
-    'fish',
-    'gitattributes',
-    'gitcommit',
-    'gitignore',
-    'help',
-    'html',
-    'javascript',
-    'json',
-    'lua',
-    'luadoc',
-    'markdown',
-    'markdown_inline',
-    'python',
-    'query',
-    'rasi',
-    'ruby',
-    'rust',
-    'tsx',
-    'typescript',
-    'vim',
-    'vimdoc',
-    'yaml',
-  },
+  ensure_installed = languages,
   -- List of parsers to ignore installing
   ignore_install = {
     'beancount',
