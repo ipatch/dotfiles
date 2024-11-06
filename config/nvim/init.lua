@@ -176,8 +176,14 @@ require('lazy').setup({
   'navarasu/onedark.nvim',
   'projekt0n/github-nvim-theme',
 
-  -- UI / enhancements / newlines
-  {'lukas-reineke/indent-blankline.nvim', main = 'ibl', opts = {} },
+  { -- UI / enhancements / newlines
+    -- NOTE: ipatch, neewest version requires nvim nightly circa nov 6 2024
+    'lukas-reineke/indent-blankline.nvim',
+    main = 'ibl',
+    ---@module "ibl"
+    ---@type ibl.config
+    opts = {},
+  },
 
   { -- UI / enhancements / code folds
     'kevinhwang91/nvim-ufo',
