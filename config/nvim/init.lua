@@ -943,6 +943,18 @@ if user == "mobile" or user == "root" then
   languages = {}
 end
 
+if user == "capin" then
+  -- NOTE: ipatch, manually ran `:TSInstall yaml-github-action`
+  local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
+  parser_config["yaml-github-action"] = {
+    install_info = {
+      url = "/opt/code/git/github/forks/tree-sitter-github-action",
+      files = {"src/parser.c"},
+    },
+    filetype = "yaml-github-action"
+  }
+end
+
 ts.setup {
   sync_install = false,
   ensure_installed = languages,
