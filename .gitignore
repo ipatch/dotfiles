@@ -94,7 +94,6 @@ editors/vscode-oss/extensions/extensions.json
 
 **/*.bkup
 
-
 #-----------------------------
 # weechat
 #-
@@ -131,6 +130,8 @@ config/fish/fisher/conf.d/*
 !config/fish/fisher/conf.d/.gitkeep
 config/fish/fisher/functions/*
 !config/fish/fisher/functions/.gitkeep
+config/fish/interactive/private-env-vars.fish
+config/fish/private-env-vars.fish
 
 #-----------------------------
 # mpv
@@ -179,13 +180,13 @@ jobs/bin/inkview
 **/FreeCAD/Gui/Stylesheets/*.orig
 **/FreeCAD/Macro/**
 !**/FreeCAD/Macro/.gitkeep
+jobs/macOS/Users/mr-fancy/Library/Preferences/FreeCAD/user.cfg
 
 #-----------------------------
 # PrusaSlicer / Prusa Slicer
 # NOTE: app setting files on macos are located within...
 # $HOME/Library/Application Support/PrusaSlicer/
 #-
-
 **/PrusaSlicer/cache/**
 **/PrusaSlicer/snapshots/**
 **/PrusaSlicer/vendor/**
@@ -307,16 +308,12 @@ config/ssh/macos/config
 config/ssh/config
 !config/ssh/macos/.gitkeep
 
-
 #-----------------------------
 # tmp - ignore files
 #-
 # config/git/gitconfig
 .gitsecret/keys/random_seed
 !*.secret
-config/fish/interactive/private-env-vars.fish
-config/fish/private-env-vars.fish
-jobs/macOS/Users/mr-fancy/Library/Preferences/FreeCAD/user.cfg
 .git/**
 
 #----------------------------
