@@ -49,6 +49,9 @@ if status is-interactive
   if test -d $HOME/homebrew
     set -gx bp "$HOME/homebrew"
     eval ($bp/bin/brew shellenv)
+  else if test -d /home/linuxbrew/.linuxbrew
+    set -gx bp "/home/linuxbrew/.linuxbrew"
+    eval ($bp/bin/brew shellenv)
   end
 
   ## $USER tooling / homebrew / homebrew specific aliases
@@ -255,8 +258,10 @@ if status is-interactive
     # possible fix could be to test if the dir exists
     set -gx bp "$HOME/homebrew"
 
-    abbr -a --set-cursor='%' -- nrd 'npm run dev%'
-    abbr -a --set-cursor='%' -- rnd 'npm run dev%'
+	  if test $fish_major -ge 3; and test $fish_minor -ge 7; and test $fish_patch -ge 0
+      abbr -a --set-cursor='%' -- nrd 'npm run dev%'
+      abbr -a --set-cursor='%' -- rnd 'npm run dev%'
+    end
     abbr -a -- nrdh 'npm run dev:hot'
     abbr -a -- nr 'npm run'
   end
