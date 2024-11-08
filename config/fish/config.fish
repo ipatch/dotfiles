@@ -8,6 +8,14 @@
 # old non tree-sitter vim syntax file
 # https://github.com/dag/vim-fish
 #--
+# - [ ] TODO: fix the below setup errors for init setup
+# cat: /home/brewer/.config/fish/right_prompt_state: No such file or directory
+# abbr: Unknown option “--set-cursor=%”
+# abbr: Unknown option “--set-cursor=%”
+#---------------------
+# brewer@linuxmbp /h/l/.l/H/L/T/f/homebrew-freecad (master)> cd $hbfc
+# cd: The directory “/home/brewer/homebrew/Library/Taps/freecad/homebrew-freecad” does not exist
+#---------------------
 # - [ ] TODO: attempt to group all homebrew related entries
 # - [x] TODO: get code folds working for the love of GOD
     # - i think properly setting this ft to fish has helped some
