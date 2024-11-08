@@ -46,10 +46,10 @@ if status is-interactive
   alias pthrm='fish.rm.path'
 
   # $USER tooling / homebrew / set local env var `bp`
-  if test -d $HOME/homebrew
+  if [ -d $HOME/homebrew ]
     set -gx bp "$HOME/homebrew"
     eval ($bp/bin/brew shellenv)
-  else if test -d /home/linuxbrew/.linuxbrew
+  else if [ -d /home/linuxbrew/.linuxbrew ]
     set -gx bp "/home/linuxbrew/.linuxbrew"
     eval ($bp/bin/brew shellenv)
   end
@@ -246,7 +246,7 @@ if status is-interactive
   end
 
   # NOTE: ipatch, arch linux specifics
-  if [ "$os" = Linux ]; and [ -n /usr/bin/pacman ]
+  if [ "$os" = Linux ]; and [ -x /usr/bin/pacman ]
     # TODO: only set this on gnu+linux distros
     abbr -a -- pbcopy 'xclip -selection clipboard'
     abbr -a -- pbpaste "xclip -selection clipboard -o"
