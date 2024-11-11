@@ -307,12 +307,12 @@ if status is-interactive
     # $HOME/.gem/ruby/3.0.0/bin \
 
   if [ (whoami) != "brewmaster" ]
-    set paths $paths /usr/local/sbin /usr/local/bin
+    set -a paths $paths /usr/local/sbin /usr/local/bin
   end
 
   # add below path entry if $USER is not capin
   if [ (whoami) != "capin" ]
-    set paths $paths $HOME/homebrew/Library/Homebrew/vendor/portable-ruby/current/bin
+    set -a paths $paths $bp/Homebrew/Library/Homebrew/vendor/portable-ruby/current/bin
   end
 
   for p in $paths
