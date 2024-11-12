@@ -283,6 +283,7 @@ if status is-interactive
   # NOTE: path entries will persist and require manual removal!!!
   #--
 
+  # TODO: tree-sitter it'd nice to be able to have a code fold for paths var
   set -l paths \
     $HOME/homebrew/bin \
     $HOME/homebrew/sbin \
