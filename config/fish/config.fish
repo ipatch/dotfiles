@@ -297,15 +297,15 @@ if status is-interactive
     $DENO_INSTALL/bin \
     $HOME/.rvm/gems/default/wrappers \
     $HOME/.local/share/gem/ruby/3.3.0/bin \
+    $HOME/.gem/ruby/3.3.0/bin \
     $code/git/local/bin \
     $HOME/.docker/bin \
-    # /usr/local/sbin \
-    # /usr/local/bin \
     # below entry should NOT be added
     $HOME/wtf/bin \
 
     # nowork solargraph
     # $HOME/.gem/ruby/3.0.0/bin \
+    # WARNING:  You don't have /Users/chris/.gem/ruby/3.3.0/bin in your PATH,
 
   if [ (whoami) != "brewmaster" ]
     set -a paths $paths /usr/local/sbin /usr/local/bin
