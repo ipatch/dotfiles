@@ -314,6 +314,7 @@ if status is-interactive
   # add below path entry if $USER is not capin
   if [ (whoami) != "capin" ]
     set -a paths $paths $bp/Homebrew/Library/Homebrew/vendor/portable-ruby/current/bin
+    set -a paths $paths $bp/Library/Homebrew/vendor/portable-ruby/current/bin
   end
 
   for p in $paths
@@ -325,6 +326,20 @@ if status is-interactive
       # NOTE: the path entry order can be tested w/ the fish shell abbr `pp`
       set -gx PATH $p $PATH
     end
+  end
+
+  # NOTE: ipatch, remove entries from the PATH env var
+  if [ (whoami) = "chris" ]
+    # define paths to exclude
+    set -l exclude_paths "/usr/local/bin" "."
+
+    # Filter the PATH variable, excluding $exclude_paths
+    set -gx PATH (for p in $PATH
+      # if test $p != "/usr/local/bin"
+      if not contains $p $exclude_paths
+        echo $p
+      end
+    end)
   end
   
   # set created & updated files & directories to 664 & 775
