@@ -541,6 +541,10 @@ vim.diagnostic.config({
 -- PLUGIN / folke/lazydev.nvim
 -- TODO: finish scaffolding out setup / config
 -----
+
+------------------------------
+-- PLUGIN / neovim/nvim-lspconfig
+-----
 local nvim_lsp = require('lspconfig')
 local lsp = require('lsp-zero').preset({})
 
@@ -701,6 +705,7 @@ end
 -- PLUGIN / neovim native lsp / ruby / solargraph
 -- NOTE: https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#solargraph
 -- NOTE: ipatch, use `gem install --user-install solargraph` and NOT mason to install solargraph
+-- NOTE: ipatch, code actions are NOT supported https://github.com/castwide/solargraph/issues/614
 ----
 require'lspconfig'.solargraph.setup{
   capabilities = capabilities,
@@ -859,6 +864,7 @@ local builtin = require('telescope.builtin')
 ---------------
 -- PLUGIN / neovim telescope / key mappings
 -- NOTE: ipatch, install telecope-fzf-native.nvim to fuzzy search
+-- TODO: construct a function where C-p can be used to first  check if git dir and if not fallback to find_files
 vim.keymap.set('n', '<leader>pf', builtin.find_files, {})
 vim.keymap.set('n', '<C-p>', builtin.git_files, {})
 vim.keymap.set('n', ';', builtin.buffers, {})
