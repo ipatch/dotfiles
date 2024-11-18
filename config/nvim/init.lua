@@ -652,6 +652,13 @@ require'lspconfig'.yamlls.setup{
 -- plugin / nvim native lsp / ruby-lsp
 -- NOTE: ipatch, when using rvm to manage rubies, rvm needs to be init'd before running `:masoninstall ruby-lsp`
 ----
+local lspconfig = require('lspconfig')
+lspconfig.ruby_lsp.setup({
+  init_options = {
+    formatter = 'standard',
+    linters = { 'standard' },
+  },
+})
 
 --[[ require('lspconfig').ruby_ls.setup {
   -- cmd = {"/home/my_user/.rbenv/shims/ruby-lsp"},
