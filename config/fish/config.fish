@@ -264,6 +264,8 @@ if status is-interactive
     end
     abbr -a -- nrdh 'npm run dev:hot'
     abbr -a -- nr 'npm run'
+
+    set -gx THEOS "$HOME/theos"
   end
 
   abbr -a -- nmc 'nmcli'
