@@ -1,0 +1,19 @@
+[Unit]
+Description=Lock screen on suspend
+Before=sleep.target
+
+[Service]
+# NOTE: ipatch, the below cmd errors when run within /etc/systemd/system dir, migrate to $USER service file
+# ExecStart=/usr/bin/xidlehook --not-when-audio --not-when-fullscreen --timer 5 "betterlockscreen -l dim" ""
+ExecStart=/usr/bin/xidlehook --not-when-audio --not-when-fullscreen --timer 360 "betterlockscreen -l dim" ""
+# User=capin
+# Type=forking
+Environment=DISPLAY=:0
+Environment=XDG_RUNTIME_DIR=/run/user/%U
+Restart=always
+# NOTE: default example
+# ExecStart=/usr/bin/i3lock -c 000000
+
+[Install]
+WantedBy=sleep.target
+
