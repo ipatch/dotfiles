@@ -782,6 +782,7 @@ https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.conf \
 
 <summary>Uncompleted</summary>
 
+- [ ] #arch #i3 #lightdm on my current 2015 mbp when i have the thunderbolt to ethernet dongle plugged in when booting up there is an extended delay ~ 2 minutes before i can interact with i3 after inputting my password. if i disconnect my thunderbolt to ethernet dongle when booting there is no delay, and then i just plug the dongle after seeing the polybar load
 - [ ] #neovim, update config _init.lua_ when using `control+p` to search for files in _cwd_ to work with both git repos and non git repo dirs. as of right now i have use `<leader>p+f` to search / list files in a non git dir (repo)
 - [ ] #neovim when the cmd `gcc` use `//` style comments instead of `/* */`
 - [ ] #fish #theme #neolambda, if origin is the same _git remote_ as another _remote_ name then update _git status prompt_ for both, **not** just _origin_
