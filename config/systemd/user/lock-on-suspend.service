@@ -15,5 +15,6 @@ Restart=always
 # ExecStart=/usr/bin/i3lock -c 000000
 
 [Install]
-WantedBy=sleep.target
+WantedBy=default.target
+# WantedBy=sleep.target
 
