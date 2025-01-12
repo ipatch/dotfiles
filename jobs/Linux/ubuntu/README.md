@@ -11,3 +11,6 @@ sudo apt install mpv
 sudo apt install intel-gpu-tools
 ```
 
+## ubuntu / 22.04 / xrdp server
+
+recently with my extra macbook pro i setup an rdp server to test freecad installations.
