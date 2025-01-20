@@ -1,20 +1,35 @@
 [Unit]
 Description=Lock screen on suspend
-Before=sleep.target
+# Before=sleep.target
+# After=graphical-session.target
+# Requires=graphical-session.target
+# After=user-login.target
+# Requires=user-login.target
 
 [Service]
+Type=simple
+# Type=forking
+
 # NOTE: ipatch, the below cmd errors when run within /etc/systemd/system dir, migrate to $USER service file
 # ExecStart=/usr/bin/xidlehook --not-when-audio --not-when-fullscreen --timer 5 "betterlockscreen -l dim" ""
-ExecStart=/usr/bin/xidlehook --not-when-audio --not-when-fullscreen --timer 360 "betterlockscreen -l dim" ""
-# User=capin
-# Type=forking
+ExecStart=/usr/bin/xidlehook --socket $XIDLEHOOK_SOCK --not-when-audio --not-when-fullscreen --timer 360 "betterlockscreen -l dim" ""
+
+User=capin
+Group=users
 Environment=DISPLAY=:0
-Environment=XDG_RUNTIME_DIR=/run/user/%U
-Restart=always
+Environment=XIDLEHOOK_SOCK=%t/xidlehook.socket
+# Environment=XDG_RUNTIME_DIR=/run/user/%U
+# Environment=XAUTHORITY=/home/capin/.Xauthority
+# Environment=DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$(id -u)/bus
+# Environment=DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/%U/bus
+Restart=on-failure
+RestartSec=5
 # NOTE: default example
 # ExecStart=/usr/bin/i3lock -c 000000
 
 [Install]
-WantedBy=default.target
+WantedBy=graphical.target
+# WantedBy=multi-user.target
+# WantedBy=default.target
 # WantedBy=sleep.target
 
