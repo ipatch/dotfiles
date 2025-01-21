@@ -14,8 +14,8 @@ Type=simple
 # ExecStart=/usr/bin/xidlehook --not-when-audio --not-when-fullscreen --timer 5 "betterlockscreen -l dim" ""
 ExecStart=/usr/bin/xidlehook --socket $XIDLEHOOK_SOCK --not-when-audio --not-when-fullscreen --timer 360 "betterlockscreen -l dim" ""
 
-User=capin
-Group=users
+# User=capin
+# Group=users
 Environment=DISPLAY=:0
 Environment=XIDLEHOOK_SOCK=%t/xidlehook.socket
 # Environment=XDG_RUNTIME_DIR=/run/user/%U
