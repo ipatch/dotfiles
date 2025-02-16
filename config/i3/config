@@ -3,7 +3,7 @@
 # i3 config file (v4)
 # https://i3wm.org/docs/userguide.html for a complete reference!
 
-# super key ie. windows / cmd key
+# super key ie. windows / (apple) cmd key
 set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
@@ -26,12 +26,15 @@ font pango:sans 12
 # exec --no-startup-id xrandr --output DP1 3840x2160
 # exec_always /home/capin/.screenlayout/virtual1.sh
 
-# NetworkManager is the most popular way to manage wireless networks on Linux,
+# NetworkManager is one of the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec_always --no-startup-id nm-applet
 # NOTE: ipatch, ✅ best workaround i could come up with for time being
 exec_always --no-startup-id killall copyq; sleep 5; copyq
 exec_always --no-startup-id flameshot
+
+# NOTE: ipatch, startup libinput-gestures for macbook trackpad
+exec_always --no-startup-id libinput-gestures -c ~/.config/libinput-gestures/libinput-gestures.conf;
 
 # NOTE: ipatch, below NO GOOD, app starts maximized and not in tray
 # TODO: FIXME: start minimized
