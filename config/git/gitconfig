@@ -266,13 +266,17 @@
   hist = log --graph --date-order --date=short --pretty=format:'%C(auto)%h%d %C(reset)%s %C(bold blue)%ce %C(reset)%C(green)%cr (%cd)'
   ctags = !.git/hooks/ctags
 
-# Use `origin` as the default remote on the `master` branch in all cases
-[branch "master"]
-  remote = origin
-
 [advice]
   statusHints = false # makes status messages more terse. 👍
   ignoredHook = false # stop freaking warning about git hooks not set to +x 
+
+[branch "master"]
+  # Use `origin` as the default remote on the `master` branch in all cases
+  remote = origin
+
+[commit]
+  verbose = true
+  gpgsign = true
 
 [core]
   editor = nvim
@@ -287,6 +291,27 @@
   # NOTE: the `$bp` env var NOVA ❌
   pager = less -F -X --mouse
 	autocrlf = false
+
+[diff]
+  submodule = log
+  tool = vimdiff
+  algorithm = histogram
+  colorMoved = plain
+  renames = true
+  mnemonicPrefix = true
+
+[diff "lockb"]
+  textconv = bun
+  binary = true
+
+[difftool "meld"]
+  cmd = meld
+
+[diff "zip"]
+  textconv = unzip -c -a
+
+[fetch]
+  prune = true
 
 [filter "zippey"]
   smudge = /home/capin/.local/bin/zippey.py d
@@ -331,6 +356,15 @@
   changed = green
   untracked = cyan
 
+[gpg]
+  # Make certain `gpg` is in the $USER $PATH
+  # NOTE: ipatch, ✅ the easiest way i've found to use `gpg` in various system paths, ie. `~/homebrew/bin` or `/usr/local/bin` is to make certain the $PATH can find the `gpg` cmd and DO NOT specify an absolute value
+  program = gpg
+
+[init]
+  templatedir = ~/.config/git/git-templates
+  defaultBranch = main
+
 [merge]
   # Include summaries of merged commits in newly created merge commit messages
   log = true
@@ -342,54 +376,28 @@
 
 [push]
   default = simple # git ≥ 1.8+ required
+  autoSetupRemote = true
+  followTags = true
 
 # `git config --global diff.submodule log` will add the below 2 lines
 # NOTE: exp with (un)zipping zip files in a git repo
-[diff "zip"]
-  textconv = unzip -c -a
-
-[diff]
-  submodule = log
-	tool = vimdiff
-
-[diff "lockb"]
-  textconv = bun
-  binary = true
-
-[difftool "meld"]
-  cmd = meld
-
-[status]
-  submodulesummary = 1
-
-[commit]
-  verbose = true
-  gpgsign = true
-
-[tag]
-  verbose = true
-  gpgsign = true
-
-[fetch]
-  prune = true
 
 [rebase]
   stat = true
 
-[gpg]
-  # Make certain `gpg` is in the $USER $PATH
-  # NOTE: ipatch, ✅ the easiest way i've found to use `gpg` in various system paths, ie. `~/homebrew/bin` or `/usr/local/bin` is to make certain the $PATH can find the `gpg` cmd and DO NOT specify an absolute value
-  program = gpg
+[status]
+  submodulesummary = 1
 
-[init]
-  templatedir = ~/.config/git/git-templates
-  defaultBranch = main
+[tag]
+  verbose = true
+  gpgsign = true
+  sort = version:refname
 
-##############################
+[user]
+#-----------------------------
 # Identity bull shit
 # NOTE: GitHub and git associate commits with email addresses
-##
-[user]
+#-
   name = chris
   email = chris.r.jones.1983@gmail.com
   useConfigOnly = true
@@ -412,9 +420,9 @@
 # [includeIf ="gitdir:/opt/code/dotfiles/"
 #  path = /opt/code/dotfiles/.gitconfig
 
-####
+#---
 # TODO: figure out what all this URL shorthand shit means
-##
+#-
 
 # URL shorthands
 [url "git@gitlab.com"]
@@ -439,11 +447,13 @@
 
 [url "git://bitbucket.org:"]
   insteadOf = "bb:"
+
 [filter "lfs"]
   clean = git-lfs clean -- %f
   smudge = git-lfs smudge -- %f
   process = git-lfs filter-process
   required = true
+
 [pull]
   ff = only
 
