@@ -406,6 +406,7 @@ if vim.env.TMUX then
     -- check the clipboard name with the below lua command,
     -- :lua print(vim.g.clipboard.name)
     name = 'tmux',
+    -- NOTE: does not work with tmux <= v3.1c
     copy = {
       ["+"] = {'tmux', 'load-buffer', '-w', '-'},
       ["*"] = {'tmux', 'load-buffer', '-w', '-'},
