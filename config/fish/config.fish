@@ -299,7 +299,7 @@ if status is-interactive
     $HOME/.cargo/bin \
     $DENO_INSTALL/bin \
     $HOME/.rvm/gems/default/wrappers \
-    $HOME/.local/share/gem/ruby/3.3.0/bin \
+    $HOME/.local/share/gem/ruby/3.4.0/bin \
     $HOME/.gem/ruby/3.3.0/bin \
     $code/git/local/bin \
     $HOME/.docker/bin \
