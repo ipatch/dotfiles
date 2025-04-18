@@ -4,6 +4,12 @@ if [ -f "$HOME/.dir_colors" ]; then
   eval "$(dircolors ~/.dir_colors)"
 fi
 
+# conditionally set theos related env vars
+if [ -d "/opt/theos" ]; then
+	export THEOS=/opt/theos
+	export THEOS=/opt/theos
+	export THEOS=/opt/theos
+fi
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"

@@ -63,6 +63,9 @@ else
   start_agent;
 fi
 
+# gpg shit
+export GPG_TTY=$(tty)
+
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/Users/capin/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"

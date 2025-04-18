@@ -32,11 +32,20 @@ export USERNAME="capin"
 export NICKNAME="capin"
 
 export XDG_CONFIG_HOME="$HOME/.config"
-export code="/opt/code"
-export dots="/opt/code/dotfiles"
-export github="/opt/code/github"
-export public="/opt/code/public"
-export private="/opt/code/github/private"
+
+if [ -d "/opt/code" ]; then
+	export code="/opt/code"
+	export dots="/opt/code/dotfiles"
+	export github="/opt/code/github"
+	export public="/opt/code/public"
+	export private="/opt/code/github/private"
+elif [ -d "$HOME/code" ]; then
+	export code="$HOME/code"
+	export dots="$HOME/dotfiles"
+	export github="$HOME/code/github"
+	export public="$HOME/code/public"
+	export private="$HOME/github/private"
+fi
 
 # Env Vars for git
 export GIT_RC="$XDG_CONFIG_HOME/git"
@@ -46,8 +55,15 @@ export GIT_RC="$XDG_CONFIG_HOME/git"
 #-
 alias ..='cd ..'
 alias cd..='cd ..'
+
 # alias l='ls -lahF --color=auto'
-alias l='/bin/ls -lahF'
+# set condition for diff between bsd & gnu ls
+if [[ $os == Darwin ]]; then
+  alias l='/bin/ls --color=auto -ltahF'
+else [[ $os == Linux ]]
+  alias l='/bin/ls -ltahF'
+fi
+
 alias ls='ls --color=auto'
 alias lr='ls -lrth'
 alias e='echo'
@@ -76,6 +92,7 @@ alias du='du -sh'
 
 # NOTE: functions in BASH are all stored in memory, ie. RAM and not on disk
 # test to see if a functions dir exists with `$XDG_CONFG_HOME`
+# TODO: doesn't work when functions is a symlink
 if [ -d ~/.config/bash/functions ]; then
   export funcs_dir="$HOME/.config/bash/functions"
   for file in "$funcs_dir"/*.bash; 
@@ -153,6 +170,7 @@ PATH=$PATH:$HOME/.local/bin
 # PATH=$PATH:$brew_prefix/bin
 # PATH=$PATH:$brew_prefix/opt/coreutils/libexec/gnubin
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+PATH=$PATH:/usr/local/bin
 PATH=$PATH:/usr/sbin
 PATH=$PATH:/usr/bin
 PATH=$PATH:/sbin
