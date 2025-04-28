@@ -92,8 +92,31 @@ require('lazy').setup({
         end,
       },
       {'williamboman/mason-lspconfig.nvim'}, -- Optional
+    },
+  },
 
-      -- Autocompletion
+  { -- Autocompletion blink.cmp
+    'saghen/blink.cmp',
+    dependencies = { 'rafamadriz/friendly-snippets' },
+
+    version = '1.1.1',
+
+    -- NOTE: ipatch, requires a nightly install of rustc
+    -- build = 'cargo build --release',
+    
+    ---@module 'blink.cmp'
+    ---@type blink.cmp.Config
+    opts = {
+      keymap = { preset = 'default' },
+    },
+    sources = {
+      default = { 'lsp', 'path', 'snippets', 'buffer' },
+    },
+    fuzzy = { implementation = "prefer_rust_with_warning" },
+    opts_extend = { "sources.default" },
+  },
+
+      -- DEPRECATED
       -- {'hrsh7th/cmp-nvim-lsp'}, -- Required
       -- {'hrsh7th/cmp-buffer'},
       -- {'hrsh7th/cmp-path'},
@@ -110,8 +133,6 @@ require('lazy').setup({
       --   -- install jsregexp (optional!:).
       --   build = 'make install_jsregexp'
       -- }),
-    }
-  },
 
   -- lsp helper / nvim configuring init.lua + friends
   -- DEPRECATED! migrate to lazydev.nvim
