@@ -3,7 +3,7 @@
 -- some inspiration: https://github.com/David-Kunz/vim/blob/master/init.lua
 
 ---------------
--- NOTE: ipatch / ⭐️ USEFUL REMINDERS, and other assorted BS
+-- NOTE: ipatch / ⭐️USEFUL REMINDERS, and other assorted BS
 -- NOTE: ipatch, when reloading this file with `:so %` all folds are opened 👎️ workaround save to svim then load svim
 ---------------
 -- TODO: only add commented line when holding down the shift key, return should not make the next line a comment
@@ -328,7 +328,6 @@ end
 -- Map the function to <M-o><M-c><M-r>
 -- vim.api.nvim_set_keymap('n', '<M-o><M-c><M-r>', ':lua insert_commented_line()<CR>', { noremap = true, silent = true })
 
--- plugin / https://github.com/JoosepAlviste/nvim-ts-context-commentstring/issues/67
 opt.updatetime = 100
 g.netrw_banner = true
 
@@ -344,21 +343,11 @@ opt.lcs:append("space:␣") -- Symbol for the space key
 opt.listchars:append("tab:‣ ") -- NOTE:ipatch, requires a trailing `space` after char
 opt.listchars:append("trail:•") -- BULLET (U+2022, UTF-8: E2 80 A2)
 
--- NOTE: ipatch, not required if the TS markdown and markdown_inline parsers are installed
--- setting / filetype / markdown
--- markdown_folding = 1
-
-------------------------------
--- SETTINGS / VIEWS / Save and restore cursor position
--- `:h 'viewdir`
------
-
 ------------------------------
 -- SETTINGS /  statusline, stl
-----
 -- NOTE: ipatch, the default neovim statusline, stl taken from the help page
 -- vim.opt.statusline = "%<%f ${&fileformat} %h%m%r%=%-14.(%l,%c%V%) %P"
-
+----
 vim.opt.statusline = "%<%f | %{&fileformat} %h%m%r%=%-14.(%l,%c%V%) %P"
 
 -- Define the user namespace table
@@ -370,7 +359,7 @@ vim.g.user.event = "my_event_group"
 -- Set the event field in the user namespace
 vim.g.user.fold_event = "my_fold_event_group"
 
--- Create an autocmd / save restore cursor position
+-- vim autocmd / save restore cursor position
 vim.api.nvim_create_autocmd('BufReadPost', {
   group = vim.g.user.event,
   callback = function(args)
@@ -459,9 +448,9 @@ vim.api.nvim_create_autocmd('BufWinEnter', {
 vim.cmd([[
   autocmd BufRead,BufNewFile config.fish-capin-mpb14,3-single-file set filetype=fish
   autocmd BufNewFile,BufRead *.service* set filetype=systemd
+  autocmd BufRead,BufNewFile ~/.config/rofi/config.rasi set filetype=rasi'
 ]])
 
-vim.cmd('autocmd BufRead,BufNewFile ~/.config/rofi/config.rasi set filetype=rasi')
 ---------------
 -- PLUGIN / clipboard / nvim-osc52
 ----
@@ -1032,6 +1021,7 @@ ts.setup {
 
 ---------------
 -- PLUGIN / treesitter / nvim-ts-context-commentstring
+-- https://github.com/JoosepAlviste/nvim-ts-context-commentstring/issues/67
 ----
 require('ts_context_commentstring').setup {
   enable_autocmd = false,
@@ -1168,7 +1158,7 @@ require('onedark').setup {
 
 require('onedark').load()
 
--- NOTE: ipatch, run `:SynID` ie. syntaxid to print the formatting/highlight under the cursor
+-- NOTE: ipatch, run `:Syntaxid` ie. syntaxid to print the formatting/highlight under the cursor
 -- NOTE: ipatch, adding `command!` allows reloading of this config
 -- TODO: not seeing the output of this command being printed
 vim.api.nvim_command([[
