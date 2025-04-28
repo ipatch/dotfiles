@@ -94,22 +94,22 @@ require('lazy').setup({
       {'williamboman/mason-lspconfig.nvim'}, -- Optional
 
       -- Autocompletion
-      {'hrsh7th/cmp-nvim-lsp'}, -- Required
-      {'hrsh7th/cmp-buffer'},
-      {'hrsh7th/cmp-path'},
-      {'hrsh7th/cmp-cmdline'},
-      {'hrsh7th/nvim-cmp'},     -- Required
-      ({ -- snippets / luasnip + friends
-        'L3MON4D3/LuaSnip',
-          dependencies = {
-            'saadparwaiz1/cmp_luasnip',
-            'rafamadriz/friendly-snippets',
-          },
-        -- follow latest release.
-        tag = 'v2.3.0', -- Replace <CurrentMajor> by the latest released major (first number of latest release)
-        -- install jsregexp (optional!:).
-        build = 'make install_jsregexp'
-      }),
+      -- {'hrsh7th/cmp-nvim-lsp'}, -- Required
+      -- {'hrsh7th/cmp-buffer'},
+      -- {'hrsh7th/cmp-path'},
+      -- {'hrsh7th/cmp-cmdline'},
+      -- {'hrsh7th/nvim-cmp'},     -- Required
+      -- ({ -- snippets / luasnip + friends
+      --   'L3MON4D3/LuaSnip',
+      --     dependencies = {
+      --       'saadparwaiz1/cmp_luasnip',
+      --       'rafamadriz/friendly-snippets',
+      --     },
+      --   -- follow latest release.
+      --   tag = 'v2.3.0', -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+      --   -- install jsregexp (optional!:).
+      --   build = 'make install_jsregexp'
+      -- }),
     }
   },
 
@@ -600,7 +600,7 @@ lsp.setup()
 -- Enable (broadcasting) snippet capability for completion
 -- local capabilities = vim.lsp.protocol.make_client_capabilities()
 -- capabilities.textDocument.completion.completionItem.snippetSupport = true
-local capabilities = require('cmp_nvim_lsp').default_capabilities()
+-- local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 -- NOTE: ipatch, https://github.com/hrsh7th/vscode-langservers-extracted
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#html
@@ -725,12 +725,12 @@ require'lspconfig'.solargraph.setup{
 ---------------
 -- PLUGIN / luasnips, neovim snippets plugin
 ----
-require("luasnip.loaders.from_vscode").lazy_load()
+-- require("luasnip.loaders.from_vscode").lazy_load()
 
 ---------------
 -- PLUGIN / nvim-cmp, neovim completion 
 ----
-require('lsp-zero').extend_cmp()
+-- require('lsp-zero').extend_cmp()
 
 -- NOTE: ipatch, / plugin / nvim-cpm
 -- ref: https://github.com/hrsh7th/nvim-cmp/wiki/Menu-Appearance#how-to-add-visual-studio-code-codicons-to-the-menu
@@ -762,61 +762,61 @@ local kind_icons = {
   TypeParameter = '  ',
 }
 
-local cmp = require('cmp')
-require('luasnip.loaders.from_vscode').lazy_load()
+-- local cmp = require('cmp')
+-- require('luasnip.loaders.from_vscode').lazy_load()
 
-cmp.setup({
-  snippet = {
-    -- REQUIRED - you must specify a snippet engine
-    expand = function(args)
-      require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
-      -- vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
-      -- require('snippy').expand_snippet(args.body) -- For `snippy` users.
-      -- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
-    end,
-  },
-  experimental = {
-    ghost_text = true,
-  },
-  window = {
-    completion = cmp.config.window.bordered(),
-    documentation = cmp.config.window.bordered(),
-  },
-  sources = cmp.config.sources({
-    { name = 'luasnip' }, -- For luasnip users.
-    { name = 'path' },
-    { name = 'nvim_lsp' },
-    { name = 'nvim_lua' },
-    -- { name = 'vsnip' }, -- For vsnip users.
-    -- { name = 'ultisnips' }, -- For ultisnips users.
-    -- { name = 'snippy' }, -- For snippy users.
-  }, {
-    { name = 'buffer' },
-  }),
-  mapping = {
-    -- use `TAB` key to highlight next item in list
-    ['<C-Space>'] = cmp.mapping.complete(),
-    ['<Tab>'] = cmp.mapping.select_next_item(),
-    ['<S-Tab>'] = cmp.mapping.select_prev_item(),
-    ['<CR>'] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace }),
-    ['<C-e>'] = cmp.mapping.abort(),
- },
- formatting = {
-   fields = { "kind", "abbr" },
-   format = function(entry, vim_item)
+-- cmp.setup({
+--   snippet = {
+--     -- REQUIRED - you must specify a snippet engine
+--     expand = function(args)
+--       require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+--       -- vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
+--       -- require('snippy').expand_snippet(args.body) -- For `snippy` users.
+--       -- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
+--     end,
+--   },
+--   experimental = {
+--     ghost_text = true,
+--   },
+--   window = {
+--     completion = cmp.config.window.bordered(),
+--     documentation = cmp.config.window.bordered(),
+--   },
+--   sources = cmp.config.sources({
+--     { name = 'luasnip' }, -- For luasnip users.
+--     { name = 'path' },
+--     { name = 'nvim_lsp' },
+--     { name = 'nvim_lua' },
+--     -- { name = 'vsnip' }, -- For vsnip users.
+--     -- { name = 'ultisnips' }, -- For ultisnips users.
+--     -- { name = 'snippy' }, -- For snippy users.
+--   }, {
+--     { name = 'buffer' },
+--   }),
+--   mapping = {
+--     -- use `TAB` key to highlight next item in list
+--     ['<C-Space>'] = cmp.mapping.complete(),
+--     ['<Tab>'] = cmp.mapping.select_next_item(),
+--     ['<S-Tab>'] = cmp.mapping.select_prev_item(),
+--     ['<CR>'] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace }),
+--     ['<C-e>'] = cmp.mapping.abort(),
+--  },
+--  formatting = {
+--    fields = { "kind", "abbr" },
+--    format = function(entry, vim_item)
 
-     -- kind icons
-     -- vim_item.kind = (cmp_kinds[vim_item.kind] or '') .. vim_item.kind
-     vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
-     vim_item.menu = ({
-       buffer = "(Buffer)",
-       path = "(Path)",
-     })[entry.source.name]
+--      -- kind icons
+--      -- vim_item.kind = (cmp_kinds[vim_item.kind] or '') .. vim_item.kind
+--      vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
+--      vim_item.menu = ({
+--        buffer = "(Buffer)",
+--        path = "(Path)",
+--      })[entry.source.name]
 
-     return vim_item
-   end,
- },
-})
+--      return vim_item
+--    end,
+--  },
+-- })
 
 ---------------
 -- PLUGIN / neovim telescope 
