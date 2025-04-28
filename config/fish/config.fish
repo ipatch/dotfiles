@@ -1,4 +1,4 @@
-# NOTE: ipatch, current (2024) global config.fish - single file
+# NOTE: ipatch, current (2024 to present) global config.fish - single file
 #--
 # NOTE: ipatch, editing this file in neovim is less than ideal
 # ie. most vim navigation does not work ie. [[ or ]]
@@ -8,17 +8,14 @@
 # old non tree-sitter vim syntax file
 # https://github.com/dag/vim-fish
 #--
-# - [ ] TODO: fix the below setup errors for init setup
+# - [x] TODO: fix the below setup errors for init setup
 # cat: /home/brewer/.config/fish/right_prompt_state: No such file or directory
 # abbr: Unknown option “--set-cursor=%”
 # abbr: Unknown option “--set-cursor=%”
 #---------------------
-# brewer@linuxmbp /h/l/.l/H/L/T/f/homebrew-freecad (master)> cd $hbfc
-# cd: The directory “/home/brewer/homebrew/Library/Taps/freecad/homebrew-freecad” does not exist
-#---------------------
 # - [ ] TODO: attempt to group all homebrew related entries
 # - [x] TODO: get code folds working for the love of GOD
-    # - i think properly setting this ft to fish has helped some
+    # - i think setting the ft to fish has helped some
 # - [x] TODO: properly highlight the word `NOTE:`
     # - installed a ts parser designed for keywords such as NOTE: and TODO:
 # - [ ] TODO: look at ruby related tree-sitter files for inspiration
@@ -54,7 +51,7 @@ if status is-interactive
     eval ($bp/bin/brew shellenv)
   end
 
-  ## $USER tooling / homebrew / homebrew specific aliases
+  # $USER tooling / homebrew / homebrew specific aliases
   alias bp310="$bp/opt/python@3.10/bin/python3.10"
   alias bp311="$bp/opt/python@3.11/bin/python3.11"
   alias bp312="$bp/opt/python@3.12/bin/python3.12"
@@ -145,9 +142,11 @@ if status is-interactive
   # set -gx HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK 0
   set -gx HOMEBREW_NO_INSTALL_CLEANUP 1
   set -gx HOMEBREW_NO_INSTALL_FROM_API 1
-  # NOTE: the below var will be overwritten in certain cases
-  set -gx HOMEBREW_CACHE "$bp/cache"
   # HOMEBREW_NO_VERIFY_ATTESTATIONS=1
+  # NOTE: the below var will be overwritten in certain cases
+
+  # TODO: need to adjust this for asahi linux m1
+  set -gx HOMEBREW_CACHE "$bp/cache"
   set -gx hbc "$bp/cache"
 
   # TODO: possibly getting a false positive
@@ -215,7 +214,7 @@ if status is-interactive
   set fish_minor (echo $FISH_VERSION | cut -d. -f2)
   set fish_patch (echo $FISH_VERSION | cut -d. -f3)
 
-  # Check if Fish shell version is 3.7.0 or greater
+  # is fish shell version 3.7.0 or greater
   # NOTE: ipatch, fish on iOS prints the version ie., version 26383c63
   if test "$current_user" != "mobile"
 	  if test $fish_major -ge 3; and test $fish_minor -ge 7; and test $fish_patch -ge 0
