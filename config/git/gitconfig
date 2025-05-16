@@ -259,8 +259,8 @@
 
   # graph
   graphviz = "!f() { echo 'digraph git {' ; git log --pretty='format:  %h -> { %p }' \"$@\" | sed 's/[0-9a-f][0-9a-f]*/\"&\"/g' ; echo '}'; }; f"
+  # TODO: current implementation busted!
   identity = "! git config user.name $(git config user.$1.name); git config user.email $git config user.$1.eail); :"
-
 
   # ref: https://stackoverflow.com/a/45991969/708807
   hist = log --graph --date-order --date=short --pretty=format:'%C(auto)%h%d %C(reset)%s %C(bold blue)%ce %C(reset)%C(green)%cr (%cd)'
