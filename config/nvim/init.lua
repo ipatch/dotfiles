@@ -102,7 +102,10 @@ require('lazy').setup({
     version = '1.1.1',
 
     -- NOTE: ipatch, requires a nightly install of rustc
-    -- build = 'cargo build --release',
+    build = 'cargo build --release',
+
+    -- NOTE: ipatch, did not resolve issue
+    -- timeout = 600,
     
     ---@module 'blink.cmp'
     ---@type blink.cmp.Config
@@ -116,27 +119,6 @@ require('lazy').setup({
     opts_extend = { "sources.default" },
   },
 
-      -- DEPRECATED
-      -- {'hrsh7th/cmp-nvim-lsp'}, -- Required
-      -- {'hrsh7th/cmp-buffer'},
-      -- {'hrsh7th/cmp-path'},
-      -- {'hrsh7th/cmp-cmdline'},
-      -- {'hrsh7th/nvim-cmp'},     -- Required
-      -- ({ -- snippets / luasnip + friends
-      --   'L3MON4D3/LuaSnip',
-      --     dependencies = {
-      --       'saadparwaiz1/cmp_luasnip',
-      --       'rafamadriz/friendly-snippets',
-      --     },
-      --   -- follow latest release.
-      --   tag = 'v2.3.0', -- Replace <CurrentMajor> by the latest released major (first number of latest release)
-      --   -- install jsregexp (optional!:).
-      --   build = 'make install_jsregexp'
-      -- }),
-
-  -- lsp helper / nvim configuring init.lua + friends
-  -- DEPRECATED! migrate to lazydev.nvim
-  -- "folke/neodev.nvim",
   "folke/lazydev.nvim",
 
   -- lsp helper / json files ie. tsconfig.json
