@@ -156,8 +156,8 @@ bindsym $mod+a focus parent
 # mbp 2015 mid, dual gpu (amd)
 set $mon1 "eDP"
 # set $mon2 "DP-2"
-set $mon2 "DisplayPort-0"
-# set $mon2 "DisplayPort-1"
+# set $mon2 "DisplayPort-0"
+set $mon2 "DisplayPort-1"
 
 workspace 1 output $mon1
 workspace 2 output $mon1
