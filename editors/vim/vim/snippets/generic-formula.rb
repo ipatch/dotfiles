@@ -19,16 +19,16 @@ class FormulaName < Formula
     system "./configure", "--prefix=#{prefix}", "--disable-debug"
     system "make"
     system sudo make install
+  end
 
-    def caveats; <<~EOS
+  def caveats 
+    <<~EOS
       This formula requires blahblah, but can't have blahblah installed.
-    
     EOS
-    end
+  end
 
-    test do
-      # prove that the formual successfully installed, and works as intended
-      system 'false'
-    end
+  test do
+    # prove that the formual successfully installed, and works as intended
+    system 'false'
   end
 end
