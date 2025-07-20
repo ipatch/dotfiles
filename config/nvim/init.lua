@@ -1266,7 +1266,9 @@ vim.api.nvim_exec([[
 
 -- Set the default fold level to 99
 vim.o.foldlevel = 99
-vim.o.foldlevelstart = 99
+-- vim.o.foldlevelstart = 99
+-- keep top level folds open, but nested folds closed
+vim.o.foldlevelstart = 1
 
 ---------------
 -- PLUGIN / mfussenegger/nvim-dap
