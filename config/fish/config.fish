@@ -142,6 +142,7 @@ if status is-interactive
   # set -gx HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK 0
   set -gx HOMEBREW_NO_INSTALL_CLEANUP 1
   set -gx HOMEBREW_NO_INSTALL_FROM_API 1
+  set -gx HOMEBREW_DISPLAY_INSTALL_TIMES 1
   # HOMEBREW_NO_VERIFY_ATTESTATIONS=1
   # NOTE: the below var will be overwritten in certain cases
 
@@ -188,6 +189,7 @@ if status is-interactive
 
   # $USER fish abbreviations
   abbr -a -- sr 'exec fish'
+  abbr -a -- fr 'exec fish'
   abbr -a -- pp 'string join \n $PATH | nl  '
   abbr -a -- lr 'ls -lrth'
   abbr -a -- dots 'cd $dots'
@@ -253,7 +255,7 @@ if status is-interactive
     abbr -a -- ys 'yay -S'
     abbr -a -- yss 'yay -Ss'
 
-    # TODO: needs to be set more robustly
+    # TODO: set more robustly
     # possible fix could be to test if the dir exists
     set -gx bp "$HOME/homebrew"
 
