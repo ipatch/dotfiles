@@ -191,7 +191,7 @@ if status is-interactive
   abbr -a -- sr 'exec fish'
   abbr -a -- fr 'exec fish'
   abbr -a -- pp 'string join \n $PATH | nl  '
-  abbr -a -- lr 'ls -lrth'
+  abbr -a -- lr 'ls -lrtha'
   abbr -a -- dots 'cd $dots'
   abbr -a -- gitc 'git commit -m'
   abbr -a -- gp 'git push -q'
