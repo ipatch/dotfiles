@@ -99,8 +99,12 @@ if status is-interactive
   set -gx DENO_INSTALL "$HOME/.deno"
 
   # $USER tooling / python / venv / fish shell related
-  # NOTE: ipatch, todo: should only disable this if fish theme is setup to print the prompt
+  # NOTE: ipatch, TODO: only disable this if fish theme is setup to print the prompt
   set -gx VIRTUAL_ENV_DISABLE_PROMPT 1
+
+  # $USER tooling / ruby / rvm
+  # NOTE: ipatch, not sure if env var is compat with rvm, rbenv, homebrew etc etc
+  set -gx GEM_HOME "$HOME/.gem"
 
   # $USER tooling / ruby / rbenv
   # i manually add $HOME/.rbenv/{shims,bin} to my local $paths var below
@@ -209,6 +213,7 @@ if status is-interactive
 
   abbr -a -- be 'bundle exec'
   abbr -a -- sh2 'sha256sum'
+  abbr -a -- htp 'http'
 
   # $USER / macos vm tooling / helpful
   # Split version string into major, minor, and patch components
@@ -254,6 +259,7 @@ if status is-interactive
     abbr -a -- yay.up.zfs 'yay -Sa --nodeps zfs-dkms zfs-utils'
     abbr -a -- ys 'yay -S'
     abbr -a -- yss 'yay -Ss'
+    abbr -a -- nmc 'nmcli'
 
     # TODO: set more robustly
     # possible fix could be to test if the dir exists
@@ -269,8 +275,6 @@ if status is-interactive
     set -gx THEOS "$HOME/theos"
   end
 
-  abbr -a -- nmc 'nmcli'
-  abbr -a -- htp 'http'
 
   # nice things
   if which zoxide >/dev/null
