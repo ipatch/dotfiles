@@ -306,6 +306,7 @@ if status is-interactive
     $HOME/.rvm/gems/default/wrappers \
     $HOME/.local/share/gem/ruby/3.4.0/bin \
     $HOME/.gem/ruby/3.3.0/bin \
+    $HOME/.gem/ruby/3.4.0/bin \
     $code/git/local/bin \
     $HOME/.docker/bin \
     # below entry should NOT be added
