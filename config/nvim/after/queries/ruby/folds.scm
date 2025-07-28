@@ -9,3 +9,15 @@
  (string_array)
 ] @fold
 
+; NOTE: ipatch below query is able to fold sig blocks contained in files like homebrew's install.rb
+(
+ (method
+   name: (identifier) @fold
+   body: (block)
+  ) 
+)
+
+; NOWORK!
+; (call
+;   method: (identifier) @method (#eq? @method "sig")
+;   block: (block) @fold)
