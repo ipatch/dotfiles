@@ -1243,11 +1243,35 @@ cmd([[au TextYankPost * lua vim.highlight.on_yank {higroup="IncSearch", timeout=
 -- Option 3: treesitter as a main provider instead
 -- Only depend on `nvim-treesitter/queries/filetype/folds.scm`,
 -- performance and stability are better than `foldmethod=nvim_treesitter#foldexpr()`
--- use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
 require('ufo').setup({
   provider_selector = function(bufnr, filetype, buftype)
-    return {'treesitter', 'indent'}
-  end
+    return {'treesitter', 'indent'} -- fallback to indent if treesitter fails
+  end,
+
+  fold_virt_text_handler = function(virtText, lnum, endLnum, width, truncate)
+    local newVirtText = {}
+    local lineCount = endLnum - lnum
+    local suffix = ("  %d lines "):format(lineCount)
+    local totalWidth = 0
+    local suffixWidth = vim.fn.strdisplaywidth(suffix)
+
+    for _, chunk in ipairs(virtText) do
+      local chunkText = chunk[1]
+      local chunkWidth = vim.fn.strdisplaywidth(chunkText)
+
+      if totalWidth + chunkWidth < width - suffixWidth then
+        table.insert(newVirtText, chunk)
+        totalWidth = totalWidth + chunkWidth
+      else
+        chunkText = truncate(chunkText, width - totalWidth - suffixWidth)
+        table.insert(newVirtText, { chunkText, chunk[2] })
+        break
+      end
+    end
+
+    table.insert(newVirtText, { suffix, 'MoreMsg' })
+    return newVirtText
+  end,
 })
 
 -- Using ufo provider need remap `zR` and `zM`. If Neovim is 0.6.1, remap yourself
@@ -1269,9 +1293,9 @@ vim.api.nvim_exec([[
 
 -- Set the default fold level to 99
 vim.o.foldlevel = 99
--- vim.o.foldlevelstart = 99
+vim.o.foldlevelstart = 99
 -- keep top level folds open, but nested folds closed
-vim.o.foldlevelstart = 1
+-- vim.o.foldlevelstart = 1
 
 ---------------
 -- PLUGIN / mfussenegger/nvim-dap
