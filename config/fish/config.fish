@@ -147,6 +147,9 @@ if status is-interactive
   set -gx HOMEBREW_NO_INSTALL_CLEANUP 1
   set -gx HOMEBREW_NO_INSTALL_FROM_API 1
   set -gx HOMEBREW_DISPLAY_INSTALL_TIMES 1
+  set -gx HOMEBREW_VERBOSE 1
+  # NOTE: ipatch, my custom homebrew env var using my custom branch of homebrew/brew
+  set -gx HOMEBREW_KEEP_TMP 1
   # HOMEBREW_NO_VERIFY_ATTESTATIONS=1
   # NOTE: the below var will be overwritten in certain cases
 
