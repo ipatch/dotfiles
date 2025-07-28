@@ -1243,6 +1243,11 @@ cmd([[au TextYankPost * lua vim.highlight.on_yank {higroup="IncSearch", timeout=
 -- Option 3: treesitter as a main provider instead
 -- Only depend on `nvim-treesitter/queries/filetype/folds.scm`,
 -- performance and stability are better than `foldmethod=nvim_treesitter#foldexpr()`
+
+-- Define a custom highlight group for UFO's virtual text
+vim.api.nvim_set_hl(0, 'MyUfoFoldText', { fg = '#48F525', bg = 'NONE', italic = false, bold = true, underline = false })
+-- Example colors: '#98C379' is a green, '#61AFEF' is a blue, '#C678DD' is a purple
+
 require('ufo').setup({
   provider_selector = function(bufnr, filetype, buftype)
     return {'treesitter', 'indent'} -- fallback to indent if treesitter fails
@@ -1251,7 +1256,8 @@ require('ufo').setup({
   fold_virt_text_handler = function(virtText, lnum, endLnum, width, truncate)
     local newVirtText = {}
     local lineCount = endLnum - lnum
-    local suffix = ("  %d lines "):format(lineCount)
+    -- local suffix = ("  %d lines "):format(lineCount)
+    local suffix = (' 󰁂 %d '):format(lineCount)
     local totalWidth = 0
     local suffixWidth = vim.fn.strdisplaywidth(suffix)
 
@@ -1269,10 +1275,13 @@ require('ufo').setup({
       end
     end
 
-    table.insert(newVirtText, { suffix, 'MoreMsg' })
+    table.insert(newVirtText, { suffix, 'MyUfoFoldText' })
     return newVirtText
   end,
 })
+
+-- vim.api.nvim_set_hl(0, 'UfoFoldText', { fg = '#8BE9FD', bg = 'NONE', italic = true })
+
 
 -- Using ufo provider need remap `zR` and `zM`. If Neovim is 0.6.1, remap yourself
 vim.keymap.set('n', 'zR', require('ufo').openAllFolds)
