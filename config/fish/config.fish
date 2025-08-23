@@ -148,10 +148,10 @@ if status is-interactive
   set -gx HOMEBREW_NO_INSTALL_FROM_API 1
   set -gx HOMEBREW_DISPLAY_INSTALL_TIMES 1
   set -gx HOMEBREW_VERBOSE 1
+  set -gx HOMEBREW_DOWNLOAD_CONCURRENCY 8
   # NOTE: ipatch, my custom homebrew env var using my custom branch of homebrew/brew
   set -gx HOMEBREW_KEEP_TMP 1
   # HOMEBREW_NO_VERIFY_ATTESTATIONS=1
-  # NOTE: the below var will be overwritten in certain cases
 
   # TODO: need to adjust this for asahi linux m1
   set -gx HOMEBREW_CACHE "$bp/cache"
@@ -311,6 +311,7 @@ if status is-interactive
     $HOME/.gem/ruby/3.3.0/bin \
     $HOME/.gem/ruby/3.4.0/bin \
     $code/git/local/bin \
+    $code/git/local/sbin \
     $HOME/.docker/bin \
     # below entry should NOT be added
     $HOME/wtf/bin \
