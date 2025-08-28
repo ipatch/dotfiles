@@ -117,7 +117,12 @@ if status is-interactive
   # TODO: ipatch, set vars based different system setups
   if test -w /opt/code
     set -gx code "/opt/code"
+  end
+
+  if test (id -un) = capin
     set -gx dots "/opt/code/dotfiles"
+  else if test (id -un) = brewer
+    set -gx dots "/opt/code/dotfiles-brewer"
   else
     set -gx code "$HOME/code"
     # TODO: ipatch, this dir differs on various systems
