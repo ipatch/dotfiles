@@ -49,6 +49,9 @@ if status is-interactive
   else if [ -d /home/linuxbrew/.linuxbrew ]
     set -gx bp "/home/linuxbrew/.linuxbrew"
     eval ($bp/bin/brew shellenv)
+  else if [ -d /usr/local/Homebrew ]
+    set -gx bp "/usr/local/Homebrew"
+    eval ($bp/bin/brew shellenv)
   end
 
   # $USER tooling / homebrew / homebrew specific aliases
@@ -309,6 +312,8 @@ if status is-interactive
     $HOME/.rbenv/shims \
     $HOME/.bun/bin \
     $HOME/go/bin \
+    # install path using the go.pkg installer on macos 10.15
+    /usr/local/go/bin \
     $HOME/.cargo/bin \
     $DENO_INSTALL/bin \
     $HOME/.rvm/gems/default/wrappers \
