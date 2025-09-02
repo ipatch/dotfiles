@@ -50,7 +50,7 @@ if status is-interactive
     set -gx bp "/home/linuxbrew/.linuxbrew"
     eval ($bp/bin/brew shellenv)
   else if [ -d /usr/local/Homebrew ]
-    set -gx bp "/usr/local/Homebrew"
+    set -gx bp "/usr/local"
     eval ($bp/bin/brew shellenv)
   end
 
