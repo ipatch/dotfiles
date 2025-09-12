@@ -1,6 +1,0 @@
-#!/bin/sh
-#
-TAPDEV="$1"
-BRIDGEDEV="bridge42"
-#
-ifconfig $BRIDGEDEV deletem $TAPDEV
