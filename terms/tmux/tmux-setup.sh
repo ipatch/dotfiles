@@ -34,7 +34,48 @@ else
   echo "tpm already exists"
 fi
 
-# TODO: add commands for setting up custom term entries in term database for tmux
+# 3. setup custom terminal info entries for tmux
+setup_terminfos() {
+  echo "setting up terminal info entries for tmux..."
+  if command -v tic >/dev/null 2>&1; then
+    # NOTE: ipatch uncomment to debug
+    # echo $(pwd)
+    if infocmp xterm-256color-italic >/dev/null 2>&1; then
+      echo "xterm-256color-italic term info entry found, NO need to install"
+    else
+      echo "xterm-256color-italic term info entry NOT found, attempting to install terminfo entry"
+      tic -x term.infos/xterm-256color-italic.terminfo
+      echo "terminfo installed"
+    fi
+    if infocmp tmux-256color >/dev/null 2>&1; then
+      echo "tmux-256color term info entry found, NO need to install"
+    else
+      # NOTE: os and bp vars defined within config.fish
+      if [ $os = "Darwin" ]; then
+        echo "you are on macos, ie. "$os" and need to use tic provided by homebrew"
+        echo "$bp"
+        # enable verbose execution
+        set -x
+        "$bp/opt/ncurses/bin/tic" -x -v -o ~/.terminfo term.infos/tmux-256color.terminfo
+        exit_code=$?
+        set +x
+        if [ $exit_code -eq 0 ]; then
+          echo "✓ tic command executed successfully"
+        else
+          echo "✗ tic command failed with exit code $exit_code"
+        fi
+      else
+        echo "tmux-256colorterm info entry NOT found, attempting to install terminfo entry"
+        tic -x term.infos/tmux-256color.terminfo
+      fi
+      echo "terminfo installed"
+    fi
+  else
+    echo "tic command not found"
+  fi
+}
+
+setup_terminfos
 
 # last. create an empty to signify the script has finished
 touch "$HOME/.tmux_setup_completed"
