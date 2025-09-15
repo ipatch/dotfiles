@@ -103,36 +103,19 @@ require('lazy').setup({
 
     -- NOTE: ipatch, requires a nightly install of rustc
     -- build = 'cargo build --release',
-    
+
     ---@module 'blink.cmp'
     ---@type blink.cmp.Config
-    opts = {
-      keymap = { preset = 'default' },
-    },
-    sources = {
-      default = { 'lsp', 'path', 'snippets', 'buffer' },
-    },
-    fuzzy = { implementation = "prefer_rust_with_warning" },
-    opts_extend = { "sources.default" },
+    -- opts = {
+        -- see :h blink-cmp-config-keymap for defining your own keymap
+      --   keymap = { preset = 'default' },
+      -- },
+      -- sources = {
+        --   default = { 'lsp', 'path', 'snippets', 'buffer' },
+        -- },
+        -- fuzzy = { implementation = "prefer_rust_with_warning" },
+        -- opts_extend = { "sources.default" },
   },
-
-      -- DEPRECATED
-      -- {'hrsh7th/cmp-nvim-lsp'}, -- Required
-      -- {'hrsh7th/cmp-buffer'},
-      -- {'hrsh7th/cmp-path'},
-      -- {'hrsh7th/cmp-cmdline'},
-      -- {'hrsh7th/nvim-cmp'},     -- Required
-      -- ({ -- snippets / luasnip + friends
-      --   'L3MON4D3/LuaSnip',
-      --     dependencies = {
-      --       'saadparwaiz1/cmp_luasnip',
-      --       'rafamadriz/friendly-snippets',
-      --     },
-      --   -- follow latest release.
-      --   tag = 'v2.3.0', -- Replace <CurrentMajor> by the latest released major (first number of latest release)
-      --   -- install jsregexp (optional!:).
-      --   build = 'make install_jsregexp'
-      -- }),
 
   -- lsp helper / nvim configuring init.lua + friends
   -- DEPRECATED! migrate to lazydev.nvim
@@ -156,8 +139,6 @@ require('lazy').setup({
       'JoosepAlviste/nvim-ts-context-commentstring',
     }
   },
-  -- NOTE: ipatch, deprecated
-  -- 'nvim-treesitter/playground',
 
   { -- telescope
     'nvim-telescope/telescope.nvim',
@@ -658,6 +639,21 @@ require('lspconfig').jsonls.setup {
 require'lspconfig'.yamlls.setup{
   capabilities = capabilities
 }
+
+---------------
+-- plugin / nvim / blink.cmp
+----
+require('blink.cmp').setup({
+  -- see :h blink-cmp-config-keymap for defining your own keymap
+  keymap = {
+    preset = 'enter',
+    ['<Tab>'] = { 'select_next', 'fallback' }, -- use tab for next item
+    ['<S-Tab>'] = { 'select_prev', 'fallback' }, -- use shift+tab for previous item
+    ['<esc>'] = { 'cancel', 'fallback' },
+    -- ['<CR>'] = { 'accpet', 'fallback' }, -- enter to confirm
+    -- ['<Space>'] = false, -- or {} disable space key for completion
+  },
+})
 
 ---------------
 -- plugin / nvim native lsp / ruby-lsp
