@@ -4,6 +4,7 @@
 <a name="contents"></a>
 
 - [pacman](#pacman)
+- [networking](#networking)
 - [arch/mbp 11.x](#arch-on-macbook)
   - [networking](#networking)
 - [tshooting](#troubleshooting)
@@ -30,6 +31,31 @@ in troubleshooting _x11vnc_ i'm running `x11vnc -findauth`, but the switch/optio
 ```
 pacman -F netstat
 yay -F netstat
+```
+
+## networking
+
+<a name="networking"></a>
+
+recently i watched a youtube video about how internet provides ie. charter / att can sell dns queries to advertisers which will generate targeted ads based on the queries made. so i decided to update the network settings on my arch linux box ie. daily driver, so that i do not use the dns servers provided my internet provide ie. att. and unfortunately att does not all editing the dns servers in their router / gateway, so i updated my dns servers locally on my client.
+
+i use network manager to manage my network settings on arch linux, and below are some useful commands for working with client side dns settings to avoid ISP provided dns servers.
+
+to check which dns servers are being used one can use the below commands,
+
+```
+# ping a domain in one window, ie. archlinux.org
+ping archlinux.org
+
+# in another window run tcpdump to verify dns servers being used
+sudo tcpdump -n -i any port 53
+```
+
+one can update the settings in the `/etc/resolv.conf` but the att router will still manage to populate its dns servers regardless and can be verified after a reboot, so to make sure that doesn't happen, run the below nmcli commands,
+
+```
+nmcli con mod "ens9" ipv4.dns "1.1.1.1 8.8.8.8"
+nmcli con mod "ens9" ipv4.ignore-auto-dns yes
 ```
 
 ## arch/macbook _11.x_ specific
