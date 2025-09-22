@@ -606,7 +606,8 @@ lsp.setup()
 
 -- NOTE: ipatch, https://github.com/hrsh7th/vscode-langservers-extracted
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#html
-require'lspconfig'.html.setup {
+vim.lsp.config.html = {
+-- require'lspconfig'.html.setup {
   capabilities = capabilities,
   cmd = { "vscode-html-language-server", "--stdio" },
   filetypes = { "html" },
@@ -624,7 +625,8 @@ require'lspconfig'.html.setup {
   on_attach = on_attach,
 }
 
-require('lspconfig').jsonls.setup {
+vim.lsp.config.json = {
+-- require('lspconfig').jsonls.setup {
   settings = {
     json = {
       schemas = require('schemastore').json.schemas(),
@@ -636,7 +638,8 @@ require('lspconfig').jsonls.setup {
 ---------------
 -- plugin / nvim native lsp / yaml, yml - yamlls
 ----
-require'lspconfig'.yamlls.setup{
+-- require'lspconfig'.yamlls.setup{
+vim.lsp.config.yamlls = {
   capabilities = capabilities
 }
 
@@ -680,8 +683,9 @@ end, { desc = 'Hide completion and exit insert mode' })
 -- plugin / nvim native lsp / ruby-lsp
 -- NOTE: ipatch, when using rvm to manage rubies, rvm needs to be init'd before running `:masoninstall ruby-lsp`
 ----
-local lspconfig = require('lspconfig')
-lspconfig.ruby_lsp.setup({
+-- local lspconfig = require('lspconfig')
+-- lspconfig.ruby_lsp.setup({
+vim.lsp.config.ruby_lsp = {
   init_options = {
     formatter = 'standard',
     linters = { 'standard' },
@@ -689,7 +693,7 @@ lspconfig.ruby_lsp.setup({
       bundlerLock = false,
     },
   },
-})
+}
 
 --[[ require('lspconfig').ruby_ls.setup {
   -- cmd = {"/home/my_user/.rbenv/shims/ruby-lsp"},
@@ -745,7 +749,8 @@ end
 -- NOTE: ipatch, use `gem install --user-install solargraph` and NOT mason to install solargraph
 -- NOTE: ipatch, code actions are NOT supported https://github.com/castwide/solargraph/issues/614
 ----
-require'lspconfig'.solargraph.setup{
+-- require'lspconfig'.solargraph.setup{
+vim.lsp.config.solargraph = {
   capabilities = capabilities,
   cmd = { "solargraph", "stdio" },
   root_dir = nvim_lsp.util.root_pattern("Gemfile", ".git", "."),
