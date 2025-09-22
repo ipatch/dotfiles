@@ -649,11 +649,32 @@ require('blink.cmp').setup({
     preset = 'enter',
     ['<Tab>'] = { 'select_next', 'fallback' }, -- use tab for next item
     ['<S-Tab>'] = { 'select_prev', 'fallback' }, -- use shift+tab for previous item
-    ['<esc>'] = { 'cancel', 'fallback' },
+
+    -- NOTE: ipatch, requires pressing the esc key twice NO GOOD!
+    -- ['<Esc>'] = { 'cancel', 'fallback' },
+
+    -- NOTE: ipatch, causes syntax error
+    -- ['<Esc>'] = function(cmp)
+    --   if cmp.is_visible() then
+    --     cmp.hide()
+    --   end
+    --   -- always exit insert mode regardless
+    --   vim.api.nvim_input('<Esc>')
+    -- end,
+
     -- ['<CR>'] = { 'accpet', 'fallback' }, -- enter to confirm
     -- ['<Space>'] = false, -- or {} disable space key for completion
   },
 })
+
+-- Add this global override AFTER the blink.cmp setup
+vim.keymap.set('i', '<Esc>', function()
+  local blink = require('blink.cmp')
+  if blink.is_visible() then
+    blink.hide()
+  end
+  vim.cmd('stopinsert')
+end, { desc = 'Hide completion and exit insert mode' })
 
 ---------------
 -- plugin / nvim native lsp / ruby-lsp
