@@ -26,7 +26,7 @@
   #---------------------------------
   # branching / branch, branching / delete local & remote branch
   #----
-  kill = "!f(){ git branch -D \"$1\";  git push origin --delete \"$1\"; };f"
+  kill = "!f(){ git branch -D \"$1\"; git push $(git remote show | head -n1) --delete \"$1\"; };f"
   # NOTE: ipatch, checkout / clone all remote branches from remote ORIGIN
   co-all = "!co_all() {\
               for remote_branch in $(git branch -r | grep -v HEAD); do \
