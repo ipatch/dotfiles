@@ -55,14 +55,12 @@ if status is-interactive
   end
 
   # $USER tooling / homebrew / homebrew specific aliases
-  alias bp310="$bp/opt/python@3.10/bin/python3.10"
-  alias bp311="$bp/opt/python@3.11/bin/python3.11"
   alias bp312="$bp/opt/python@3.12/bin/python3.12"
   alias bp313="$bp/opt/python@3.13/bin/python3.13"
   alias p313="$bp/opt/python@3.13/bin/pip3.13"
-  alias bp310pip="$bp/opt/python@3.10/bin/pip3.10"
+  alias bp312pip="$bp/opt/python@3.12/bin/pip3.12"
 
-  abbr -a -- bp310sp "cd $bp/lib/python3.10/site-packages"
+  abbr -a -- bp312sp "cd $bp/lib/python3.12/site-packages"
 
   # fish specific env vars
   set -gx fish_greeting ""
