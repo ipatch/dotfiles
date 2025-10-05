@@ -157,6 +157,7 @@ if status is-interactive
   set -gx HOMEBREW_DOWNLOAD_CONCURRENCY 8
   # NOTE: ipatch, my custom homebrew env var using my custom branch of homebrew/brew
   set -gx HOMEBREW_KEEP_TMP 1
+  set -gx HOMEBREW_USE_TMP  1
   # HOMEBREW_NO_VERIFY_ATTESTATIONS=1
 
   # TODO: need to adjust this for asahi linux m1
