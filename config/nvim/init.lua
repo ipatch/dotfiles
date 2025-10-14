@@ -669,8 +669,8 @@ vim.api.nvim_create_autocmd('FileType', {
     
     local client_id = vim.lsp.start({
       name = 'gh_actions_ls',
-      -- cmd = { vim.fn.expand('~/.local/share/nvim/mason/bin/gh-actions-language-server'), '--stdio' },
-      cmd = { 'gh-actions-language-server', '--stdio' },
+      cmd = { vim.fn.expand('~/.local/share/nvim/mason/bin/gh-actions-language-server'), '--stdio' },
+      -- cmd = { 'gh-actions-language-server', '--stdio' },
       root_dir = root_dir,
       init_options = {
         sessionToken = "",
