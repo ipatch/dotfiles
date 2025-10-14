@@ -453,6 +453,13 @@ vim.cmd([[
   autocmd BufRead,BufNewFile ~/.config/rofi/config.rasi set filetype=rasi'
 ]])
 
+-- NOTE: ipatch, https://github.com/lttb/gh-actions-language-server
+vim.filetype.add({
+  pattern = {
+    ['.*/%.github[%w/]+workflows[%w/]+.*%.ya?ml'] = 'yaml.github',
+  },
+})
+
 ---------------
 -- PLUGIN / clipboard / nvim-osc52
 ----
@@ -641,6 +648,46 @@ vim.lsp.config.yamlls = {
 }
 
 ---------------
+-- plugin / gh-actions-language-server
+----
+
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'yaml.github',
+  callback = function(args)
+    -- NOTE: ipatch, debug gh_actions_ls
+    -- print('Detected yaml.github filetype!')
+    
+    local root_dir = vim.fs.root(args.buf, { '.github', '.git' })
+    -- NOTE: ipatch, debug gh_actions_ls
+    -- print('Root dir:', root_dir)
+    
+    if not root_dir then
+    -- NOTE: ipatch, debug gh_actions_ls
+      -- print('No root directory found!')
+      return
+    end
+    
+    local client_id = vim.lsp.start({
+      name = 'gh_actions_ls',
+      -- cmd = { vim.fn.expand('~/.local/share/nvim/mason/bin/gh-actions-language-server'), '--stdio' },
+      cmd = { 'gh-actions-language-server', '--stdio' },
+      root_dir = root_dir,
+      init_options = {
+        sessionToken = "",
+        -- sessionToken = os.getenv("GITHUB_ACTIONS_LS_TOKEN"),
+      },
+    })
+    
+    -- NOTE: ipatch, debug gh_actions_ls
+    -- if client_id then
+    --   print('LSP started with client_id:', client_id)
+    -- else
+    --   print('Failed to start LSP!')
+    -- end
+  end,
+})
+
+-------------------
 -- plugin / nvim / blink.cmp
 ----
 require('blink.cmp').setup({
