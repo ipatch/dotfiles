@@ -341,7 +341,7 @@ for_window [class="xeyes"] floating enable, resize set 1800 1000, move position 
 for_window [class="XEyes"] floating enable, resize set 1800 1000, move position center
 
 # WM_CLASS(STRING) = "xfreerdp", "xfreerdp"
-for_window [class="xfreerdp"] move to workspace $ws7
+for_window [class="xfreerdp"] move to workspace $ws23
 
 #---------------------------------------
 # TODO: # FIXME: every subsequent firefox window launches on workspace 2
