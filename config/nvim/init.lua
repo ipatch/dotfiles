@@ -547,6 +547,21 @@ vim.lsp.config.html = {
   -- single_file_support = true,
 }
 
+vim.lsp.config.lua_ls = {
+  settings = {
+    Lua = {
+      diagnostics = {
+        globals = { 'vim' },
+      },
+      workspace = {
+        library = vim.api.nvim_get_runtime_file("", true),
+        checkThirdParty = false,
+      },
+      telemetry = { enable = false },
+    },
+  },
+}
+
 ---------------
 -- PLUGIN / neovim native lsp / ruby / solargraph
 -- NOTE: https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#solargraph
@@ -574,7 +589,6 @@ vim.lsp.config.html = {
 ---------------
 -- PLUGIN / neovim / mason LSP + DAP tooling
 ----
--- NOTE: ipatch, did not notice difference before/after lsp settings in init.lua
 require('mason').setup({
   ui = {
     border = 'rounded'
@@ -588,6 +602,7 @@ require('mason-lspconfig').setup {
     'jsonls',
     'html',
     'yamlls',
+    'lua_ls',
   },
   automatic_installation = true,
 }
@@ -1472,4 +1487,15 @@ map('n', '<leader>dtf', ':Telescope dap frames<CR>')
 ----
 -- require('dapui').setup()
 -- map('n', '<leader>dq', ':lua require"dapui".toggle()<CR>')
+
+vim.api.nvim_create_autocmd("User", {
+  pattern = "VeryLazy",
+  desc = "Override diagnostic signs after all plugins load",
+  callback = function()
+    for type, icon in pairs({ Error = "✘", Warn = "▲", Hint = "⚑", Info = "»" }) do
+      local hl = "DiagnosticSign" .. type
+      vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
+    end
+  end,
+})
 
