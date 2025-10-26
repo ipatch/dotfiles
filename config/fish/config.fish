@@ -283,6 +283,9 @@ if status is-interactive
     abbr -a -- nr 'npm run'
 
     set -gx THEOS "$HOME/theos"
+
+    # Launching VS code with code --enable-proposed-api jeanp413.open-remote-ssh allows me to use the plugin.
+    alias code='code --enable-proposed-api jeanp413.open-remote-ssh'
   end
 
 
