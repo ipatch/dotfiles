@@ -330,12 +330,6 @@ end
 local function test_function()
   print("Keybinding works!")
 end
--- Test the keybinding with <leader>t
--- vim.api.nvim_set_keymap('n', '<leader>t', ':lua test_function()<CR>', { noremap = true, silent = true })
--- vim.keymap.set('n', '<leader>t', test_function, {})
-
--- Map the function to <M-o><M-c><M-r>
--- vim.api.nvim_set_keymap('n', '<M-o><M-c><M-r>', ':lua insert_commented_line()<CR>', { noremap = true, silent = true })
 
 opt.updatetime = 100
 g.netrw_banner = true
@@ -494,6 +488,7 @@ if vim.fn.filereadable(api_key_file) == 1 then
     --     api_key_cmd = api_key_cmd,
     -- })
 end
+
 ---------------
 -- PLUGIN / neovim native / LSP settings
 ----
@@ -510,6 +505,12 @@ require('mason').setup({
     border = 'rounded'
   }
 })
+
+-- NOTE: ipatch, after adding the below lines ie. oct 26, 2025 begain seeing diagnostic msg's within my init.lua
+require('mason-lspconfig').setup {
+  ensure_installed = { 'pyright' },
+  automatic_installation = true,
+}
 
 -- COPY DIAGNOSTIC MESSAGE TO CLIPBOARD
 -- NOTE: ipatch, best solution i could come up with for time being
@@ -990,9 +991,7 @@ local languages = {
 
 if user == "mobile" or user == "root" then
   languages = {}
-end
-
-if user == "capin" then
+elseif user == "capin" then
   -- NOTE: ipatch, manually ran `:TSInstall yaml-github-action`
   local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
   parser_config["yaml-github-action"] = {
