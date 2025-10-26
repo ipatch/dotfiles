@@ -490,11 +490,88 @@ if vim.fn.filereadable(api_key_file) == 1 then
 end
 
 ---------------
--- PLUGIN / neovim native / LSP settings
+-- PLUGIN / neovim native / LSP settings / lsp-zero
 ----
 -- ref: https://github.com/neovim/nvim-lspconfig/wiki/UI-Customization
-local lsp_zero = require('lsp-zero')
-lsp_zero.extend_lspconfig()
+
+local lsp = require('lsp-zero').preset('recommended')
+
+lsp.set_sign_icons({
+  error = '✘',
+  warn = '▲',
+  hint = '⚑',
+  info = '»',
+})
+
+-- optional: configure individual servers
+vim.lsp.config.pyright = {
+  settings = {
+    python = { analysis = { typeCheckingMode = 'basic' }}
+  },
+  on_attach = function(client, bufnr)
+  end,
+}
+
+vim.lsp.config.jsonls = {
+  settings = {
+    json = {
+      schemas = require('schemastore').json.schemas(),
+      validate = { enable = true },
+    },
+  },
+}
+
+---------------
+-- plugin / nvim native lsp / yaml, yml - yamlls
+----
+vim.lsp.config.yamlls = {
+  settings = {
+    yaml = {
+      schemas = require('schemastore').yaml.schemas(),
+      validate = true,
+    },
+  },
+}
+
+vim.lsp.config.html = {
+  cmd = { "vscode-html-language-server", "--stdio" },
+  filetypes = { "html" },
+  init_options = {
+    configurationSection = { "html", "css", "javascript" },
+    embeddedLanguages = {
+      css = true,
+      javascript = true
+    },
+    -- The code-formatting feature of the lsp can be controlled with the `provideFormatter` option.
+    provideFormatter = true
+  },
+  -- settings = {},
+  -- single_file_support = true,
+}
+
+---------------
+-- PLUGIN / neovim native lsp / ruby / solargraph
+-- NOTE: https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#solargraph
+-- NOTE: ipatch, use `gem install --user-install solargraph` and NOT mason to install solargraph
+-- NOTE: ipatch, code actions are NOT supported https://github.com/castwide/solargraph/issues/614
+----
+-- vim.lsp.config.solargraph = {
+--   capabilities = capabilities,
+--   cmd = { "solargraph", "stdio" },
+--   root_dir = lsp.util.root_pattern("Gemfile", ".git", "."),
+--   settings = {
+--     solargraph = {
+--       autoformat = false,
+--       formatting = false,
+--       completion = true,
+--       diagnostic = true,
+--       folding = true,
+--       references = true,
+--       rename = true,
+--       symbols = true
+--     }
+--   }
+-- }
 
 ---------------
 -- PLUGIN / neovim / native LSP / mason / lsp manager
@@ -508,7 +585,12 @@ require('mason').setup({
 
 -- NOTE: ipatch, after adding the below lines ie. oct 26, 2025 begain seeing diagnostic msg's within my init.lua
 require('mason-lspconfig').setup {
-  ensure_installed = { 'pyright' },
+  ensure_installed = {
+    'pyright',
+    'jsonls',
+    'html',
+    'yamlls',
+  },
   automatic_installation = true,
 }
 
@@ -549,21 +631,8 @@ vim.diagnostic.config({
 -- TODO: finish scaffolding out setup / config
 -----
 
-------------------------------
--- PLUGIN / neovim/nvim-lspconfig
------
-local nvim_lsp = require('lspconfig')
-local lsp = require('lsp-zero').preset({})
-
 -- TODO: ipatch, set the `cmd` var for the setup parameter for tsserver
-lsp.on_attach(function(client, bufnr)
-
-  lsp.set_sign_icons({
-    error = '✘',
-    warn = '▲',
-    hint = '⚑',
-    info = '»',
-  })
+-- lsp.on_attach(function(client, bufnr)
 
   -- TODO: ipatch, NO WORK, updated the tsconfig.json for the project instead
   -- require('nvim-lsp-ts-utils').setup({
@@ -577,42 +646,41 @@ lsp.on_attach(function(client, bufnr)
   --   url = "https://json.schemastore.org/tsconfig.json"
   -- })
 
-  local opts = {buffer = bufnr, remap = false}
+  -- attach keymaps and other on_attach behavior
+  lsp.on_attach(function(client, bufnr)
+    local opts = { buffer = bufnr, remap = false }
 
-  -- NOTE: ipatch, style LSP diagnostic messages requires nvim >= 0.7
-  vim.api.nvim_create_autocmd("CursorHold", {
-    buffer = bufnr,
-    callback = function()
-      local opts = {
-        -- NOTE: ipatch, toggle to true to copy text in diagnostics float window
-        focusable = false,
-        -- focusable = true,
-        close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
-        border = 'rounded',
-        source = 'always',
-        prefix = '',
-        header = '',
-        scope = 'cursor',
-      }
-      vim.diagnostic.open_float(nil, opts)
-    end
-  })
+    -- Buffer local mappings.
+    -- See `:help vim.lsp.*` for documentation on any of the below functions
+    vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
+    vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
+    vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end, opts)
+    vim.keymap.set("n", "<leader>vd", function() vim.diagnostic.open_float() end, opts)
+    vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end, opts)
+    vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end, opts)
+    vim.keymap.set("n", "<leader>vca", function() vim.lsp.buf.code_action() end, opts)
+    vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.references() end, opts)
+    vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
+    vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
 
-  -- Buffer local mappings.
-  -- See `:help vim.lsp.*` for documentation on any of the below functions
-  vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
-  vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
-  vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end, opts)
-  vim.keymap.set("n", "<leader>vd", function() vim.diagnostic.open_float() end, opts)
-  vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end, opts)
-  vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end, opts)
-  vim.keymap.set("n", "<leader>vca", function() vim.lsp.buf.code_action() end, opts)
-  vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.references() end, opts)
-  vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
-  vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
-end)
-
-lsp.setup()
+    -- NOTE: ipatch, style LSP diagnostic messages requires nvim >= 0.7
+    vim.api.nvim_create_autocmd("CursorHold", {
+      buffer = bufnr,
+      callback = function()
+        vim.diagnostic.open_float(nil, {
+          -- NOTE: ipatch, toggle to true to copy text in diagnostics float window
+          focusable = false,
+          -- focusable = true,
+          close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
+          border = 'rounded',
+          source = 'always',
+          prefix = '',
+          header = '',
+          scope = 'cursor',
+        })
+      end,
+    })
+  end)
 
 -- Enable (broadcasting) snippet capability for completion
 -- local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -621,39 +689,6 @@ lsp.setup()
 
 -- NOTE: ipatch, https://github.com/hrsh7th/vscode-langservers-extracted
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#html
-vim.lsp.config.html = {
-  capabilities = capabilities,
-  cmd = { "vscode-html-language-server", "--stdio" },
-  filetypes = { "html" },
-  init_options = {
-    configurationSection = { "html", "css", "javascript" },
-    embeddedLanguages = {
-      css = true,
-      javascript = true
-    },
-    -- The code-formatting feature of the lsp can be controlled with the `provideFormatter` option.
-    provideFormatter = true
-  },
-  -- settings = {},
-  -- single_file_support = true,
-  on_attach = on_attach,
-}
-
-vim.lsp.config.json = {
-  settings = {
-    json = {
-      schemas = require('schemastore').json.schemas(),
-      validate = { enable = true },
-    },
-  },
-}
-
----------------
--- plugin / nvim native lsp / yaml, yml - yamlls
-----
-vim.lsp.config.yamlls = {
-  capabilities = capabilities
-}
 
 ---------------
 -- plugin / gh-actions-language-server
@@ -793,36 +828,14 @@ local function setup_diagnostics(client, buffer)
 end 
 ]]
 
----------------
--- PLUGIN / neovim native lsp / ruby / solargraph
--- NOTE: https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#solargraph
--- NOTE: ipatch, use `gem install --user-install solargraph` and NOT mason to install solargraph
--- NOTE: ipatch, code actions are NOT supported https://github.com/castwide/solargraph/issues/614
-----
-vim.lsp.config.solargraph = {
-  capabilities = capabilities,
-  cmd = { "solargraph", "stdio" },
-  root_dir = nvim_lsp.util.root_pattern("Gemfile", ".git", "."),
-  settings = {
-    solargraph = {
-      autoformat = false,
-      formatting = false,
-      completion = true,
-      diagnostic = true,
-      folding = true,
-      references = true,
-      rename = true,
-      symbols = true
-    }
-  }
-}
+
 
 ---------------
 -- PLUGIN / luasnips, neovim snippets plugin
 ----
 -- require("luasnip.loaders.from_vscode").lazy_load()
 
--- NOTE: ipatch, / plugin / nvim-cpm
+-- NOTE: ipatch, / plugin / nvim-cmp
 -- TODO: ipatch, this table is no longer being used due to migration from nvim-cmp to blink.cmp
 -- ref: https://github.com/hrsh7th/nvim-cmp/wiki/Menu-Appearance#how-to-add-visual-studio-code-codicons-to-the-menu
 local kind_icons = {
@@ -852,6 +865,10 @@ local kind_icons = {
   Operator = '  ',
   TypeParameter = '  ',
 }
+
+-- NOTE: ipatch, make sure to call this after all lsp's have been configured
+lsp.setup()
+
 
 ---------------
 -- PLUGIN / neovim telescope 
@@ -920,10 +937,6 @@ vim.keymap.set('n', '<C-p>', project_files, { desc = 'fuzzy find project fiels' 
 -- To get fzf loaded and working with telescope, you need to call
 -- load_extension, somewhere after setup function:
 -- require('telescope').load_extension('fzf')
-
----------------
--- PLUGIN / vim-turmuxnavigator / mappings
-----
 
 ---------------
 -- PLUGIN / nvchad/nvim-colorizer.lua 🎨
