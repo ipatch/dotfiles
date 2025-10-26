@@ -1,6 +1,3 @@
--- Author: github.com/ipatch
--- my neovim ≥ 0.5 configuration/setup
--- some inspiration: https://github.com/David-Kunz/vim/blob/master/init.lua
 
 ---------------
 -- NOTE: ipatch / ⭐️USEFUL REMINDERS, and other assorted BS
@@ -163,6 +160,7 @@ require('lazy').setup({
       'rcarriga/nvim-dap-ui',
       'theHamsta/nvim-dap-virtual-text',
       'mfussenegger/nvim-dap-python',
+      'jay-babu/mason-nvim-dap.nvim',
     }
   },
 
@@ -574,7 +572,7 @@ vim.lsp.config.html = {
 -- }
 
 ---------------
--- PLUGIN / neovim / native LSP / mason / lsp manager
+-- PLUGIN / neovim / mason LSP + DAP tooling
 ----
 -- NOTE: ipatch, did not notice difference before/after lsp settings in init.lua
 require('mason').setup({
@@ -593,6 +591,14 @@ require('mason-lspconfig').setup {
   },
   automatic_installation = true,
 }
+
+require('mason-nvim-dap').setup({
+  ensure_installed = {
+    -- 'debugpy',
+    'python',
+  },
+  automatic_installation = true,
+})
 
 -- COPY DIAGNOSTIC MESSAGE TO CLIPBOARD
 -- NOTE: ipatch, best solution i could come up with for time being
