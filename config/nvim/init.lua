@@ -310,7 +310,7 @@ opt.wrap = true
 
 -- TODO: NO WORK!!
 -- Define a function to insert a new line with a comment
-function insert_commented_line()
+local function insert_commented_line()
   -- Temporarily enable 'formatoptions'
   local fo = vim.opt.formatoptions:get()
   local fo_str = table.concat(fo, "")
@@ -822,12 +822,8 @@ vim.lsp.config.solargraph = {
 ----
 -- require("luasnip.loaders.from_vscode").lazy_load()
 
----------------
--- PLUGIN / nvim-cmp, neovim completion 
-----
--- require('lsp-zero').extend_cmp()
-
 -- NOTE: ipatch, / plugin / nvim-cpm
+-- TODO: ipatch, this table is no longer being used due to migration from nvim-cmp to blink.cmp
 -- ref: https://github.com/hrsh7th/nvim-cmp/wiki/Menu-Appearance#how-to-add-visual-studio-code-codicons-to-the-menu
 local kind_icons = {
   Text = '  ',
