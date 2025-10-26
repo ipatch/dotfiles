@@ -154,13 +154,15 @@ require('lazy').setup({
   },
 
   'nvim-lua/popup.nvim',
-  'mfussenegger/nvim-dap',
-  'nvim-telescope/telescope-dap.nvim',
 
-  { -- dap / nvim-dap-ui
-    'rcarriga/nvim-dap-ui',
+  { -- dap
+    'mfussenegger/nvim-dap',
     dependencies = {
-      'nvim-neotest/nvim-nio'
+      'nvim-telescope/telescope-dap.nvim',
+      'nvim-neotest/nvim-nio',
+      'rcarriga/nvim-dap-ui',
+      'theHamsta/nvim-dap-virtual-text',
+      'mfussenegger/nvim-dap-python',
     }
   },
 
@@ -451,18 +453,18 @@ vim.api.nvim_create_autocmd('BufWinEnter', {
 ------------------------------
 -- SETTINGS / filetypes / custom filenames
 -- NOTE: rm'd symlink not required anymore but leave here for future ref
-----
-vim.cmd([[
-  autocmd BufRead,BufNewFile config.fish-capin-mpb14,3-single-file set filetype=fish
-  autocmd BufNewFile,BufRead *.service* set filetype=systemd
-  autocmd BufRead,BufNewFile ~/.config/rofi/config.rasi set filetype=rasi'
-]])
-
+-- NOTE: ipatch, newer way to add custom filetypes for neovim >= 0.7+
 -- NOTE: ipatch, https://github.com/lttb/gh-actions-language-server
+----
 vim.filetype.add({
   pattern = {
     ['.*/%.github[%w/]+workflows[%w/]+.*%.ya?ml'] = 'yaml.github',
+    ['.*%.service.*'] = 'systemd',
+    ['.*/%rofi[%w/]+config%.rasi'] = 'rasi'
   },
+  filename = {
+    ['config.fish-capin-mbp14,3-single-file'] = 'fish',
+  }
 })
 
 ---------------
@@ -853,62 +855,6 @@ local kind_icons = {
   Operator = '  ',
   TypeParameter = '  ',
 }
-
--- local cmp = require('cmp')
--- require('luasnip.loaders.from_vscode').lazy_load()
-
--- cmp.setup({
---   snippet = {
---     -- REQUIRED - you must specify a snippet engine
---     expand = function(args)
---       require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
---       -- vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
---       -- require('snippy').expand_snippet(args.body) -- For `snippy` users.
---       -- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
---     end,
---   },
---   experimental = {
---     ghost_text = true,
---   },
---   window = {
---     completion = cmp.config.window.bordered(),
---     documentation = cmp.config.window.bordered(),
---   },
---   sources = cmp.config.sources({
---     { name = 'luasnip' }, -- For luasnip users.
---     { name = 'path' },
---     { name = 'nvim_lsp' },
---     { name = 'nvim_lua' },
---     -- { name = 'vsnip' }, -- For vsnip users.
---     -- { name = 'ultisnips' }, -- For ultisnips users.
---     -- { name = 'snippy' }, -- For snippy users.
---   }, {
---     { name = 'buffer' },
---   }),
---   mapping = {
---     -- use `TAB` key to highlight next item in list
---     ['<C-Space>'] = cmp.mapping.complete(),
---     ['<Tab>'] = cmp.mapping.select_next_item(),
---     ['<S-Tab>'] = cmp.mapping.select_prev_item(),
---     ['<CR>'] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace }),
---     ['<C-e>'] = cmp.mapping.abort(),
---  },
---  formatting = {
---    fields = { "kind", "abbr" },
---    format = function(entry, vim_item)
-
---      -- kind icons
---      -- vim_item.kind = (cmp_kinds[vim_item.kind] or '') .. vim_item.kind
---      vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
---      vim_item.menu = ({
---        buffer = "(Buffer)",
---        path = "(Path)",
---      })[entry.source.name]
-
---      return vim_item
---    end,
---  },
--- })
 
 ---------------
 -- PLUGIN / neovim telescope 
@@ -1379,37 +1325,48 @@ vim.o.foldlevelstart = 99
 -- NOTE: https://github.com/mfussenegger/nvim-dap/wiki/Debug-Adapter-installation#Python
 ----
 local dap = require('dap')
-dap.adapters.python = {
-  type = 'executable';
-  command = '$HOME/.virtualenvs/debugpy/bin/python';
-  args = { '-m', 'debugpy.adapter' };
-}
+local dapui = require('dapui')
+local dap_python = require('dap-python')
 
-dap.configurations.python = {
-  {
-    -- The first three options are required by nvim-dap
-    type = 'python'; -- the type here established the link to the adapter definition: `dap.adapters.python`
-    request = 'launch';
-    name = "Launch file";
+require('dapui').setup({})
+require('nvim-dap-virtual-text').setup({
+  commented = true,
+})
 
-    -- Options below are for debugpy, see https://github.com/microsoft/debugpy/wiki/Debug-configuration-settings for supported options
+dap_python.setup('python3')
 
-    program = "${file}"; -- This configuration will launch the current file if used.
-    pythonPath = function()
-      -- debugpy supports launching an application with a different interpreter then the one used to launch debugpy itself.
-      -- The code below looks for a `venv` or `.venv` folder in the current directory and uses the python within.
-      -- You could adapt this, for example use the `VIRTUAL_ENV` environment variable.
-      local cwd = vim.fn.getcwd()
-      if vim.fn.executable(cwd .. '/venv/bin/python') == 1 then
-        return cwd .. '/venv/bin/python'
-      elseif vim.fn.executable(cwd .. '/.venv/bin/python') == 1 then
-        return cwd .. '/.venv/bin/python'
-      else
-        return '/usr/bin/python'
-      end
-    end;
-  },
-}
+-- dap.adapters.python = {
+--   type = 'executable';
+--   command = '$HOME/.virtualenvs/debugpy/bin/python';
+--   args = { '-m', 'debugpy.adapter' };
+-- }
+
+-- dap.configurations.python = {
+--   {
+--     -- The first three options are required by nvim-dap
+--     type = 'python'; -- the type here established the link to the adapter definition: `dap.adapters.python`
+--     request = 'launch';
+--     name = "Launch file";
+
+--     -- Options below are for debugpy, 
+--     -- see https://github.com/microsoft/debugpy/wiki/Debug-configuration-settings for supported options
+
+--     program = "${file}"; -- This configuration will launch the current file if used.
+--     pythonPath = function()
+--       -- debugpy supports launching an application with a different interpreter then the one used to launch debugpy itself.
+--       -- The code below looks for a `venv` or `.venv` folder in the current directory and uses the python within.
+--       -- You could adapt this, for example use the `VIRTUAL_ENV` environment variable.
+--       local cwd = vim.fn.getcwd()
+--       if vim.fn.executable(cwd .. '/venv/bin/python') == 1 then
+--         return cwd .. '/venv/bin/python'
+--       elseif vim.fn.executable(cwd .. '/.venv/bin/python') == 1 then
+--         return cwd .. '/.venv/bin/python'
+--       else
+--         return '/usr/bin/python'
+--       end
+--     end;
+--   },
+-- }
 
 ---------------
 -- plugin / nvim-dap / debug node / javascript
@@ -1434,24 +1391,52 @@ dap.configurations.javascript = {
 ---------------
 -- plugin /mfussenegger/nvim-dap 
 ----
-vim.fn.sign_define('DapBreakpoint', {text='🛑', texthl='', linehl='', numhl=''})
-vim.fn.sign_define('DapBreakpointRejected', {text='🙅', texthl='', linehl='', numhl=''})
-vim.fn.sign_define('DapStopped', {text='✋', texthl='', linehl='', numhl=''})
+vim.fn.sign_define('DapBreakpoint', {text='🛑', texthl='DiagnosticSignError', linehl='', numhl=''})
+vim.fn.sign_define('DapBreakpointRejected', {text='🙅', texthl='DiagnosticSignError', linehl='', numhl=''})
+vim.fn.sign_define('DapStopped', {text='✋', texthl='DiagnosticSignWarn', linehl='Visual', numhl='DiagnosticSignWarn'})
+
+dap.listeners.after.event_initialized['dapui_config'] = function()
+  dapui.open()
+end
 
 ---------------
 -- plugin /mfussenegger/nvim-dap / mappings (requires helper function)
 ----
-map('n', '<leader>dh', ':lua require"dap".toggle_breakpoint()<CR>')
+map('n', '<leader>db', ':lua require"dap".toggle_breakpoint()<CR>')
+
 -- requires external helper file `debugHelper.lua`
 map('n', '<leader>da', ':lua require"debugHelper".attach()<CR>')
-map('n', '<leader>dc', ':lua require"dap".disconnect({ terminateDebuggee = true });require"dap".close()<CR>')
-map('n', '<leader>dsv', '<cmd>lua require"dap".step_over()<CR>')
-map('n', '<leader>dsi', '<cmd>lua require"dap".step_into()<CR>')
-map('n', '<leader>dn', ':lua require"dap".continue()<CR>')
-map('n', '<leader>di', ':lua require"dap.ui.widgets".hover()<CR>')
+
+map('n', '<leader>dc', ':lua require"dap".continue()<CR>')
+
+-- map('n', '<leader>dc', ':lua require"dap".disconnect({ terminateDebuggee = true });require"dap".close()<CR>')
+
+map('n', '<leader>do', '<cmd>lua require"dap".step_over()<CR>')
+
+map('n', '<leader>di', '<cmd>lua require"dap".step_into()<CR>')
+
+-- Step Out
+vim.keymap.set("n", "<leader>dO", function()
+  dap.step_out()
+end, opts)
+
+-- map('n', '<leader>di', ':lua require"dap.ui.widgets".hover()<CR>')
+
 map('n', '<leader>d?', ':lua local widgets=require"dap.ui.widgets";widgets.centered_float(widgets.scopes)<CR>')
+
 map('n', '<leader>dk', ':lua require"dap".up()<CR>')
+
 map('n', '<leader>dj', ':lua require"dap".down()<CR>')
+
+-- Keymap to terminate debugging
+vim.keymap.set("n", "<leader>dq", function()
+  require("dap").terminate()
+end, opts)
+
+-- Toggle DAP UI
+vim.keymap.set("n", "<leader>du", function()
+  dapui.toggle()
+end, opts)
 
 ---------------
 -- plugin / nvim-telescope/telescope-dap.nvim
@@ -1463,6 +1448,6 @@ map('n', '<leader>dtf', ':Telescope dap frames<CR>')
 ---------------
 -- plugin / rcarriga/nvim-dap-ui
 ----
-require('dapui').setup()
-map('n', '<leader>dq', ':lua require"dapui".toggle()<CR>')
+-- require('dapui').setup()
+-- map('n', '<leader>dq', ':lua require"dapui".toggle()<CR>')
 
