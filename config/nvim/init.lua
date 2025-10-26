@@ -887,6 +887,8 @@ telescope.setup({
       previewer = false,
       mappings = {
         i = {
+          -- NOTE: ipatch, mapping to delete/close buffer from picker view
+          -- https://github.com/nvim-telescope/telescope.nvim/wiki/Configuration-Recipes#mapping-c-d-to-delete-buffer
           ["<c-d>"] = actions.delete_buffer
         }
       }
@@ -899,16 +901,22 @@ local builtin = require('telescope.builtin')
 ---------------
 -- PLUGIN / neovim telescope / key mappings
 -- NOTE: ipatch, install telecope-fzf-native.nvim to fuzzy search
--- TODO: construct a function where C-p can be used to first  check if git dir and if not fallback to find_files
-vim.keymap.set('n', '<leader>pf', builtin.find_files, {})
-vim.keymap.set('n', '<C-p>', builtin.git_files, {})
 vim.keymap.set('n', ';', builtin.buffers, {})
 vim.keymap.set('n', '<leader>ps', function()
   builtin.grep_string({ search = vim.fn.input("Grep >") })
 end)
 
--- TODO: ipatch, mapping to delete/close buffer from picker view
--- https://github.com/nvim-telescope/telescope.nvim/wiki/Configuration-Recipes#mapping-c-d-to-delete-buffer
+-- NOTE: function where C-p can be used to first  check if git dir and if not fallback to find_files
+local function project_files()
+  local is_git_repo = vim.fn.system('git rev-parse --is-inside-work-tree 2>/dev/null')
+  if vim.v.shell_error == 0 then
+    require('telescope.builtin').git_files()
+  else
+    require('telescope.builtin').find_files()
+  end
+end
+
+vim.keymap.set('n', '<C-p>', project_files, { desc = 'fuzzy find project fiels' })
 
 ---------------
 -- PLUGIN / nvim-telescope
