@@ -845,8 +845,10 @@ vim.keymap.set('i', '<Esc>', function()
 end, { desc = 'Hide completion and exit insert mode' })
 
 
---[[ require('lspconfig').ruby_ls.setup {
-  -- cmd = {"/home/my_user/.rbenv/shims/ruby-lsp"},
+-- TODO: ipatch, cleanup the below code
+--[[ 
+  require('lspconfig').ruby_ls.setup {
+  cmd = {"/home/my_user/.rbenv/shims/ruby-lsp"},
   cmd = { "/Users/brewmaster/.gem/ruby/3.1.0/bin/ruby-lsp" }
 }
 
@@ -898,7 +900,7 @@ end
 ----
 -- require("luasnip.loaders.from_vscode").lazy_load()
 
--- TODO: ipatch, this table is no longer being used due to migration from nvim-cmp to blink.cmp
+-- TODO: ipatch, this table may no longer be used due to migration from nvim-cmp to blink.cmp
 -- ref: https://github.com/hrsh7th/nvim-cmp/wiki/Menu-Appearance#how-to-add-visual-studio-code-codicons-to-the-menu
 local kind_icons = {
   Text = '  ',
