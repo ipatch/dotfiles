@@ -615,6 +615,7 @@ vim.lsp.config('html', {
   },
 })
 
+-- lua ie. lua_ls
 vim.lsp.config('lua_ls', {
   root_markers = {'.luarc.json', '.luarc.jsonc', '.git' },
   filetypes = { 'lua' },
@@ -624,7 +625,13 @@ vim.lsp.config('lua_ls', {
         globals = { 'vim' },
       },
       workspace = {
-        library = vim.api.nvim_get_runtime_file("", true),
+        library = vim.list_extend(
+          vim.api.nvim_get_runtime_file("", true),
+          {
+            vim.fn.stdpath('data') .. '/lazy/nvim-dap',
+            vim.fn.stdpath('data') .. '/lazy/nvim-dap-ui',
+          }
+        ),
         checkThirdParty = false,
       },
       telemetry = { enable = false },
@@ -732,15 +739,6 @@ local function copy_diagnostic_to_clipboard()
 end
 
 vim.keymap.set('n', '<leader>yd', copy_diagnostic_to_clipboard, { noremap = true, silent = true })
-
--- NOTE: ipatch, style LSP diagnostic messages
-vim.diagnostic.config({
-  virtual_text = false,
-  signs = true,
-  underline = true,
-  update_in_insert = false,
-  severity_sort = false,
-})
 
 ------------------------------
 -- PLUGIN / folke/lazydev.nvim
@@ -900,7 +898,6 @@ end
 ----
 -- require("luasnip.loaders.from_vscode").lazy_load()
 
--- NOTE: ipatch, / plugin / nvim-cmp
 -- TODO: ipatch, this table is no longer being used due to migration from nvim-cmp to blink.cmp
 -- ref: https://github.com/hrsh7th/nvim-cmp/wiki/Menu-Appearance#how-to-add-visual-studio-code-codicons-to-the-menu
 local kind_icons = {
@@ -1468,6 +1465,7 @@ vim.fn.sign_define('DapBreakpoint', {text='🛑', texthl='DiagnosticSignError', 
 vim.fn.sign_define('DapBreakpointRejected', {text='🙅', texthl='DiagnosticSignError', linehl='', numhl=''})
 vim.fn.sign_define('DapStopped', {text='✋', texthl='DiagnosticSignWarn', linehl='Visual', numhl='DiagnosticSignWarn'})
 
+---@diagnostic disable-next-line: undefined-field
 dap.listeners.after.event_initialized['dapui_config'] = function()
   dapui.open()
 end
