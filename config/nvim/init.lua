@@ -1469,9 +1469,47 @@ dap_python.setup('python3')
 -- }
 
 
+dap.configurations.cpp = {
+  {
+    -- TODO: ipatch, NOT FULLY WORKING
+    name = 'launch freecad (debug)',
+    type = 'lldb', -- or cppdbg
+    request = 'launch',
+    program = function()
+      return vim.fn.input('Path to FreeCAD binary: ', vim.fn.getcwd() .. '/build/bin/FreeCAD', 'file')
+    end,
+    cwd = '${workspaceFolder}',
+    stopAtEntry = false,
+    setupCommands = {
+      {
+        text = 'enable-pretty-printing',
+        description = 'enable pretty printing',
+        ignoreFailures = false
+      },
+    },
+  },
+  {
+    name = 'attach to freecad process',
+    type = 'lldb',
+    request = 'attach',
+    processId = require('dap.utils').pick_process,
+    program = function()
+      return vim.fn.input('path to freecad binary: ', vim.fn.getcwd() .. '/build/bin/FreeCAD', 'file')
+    end,
+    cwd = '${workspace}',
+  },
+}
 
-
-
+-- Automatically open/close UI
+dap.listeners.after.event_initialized["dapui_config"] = function()
+  dapui.open()
+end
+dap.listeners.before.event_terminated["dapui_config"] = function()
+  dapui.close()
+end
+dap.listeners.before.event_exited["dapui_config"] = function()
+  dapui.close()
+end
 
 ---------------
 -- plugin / nvim-dap / debug node / javascript
@@ -1508,6 +1546,18 @@ end
 ---------------
 -- plugin / mfussenegger / nvim-dap / mappings (requires helper function)
 ----
+--- EXAMPLES
+-- Keybindings
+-- vim.keymap.set('n', '<F5>', function() dap.continue() end, { desc = 'Debug: Start/Continue' })
+-- vim.keymap.set('n', '<F10>', function() dap.step_over() end, { desc = 'Debug: Step Over' })
+-- vim.keymap.set('n', '<F11>', function() dap.step_into() end, { desc = 'Debug: Step Into' })
+-- vim.keymap.set('n', '<F12>', function() dap.step_out() end, { desc = 'Debug: Step Out' })
+-- vim.keymap.set('n', '<Leader>b', function() dap.toggle_breakpoint() end, { desc = 'Debug: Toggle Breakpoint' })
+-- vim.keymap.set('n', '<Leader>B', function() dap.set_breakpoint(vim.fn.input('Breakpoint condition: ')) end, { desc = 'Debug: Conditional Breakpoint' })
+-- vim.keymap.set('n', '<Leader>dr', function() dap.repl.open() end, { desc = 'Debug: Open REPL' })
+-- vim.keymap.set('n', '<Leader>dl', function() dap.run_last() end, { desc = 'Debug: Run Last' })
+-- vim.keymap.set('n', '<Leader>dt', function() dapui.toggle() end, { desc = 'Debug: Toggle UI' })
+
 map('n', '<leader>db', ':lua require"dap".toggle_breakpoint()<CR>')
 -- requires external helper file `debugHelper.lua`
 map('n', '<leader>da', ':lua require"debugHelper".attach()<CR>')
