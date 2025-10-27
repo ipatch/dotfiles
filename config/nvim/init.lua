@@ -149,9 +149,10 @@ require('lazy').setup({
   { -- dap
     'mfussenegger/nvim-dap',
     dependencies = {
-      'nvim-telescope/telescope-dap.nvim',
-      'nvim-neotest/nvim-nio',
       'rcarriga/nvim-dap-ui',
+      'nvim-neotest/nvim-nio',
+      'theHamsta/nvim-dap-virtual-text',
+      'nvim-telescope/telescope-dap.nvim',
       'theHamsta/nvim-dap-virtual-text',
       'mfussenegger/nvim-dap-python',
       'jay-babu/mason-nvim-dap.nvim',
@@ -704,6 +705,7 @@ require('mason-nvim-dap').setup({
   ensure_installed = {
     -- 'debugpy',
     'python',
+    'codelldb',
   },
   automatic_installation = true,
 })
@@ -745,20 +747,17 @@ vim.keymap.set('n', '<leader>yd', copy_diagnostic_to_clipboard, { noremap = true
 -- TODO: finish scaffolding out setup / config
 -----
 
--- TODO: ipatch, set the `cmd` var for the setup parameter for tsserver
--- lsp.on_attach(function(client, bufnr)
-
-  -- TODO: ipatch, NO WORK, updated the tsconfig.json for the project instead
-  -- require('nvim-lsp-ts-utils').setup({
+-- TODO: ipatch, NO WORK, updated the tsconfig.json for the project instead
+-- require('nvim-lsp-ts-utils').setup({
   --   filter_out_diagnositics_by_code = { 80001 },
   -- })
   -- require('nvim-lsp-ts-utils').setup_client(client)
 
   -- NOTE: ipatch, setup jsonls for tsconfig.json
   -- require('lspconfig').jsonls.setup({
-  --   fileMatch = {"tsconfig*.json"},
-  --   url = "https://json.schemastore.org/tsconfig.json"
-  -- })
+    --   fileMatch = {"tsconfig*.json"},
+    --   url = "https://json.schemastore.org/tsconfig.json"
+    -- })
 
 -- Enable (broadcasting) snippet capability for completion
 -- local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -771,7 +770,6 @@ vim.keymap.set('n', '<leader>yd', copy_diagnostic_to_clipboard, { noremap = true
 ---------------
 -- plugin / gh-actions-language-server
 ----
-
 vim.api.nvim_create_autocmd('FileType', {
   pattern = 'yaml.github',
   callback = function(args)
@@ -993,12 +991,6 @@ end
 vim.keymap.set('n', '<C-p>', project_files, { desc = 'fuzzy find project fiels' })
 
 ---------------
--- PLUGIN / nvim-telescope
--- To get fzf loaded and working with telescope, you need to call
--- load_extension, somewhere after setup function:
--- require('telescope').load_extension('fzf')
-
----------------
 -- PLUGIN / nvchad/nvim-colorizer.lua 🎨
 -- NOTE: ipatch, display the actual colors in the text file 
 -- ref: https://github.com/norcalli/nvim-colorizer.lua
@@ -1019,7 +1011,7 @@ require 'colorizer'.setup({
 require('ibl').setup()
 
 ---------------
--- PLUGIN / tree-sitter, treesitter
+-- PLUGIN / tree-sitter, treesitter, treesitter-textobjects
 -- NOTE: ipatch, `all` blows up 💥 on m1 mac due to `phpdoc`
 -- NOTE: ipatch, https://www.reddit.com/r/neovim/comments/1ds8kcp/i_got_this_error_when_open_help_anyone_known_how/lbewzk1/
 -- i had to add the vimdoc and luddoc parsers to prevent the above err
@@ -1072,9 +1064,6 @@ elseif user == "capin" then
   }
 end
 
----------------
--- PLUGIN / treesitter-textobjects, treesitter, tree-sitter
-----
 ts.setup {
   modules = {},
   sync_install = false,
@@ -1317,9 +1306,6 @@ ft
 .set('gitconfig', '#%s')
 .set('systemd', '#%s')
 
-vim.opt.foldmethod = "expr"
-vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
-
 -- unsorted / builtin vim commands
 -- -- highlight on yank
 cmd([[au TextYankPost * lua vim.highlight.on_yank {higroup="IncSearch", timeout=150, on_visual=true}]])
@@ -1391,19 +1377,61 @@ vim.o.foldlevel = 99
 vim.o.foldlevelstart = 99
 -- keep top level folds open, but nested folds closed
 -- vim.o.foldlevelstart = 1
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 
 ---------------
 -- PLUGIN / mfussenegger/nvim-dap
 -- NOTE: https://github.com/mfussenegger/nvim-dap/wiki/Debug-Adapter-installation#Python
+-- NOTE: ipatch, useful link to a dap config
+-- https://github.com/NeuralNine/config-files/blob/master/arch_config/.config/nvim/lua/plugins/nvim-dap.lua#L71
 ----
 local dap = require('dap')
 local dapui = require('dapui')
 local dap_python = require('dap-python')
 
-require('dapui').setup({})
+require('dapui').setup({
+  icons = { expanded = "▾", collapsed = "▸" },
+  layouts = {
+    {
+      elements = {
+        { id = "scopes", size = 0.25 },
+        { id = "breakpoints", size = 0.25 },
+        { id = "stacks", size = 0.25 },
+        { id = "watches", size = 0.25 },
+      },
+      size = 40,
+      position = "left",
+    },
+    {
+      elements = {
+        { id = "repl", size = 0.5 },
+        { id = "console", size = 0.5 },
+      },
+      size = 10,
+      position = "bottom",
+    },
+  },
+})
+
 require('nvim-dap-virtual-text').setup({
   commented = true,
 })
+
+-- dap adapter for c++ ie. gdb
+dap.adapters.cppdbg = {
+  id = 'cppdbg',
+  type = 'executale',
+  command = 'gdb',
+  args = {'-i', 'dap'},
+}
+
+-- alt adapter ie. lldb
+dap.adapters.lldb = {
+  type = 'executable',
+  command = 'lldb',
+  name = 'lldb'
+}
 
 dap_python.setup('python3')
 
@@ -1440,6 +1468,11 @@ dap_python.setup('python3')
 --   },
 -- }
 
+
+
+
+
+
 ---------------
 -- plugin / nvim-dap / debug node / javascript
 ----
@@ -1473,19 +1506,14 @@ dap.listeners.after.event_initialized['dapui_config'] = function()
 end
 
 ---------------
--- plugin /mfussenegger/nvim-dap / mappings (requires helper function)
+-- plugin / mfussenegger / nvim-dap / mappings (requires helper function)
 ----
 map('n', '<leader>db', ':lua require"dap".toggle_breakpoint()<CR>')
-
 -- requires external helper file `debugHelper.lua`
 map('n', '<leader>da', ':lua require"debugHelper".attach()<CR>')
-
 map('n', '<leader>dc', ':lua require"dap".continue()<CR>')
-
 -- map('n', '<leader>dc', ':lua require"dap".disconnect({ terminateDebuggee = true });require"dap".close()<CR>')
-
 map('n', '<leader>do', '<cmd>lua require"dap".step_over()<CR>')
-
 map('n', '<leader>di', '<cmd>lua require"dap".step_into()<CR>')
 
 -- Step Out
@@ -1496,9 +1524,7 @@ end, { noremap = true, silent = true })
 -- map('n', '<leader>di', ':lua require"dap.ui.widgets".hover()<CR>')
 
 map('n', '<leader>d?', ':lua local widgets=require"dap.ui.widgets";widgets.centered_float(widgets.scopes)<CR>')
-
 map('n', '<leader>dk', ':lua require"dap".up()<CR>')
-
 map('n', '<leader>dj', ':lua require"dap".down()<CR>')
 
 -- Keymap to terminate debugging
