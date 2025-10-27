@@ -1,4 +1,3 @@
-
 ---------------
 -- NOTE: ipatch / ⭐️USEFUL REMINDERS, and other assorted BS
 -- NOTE: ipatch, when reloading this file with `:so %` all folds are opened 👎️ workaround save to svim then load svim
@@ -77,18 +76,13 @@ require('lazy').setup({
   },
 
   { -- LSP configuration and plugins
-    'VonHeikemen/lsp-zero.nvim',
-    branch = 'dev-v3',
-    dependencies = {
-      -- LSP Support
-      {'neovim/nvim-lspconfig'},             -- Required
-      {
-        'williamboman/mason.nvim',           -- Optional
-        build = function()
-          pcall(vim.api.nvim_command, 'MasonUpdate')
-        end,
-      },
-      {'williamboman/mason-lspconfig.nvim'}, -- Optional
+    {'neovim/nvim-lspconfig'},             -- Required
+    {'williamboman/mason-lspconfig.nvim'}, -- Optional
+    {
+      'williamboman/mason.nvim',           -- Optional
+      build = function()
+        pcall(vim.api.nvim_command, 'MasonUpdate')
+      end,
     },
   },
 
@@ -488,66 +482,117 @@ if vim.fn.filereadable(api_key_file) == 1 then
 end
 
 ---------------
--- PLUGIN / neovim native / LSP settings / lsp-zero
+-- PLUGIN / neovim native / LSP settings
+-- neovim 0.11+ have native lsp api's thus no need for lsp-zero anymore
 ----
 -- ref: https://github.com/neovim/nvim-lspconfig/wiki/UI-Customization
 
-local lsp = require('lsp-zero').preset('recommended')
+-- set diagnostic signs
+vim.fn.sign_define('DiagnosticSignError', { text = '✘', texthl = 'DiagnosticSignError' })
+vim.fn.sign_define('DiagnosticSignWarn', { text = '▲', texthl = 'DiagnosticSignWarn' })
+vim.fn.sign_define('DiagnosticSignHint', { text = '⚑', texthl = 'DiagnosticSignHint' })
+vim.fn.sign_define('DiagnosticSignInfo', { text = '»', texthl = 'DiagnosticSignInfo' })
 
-lsp.set_sign_icons({
-  error = '✘',
-  warn = '▲',
-  hint = '⚑',
-  info = '»',
+-- global lsp configuration for all servers
+-- this runs for every lsp attachment
+vim.lsp.config('*', {
+  on_attach = function(client, bufnr)
+    local opts = { buffer = bufnr, remap = false }
+
+    -- Buffer local mappings.
+    -- See `:help vim.lsp.*` for documentation on any of the below functions
+    vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+    vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+    vim.keymap.set("n", "<leader>vws", vim.lsp.buf.workspace_symbol, opts)
+    vim.keymap.set("n", "<leader>vd", vim.diagnostic.open_float, opts)
+    vim.keymap.set("n", "[d", vim.diagnostic.goto_next, opts)
+    vim.keymap.set("n", "]d", vim.diagnostic.goto_prev, opts)
+    vim.keymap.set("n", "<leader>vca", vim.lsp.buf.code_action, opts)
+    vim.keymap.set("n", "<leader>vrr", vim.lsp.buf.references, opts)
+    vim.keymap.set("n", "<leader>vrn", vim.lsp.buf.rename, opts)
+    vim.keymap.set("i", "<C-h>", vim.lsp.buf.signature_help, opts)
+
+     -- NOTE: ipatch, style LSP diagnostic messages requires nvim >= 0.7
+    vim.api.nvim_create_autocmd("CursorHold", {
+      buffer = bufnr,
+      callback = function()
+        vim.diagnostic.open_float(nil, {
+          -- NOTE: ipatch, toggle to true to copy text in diagnostics float window
+          focusable = false,
+          -- focusable = true,
+          close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
+          border = 'rounded',
+          source = 'always',
+          prefix = '',
+          header = '',
+          scope = 'cursor',
+        })
+      end,
+    })
+  end
 })
 
--- optional: configure individual servers
-vim.lsp.config.pyright = {
+-- configure individual lsp servers using vim.lsp.config()
+-- pyright - Python
+vim.lsp.config('pyright', {
+  cmd = { 'pyright-langserver', '--stdio' },
+  filetypes = { 'python' },
+  root_markers = { 'pyproject.toml', 'setup.py', 'setup.cfg', 'requirements.txt', 'Pipfile', '.git' },
   settings = {
-    python = { analysis = { typeCheckingMode = 'basic' }}
+    python = {
+      analysis = {
+        typeCheckingMode = 'basic',
+        autoSearchPaths = true,
+        useLibraryCodeForTypes = true,
+      }
+    }
   },
-  on_attach = function(client, bufnr)
-  end,
-}
+})
 
-vim.lsp.config.jsonls = {
+-- jsonls
+vim.lsp.config('jsonls', {
+  cmd = { 'vscode-json-language-server', '--stdio' },
+  filetypes = { 'json', 'jsonc' },
+  root_markers = { '.git', 'package.json' },
   settings = {
     json = {
       schemas = require('schemastore').json.schemas(),
       validate = { enable = true },
     },
   },
-}
+})
 
----------------
--- plugin / nvim native lsp / yaml, yml - yamlls
-----
-vim.lsp.config.yamlls = {
+-- yaml, yml - yamlls
+vim.lsp.config('yamlls', {
+  cmd = { 'yaml-language-server', '--stdio' },
+  filetypes = { 'yaml', 'yaml.docker-compose', 'yaml.gitlab' },
+  root_markers = { '.git' },
   settings = {
     yaml = {
       schemas = require('schemastore').yaml.schemas(),
       validate = true,
     },
   },
-}
+})
 
-vim.lsp.config.html = {
+-- html - HTML
+vim.lsp.config('html', {
   cmd = { "vscode-html-language-server", "--stdio" },
   filetypes = { "html" },
+  root_markers = { '.git', 'package.json' },
   init_options = {
     configurationSection = { "html", "css", "javascript" },
     embeddedLanguages = {
       css = true,
       javascript = true
     },
-    -- The code-formatting feature of the lsp can be controlled with the `provideFormatter` option.
     provideFormatter = true
   },
-  -- settings = {},
-  -- single_file_support = true,
-}
+})
 
-vim.lsp.config.lua_ls = {
+vim.lsp.config('lua_ls', {
+  root_markers = {'.luarc.json', '.luarc.jsonc', '.git' },
+  filetypes = { 'lua' },
   settings = {
     Lua = {
       diagnostics = {
@@ -560,7 +605,22 @@ vim.lsp.config.lua_ls = {
       telemetry = { enable = false },
     },
   },
-}
+})
+
+-- ruby_lsp - Ruby
+-- NOTE: ipatch, when using rvm to manage rubies, rvm needs to be init'd before running `:masoninstall ruby-lsp`
+vim.lsp.config('ruby_lsp', {
+  cmd = { 'ruby-lsp' },
+  filetypes = { 'ruby' },
+  root_markers = { 'Gemfile', '.git' },
+  init_options = {
+    formatter = 'standard',
+    linters = { 'standard' },
+    enabledFeatures = {
+      bundlerLock = false,
+    },
+  },
+})
 
 ---------------
 -- PLUGIN / neovim native lsp / ruby / solargraph
@@ -603,6 +663,7 @@ require('mason-lspconfig').setup {
     'html',
     'yamlls',
     'lua_ls',
+    'ruby_lsp',
   },
   automatic_installation = true,
 }
@@ -614,6 +675,14 @@ require('mason-nvim-dap').setup({
   },
   automatic_installation = true,
 })
+
+-- enable the lsp servers configured above
+vim.lsp.enable('pyright')
+vim.lsp.enable('jsonls')
+vim.lsp.enable('yamlls')
+vim.lsp.enable('html')
+vim.lsp.enable('lua_ls')
+vim.lsp.enable('ruby_lsp')
 
 -- COPY DIAGNOSTIC MESSAGE TO CLIPBOARD
 -- NOTE: ipatch, best solution i could come up with for time being
@@ -636,7 +705,7 @@ local function copy_diagnostic_to_clipboard()
   end
 end
 
-vim.keymap.set('n', '<leader>x', copy_diagnostic_to_clipboard, { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>yd', copy_diagnostic_to_clipboard, { noremap = true, silent = true })
 
 -- NOTE: ipatch, style LSP diagnostic messages
 vim.diagnostic.config({
@@ -666,42 +735,6 @@ vim.diagnostic.config({
   --   fileMatch = {"tsconfig*.json"},
   --   url = "https://json.schemastore.org/tsconfig.json"
   -- })
-
-  -- attach keymaps and other on_attach behavior
-  lsp.on_attach(function(client, bufnr)
-    local opts = { buffer = bufnr, remap = false }
-
-    -- Buffer local mappings.
-    -- See `:help vim.lsp.*` for documentation on any of the below functions
-    vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
-    vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
-    vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end, opts)
-    vim.keymap.set("n", "<leader>vd", function() vim.diagnostic.open_float() end, opts)
-    vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end, opts)
-    vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end, opts)
-    vim.keymap.set("n", "<leader>vca", function() vim.lsp.buf.code_action() end, opts)
-    vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.references() end, opts)
-    vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
-    vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
-
-    -- NOTE: ipatch, style LSP diagnostic messages requires nvim >= 0.7
-    vim.api.nvim_create_autocmd("CursorHold", {
-      buffer = bufnr,
-      callback = function()
-        vim.diagnostic.open_float(nil, {
-          -- NOTE: ipatch, toggle to true to copy text in diagnostics float window
-          focusable = false,
-          -- focusable = true,
-          close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
-          border = 'rounded',
-          source = 'always',
-          prefix = '',
-          header = '',
-          scope = 'cursor',
-        })
-      end,
-    })
-  end)
 
 -- Enable (broadcasting) snippet capability for completion
 -- local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -787,19 +820,6 @@ vim.keymap.set('i', '<Esc>', function()
   vim.cmd('stopinsert')
 end, { desc = 'Hide completion and exit insert mode' })
 
----------------
--- plugin / nvim native lsp / ruby-lsp
--- NOTE: ipatch, when using rvm to manage rubies, rvm needs to be init'd before running `:masoninstall ruby-lsp`
-----
-vim.lsp.config.ruby_lsp = {
-  init_options = {
-    formatter = 'standard',
-    linters = { 'standard' },
-    enabledFeatures = {
-      bundlerLock = false,
-    },
-  },
-}
 
 --[[ require('lspconfig').ruby_ls.setup {
   -- cmd = {"/home/my_user/.rbenv/shims/ruby-lsp"},
@@ -849,8 +869,6 @@ local function setup_diagnostics(client, buffer)
 end 
 ]]
 
-
-
 ---------------
 -- PLUGIN / luasnips, neovim snippets plugin
 ----
@@ -886,10 +904,6 @@ local kind_icons = {
   Operator = '  ',
   TypeParameter = '  ',
 }
-
--- NOTE: ipatch, make sure to call this after all lsp's have been configured
-lsp.setup()
-
 
 ---------------
 -- PLUGIN / neovim telescope 
@@ -1488,14 +1502,14 @@ map('n', '<leader>dtf', ':Telescope dap frames<CR>')
 -- require('dapui').setup()
 -- map('n', '<leader>dq', ':lua require"dapui".toggle()<CR>')
 
-vim.api.nvim_create_autocmd("User", {
-  pattern = "VeryLazy",
-  desc = "Override diagnostic signs after all plugins load",
-  callback = function()
-    for type, icon in pairs({ Error = "✘", Warn = "▲", Hint = "⚑", Info = "»" }) do
-      local hl = "DiagnosticSign" .. type
-      vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
-    end
-  end,
-})
+-- vim.api.nvim_create_autocmd("User", {
+--   pattern = "VeryLazy",
+--   desc = "Override diagnostic signs after all plugins load",
+--   callback = function()
+--     for type, icon in pairs({ Error = "✘", Warn = "▲", Hint = "⚑", Info = "»" }) do
+--       local hl = "DiagnosticSign" .. type
+--       vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
+--     end
+--   end,
+-- })
 
