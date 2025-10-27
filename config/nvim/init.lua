@@ -488,10 +488,11 @@ end
 -- ref: https://github.com/neovim/nvim-lspconfig/wiki/UI-Customization
 
 -- set diagnostic signs
-vim.fn.sign_define('DiagnosticSignError', { text = '✘', texthl = 'DiagnosticSignError' })
-vim.fn.sign_define('DiagnosticSignWarn', { text = '▲', texthl = 'DiagnosticSignWarn' })
-vim.fn.sign_define('DiagnosticSignHint', { text = '⚑', texthl = 'DiagnosticSignHint' })
-vim.fn.sign_define('DiagnosticSignInfo', { text = '»', texthl = 'DiagnosticSignInfo' })
+-- DEPRECATED neovim <= v0.10 
+-- vim.fn.sign_define('DiagnosticSignError', { text = '✘', texthl = 'DiagnosticSignError' })
+-- vim.fn.sign_define('DiagnosticSignWarn', { text = '▲', texthl = 'DiagnosticSignWarn' })
+-- vim.fn.sign_define('DiagnosticSignHint', { text = '⚑', texthl = 'DiagnosticSignHint' })
+-- vim.fn.sign_define('DiagnosticSignInfo', { text = '»', texthl = 'DiagnosticSignInfo' })
 
 -- global lsp configuration for all servers
 -- this runs for every lsp attachment
@@ -505,8 +506,11 @@ vim.lsp.config('*', {
     vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
     vim.keymap.set("n", "<leader>vws", vim.lsp.buf.workspace_symbol, opts)
     vim.keymap.set("n", "<leader>vd", vim.diagnostic.open_float, opts)
-    vim.keymap.set("n", "[d", vim.diagnostic.goto_next, opts)
-    vim.keymap.set("n", "]d", vim.diagnostic.goto_prev, opts)
+    -- DEPRECATED neovim v0.11+
+    -- vim.keymap.set("n", "[d", vim.diagnostic.goto_next, opts)
+    -- vim.keymap.set("n", "]d", vim.diagnostic.goto_prev, opts)
+    vim.keymap.set("n", "]d", function() vim.diagnostic.jump({ count = 1, float = true }) end, opts)
+    vim.keymap.set("n", "[d", function() vim.diagnostic.jump({ count = -1, float = true }) end, opts)
     vim.keymap.set("n", "<leader>vca", vim.lsp.buf.code_action, opts)
     vim.keymap.set("n", "<leader>vrr", vim.lsp.buf.references, opts)
     vim.keymap.set("n", "<leader>vrn", vim.lsp.buf.rename, opts)
@@ -528,6 +532,27 @@ vim.lsp.config('*', {
           scope = 'cursor',
         })
       end,
+    })
+    -- Configure diagnostic signs when LSP attaches
+    vim.diagnostic.config({
+      virtual_text = false,
+      signs = {
+        text = {
+          [vim.diagnostic.severity.ERROR] = '✘',
+          [vim.diagnostic.severity.WARN] = '▲',
+          [vim.diagnostic.severity.HINT] = '⚑',
+          [vim.diagnostic.severity.INFO] = '»',
+        },
+        texthl = {
+          [vim.diagnostic.severity.ERROR] = 'DiagnosticSignError',
+          [vim.diagnostic.severity.WARN] = 'DiagnosticSignWarn',
+          [vim.diagnostic.severity.HINT] = 'DiagnosticSignHint',
+          [vim.diagnostic.severity.INFO] = 'DiagnosticSignInfo',
+        },
+      },
+      underline = true,
+      update_in_insert = false,
+      severity_sort = false,
     })
   end
 })
@@ -692,7 +717,8 @@ local function copy_diagnostic_to_clipboard()
   local row, _ = unpack(vim.api.nvim_win_get_cursor(0))
   local bufnr = vim.api.nvim_get_current_buf()
 
-  local line_diagnostics = vim.lsp.diagnostic.get_line_diagnostics(bufnr, row - 1)
+  local line_diagnostics = vim.diagnostic.get(bufnr, { lnum = row - 1 })
+
   if next(line_diagnostics) == nil then
     print("No diagnostic message at the current position.")
   else
@@ -1047,7 +1073,11 @@ elseif user == "capin" then
   }
 end
 
+---------------
+-- PLUGIN / treesitter-textobjects, treesitter, tree-sitter
+----
 ts.setup {
+  modules = {},
   sync_install = false,
   ensure_installed = languages,
   -- List of parsers to ignore installing
@@ -1060,17 +1090,11 @@ ts.setup {
     'slint',
   },
   auto_install = false,
+
   highlight = {
     enable = true,
     additional_vim_regex_highlighting = false
   },
-
-  -- https://github.com/JoosepAlviste/nvim-ts-context-commentstring/issues/82
-  -- nvim-ts-context-commentstring is set up automatically
-  -- context_commentstring = {
-  --   enable = true,
-  --   enable_autocmd = false,
-  -- },
 
   indent = {
     enable = false
@@ -1106,23 +1130,8 @@ ts.setup {
       node_decremental = '<bs>',
     },
   },
-}
 
----------------
--- PLUGIN / treesitter / nvim-ts-context-commentstring
--- https://github.com/JoosepAlviste/nvim-ts-context-commentstring/issues/67
-----
-require('ts_context_commentstring').setup {
-  enable_autocmd = false,
-  languages = {
-    typescript = '// %s',
-  },
-}
-
----------------
--- PLUGIN / treesitter-textobjects, treesitter, tree-sitter
-----
-require'nvim-treesitter.configs'.setup {
+  -- textobjects
   textobjects = {
     select = {
       enable = true,
@@ -1204,6 +1213,24 @@ require'nvim-treesitter.configs'.setup {
       }
     },
   },
+
+  -- https://github.com/JoosepAlviste/nvim-ts-context-commentstring/issues/82
+  -- nvim-ts-context-commentstring is set up automatically
+  -- context_commentstring = {
+    --   enable = true,
+    --   enable_autocmd = false,
+    -- },
+}
+
+---------------
+-- PLUGIN / treesitter / nvim-ts-context-commentstring
+-- https://github.com/JoosepAlviste/nvim-ts-context-commentstring/issues/67
+----
+require('ts_context_commentstring').setup {
+  enable_autocmd = false,
+  languages = {
+    typescript = '// %s',
+  },
 }
 
 ---------------
@@ -1262,10 +1289,10 @@ vim.api.nvim_command([[
   augroup END
 ]])
 
--- NOTE: ipatch below line required or bg color is not updated in terminal
+-- NOTE: ipatch, below line required or bg color is not updated in terminal
 cmd [[silent! colorscheme onedark]]
 
--- ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ NOTE: ipatch, this needs to be below the `colorscheme onedark` cmd above
+-- NOTE: ipatch, this needs to be below the `colorscheme onedark` cmd above
 -- NOTE: ipatch, it appears below line not required with recent update 
 -- ref: https://github.com/navarasu/onedark.nvim/commit/09b71d84b
 -- vim.cmd [[hi SpellBad gui=undercurl]]
@@ -1290,10 +1317,6 @@ ft
 .set('c', '//%s', '//%s')
 .set('gitconfig', '#%s')
 .set('systemd', '#%s')
-
--- DEPRECATED
--- cmd('set foldmethod=expr')
--- cmd('set foldexpr=nvim_treesitter#foldexpr()')
 
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
@@ -1347,7 +1370,6 @@ require('ufo').setup({
 
 -- vim.api.nvim_set_hl(0, 'UfoFoldText', { fg = '#8BE9FD', bg = 'NONE', italic = true })
 
-
 -- Using ufo provider need remap `zR` and `zM`. If Neovim is 0.6.1, remap yourself
 vim.keymap.set('n', 'zR', require('ufo').openAllFolds)
 vim.keymap.set('n', 'zM', require('ufo').closeAllFolds)
@@ -1361,9 +1383,9 @@ vim.cmd [[
   augroup END
 ]]
 
-vim.api.nvim_exec([[
+vim.api.nvim_exec2([[
   " autocmd BufReadPost * setlocal foldlevel=0
-]], false)
+]], {})
 
 -- Set the default fold level to 99
 vim.o.foldlevel = 99
@@ -1469,7 +1491,7 @@ map('n', '<leader>di', '<cmd>lua require"dap".step_into()<CR>')
 -- Step Out
 vim.keymap.set("n", "<leader>dO", function()
   dap.step_out()
-end, opts)
+end, { noremap = true, silent = true })
 
 -- map('n', '<leader>di', ':lua require"dap.ui.widgets".hover()<CR>')
 
@@ -1482,12 +1504,12 @@ map('n', '<leader>dj', ':lua require"dap".down()<CR>')
 -- Keymap to terminate debugging
 vim.keymap.set("n", "<leader>dq", function()
   require("dap").terminate()
-end, opts)
+end, { noremap = true, silent = true })
 
 -- Toggle DAP UI
 vim.keymap.set("n", "<leader>du", function()
   dapui.toggle()
-end, opts)
+end, { noremap = true, silent = true })
 
 ---------------
 -- plugin / nvim-telescope/telescope-dap.nvim
@@ -1501,15 +1523,3 @@ map('n', '<leader>dtf', ':Telescope dap frames<CR>')
 ----
 -- require('dapui').setup()
 -- map('n', '<leader>dq', ':lua require"dapui".toggle()<CR>')
-
--- vim.api.nvim_create_autocmd("User", {
---   pattern = "VeryLazy",
---   desc = "Override diagnostic signs after all plugins load",
---   callback = function()
---     for type, icon in pairs({ Error = "✘", Warn = "▲", Hint = "⚑", Info = "»" }) do
---       local hl = "DiagnosticSign" .. type
---       vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
---     end
---   end,
--- })
-
