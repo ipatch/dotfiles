@@ -325,6 +325,7 @@ if status is-interactive
     $code/git/local/bin \
     $code/git/local/sbin \
     $HOME/.docker/bin \
+    $HOME/.local/share/nvim/mason/bin \
     # below entry should NOT be added
     $HOME/wtf/bin \
 
