@@ -154,8 +154,8 @@ require('lazy').setup({
       'theHamsta/nvim-dap-virtual-text',
       'nvim-telescope/telescope-dap.nvim',
       'theHamsta/nvim-dap-virtual-text',
-      'mfussenegger/nvim-dap-python',
-      'jay-babu/mason-nvim-dap.nvim',
+      -- 'mfussenegger/nvim-dap-python',
+      -- 'jay-babu/mason-nvim-dap.nvim',
     }
   },
 
@@ -701,14 +701,14 @@ require('mason-lspconfig').setup {
   automatic_installation = true,
 }
 
-require('mason-nvim-dap').setup({
-  ensure_installed = {
-    -- 'debugpy',
-    'python',
-    'codelldb',
-  },
-  automatic_installation = true,
-})
+-- require('mason-nvim-dap').setup({
+--   ensure_installed = {
+--     -- 'debugpy',
+--     -- 'python',
+--     'codelldb',
+--   },
+--   automatic_installation = true,
+-- })
 
 -- enable the lsp servers configured above
 vim.lsp.enable('pyright')
@@ -1388,7 +1388,7 @@ vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 ----
 local dap = require('dap')
 local dapui = require('dapui')
-local dap_python = require('dap-python')
+-- local dap_python = require('dap-python')
 
 require('dapui').setup({
   icons = { expanded = "▾", collapsed = "▸" },
@@ -1433,13 +1433,23 @@ dap.adapters.lldb = {
   name = 'lldb'
 }
 
-dap_python.setup('python3')
+dap.adapters.codelldb = {
+  type = 'server',
+  port = '${port}',
+  executable = {
+    command = vim.fn.expand('~/.local/share/nvim/mason/bin/codelldb'),
+    args = {'--port', '${port}'},
+  }
+}
 
--- dap.adapters.python = {
---   type = 'executable';
---   command = '$HOME/.virtualenvs/debugpy/bin/python';
---   args = { '-m', 'debugpy.adapter' };
--- }
+-- TODO: fix dap with debugpy
+-- dap.adapters.debugpy = function(callback, config)
+--   callback({
+--     type = 'server',
+--     host = '127.0.0.1',
+--     port = 5678,
+--   })
+-- end
 
 -- dap.configurations.python = {
 --   {
@@ -1490,29 +1500,36 @@ dap.configurations.cpp = {
   },
   {
     name = 'attach to freecad process',
-    type = 'lldb',
+    type = 'codelldb',
     request = 'attach',
-    processId = require('dap.utils').pick_process,
-    program = function()
-      return vim.fn.input('path to freecad binary: ', vim.fn.getcwd() .. '/build/bin/FreeCAD', 'file')
-    end,
-    cwd = '${workspace}',
+    pid = require('dap.utils').pick_process,
+    -- processId = require('dap.utils').pick_process,
+    -- program = function()
+    --   return vim.fn.input('path to freecad binary: ', vim.fn.getcwd() .. '/build/bin/FreeCAD', 'file')
+    -- end,
+    cwd = '${workspaceFolder}',
   },
 }
 
+-- use same cpp setup for c-lang to
+dap.configurations.c = dap.configurations.cpp
+
 -- Automatically open/close UI
+---@diagnostic disable-next-line: undefined-field
 dap.listeners.after.event_initialized["dapui_config"] = function()
   dapui.open()
 end
+---@diagnostic disable-next-line: undefined-field
 dap.listeners.before.event_terminated["dapui_config"] = function()
   dapui.close()
 end
+---@diagnostic disable-next-line: undefined-field
 dap.listeners.before.event_exited["dapui_config"] = function()
   dapui.close()
 end
 
 ---------------
--- plugin / nvim-dap / debug node / javascript
+-- plugin / nvim-dap / js adapter configs
 ----
 dap.adapters.node2 = {
   type = 'executable',
@@ -1531,17 +1548,9 @@ dap.configurations.javascript = {
   },
 }
 
----------------
--- plugin /mfussenegger/nvim-dap 
-----
 vim.fn.sign_define('DapBreakpoint', {text='🛑', texthl='DiagnosticSignError', linehl='', numhl=''})
 vim.fn.sign_define('DapBreakpointRejected', {text='🙅', texthl='DiagnosticSignError', linehl='', numhl=''})
 vim.fn.sign_define('DapStopped', {text='✋', texthl='DiagnosticSignWarn', linehl='Visual', numhl='DiagnosticSignWarn'})
-
----@diagnostic disable-next-line: undefined-field
-dap.listeners.after.event_initialized['dapui_config'] = function()
-  dapui.open()
-end
 
 ---------------
 -- plugin / mfussenegger / nvim-dap / mappings (requires helper function)
@@ -1561,7 +1570,8 @@ end
 map('n', '<leader>db', ':lua require"dap".toggle_breakpoint()<CR>')
 -- requires external helper file `debugHelper.lua`
 map('n', '<leader>da', ':lua require"debugHelper".attach()<CR>')
-map('n', '<leader>dc', ':lua require"dap".continue()<CR>')
+-- map('n', '<leader>dc', ':lua require"dap".continue()<CR>')
+vim.keymap.set('n', '<leader>dc', function() dap.continue() end, { desc = 'Debug: Start/Continue' })
 -- map('n', '<leader>dc', ':lua require"dap".disconnect({ terminateDebuggee = true });require"dap".close()<CR>')
 map('n', '<leader>do', '<cmd>lua require"dap".step_over()<CR>')
 map('n', '<leader>di', '<cmd>lua require"dap".step_into()<CR>')
