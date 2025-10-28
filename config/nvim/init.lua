@@ -1555,6 +1555,7 @@ vim.fn.sign_define('DapStopped', {text='✋', texthl='DiagnosticSignWarn', lineh
 
 -- set conditional breakpoint
 vim.keymap.set('n', '<Leader>B', function() dap.set_breakpoint(vim.fn.input('Breakpoint condition: ')) end, { desc = 'Debug: Conditional Breakpoint' })
+-- set breakpoint, i think toggle and set breakpoint do the samething internally other set bp does not rm the bp
 map('n', '<leader>dsb', ':lua require"dap".set_breakpoint()<CR>')
 -- toggle breakpoint
 map('n', '<leader>db', ':lua require"dap".toggle_breakpoint()<CR>')
