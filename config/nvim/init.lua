@@ -1449,7 +1449,6 @@ dap.adapters.codelldb = {
 --   },
 -- }
 
-
 dap.configurations.cpp = {
   {
     -- TODO: ipatch, NOT FULLY WORKING
@@ -1546,17 +1545,23 @@ vim.fn.sign_define('DapStopped', {text='✋', texthl='DiagnosticSignWarn', lineh
 -- vim.keymap.set('n', '<F11>', function() dap.step_into() end, { desc = 'Debug: Step Into' })
 -- vim.keymap.set('n', '<F12>', function() dap.step_out() end, { desc = 'Debug: Step Out' })
 -- vim.keymap.set('n', '<Leader>b', function() dap.toggle_breakpoint() end, { desc = 'Debug: Toggle Breakpoint' })
-vim.keymap.set('n', '<Leader>B', function() dap.set_breakpoint(vim.fn.input('Breakpoint condition: ')) end, { desc = 'Debug: Conditional Breakpoint' })
-vim.keymap.set('n', '<Leader>dr', function() dap.repl.toggle() end, { desc = 'Debug: toggle DAP REPL' })
 -- vim.keymap.set('n', '<Leader>dl', function() dap.run_last() end, { desc = 'Debug: Run Last' })
--- vim.keymap.set('n', '<Leader>dt', function() dapui.toggle() end, { desc = 'Debug: Toggle UI' })
 
-map('n', '<leader>db', ':lua require"dap".toggle_breakpoint()<CR>')
 -- requires external helper file `debugHelper.lua`
 -- map('n', '<leader>da', ':lua require"debugHelper".attach()<CR>')
+
+-- set conditional breakpoint
+vim.keymap.set('n', '<Leader>B', function() dap.set_breakpoint(vim.fn.input('Breakpoint condition: ')) end, { desc = 'Debug: Conditional Breakpoint' })
+-- toggle breakpoint
+map('n', '<leader>db', ':lua require"dap".toggle_breakpoint()<CR>')
+
+-- toggle dap repl
+vim.keymap.set('n', '<Leader>dr', function() dap.repl.toggle() end, { desc = 'Debug: toggle DAP REPL' })
+
 -- map('n', '<leader>dc', ':lua require"dap".continue()<CR>')
 vim.keymap.set('n', '<leader>dc', function() dap.continue() end, { desc = 'Debug: Start/Continue' })
-map('n', '<leader>dx', ':lua require"dap".disconnect({ terminateDebuggee = true });require"dap".close()<CR>')
+
+-- step over / into
 map('n', '<leader>do', '<cmd>lua require"dap".step_over()<CR>')
 map('n', '<leader>di', '<cmd>lua require"dap".step_into()<CR>')
 
@@ -1565,21 +1570,24 @@ vim.keymap.set("n", "<leader>dO", function()
   dap.step_out()
 end, { noremap = true, silent = true })
 
--- map('n', '<leader>di', ':lua require"dap.ui.widgets".hover()<CR>')
-
-map('n', '<leader>d?', ':lua local widgets=require"dap.ui.widgets";widgets.centered_float(widgets.scopes)<CR>')
+-- step up / down
 map('n', '<leader>dk', ':lua require"dap".up()<CR>')
 map('n', '<leader>dj', ':lua require"dap".down()<CR>')
 
 -- Keymap to terminate debugging
+map('n', '<leader>dx', ':lua require"dap".disconnect({ terminateDebuggee = true });require"dap".close()<CR>')
 vim.keymap.set("n", "<leader>dq", function()
   require("dap").terminate()
 end, { noremap = true, silent = true })
 
 -- Toggle DAP UI
-vim.keymap.set("n", "<leader>du", function()
+vim.keymap.set('n', '<leader>du', function()
   dapui.toggle()
 end, { noremap = true, silent = true })
+-- vim.keymap.set('n', '<Leader>du', function() dapui.toggle() end, { desc = 'Debug: Toggle UI' })
+-- map('n', '<leader>du', ':lua require"dapui".toggle()<CR>')
+-- map('n', '<leader>di', ':lua require"dap.ui.widgets".hover()<CR>')
+map('n', '<leader>d?', ':lua local widgets=require"dap.ui.widgets";widgets.centered_float(widgets.scopes)<CR>')
 
 ---------------
 -- plugin / nvim-telescope/telescope-dap.nvim
@@ -1588,8 +1596,3 @@ require('telescope').load_extension('dap')
 map('n', '<leader>dtb', ':Telescope dap list_breakpoints<CR>')
 map('n', '<leader>dtf', ':Telescope dap frames<CR>')
 
----------------
--- plugin / rcarriga/nvim-dap-ui
-----
--- require('dapui').setup()
--- map('n', '<leader>dq', ':lua require"dapui".toggle()<CR>')
