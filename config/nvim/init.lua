@@ -1390,6 +1390,8 @@ local dap = require('dap')
 local dapui = require('dapui')
 -- local dap_python = require('dap-python')
 
+dap.set_log_level('TRACE')
+
 require('dapui').setup({
   icons = { expanded = "▾", collapsed = "▸" },
   layouts = {
@@ -1483,31 +1485,44 @@ dap.configurations.cpp = {
   {
     -- TODO: ipatch, NOT FULLY WORKING
     name = 'launch freecad (debug)',
-    type = 'lldb', -- or cppdbg
+    type = 'codelldb', -- or cppdbg
     request = 'launch',
-    program = function()
-      return vim.fn.input('Path to FreeCAD binary: ', vim.fn.getcwd() .. '/build/bin/FreeCAD', 'file')
-    end,
-    cwd = '${workspaceFolder}',
+    -- program = function()
+    --   return vim.fn.input('Path to FreeCAD binary: ', vim.fn.getcwd() .. '/build/bin/FreeCAD', 'file')
+    -- end,
+    program = '/opt/code/fcgit/installs/issue.tshooting.qt6.py313/bin/FreeCAD',
+    -- cwd = '${workspaceFolder}',
+    cwd = '/opt/code/fcgit/fcsrc',
     stopAtEntry = false,
-    setupCommands = {
-      {
-        text = 'enable-pretty-printing',
-        description = 'enable pretty printing',
-        ignoreFailures = false
-      },
+    env = {
+      DISPLAY = ':11.0',
     },
+    initCommands = {
+      -- NOTE: ipatch, did not bypass startup exceptions
+      'settings set target.process.stop-on-exec false',
+    },
+    -- This tells it not to stop at exceptions
+    exceptionBreakpoints = 'none',
+    -- setupCommands = {
+    --   {
+    --     text = 'enable-pretty-printing',
+    --     description = 'enable pretty printing',
+    --     ignoreFailures = false
+    --   },
+    -- },
   },
   {
+    -- NOTE: ipatch, using this method has issues with loading shared libraries
     name = 'attach to freecad process',
     type = 'codelldb',
     request = 'attach',
-    pid = require('dap.utils').pick_process,
-    -- processId = require('dap.utils').pick_process,
-    -- program = function()
-    --   return vim.fn.input('path to freecad binary: ', vim.fn.getcwd() .. '/build/bin/FreeCAD', 'file')
-    -- end,
-    cwd = '${workspaceFolder}',
+    pid = function()
+      local pid = vim.fn.input('Enter freecad pid: ')
+      return tonumber(pid)
+    end,
+    -- NOTE: ipatch, i think `${workspaceFolder}` is set to the value of the :lcd
+    -- cwd = '${workspaceFolder}',
+    cwd = '/opt/code/fcgit/fcsrc',
   },
 }
 
@@ -1562,17 +1577,17 @@ vim.fn.sign_define('DapStopped', {text='✋', texthl='DiagnosticSignWarn', lineh
 -- vim.keymap.set('n', '<F11>', function() dap.step_into() end, { desc = 'Debug: Step Into' })
 -- vim.keymap.set('n', '<F12>', function() dap.step_out() end, { desc = 'Debug: Step Out' })
 -- vim.keymap.set('n', '<Leader>b', function() dap.toggle_breakpoint() end, { desc = 'Debug: Toggle Breakpoint' })
--- vim.keymap.set('n', '<Leader>B', function() dap.set_breakpoint(vim.fn.input('Breakpoint condition: ')) end, { desc = 'Debug: Conditional Breakpoint' })
--- vim.keymap.set('n', '<Leader>dr', function() dap.repl.open() end, { desc = 'Debug: Open REPL' })
+vim.keymap.set('n', '<Leader>B', function() dap.set_breakpoint(vim.fn.input('Breakpoint condition: ')) end, { desc = 'Debug: Conditional Breakpoint' })
+vim.keymap.set('n', '<Leader>dr', function() dap.repl.toggle() end, { desc = 'Debug: toggle DAP REPL' })
 -- vim.keymap.set('n', '<Leader>dl', function() dap.run_last() end, { desc = 'Debug: Run Last' })
 -- vim.keymap.set('n', '<Leader>dt', function() dapui.toggle() end, { desc = 'Debug: Toggle UI' })
 
 map('n', '<leader>db', ':lua require"dap".toggle_breakpoint()<CR>')
 -- requires external helper file `debugHelper.lua`
-map('n', '<leader>da', ':lua require"debugHelper".attach()<CR>')
+-- map('n', '<leader>da', ':lua require"debugHelper".attach()<CR>')
 -- map('n', '<leader>dc', ':lua require"dap".continue()<CR>')
 vim.keymap.set('n', '<leader>dc', function() dap.continue() end, { desc = 'Debug: Start/Continue' })
--- map('n', '<leader>dc', ':lua require"dap".disconnect({ terminateDebuggee = true });require"dap".close()<CR>')
+map('n', '<leader>dx', ':lua require"dap".disconnect({ terminateDebuggee = true });require"dap".close()<CR>')
 map('n', '<leader>do', '<cmd>lua require"dap".step_over()<CR>')
 map('n', '<leader>di', '<cmd>lua require"dap".step_into()<CR>')
 
