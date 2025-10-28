@@ -154,8 +154,8 @@ require('lazy').setup({
       'theHamsta/nvim-dap-virtual-text',
       'nvim-telescope/telescope-dap.nvim',
       'theHamsta/nvim-dap-virtual-text',
-      -- 'mfussenegger/nvim-dap-python',
-      -- 'jay-babu/mason-nvim-dap.nvim',
+      'mfussenegger/nvim-dap-python',
+      'jay-babu/mason-nvim-dap.nvim',
     }
   },
 
@@ -369,10 +369,6 @@ vim.api.nvim_create_autocmd('BufReadPost', {
 })
 
 ------------------------------
--- TODO: autocmd / replace <200b> unicode char on paste
-----
-
-------------------------------
 -- SETTINGS / clipboard, ie. pbcopy
 ----
 -- check for osc52 native support
@@ -485,10 +481,9 @@ end
 ---------------
 -- PLUGIN / neovim native / LSP settings
 -- neovim 0.11+ have native lsp api's thus no need for lsp-zero anymore
-----
 -- ref: https://github.com/neovim/nvim-lspconfig/wiki/UI-Customization
+----
 
--- set diagnostic signs
 -- DEPRECATED neovim <= v0.10 
 -- vim.fn.sign_define('DiagnosticSignError', { text = '✘', texthl = 'DiagnosticSignError' })
 -- vim.fn.sign_define('DiagnosticSignWarn', { text = '▲', texthl = 'DiagnosticSignWarn' })
@@ -697,18 +692,57 @@ require('mason-lspconfig').setup {
     'yamlls',
     'lua_ls',
     'ruby_lsp',
+    'solargraph',
   },
   automatic_installation = true,
 }
 
--- require('mason-nvim-dap').setup({
---   ensure_installed = {
---     -- 'debugpy',
---     -- 'python',
---     'codelldb',
---   },
---   automatic_installation = true,
--- })
+require('mason-nvim-dap').setup({
+  ensure_installed = {
+    -- 'python', -- NOTE: ipatch use `python` instead `debugpy`
+    'codelldb',
+  },
+  automatic_installation = true,
+})
+
+---------------
+-- PLUGIN / gh-actions-language-server
+----
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'yaml.github',
+  callback = function(args)
+    -- NOTE: ipatch, debug gh_actions_ls
+    -- print('Detected yaml.github filetype!')
+    
+    local root_dir = vim.fs.root(args.buf, { '.github', '.git' })
+    -- NOTE: ipatch, debug gh_actions_ls
+    -- print('Root dir:', root_dir)
+    
+    if not root_dir then
+    -- NOTE: ipatch, debug gh_actions_ls
+      -- print('No root directory found!')
+      return
+    end
+    
+    local client_id = vim.lsp.start({
+      name = 'gh_actions_ls',
+      cmd = { vim.fn.expand('~/.local/share/nvim/mason/bin/gh-actions-language-server'), '--stdio' },
+      -- cmd = { 'gh-actions-language-server', '--stdio' },
+      root_dir = root_dir,
+      init_options = {
+        sessionToken = "",
+        -- sessionToken = os.getenv("GITHUB_ACTIONS_LS_TOKEN"),
+      },
+    })
+    
+    -- NOTE: ipatch, debug gh_actions_ls
+    -- if client_id then
+    --   print('LSP started with client_id:', client_id)
+    -- else
+    --   print('Failed to start LSP!')
+    -- end
+  end,
+})
 
 -- enable the lsp servers configured above
 vim.lsp.enable('pyright')
@@ -766,45 +800,6 @@ vim.keymap.set('n', '<leader>yd', copy_diagnostic_to_clipboard, { noremap = true
 
 -- NOTE: ipatch, https://github.com/hrsh7th/vscode-langservers-extracted
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#html
-
----------------
--- plugin / gh-actions-language-server
-----
-vim.api.nvim_create_autocmd('FileType', {
-  pattern = 'yaml.github',
-  callback = function(args)
-    -- NOTE: ipatch, debug gh_actions_ls
-    -- print('Detected yaml.github filetype!')
-    
-    local root_dir = vim.fs.root(args.buf, { '.github', '.git' })
-    -- NOTE: ipatch, debug gh_actions_ls
-    -- print('Root dir:', root_dir)
-    
-    if not root_dir then
-    -- NOTE: ipatch, debug gh_actions_ls
-      -- print('No root directory found!')
-      return
-    end
-    
-    local client_id = vim.lsp.start({
-      name = 'gh_actions_ls',
-      cmd = { vim.fn.expand('~/.local/share/nvim/mason/bin/gh-actions-language-server'), '--stdio' },
-      -- cmd = { 'gh-actions-language-server', '--stdio' },
-      root_dir = root_dir,
-      init_options = {
-        sessionToken = "",
-        -- sessionToken = os.getenv("GITHUB_ACTIONS_LS_TOKEN"),
-      },
-    })
-    
-    -- NOTE: ipatch, debug gh_actions_ls
-    -- if client_id then
-    --   print('LSP started with client_id:', client_id)
-    -- else
-    --   print('Failed to start LSP!')
-    -- end
-  end,
-})
 
 -------------------
 -- plugin / nvim / blink.cmp
