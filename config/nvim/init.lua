@@ -1413,6 +1413,55 @@ dap.adapters.codelldb = {
   }
 }
 
+dap.configurations.cpp = {
+  {
+    name = 'launch freecad (debug)',
+    type = 'codelldb', -- or cppdbg
+    request = 'launch',
+    program = '/opt/code/fcgit/installs/issue.tshooting.qt6.py313/bin/FreeCAD',
+    -- cwd = '${workspaceFolder}',
+    cwd = '/opt/code/fcgit/fcsrc',
+    stopAtEntry = false,
+    env = {
+      DISPLAY = ':11.0',
+    },
+    sourceMap = {
+      ['/opt/code/fcgit/fcsrc'] = '/opt/code/git/github/forks/freecad-git/freecad-src',
+    },
+    initCommands = {
+      -- NOTE: ipatch, did not bypass startup exceptions, NOWORK!
+      'settings set target.process.stop-on-exec false',
+      -- Load Qt pretty printers
+      'command script import /opt/code/fcgit/fcsrc/contrib/debugger/qt_pretty_printers_lldb.py',
+    },
+    -- This tells it not to stop at exceptions
+    exceptionBreakpoints = 'none',
+    -- setupCommands = {
+    --   {
+    --     text = 'enable-pretty-printing',
+    --     description = 'enable pretty printing',
+    --     ignoreFailures = false
+    --   },
+    -- },
+  },
+  {
+    -- NOTE: ipatch, using this method has issues with loading shared libraries
+    name = 'attach to freecad process',
+    type = 'codelldb',
+    request = 'attach',
+    pid = function()
+      local pid = vim.fn.input('Enter freecad pid: ')
+      return tonumber(pid)
+    end,
+    -- NOTE: ipatch, i think `${workspaceFolder}` is set to the value of the :lcd
+    -- cwd = '${workspaceFolder}',
+    cwd = '/opt/code/fcgit/fcsrc',
+  },
+}
+
+-- use same cpp setup for c-lang to
+dap.configurations.c = dap.configurations.cpp
+
 -- TODO: fix dap with debugpy
 -- dap.adapters.debugpy = function(callback, config)
 --   callback({
@@ -1448,54 +1497,6 @@ dap.adapters.codelldb = {
 --     end;
 --   },
 -- }
-
-dap.configurations.cpp = {
-  {
-    -- TODO: ipatch, NOT FULLY WORKING
-    name = 'launch freecad (debug)',
-    type = 'codelldb', -- or cppdbg
-    request = 'launch',
-    -- program = function()
-    --   return vim.fn.input('Path to FreeCAD binary: ', vim.fn.getcwd() .. '/build/bin/FreeCAD', 'file')
-    -- end,
-    program = '/opt/code/fcgit/installs/issue.tshooting.qt6.py313/bin/FreeCAD',
-    -- cwd = '${workspaceFolder}',
-    cwd = '/opt/code/fcgit/fcsrc',
-    stopAtEntry = false,
-    env = {
-      DISPLAY = ':11.0',
-    },
-    initCommands = {
-      -- NOTE: ipatch, did not bypass startup exceptions
-      'settings set target.process.stop-on-exec false',
-    },
-    -- This tells it not to stop at exceptions
-    exceptionBreakpoints = 'none',
-    -- setupCommands = {
-    --   {
-    --     text = 'enable-pretty-printing',
-    --     description = 'enable pretty printing',
-    --     ignoreFailures = false
-    --   },
-    -- },
-  },
-  {
-    -- NOTE: ipatch, using this method has issues with loading shared libraries
-    name = 'attach to freecad process',
-    type = 'codelldb',
-    request = 'attach',
-    pid = function()
-      local pid = vim.fn.input('Enter freecad pid: ')
-      return tonumber(pid)
-    end,
-    -- NOTE: ipatch, i think `${workspaceFolder}` is set to the value of the :lcd
-    -- cwd = '${workspaceFolder}',
-    cwd = '/opt/code/fcgit/fcsrc',
-  },
-}
-
--- use same cpp setup for c-lang to
-dap.configurations.c = dap.configurations.cpp
 
 -- Automatically open/close UI
 ---@diagnostic disable-next-line: undefined-field
@@ -1552,6 +1553,7 @@ vim.fn.sign_define('DapStopped', {text='✋', texthl='DiagnosticSignWarn', lineh
 
 -- set conditional breakpoint
 vim.keymap.set('n', '<Leader>B', function() dap.set_breakpoint(vim.fn.input('Breakpoint condition: ')) end, { desc = 'Debug: Conditional Breakpoint' })
+map('n', '<leader>dsb', ':lua require"dap".set_breakpoint()<CR>')
 -- toggle breakpoint
 map('n', '<leader>db', ':lua require"dap".toggle_breakpoint()<CR>')
 
