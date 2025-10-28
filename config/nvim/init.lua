@@ -650,6 +650,17 @@ vim.lsp.config('ruby_lsp', {
   },
 })
 
+-- gh-actions-language-server
+vim.lsp.config('gh_actions_ls', {
+  cmd = { vim.fn.expand('~/.local/share/nvim/mason/bin/gh-actions-language-server'), '--stdio' },
+  filetypes  = { 'yaml.github' },
+  root_markers = { '.github', '.git' },
+  init_options = {
+    sessionToken = "",
+    -- sessionToken = os.getenv("GITHUB_ACTIONS_LS_TOKEN"),
+  },
+})
+
 ---------------
 -- PLUGIN / neovim native lsp / ruby / solargraph
 -- NOTE: https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#solargraph
@@ -673,6 +684,7 @@ vim.lsp.config('ruby_lsp', {
 --     }
 --   }
 -- }
+----
 
 ---------------
 -- PLUGIN / neovim / mason LSP + DAP tooling
@@ -703,19 +715,6 @@ require('mason-nvim-dap').setup({
     'codelldb',
   },
   automatic_installation = true,
-})
-
----------------
--- PLUGIN / gh-actions-language-server
-----
-vim.lsp.config('gh_actions_ls', {
-  cmd = { vim.fn.expand('~/.local/share/nvim/mason/bin/gh-actions-language-server'), '--stdio' },
-  filetypes  = { 'yaml.github' },
-  root_markers = { '.github', '.git' },
-  init_options = {
-    sessionToken = "",
-    -- sessionToken = os.getenv("GITHUB_ACTIONS_LS_TOKEN"),
-  },
 })
 
 -- enable the lsp servers configured above
