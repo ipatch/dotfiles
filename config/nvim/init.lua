@@ -712,6 +712,8 @@ require('mason-lspconfig').setup {
 require('mason-nvim-dap').setup({
   ensure_installed = {
     -- 'python', -- NOTE: ipatch use `python` instead `debugpy`
+    -- NOTE: ipatch, for a list of mappings
+    -- https://github.com/jay-babu/mason-nvim-dap.nvim/blob/main/lua/mason-nvim-dap/mappings/source.lua
     'codelldb',
   },
   automatic_installation = true,
