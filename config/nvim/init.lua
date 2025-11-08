@@ -75,6 +75,9 @@ require('lazy').setup({
     -- }
   },
 
+  -- linting
+  'mfussenegger/nvim-lint',
+
   { -- LSP configuration and plugins
     {'neovim/nvim-lspconfig'},             -- Required
     {'williamboman/mason-lspconfig.nvim'}, -- Optional
@@ -661,6 +664,66 @@ vim.lsp.config('gh_actions_ls', {
   },
 })
 
+vim.lsp.config('cmake', {
+  cmd = { vim.fn.stdpath('data') .. '/mason/bin/cmake-language-server' },
+  filetypes = { 'cmake' },
+  root_dir = vim.fs.dirname(vim.fs.find('CMakeLists.txt', { upward = true })[1]),
+  -- root_markers = { "CMakeLists.txt" },  -- replaces root_dir function
+  init_options = {
+    buildDirectory = "build",
+  },
+})
+
+local lint = require("lint")
+
+-- TODO: ipatch this is NOT WORKING as expected
+lint.linters.cmakecheck = {
+  cmd = "cmake",
+  args = { "-P" },
+  stdin = false,
+  append_fname = true,
+  ignore_exitcode = true,
+  parser = function(output, bufnr)
+    local diagnostics = {}
+
+    for line in vim.gsplit(output, "\n", { trimempty = true }) do
+      -- Typical CMake error example:
+      -- CMake Error at CMakeLists.txt:4 (if):
+      --   Parse error. Function missing ending ")". Instead found left paren with text "4.4.0".
+      local filename, lnum, message =
+        line:match("CMake Error at ([^:]+):(%d+)%s*%(([^)]+)%)")
+      if filename and lnum then
+        table.insert(diagnostics, {
+          lnum = tonumber(lnum) - 1,
+          col = 0,
+          severity = vim.diagnostic.severity.ERROR,
+          source = "cmake",
+          message = message or "CMake parse error",
+        })
+      else
+        -- fallback if CMake prints generic text on the next line
+        if #diagnostics > 0 then
+          diagnostics[#diagnostics].message = diagnostics[#diagnostics].message
+            .. "\n"
+            .. line
+        end
+      end
+    end
+
+    return diagnostics
+  end,
+}
+
+require('lint').linters_by_ft = {
+  cmake = { 'cmakelint', 'cmakecheck' },
+}
+
+vim.api.nvim_create_autocmd({ 'BufWritePost', 'InsertLeave' }, {
+  callback = function()
+    require("lint").try_lint()
+  end,
+})
+
 ---------------
 -- PLUGIN / neovim native lsp / ruby / solargraph
 -- NOTE: https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#solargraph
@@ -705,6 +768,7 @@ require('mason-lspconfig').setup {
     'lua_ls',
     'ruby_lsp',
     'solargraph',
+    'cmake'
   },
   automatic_installation = true,
 }
@@ -727,6 +791,7 @@ vim.lsp.enable('html')
 vim.lsp.enable('lua_ls')
 vim.lsp.enable('ruby_lsp')
 vim.lsp.enable('gh_actions_ls')
+vim.lsp.enable('cmake')
 
 -- COPY DIAGNOSTIC MESSAGE TO CLIPBOARD
 -- NOTE: ipatch, best solution i could come up with for time being
