@@ -176,6 +176,9 @@ require('lazy').setup({
   dependencies = 'tpope/vim-fugitive',
   },
 
+  -- ui / gitsigns show changes in file while editing
+  'lewis6991/gitsigns.nvim',
+
   -- UI / themes
   'Mofiqul/vscode.nvim',
   'navarasu/onedark.nvim',
