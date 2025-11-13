@@ -846,6 +846,40 @@ vim.keymap.set('n', '<leader>yd', copy_diagnostic_to_clipboard, { noremap = true
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#html
 
 -------------------
+-- plugin / nvim / gitsigns.nvim
+-- NOTE: ipatch, https://github.com/lewis6991/gitsigns.nvim?tab=readme-ov-file#-keymaps
+----
+require('gitsigns').setup{
+  on_attach = function(bufnr)
+    local gitsigns = require('gitsigns')
+
+    local function map(mode, l, r, opts)
+      opts = opts or {}
+      opts.buffer = bufnr
+      vim.keymap.set(mode, l, r, opts)
+    end
+
+    -- navigation
+    map('n', ']c', function()
+      if vim.wo.diff then
+        vim.cmd.normal({']c', bang = true})
+      else
+        gitsigns.nav_hunk('next')
+      end
+    end)
+
+    map('n', '[c', function()
+      if vim.wo.diff then
+        vim.cmd.normal({'[c', bang = true})
+      else
+        gitsigns.nav_hunk('prev')
+      end
+    end)
+  end
+}
+
+
+-----------------------
 -- plugin / nvim / blink.cmp
 ----
 require('blink.cmp').setup({
