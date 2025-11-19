@@ -667,6 +667,15 @@ vim.lsp.config('gh_actions_ls', {
   },
 })
 
+-- clangd language server
+-- https://clangd.llvm.org/installation#neovim-built-in-lsp-client
+vim.lsp.config('clangd', {
+  cmd = { 'clangd', '--background-index', '--clang-tidy', '--log=verbose'},
+  init_options = {
+    fallbackFlags = { '-std=c++17' },
+  },
+})
+
 vim.lsp.config('cmake', {
   cmd = { vim.fn.stdpath('data') .. '/mason/bin/cmake-language-server' },
   filetypes = { 'cmake' },
@@ -795,6 +804,7 @@ vim.lsp.enable('lua_ls')
 vim.lsp.enable('ruby_lsp')
 vim.lsp.enable('gh_actions_ls')
 vim.lsp.enable('cmake')
+vim.lsp.enable('clangd')
 
 -- COPY DIAGNOSTIC MESSAGE TO CLIPBOARD
 -- NOTE: ipatch, best solution i could come up with for time being
