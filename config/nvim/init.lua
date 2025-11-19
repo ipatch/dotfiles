@@ -669,6 +669,7 @@ vim.lsp.config('gh_actions_ls', {
 
 -- clangd language server
 -- https://clangd.llvm.org/installation#neovim-built-in-lsp-client
+-- NOTE: clangd lsp is provided by homebrew llvm ie. `brew install llvm`
 vim.lsp.config('clangd', {
   cmd = { 'clangd', '--background-index', '--clang-tidy', '--log=verbose'},
   init_options = {
