@@ -290,8 +290,42 @@ opt.swapfile = false
 opt.tabstop = 2                 -- number of spaces tabs count for
 opt.termguicolors = true        -- true color support, use guifg/guibg instead of ctermfg/ctermbg in terminal
 opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
-opt.viewoptions = "folds,cursor"
+opt.viewoptions = "folds,cursor,curdir,slash,unix"
+-- opt.viewoptions = "folds,cursor"
 opt.wrap = true
+
+-- session options
+vim.o.sessionoptions = vim.o.sessionoptions .. ",folds"
+
+-- NOWORK!!!
+-- vim.api.nvim_create_user_command("Mks", function(args)
+--   -- Save current window
+--   local current_win = vim.api.nvim_get_current_win()
+--   local current_buf = vim.api.nvim_get_current_buf()
+--   
+--   -- Get list of loaded buffers with names
+--   local bufs_to_save = {}
+--   for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+--     if vim.api.nvim_buf_is_loaded(buf) and vim.api.nvim_buf_get_name(buf) ~= '' then
+--       table.insert(bufs_to_save, buf)
+--     end
+--   end
+--   
+--   -- Temporarily split and save view for each buffer
+--   for _, buf in ipairs(bufs_to_save) do
+--     vim.cmd('silent! split')
+--     vim.api.nvim_win_set_buf(0, buf)
+--     vim.cmd('silent! mkview')
+--     vim.cmd('silent! close')
+--   end
+--   
+--   -- Restore original window and buffer
+--   vim.api.nvim_set_current_win(current_win)
+--   vim.api.nvim_set_current_buf(current_buf)
+--   
+--   -- Create session
+--   vim.cmd("mksession! " .. args.args)
+-- end, { nargs = 1 })
 
 -- DO NOT insert code comment on next line
 -- nowork!
@@ -1394,7 +1428,7 @@ ft
 cmd([[au TextYankPost * lua vim.highlight.on_yank {higroup="IncSearch", timeout=150, on_visual=true}]])
 
 ---------------
--- plugin / folding / fold settings - ufo
+-- PLUGIN / folding / fold settings - ufo
 -----
 -- Option 3: treesitter as a main provider instead
 -- Only depend on `nvim-treesitter/queries/filetype/folds.scm`,
@@ -1408,6 +1442,9 @@ require('ufo').setup({
   provider_selector = function(bufnr, filetype, buftype)
     return {'treesitter', 'indent'} -- fallback to indent if treesitter fails
   end,
+
+  -- disable all automatic closing of folds
+  close_fold_kinds_for_ft = {},
 
   fold_virt_text_handler = function(virtText, lnum, endLnum, width, truncate)
     local newVirtText = {}
@@ -1451,9 +1488,9 @@ vim.cmd [[
   augroup END
 ]]
 
-vim.api.nvim_exec2([[
-  " autocmd BufReadPost * setlocal foldlevel=0
-]], {})
+-- vim.api.nvim_exec2([[
+--   " autocmd BufReadPost * setlocal foldlevel=0
+-- ]], {})
 
 -- Set the default fold level to 99
 vim.o.foldlevel = 99
