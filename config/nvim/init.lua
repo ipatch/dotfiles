@@ -1364,10 +1364,9 @@ vim.api.nvim_command([[
 -- NOTE: ipatch, below line required or bg color is not updated in terminal
 cmd [[silent! colorscheme onedark]]
 
--- NOTE: ipatch, this needs to be below the `colorscheme onedark` cmd above
--- NOTE: ipatch, it appears below line not required with recent update 
--- ref: https://github.com/navarasu/onedark.nvim/commit/09b71d84b
--- vim.cmd [[hi SpellBad gui=undercurl]]
+-- NOTE: ipatch, colorscheme set background color for folds
+vim.api.nvim_set_hl(0, "Folded", { ctermbg = "NONE"})
+vim.api.nvim_set_hl(0, "Folded", { bg = "NONE"})
 
 ---------------
 -- PLUGIN / 'numToStr/Comment.nvim'
