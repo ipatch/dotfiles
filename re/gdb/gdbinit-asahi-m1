@@ -1,0 +1,13 @@
+# allow auto-load of helpers NOTE: ipatch, be carefull can be seen as a security risk
+set auto-load safe-path /
+# preserve gdb command history through multiple gdb sessions
+set history save on
+# save the history to the below file
+set history filename ~/.config/gdb/.gdb_history
+
+# add libstdc++ helper dir to gdb's python sys.path
+python
+import sys
+sys.path.insert(0, "/home/capin/homebrew/opt/gcc/share/gcc-15/python")
+
+
