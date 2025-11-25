@@ -542,9 +542,6 @@ vim.lsp.config('*', {
     vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
     vim.keymap.set("n", "<leader>vws", vim.lsp.buf.workspace_symbol, opts)
     vim.keymap.set("n", "<leader>vd", vim.diagnostic.open_float, opts)
-    -- DEPRECATED neovim v0.11+
-    -- vim.keymap.set("n", "[d", vim.diagnostic.goto_next, opts)
-    -- vim.keymap.set("n", "]d", vim.diagnostic.goto_prev, opts)
     vim.keymap.set("n", "]d", function() vim.diagnostic.jump({ count = 1, float = true }) end, opts)
     vim.keymap.set("n", "[d", function() vim.diagnostic.jump({ count = -1, float = true }) end, opts)
     vim.keymap.set("n", "<leader>vca", vim.lsp.buf.code_action, opts)
@@ -872,7 +869,7 @@ vim.keymap.set('n', '<leader>yd', copy_diagnostic_to_clipboard, { noremap = true
 
 -- TODO: ipatch, NO WORK, updated the tsconfig.json for the project instead
 -- require('nvim-lsp-ts-utils').setup({
-  --   filter_out_diagnositics_by_code = { 80001 },
+  --   filter_out_diagnostics_by_code = { 80001 },
   -- })
   -- require('nvim-lsp-ts-utils').setup_client(client)
 
