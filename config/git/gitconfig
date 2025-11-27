@@ -20,8 +20,39 @@
   #----
   b = branch
   # bdates = !git branch --sort=creatordate --sort=committername --format "%(align:20) %(creatordate:relative) %(end) %(align:25) %(committername) %(end) %(refname:lstrip=-1)"
+
   # REF: https://stackoverflow.com/a/5188364/708807
-  recentb = "!r() { refbranch=$1 count=$2; git for-each-ref --sort=-committerdate refs/heads --format='%(refname:short)|%(HEAD)%(color:yellow)%(refname:short)|%(color:bold green)%(committerdate:relative)|%(color:blue)%(subject)|%(color:magenta)%(authorname)%(color:reset)' --color=always --count=${count:-20} | while read line; do branch=$(echo \"$line\" | awk 'BEGIN { FS = \"|\" }; { print $1 }' | tr -d '*'); ahead=$(git rev-list --count \"${refbranch:-origin/master}..${branch}\"); behind=$(git rev-list --count \"${branch}..${refbranch:-origin/master}\"); colorline=$(echo \"$line\" | sed 's/^[^|]*|//'); echo \"$ahead|$behind|$colorline\" | awk -F'|' -vOFS='|' '{$5=substr($5,1,70)}1' ; done | ( echo \"ahead|behind||branch|lastcommit|message|author\\n\" && cat) | column -ts'|';}; r"
+  recentb = "!f() { \
+    refbranch=\"${1:-origin/HEAD}\"; \
+    count=\"${2:-20}\"; \
+    cmp() { \
+      a=\"$1\"; b=\"$2\"; \
+      if git rev-parse --verify -q \"$a\" >/dev/null && \
+        git rev-parse --verify -q \"$b\" >/dev/null; then \
+        git rev-list --count \"$a..$b\"; \
+      else \
+        echo 0; \
+      fi; \
+    }; \
+    \
+    echo \"ahead|behind|branch|lastcommit|message|author\"; \
+    \
+    git for-each-ref \
+      --sort=-committerdate \
+      --format='%(refname:short)|%(HEAD)%(color:yellow)%(refname:short)|%(color:bold green)%(committerdate:relative)|%(color:blue)%(subject)|%(color:magenta)%(authorname)%(color:reset)' \
+      --color=always \
+      --count=\"$count\" \
+      refs/heads \
+    | while IFS='|' read -r branch _ rest; do \
+        cleanbranch=\"$(echo \"$branch\" | tr -d '*')\"; \
+        ahead=$(cmp \"$refbranch\" \"$cleanbranch\"); \
+        behind=$(cmp \"$cleanbranch\" \"$refbranch\"); \
+        rest_trunc=\"$(echo \"$rest\" | awk -F'|' -vOFS='|' '{ $2=substr($2,1,70); print }')\"; \
+        echo \"$ahead|$behind|$rest_trunc\"; \
+      done \
+    | column -ts \"|\"; \
+    }; \
+  f"
 
   #---------------------------------
   # branching / branch, branching / delete local & remote branch
