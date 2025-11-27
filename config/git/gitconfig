@@ -22,8 +22,9 @@
   # bdates = !git branch --sort=creatordate --sort=committername --format "%(align:20) %(creatordate:relative) %(end) %(align:25) %(committername) %(end) %(refname:lstrip=-1)"
 
   # REF: https://stackoverflow.com/a/5188364/708807
+  # TODO: refbranch does not quite work the way i'd like it to.
   recentb = "!f() { \
-    refbranch=\"${1:-origin/HEAD}\"; \
+    refbranch=\"${1:-$(git symbolic-ref refs/remotes/$(git remote | head -n1)/HEAD 2>/dev/null | sed 's|refs/remotes/||' || echo 'origin/main')}\"; \
     count=\"${2:-20}\"; \
     cmp() { \
       a=\"$1\"; b=\"$2\"; \
@@ -39,16 +40,16 @@
     \
     git for-each-ref \
       --sort=-committerdate \
-      --format='%(refname:short)|%(HEAD)%(color:yellow)%(refname:short)|%(color:bold green)%(committerdate:relative)|%(color:blue)%(subject)|%(color:magenta)%(authorname)%(color:reset)' \
+      --format='%(HEAD)%(color:yellow)%(refname:short)|%(color:bold green)%(committerdate:relative)|%(color:blue)%(subject)|%(color:magenta)%(authorname)%(color:reset)' \
       --color=always \
       --count=\"$count\" \
       refs/heads \
-    | while IFS='|' read -r branch _ rest; do \
-        cleanbranch=\"$(echo \"$branch\" | tr -d '*')\"; \
+    | while IFS='|' read -r branch rest; do \
+        cleanbranch=\"$(printf '%s' \\\"$branch\\\" | sed 's/\\x1b\\[[0-9;]*m//g' | tr -d '* ')\"; \
         ahead=$(cmp \"$refbranch\" \"$cleanbranch\"); \
         behind=$(cmp \"$cleanbranch\" \"$refbranch\"); \
-        rest_trunc=\"$(echo \"$rest\" | awk -F'|' -vOFS='|' '{ $2=substr($2,1,70); print }')\"; \
-        echo \"$ahead|$behind|$rest_trunc\"; \
+        rest_trunc=\"$(echo \\\"$rest\\\" | awk -F'|' -vOFS='|' -v width=$(tput cols) '{ maxlen=width-80; if(maxlen<20) maxlen=20; $2=substr($2,1,maxlen); print }')\"; \
+        echo \"$ahead|$behind|$branch|$rest_trunc\"; \
       done \
     | column -ts \"|\"; \
     }; \
