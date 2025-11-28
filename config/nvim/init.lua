@@ -1138,6 +1138,7 @@ local user = vim.fn.expand("$USER")
 local languages = {
   'bash',
   'c',
+  'cmake',
   'comment',
   'cpp',
   'css',
