@@ -60,6 +60,7 @@ require('lazy').setup({
   'christoomey/vim-tmux-navigator',
 
   -- clipboard
+  -- NOTE: ipatch this plugin is now OBSOLETE with neovim >= v0.10
   {'ojroques/nvim-osc52'},
 
   {  -- chatgpt
@@ -174,7 +175,7 @@ require('lazy').setup({
   dependencies = 'tpope/vim-fugitive',
   },
 
-  -- ui / gitsigns show changes in file while editing
+  -- UI / gitsigns show changes in file while editing
   'lewis6991/gitsigns.nvim',
 
   -- UI / themes
@@ -198,6 +199,9 @@ require('lazy').setup({
 
   -- UI / enhancements / color picker
   'NvChad/nvim-colorizer.lua',
+
+  -- UI / enhancements / hover for LSP diagnositics
+  'lewis6991/hover.nvim',
 })
 
 ---------------
@@ -790,6 +794,32 @@ vim.api.nvim_create_autocmd({ 'BufWritePost', 'InsertLeave' }, {
 --   }
 -- }
 ----
+
+---------------
+-- PLUGIN / hover.nvim
+----
+require('hover').config({
+  -- list of module names to load as providers
+  --- @type (string|Hover.config.Provider)[]
+  providers = {
+    'hover.providers.diagnostic',
+    'hover.providers.lsp',
+    'hover.providers.dap',
+    'hover.providers.man',
+    'hover.providers.dictionary',
+  },
+
+  mouse_providers ={
+    'hover.providers.lsp'
+  }
+})
+
+vim.o.mousemoveevent = true
+
+-- Setup the mouse hover keymap
+vim.keymap.set('n', '<MouseMove>', function()
+  require('hover').mouse()
+end, { desc = "hover.nvim (mouse)" })
 
 ---------------
 -- PLUGIN / neovim / mason LSP + DAP tooling
