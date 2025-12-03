@@ -112,8 +112,6 @@ require('lazy').setup({
   },
 
   -- lsp helper / nvim configuring init.lua + friends
-  -- DEPRECATED! migrate to lazydev.nvim
-  -- "folke/neodev.nvim",
   "folke/lazydev.nvim",
 
   -- lsp helper / json files ie. tsconfig.json
