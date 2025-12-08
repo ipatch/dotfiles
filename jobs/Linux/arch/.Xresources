@@ -1,6 +1,24 @@
-Xft.dpi: 157
-
 ! these might also be useful depending on your monitor and personal preferences:
+
+!----------------------------------------------------
+! NOTE: ipatch, run `xrdb -merge ~/.Xresources` after adjusting values in this file.
+!----------------------------------------------------
 
 ! dynamically adjust font size
 !URxvt.perl-ext-common: resize-font
+
+! per dpi.lv apple macbook pro 15inch retina has the below default dpi
+Xft.dpi: 221
+
+Xft.antialias: true
+
+Xft.hinting: true
+Xft.hintstyle: hintfull
+
+
+Xft.lcdfilter:  lcddefault
+
+! NOTE: ipatch, run `xrdb -merge ~/.Xresources` after adjusting values in this file.
+! experimental NOTE: the below setting did not effect the mouse cursor size of homebrew freecad
+Xcursor.size: 48
+Xcursor.theme: Adwaita
