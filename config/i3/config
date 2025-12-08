@@ -36,6 +36,9 @@ exec_always --no-startup-id flameshot
 # NOTE: ipatch, startup libinput-gestures for macbook trackpad
 exec_always --no-startup-id libinput-gestures -c ~/.config/libinput-gestures/libinput-gestures.conf;
 
+# NOTE: ipatch, thunar is gtk based app that should remember window size when xfsettingsd is running
+exec_always --no-startup-id killall xfsettingsd; sleep 5; xfsettingsd
+
 # NOTE: ipatch, below NO GOOD, app starts maximized and not in tray
 # TODO: FIXME: start minimized
 # exec_always --no-startup-id blueberry
