@@ -26,7 +26,7 @@
 
 <a name="installation"></a>
 
-<!-- NOTE: ipatch, github flavored markdown presently doesnot support `target="_blank"` -->
+<!-- NOTE: ipatch, github flavored markdown presently does not support `target="_blank"` -->
 
 <blockquote>
 
@@ -53,18 +53,16 @@ https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.conf \
 
 > 🌹🪨 apps i use on various operating systems
 
-<!-- TODO: insert a markdown table with macos, linux, windows heading -->
-
-|apps| macos | gnu+linux | windows |
-|----|-------|-----------|---------|
-| wm | spectacle | i3    | default |
-|    | builtin   | flameshot | default |
-| 🎧️ | background music | ??? | ??? |
-| fe | Finder.app | thunar | explorer |
-|    | iMessage | bluebubbles | ??? |
-|    | karabiner elements | interception / [dual function keys][apps-lnk1] | ??? |
-| ✂️  | clipy | copyq | ??? |
-| 📺️ |       | arandr|     |
+|apps| macos              | gnu+linux   | windows  |
+|----|--------------------|-------------|----------|
+| wm | spectacle          | i3          | default  |
+| 📸 | builtin            | flameshot   | default  |
+| 🎧️ | background music   | ???         | ???      |
+| fe | Finder.app         | thunar      | explorer |
+| 💬 | iMessage           | bluebubbles | ???      |
+| ⌨️ | karabiner elements | interception / [dual function keys][apps-lnk1] | ??? |
+| ✂️ | clipy              | copyq       | copyq      |
+| 📺️ | default            | arandr      | default    |
 
 [apps-lnk1]: <https://gitlab.com/interception/linux/plugins/dual-function-keys> 
 
@@ -764,7 +762,6 @@ https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.conf \
 </pre>
 </details>
 
-
 ## Useful Links ___no particular order___
 
 <a id="useful-links"></a>
@@ -782,11 +779,11 @@ https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.conf \
 
 <summary>Uncompleted</summary>
 
-- [ ] #arch #i3 #lightdm on my current 2015 mbp when i have the thunderbolt to ethernet dongle plugged in when booting up there is an extended delay ~ 2 minutes before i can interact with i3 after inputting my password. if i disconnect my thunderbolt to ethernet dongle when booting there is no delay, and then i just plug the dongle after seeing the polybar load
-- [ ] #neovim, update config _init.lua_ when using `control+p` to search for files in _cwd_ to work with both git repos and non git repo dirs. as of right now i have use `<leader>p+f` to search / list files in a non git dir (repo)
 - [ ] #neovim when the cmd `gcc` use `//` style comments instead of `/* */`
+    - this was probably related to c / cpp files (i've slept since then).
 - [ ] #fish #theme #neolambda, if origin is the same _git remote_ as another _remote_ name then update _git status prompt_ for both, **not** just _origin_
 - [ ] #nvim #neovim is there an elegant way to switch a word from single quotes `'` to double quotes `"` and vise versa
+    - still have not found one without doing finger gymnastics unfortunately
 - [ ] #linux #screencasting #i3, setup binding to toggle showkey, and auto launch showkey after i3 starts ala copyq
 - [ ] #tmux how not move window title names when prefix key is pressed and label `^S` is shown in the left side of the status bar.
 - [ ] #tmux only display window index numbers after the pressing prefix key (this gunna be a tricky one) 🤔
@@ -796,11 +793,8 @@ https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.conf \
 - [ ] #arch #emote how to make the gui for my emoji picker larger 👩‍🦯
 - [ ] #nvim plugin / #nvim-ufo can not fold html tags contained with a markdown document out of the box
 - [ ] #i3 when launching an app that is defined for a specific workspace and already on that workspace the app launches on the previously active workspace WTF?
-- [x] #arch #systemd, come to a peaceful solution on why i can't set the perms i want for my log files
-    - https://github.com/systemd/systemd/issues/28302
 - [ ] a much better solution for ricing my arch install ie. editing config files that require a reboot would be to edit in a virtual machine or even using a docker container to not require a full reboot  🤦‍♂️
 - [ ] #arch #i3, how to change the outline color of the active window on the screen?
-- [ ] #tmux setup a custom code fold function using vimscript or possible lua for my `tmux.conf` reference the stock `html` and `c` lang syntax files for how the use different types of expressions for code folds 🤔
 - [ ] #webdev, side quest, 🤺 figure out reimp search so a site such autozone can find `b12 chemtool` instead having to type `b-12`
 - [ ] #arch map left control key on keychron to `fn` key ala macbook builtin keyboard
 - [ ] #milliondollaridea 🤑, some way to search the youtube transcript in browser to find a specific spot of a video
@@ -871,6 +865,13 @@ https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.conf \
 <details>
 <summary><strong>TODOs completed</strong></summary>
 
+- [x] #tmux setup a custom code fold function using vimscript or possible lua for my `tmux.conf` reference the stock `html` and `c` lang syntax files for how the use different types of expressions for code folds 🤔
+    - thanks to the following [github gist][lm4], i've learned to live with `zf#j` for my user defined code folds
+- [x] #arch #systemd, come to a peaceful solution on why i can't set the perms i want for my log files
+    - https://github.com/systemd/systemd/issues/28302
+- [x] #neovim, update config _init.lua_ when using `control+p` to search for files in _cwd_ to work with both git repos and non git repo dirs. as of right now i have use `<leader>p+f` to search / list files in a non git dir (repo)
+- [x] #arch #i3 #lightdm on my current 2015 mbp when i have the thunderbolt to ethernet dongle plugged in when booting up there is an extended delay ~ 2 minutes before i can interact with i3 after inputting my password. if i disconnect my thunderbolt to ethernet dongle when booting there is no delay, and then i just plug the dongle after seeing the polybar load
+    - at some point (not sure when) this "error" / "slown down" stopped happening with no config changes on my end
 - [x] #fish #neovim #tree-sitter properly highlight the word `NOTE:`
 - [x] #arch #linux #rofi figure out how to add additional directories to search path
     - see: https://github.com/davatorium/rofi/discussions/2002
@@ -954,6 +955,8 @@ https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.conf \
 - [x] [tmux] ~~search and see if it supports key chord style shortcuts, tired of using <kbd>shift</kbd>+<kbd>arrow keys</kbd> to navigate between windows, prefer <kbd>ctrl</kbd>+<kbd>l</kbd> then <kbd>l</kbd>~~
 - [x] ~~[fish] come up with sane way to check for misspelling of `brew cask outdated --greddy`~~
 - [x] ~~Vim Sesssions, Folds, and Conceals will be the death of me~~ 💀
+
+  [lm4]: <https://gist.github.com/lestoni/8c74da455cce3d36eb68>
 
 </details>
 
