@@ -797,29 +797,63 @@ vim.api.nvim_create_autocmd({ 'BufWritePost', 'InsertLeave' }, {
 
 ---------------
 -- PLUGIN / hover.nvim
+-- https://github.com/lewis6991/hover.nvim
+-- TODO: follow up on my github issue https://github.com/lewis6991/hover.nvim/issues/110
 ----
-require('hover').config({
-  -- list of module names to load as providers
-  --- @type (string|Hover.config.Provider)[]
-  providers = {
-    'hover.providers.diagnostic',
-    'hover.providers.lsp',
-    'hover.providers.dap',
-    'hover.providers.man',
-    'hover.providers.dictionary',
-  },
+-- require('hover').config({
+--   -- list of module names to load as providers
+--   --- @type (string|Hover.config.Provider)[]
+--   providers = {
+--     'hover.providers.diagnostic',
+--     'hover.providers.lsp',
+--     'hover.providers.dap',
+--     'hover.providers.man',
+--     'hover.providers.dictionary',
+--   },
+--   preview_opts = {
+--     border = 'single'
+--   },
+--   -- Whether the contents of a currently open hover window should be moved
+--   -- to a :h preview-window when pressing the hover keymap.
+--   preview_window = false,
+--   title = true,
+--   mouse_providers = {
+--     'hover.providers.lsp',
+--   },
+--   mouse_delay = 1000,
 
-  mouse_providers ={
-    'hover.providers.lsp'
-  }
-})
+--   mouse_providers ={
+--     'hover.providers.lsp'
+--   }
+-- })
 
-vim.o.mousemoveevent = true
+-- vim.o.mousemoveevent = true
 
--- Setup the mouse hover keymap
-vim.keymap.set('n', '<MouseMove>', function()
-  require('hover').mouse()
-end, { desc = "hover.nvim (mouse)" })
+-- -- setup the mouse hover keymap
+-- vim.keymap.set('n', '<MouseMove>', function()
+--   -- NOWORK!
+--   -- only trigger hover if we're over an identifier / keyword
+--   local char = vim.fn.getline('.'):sub(vim.fn.col('.'), vim.fn.col('.'))
+--   if not char:match('[%w_]') then
+--     return
+--   end
+
+--   -- NOWORK!
+--   -- this call internally runs providers and only shows a popup if a result is found
+--   require('hover').mouse()
+-- end, { desc = 'hover.nvim (mouse)' })
+
+-- -- Configure the built-in LSP hover handler to be silent when there is no content.
+-- -- This prevents the "No information available" or similar messages
+-- -- which can sometimes manifest as an empty hover window via plugins like hover.nvim.
+-- vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
+--   vim.lsp.handlers.hover,
+--   {
+--     -- Setting silent to true prevents the display of the default message 
+--     -- (like "No information available") when a server returns an empty result.
+--     silent = true,
+--   }
+-- )
 
 ---------------
 -- PLUGIN / neovim / mason LSP + DAP tooling
