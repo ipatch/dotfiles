@@ -526,11 +526,9 @@ end
 -- ref: https://github.com/neovim/nvim-lspconfig/wiki/UI-Customization
 ----
 
--- global lsp configuration for all servers
--- this runs for every lsp attachment
-vim.lsp.config('*', {
-  on_attach = function(client, bufnr)
-    local opts = { buffer = bufnr, remap = false }
+local function  my_on_attach(client, bufnr)
+  print("lsp attached:", client.name, "buffer:", bufnr)
+  local opts = { buffer = bufnr, remap = false }
 
     -- Buffer local mappings.
     -- See `:help vim.lsp.*` for documentation on any of the below functions
@@ -549,17 +547,23 @@ vim.lsp.config('*', {
     vim.api.nvim_create_autocmd("CursorHold", {
       buffer = bufnr,
       callback = function()
-        vim.diagnostic.open_float(nil, {
+        -- print("CursorHold fired! Buffer:", bufnr)
+        local diagnostics = vim.diagnostic.get(0, {lnum = vim.fn.line('.')-1})
+        -- print("Diagnostics on line:", vim.inspect(diagnostics))
+
+        local result = vim.diagnostic.open_float(nil, {
           -- NOTE: ipatch, toggle to true to copy text in diagnostics float window
           focusable = false,
           -- focusable = true,
-          close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
           border = 'rounded',
           source = 'always',
           prefix = '',
           header = '',
           scope = 'cursor',
+          -- scope = 'line',
+          close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
         })
+        -- print("open_float result:", vim.inspect(result))
       end,
     })
     -- Configure diagnostic signs when LSP attaches
@@ -583,7 +587,11 @@ vim.lsp.config('*', {
       update_in_insert = false,
       severity_sort = false,
     })
-  end
+end
+
+-- apply above config to all lsp servers
+vim.lsp.config('*', {
+  on_attach = my_on_attach
 })
 
 -- configure individual lsp servers using vim.lsp.config()
@@ -702,6 +710,8 @@ vim.lsp.config('clangd', {
   init_options = {
     fallbackFlags = { '-std=c++17' },
   },
+  -- NOTE: ipatch, for reasons i do not understand this has to be explicitly called
+  on_attach = my_on_attach
 })
 
 vim.lsp.config('cmake', {
