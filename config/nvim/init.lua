@@ -526,12 +526,6 @@ end
 -- ref: https://github.com/neovim/nvim-lspconfig/wiki/UI-Customization
 ----
 
--- DEPRECATED neovim <= v0.10 
--- vim.fn.sign_define('DiagnosticSignError', { text = '✘', texthl = 'DiagnosticSignError' })
--- vim.fn.sign_define('DiagnosticSignWarn', { text = '▲', texthl = 'DiagnosticSignWarn' })
--- vim.fn.sign_define('DiagnosticSignHint', { text = '⚑', texthl = 'DiagnosticSignHint' })
--- vim.fn.sign_define('DiagnosticSignInfo', { text = '»', texthl = 'DiagnosticSignInfo' })
-
 -- global lsp configuration for all servers
 -- this runs for every lsp attachment
 vim.lsp.config('*', {
@@ -856,7 +850,7 @@ vim.api.nvim_create_autocmd({ 'BufWritePost', 'InsertLeave' }, {
 -- )
 
 ---------------
--- PLUGIN / neovim / mason LSP + DAP tooling
+-- PLUGIN / mason LSP + DAP tooling
 ----
 require('mason').setup({
   ui = {
@@ -864,7 +858,7 @@ require('mason').setup({
   }
 })
 
--- NOTE: ipatch, after adding the below lines ie. oct 26, 2025 begain seeing diagnostic msg's within my init.lua
+-- NOTE: ipatch, after adding the below lines ie. oct 26, 2025 began seeing diagnostic msg's within my init.lua
 require('mason-lspconfig').setup {
   ensure_installed = {
     'pyright',
@@ -981,7 +975,6 @@ require('gitsigns').setup{
     end)
   end
 }
-
 
 -----------------------
 -- plugin / nvim / blink.cmp
@@ -1281,11 +1274,13 @@ ts.setup {
       },
   },
 
+  -- NOTE: TODO: still not seeing rainbows
   rainbow = {
     enable = true,
     extended_mode = true,
     max_file_lines = 1000
   },
+
   incremental_selection = {
     enable = true,
     keymaps = {
@@ -1311,7 +1306,7 @@ ts.setup {
         ["if"] = "@function.inner",
         ["ac"] = "@class.outer",
         -- You can optionally set descriptions to the mappings (used in the desc parameter of
-        -- nvim_buf_set_keymap) which plugins like which-key display
+        -- nvim_buf_set_keymap) so plugins like which-key display
         ["ic"] = { query = "@class.inner", desc = "Select inner part of a class region" },
         -- You can also use captures from other query groups like `locals.scm`
         ["as"] = { query = "@scope", query_group = "locals", desc = "Select language scope" },
@@ -1379,17 +1374,13 @@ ts.setup {
       }
     },
   },
-
-  -- https://github.com/JoosepAlviste/nvim-ts-context-commentstring/issues/82
-  -- nvim-ts-context-commentstring is set up automatically
-  -- context_commentstring = {
-    --   enable = true,
-    --   enable_autocmd = false,
-    -- },
 }
 
 ---------------
 -- PLUGIN / treesitter / nvim-ts-context-commentstring
+-- nvim-ts-context-commentstring is set up automatically
+-- https://github.com/JoosepAlviste/nvim-ts-context-commentstring/issues/82
+--
 -- https://github.com/JoosepAlviste/nvim-ts-context-commentstring/issues/67
 ----
 require('ts_context_commentstring').setup {
@@ -1547,10 +1538,6 @@ vim.cmd [[
     autocmd BufWinEnter *.* silent! loadview
   augroup END
 ]]
-
--- vim.api.nvim_exec2([[
---   " autocmd BufReadPost * setlocal foldlevel=0
--- ]], {})
 
 -- Set the default fold level to 99
 vim.o.foldlevel = 99
