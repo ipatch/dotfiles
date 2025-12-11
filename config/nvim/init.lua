@@ -130,7 +130,17 @@ require('lazy').setup({
     dependencies = {
       'nvim-treesitter/nvim-treesitter-textobjects',
       'JoosepAlviste/nvim-ts-context-commentstring',
-    }
+      {
+        'nvim-treesitter/nvim-treesitter-context',
+        config = function()
+          require('treesitter-context').setup({
+            -- multiline_threshold = 1,
+            trim_scope = 'inner',
+            max_lines = 1,
+          })
+        end
+      },
+    },
   },
 
   { -- telescope
@@ -1013,7 +1023,7 @@ require('blink.cmp').setup({
   },
 })
 
--- Add this global override AFTER the blink.cmp setup
+-- blink.cmp / Add this global override AFTER the blink.cmp setup
 vim.keymap.set('i', '<Esc>', function()
   local blink = require('blink.cmp')
   if blink.is_visible() then
@@ -1078,7 +1088,7 @@ end
 ----
 -- require("luasnip.loaders.from_vscode").lazy_load()
 
--- TODO: ipatch, this table may no longer be used due to migration from nvim-cmp to blink.cmp
+-- TODO: ipatch, this table may no longer used due to migration from nvim-cmp to blink.cmp
 -- ref: https://github.com/hrsh7th/nvim-cmp/wiki/Menu-Appearance#how-to-add-visual-studio-code-codicons-to-the-menu
 local kind_icons = {
   Text = '  ',
