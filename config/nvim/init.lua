@@ -978,6 +978,8 @@ require('gitsigns').setup{
     end
 
     -- navigation
+
+    -- nav forward
     map('n', ']c', function()
       if vim.wo.diff then
         vim.cmd.normal({']c', bang = true})
@@ -986,6 +988,7 @@ require('gitsigns').setup{
       end
     end)
 
+    -- nav back
     map('n', '[c', function()
       if vim.wo.diff then
         vim.cmd.normal({'[c', bang = true})
