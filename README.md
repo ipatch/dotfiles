@@ -779,6 +779,7 @@ https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.conf \
 
 <summary>Uncompleted</summary>
 
+- [ ] #arch #linux figure out how to load `~/.Xresources` on login. as of right now i'm having to manually load after login
 - [ ] #neovim when the cmd `gcc` use `//` style comments instead of `/* */`
     - this was probably related to c / cpp files (i've slept since then).
 - [ ] #fish #theme #neolambda, if origin is the same _git remote_ as another _remote_ name then update _git status prompt_ for both, **not** just _origin_
