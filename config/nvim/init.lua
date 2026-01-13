@@ -179,246 +179,49 @@ require('lazy').setup({
       }
 
       -- Enable automatic comment continuation on Enter
-    vim.api.nvim_create_autocmd('BufEnter', {
-      callback = function()
-        vim.opt.formatoptions:append({ 'r' })
-        vim.opt.formatoptions:remove({ 'o' })
-      end,
-    })
-    
-    -- Map Shift+Enter with expr mode (catches it before formatoptions)
-    -- Note: ^[ must be literal escape (Ctrl+V Esc in vim)
-    vim.cmd([[
-      inoremap <expr> [13;2u <SID>ShiftEnterNoComment()
-    ]])
-    
-    -- Define the function
-    vim.cmd([[
-      function! s:ShiftEnterNoComment()
-        let l:old_fo = &formatoptions
-        set formatoptions-=cro
-        call feedkeys("\<CR>", 'n')
-        let &formatoptions = l:old_fo
-        return ''
-      endfunction
-    ]])
-  end
+      vim.api.nvim_create_autocmd('BufEnter', {
+        callback = function()
+          vim.opt.formatoptions:append({ 'r' })
+          vim.opt.formatoptions:remove({ 'o' })
+        end,
+      })
 
-      -- Set the terminal code for Shift+Enter
-    -- Note: The ^[ below must be a literal escape character
-    -- Type it with Ctrl+V followed by Esc in vim (not neovim)
-    -- vim.cmd('set <S-CR>=[13;2u')
-    -- -- [13;2u
-    -- -- 
+      -- Helper function to run without comment extension
+      local run_without_comment_extension = function(fn)
+        -- save current format options
+        local formatoptions = vim.opt.formatoptions:get()
+        local old_c = formatoptions.c
+        local old_r = formatoptions.r
+        local old_o = formatoptions.o
 
+        -- temporarily disable comment continuation
+        formatoptions.c = nil
+        formatoptions.r = nil
+        formatoptions.o = nil
+        vim.opt.formatoptions = formatoptions
 
-    --x1b[13;has_osc52_support
-    -- x1b[13;2u
-    --   -- Set the terminal code for Shift+Enter directly
-    -- vim.api.nvim_exec([[
-    --   execute "set <S-CR>=\e[13;2u"
-    -- ]], false)
+        -- execute function
+        fn()
 
-    -- Set the terminal code for Shift+Enter directly
-    -- asdfasdfasdfasdf
-    -- x1b[13;2ux1b[13;2u
-    -- x1b[13;2u
-    -- vim.api.nvim_set_var('terminal_key_codes', vim.api.nvim_get_var('terminal_key_codes') or {})
-    -- vim.api.nvim_exec([[
-    --   execute "set <S-CR>=\e[13;2u"
-    -- ]], false)
+        -- restore format options (with slight delay due to race condition)
+        vim.defer_fn(function()
+          formatoptions.c = old_c
+          formatoptions.r = old_r
+          formatoptions.o = old_o
+          vim.opt.formatoptions = formatoptions
+        end, 10)
+      end
 
-      -- Map the raw escape sequence in all modes
-    -- vim.cmd([[
-    --   set <S-CR>=[13;2u
-    -- ]])
-
-      -- Map the raw Shift+Enter escape sequence to <S-CR>
-      -- vim.keymap.set({'n', 'i', 'v', 't'}, '\x1b[13;2u', '<S-CR>', { noremap = true })
-      --
-      --x1b[13;2ux1b[13;2u
-
-      -- Enable automatic comment continuation on Enter
-    -- vim.api.nvim_create_autocmd('BufEnter', {
-    --   callback = function()
-    --     vim.opt.formatoptions:append({ 'r' })  -- Enable comment continuation on Enter in insert mode
-    --     vim.opt.formatoptions:remove({ 'o' })  -- Disable for 'o' and 'O' in normal mode
-    --   end,
-    -- })
-
-    --
-    --x1b[13;2u
-    --x1b[13;2ux1b[13;2ux1b[13;2ux1b[13;2ux1b[13;2u
-    -- adfasdf foobar adfasdfasdf
-    -- asdfasdf 
-    --
-    --
-    --x1b[13;2u
-
-    
-    -- Helper function to run without comment extension
-    -- local run_without_comment_extension = function(fn)
-    --   -- save current format options
-    --   local formatoptions = vim.opt.formatoptions:get()
-    --   local old_c = formatoptions.c
-    --   local old_r = formatoptions.r
-    --   local old_o = formatoptions.o
-    --   
-    --   -- temporarily disable comment continuation
-    --   formatoptions.c = nil
-    --   formatoptions.r = nil
-    --   formatoptions.o = nil
-    --   vim.opt.formatoptions = formatoptions
-    --   
-    --   -- execute function
-    --   fn()
-    --   
-    --   -- restore format options (with slight delay due to race condition)
-    --   vim.defer_fn(function()
-    --     formatoptions.c = old_c
-    --     formatoptions.r = old_r
-    --     formatoptions.o = old_o
-    --     vim.opt.formatoptions = formatoptions
-    --   end, 10)
-    -- end
-    
-    -- Shift+Enter to insert newline WITHOUT comment continuation
-    -- vim.keymap.set('i', '<S-CR>', function()
-    --   run_without_comment_extension(function()
-    --     local cr_key = vim.api.nvim_replace_termcodes('<CR>', true, false, true)
-    --     vim.api.nvim_feedkeys(cr_key, 'i', false)
-    --   end)
-    -- end, { desc = 'Insert newline without comment continuation' })
-  -- end
-
-
-     
-      -- disable automatic comment continuation
-      -- adfasdfasdf
-      --
-      --
-      -- adfasdfasd  
-      --
-      -- fooobar
-      --
-      -- adfasdfasdf
-      --
-      --
-
-      --
-      -- vim.api.nvim_create_autocmd('BufEnter', {
-      --   callback = function()
-      --     vim.opt.formatoptions:remove({ 'c', 'r', 'o' })
-      --   end,
-      -- })
-
-  --         -- Helper function to run with comment extension enabled
-  --   local run_with_comment_extension = function(fn)
-  --     -- save current format options
-  --     local formatoptions = vim.opt.formatoptions:get()
-  --     
-  --     -- temporarily enable comment continuation
-  --     formatoptions.c = true
-  --     formatoptions.r = true
-  --     formatoptions.o = true
-  --     vim.opt.formatoptions = formatoptions
-  --     
-  --     -- execute function
-  --     fn()
-  --     
-  --     vim.defer_fn(function()
-  --       formatoptions.c = nil
-  --       formatoptions.r = nil
-  --       formatoptions.o = nil
-  --       vim.opt.formatoptions = formatoptions
-  --     end, 10)
-  --   end
-  --   
-  --   -- Shift+Enter to insert newline WITH comment continuation
-  --   vim.keymap.set('i', '<S-CR>', function()
-  --     run_with_comment_extension(function()
-  --       local cr_key = vim.api.nvim_replace_termcodes('<CR>', true, false, true)
-  --       vim.api.nvim_feedkeys(cr_key, 'i', false)
-  --     end)
-  --   end, { desc = 'Insert newline with comment continuation' })
-  -- end
-
-      -- Shift+Enter to insert a new line WITH comment continuation
-  --   vim.keymap.set('i', '<S-CR>', function()
-  --     local line = vim.api.nvim_get_current_line()
-  --     local row, col = unpack(vim.api.nvim_win_get_cursor(0))
-  --     
-  --     -- Get comment string and strip the %s placeholder
-  --     local cms = vim.bo.commentstring
-  --     local comment_leader = cms:match('^(.-)%%s') or cms
-  --     comment_leader = vim.trim(comment_leader)
-  --     
-  --     -- Get indentation from current line
-  --     local indent = line:match('^(%s*)')
-  --     
-  --     -- Check if line starts with comment (after whitespace)
-  --     local pattern = '^%s*' .. vim.pesc(comment_leader)
-  --     if line:match(pattern) then
-  --       -- Insert newline, then add indent and comment
-  --       vim.api.nvim_put({''}, 'l', true, true)
-  --       vim.api.nvim_set_current_line(indent .. comment_leader .. ' ')
-  --       vim.api.nvim_win_set_cursor(0, {row + 1, #indent + #comment_leader + 1})
-  --     else
-  --       -- Not a comment line, just normal newline
-  --       vim.api.nvim_put({''}, 'l', true, true)
-  --       vim.api.nvim_win_set_cursor(0, {row + 1, 0})
-  --     end
-  --   end, { desc = 'Insert newline with comment continuation' })
-  -- end
-
-  --#region
-  --
-  --
-  --
-  --
-  --
-  --#region
-  --
-  --x1b[13;2ux1b[13;2u
-
-  
-
-   
-  --  
-
-      -- NOWORK
-      -- shift+enter to insert a new line WITH a comment continuation
-    --   vim.keymap.set('i', '<S-CR>', function()
-    --     local line = vim.api.nvim_get_current_line()
-    --     local comment_string = vim.bo.commentstring:gsub('%%s.*', ''):gsub('%s+$', '')
-
-    --     -- Check if current line starts with a comment (after whitespace)
-    --     if line:match('^%s*' .. vim.pesc(comment_string)) then
-    --       -- Get the indentation
-    --       local indent = line:match('^%s*')
-    --       -- Insert newline and comment
-    --       vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('<CR>', true, false, true) .. indent .. comment_string .. ' ', 'n', false)
-    --     else
-    --       -- Not in a comment, just insert normal newline
-    --       vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('<CR>', true, false, true), 'n', false)
-    --     end
-    --   end, { desc = 'Insert newline with comment continuation' })
-    -- end
-
-        -- NO WORK adfasdfasdf
-        -- temp enable formatoptions for comment continuation
-        -- local fo = vim.bo.formatoptions
-        -- vim.bo.formatoptions = fo .. 'cro'
-
-        -- insert a newline
-        -- vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('<CR>', true, false, true), 'n', false)
-
-        -- restore formatoptions after a brief delay
-        -- vim.defer_fn(function()
-          -- vim.bo.formatoptions = fo
-      --   end, 10)
-      -- end, { desc = 'insert newline with comment continuation' })
-    -- end
+      -- Shift+Enter to insert newline WITHOUT comment continuation
+      -- NOTE: ipatch, when using nested tmux sessions the RAW escape code is required 
+      -- ... i had to use VIM because neovim was inserting `<M-Esc>` instead of the literal `^[`
+      vim.keymap.set('i', '<S-CR>', function()
+        run_without_comment_extension(function()
+          local cr_key = vim.api.nvim_replace_termcodes('<CR>', true, false, true)
+          vim.api.nvim_feedkeys(cr_key, 'i', false)
+        end)
+      end, { desc = 'Insert newline without comment continuation' })
+    end
   },
 
   { -- UI / git browser
