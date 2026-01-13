@@ -780,8 +780,8 @@ https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.conf \
 <summary>Uncompleted</summary>
 
 - [ ] #arch #linux figure out how to load `~/.Xresources` on login. as of right now i'm having to manually load after login
-- [ ] #neovim when the cmd `gcc` use `//` style comments instead of `/* */`
-    - this was probably related to c / cpp files (i've slept since then).
+- [ ] #neovim when the key binding `gcc` use `//` style comments instead of `/* */` the later being block level
+  - this was probably related to c / cpp files (i've slept since then).
 - [ ] #fish #theme #neolambda, if origin is the same _git remote_ as another _remote_ name then update _git status prompt_ for both, **not** just _origin_
 - [ ] #nvim #neovim is there an elegant way to switch a word from single quotes `'` to double quotes `"` and vise versa
     - still have not found one without doing finger gymnastics unfortunately
@@ -790,6 +790,7 @@ https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.conf \
 - [ ] #tmux only display window index numbers after the pressing prefix key (this gunna be a tricky one) 🤔
 - [ ] #i3 #polybar put cpu / gpu fan speeds in my bar
 - [ ] #nvim WTF, when i've been running `:e` on my open buffer (config.fish) it's been resetting my `foldlevel=2` 😡
+  - auto commands will need to be setup to work around this.
 - [ ] #arch xrandr + arandr is it possible to have auto probe monitors to load layouts on the fly a la how macos does it
 - [ ] #arch #emote how to make the gui for my emoji picker larger 👩‍🦯
 - [ ] #nvim plugin / #nvim-ufo can not fold html tags contained with a markdown document out of the box
@@ -801,7 +802,7 @@ https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.conf \
 - [ ] #milliondollaridea 🤑, some way to search the youtube transcript in browser to find a specific spot of a video
 - [ ] #arch #tmux add key binding to toggle window display numbers
 - [ ] ~~#hammerspoon~~ ~~#karabiner~~ #cmake it'd be nice to swap the `[]` with the `{}` when capslock is activated similiar to how i swapped underbar `_` with hyphen `-`
-- [ ] #fish it'd be cool to remove all entries from my fish history that were invalid commands thus when searching through history i don't repeat the same mistake
+- [ ] #fish it'd be cool to remove all entries from my fish history that were invalid commands thus when searching through history, so i don't repeat the same mistake
 - [ ] #alacritty does **not** properly highlight, select URLs when wrapped
 - [ ] #freecad create asciinema of configuring and building freecad from source on macos
     - [ ] #freecad make an additional cast of runing through the test suite after building/installing freecad
@@ -820,7 +821,7 @@ https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.conf \
 - [ ] #vim #neovim #nvim, specific, add or implement _goto definition_ function when editing homebrew formula files to have a go to definition when cursor is on a `depends_on` block, ie. open that respected formula file
 - [ ] display some sort message, alert, or menubar icon when caps lock is activated "for all that is sane" 👩🏻‍⚕️
 - [ ] [vnc viewer] using _vnc viewer.app_ on macos sucks when using an external mouse to scroll through the terminal history.
-    - is ther some setting where the sensitivity can be set, so scroll begins with one click of the mouse wheel.
+    - is there some setting where the sensitivity can be set, so scroll begins with one click of the mouse wheel.
 - [ ] #vim #nvim when toggling the tagbar <kbd>leader+\\</kbd> move the cursor/focus to the tagbar buffer automatically.
 - [ ] #tmux #fish possible to restore scroll back history after closing tmux server and terminal _alacritty_
 - [ ] #arch, set lshift+rshift to toggle caps-lock on/off
