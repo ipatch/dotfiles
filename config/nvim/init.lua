@@ -630,6 +630,7 @@ vim.lsp.config('pyright', {
       }
     }
   },
+  on_attach = my_on_attach
 })
 
 -- jsonls
@@ -725,7 +726,7 @@ vim.lsp.config('gh_actions_ls', {
 
 -- clangd language server
 -- https://clangd.llvm.org/installation#neovim-built-in-lsp-client
--- NOTE: clangd lsp is provided by homebrew llvm ie. `brew install llvm`
+-- NOTE: clangd lsp can be provided by homebrew llvm ie. `brew install llvm`
 vim.lsp.config('clangd', {
   cmd = { 'clangd', '--background-index', '--clang-tidy', '--log=verbose'},
   init_options = {
