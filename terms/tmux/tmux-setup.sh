@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# TODO: on a fresh system this script does not copy / symlink tmux.conf
+
 if [ -f "$HOME/.tmux_setup_completed" ]; then
   exit
 fi
@@ -77,5 +79,5 @@ setup_terminfos() {
 
 setup_terminfos
 
-# last. create an empty to signify the script has finished
+# last. create an empty file to signify the script has finished
 touch "$HOME/.tmux_setup_completed"
