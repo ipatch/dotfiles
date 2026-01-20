@@ -39,6 +39,9 @@ exec_always --no-startup-id libinput-gestures -c ~/.config/libinput-gestures/lib
 # NOTE: ipatch, thunar is gtk based app that should remember window size when xfsettingsd is running
 exec_always --no-startup-id killall xfsettingsd; sleep 5; xfsettingsd
 
+# TODO: manually running the below command to fix cursor size
+# xrdb -merge ~/.Xresources
+
 # NOTE: ipatch, below NO GOOD, app starts maximized and not in tray
 # TODO: FIXME: start minimized
 # exec_always --no-startup-id blueberry
@@ -219,6 +222,14 @@ set $ws29 "29"
 
 # flameshot launch a selction
 bindsym $mod+shift+control+4 exec --no-startup-id "flameshot gui --clipboard"
+
+# screengrab with cursor
+bindsym $mod+shift+control+5 exec --no-startup-id "~/.local/bin/screeshot-current-cursor-screen.sh"
+
+
+
+# bindsym $mod+shift+control+5 exec --no-startup-id "maim /tmp/screenshot.png && xclip -selection clipboard -t image/png < /tmp/screenshot.png"
+# bindsym $mod+shift+control+5 exec --no-startup-id "maim -s | xclip -selection clipboard -t image/png"
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
