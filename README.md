@@ -779,7 +779,7 @@ https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.conf \
 
 <summary>Uncompleted</summary>
 
-- [ ] #neovim working with python files and indention is let than ideal, usually with other filetypes i can use the command `==` to fix the indentation of a line thanks to treesitter, however it appears treesitter support for python files sucks. ie. `==` just plain out does **NOT** work. however `<<` and `>>` still can adjust a line.
+- [ ] #neovim working with python files and indention is let than ideal, usually with other filetypes i can use the command `==` to fix the indentation of a line thanks to treesitter, however it appears treesitter support for python files sucks. ie. `==` just plain out does **NOT** work. however `<<` and `>>` still can adjust a line. i also tested `==` in vscode because i have a plugin / extension with (n)vim bindings but even then `==` still does not proper indent the line.
 - [ ] #arch #linux figure out how to load `~/.Xresources` on login. as of right now i'm having to manually load after login
   - obviously i could just add the command in my i3 `config` file, but i wonder if there is a more proper load procedure 🤔
 - [ ] #neovim when the key binding `gcc` use `//` style comments instead of `/* */` the later being block level
