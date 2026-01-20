@@ -1183,7 +1183,7 @@ vim.keymap.set('n', '<leader>ps', function()
   builtin.grep_string({ search = vim.fn.input("Grep >") })
 end)
 
--- NOTE: function where C-p can be used to first  check if git dir and if not fallback to find_files
+-- NOTE: function where C-p can be used to first check if in git dir, then if not fallback to find_files
 local function project_files()
   local is_git_repo = vim.fn.system('git rev-parse --is-inside-work-tree 2>/dev/null')
   if vim.v.shell_error == 0 then
@@ -1221,6 +1221,8 @@ require('ibl').setup()
 -- NOTE: ipatch, https://www.reddit.com/r/neovim/comments/1ds8kcp/i_got_this_error_when_open_help_anyone_known_how/lbewzk1/
 -- i had to add the vimdoc and luddoc parsers to prevent the above err
 ----
+
+-- NOTE: ipatch, the below line is deprecated
 local ts = require 'nvim-treesitter.configs'
 
 local user = vim.fn.expand("$USER")
@@ -1291,8 +1293,11 @@ ts.setup {
   },
 
   indent = {
-    enable = false
+    -- enable = false
+    enable = true,
+    disable = { "python" }
   },
+
   autopairs = { enable = true },
 
   autotag = {
@@ -1335,6 +1340,7 @@ ts.setup {
       -- Automatically jump forward to textobj, similar to targets.vim
       lookahead = true,
 
+      -- NOTE: ipatch the below bindings are intended to work with prefix keys ie. `d` or `v`
       keymaps = {
         -- You can use the capture groups defined in textobjects.scm
         ["af"] = "@function.outer",
