@@ -926,6 +926,17 @@ vim.lsp.enable('gh_actions_ls')
 vim.lsp.enable('cmake')
 vim.lsp.enable('clangd')
 
+-- language python / indentation / use ruff py formatter provided by mason
+-- NOTE: ipatch unfortunately even setting the equalprg to ruff can not fix indentation of a single line in a py file
+-- NOTE: ipatch using ruff appears to make things worse from my limited testing 🤦‍♂️
+-- TODO: come up with something sane for python files
+-- vim.api.nvim_create_autocmd("FileType", {
+--   pattern = "python",
+--   callback = function()
+--     vim.bo.equalprg = "ruff format -q -"
+--   end,
+-- })
+
 -- COPY DIAGNOSTIC MESSAGE TO CLIPBOARD
 -- NOTE: ipatch, best solution i could come up with for time being
 -- ...could not get a toggle focus/nofocus binding working
