@@ -113,14 +113,14 @@
   cob = checkout -b
   master = checkout master
 
-  ####
+  #---
   # adding / staging files
-  ##
+  #-
   aa = add --all
 
-  ####
+  #---
   # commiting
-  ##
+  #-
   ci = commit
   ca = commit --amend
   # `-S` will sign commits
@@ -130,14 +130,14 @@
   ccount = rev-list HEAD --count
   commitcount = rev-list HEAD --count
   cc = rev-list --count HEAD
-  ####
+  #---
   # for those random, quick, & fun commits 👍
-  ##
+  #-
   random = "!git smf "git add --all"; git add .; git commit -m \"`fortune`\""
 
-  ####
+  #---
   # pushing
-  ##
+  #-
   pom = push origin master
   pshom = !git push origin master
   pshsmom = !git push --recurse-submodules=on-demand origin master
@@ -193,10 +193,10 @@
   remotes = remote --verbose
   r = remote --verbose
 
-  ####
+  #---
   # tag
   # NOTE: `tag` cannot be set as an alias, because it is a subcommand
-  ##
+  #-
   # tag = tag -s <- Will not work!
   t = tag -s
   # show verbose output about tags
@@ -215,40 +215,40 @@
   # for bitbucket/stash remotes
   spr  = "!f() { git fetch -fu ${2:-$(git remote |grep ^upstream || echo origin)} refs/pull-requests/$1/from:pr/$1 && git checkout pr/$1; }; f"
 
-  ####
+  #---
   # 🚨 Danger zone 🚨
-  ##
+  #-
   
-  ####
+  #---
   # undo the last added / staged files
-  ##
+  #-
   undoadd = "!git reset HEAD -- ."
   undostage = reset HEAD
 
-  ####
+  #---
   # undo the last commit
-  ##
+  #-
   undocommit = "!git-reset HEAD~"
 
   # Undo a `git push`
   undopush = push -f origin HEAD^:master
-  ####
+  #---
   # `restore` try and "undelete" a file
-  ##
+  #-
   # restore = "!git checkout $(git rev-list -n 1 HEAD -- "$1")^ -- "$1""
   
-  ####
+  #---
   # git extras
-  ##
+  #-
 
-  ####
+  #---
   # randos
-  ##
+  #-
   last = show --show-signature
   
-  ####
+  #---
   # submodules -- ie. add, commit, push
-  ##
+  #-
   sm = submodule
   smu = submodule update
   smi = submodule init
@@ -256,13 +256,13 @@
   smrupdate = submodule update --recursive --remote
   update = '!git pull; git submodule update --init --recursive'
   sma = "!git smf "git add --all";"
-  ###
+  #--
   # TODO: figure out how to submit a commit message from CLI
-  ##
+  #-
   smac = "!git smf "git commit -a"; git commit -a;"
-  ###
+  #--
   # push all files including submodule files
-  ###
+  #--
   smp = "!git push --recurse-submodules=on-demand"
   
   #---
@@ -495,13 +495,13 @@
   helper = cache --timeout=28800
   # booooo
   # helper = 
-  ; helper = git-credential-manager
-  ; NOTE: ipatch, when setting up gpg to sign git commits on remote boxes ie. ssh, make certain to set the below env var
-  ; `GPG_TTY`
-  ; ref: https://github.com/keybase/keybase-issues/issues/2798
-  ;
-  ; NOTE: ipatch, when using gpg as cred store and inputting gpg passphrase use pinentry-curses for input via cli over ssh
-  ; edit $USER/.gnupg/gpg-agent.conf
+  # helper = git-credential-manager
+  # NOTE: ipatch, when setting up gpg to sign git commits on remote boxes ie. ssh, make certain to set the below env var
+  # `GPG_TTY`
+  # ref: https://github.com/keybase/keybase-issues/issues/2798
+  #
+  # NOTE: ipatch, when using gpg as cred store and inputting gpg passphrase use pinentry-curses for input via cli over ssh
+  # edit $USER/.gnupg/gpg-agent.conf
 	credentialStore = gpg
 
 [credential "https://dev.azure.com"]
