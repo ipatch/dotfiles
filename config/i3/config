@@ -224,7 +224,7 @@ set $ws29 "29"
 bindsym $mod+shift+control+4 exec --no-startup-id "flameshot gui --clipboard"
 
 # screengrab with cursor
-bindsym $mod+shift+control+5 exec --no-startup-id "~/.local/bin/screeshot-screen-with-cursor.sh"
+bindsym $mod+shift+control+5 exec --no-startup-id "~/.local/bin/screenshot-mon-with-cursor.sh"
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
