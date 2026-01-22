@@ -4,6 +4,16 @@
 
 ;; NOTE: ipatch, https://gist.github.com/lestoni/8c74da455cce3d36eb68
 ;; `zf#j` # = num of lines to fold equals life🛟
+
+; TODO: ipatch scaffold out query for below syntax,
+; ----------------------------
+; # Create symlink for glue (6.10+ cmake expects it at prefix/glue)
+; unless (prefix/"glue").exist?
+;   cd prefix do
+;     system "ln", "-sf", "share/PySide6/glue", "glue"
+;   end
+; end
+
 [
  (array)
  (string_array)
