@@ -56,9 +56,10 @@
   f"
 
   #---------------------------------
-  # branching / branch, branching / delete local & remote branch
+  # branching / branch / delete local & remote branch
   #----
   kill = "!f(){ git branch -D \"$1\"; git push $(git remote show | head -n1) --delete \"$1\"; };f"
+
   # NOTE: ipatch, checkout / clone all remote branches from remote ORIGIN
   co-all = "!co_all() {\
               for remote_branch in $(git branch -r | grep -v HEAD); do \
@@ -72,7 +73,7 @@
   #-
   find = log --pretty=\"format:%Cgreen%H %Cblue%s\n%b%Creset\" --name-status --grep
 
-  ## NOTE: too compressed for my taste
+  #- NOTE: too compressed for my taste
   # ffind = log --oneline --name-status -i --grep
   
   #---
@@ -130,6 +131,7 @@
   ccount = rev-list HEAD --count
   commitcount = rev-list HEAD --count
   cc = rev-list --count HEAD
+
   #---
   # for those random, quick, & fun commits 👍
   #-
@@ -232,6 +234,7 @@
 
   # Undo a `git push`
   undopush = push -f origin HEAD^:master
+
   #---
   # `restore` try and "undelete" a file
   #-
