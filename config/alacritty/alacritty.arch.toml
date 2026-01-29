@@ -1,9 +1,3 @@
-# NOTE: ipatch,
-# https://alacritty.org/config-alacritty.html
-
-live_config_reload = true
-
-ipc_socket = true
 
 [scrolling]
 history = 100000
@@ -63,33 +57,36 @@ foreground = "0xeaeaea"
 [env]
 TERM = "xterm"
 
+# NOTE: ipatch, circa jan 20th 2026 `source code pro` font started rendering with spacing errors
+# ...just updated config to use the same font as kitty for time being
+# ... ie. `kitty --debug-font-fallback`
+
 [font]
-size = 12
+normal = { family = "DejaVuSansMono", style = "Book" }
+bold = { family = "DejaVu Sans Mono", style = "Bold" }
+italic = { family = "DejaVu Sans Mono", style = "Oblique" } # style = italic
+bold_italic = { family = "DejaVu Sans Mono", style = "Bold Oblique" }
+size = 11.5
 
-[font.bold]
-family = "Source Code Pro"
-style = "Bold"
+# [font.glyph_offset]
+# x = 0
+# y = 0
 
-[font.glyph_offset]
-x = 0
-y = 0
-
-[font.italic]
-family = "Source Code Pro"
-style = "Italic"
-
-[font.normal]
-family = "Source Code Pro"
-style = "Regular"
-
-[font.offset]
-x = 0
-y = 0
+# [font.offset]
+# x = 0
+# y = 0
 
 # NOTE: ipatch,
 # `ctrl+shift+c` can be used to copy text when not inside tmux
 
 # https://alacritty.org/config-alacritty.html#keyboard
+
+# NOTE: ipatch, add custom binding for shift+enter to hopefully make neovim happy
+[[keyboard.bindings]]
+key = "Return"
+mods = "Shift"
+chars = "\u001b[13;2u"
+
 [[keyboard.bindings]]
 chars = "\u001Bb"
 key = "Left"
@@ -604,3 +601,11 @@ lines = 24
 [window.padding]
 x = 2
 y = 2
+
+[general]
+# NOTE: ipatch,
+# https://alacritty.org/config-alacritty.html
+
+live_config_reload = true
+
+ipc_socket = true
