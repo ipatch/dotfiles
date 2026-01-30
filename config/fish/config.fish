@@ -138,8 +138,20 @@ if status is-interactive
   set -gx ghforks "$code/git/github/forks"
   set -gx ltmp "$HOME/ltmp"
   set -gx hb "$HOME/homebrew"
-  set -gx hbfc "$HOME/homebrew/Library/Taps/freecad/homebrew-freecad"
-  set -gx us05 "$HOME/homebrew/Library/Taps/ipatch/homebrew-us-05"
+
+  # determine homebrew prefix
+  if test -d /usr/local/Homebrew
+    set -l hb_prefix /usr/local/Homebrew
+  else if test -d "$HOME/homebrew"
+    set -l hb_prefix "$HOME/homebrew"
+  end
+
+  if set -q hb_prefix
+    set -gx hbfc "$hb_prefix/Library/Taps/freecad/homebrew-freecad"
+    set -gx us05 "$hb_prefix/Library/Taps/ipatch/homebrew-us-05"
+  end
+
+
 
   set -gx nvims "$HOME/.config/nvim/sessions"
   set -gx nsesh "$HOME/.config/nvim/sessions"
