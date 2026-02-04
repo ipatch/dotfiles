@@ -1190,6 +1190,7 @@ local builtin = require('telescope.builtin')
 -- PLUGIN / neovim telescope / key mappings
 -- NOTE: ipatch, install telecope-fzf-native.nvim to fuzzy search
 vim.keymap.set('n', ';', builtin.buffers, {})
+-- TODO: i think remapping the below binding to `rg` could help me remember better
 vim.keymap.set('n', '<leader>ps', function()
   builtin.grep_string({ search = vim.fn.input("Grep >") })
 end)
