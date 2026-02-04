@@ -23,6 +23,7 @@
 
   # REF: https://stackoverflow.com/a/5188364/708807
   # TODO: refbranch does not quite work the way i'd like it to.
+  # TODO: truncate branch names once certain length is reached
   recentb = "!f() { \
     refbranch=\"${1:-$(git symbolic-ref refs/remotes/$(git remote | head -n1)/HEAD 2>/dev/null | sed 's|refs/remotes/||' || echo 'origin/main')}\"; \
     count=\"${2:-20}\"; \
