@@ -222,6 +222,8 @@ if status is-interactive
   abbr -a -- lr 'ls -lrtha'
   abbr -a -- dots 'cd $dots'
   abbr -a -- gitc 'git commit -m'
+  abbr -a -- gsd 'git submodule deinit -f --all'
+  abbr -a -- gsu 'git submodule update --init --recursive'
   abbr -a -- gp 'git push -q'
   abbr -a -- cpv 'rsync -at --no-o --no-g -h --info=progress2 -P'
   abbr -a -- mkdir 'mkdir -p'
