@@ -22,11 +22,10 @@
   # bdates = !git branch --sort=creatordate --sort=committername --format "%(align:20) %(creatordate:relative) %(end) %(align:25) %(committername) %(end) %(refname:lstrip=-1)"
 
   # REF: https://stackoverflow.com/a/5188364/708807
-  # TODO: refbranch does not quite work the way i'd like it to.
-  # TODO: truncate branch names once certain length is reached
   recentb = "!f() { \
     refbranch=\"${1:-$(git symbolic-ref refs/remotes/$(git remote | head -n1)/HEAD 2>/dev/null | sed 's|refs/remotes/||' || echo 'origin/main')}\"; \
     count=\"${2:-20}\"; \
+    maxbranch=33; \
     cmp() { \
       a=\"$1\"; b=\"$2\"; \
       if git rev-parse --verify -q \"$a\" >/dev/null && \
@@ -34,6 +33,14 @@
         git rev-list --count \"$a..$b\"; \
       else \
         echo 0; \
+      fi; \
+    }; \
+    truncbranch() { \
+      local clean=\"$(printf '%s' \"$1\" | sed 's/\\x1b\\[[0-9;]*m//g' | tr -d '* ')\"; \
+      if [ ${#clean} -gt $maxbranch ]; then \
+        printf '\\033[33m%s…\\033[0m' \"$(printf '%s' \"$clean\" | cut -c1-$((maxbranch - 1)))\"; \
+      else \
+        printf '%s' \"$1\"; \
       fi; \
     }; \
     \
@@ -46,11 +53,12 @@
       --count=\"$count\" \
       refs/heads \
     | while IFS='|' read -r branch rest; do \
-        cleanbranch=\"$(printf '%s' \\\"$branch\\\" | sed 's/\\x1b\\[[0-9;]*m//g' | tr -d '* ')\"; \
+        cleanbranch=\"$(printf '%s' \"$branch\" | sed 's/\\x1b\\[[0-9;]*m//g' | tr -d '* ')\"; \
         ahead=$(cmp \"$refbranch\" \"$cleanbranch\"); \
         behind=$(cmp \"$cleanbranch\" \"$refbranch\"); \
-        rest_trunc=\"$(echo \\\"$rest\\\" | awk -F'|' -vOFS='|' -v width=$(tput cols) '{ maxlen=width-80; if(maxlen<20) maxlen=20; $2=substr($2,1,maxlen); print }')\"; \
-        echo \"$ahead|$behind|$branch|$rest_trunc\"; \
+        truncated=\"$(truncbranch \"$branch\")\"; \
+        rest_trunc=\"$(echo \"$rest\" | awk -F'|' -vOFS='|' -v width=$(tput cols) '{ maxlen=width-80; if(maxlen<20) maxlen=20; $2=substr($2,1,maxlen); print }')\"; \
+        echo \"$ahead|$behind|$truncated|$rest_trunc\"; \
       done \
     | column -ts \"|\"; \
     }; \
