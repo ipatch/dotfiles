@@ -1195,17 +1195,17 @@ vim.keymap.set('n', '<leader>ps', function()
   builtin.grep_string({ search = vim.fn.input("Grep >") })
 end)
 
--- NOTE: function where C-p can be used to first check if in git dir, then if not fallback to find_files
+-- NOTE: c-p can be used to first check if in git dir, then if not fallback to find_files
 local function project_files()
   local is_git_repo = vim.fn.system('git rev-parse --is-inside-work-tree 2>/dev/null')
   if vim.v.shell_error == 0 then
-    require('telescope.builtin').git_files()
+    require('telescope.builtin').git_files({ previewer = false })
   else
-    require('telescope.builtin').find_files()
+    require('telescope.builtin').find_files({ previewer = false })
   end
 end
 
-vim.keymap.set('n', '<C-p>', project_files, { desc = 'fuzzy find project fiels' })
+vim.keymap.set('n', '<c-p>', project_files, { desc = 'fuzzy find project fiels' })
 
 ---------------
 -- PLUGIN / nvchad/nvim-colorizer.lua 🎨
