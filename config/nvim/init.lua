@@ -1440,6 +1440,10 @@ require('ts_context_commentstring').setup {
   enable_autocmd = false,
   languages = {
     typescript = '// %s',
+    cpp = {
+      __default = '// %s',
+      comment = '/* %s */',
+    },
   },
 }
 
@@ -1511,7 +1515,14 @@ vim.api.nvim_set_hl(0, "Folded", { bg = "NONE"})
 -- NOTE: ipatch, attempt to define commentstring for specific dot files
 require('Comment').setup({
   -- per the plugin readme ignore empty lines
-  ignore = '^$'
+  ignore = '^$',
+
+  -- pre_hook = require('ts_context_commentstring.integrations.comment_nvim').create_pre_hook(),
+   pre_hook = function(ctx)
+    local cs = require('ts_context_commentstring.integrations.comment_nvim').create_pre_hook()(ctx)
+    print('pre_hook called, commentstring: ' .. tostring(cs))
+    return cs
+  end,
 })
 
 local ft = require('Comment.ft')
@@ -1523,7 +1534,7 @@ ft
 -- .set('javascript', {'//%s', '/*%s*/'})
 .set('ini', ';%s')
 .set('jsonc', '/*%s*/')
-.set('c', '//%s', '//%s')
+-- .set('c', '//%s', '//%s')
 .set('gitconfig', '#%s')
 .set('systemd', '#%s')
 
