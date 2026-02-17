@@ -1590,18 +1590,41 @@ require('ufo').setup({
 
 -- vim.api.nvim_set_hl(0, 'UfoFoldText', { fg = '#8BE9FD', bg = 'NONE', italic = true })
 
--- Using ufo provider need remap `zR` and `zM`. If Neovim is 0.6.1, remap yourself
+-- Using ufo provider requires remapping `zR` and `zM`. If Neovim is 0.6.1, remap yourself
 vim.keymap.set('n', 'zR', require('ufo').openAllFolds)
 vim.keymap.set('n', 'zM', require('ufo').closeAllFolds)
 
--- remember folds
-vim.cmd [[
-  augroup remember_folds
-    autocmd!
-    autocmd BufWinLeave *.* mkview
-    autocmd BufWinEnter *.* silent! loadview
-  augroup END
-]]
+
+-- NOTE: ipatch, when eding a cpp file,
+--   1. and i recursively closed all folds in the file
+--   2. found the function i wanted to work in, and recursively expanded fols within that function ie. `zO`
+--   3. then saved the file, all my opened fold are collapsed using the old remember_folds function
+vim.api.nvim_create_user_command('Mks', function(args)
+  -- Save views for all loaded buffers
+  local current_win = vim.api.nvim_get_current_win()
+  for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+    if vim.api.nvim_buf_is_loaded(buf) and vim.api.nvim_buf_get_name(buf) ~= '' then
+      local wins = vim.fn.win_findbuf(buf)
+      if #wins > 0 then
+        vim.api.nvim_set_current_win(wins[1])
+        vim.cmd('silent! mkview')
+      end
+    end
+  end
+  vim.api.nvim_set_current_win(current_win)
+
+  -- Save session
+  local bang = args.bang and '!' or ''
+  vim.cmd('mksession' .. bang .. ' ' .. vim.fn.fnameescape(args.args))
+end, { nargs = 1, bang = true, complete = 'file' })
+
+-- Still restore views when opening buffers (so session restore gets folds back)
+vim.api.nvim_create_autocmd('BufWinEnter', {
+  group = vim.api.nvim_create_augroup('restore_folds', { clear = true }),
+  pattern = '*.*',
+  command = 'silent! loadview',
+})
+
 
 -- Set the default fold level to 99
 vim.o.foldlevel = 99
