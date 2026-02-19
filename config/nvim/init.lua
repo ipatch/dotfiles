@@ -1470,6 +1470,7 @@ require('onedark').setup {
   highlights = {
     -- NOTE: ipatch, run `:Inspect` to get the highlighting group
     -- ["@comment"] = {fg = '$bright_orange'},
+    ["@comment.documentation"] = {fg = '$github_grey'},
     ["@comment"] = {fg = '$github_grey'},
     ["tmuxcomment"] = {fg = '$github_grey_lighter'},
     ["@lsp.type.comment"] = {fg = '$github_grey' },
@@ -1496,7 +1497,7 @@ vim.api.nvim_command([[
 ]])
 
 -- NOTE: ipatch, override the default bg color for onedark theme
--- TODO: ipatch, migrate this function, cmd to the above onedark colorscheme
+-- TODO: ipatch, migrate this function / cmd to the above onedark colorscheme
 vim.api.nvim_command([[
   augroup ChangeBackgroudColour
   autocmd colorscheme * :hi normal guibg=#0a0a0a
