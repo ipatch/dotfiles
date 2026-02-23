@@ -1,5 +1,5 @@
 # save this file at $HOME/.config/ccache/ccache.conf
 # NOTE: https://ccache.dev/manual/4.12.2.html#_location_of_the_configuration_file
 
-max_size = 15G
+max_size = 20G
 cache_dir = ${HOME}/.cache/ccache
