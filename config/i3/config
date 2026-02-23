@@ -3,7 +3,12 @@
 # i3 config file (v4)
 # https://i3wm.org/docs/userguide.html for a complete reference!
 
-# super key ie. windows / (apple) cmd key
+# NOTE: ipatch, to determine the `40` is the `d` key on the keyboard
+# ...use `xev`
+
+# NOTE: ipatch, assign certain apps to certain workspaces
+# NOTE: ipatch, run `xprop` to get app/window properties# super key ie. windows / (apple) cmd key
+
 set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
@@ -20,6 +25,7 @@ font pango:sans 12
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
 # exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+bindsym XF86PowerOff exec --no-startup-id betterlockscreen -l dim
 
 # NOTE: ipatch, define monitor resolution/refresh in $HOME/.xprofile
 # #nowork #nova TODO: #todo
@@ -39,8 +45,8 @@ exec_always --no-startup-id libinput-gestures -c ~/.config/libinput-gestures/lib
 # NOTE: ipatch, thunar is gtk based app that should remember window size when xfsettingsd is running
 exec_always --no-startup-id killall xfsettingsd; sleep 5; xfsettingsd
 
-# TODO: manually running the below command to fix cursor size
-# xrdb -merge ~/.Xresources
+# NOTE: ipatch manually running the below command to fix cursor size
+exec_always xrdb -merge ~/.Xresources
 
 # NOTE: ipatch, below NO GOOD, app starts maximized and not in tray
 # TODO: FIXME: start minimized
@@ -76,15 +82,14 @@ bindsym $mod+q kill
 # hide_edge_borders  both
 hide_edge_borders  smart
 
-# NOTE: ipatch,
-# TODO: how does one determine the `40` is the `d` key on the keyboard
-# NOTE: ipatch, use `xev`
+# NOTE: ipatch, to determine the `40` is the `d` key on the keyboard
+# ...use `xev`
 
 # A more modern dmenu replacement is rofi:
 # NOTE: ipatch, bind command+spacebar ala spotlight launch on macos
 bindcode $mod+65 exec fish -c "rofi -show run"
 
-# TODO: ipatch, how to add `~/.local/bin` to search path
+# FIXED: ipatch, how to add `~/.local/bin` to search path
 # NOTE: ipatch, https://github.com/davatorium/rofi/issues/100#issuecomment-68730860
 
 # NOTE: ipatch, toggle between last two active workspaces
@@ -163,6 +168,8 @@ bindsym $mod+a focus parent
 set $mon1 "eDP"
 # set $mon2 "DP-2"
 # set $mon2 "DisplayPort-0"
+
+# NOTE: this appears to be displayport ie. thunderbolt port closer to the USB / port
 set $mon2 "DisplayPort-1"
 
 workspace 1 output $mon1
@@ -174,16 +181,6 @@ workspace 6 output $mon1
 workspace 7 output $mon1
 workspace 8 output $mon1
 workspace 9 output $mon1
-
-# workspace 21 output $mon2
-# workspace 22 output $mon2
-# workspace 23 output $mon2
-# workspace 24 output $mon2
-# workspace 25 output $mon2
-# workspace 26 output $mon2
-# workspace 27 output $mon2
-# workspace 28 output $mon2
-# workspace 29 output $mon2
 
 workspace 21 output $mon2
 workspace 22 output $mon2
@@ -197,6 +194,7 @@ workspace 29 output $mon2
 
 #-----------------------
 # NOTE: ipatch, define specific apps for specific workspaces
+# NOTE: i was getting not great results using app specific workspaces 👎️
 #----
 # set $terms "1: terms"
 # set $web   "2: web"
@@ -329,9 +327,6 @@ bindsym Mod1+Shift+5 move container to workspace number $ws25
 #
 # bindsym $mod+Shift+t mode "restore"
 
-# NOTE: ipatch, assign certain apps to certain workspaces
-# NOTE: ipatch, run `xprop` to get app/window properties
-
 # NOTE: ipatch, always make the below window types floating GLOBAL
 for_window [window_role="About"] floating enable
 for_window [window_role="task_dialog"] floating enable
@@ -383,7 +378,7 @@ for_window [title="Open PDF File"] floating enable resize set 1817 1156, move po
 # NOTE: ipatch, spotify no worky 👎
 # assign [class="Spotify"] workspace $ws4
 #-
-# NOTE: ipatch, fun fact if on workspace 4 and one launches spotify the main window opens on the previous workspace NOT workspace 4 WTF 🤷
+# NOTE: ipatch, fun fact, if workspace 4 is active, and one launches spotify the main window opens on the previous workspace NOT workspace 4 WTF 🤷
 # for_window [class="Spotify"] move window to workspace $ws4
 
 # for_window [class="code-oss"] move to workspace $ws3
