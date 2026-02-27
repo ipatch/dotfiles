@@ -736,6 +736,9 @@ vim.lsp.config('clangd', {
   on_attach = my_on_attach
 })
 
+-- NOTE: ipatch, https://github.com/regen100/cmake-language-server
+--   ...had to run the below command to make this language sever work
+--   ~/.local/share/nvim/mason/packages/cmake-language-server/venv/bin/pip install 'pygls<2'
 vim.lsp.config('cmake', {
   cmd = { vim.fn.stdpath('data') .. '/mason/bin/cmake-language-server' },
   filetypes = { 'cmake' },
