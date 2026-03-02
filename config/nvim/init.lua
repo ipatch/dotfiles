@@ -965,7 +965,7 @@ end
 vim.keymap.set('n', '<leader>yd', copy_diagnostic_to_clipboard, { noremap = true, silent = true })
 
 ------------------------------
--- PLUGIN / folke/lazydev.nvim
+-- PLUGIN / folke / lazydev.nvim
 -- TODO: finish scaffolding out setup / config
 -----
 
@@ -1626,7 +1626,17 @@ end, { nargs = 1, bang = true, complete = 'file' })
 vim.api.nvim_create_autocmd('BufWinEnter', {
   group = vim.api.nvim_create_augroup('restore_folds', { clear = true }),
   pattern = '*.*',
-  command = 'silent! loadview',
+
+  callback = function()
+    -- save cursor
+    local pos = vim.api.nvim_win_get_cursor(0)
+
+    -- resotre folds/view
+    vim.cmd('silent! loadview')
+
+    -- restore cursor after loadview
+    vim.api.nvim_win_set_cursor(0, pos)
+  end,
 })
 
 
