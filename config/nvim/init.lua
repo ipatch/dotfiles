@@ -1625,10 +1625,14 @@ end, { nargs = 1, bang = true, complete = 'file' })
 -- Still restore views when opening buffers (so session restore gets folds back)
 vim.api.nvim_create_autocmd('BufWinEnter', {
   group = vim.api.nvim_create_augroup('restore_folds', { clear = true }),
-  pattern = '*.*',
 
   callback = function()
-    -- save cursor
+    -- match all buffer types ie. README not just files with a dot in the name ie. file.cpp
+    if vim.bo.buftype ~= '' then
+      return
+    end
+
+    -- save cursor position
     local pos = vim.api.nvim_win_get_cursor(0)
 
     -- resotre folds/view
@@ -1638,7 +1642,6 @@ vim.api.nvim_create_autocmd('BufWinEnter', {
     vim.api.nvim_win_set_cursor(0, pos)
   end,
 })
-
 
 -- Set the default fold level to 99
 vim.o.foldlevel = 99
