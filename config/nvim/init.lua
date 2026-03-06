@@ -548,7 +548,10 @@ end
 ----
 
 local function  my_on_attach(client, bufnr)
-  print("lsp attached:", client.name, "buffer:", bufnr)
+
+  -- NOTE: uncomment for debug purposes
+  -- print("lsp attached:", client.name, "buffer:", bufnr)
+
   local opts = { buffer = bufnr, remap = false }
 
     -- Buffer local mappings.
