@@ -46,7 +46,8 @@ exec_always --no-startup-id libinput-gestures -c ~/.config/libinput-gestures/lib
 exec_always --no-startup-id killall xfsettingsd; sleep 5; xfsettingsd
 
 # NOTE: ipatch manually running the below command to fix cursor size
-exec_always xrdb -merge ~/.Xresources
+# TODO: FIXME: was braking multi monitor support and didn't fix small cursor in polybar
+# exec_always xrdb -merge ~/.Xresources
 
 # NOTE: ipatch, below NO GOOD, app starts maximized and not in tray
 # TODO: FIXME: start minimized
