@@ -323,6 +323,7 @@ if status is-interactive
   set -l paths \
     $HOME/homebrew/bin \
     $HOME/homebrew/sbin \
+    $HOME/.pixi/bin \
     /opt/cross/apl/bin \
     $HOME/.local/bin \
     $HOME/.rvm/bin \
@@ -570,3 +571,4 @@ if status is-interactive
     end
   end
 end
+
