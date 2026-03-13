@@ -245,6 +245,7 @@ require('lazy').setup({
     opts = {},
   },
 
+  -- TODO: possible deprecate nvim-ufo in favor of https://github.com/chrisgrieser/nvim-origami
   { -- UI / enhancements / code folds
     'kevinhwang91/nvim-ufo',
     dependencies = 'kevinhwang91/promise-async'
