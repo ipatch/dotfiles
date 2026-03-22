@@ -64,6 +64,8 @@
     }; \
   f"
 
+  rb = recentb
+
   #---------------------------------
   # branching / branch, branching / delete local & remote branch
   #----
