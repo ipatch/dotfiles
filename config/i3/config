@@ -7,7 +7,10 @@
 # ...use `xev`
 
 # NOTE: ipatch, assign certain apps to certain workspaces
+#-------------
 # NOTE: ipatch, run `xprop` to get app/window properties# super key ie. windows / (apple) cmd key
+#-------------
+# NOTE: ipatch, use `exec` instead of `exec_always` do not need to setup dual mon on ever i3 reload
 
 set $mod Mod4
 
@@ -40,10 +43,21 @@ exec_always --no-startup-id killall copyq; sleep 5; copyq
 exec_always --no-startup-id flameshot
 
 # NOTE: ipatch, startup libinput-gestures for macbook trackpad
-exec_always --no-startup-id libinput-gestures -c ~/.config/libinput-gestures/libinput-gestures.conf;
+exec --no-startup-id libinput-gestures -c ~/.config/libinput-gestures/libinput-gestures.conf;
 
+# NOTE: ipatch, load dual monitor setup via `arandr` setup .sh script
+# exec --no-startup-id sleep 2 && ~/.screenlayout/mbp11.5.internal.display.with.4k.via.dp1.on.right.sh
+# exec --no-startup-id bash -c 'for i in 1 2 3; do sleep 3 && ~/.screenlayout/mbp11.5.internal.display.with.4k.via.dp1.on.right.sh && break; done'
+# exec --no-startup-id bash -c 'for i in $(seq 1 10); do if xrandr --query | grep -A1 "^DisplayPort-1 connected" | grep -q "[0-9]x[0-9]"; then ~/.screenlayout/mbp11.5.internal.display.with.4k.via.dp1.on.right.sh; break; fi; sleep 2; done'
+
+#-------------
 # NOTE: ipatch, thunar is gtk based app that should remember window size when xfsettingsd is running
-exec_always --no-startup-id killall xfsettingsd; sleep 5; xfsettingsd
+# NOTE: 🔥 🚨 xfsettingsd, broke dual monitor auto setup, run `xfce4-display-settings` 
+# NOTE: xfsettingsd is also breaking the cursor size on polybar
+# FIX: `xfconf-query -c xsettings -p /Gtk/CursorThemeSize -s 48`
+
+#-------------
+exec --no-startup-id killall xfsettingsd; sleep 5; xfsettingsd
 
 # NOTE: ipatch manually running the below command to fix cursor size
 # TODO: FIXME: was braking multi monitor support and didn't fix small cursor in polybar
