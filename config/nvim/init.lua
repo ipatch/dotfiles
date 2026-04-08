@@ -548,6 +548,21 @@ end
 -- ref: https://github.com/neovim/nvim-lspconfig/wiki/UI-Customization
 ----
 
+vim.api.nvim_create_user_command("LspRestart", function()
+  local clients = vim.lsp.get_clients({ bufnr = 0 })
+  for _, client in ipairs(clients) do
+    -- NOTE: ipatch, i do not think lua_ls has all the info for neovim v0.13 yet
+    ---@diagnostic disable-next-line: undefined-field
+    local bufs = client:get_buffers()
+    client:stop()
+    vim.defer_fn(function()
+      for _, buf in ipairs(bufs) do
+        vim.lsp.start(client.config, { bufnr = buf })
+      end
+    end, 500)
+  end
+end, {})
+
 local function  my_on_attach(client, bufnr)
 
   -- NOTE: uncomment for debug purposes
