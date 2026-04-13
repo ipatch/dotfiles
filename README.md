@@ -53,18 +53,20 @@ https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.conf \
 
 > 🌹🪨 apps i use on various operating systems
 
-|apps| macos              | gnu+linux   | windows  |
-|----|--------------------|-------------|----------|
-| wm | spectacle          | i3          | default  |
-| 📸 | builtin            | flameshot   | default  |
-| 🎧️ | background music   | ???         | ???      |
-| fe | Finder.app         | thunar      | explorer |
-| 💬 | iMessage           | bluebubbles | ???      |
-| ⌨️ | karabiner elements | interception / [dual function keys][apps-lnk1] | ??? |
-| ✂️ | clipy              | copyq       | copyq      |
-| 📺️ | default            | arandr      | default    |
+|apps| macos              | gnu+linux                                       | windows  |
+|----|--------------------|-------------------------------------------------|----------|
+| wm | spectacle          | i3                                              | default  |
+| 📸 | builtin            | flameshot + [script][script-link]               | default  |
+| 🎧️ | background music   | ???                                             | ???      |
+| fe | Finder.app         | thunar                                          | explorer |
+| 💬 | iMessage           | bluebubbles                                     | ???      |
+| ⌨️ | karabiner elements | interception / [dual function keys][apps-lnk1]  | ???      |
+| ✂️ | clipy              | copyq                                           | copyq    |
+| 📺️ | default            | arandr                                          | default  |
+| 🖱️ | ???                | ???                                             |          |
 
 [apps-lnk1]: <https://gitlab.com/interception/linux/plugins/dual-function-keys> 
+[script-link]: <https://github.com/ipatch/dotfiles/blob/dev.evergreen/jobs/bin/screenshot-mon-with-cursor.sh>
 
 ## File Structure
 
