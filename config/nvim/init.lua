@@ -1272,7 +1272,6 @@ local languages = {
   'gitattributes',
   'gitcommit',
   'gitignore',
-  'help',
   'html',
   'javascript',
   'json',
