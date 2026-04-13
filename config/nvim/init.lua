@@ -1314,7 +1314,6 @@ ts.setup {
     'beancount',
     'clojure',
     'gleam',
-    'help',
     'phpdoc',
     'slint',
   },
