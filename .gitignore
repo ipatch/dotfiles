@@ -189,6 +189,7 @@ jobs/macOS/Users/mr-fancy/Library/Preferences/FreeCAD/user.cfg
 **/config/obs-studio/basic/**
 **/config/obs-studio/input-overlay/**
 **/config/obs-studio/logs/**
+**/config/obs-studio/plugins/**
 **/config/obs-studio/plugin-config/**
 **/config/obs-studio/plugin-manager/**
 **/config/obs-studio/profiler_data/**
