@@ -183,6 +183,12 @@ jobs/bin/inkview
 jobs/macOS/Users/mr-fancy/Library/Preferences/FreeCAD/user.cfg
 
 #-----------------------------
+# obs / ie. obs-studio
+#-
+**/config/obs-studio/*.zip
+
+
+#-----------------------------
 # PrusaSlicer / Prusa Slicer
 # NOTE: app setting files on macos are located within...
 # $HOME/Library/Application Support/PrusaSlicer/
