@@ -196,7 +196,7 @@ jobs/macOS/Users/mr-fancy/Library/Preferences/FreeCAD/user.cfg
 **/config/obs-studio/profiler_data/**
 **/config/obs-studio/updates/**
 
-!**/config/obs-studio/plugins/input-overly/input-histor-windows/input-history-linux*
+!**/config/obs-studio/plugins/input-overly/input-history-windows/input-history-linux*
 
 
 
