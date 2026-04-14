@@ -63,7 +63,7 @@ https://raw.githubusercontent.com/ipatch/dotfiles/master/terms/tmux/tmux.conf \
 | ⌨️ | karabiner elements | interception / [dual function keys][apps-lnk1]  | ???      |
 | ✂️ | clipy              | copyq                                           | copyq    |
 | 📺️ | default            | arandr                                          | default  |
-| 🖱️ | ???                | ???                                             |          |
+| 🖱️ | ???                | showmethekey, obs overlay                       | ???      |
 
 [apps-lnk1]: <https://gitlab.com/interception/linux/plugins/dual-function-keys> 
 [script-link]: <https://github.com/ipatch/dotfiles/blob/dev.evergreen/jobs/bin/screenshot-mon-with-cursor.sh>
