@@ -93,6 +93,7 @@ editors/vscode-oss/extensions/extensions.json
 **/.DS_Store
 
 **/*.bkup
+**/*.bkp
 
 #-----------------------------
 # weechat
