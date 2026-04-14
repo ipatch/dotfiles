@@ -166,26 +166,34 @@ jobs/bin/inkview
 #-----------------------------
 # FreeCad
 #-
+# the below file was updating too often
+**/FreeCAD/user.cfg
+#-
+!**/FreeCAD/Gui/Stylesheets/README.md
+!**/FreeCAD/Macro/.gitkeep
+**/FreeCAD/AddonManager/**
+**/FreeCAD/Gui/Stylesheets/*.orig
+**/FreeCAD/Gui/Stylesheets/*.qss
+**/FreeCAD/Macro/**
+**/FreeCAD/Mod/**
 **/FreeCAD/cookies
 **/FreeCAD/webdata/**
 **/FreeCAD/webdatacache/**
 **/FreeCAD/webdatapersistent/**
-# the below file was updating too often
-**/FreeCAD/user.cfg
-##
-**/FreeCAD/AddonManager/**
-**/FreeCAD/Mod/**
-!**/FreeCAD/Gui/Stylesheets/README.md
-**/FreeCAD/Gui/Stylesheets/*.qss
-**/FreeCAD/Gui/Stylesheets/*.orig
-**/FreeCAD/Macro/**
-!**/FreeCAD/Macro/.gitkeep
 jobs/macOS/Users/mr-fancy/Library/Preferences/FreeCAD/user.cfg
 
 #-----------------------------
 # obs / ie. obs-studio
 #-
 **/config/obs-studio/*.zip
+**/config/obs-studio/basic/**
+**/config/obs-studio/input-overlay/**
+**/config/obs-studio/logs/**
+**/config/obs-studio/plugin-config/**
+**/config/obs-studio/plugin-manager/**
+**/config/obs-studio/profiler_data/**
+**/config/obs-studio/updates/**
+
 
 
 #-----------------------------
