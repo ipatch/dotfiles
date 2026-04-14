@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html>
+  <!-- A usable HTML template for input-history overlay using Browser Source and Websocket -->
+
+  <!-- By: https://github.com/christiankyle-ching/ -->
+  <!-- Linux keycode remap by capin -->
+  <head>
+    <meta charset="utf-8" />
+    <title>input-history Linux</title>
+
+    <style>
+      /* Zero out default values */
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        height: 100%;
+        position: relative;
+      }
+
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 48px;
+        color: white;
+
+        overflow: hidden;
+      }
+
+      body.bottom-align {
+        position: absolute;
+        bottom: 0;
+      }
+
+      /* #region History List */
+
+      div#history {
+        list-style-type: none;
+      }
+
+      /* Animation for hide timeout */
+      p.key-combination.hidden {
+        opacity: 0;
+
+        transition-property: opacity;
+        transition-timing-function: ease-out;
+        transition-duration: 1s;
+      }
+
+      * + p.key-combination {
+        /* Vertical distance between combinations */
+        margin-top: 0.5em;
+      }
+
+      p.key-combination > * {
+        /* Centralize keys and elements in them */
+        vertical-align: middle;
+      }
+
+      p.key-combination > .separator {
+        display: inline-block;
+
+        /* Spacing on sides of separator */
+        margin-left: 0.25em;
+        margin-right: 0.25em;
+      }
+
+      span.key, span.repeat {
+        background-color: rgba(0, 0, 0, 0.75);
+      }
+
+      span.key {
+        display: inline-flex;
+        border-radius: 0.25em;
+        line-height: 1em;
+
+        padding: 0.25em;
+        white-space: nowrap;
+      }
+
+      span.repeat {
+        display: inline-flex;
+        margin-left: 0.1em;
+        border-radius: 1em;
+        padding: 0.3em 0.6em;
+
+        font-size: 0.7em;
+      }
+
+      /* #endregion */
+
+      /* #region Icons */
+
+      #icons-container {
+        display: none;
+      }
+
+      .icon-sm {
+        width: 1em;
+        height: 1em;
+
+        display: block;
+        margin: auto;
+      }
+
+      span.key div {
+        display: inline-flex;
+        white-space: nowrap;
+      }
+
+      * + .icon-sm, .icon-sm + * {
+        margin-left: 0.3em;
+      }
+
+      /* #endregion */
+    </style>
+  </head>
+
+  <body>
+    <!-- #region Icons -->
+    <div id="icons-container">
+      <svg xmlns="http://www.w3.org/2000/svg">
+        <symbol id="icon-arrow" viewBox="0 0 512 512">
+          <path d="M512 256C512 273.7 497.7 288 480 288H160.1l0 72c0 9.547-5.66 18.19-14.42 22c-8.754 3.812-18.95 2.077-25.94-4.407l-112.1-104c-10.24-9.5-10.24-25.69 0-35.19l112.1-104c6.992-6.484 17.18-8.218 25.94-4.406C154.4 133.8 160.1 142.5 160.1 151.1L160.1 224H480C497.7 224 512 238.3 512 256z"/>
+        </symbol>
+      </svg>
+
+      <svg xmlns="http://www.w3.org/2000/svg">
+        <symbol id="icon-right-down-turn" viewBox="0 0 320 512">
+          <path d="M313.553 392.331L209.587 504.334c-9.485 10.214-25.676 10.229-35.174 0L70.438 392.331C56.232 377.031 67.062 352 88.025 352H152V80H68.024a11.996 11.996 0 0 1-8.485-3.515l-56-56C-4.021 12.926 1.333 0 12.024 0H208c13.255 0 24 10.745 24 24v328h63.966c20.878 0 31.851 24.969 17.587 40.331z"/>
+        </symbol>
+      </svg>
+
+      <svg xmlns="http://www.w3.org/2000/svg">
+        <symbol id="icon-mouse-button-left" viewBox="0 0 384 512">
+          <path d="M327.8 56.2C297.5 25.9 257 5.7 212 1V121c-6.3-1.9-13-3-20-3s-13.7 1-20 3V1C75.4 11 0 92.7 0 192v128 c0 106 86 192 192 192s192-86 192-192V192C384 139 362.5 91 327.8 56.2z M20 192c0-21.4 4-42.4 11.5-61.9s18.7-37.8 33.1-53.6 c23.5-25.9 54-43.8 87.4-51.8v106.1c-17.6 12.5-29.1 33.1-29.1 56.3V236H64C39.7 236 20 216.3 20 192z"/>
+        </symbol>
+      </svg>
+
+      <svg xmlns="http://www.w3.org/2000/svg">
+        <symbol id="icon-mouse-wheel-left" viewBox="0 0 384 512">
+          <path d="M327.8 56.2C297.5 25.9 257 5.7 212 1V121c-6.3-1.9-13-3-20-3s-13.7 1-20 3V1C75.4 11 0 92.7 0 192v128 c0 106 86 192 192 192s192-86 192-192V192C384 139 362.5 91 327.8 56.2z M192 264.8c-27.1 0-49.1-22-49.1-49.1 c0-13.6 5.5-25.8 14.4-34.7c8.9-8.9 21.2-14.4 34.7-14.4s25.8 5.5 34.7 14.4c8.9 8.9 14.4 21.2 14.4 34.7s-5.5 25.8-14.4 34.7 C217.8 259.3 205.6 264.8 192 264.8z M21.5 215.7c30.8-39 66.4-73.2 140.4-70.1c-27.2 11.7-46.2 38.6-46.2 70.1 c0 31.4 19 58.4 46.2 70.1C87.9 288.8 52.2 254.7 21.5 215.7z"/>
+        </symbol>
+      </svg>
+
+      <!-- Windows/Super Key -->
+      <svg id="SVG_VC_META" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+        <path d="M0 93.7l183.6-25.3v177.4H0V93.7zm0 324.6l183.6 25.3V268.4H0v149.9zm203.8 28L448 480V268.4H203.8v177.9zm0-380.6v180.1H448V32L203.8 65.7z"/>
+      </svg>
+
+      <svg id="SVG_VC_LEFT"><use href="#icon-arrow"></use></svg>
+      <svg id="SVG_VC_RIGHT" style="transform: rotate(180deg);"><use href="#icon-arrow"></use></svg>
+      <svg id="SVG_VC_UP" style="transform: rotate(90deg);"><use href="#icon-arrow"></use></svg>
+      <svg id="SVG_VC_DOWN" style="transform: rotate(270deg);"><use href="#icon-arrow"></use></svg>
+
+      <svg id="SVG_VC_ENTER" style="transform: rotate(90deg);"><use href="#icon-right-down-turn"></use></svg>
+
+      <div id="SVG_VC_KP_ENTER">
+        <span>NUM</span>
+        <svg style="transform: rotate(90deg);"><use href="#icon-right-down-turn"></use></svg>
+      </div>
+
+      <svg id="SVG_VC_BACKSPACE" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+        <path d="M576 128c0-35.3-28.7-64-64-64H205.3c-17 0-33.3 6.7-45.3 18.7L9.4 233.4c-6 6-9.4 14.1-9.4 22.6s3.4 16.6 9.4 22.6L160 429.3c12 12 28.3 18.7 45.3 18.7H512c35.3 0 64-28.7 64-64V128zM271 175c9.4-9.4 24.6-9.4 33.9 0l47 47 47-47c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-47 47 47 47c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-47-47-47 47c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l47-47-47-47c-9.4-9.4-9.4-24.6 0-33.9z"/>
+      </svg>
+
+      <svg id="SVG_MOUSE_LEFT"><use href="#icon-mouse-button-left"></use></svg>
+
+      <svg id="SVG_MOUSE_MIDDLE" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+        <path d="M327.8 56.2C297.5 25.9 257 5.7 212 1v119.9c-6.4-1.9-13.1-2.9-20-2.9c-7 0-13.7 1-20 3V1C75.4 11 0 92.7 0 192v128 c0 106 86 192 192 192s192-86 192-192V192C384 139 362.5 91 327.8 56.2z M192 138c7.1 0 13.9 1.5 20 4.2 c5.5 2.5 10.5 5.9 14.7 10.1c8.9 8.9 14.4 21.2 14.4 34.7v57.1c0 27.1-22 49.1-49.1 49.1s-49.1-22-49.1-49.1v-57.1 c0-20 12-37.2 29.1-44.9C178.1 139.5 184.9 138 192 138z"/>
+      </svg>
+
+      <svg id="SVG_MOUSE_RIGHT" style="transform: scale(-1.0, 1.0);"><use href="#icon-mouse-button-left"></use></svg>
+
+      <svg id="SVG_MOUSE_EXTRA1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+        <path d="M327.8 56.2C297.5 25.9 257 5.7 212 1V121c-6.3-1.9-13-3-20-3s-13.7 1-20 3V1C75.4 11 0 92.7 0 192v128 c0 106 86 192 192 192s192-86 192-192V192C384 139 362.5 91 327.8 56.2z M89 380.8c-40.7 0-73.7-33-73.7-73.7v-50.5H89V380.8z"/>
+      </svg>
+
+      <svg id="SVG_MOUSE_EXTRA2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+        <path d="M327.8 56.2C297.5 25.9 257 5.7 212 1V121c-6.3-1.9-13-3-20-3s-13.7 1-20 3V1C75.4 11 0 92.7 0 192v128 c0 106 86 192 192 192s192-86 192-192V192C384 139 362.5 91 327.8 56.2z M89 256.5H15.3V206c0-40.7 33-73.7 73.7-73.7V256.5z"/>
+      </svg>
+
+      <svg id="SVG_MOUSE_WHEELUP" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+        <path d="M327.8 56.2C297.5 25.9 257 5.7 212 1v20.1c-6.6-0.8-13.3-1.1-20-1.1c-6.8 0-13.4 0.4-20 1.2V1C75.4 11 0 92.7 0 192v128 c0 106 86 192 192 192s192-86 192-192V192C384 139 362.5 91 327.8 56.2z M192 45.2c39 30.7 73.2 66.4 70 140.4 c-11.7-27.1-38.6-46.1-70-46.1s-58.4 19-70 46.1C118.8 111.6 153 75.9 192 45.2z M192 264.8c-13.6 0-25.8-5.5-34.7-14.4 c-8.9-8.9-14.4-21.2-14.4-34.7c0-27.1 22-49.1 49.1-49.1c13.6 0 25.8 5.5 34.7 14.4c8.9 8.9 14.4 21.2 14.4 34.7 s-5.5 25.8-14.4 34.7C217.8 259.3 205.6 264.8 192 264.8z"/>
+      </svg>
+
+      <svg id="SVG_MOUSE_WHEELDOWN" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+        <path d="M327.8 56.2C297.5 25.9 257 5.7 212 1V121c-6.3-1.9-13-3-20-3s-13.7 1-20 3V1C75.4 11 0 92.7 0 192v128 c0 106 86 192 192 192s192-86 192-192V192C384 139 362.5 91 327.8 56.2z M192 166.5c13.6 0 25.8 5.5 34.7 14.4 c8.9 8.9 14.4 21.2 14.4 34.7s-5.5 25.8-14.4 34.7c-8.9 8.9-21.2 14.4-34.7 14.4s-25.8-5.5-34.7-14.4c-8.9-8.9-14.4-21.2-14.4-34.7 C142.9 188.5 164.9 166.5 192 166.5z M192 386.2c-39-30.8-73.2-66.4-70-140.4c11.7 27.1 38.6 46.1 70 46.1s58.4-19 70-46.1 C265.2 319.7 231 355.4 192 386.2z"/>
+      </svg>
+
+      <svg id="SVG_MOUSE_WHEELRIGHT" style="transform: scale(-1.0, 1.0);"><use href="#icon-mouse-wheel-left"></use></svg>
+      <svg id="SVG_MOUSE_WHEELLEFT"><use href="#icon-mouse-wheel-left"></use></svg>
+    </div>
+    <!-- #endregion -->
+
+    <div id="history"></div>
+  </body>
+
+  <script>
+    /**
+     * Linux keycode mapping for input-overlay websocket
+     *
+     * On Linux, input-overlay sends Windows VK codes for regular keys
+     * and 0xa000 + VK code for modifier keys.
+     *
+     * Confirmed mappings:
+     *   a = 0x41, s = 0x53, 1 = 0x31, space = 0x20
+     *   shift = 0xa010, ctrl = 0xa011
+     *
+     * Keys marked UNTESTED may need adjustment - enable the debug div
+     * at the bottom of this file to check keycodes.
+     */
+    var KEYCODES = {
+      /* Escape */
+      0x1b: ["VC_ESCAPE", "ESC"],
+
+      /* Function Keys (VK_F1=0x70 through VK_F12=0x7B) */
+      0x70: ["VC_F1", "F1"],
+      0x71: ["VC_F2", "F2"],
+      0x72: ["VC_F3", "F3"],
+      0x73: ["VC_F4", "F4"],
+      0x74: ["VC_F5", "F5"],
+      0x75: ["VC_F6", "F6"],
+      0x76: ["VC_F7", "F7"],
+      0x77: ["VC_F8", "F8"],
+      0x78: ["VC_F9", "F9"],
+      0x79: ["VC_F10", "F10"],
+      0x7a: ["VC_F11", "F11"],
+      0x7b: ["VC_F12", "F12"],
+
+      /* Numbers (VK_0=0x30 through VK_9=0x39) - CONFIRMED: 1=0x31 */
+      0x30: ["VC_0", "0"],
+      0x31: ["VC_1", "1"],
+      0x32: ["VC_2", "2"],
+      0x33: ["VC_3", "3"],
+      0x34: ["VC_4", "4"],
+      0x35: ["VC_5", "5"],
+      0x36: ["VC_6", "6"],
+      0x37: ["VC_7", "7"],
+      0x38: ["VC_8", "8"],
+      0x39: ["VC_9", "9"],
+
+      /* Letters (VK_A=0x41 through VK_Z=0x5A) - CONFIRMED: A=0x41, S=0x53 */
+      0x41: ["VC_A", "A"],
+      0x42: ["VC_B", "B"],
+      0x43: ["VC_C", "C"],
+      0x44: ["VC_D", "D"],
+      0x45: ["VC_E", "E"],
+      0x46: ["VC_F", "F"],
+      0x47: ["VC_G", "G"],
+      0x48: ["VC_H", "H"],
+      0x49: ["VC_I", "I"],
+      0x4a: ["VC_J", "J"],
+      0x4b: ["VC_K", "K"],
+      0x4c: ["VC_L", "L"],
+      0x4d: ["VC_M", "M"],
+      0x4e: ["VC_N", "N"],
+      0x4f: ["VC_O", "O"],
+      0x50: ["VC_P", "P"],
+      0x51: ["VC_Q", "Q"],
+      0x52: ["VC_R", "R"],
+      0x53: ["VC_S", "S"],
+      0x54: ["VC_T", "T"],
+      0x55: ["VC_U", "U"],
+      0x56: ["VC_V", "V"],
+      0x57: ["VC_W", "W"],
+      0x58: ["VC_X", "X"],
+      0x59: ["VC_Y", "Y"],
+      0x5a: ["VC_Z", "Z"],
+
+      /* Alphanumeric special keys - CONFIRMED: space=0x20 */
+      0x20: ["VC_SPACE", "SPACE"],
+      0x08: ["VC_BACKSPACE", "BACKSPACE"],
+      0x09: ["VC_TAB", "TAB"],
+      0x14: ["VC_CAPS_LOCK", "CAPS LOCK"],
+      0x0d: ["VC_ENTER", "ENTER"],
+
+      /* OEM keys - UNTESTED, may vary by keyboard layout */
+      0xc0: ["VC_BACKQUOTE", "`"],
+      0xbd: ["VC_MINUS", "-"],
+      0xbb: ["VC_EQUALS", "="],
+      0xdb: ["VC_OPEN_BRACKET", "["],
+      0xdd: ["VC_CLOSE_BRACKET", "]"],
+      0xdc: ["VC_BACK_SLASH", "\\"],
+      0xba: ["VC_SEMICOLON", ";"],
+      0xde: ["VC_QUOTE", "'"],
+      0xbc: ["VC_COMMA", ","],
+      0xbe: ["VC_PERIOD", "."],
+      0xbf: ["VC_SLASH", "/"],
+
+      /* Navigation keys - UNTESTED */
+      0x2c: ["VC_PRINTSCREEN", "PrtSc"],
+      0x91: ["VC_SCROLL_LOCK", "SCROLL LOCK"],
+      0x13: ["VC_PAUSE", "PAUSE"],
+      0x2d: ["VC_INSERT", "INSERT"],
+      0x2e: ["VC_DELETE", "DELETE"],
+      0x24: ["VC_HOME", "HOME"],
+      0x23: ["VC_END", "END"],
+      0x21: ["VC_PAGE_UP", "PAGE UP"],
+      0x22: ["VC_PAGE_DOWN", "PAGE DOWN"],
+
+      /* Arrow keys - UNTESTED */
+      0x25: ["VC_LEFT", "ARROW LEFT"],
+      0x26: ["VC_UP", "ARROW UP"],
+      0x27: ["VC_RIGHT", "ARROW RIGHT"],
+      0x28: ["VC_DOWN", "ARROW DOWN"],
+
+      /* Numpad - UNTESTED */
+      0x90: ["VC_NUM_LOCK", "NUM LOCK"],
+      0x60: ["VC_KP_0", "NUM 0"],
+      0x61: ["VC_KP_1", "NUM 1"],
+      0x62: ["VC_KP_2", "NUM 2"],
+      0x63: ["VC_KP_3", "NUM 3"],
+      0x64: ["VC_KP_4", "NUM 4"],
+      0x65: ["VC_KP_5", "NUM 5"],
+      0x66: ["VC_KP_6", "NUM 6"],
+      0x67: ["VC_KP_7", "NUM 7"],
+      0x68: ["VC_KP_8", "NUM 8"],
+      0x69: ["VC_KP_9", "NUM 9"],
+      0x6f: ["VC_KP_DIVIDE", "NUM /"],
+      0x6a: ["VC_KP_MULTIPLY", "NUM *"],
+      0x6d: ["VC_KP_SUBTRACT", "NUM -"],
+      0x6b: ["VC_KP_ADD", "NUM +"],
+      0x6e: ["VC_KP_SEPARATOR", "NUM ."],
+
+      /* Modifier keys: 0xa000 + VK code - CONFIRMED: shift=0xa010, ctrl=0xa011 */
+      0xa010: ["VC_SHIFT_L", "L SHIFT"],    // VK_SHIFT
+      0xa011: ["VC_CONTROL_L", "L CTRL"],    // VK_CONTROL
+      0xa012: ["VC_ALT_L", "L ALT"],         // VK_MENU (predicted)
+
+      /* Left/right specific modifiers - UNTESTED, may or may not be sent */
+      0xa0a0: ["VC_SHIFT_L", "L SHIFT"],     // VK_LSHIFT
+      0xa0a1: ["VC_SHIFT_R", "R SHIFT"],     // VK_RSHIFT
+      0xa0a2: ["VC_CONTROL_L", "L CTRL"],    // VK_LCONTROL
+      0xa0a3: ["VC_CONTROL_R", "R CTRL"],    // VK_RCONTROL
+      0xa0a4: ["VC_ALT_L", "L ALT"],         // VK_LMENU
+      0xa0a5: ["VC_ALT_R", "R ALT"],         // VK_RMENU
+
+      /* Super/Meta keys - UNTESTED */
+      0xa05b: ["VC_META_L", "SUPER"],         // VK_LWIN
+      0xa05c: ["VC_META_R", "SUPER"],         // VK_RWIN
+      0xa05d: ["VC_CONTEXT_MENU", "MENU"],    // VK_APPS
+    };
+
+    // #region Keys with Icons
+
+    /* Init SVG Icons */
+    document
+      .querySelectorAll("#icons-container svg")
+      .forEach((i) => i.classList.add("icon-sm"));
+    document
+      .querySelectorAll("#icons-container svg path")
+      .forEach((p) => p.setAttribute("fill", "currentColor"));
+
+    var KEYICONS = {
+      // Super/Meta
+      0xa05b: document.getElementById("SVG_VC_META"),
+      0xa05c: document.getElementById("SVG_VC_META"),
+
+      // Arrow Keys
+      0x25: document.getElementById("SVG_VC_LEFT"),
+      0x26: document.getElementById("SVG_VC_UP"),
+      0x27: document.getElementById("SVG_VC_RIGHT"),
+      0x28: document.getElementById("SVG_VC_DOWN"),
+
+      // Enter & Backspace
+      0x0d: document.getElementById("SVG_VC_ENTER"),
+      0x08: document.getElementById("SVG_VC_BACKSPACE"),
+    };
+
+    // #endregion
+
+    // #region Mouse codes
+
+    var MOUSEENCODE = {
+      flag: 1 << 16,
+      wheel: 1 << 4,
+      wheel_rot: 1 << 3,
+      wheel_y: 3,
+      wheel_x: 4,
+      mask: 0xffff,
+      btn_start: 8,
+      btn_end: 14,
+    };
+
+    var MOUSECODES = new Map([
+      [1 << 8, document.getElementById("SVG_MOUSE_LEFT").outerHTML],
+      [1 << 9, document.getElementById("SVG_MOUSE_RIGHT").outerHTML],
+      [1 << 10, document.getElementById("SVG_MOUSE_MIDDLE").outerHTML],
+      [1 << 11, document.getElementById("SVG_MOUSE_EXTRA1").outerHTML],
+      [1 << 12, document.getElementById("SVG_MOUSE_EXTRA2").outerHTML],
+      // the wheel up / down icons are backwards on *nix + x11
+      [
+        MOUSEENCODE.wheel | MOUSEENCODE.wheel_y,
+        // document.getElementById("SVG_MOUSE_WHEELUP").outerHTML
+        document.getElementById("SVG_MOUSE_WHEELDOWN").outerHTML
+      ],
+      [
+        MOUSEENCODE.wheel | MOUSEENCODE.wheel_y | MOUSEENCODE.wheel_rot,
+        // document.getElementById("SVG_MOUSE_WHEELDOWN").outerHTML
+        document.getElementById("SVG_MOUSE_WHEELUP").outerHTML
+      ],
+      [
+        MOUSEENCODE.wheel | MOUSEENCODE.wheel_x,
+        document.getElementById("SVG_MOUSE_WHEELLEFT").outerHTML
+      ],
+      [
+        MOUSEENCODE.wheel | MOUSEENCODE.wheel_x | MOUSEENCODE.wheel_rot,
+        document.getElementById("SVG_MOUSE_WHEELRIGHT").outerHTML
+      ],
+    ]);
+
+    // #endregion
+
+    function getKeyHTML(keycode) {
+      if (keycode & MOUSEENCODE.flag) {
+        var mouse = MOUSECODES.get(keycode & MOUSEENCODE.mask);
+        if (!!mouse) {
+          return mouse;
+        }
+        return "";
+      }
+
+      var key = KEYCODES[keycode];
+
+      if (!!key) {
+        var icon = KEYICONS[keycode];
+        if (!!icon) {
+          return icon.cloneNode(true).outerHTML;
+        } else {
+          return key[1] !== "" ? key[1] : key[0];
+        }
+      } else {
+        return "";
+      }
+    }
+
+    // #region DOM Utils
+
+    function getKeyCombinationElement() {
+      try {
+        var innerHTMLofKeys = Array.from(_historyCurrentlyPressed)
+          .map((keycode) => getKeyHTML(keycode))
+          .filter((html) => html !== "");
+
+        var innerHTMLOfKeyCombination = innerHTMLofKeys
+          .map(
+            (innerHTML) =>
+              createElementWithClass("span", innerHTML, ["key"]).outerHTML
+          )
+          .join(
+            createElementWithClass("span", SEPARATOR, ["separator"]).outerHTML
+          );
+
+        if (_repeatCount > 1) {
+          innerHTMLOfKeyCombination +=
+            createElementWithClass("span", _repeatCount, ["repeat"]).outerHTML;
+        }
+
+        return createElementWithClass("p", innerHTMLOfKeyCombination, [
+          "key-combination",
+        ]);
+      } catch (e) {
+        console.error(e);
+        return "";
+      }
+    }
+
+    function createElementWithClass(element, innerHTML = "", classList = []) {
+      var el = document.createElement(element);
+      el.innerHTML = innerHTML;
+      el.classList.add(...classList);
+      return el;
+    }
+
+    // #endregion
+
+    // #region ----- YOU CAN CHANGE THESE VALUES -----
+
+    var HISTORY_MAX = 10;
+    var HISTORY_TIMEOUT_ACTIVE = true;
+    var HISTORY_TIMEOUT = 3500;
+    var HISTORY_TOP_ALIGN = false;
+    var SEPARATOR = "+";
+    var ONLY_INITIAL_PRESS = false;
+    var REPEAT_TIMEOUT = 1500;
+
+    // #endregion
+
+    if (!HISTORY_TOP_ALIGN) {
+      document.body.classList.add(["bottom-align"]);
+    }
+
+    var _historyDiv = document.getElementById("history");
+    var _historyCurrentlyPressed = new Set();
+    var _historyLastPressed = new Set();
+    var _hideLastTimeoutID = undefined;
+    var _hideLastTimeoutElement = null;
+    var _repeatCount = 1;
+    var _repeatTimeoutID = undefined;
+    var _mouseButtonsMask = 0;
+
+    function onKeyEvent(data) {
+      if (data.event_type === "key_typed")
+        return;
+
+      if (data.event_type.startsWith("mouse")) {
+        if (
+          data.event_type === "mouse_moved" ||
+          data.event_type === "mouse_clicked" ||
+          data.event_type === "mouse_dragged"
+          )
+          return;
+
+        var mouse_code_base = MOUSEENCODE.flag;
+
+        if (data.event_type === "mouse_wheel") {
+          mouse_code_base |= MOUSEENCODE.wheel;
+          mouse_code_base |= data.direction;
+          mouse_code_base |= MOUSEENCODE.wheel_rot * (data.rotation > 0);
+          updateUI(mouse_code_base, true);
+          updateUI(mouse_code_base, false);
+        } else if (
+            data.event_type === "mouse_pressed" ||
+            data.event_type === "mouse_released"
+          ) {
+          if (data.button === 4 && data.event_type === "mouse_pressed")
+            data.mask = (data.mask ^ 4096) | 2048;
+
+          var diff = _mouseButtonsMask ^ data.mask;
+          _mouseButtonsMask = data.mask;
+
+          for (var bit = MOUSEENCODE.btn_start; bit <= MOUSEENCODE.btn_end; ++bit) {
+            var mask = 1 << bit;
+            if (diff & mask) {
+              var mouse_code = mouse_code_base | mask;
+              updateUI(mouse_code, _mouseButtonsMask & mask);
+            }
+          }
+        }
+
+        return;
+      }
+
+      if (!!KEYCODES[data.keycode]) {
+        updateUI(data.keycode, data.event_type === "key_pressed");
+      }
+    }
+
+    function getLatestChild() {
+      return HISTORY_TOP_ALIGN
+        ? _historyDiv.firstElementChild
+        : _historyDiv.lastElementChild;
+    }
+
+    function updateUI(keycode, isPressing) {
+      var latestChild = getLatestChild();
+
+      if (isPressing) {
+        if (_historyCurrentlyPressed.has(keycode) && ONLY_INITIAL_PRESS) {
+          return;
+        }
+
+        resetRepeatTimeout();
+
+        var wasEmpty = _historyCurrentlyPressed.size == 0;
+        var wasSameKeys = compareSets(_historyCurrentlyPressed, _historyLastPressed);
+        _historyCurrentlyPressed.add(keycode);
+        var isRepeated = compareSets(_historyCurrentlyPressed, _historyLastPressed);
+
+        var isCombination = !wasEmpty && wasSameKeys && !isRepeated && _repeatCount == 1;
+
+        if (isRepeated) {
+          ++_repeatCount;
+        } else {
+          _historyLastPressed = new Set(_historyCurrentlyPressed);
+          _repeatCount = 1;
+        }
+
+        var combinationElement = getKeyCombinationElement();
+
+        if (!isCombination && !isRepeated) {
+          startRemovingLast();
+
+          if (HISTORY_TOP_ALIGN) {
+            _historyDiv.insertBefore(combinationElement, _historyDiv.firstChild);
+          } else {
+            _historyDiv.appendChild(combinationElement);
+            scrollTo({ top: document.body.scrollHeight });
+          }
+
+          if (_historyDiv.children.length > HISTORY_MAX) {
+            if (HISTORY_TOP_ALIGN)
+              _historyDiv.lastElementChild.remove();
+            else
+              _historyDiv.firstElementChild.remove();
+          }
+        } else {
+          latestChild.innerHTML = combinationElement.innerHTML;
+          cancelRemoveLast();
+        }
+      } else {
+        _historyCurrentlyPressed.delete(keycode);
+
+        if (_historyCurrentlyPressed.size == 0) {
+          startRemovingLast();
+        }
+      }
+    }
+
+    function startRemovingLast() {
+      if (HISTORY_TIMEOUT_ACTIVE) {
+        var elementToHide = getLatestChild();
+        if (!elementToHide || elementToHide.classList.contains("hidden"))
+          return;
+
+        _hideLastTimeoutElement = elementToHide;
+        _hideLastTimeoutID = setTimeout(() => {
+          elementToHide.classList.add("hidden");
+        }, HISTORY_TIMEOUT);
+      }
+    }
+
+    function cancelRemoveLast() {
+      if (HISTORY_TIMEOUT_ACTIVE) {
+        var elementToUnhide = getLatestChild();
+        if (!elementToUnhide || _hideLastTimeoutElement != elementToUnhide)
+          return;
+
+        elementToUnhide.classList.remove("hidden");
+        clearTimeout(_hideLastTimeoutID);
+      }
+    }
+
+    function resetRepeatTimeout() {
+      if (_repeatTimeoutID !== undefined) {
+        clearTimeout(_repeatTimeoutID);
+      }
+      _repeatTimeoutID = setTimeout(() => {
+        _repeatTimeoutID = undefined;
+        _historyLastPressed.clear();
+      }, REPEAT_TIMEOUT);
+    }
+
+    function compareSets(a, b) {
+      return a.size === b.size && [...a].every((elem) => b.has(elem));
+    }
+
+    function on_data(e) {
+      var data = JSON.parse(e.data);
+      onKeyEvent(data);
+    }
+
+    function start_websocket() {
+      var ws = new WebSocket("ws://localhost:16899/");
+
+      ws.onmessage = on_data;
+
+      ws.onerror = (e) => {
+        console.log("WebSocket error: ");
+        console.error(e);
+      };
+
+      ws.onclose = () => {
+        ws = null;
+        setTimeout(start_websocket, 2000);
+      };
+    }
+
+    start_websocket();
+
+    /*
+     * DEBUG: Uncomment the lines below to show a red debug bar displaying
+     * raw keycodes. Useful for finding codes of unmapped keys.
+     *
+     * Also add this div right after <div id="history"></div>:
+     *   <div id="debug" style="position:fixed; top:0; left:0; background:red; color:white; font-size:24px; padding:10px; z-index:9999;"></div>
+     *
+     * Then in onKeyEvent(), at the very top before the key_typed check, add:
+     *   document.getElementById("debug").innerHTML = "type: " + data.event_type + " code: " + data.keycode + " hex: 0x" + (data.keycode || 0).toString(16) + "<br>" + document.getElementById("debug").innerHTML;
+     */
+  </script>
+</html>
