@@ -1017,7 +1017,7 @@ vim.keymap.set('n', '<leader>yd', copy_diagnostic_to_clipboard, { noremap = true
 ----
 require('gitsigns').setup{
   on_attach = function(bufnr)
-    local gitsigns = require('gitsigns')
+    local gs = require('gitsigns')
 
     local function map(mode, l, r, opts)
       opts = opts or {}
@@ -1025,14 +1025,12 @@ require('gitsigns').setup{
       vim.keymap.set(mode, l, r, opts)
     end
 
-    -- navigation
-
     -- nav forward
     map('n', ']c', function()
       if vim.wo.diff then
         vim.cmd.normal({']c', bang = true})
       else
-        gitsigns.nav_hunk('next')
+        gs.nav_hunk('next')
       end
     end)
 
@@ -1041,11 +1039,45 @@ require('gitsigns').setup{
       if vim.wo.diff then
         vim.cmd.normal({'[c', bang = true})
       else
-        gitsigns.nav_hunk('prev')
+        gs.nav_hunk('prev')
       end
     end)
+
+    map('n', '<leader>gb', function()
+      -- look for an existing gitsigns-blame filetype/window
+      for _, win in ipairs(vim.api.nvim_list_wins()) do
+        local buf = vim.api.nvim_win_get_buf(win)
+        if vim.bo[buf].filetype == 'gitsigns-blame' then
+          vim.api.nvim_win_close(win, true)
+          return
+        end
+      end
+      -- none open, open one
+      gs.blame({ full = true })
+    end, { desc = 'gitsigns blame (full buffer, full commit msgs)' })
+
+
+    map('n', '<leader>gl', function()
+      gs.blame_line({ full = true })
+    end, { desc = 'gitsigns blame (full buffer, full commit, msgs)' })
   end
 }
+
+-- toggle `gitsigns-blame` buffer
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'gitsigns-blame',
+  callback = function(args)
+    vim.keymap.set('n', '<leader>gb', '<cmd>close<cr>', {
+      buffer = args.buf,
+      desc = 'close gitsigns blame panel',
+    })
+    -- map `q` to also close the buffer
+    vim.keymap.set('n', 'q', '<cmd>close<cr>', {
+      buffer = args.buf,
+      desc = 'close gitsigns blame panel',
+    })
+  end,
+})
 
 -----------------------
 -- plugin / nvim / blink.cmp
