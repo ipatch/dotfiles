@@ -60,6 +60,7 @@ if status is-interactive
   #---
   alias bp313="$bp/opt/python@3.13/bin/python3.13"
   alias p313="$bp/opt/python@3.13/bin/pip3.13"
+  alias bp313p="$bp/opt/python@3.13/bin/pip3.13"
   #---
   alias bp314="$bp/opt/python@3.14/bin/python3.14"
 
