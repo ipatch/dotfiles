@@ -21,4 +21,4 @@ xset s noblank
 
 # lightdm + i3 does not auto load `$HOME/.Xresources`
 # the below should fix the cursor size for HiDPI displays once loaded
-xrdb -merge ~/.Xresources
+xrdb -load ~/.Xresources
