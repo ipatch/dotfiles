@@ -1831,6 +1831,12 @@ dap.configurations.cpp = {
     -- NOTE: ipatch, i think `${workspaceFolder}` is set to the value of the :lcd
     -- cwd = '${workspaceFolder}',
     cwd = '/opt/code/fcgit/fcsrc',
+    -- when `fcsrc` is present in the binary map to the `freecad-src` dir
+    -- NOTE: `strings \
+    -- /opt/code/fcgit/installs/issue.tshooting.qt6.py313/lib/libFreeCADGui.so | grep -E 'View3DInventor\.cpp$' | head`
+    sourceMap = {
+      ['/opt/code/git/github/forks/freecad-git/fcsrc'] = '/opt/code/git/github/forks/freecad-git/freecad-git',
+    },
   },
 }
 
@@ -1916,21 +1922,22 @@ vim.fn.sign_define('DapStopped', {text='✋', texthl='DiagnosticSignWarn', lineh
 ---------------
 -- plugin / mfussenegger / nvim-dap / mappings (requires helper function)
 ----
---- EXAMPLES
--- Keybindings
--- vim.keymap.set('n', '<F5>', function() dap.continue() end, { desc = 'Debug: Start/Continue' })
--- vim.keymap.set('n', '<F10>', function() dap.step_over() end, { desc = 'Debug: Step Over' })
--- vim.keymap.set('n', '<F11>', function() dap.step_into() end, { desc = 'Debug: Step Into' })
--- vim.keymap.set('n', '<F12>', function() dap.step_out() end, { desc = 'Debug: Step Out' })
--- vim.keymap.set('n', '<Leader>b', function() dap.toggle_breakpoint() end, { desc = 'Debug: Toggle Breakpoint' })
--- vim.keymap.set('n', '<Leader>dl', function() dap.run_last() end, { desc = 'Debug: Run Last' })
+--[[ EXAMPLES
+Keybindings
+vim.keymap.set('n', '<F5>', function() dap.continue() end, { desc = 'Debug: Start/Continue' })
+vim.keymap.set('n', '<F10>', function() dap.step_over() end, { desc = 'Debug: Step Over' })
+vim.keymap.set('n', '<F11>', function() dap.step_into() end, { desc = 'Debug: Step Into' })
+vim.keymap.set('n', '<F12>', function() dap.step_out() end, { desc = 'Debug: Step Out' })
+vim.keymap.set('n', '<Leader>b', function() dap.toggle_breakpoint() end, { desc = 'Debug: Toggle Breakpoint' })
+vim.keymap.set('n', '<Leader>dl', function() dap.run_last() end, { desc = 'Debug: Run Last' })
 
--- requires external helper file `debugHelper.lua`
--- map('n', '<leader>da', ':lua require"debugHelper".attach()<CR>')
+requires external helper file `debugHelper.lua`
+map('n', '<leader>da', ':lua require"debugHelper".attach()<CR>')
+--]]
 
 -- set conditional breakpoint
 vim.keymap.set('n', '<Leader>B', function() dap.set_breakpoint(vim.fn.input('Breakpoint condition: ')) end, { desc = 'Debug: Conditional Breakpoint' })
--- set breakpoint, i think toggle and set breakpoint do the samething internally other set bp does not rm the bp
+-- set breakpoint, i think `toggle` / `set breakpoint` do the samething internally but set bp does not rm the bp
 map('n', '<leader>dsb', ':lua require"dap".set_breakpoint()<CR>')
 -- toggle breakpoint
 map('n', '<leader>db', ':lua require"dap".toggle_breakpoint()<CR>')
@@ -1955,7 +1962,7 @@ map('n', '<leader>dk', ':lua require"dap".up()<CR>')
 map('n', '<leader>dj', ':lua require"dap".down()<CR>')
 
 -- Keymap to terminate debugging
-map('n', '<leader>dx', ':lua require"dap".disconnect({ terminateDebuggee = true });require"dap".close()<CR>')
+map('n', '<leader>dx', ':lua require"dap".disconnect({ terminateDebugger = true });require"dap".close()<CR>')
 vim.keymap.set("n", "<leader>dq", function()
   require("dap").terminate()
 end, { noremap = true, silent = true })
