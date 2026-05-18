@@ -1835,7 +1835,7 @@ dap.configurations.cpp = {
     -- NOTE: `strings \
     -- /opt/code/fcgit/installs/issue.tshooting.qt6.py313/lib/libFreeCADGui.so | grep -E 'View3DInventor\.cpp$' | head`
     sourceMap = {
-      ['/opt/code/git/github/forks/freecad-git/fcsrc'] = '/opt/code/git/github/forks/freecad-git/freecad-git',
+      ['/opt/code/git/github/forks/freecad-git/fcsrc'] = '/opt/code/git/github/forks/freecad-git/freecad-src',
     },
   },
 }
