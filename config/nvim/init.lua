@@ -1291,9 +1291,6 @@ require('ibl').setup()
 -- i had to add the vimdoc and luddoc parsers to prevent the above err
 ----
 
--- NOTE: ipatch, the below line is deprecated
--- local ts = require 'nvim-treesitter.configs'
-
 local user = vim.fn.expand("$USER")
 
 local languages = {
