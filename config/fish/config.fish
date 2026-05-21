@@ -226,7 +226,7 @@ if status is-interactive
   abbr -a -- gsd 'git submodule deinit -f --all'
   abbr -a -- gsu 'git submodule update --init --recursive'
   abbr -a -- gp 'git push -q'
-  abbr -a -- cpv 'rsync -at --no-o --no-g -h --info=progress2 -P'
+  abbr -a -- cpv 'rsync -a --no-o --no-g -h --info=progress2 --partial'
   abbr -a -- mkdir 'mkdir -p'
   abbr -a -- d 'docker'
   abbr -a -- dkc 'docker-compose'
