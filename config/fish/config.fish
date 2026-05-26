@@ -189,6 +189,7 @@ if status is-interactive
   # NOTE: TODO: may be a good idea to put a link / reference to the file in the brew src code where env vars are defined
   if uname -a | grep -q "asahi"
     set -gx HOMEBREW_USE_RUBY_FROM_PATH 1
+    set -gx HOMEBREW_NO_SANDBOX_LINUX 1
     export DBUS_SESSION_BUS_ADDRESS='unix:abstract=/tmp/custom_dbus_name,guid=5fe0907d81e722390f1ce02d6033ad76'
     set -gx EDITOR "nvim"
   end
