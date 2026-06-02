@@ -157,6 +157,7 @@ if status is-interactive
   set -gx nses  "$HOME/.config/nvim/sessions"
 
   # app env vars / homebrew
+  # $bp/Library/Homebrew/env_config.rb
   set -gx HOMEBREW_EDITOR "nvim"
   set -gx HOMEBREW_DEVELOPER 1
   set -gx HOMEBREW_NO_ANALYTICS 1
@@ -186,7 +187,8 @@ if status is-interactive
   # echo 'export XDG_DATA_DIRS="/home/capin/homebrew/share:$XDG_DATA_DIRS"' >> ~/.config/fish/config.fish
 
   # below is required to run `brew update`
-  # NOTE: TODO: may be a good idea to put a link / reference to the file in the brew src code where env vars are defined
+  # NOTE: the below file contains a list of env vars that can be set.
+  # $bp/Library/Homebrew/env_config.rb
   if uname -a | grep -q "asahi"
     set -gx HOMEBREW_USE_RUBY_FROM_PATH 1
     set -gx HOMEBREW_NO_SANDBOX_LINUX 1
