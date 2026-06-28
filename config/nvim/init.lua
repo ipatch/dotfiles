@@ -1355,6 +1355,41 @@ else
   require('nvim-treesitter').install(languages)
 end
 
+---------------
+-- PLUGIN / tree-sitter, treesitter, treesitter-textobjects
+-- https://github.com//nvim-treesitter/nvim-treesitter-textobjects
+----
+require('nvim-treesitter-textobjects').setup {
+  select = {
+    lookahead = true,
+  },
+  -- NOTE: ipatch the below bindings are intended to work with prefix keys ie. `d` or `v`
+  -- keymaps
+  -- You can use the capture groups defined in `textobjects.scm`
+  -- vim.keymap.set({ "x", "o" }, "im", function()
+  --   require "nvim-treesitter-textobjects.select".select_textobject("@function.inner", "textobjects")
+  -- end)
+  vim.keymap.set({ "x", "o" }, "ib", function()
+    require("nvim-treesitter-textobjects.select").select_textobject("@block.inner", "textobjects")
+  end)
+
+
+  -- NOTE: deprecated APIs ie. master branch NOT main
+  -- keymaps = {
+  --   -- You can use the capture groups defined in textobjects.scm
+  --   ["af"] = "@function.outer",
+  --   ["if"] = "@function.inner",
+  --   ["ac"] = "@class.outer",
+  --   -- You can optionally set descriptions to the mappings (used in the desc parameter of
+  --   -- nvim_buf_set_keymap) so plugins like which-key display
+  --   ["ic"] = { query = "@class.inner", desc = "Select inner part of a class region" },
+  --   -- You can also use captures from other query groups like `locals.scm`
+  --   ["as"] = { query = "@scope", query_group = "locals", desc = "Select language scope" },
+  -- },
+  -- You can choose the select mode (default is charwise 'v')
+
+}
+
 -- TODO: migrate this logic to newer nvim v0.13 apis
 --[[
 ts.setup {
