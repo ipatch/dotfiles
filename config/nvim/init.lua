@@ -117,10 +117,6 @@ require('lazy').setup({
   -- lsp helper / json files ie. tsconfig.json
   "b0o/schemastore.nvim",
 
-  -- lsp helper / typescript
-  -- https://stackoverflow.com/a/70294761/708807
-  'jose-elias-alvarez/nvim-lsp-ts-utils',
-
   { -- nvim-treesitter highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
     branch = 'main',
@@ -991,12 +987,6 @@ vim.keymap.set('n', '<leader>yd', copy_diagnostic_to_clipboard, { noremap = true
 -- TODO: finish scaffolding out setup / config
 -----
 
--- TODO: ipatch, NO WORK, updated the tsconfig.json for the project instead
--- require('nvim-lsp-ts-utils').setup({
-  --   filter_out_diagnostics_by_code = { 80001 },
-  -- })
-  -- require('nvim-lsp-ts-utils').setup_client(client)
-
   -- NOTE: ipatch, setup jsonls for tsconfig.json
   -- require('lspconfig').jsonls.setup({
     --   fileMatch = {"tsconfig*.json"},
@@ -1373,7 +1363,6 @@ require('nvim-treesitter-textobjects').setup {
     require("nvim-treesitter-textobjects.select").select_textobject("@block.inner", "textobjects")
   end)
 
-
   -- NOTE: deprecated APIs ie. master branch NOT main
   -- keymaps = {
   --   -- You can use the capture groups defined in textobjects.scm
@@ -1387,7 +1376,6 @@ require('nvim-treesitter-textobjects').setup {
   --   ["as"] = { query = "@scope", query_group = "locals", desc = "Select language scope" },
   -- },
   -- You can choose the select mode (default is charwise 'v')
-
 }
 
 -- TODO: migrate this logic to newer nvim v0.13 apis
