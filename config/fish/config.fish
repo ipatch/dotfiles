@@ -125,12 +125,16 @@ if status is-interactive
   end
 
   if test (id -un) = capin
-    set -gx dots "/opt/code/dotfiles"
+    if test -d /opt/code/dotfiles
+      set -gx dots "/opt/code/dotfiles"
+    else if test -d /opt/code/dotfiles-capin
+      set -gx dots "/opt/code/dotfiles"
+    end
   else if test (id -un) = brewer
     set -gx dots "/opt/code/dotfiles-brewer"
   else
     set -gx code "$HOME/code"
-    # TODO: ipatch, this dir differs on various systems
+    # NOTE: ipatch, this dir differs on various systems
     set -gx dots "$HOME/code/dotfiles-ipatch"
   end
 
