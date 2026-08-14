@@ -1,11 +1,12 @@
-##############################
+#-----------------------------
 # Some of the files in this repo are encrypted using `git-crypt`
-##
+# NOTE: secrets managed in this repo use git-secret as i've deprecated git-crypt
+#-
 # EXAMPLE
 # secretfile filter=git-crypt diff=git-crypt
-####
+#---
 # Global `git-crypt` files, ie. all files in this repo with a `.shu` 🤫
-##
+#-
 *.shu filter=git-crypt diff=git-crypt
 # *.weechatlog filter=git-crypt diff=git-crypt
 # **/irc.conf.shu filter=git-crypt diff=git-crypt
