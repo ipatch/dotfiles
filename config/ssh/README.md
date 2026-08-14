@@ -30,3 +30,18 @@ for file in file1.txt file2.txt file3.txt;
     gpg --recipient your@email.com --encrypt "$file"
 end
 ```
+
+## working with gpg keys
+
+1. when setting up a new user on a new box (ugghhh) copy over existing gpg keys and run the below commands.
+
+credit: https://www.debuntu.org/how-to-importexport-gpg-key-pair/
+
+```
+gpg --list-keys
+# example cmd
+gpg --import /some/path/to/public/mygpgkey_pub.gpg
+# example cmd
+gpg --allow-secret-key-import --import ~/mygpgkey_sec.gpg
+gpg --list-keys
+```
