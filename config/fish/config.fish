@@ -481,6 +481,32 @@ if status is-interactive
     mkdir -p $argv; and cd $argv
   end
 
+  function omf.ensure_installed --description 'check if Oh My Fish is installed, prompt to install if not'
+    set -l omf_skip_file "$XDG_CONFIG_HOME/fish/.omf_skip"
+
+    if functions -q omf
+      return
+    end
+
+    if test -f $omf_skip_file
+      return
+    end
+
+    echo "Oh My Fish (omf) does not appear to be installed."
+    read -l -P "Install Oh My Fish now? [y/N/never] " omf_confirm
+    switch $omf_confirm
+      case y Y yes Yes
+        curl -L https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
+      case n N no No ''
+        echo "Skipping Oh My Fish install for this session."
+      case '*'
+        touch $omf_skip_file
+        echo "Got it, won't ask again. Remove $omf_skip_file to re-enable this prompt."
+    end
+  end
+
+  omf.ensure_installed
+
   function vman --wraps man --description 'use vim / nvim for reading man pages'
     # col `-b` flag = don't output any backspaces
     # col `-p` flag = force uknown control sequences
