@@ -919,6 +919,7 @@ require('mason').setup({
 })
 
 -- NOTE: ipatch, after adding the below lines ie. oct 26, 2025 began seeing diagnostic msg's within my init.lua
+-- NOTE: ipatch, on my m1 asahi *nix setup i used `brew install ruby` w/ `brew link ruby` to get the ruby lsp's setup
 require('mason-lspconfig').setup {
   ensure_installed = {
     'pyright',
