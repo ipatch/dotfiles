@@ -746,10 +746,17 @@ vim.lsp.config('gh_actions_ls', {
 -- https://clangd.llvm.org/installation#neovim-built-in-lsp-client
 -- NOTE: clangd lsp can be provided by homebrew llvm ie. `brew install llvm`
 vim.lsp.config('clangd', {
-  cmd = { 'clangd', '--background-index', '--clang-tidy', '--log=verbose'},
+  cmd = {
+    'clangd',
+    '--background-index',
+    '--clang-tidy',
+    -- '--log=verbose',
+  },
+
   init_options = {
     fallbackFlags = { '-std=c++17' },
   },
+
   -- NOTE: ipatch, for reasons i do not understand this has to be explicitly called
   on_attach = my_on_attach
 })
