@@ -2,6 +2,8 @@
 
 # exec /usr/bin/dbus-launch --exit-with-session /usr/bin/startxfce4
 
+# NOTE: ipatch, save this file as `$HOME/.xsession`
+
 case "$XRDP_ALTERNATE_SHELL" in
   fluxbox) WM=startfluxbox ;;
   xfce|xfce4) WM=startxfce4 ;;
