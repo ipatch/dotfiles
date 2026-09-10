@@ -929,7 +929,9 @@ require('mason-lspconfig').setup {
     'lua_ls',
     'ruby_lsp',
     'solargraph',
-    'cmake'
+    'neocmake'
+    -- cmake-language-server hasn't been updated in over two years
+    -- 'cmake'
   },
   automatic_installation = true,
 }
@@ -952,7 +954,7 @@ vim.lsp.enable('html')
 vim.lsp.enable('lua_ls')
 vim.lsp.enable('ruby_lsp')
 vim.lsp.enable('gh_actions_ls')
-vim.lsp.enable('cmake')
+vim.lsp.enable('neocmake')
 vim.lsp.enable('clangd')
 
 -- language python / indentation / use ruff py formatter provided by mason
