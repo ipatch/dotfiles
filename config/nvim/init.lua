@@ -1366,9 +1366,9 @@ require('nvim-treesitter-textobjects').setup {
   -- NOTE: ipatch the below bindings are intended to work with prefix keys ie. `d` or `v`
   -- keymaps
   -- You can use the capture groups defined in `textobjects.scm`
-  -- vim.keymap.set({ "x", "o" }, "im", function()
-  --   require "nvim-treesitter-textobjects.select".select_textobject("@function.inner", "textobjects")
-  -- end)
+  vim.keymap.set({ "x", "o" }, "if", function()
+    require "nvim-treesitter-textobjects.select".select_textobject("@function.inner", "textobjects")
+  end),
   vim.keymap.set({ "x", "o" }, "ib", function()
     require("nvim-treesitter-textobjects.select").select_textobject("@block.inner", "textobjects")
   end)
