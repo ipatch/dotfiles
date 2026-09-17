@@ -499,7 +499,10 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # NOTE: ipatch, exp with polybar
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+# exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+exec --no-startup-id $HOME/.config/polybar/launch.sh
+
+bindsym $mod+Shift+p exec --no-startup-id $HOME/.config/polybar/launch.sh
 
 # NOTE: ipatch, setup i3 socket
 #-
