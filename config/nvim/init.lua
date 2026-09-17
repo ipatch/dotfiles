@@ -169,58 +169,58 @@ require('lazy').setup({
     }
   },
 
-  { -- code commenting
-    'numToStr/Comment.nvim',
-    config = function()
-      require('Comment').setup{
-        pre_hook = require('ts_context_commentstring.integrations.comment_nvim').create_pre_hook(),
-      }
+  -- { -- code commenting comment.nvim hasn't been updated since 2024, going to disable this plugin
+    -- 'numToStr/Comment.nvim',
+    -- config = function()
+    --   require('Comment').setup{
+    --     pre_hook = require('ts_context_commentstring.integrations.comment_nvim').create_pre_hook(),
+      -- }
 
       -- Enable automatic comment continuation on Enter
-      vim.api.nvim_create_autocmd('BufEnter', {
-        callback = function()
-          vim.opt.formatoptions:append({ 'r' })
-          vim.opt.formatoptions:remove({ 'o' })
-        end,
-      })
+      -- vim.api.nvim_create_autocmd('BufEnter', {
+      --   callback = function()
+      --     vim.opt.formatoptions:append({ 'r' })
+      --     vim.opt.formatoptions:remove({ 'o' })
+      --   end,
+      -- })
 
       -- Helper function to run without comment extension
-      local run_without_comment_extension = function(fn)
-        -- save current format options
-        local formatoptions = vim.opt.formatoptions:get()
-        local old_c = formatoptions.c
-        local old_r = formatoptions.r
-        local old_o = formatoptions.o
+      -- local run_without_comment_extension = function(fn)
+      --   -- save current format options
+      --   local formatoptions = vim.opt.formatoptions:get()
+      --   local old_c = formatoptions.c
+      --   local old_r = formatoptions.r
+      --   local old_o = formatoptions.o
 
-        -- temporarily disable comment continuation
-        formatoptions.c = nil
-        formatoptions.r = nil
-        formatoptions.o = nil
-        vim.opt.formatoptions = formatoptions
+      --   -- temporarily disable comment continuation
+      --   formatoptions.c = nil
+      --   formatoptions.r = nil
+      --   formatoptions.o = nil
+      --   vim.opt.formatoptions = formatoptions
 
-        -- execute function
-        fn()
+      --   -- execute function
+      --   fn()
 
-        -- restore format options (with slight delay due to race condition)
-        vim.defer_fn(function()
-          formatoptions.c = old_c
-          formatoptions.r = old_r
-          formatoptions.o = old_o
-          vim.opt.formatoptions = formatoptions
-        end, 10)
-      end
+      --   -- restore format options (with slight delay due to race condition)
+      --   vim.defer_fn(function()
+      --     formatoptions.c = old_c
+      --     formatoptions.r = old_r
+      --     formatoptions.o = old_o
+      --     vim.opt.formatoptions = formatoptions
+      --   end, 10)
+      -- end
 
       -- Shift+Enter to insert newline WITHOUT comment continuation
       -- NOTE: ipatch, when using nested tmux sessions the RAW escape code is required 
       -- ... i had to use VIM because neovim was inserting `<M-Esc>` instead of the literal `^[`
-      vim.keymap.set('i', '<S-CR>', function()
-        run_without_comment_extension(function()
-          local cr_key = vim.api.nvim_replace_termcodes('<CR>', true, false, true)
-          vim.api.nvim_feedkeys(cr_key, 'i', false)
-        end)
-      end, { desc = 'Insert newline without comment continuation' })
-    end
-  },
+  --     vim.keymap.set('i', '<S-CR>', function()
+  --       run_without_comment_extension(function()
+  --         local cr_key = vim.api.nvim_replace_termcodes('<CR>', true, false, true)
+  --         vim.api.nvim_feedkeys(cr_key, 'i', false)
+  --       end)
+  --     end, { desc = 'Insert newline without comment continuation' })
+  --   end
+  -- },
 
   { -- UI / git browser
   'junegunn/gv.vim',
@@ -1623,30 +1623,30 @@ vim.api.nvim_set_hl(0, "Folded", { bg = "NONE"})
 ---------------
 -- PLUGIN / 'numToStr/Comment.nvim'
 -- NOTE: ipatch, attempt to define commentstring for specific dot files
-require('Comment').setup({
+-- require('Comment').setup({
   -- per the plugin readme ignore empty lines
-  ignore = '^$',
+  -- ignore = '^$',
 
   -- pre_hook = require('ts_context_commentstring.integrations.comment_nvim').create_pre_hook(),
-   pre_hook = function(ctx)
-    local cs = require('ts_context_commentstring.integrations.comment_nvim').create_pre_hook()(ctx)
-    print('pre_hook called, commentstring: ' .. tostring(cs))
-    return cs
-  end,
-})
+   -- pre_hook = function(ctx)
+    -- local cs = require('ts_context_commentstring.integrations.comment_nvim').create_pre_hook()(ctx)
+    -- print('pre_hook called, commentstring: ' .. tostring(cs))
+    -- return cs
+  -- end,
+-- })
 
-local ft = require('Comment.ft')
+-- local ft = require('Comment.ft')
 -- 1. Using set function
-ft
+-- ft
 -- Set only line comment
 -- .set('yaml', '#%s')
 -- Or set both line and block commentstring
 -- .set('javascript', {'//%s', '/*%s*/'})
-.set('ini', ';%s')
-.set('jsonc', '/*%s*/')
+-- .set('ini', ';%s')
+-- .set('jsonc', '/*%s*/')
 -- .set('c', '//%s', '//%s')
-.set('gitconfig', '#%s')
-.set('systemd', '#%s')
+-- .set('gitconfig', '#%s')
+-- .set('systemd', '#%s')
 
 -- unsorted / builtin vim commands
 -- -- highlight on yank
