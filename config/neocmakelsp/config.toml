@@ -2,8 +2,10 @@
 # this file aids neovim in editing .cmake and cmake related files ie. CMakeLists.txt
 # $HOME/.config/neocmakelsp/config.toml
 
-# true to use external `cmake-lint` to format / lint the file
+# true to use external `cmake-lint` to lint the file
+# also run external `cmake-lint` (cmakelang) for diagnostics; formatting can be left to gersemi
 enable_external_cmake_lint = false 
 
 # freecad's black uses 100 chars for py files, so 100 chars for cmake files it is.
+# (lint warning threshold only; matches gersemi line_length and nvim colorcolumn)
 line_max_words = 100 
