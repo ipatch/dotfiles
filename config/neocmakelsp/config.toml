@@ -1,0 +1,4 @@
+
+enable_external_cmake_lint = false # true to use external `cmake-lint` to format / lint the file
+
+line_max_words = 100 # freecad's black uses 100 chars for py files, so 100 chars for cmake files it is.
