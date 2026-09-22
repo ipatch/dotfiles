@@ -761,66 +761,22 @@ vim.lsp.config('clangd', {
   on_attach = my_on_attach
 })
 
--- NOTE: ipatch, https://github.com/regen100/cmake-language-server
---   ...had to run the below command to make this language sever work
---   ~/.local/share/nvim/mason/packages/cmake-language-server/venv/bin/pip install 'pygls<2'
-vim.lsp.config('cmake', {
-  cmd = { vim.fn.stdpath('data') .. '/mason/bin/cmake-language-server' },
-  filetypes = { 'cmake' },
-  root_dir = vim.fs.dirname(vim.fs.find('CMakeLists.txt', { upward = true })[1]),
-  -- root_markers = { "CMakeLists.txt" },  -- replaces root_dir function
-  init_options = {
-    buildDirectory = "build",
-  },
-})
-
 local lint = require("lint")
 
--- TODO: ipatch this is NOT WORKING as expected
-lint.linters.cmakecheck = {
-  cmd = "cmake",
-  args = { "-P" },
-  stdin = false,
-  append_fname = true,
-  ignore_exitcode = true,
-  parser = function(output, bufnr)
-    local diagnostics = {}
+local cmakelint = lint.linters.cmakelint
+cmakelint.args = vim.list_extend(vim.deepcopy(cmakelint.args or {}), {
+  "--linelength=100",
+  "--filter=-package/stdargs",
+})
 
-    for line in vim.gsplit(output, "\n", { trimempty = true }) do
-      -- Typical CMake error example:
-      -- CMake Error at CMakeLists.txt:4 (if):
-      --   Parse error. Function missing ending ")". Instead found left paren with text "4.4.0".
-      local filename, lnum, message =
-        line:match("CMake Error at ([^:]+):(%d+)%s*%(([^)]+)%)")
-      if filename and lnum then
-        table.insert(diagnostics, {
-          lnum = tonumber(lnum) - 1,
-          col = 0,
-          severity = vim.diagnostic.severity.ERROR,
-          source = "cmake",
-          message = message or "CMake parse error",
-        })
-      else
-        -- fallback if CMake prints generic text on the next line
-        if #diagnostics > 0 then
-          diagnostics[#diagnostics].message = diagnostics[#diagnostics].message
-            .. "\n"
-            .. line
-        end
-      end
-    end
-
-    return diagnostics
-  end,
-}
-
-require('lint').linters_by_ft = {
-  cmake = { 'cmakelint', 'cmakecheck' },
+lint.linters_by_ft = {
+  cmake = { 'cmakelint' },
 }
 
 vim.api.nvim_create_autocmd({ 'BufWritePost', 'InsertLeave' }, {
+  group = vim.api.nvim_create_augroup("user_lint", { clear = true }),
   callback = function()
-    require("lint").try_lint()
+    lint.try_lint()
   end,
 })
 
@@ -1363,15 +1319,16 @@ require('nvim-treesitter-textobjects').setup {
   select = {
     lookahead = true,
   },
-  -- NOTE: ipatch the below bindings are intended to work with prefix keys ie. `d` or `v`
-  -- keymaps
-  -- You can use the capture groups defined in `textobjects.scm`
-  vim.keymap.set({ "x", "o" }, "if", function()
-    require "nvim-treesitter-textobjects.select".select_textobject("@function.inner", "textobjects")
-  end),
-  vim.keymap.set({ "x", "o" }, "ib", function()
-    require("nvim-treesitter-textobjects.select").select_textobject("@block.inner", "textobjects")
-  end)
+}
+
+local select = require('nvim-treesitter-textobjects.select')
+
+-- NOTE: ipatch the below bindings are intended to work with prefix keys ie. `d` or `v`
+-- keymaps
+-- You can use the capture groups defined in `textobjects.scm`
+vim.keymap.set({ "x", "o" }, "af", function() select.select_textobject("@function.outer", "textobjects") end)
+vim.keymap.set({ "x", "o" }, "if", function() select.select_textobject("@function.inner", "textobjects") end)
+vim.keymap.set({ "x", "o" }, "ib", function() select.select_textobject("@block.inner", "textobjects") end)
 
   -- NOTE: deprecated APIs ie. master branch NOT main
   -- keymaps = {
@@ -1386,22 +1343,12 @@ require('nvim-treesitter-textobjects').setup {
   --   ["as"] = { query = "@scope", query_group = "locals", desc = "Select language scope" },
   -- },
   -- You can choose the select mode (default is charwise 'v')
-}
 
 -- TODO: migrate this logic to newer nvim v0.13 apis
 --[[
 ts.setup {
   modules = {},
   sync_install = false,
-  ensure_installed = languages,
-  -- List of parsers to ignore installing
-  ignore_install = {
-    'beancount',
-    'clojure',
-    'gleam',
-    'phpdoc',
-    'slint',
-  },
   auto_install = false,
 
   highlight = {
