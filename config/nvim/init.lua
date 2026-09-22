@@ -236,7 +236,7 @@ require('lazy').setup({
   'projekt0n/github-nvim-theme',
 
   { -- UI / enhancements / newlines
-    -- NOTE: ipatch, neewest version requires nvim nightly circa nov 6 2024
+    -- NOTE: ipatch, newest version requires nvim nightly circa nov 6 2024
     'lukas-reineke/indent-blankline.nvim',
     main = 'ibl',
     ---@module "ibl"
@@ -1293,10 +1293,21 @@ require('nvim-treesitter-textobjects').setup {
 
 local select = require('nvim-treesitter-textobjects.select')
 
+local function yank_textobject_to_clipboard(query)
+    return function()
+      select.select_textobject(query, "textobjects")
+      vim.cmd('normal! "+y')
+    end
+end
+
 -- NOTE: ipatch the below bindings are intended to work with prefix keys ie. `d` or `v`
 -- keymaps
 -- You can use the capture groups defined in `textobjects.scm`
-vim.keymap.set({ "x", "o" }, "af", function() select.select_textobject("@function.outer", "textobjects") end)
+--
+-- NOTE: the below binding will not copy the function to the system clipboard
+-- "vim.keymap.set({ "x", "o" }, "af", function() select.select_textobject("@function.outer", "textobjects") end)
+
+vim.keymap.set("n", "<leader>yaf", yank_textobject_to_clipboard("@function.outer"), { desc = "Yank function to clipboard" })
 vim.keymap.set({ "x", "o" }, "if", function() select.select_textobject("@function.inner", "textobjects") end)
 vim.keymap.set({ "x", "o" }, "ib", function() select.select_textobject("@block.inner", "textobjects") end)
 
