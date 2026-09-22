@@ -352,36 +352,6 @@ opt.wrap = true
 -- session options
 vim.o.sessionoptions = vim.o.sessionoptions .. ",folds"
 
--- NOWORK!!!
--- vim.api.nvim_create_user_command("Mks", function(args)
---   -- Save current window
---   local current_win = vim.api.nvim_get_current_win()
---   local current_buf = vim.api.nvim_get_current_buf()
---   
---   -- Get list of loaded buffers with names
---   local bufs_to_save = {}
---   for _, buf in ipairs(vim.api.nvim_list_bufs()) do
---     if vim.api.nvim_buf_is_loaded(buf) and vim.api.nvim_buf_get_name(buf) ~= '' then
---       table.insert(bufs_to_save, buf)
---     end
---   end
---   
---   -- Temporarily split and save view for each buffer
---   for _, buf in ipairs(bufs_to_save) do
---     vim.cmd('silent! split')
---     vim.api.nvim_win_set_buf(0, buf)
---     vim.cmd('silent! mkview')
---     vim.cmd('silent! close')
---   end
---   
---   -- Restore original window and buffer
---   vim.api.nvim_set_current_win(current_win)
---   vim.api.nvim_set_current_buf(current_buf)
---   
---   -- Create session
---   vim.cmd("mksession! " .. args.args)
--- end, { nargs = 1 })
-
 -- Define a simple test function
 local function test_function()
   print("Keybinding works!")
