@@ -1300,14 +1300,13 @@ local function yank_textobject_to_clipboard(query)
     end
 end
 
--- NOTE: ipatch the below bindings are intended to work with prefix keys ie. `d` or `v`
 -- keymaps
+-- NOTE: ipatch the below bindings are intended to work with prefix keys ie. `d` or `v`
 -- You can use the capture groups defined in `textobjects.scm`
---
--- NOTE: the below binding will not copy the function to the system clipboard
--- "vim.keymap.set({ "x", "o" }, "af", function() select.select_textobject("@function.outer", "textobjects") end)
-
+-- the below mapping is intended to be used with the leader key prefix
 vim.keymap.set("n", "<leader>yaf", yank_textobject_to_clipboard("@function.outer"), { desc = "Yank function to clipboard" })
+-- NOTE: the below binding will not copy the function to the system clipboard
+vim.keymap.set({ "x", "o" }, "af", function() select.select_textobject("@function.outer", "textobjects") end)
 vim.keymap.set({ "x", "o" }, "if", function() select.select_textobject("@function.inner", "textobjects") end)
 vim.keymap.set({ "x", "o" }, "ib", function() select.select_textobject("@block.inner", "textobjects") end)
 
