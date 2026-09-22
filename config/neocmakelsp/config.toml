@@ -9,3 +9,6 @@ enable_external_cmake_lint = false
 # freecad's black uses 100 chars for py files, so 100 chars for cmake files it is.
 # (lint warning threshold only; matches gersemi line_length and nvim colorcolumn)
 line_max_words = 100 
+
+# warn on any command not written in lowercase
+command_upcase = "lowercase"
