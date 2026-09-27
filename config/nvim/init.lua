@@ -883,6 +883,24 @@ vim.lsp.enable('gh_actions_ls')
 vim.lsp.enable('neocmake')
 vim.lsp.enable('clangd')
 
+-- NOTE: the following neovim pluging provides the below functionality out of the box
+-- https://github.com/dchinmay2/clangd_extensions.nvim
+vim.api.nvim_create_user_command('LspClangdSwitchSourceHeader', function()
+  vim.lsp.buf_request(0, 'textDocument/switchSourceHeader', vim.lsp.util.make_text_document_params(), function(err, result)
+    if err then
+      vim.notify('Error switching source/header: ' .. err.message, vim.log.levels.ERROR)
+      return
+    end
+    if not result then
+      vim.notify('No corresponding source/header found', vim.log.levels.WARN)
+      return
+    end
+    vim.cmd('edit ' .. vim.uri_to_fname(result))
+  end)
+end, {})
+
+vim.keymap.set('n', '<leader>oh', '<cmd>LspClangdSwitchSourceHeader<CR>', { desc = 'Switch source/header' })
+
 -- language python / indentation / use ruff py formatter provided by mason
 -- NOTE: ipatch unfortunately even setting the equalprg to ruff can not fix indentation of a single line in a py file
 -- NOTE: ipatch using ruff appears to make things worse from my limited testing 🤦‍♂️
