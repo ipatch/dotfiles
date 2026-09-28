@@ -317,6 +317,9 @@ vim.api.nvim_set_keymap('n', '<CR>', ':lua ClearSearchAndCmd()<CR>', { noremap =
 ------
 vim.keymap.set('n', '<leader>rm', ':call delete(expand("%")) | bdelete!<CR>', { noremap = true, silent = true })
 
+-- key mapping / go into visual block mode, i have <C-v> mapped to paste in my terminal, ie. alacritty
+vim.keymap.set("n", "<leader>v", "<C-v>", { desc = "Visual block" })
+
 ---------------
 -- SETTINGS / options / use vim settings within nvim via lua
 opt.completeopt = {'menu', 'menuone', 'noselect'}
