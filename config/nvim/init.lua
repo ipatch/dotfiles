@@ -1598,7 +1598,7 @@ vim.api.nvim_set_hl(0, "Folded", { bg = "NONE"})
 
 -- unsorted / builtin vim commands
 -- -- highlight on yank
-cmd([[au TextYankPost * lua vim.highlight.on_yank {higroup="IncSearch", timeout=150, on_visual=true}]])
+cmd([[au TextYankPost * lua vim.hl.hl_op {higroup="IncSearch", timeout=150, on_visual=true}]])
 
 ---------------
 -- PLUGIN / folding / fold settings - ufo
