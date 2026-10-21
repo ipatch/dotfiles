@@ -21,6 +21,7 @@
 # - [ ] TODO: look at ruby related tree-sitter files for inspiration
 # - [ ] TODO: update `pthrm` func to rm path entries based the number index ie.
 # ... `pathrm 1,2,3` instead of copypastaing the entire path entries
+# - [ ] TODO: make little shell alias / abbr to rm homebrew from PATH
 
 if status is-interactive
 
