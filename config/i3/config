@@ -28,7 +28,16 @@ font pango:sans 12
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
 # exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
-bindsym XF86PowerOff exec --no-startup-id betterlockscreen -l dim
+# NOTE: ipatch, the below binding requires editing logind files
+# bindsym XF86PowerOff exec --no-startup-id betterlockscreen -l dim
+#...
+# exec --no-startup-id systemd-inhibit --what=handle-power-key --who=i3 --why="i3 handles power key" --mode=block sleep infinity
+# tshoot
+# bindsym XF86PowerOff exec --no-startup-id touch /tmp/powerkey-hit
+# i believe a regression may have been introduced in the linux lts kernel at some point regarding macbook smc / ec and key events
+# NOTE: tmp work around for time being.
+bindsym Mod4+Super_R exec --no-startup-id betterlockscreen -l dim
+bindsym Mod4+Super_L exec --no-startup-id betterlockscreen -l dim
 
 # NOTE: ipatch, define monitor resolution/refresh in $HOME/.xprofile
 # #nowork #nova TODO: #todo
